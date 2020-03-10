@@ -1,0 +1,96 @@
+#!/usr/bin/php
+<?php
+	$cms_options = [
+		"bigtree",
+		"wordpress",
+		"drupal",
+		"other"
+	];
+
+	if (count($argv) < 2) {
+		echo "You must pass two parameters. The first is the GitHub repository name and the second is the CMS.\n";
+		echo "Valid options for CMS:\n";
+
+		foreach ($cms_options as $option) {
+			echo "- $option\n";
+		}
+
+		die();
+	}
+
+	$repo = $argv[1];
+	$cms = strtolower($argv[2]);
+
+	if (!in_array($cms, $cms_options)) {
+		echo "Invalid CMS option passed: $cms\n";
+		echo "Valid options for CMS:\n";
+
+		foreach ($cms_options as $option) {
+			echo "- $option\n";
+		}
+
+		die();
+	}
+
+	exec("rm -rf .git");
+	exec("git init");
+
+	if ($cms == "bigtree") {
+		exec("git submodule add https://github.com/bigtreecms/BigTree-CMS.git bigtree");
+		exec("ln -s bigtree/core core");
+		exec("cp bigtree/install.php .");
+		exec("git clone --depth=1 --branch=master git@github.com:Fastspot/framework-static.git site");
+		exec("mv site/.github .");
+		exec("mv site/.gitignore .");
+		exec("mv site/.editorconfig .");
+		exec("rm -rf site/.git");
+		file_put_contents(".github/workflows/main.yml", str_replace("working-directory: ./", "working-directory: ./site/", file_get_contents(".github/workflows/main.yml")));
+	} else if ($cms == "other") {
+		exec("git clone --depth=1 --branch=master git@github.com:Fastspot/framework-static.git framework-static");
+		exec("rm -rf framework-static/.git");
+		exec("mv framework-static/* .");
+		exec("mv framework-static/.github .");
+		exec("mv framework-static/.gitignore .");
+		exec("mv framework-static/.editorconfig .");
+		exec("rm -rf framework-static");
+	} else if ($cms == "wordpress") {
+		exec("git clone --depth=1 --branch=master git@github.com:Fastspot/framework-wordpress.git framework-wordpress");
+		exec("rm -rf framework-wordpress/.git");
+		exec("mv framework-wordpress/* .");
+		exec("mv framework-wordpress/.github .");
+		exec("mv framework-wordpress/.gitignore .");
+		exec("mv framework-wordpress/.editorconfig .");
+		exec("mv framework-wordpress/.htaccess .");
+		exec("rm -rf framework-wordpress");
+	} else if ($cms == "drupal") {
+		$composer_response = trim(shell_exec("composer -q"));
+
+		if ($composer_response) {
+			die("You do not have composer installed. \nEither ask a back-end dev to run this or install composer: https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos");
+		}
+
+		exec("composer require drupal/recommended-project");
+		exec("mkdir themes/custom");
+		exec("mkdir themes/custom/$repo");
+		exec("cd themes/custom/$repo && git clone --depth=1 --branch=master git@github.com:Fastspot/framework-static.git . && rm -rf .git");
+		exec("mv themes/custom/$repo/.github .");
+		exec("mv themes/custom/$repo/.gitignore .");
+		exec("mv themes/custom/$repo/.editorconfig .");
+		file_put_contents(".github/workflows/main.yml", str_replace("working-directory: ./", "working-directory: ./themes/custom/$repo/", file_get_contents(".github/workflows/main.yml")));
+	}
+
+	die("done");
+
+	exec("git add .");
+	exec("git reset start");
+	exec('git commit -m "Framework setup"');
+	exec("git remote add origin git@github.com:Fastspot/$repo.git");
+	exec("git push -u origin master --force");
+	exec("git checkout -b dev");
+	exec("git push origin dev --force");
+	exec("rm start");
+
+	echo "\n\n";
+	echo "-------------------------------------\n";
+	echo " Setup complete, happy frameworking!\n";
+	echo "-------------------------------------\n";
