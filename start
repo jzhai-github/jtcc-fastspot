@@ -79,8 +79,6 @@
 		file_put_contents(".github/workflows/main.yml", str_replace("working-directory: ./", "working-directory: ./themes/custom/$repo/", file_get_contents(".github/workflows/main.yml")));
 	}
 
-	die("done");
-
 	exec("git add .");
 	exec("git reset start");
 	exec('git commit -m "Framework setup"');
