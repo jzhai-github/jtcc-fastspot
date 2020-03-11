@@ -33,6 +33,7 @@
 	}
 
 	exec("rm -rf .git");
+	exec("rm README.md");
 	exec("git init");
 
 	if ($cms == "bigtree") {
@@ -43,6 +44,7 @@
 		exec("mv site/.github .");
 		exec("mv site/.gitignore .");
 		exec("mv site/.editorconfig .");
+		exec("mv site/README.md .");
 		exec("rm -rf site/.git");
 		file_put_contents(".github/workflows/main.yml", str_replace("working-directory: ./", "working-directory: ./site/", file_get_contents(".github/workflows/main.yml")));
 	} else if ($cms == "other") {
