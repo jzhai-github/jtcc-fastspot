@@ -1,0 +1,62 @@
+/* ==========================================================================
+	Base Elements
+============================================================================= */
+
+html {
+	background: #fff;
+}
+
+body {
+	@include sans;
+
+	min-width: 300px;
+
+	overflow-x: hidden;
+
+	&.fs-page-lock {
+		overflow-y: hidden;
+	}
+}
+
+::selection {
+	background: #ddd;
+	text-shadow: none;
+}
+
+iframe {
+	border: none;
+}
+
+menu {
+	margin: 0;
+	padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+figure {
+	margin: 0;
+}
+
+hr {
+	height: 1px;
+
+	background: #ddd;
+	border: none;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+strong {
+	font-weight: 700;
+}

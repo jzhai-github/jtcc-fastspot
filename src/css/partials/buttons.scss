@@ -1,0 +1,139 @@
+/* ==========================================================================
+	Buttons
+============================================================================= */
+
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+@mixin button() {
+	cursor: pointer;
+	font-weight: 500;
+}
+
+@mixin button_layout($layout: left) {
+
+	[class$="link_inner"] {
+		display: block;
+	}
+
+	[class$="label"] {}
+
+	[class$="icon"] {}
+
+	.icon {
+		display: inline;
+	}
+
+	@if $layout == center {
+
+		[class$="link_inner"] {
+			text-align: center;
+		}
+	}
+}
+
+@mixin button_text() {
+	@include button;
+
+	font-size: 18px;
+	line-height: (23 / 18);
+}
+
+@mixin button_fill($theme: "gray") {
+	@include button;
+
+	padding: 16px 30px;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	@if ($theme == "gray") {
+		background: #eee;
+		color: #222;
+	} @else if ($theme == "accent") {
+		background: $accent;
+		color: #fff;
+	}
+
+	@media print {
+		border: 1px solid #000;
+	}
+
+	&:focus,
+	&:hover {
+
+		@if ($theme == "gray") {
+			background: #222;
+			color: #eee;
+		} @else if ($theme == "accent") {
+			background: #000;
+		}
+	}
+
+	[class$="label"] {
+		font-size: 18px;
+		font-weight: 700;
+		line-height: (23 / 18);
+	}
+
+	[class$="icon"] {}
+}
+
+@mixin button_inline($layout: true) {
+	@include button_layout($layout);
+
+	display: inline-block;
+}
+
+@mixin button_block($layout: true) {
+	@include button_layout($layout);
+
+	display: block;
+}
+
+@mixin button_mixed_block(
+	$layout: left,
+	$query: $min_sm
+) {
+	@include button_block;
+	@include button_layout($layout);
+
+	@media #{$query} {
+		display: inline-block;
+	}
+}
+
+
+/* Skip Link
+============================================================================= */
+
+.skip_link {
+	@include button_inline;
+	@include button_fill;
+
+	position: absolute;
+	top: 0;
+	left: 50%;
+	z-index: 100;
+
+	display: block;
+	opacity: 0;
+	padding: 10px 20px;
+	pointer-events: none;
+	text-align: center;
+	transform: translate(-50%, -300%);
+	transition:
+		opacity 0.35s
+		transform 0.35s;
+
+	&:focus,
+	&:active {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translate(-50%, 40px);
+	}
+}

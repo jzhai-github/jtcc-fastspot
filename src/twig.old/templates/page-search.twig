@@ -1,0 +1,21 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	title: "Search Results",
+	subNav: false,
+	classes: [
+		"layout_full"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+		{% include partial("google-cse") with {
+			results_url: ""
+		} %}
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

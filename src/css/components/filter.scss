@@ -1,0 +1,288 @@
+/* ==========================================================================
+	Filter
+============================================================================= */
+
+.filter {
+	@include margined_xl;
+
+	display: none;
+
+	.js & {
+		display: block;
+
+		@media print {
+			display: none;
+		}
+	}
+}
+
+.filter_inner {}
+
+.filter_tabs {
+	margin-bottom: 28px;
+}
+
+.filter_tab {
+	position: relative;
+
+	border: 1px solid $gray_20;
+	color: $accent;
+	font-size: 15px;
+	font-weight: 700;
+	margin-right: 4px;
+	padding: 14px 35px 15px;
+	text-decoration: underline;
+	transition:
+		background $base_speed,
+		border $base_speed,
+		color $base_speed,
+		text-decoration $base_speed;
+
+	@media #{$min_sm} {
+		min-width: 135px;
+	}
+
+	&:after {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+
+		border: 12px solid transparent;
+		border-top-color: #000;
+		content: "";
+		transition:
+			border $base_speed,
+			transform $base_speed;
+		transform:
+			translate(-50%, 0)
+			scaleY(0);
+		transform-origin: center top;
+	}
+
+	&:hover,
+	&:focus {
+		background: $accent;
+		border-color: rgba($gray_20, 0);
+		color: #fff;
+	}
+
+	&.fs-swap-active {
+		background: #000;
+		border-color: rgba($gray_20, 0);
+		color: #fff;
+		text-decoration-color: transparent;
+
+		&:after {
+			transform:
+				translate(-50%, 0)
+				scaleY(.65);
+		}
+
+		&:focus {
+			background: $accent;
+
+			&:after {
+				border-top-color: $accent;
+			}
+		}
+	}
+}
+
+.filter_form {}
+
+.filter_tabpanel {
+	display: none;
+
+	&.fs-swap-active {
+		display: block;
+	}
+}
+
+.filter_tools {
+
+	@media #{$min_md} {
+		align-items: flex-end;
+		display: flex;
+	}
+}
+
+.filter_tool {
+
+	@media #{$min_md} {
+		margin-right: 20px;
+	}
+
+	@media #{$min_xl} {
+		min-width: 290px;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+
+		@media #{$min_md} {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.filter_label {
+	display: block;
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 12px;
+}
+
+.filter_tool_select_wrapper {
+	@include select;
+
+	display: block;
+}
+
+.filter_tool_select {
+
+	&:focus {
+		box-shadow: 0 0 3px 1px $accent;
+	}
+}
+
+.filter_tool_select_icon {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+
+	pointer-events: none;
+	transform: translate(0, -50%);
+}
+
+.filter_tools_submit {
+	@include button_fill("accent");
+}
+
+.filter_search {
+	max-width: 610px;
+}
+
+.filter_search_form {
+	position: relative;
+
+	border: 1px solid #000;
+	border-radius: 3px;
+	display: flex;
+	padding: 4px;
+}
+
+.filter_search_input {
+	appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	flex: auto;
+	padding: 11px 16px;
+}
+
+.filter_search_submit {
+	width: 40px;
+
+	align-items: center;
+	background: $accent;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	transition: background $base_speed;
+
+	&:hover,
+	&:focus {
+		background: #000;
+	}
+}
+
+.filter_search_submit_label {
+	@include visually_hide;
+}
+
+.filter_search_submit_icon {}
+
+.filter_results {
+	margin-top: 20px;
+
+	@media #{$min_md} {
+		align-items: center;
+		display: flex;
+		margin-top: 30px;
+	}
+}
+
+.filter_results_description {
+	margin: 0;
+
+	@media #{$min_md} {
+		margin-right: 20px;
+	}
+}
+
+.filter_results_label {
+	@include small_text;
+
+	font-weight: 700;
+}
+
+.filter_results_category {
+	@include body_text;
+
+	display: block;
+
+	@media #{$min_sm} {
+		display: inline;
+	}
+}
+
+.filter_results_reset_link {
+	border: 1px solid;
+	border-radius: 3px;
+	color: inherit;
+	display: inline-block;
+	padding: 4px 12px;
+	margin-top: 10px;
+	transition:
+		background $base_speed,
+		border $base_speed,
+		color $base_speed;
+
+	@media #{$min_md} {
+		margin-top: 0;
+		margin-left: auto;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: $accent;
+		color: #fff;
+	}
+}
+
+.filter_results_reset_link_inner {
+	align-items: center;
+	display: flex;
+}
+
+.filter_results_reset_link_label {
+	@include h6;
+}
+
+.filter_results_reset_link_icon {
+	width: 20px;
+	height: 20px;
+
+	position: relative;
+
+	background-color: $accent;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	margin-left: 10px;
+}
+
+.filter_results_reset_link_icon_inner {
+	@include center;
+
+	top: calc(50% - 1px);
+}

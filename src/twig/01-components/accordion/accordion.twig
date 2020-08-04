@@ -1,0 +1,57 @@
+{% set id = uniqid("js-accordion-item") %}
+{% set group_id = uniqid("accordion-group") %}
+
+<!-- Accordion -->
+<div class="js-accordion accordion">
+	<div class="fs-row">
+		<div class="fs-cell {{ cell }}">
+			<div class="accordion_inner">
+				{% if title or description %}
+					<div class="accordion_header">
+						{% if title %}
+							<h2 class="accordion_title">
+								<span class="accordion_title_label">{{ title }}</span>
+							</h2>
+						{% endif %}
+						{% if description %}
+							<div class="accordion_description">
+								<p>{{ description }}</p>
+							</div>
+						{% endif %}
+					</div>
+				{% endif %}
+				<div class="accordion_items">
+					{% for item in items %}
+						<div class="js-accordion-item {{ id }}-{{ loop.index }} accordion_item">
+							{% if item.title %}
+								<h3 class="accordion_item_heading">
+								{% else %}
+									<h2 class="accordion_item_heading">
+									{% endif %}
+									<button class="js-accordion-swap js-swap accordion_item_button" data-swap-target=".{{ id }}-{{ loop.index }}" {% if grouped %} data-swap-group="{{ group_id }}" {% endif %}>
+										<span class="accordion_item_heading_inner">
+											<span class="accordion_item_heading_label">
+												<span class="accordion_item_heading_title">{{ item.title }}</span>
+												{% if item.subtitle %}
+													<span class="accordion_item_heading_subtitle">{{ item.subtitle }}</span>
+												{% endif %}
+											</span>
+											<span class="accordion_item_heading_icon"></span>
+										</span>
+									</button>
+									{% if item.title %}
+									</h3>
+							{% else %}
+								</h2>
+							{% endif %}
+							<div class="js-accordion-content accordion_item_content typography" aria-label="{{ item.title }}{% if item.subtitle %} {{ item.subtitle }}{% endif %}">
+								{{ item.description }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Accordion -->

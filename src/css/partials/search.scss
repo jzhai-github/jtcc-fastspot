@@ -1,0 +1,145 @@
+/* ==========================================================================
+	Site Search
+============================================================================= */
+
+.search_link {
+	display: none;
+
+	@media #{$min_lg} {
+		position: relative;
+
+		color: inherit;
+		display: inline-block;
+	}
+}
+
+.search_link_inner {
+	@include fw_site_button;
+}
+
+.search_link_label {}
+
+.search_link_icon {}
+
+.search_link_icon_inner {}
+
+
+/* Search Form
+============================================================================= */
+
+.site_search {
+	position: relative;
+
+	display: none;
+
+	.js & {
+		display: block;
+	}
+}
+
+.site_search_form {
+	@include fw_emphasized(display);
+
+	position: relative;
+
+	border: 1px solid currentColor;
+	border-radius: 3px;
+	padding: 6px;
+}
+
+.site_search_label {
+	position: absolute;
+	top: 0;
+	left: 14px;
+
+	background-color: #000;
+	display: block;
+	font-size: 16px;
+	line-height: 1;
+	padding: 0 10px;
+	transform: translateY(-50%);
+}
+
+.site_search_field {
+	position: relative;
+
+	display: flex;
+}
+
+.site_search_input {
+	appearance: none;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	color: inherit;
+	flex: 1;
+	font: inherit;
+	padding: 0 10px;
+
+	&::placeholder {
+		@include ellipsis;
+	}
+
+	.site_search_results & {}
+}
+
+.site_search_button {
+	height: 48px;
+
+	position: relative;
+
+	background: $accent;
+	color: inherit;
+	flex: 0 0 48px;
+	cursor: pointer;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	&:focus,
+	&:hover {
+		background: #fff;
+		color: #000;
+	}
+}
+
+.site_search_button_label {
+	@include visually_hide;
+}
+
+.site_search_button_icon {
+	@include center;
+
+	pointer-events: none;
+}
+
+
+/* ==========================================================================
+	Site Search Header
+============================================================================= */
+
+.site_search_header {
+	flex: 0 0 30%;
+	margin: 0 0 0 auto;
+
+	.js & {
+		display: none;
+
+		@media #{$min_lg} {
+			display: block;
+		}
+
+		@media print {
+			display: none;
+		}
+	}
+}
+
+
+/* ==========================================================================
+	Site Search Menu
+============================================================================= */
+
+.site_search_menu {
+	margin-bottom: 25px;
+}

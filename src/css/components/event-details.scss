@@ -1,0 +1,78 @@
+/* ==========================================================================
+	Event Details
+============================================================================= */
+
+.event_details {
+
+	.event_list & {
+
+		@media #{$min_xl} {
+			flex: 0 0 47%;
+		}
+	}
+
+	.event_meta & {
+
+		@media #{$min_lg} {
+			display: flex;
+		}
+	}
+}
+
+.event_detail {
+	position: relative;
+
+	margin-bottom: 16px;
+	padding-left: 22px;
+
+	.event_meta & {
+
+		@media #{$min_lg} {
+			margin-right: 44px;
+			margin-bottom: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.event_detail_hint {
+	@include visually_hide;
+}
+
+.event_detail_icon {
+	position: absolute;
+	top: 2px;
+	left: 0;
+}
+
+.event_detail_label {
+	font-size: 15px;
+	line-height: (22 / 15);
+}
+
+.event_detail_label_date {
+	font-weight: bold;
+}
+
+.event_detail_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.event_detail_list {
+	@include remove_list;
+}
+
+.event_detail_item {
+	display: inline-block;
+	margin-right: 10px;
+}

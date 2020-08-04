@@ -1,0 +1,72 @@
+/* ==========================================================================
+	Footer
+============================================================================= */
+
+.footer {
+	background: #000;
+	color: #fff;
+	padding: 20px 0;
+
+	@media #{$min_lg} {
+		padding: 60px 0;
+	}
+
+	@media print {
+		padding: 0;
+	}
+}
+
+.footer_primary {
+
+	@media #{$min_lg} {
+		margin-bottom: 70px;
+	}
+
+	@media print {
+		margin-bottom: 0;
+	}
+}
+
+.footer_primary_inner {
+
+	@media #{$min_lg} {
+		width: 100%;
+
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.footer_ribbon {}
+
+.footer_ribbon_inner {
+
+	@media #{$min_xl} {
+		align-items: center;
+		display: flex;
+	}
+}
+
+.footer_group {}
+
+
+/* Copyright
+============================================================================= */
+
+.copyright {
+	@include small_text;
+
+	margin: 20px 0 30px;
+
+	@media #{$min_lg} {
+		margin: 0 0 0 auto;
+	}
+}
+
+.copyright_icon {}
+
+.copyright_holder {}
+
+.copyright_holder_name {}
+
+.copyright_year {}

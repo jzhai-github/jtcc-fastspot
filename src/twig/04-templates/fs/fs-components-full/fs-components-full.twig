@@ -1,0 +1,99 @@
+<div class="page_content">
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+
+		{% render "@component-accordion" %}
+
+		{% render "@component-call-to-action" %}
+
+		{% render "@component-card-group--four-up" %}
+
+		{% render "@component-card-group--three-up" %}
+
+		{% render "@component-card-group--two-up" %}
+
+		{% render "@component-card-group--six-up" %}
+
+		{% render "@component-contact-info" %}
+
+		{% render "@component-contact-info" with {
+			item: {
+				name: "Full Name",
+				title: "",
+				image: "",
+				phone_numbers: [
+					{
+						label: "mobile",
+						type: "telephone",
+						number: "(410) 555-1234"
+					}
+				],
+				email: "name@university.edu",
+				location: "1234 Maple Bacon Ln.<br>Baltimore, MD 21211",
+				office_hours: "",
+				social_links: ""
+			}
+		} %}
+
+		{% render "@partial-event-feature" %}
+
+		{% render "@partial-filter" %}
+
+		{% render "@partial-filter" with {
+			label: "",
+			active: "",
+			action_category: "#",
+			action_search: "#",
+			tools: [
+				{
+					label: "Category",
+					options: [
+						{
+							label: "All Categories"
+						},
+						{
+							label: "Category One",
+							selected: true
+						},
+						{
+							label: "Another Category"
+						}
+					]
+				},
+				{
+					label: "Type",
+					options: [
+						{
+							label: "All Types"
+						},
+						{
+							label: "Type One"
+						},
+						{
+							label: "Another Type"
+						}
+					]
+				}
+			],
+			search_placeholder: "Search by keyword",
+			results: "",
+			category: ""
+		} %}
+
+		{% render "@component-gallery" %}
+
+		{% render "@component-link-group" %}
+
+		{% render "@partial-news-feature" %}
+
+		{% render "@component-related-news" %}
+
+		{% render "@component-related-events" %}
+
+		{% render "@component-testimonial" %}
+
+		{% render "@component-topic-row" %}
+
+		{% render "@component-wysiwyg" %}
+
+	</div>
+</div>

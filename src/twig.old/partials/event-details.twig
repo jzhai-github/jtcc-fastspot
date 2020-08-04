@@ -1,0 +1,35 @@
+{#
+	{% include partial("event-details") with {
+		item: item
+	} %}
+#}
+
+<!-- Event Details -->
+<div class="event_details">
+	<div class="event_detail">
+		<span class="event_detail_icon">{{ icon("clock") }}</span>
+		<span class="event_detail_hint">Time:</span>
+		<span class="event_detail_label"><span class="event_detail_label_date">{{ item.date.from.begin|date("M d") }}</span> {{ item.date.from.begin|date("g:i A") }}{{ item.date.from.end ? " - " ~ item.date.from.end|date("g:i A") }}{% if item.date.to %} – <span class="event_detail_label_date">{{ item.date.to.begin|date("M d") }}</span> {{ item.date.to.begin|date("g:i A") }}{{ item.date.to.end ? " - " ~ item.date.to.end|date("g:i A") }}{% endif %}</span>
+	</div>
+	{% if item.location %}
+	<div class="event_detail">
+		<span class="event_detail_icon">{{ icon("place") }}</span>
+		<span class="event_detail_hint">Location:</span>
+		<span class="event_detail_label">{{ item.location }}</span>
+	</div>
+	{% endif %}
+	{% if item.categories %}
+	<div class="event_detail event_detail_category">
+		<span class="event_detail_icon">{{ icon("label") }}</span>
+		<span class="event_detail_hint">Categories:</span>
+		<ul class="event_detail_list" aria-label="Categories">
+			{% for category in item.categories %}
+			<li class="event_detail_item">
+				<a class="event_detail_link" href="{{ item.category_url }}">{{ category }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+<!-- END: Event Details -->

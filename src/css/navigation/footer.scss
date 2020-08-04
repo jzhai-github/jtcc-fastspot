@@ -1,0 +1,49 @@
+/* ==========================================================================
+	Footer Navigation
+============================================================================= */
+
+.footer_nav {
+	border-bottom: 1px solid rgba(#fff, 0.3);
+	padding: 16px 0;
+
+	@media #{$min_lg} {
+		border-bottom-width: 0;
+		flex: 0 0 30.5%;
+		padding: 0;
+	}
+}
+
+.footer_nav_header {}
+
+.footer_nav_title {
+	@include visually_hide;
+}
+
+
+/* Footer Links
+============================================================================= */
+
+.footer_nav_list {
+	@include fw_emphasized;
+}
+
+.footer_nav_item {}
+
+.footer_nav_item_inner {}
+
+.footer_nav_link {
+	color: inherit;
+	display: block;
+	padding: 8px 0;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:focus,
+	&:hover {
+		color: $accent;
+	}
+}
+
+.footer_nav_link_label {}
+
+.footer_nav_link_icon {}

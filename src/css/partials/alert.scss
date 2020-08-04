@@ -1,0 +1,202 @@
+/* ==========================================================================
+	Alert
+============================================================================= */
+
+.alert {
+	@include focus_outline_none;
+
+	width: 100%;
+
+	background-color: $gray_10;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+
+	transform: translate3d(0, 100%, 0);
+	transition: transform 0.4s;
+	transition-delay: 0s;
+
+	@media print {
+		@include margined_xl_bottom;
+
+		border-bottom: 2px solid $gray_10;
+	}
+
+	&.visible {
+		transform: translate3d(0, 0, 0);
+		transition-delay: 0.28s;
+
+		@media print {
+			position: relative;
+		}
+	}
+}
+
+.alert_inner {
+	position: relative;
+
+	padding: 30px;
+
+	@media #{$min_lg} {
+		padding: 30px 9% 50px;
+	}
+
+	@media print {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+.alert_header {}
+
+.alert_title {
+	@include h3;
+
+	margin: 0 50px 10px 0;
+
+	@media print,
+	#{$min_lg} {
+		margin-right: 0;
+	}
+}
+
+.alert_title_label {}
+
+.alert_body {}
+
+.alert_description {
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.alert_close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+
+	display: none;
+
+	@media #{$min_lg} {
+		top: 26px;
+		right: 26px;
+	}
+
+	.js & {
+		display: block;
+
+		@media print {
+			display: none;
+		}
+	}
+}
+
+.alert_close_inner {}
+
+.alert_close_icon {
+	width: 46px;
+	height: 46px;
+
+	position: relative;
+
+	background: $accent;
+	color: #fff;
+	border-radius: 50%;
+	display: block;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	.alert_close:hover &,
+	.alert_close:focus & {
+		background: #000;
+	}
+}
+
+.alert_close_icon_inner {
+	@include center;
+
+	display: block;
+}
+
+.alert_close_label {
+	@include visually_hide;
+}
+
+
+/* Alert Toggle
+============================================================================= */
+
+.alert_open_wrapper {
+	@include fake_padded;
+
+	width: 100%;
+
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+
+	pointer-events: none;
+}
+
+.alert_open {
+	width: 100px;
+	height: 100px;
+
+	position: relative;
+
+	background-color: $gray_10;
+	color: #000;
+	display: none;
+	float: right;
+	pointer-events: auto;
+	transform: translate3d(0, 100%, 0);
+	transition: transform 0.3s;
+	transition-delay: 0s;
+
+	&.enabled {
+		display: block;
+	}
+
+	&.visible {
+		transform: translate3d(0, 0, 0);
+		transition-delay: 0.38s;
+	}
+}
+
+.alert_open_inner {}
+
+.alert_open_icon {
+	@include center;
+
+	width: 46px;
+	height: 46px;
+
+	background: $accent;
+	color: #fff;
+	border-radius: 50%;
+	display: block;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	.alert_open:hover &,
+	.alert_open:focus & {
+		background: #000;
+	}
+}
+
+.alert_open_icon_inner {
+	@include center;
+}
+
+.alert_open_label {
+	@include visually_hide;
+}

@@ -1,0 +1,50 @@
+{#
+	{% include component("testimonial") with {
+		quote: "Quote",
+		name: "Name",
+		title: "Title",
+		image: "1"
+	} %}
+#}
+
+<!-- Testimonial -->
+<div class="testimonial">
+	<div class="fs-row">
+		<div class="fs-cell fs-lg-10 fs-lg-justify-center">
+			<div class="testimonial_inner">
+				<figure class="testimonial_figure">
+					<blockquote class="testimonial_quote">
+						<p>{{ quote }}</p>
+					</blockquote>
+					{% if image or name or title %}
+					<figcaption class="testimonial_figcaption">
+						{% if image %}
+						<span class="testimonial_media">
+							{% include partial("image") with {
+								class: "testimonial",
+								alt: "",
+								itemprop: "",
+								image: image,
+								sources: [
+									img.square.xxsml,
+									img.square.thumb
+								]
+							} %}
+						</span>
+						{% endif %}
+						{% if name or title %}
+						<span class="testimonial_info">
+							<span class="testimonial_quote_name">{{ name }}</span>
+							{% if title %}
+							<span class="testimonial_quote_title">{{ title }}</span>
+							{% endif %}
+						</span>
+						{% endif %}
+					</figcaption>
+					{% endif %}
+				</figure>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Testimonial -->

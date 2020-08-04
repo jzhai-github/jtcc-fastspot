@@ -1,0 +1,44 @@
+{#
+	{% include partial("entity-list") with {
+		title: page.title,
+		items: [
+			{
+				name: "Department or Office Name",
+				title: "Title",
+				url: "#",
+				image: "1",
+				contact: {
+					email: "name@university.edu",
+					phone: "(410) 555-1234"
+				},
+				department_url: "#",
+				department: "department",
+				location: "Duffy 254"
+			}
+		]
+	} %}
+#}
+
+<!-- Entity List -->
+<div class="entity_list">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="entity_list_inner">
+				<ul class="entity_list_items" id="item_list" aria-label="{{ title }}">
+					{% for item in items %}
+					<li class="entity_list_item">
+						{% include partial("entity-item") with {
+							item: item
+						} %}
+					</li>
+					{% endfor %}
+				</ul>
+				{% include partial("pagination") with {
+					title: "Directory Pagination",
+					pages: "50"
+				} %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Entity List -->

@@ -1,0 +1,42 @@
+{#
+	{% include partial("news-grid") with {
+		items: [
+			{
+				image: "1",
+				categories: [
+					"Category"
+				],
+				category_url: "page-news-category.html"
+				title: "Title",
+				url: "#",
+				date: "2019-01-01 17:00:00",
+				author: "Author",
+				description: "Description"
+			}
+		]
+	} %}
+#}
+
+<!-- News Grid -->
+<div class="news_grid">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="news_grid_inner">
+				<ul class="news_grid_items" id="item_list" aria-label="{{ page.title }}">
+					{% for item in items %}
+					<li class="news_grid_item">
+						{% include partial("news-item") with {
+							item: item
+						} %}
+					</li>
+					{% endfor %}
+				</ul>
+				{% include partial("pagination") with {
+					title: "News Pagination",
+					pages: "50"
+				} %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: News Grid -->

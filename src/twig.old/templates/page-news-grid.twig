@@ -1,0 +1,179 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "News Listing",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	subNav: false,
+	classes: [
+		"layout_listing"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+		{% include partial("news-feature") with {
+			item: {
+				image: "1",
+				categories: [
+					"Category 1"
+				],
+				category_url: "page-news-category.html",
+				title: "In Enim Justo Rhoncus Ut",
+				url: "page-news-detail.html",
+				date: "2019-01-01 17:00:00",
+				author: "Johnny Appleseed",
+				description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+			}
+		} %}
+
+		{% include partial("filter") with {
+			label: "",
+			active: "",
+			action_category: "page-news-category.html",
+			action_search: "page-news-results.html",
+			tools: [
+				{
+					label: "Category",
+					options: [
+						{
+							label: "All Categories"
+						},
+						{
+							label: "Category One"
+						},
+						{
+							label: "Another Category"
+						}
+					]
+				}
+			],
+			search_placeholder: "Search by keyword",
+			results: "",
+			category: ""
+		} %}
+
+		{% include partial("news-grid") with {
+			items: [
+				{
+					image: "1",
+					categories: [
+						"Category"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-news-detail.html",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "2",
+					categories: [
+						"Category One",
+						"Another Category"
+					],
+					category_url: "page-news-category.html",
+					title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+					url: "page-news-detail.html",
+					date: "2019-01-24 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "3",
+					categories: [
+						"Category"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-news-detail.html",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "4",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-news-category.html",
+					title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+					url: "page-news-detail.html",
+					date: "2019-01-24 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "4",
+					categories: [
+						"Category"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-news-detail.html",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "3",
+					categories: [
+						"Category One",
+						"Another Category"
+					],
+					category_url: "page-news-category.html",
+					title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+					url: "page-news-detail.html",
+					date: "2019-01-24 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "2",
+					categories: [
+						"Category"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-news-detail.html",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "1",
+					categories: [
+						"Category One",
+						"Another Category"
+					],
+					category_url: "page-news-category.html",
+					title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+					url: "page-news-detail.html",
+					date: "2019-01-24 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				},
+				{
+					image: "4",
+					categories: [
+						"Category"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-news-detail.html",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				}
+			]
+		} %}
+
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

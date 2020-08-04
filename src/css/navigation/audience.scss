@@ -1,0 +1,181 @@
+/* ==========================================================================
+	Audience Navigation
+============================================================================= */
+
+.audience_group {
+	position: relative;
+
+	font-size: 14px;
+	margin-bottom: 10px;
+
+	@media #{$min_lg} {
+		width: 17%;
+
+		margin-bottom: 0;
+	}
+}
+
+.audience_nav {
+	background-color: $accent;
+	color: #fff;
+	padding: 6px 0 30px;
+
+	&.audience_nav_sm {
+
+		.audience_group.fs-swap-enabled & {
+			display: none;
+		}
+
+		.audience_group.fs-swap-active & {
+			display: block;
+		}
+	}
+
+	&.audience_nav_lg {
+		width: 100%;
+
+		position: absolute;
+
+		opacity: 0;
+		pointer-events: none;
+		transition:
+			opacity $base_speed,
+			visibility $base_speed;
+		visibility: hidden;
+
+		.audience_group.fs-swap-enabled:hover & {
+			opacity: 0;
+			pointer-events: none;
+			visibility: hidden;
+		}
+
+		.audience_group:hover &,
+		.audience_group.fs-swap-active &,
+		.audience_group.fs-swap-active:hover & {
+			opacity: 1;
+			pointer-events: auto;
+			visibility: visible;
+		}
+	}
+}
+
+.audience_nav_header {}
+
+.audience_nav_title {
+	@include visually_hide;
+}
+
+.audience_nav_list {
+	line-height: 1.2;
+}
+
+.audience_nav_item {}
+
+.audience_nav_item_inner {}
+
+.audience_nav_link {
+	color: inherit;
+	padding: 8px 20px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.audience_nav_link_label {}
+
+
+/* Audience Toggle
+============================================================================= */
+
+.audience_toggle {
+	width: 100%;
+
+	position: relative;
+
+	background-color: $accent;
+	color: #fff;
+	display: block;
+	line-height: 1;
+	transition:
+		background-color $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		background-color: #fff;
+		color: #000;
+	}
+
+	.icon_close {
+		width: 14px;
+		height: 14px;
+	}
+}
+
+.audience_toggle_inner {
+	align-items: center;
+	display: flex;
+	opacity: 1;
+	padding: 14px 20px;
+	transition:
+		opacity $base_speed,
+		visibility $base_speed;
+	visibility: visible;
+}
+
+.audience_toggle_inner_default {
+
+	.audience_toggle.fs-swap-active & {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.audience_toggle_inner_active {
+	width: 100%;
+
+	position: absolute;
+	top: 0;
+
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+
+	.audience_toggle.fs-swap-active & {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.audience_toggle_label {
+	margin-right: 10px;
+}
+
+.audience_toggle_label_default {}
+
+.audience_toggle_label_active {}
+
+.audience_toggle_icon {
+	margin-left: auto;
+}
+
+.audience_toggle_icon_default {
+	transition: transform $base_speed;
+}
+
+.audience_toggle_icon_active {}
+
+.audience_toggle_icon_inner {}
+
+.audience_toggle_icon_inner_default {}
+
+.audience_toggle_icon_inner_active {}
+
+.audience_toggle_icon_space {
+	display: none;
+}

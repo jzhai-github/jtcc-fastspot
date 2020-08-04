@@ -1,0 +1,187 @@
+/* ==========================================================================
+	Menu
+============================================================================= */
+
+.menu {
+	@include focus_outline_none;
+
+	position: relative;
+	top: 0;
+	right: 0;
+	z-index: 400;
+
+	background: #000;
+	color: #fff;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	@media #{$reduce} {
+		transition-duration: 0.6s;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	.loaded & {
+		transition:
+			opacity 0.35s,
+			transform 0.35s,
+			visibility 0.35s;
+	}
+
+	.js & {
+		@include fake_scroll();
+
+		width: 100%;
+		height: 100%;
+
+		position: fixed;
+
+		opacity: 0;
+		padding: 130px 0 0 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	&.fs-swap-active {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.menu_header {}
+
+.menu_header_inner {}
+
+.menu_title {
+	@include visually_hide;
+}
+
+.menu_primary {}
+
+.menu_primary_inner {}
+
+.menu_ribbon {
+	background: $gray_70;
+	padding: 30px 0;
+}
+
+.menu_ribbon_inner {}
+
+
+/* Menu Close
+============================================================================= */
+
+.menu_close {
+	display: none;
+
+	.js & {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+
+		display: block;
+	}
+}
+
+.menu_close_button {
+	@include fw_emphasized(display);
+}
+
+.menu_close_inner {
+	min-height: 105px;
+
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.menu_close_toggle {
+	color: inherit;
+}
+
+.menu_close_toggle_inner {
+	@include fw_site_button;
+}
+
+.menu_close_toggle_icon {}
+
+.menu_close_toggle_label {}
+
+.menu_close_toggle_icon_space {
+	display: none;
+}
+
+
+/* Menu Toggle
+============================================================================= */
+
+.menu_toggle {
+	position: relative;
+
+	color: inherit;
+	display: inline-block;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	@media print {
+		display: none;
+	}
+}
+
+.menu_toggle_inner {
+	@include fw_site_button;
+
+	transition:
+		opacity $base_speed,
+		visibility $base_speed;
+}
+
+.menu_toggle_inner_default {
+
+	.menu_toggle.fs-swap-active & {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+}
+
+.menu_toggle_inner_active {
+	position: absolute;
+	top: 0;
+
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+
+	.menu_toggle.fs-swap-active & {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.menu_toggle_label {}
+
+.menu_toggle_label_default {}
+
+.menu_toggle_label_active {}
+
+.menu_toggle_icon {
+	pointer-events: none;
+}
+
+.menu_toggle_icon_default {}
+
+.menu_toggle_icon_active {}
+
+.menu_toggle_icon_space {
+	display: none;
+}

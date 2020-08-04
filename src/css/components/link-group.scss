@@ -1,0 +1,82 @@
+/* ==========================================================================
+	Link Group
+============================================================================= */
+
+.link_group {
+	@include margined_xl;
+}
+
+.link_group_inner {}
+
+.link_group_header {
+	margin-bottom: 20px;
+}
+
+.link_group_title {
+	@include h2;
+
+	margin: 0;
+}
+
+.link_group_list {
+	@include remove_list;
+
+	@media #{$min_md} {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -28px;
+	}
+}
+
+.link_group_item {
+
+	@media #{$min_md} {
+		width: 50%;
+
+		display: flex;
+		padding: 0 28px;
+	}
+}
+
+.link_group_link {
+	width: 100%;
+
+	border-bottom: 2px solid $gray_30;
+	color: $accent;
+	display: block;
+	padding: 16px 0 15px;
+	transition: color $base_speed;
+
+	@media #{$min_md} {
+		padding: 23px 0 22px;
+	}
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.link_group_link_inner {}
+
+.link_group_link_label {
+	display: inline;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: (27 / 18);
+	text-decoration: underline;
+}
+
+.link_group_link_icon {
+	position: relative;
+	top: -2px;
+
+	color: #000;
+	display: inline;
+	margin-left: 14px;
+	white-space: nowrap;
+
+	.icon {
+		display: inline;
+	}
+}

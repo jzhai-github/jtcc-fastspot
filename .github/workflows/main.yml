@@ -1,0 +1,42 @@
+name: Compile
+
+on: [push]
+
+jobs:
+  gulp:
+    name: Gulp Build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache Global Node Modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-build-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-build-${{ hashFiles('**/package.json') }}
+            ${{ runner.os }}-npm-build
+      - name: Cache Local Node Modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}
+            ${{ runner.os }}-node_modules
+      - name: NPM install
+        run: npm install --silent
+        working-directory: ./
+      # - name: Gulp Install
+      #   run: npm install --silent -g gulp-cli
+      #   working-directory: ./
+      - name: Gulp Compile
+        run: npm run github_build
+        working-directory: ./
+      - name: Git Commit
+        run: sh .github/scripts/git.sh

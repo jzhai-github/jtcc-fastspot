@@ -1,0 +1,193 @@
+/* ==========================================================================
+	Card Group
+============================================================================= */
+
+.card_group {
+	@include margined_xl;
+}
+
+.card_group_header {
+	margin-bottom: 30px;
+
+	@media #{$min_xl} {
+		margin-bottom: 45px;
+	}
+}
+
+.card_group_header_inner {}
+
+.card_group_title {
+	@include h2;
+
+	margin: 0 0 5px;
+}
+
+.card_group_description {
+	@include body_text;
+
+	p {
+		margin: 0;
+	}
+}
+
+.card_group_items {
+	@include remove_list;
+
+	@media #{$min_sm} {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	@media #{$min_lg} {
+		justify-content: flex-start;
+	}
+
+	&.card_count_3 {
+
+		@media #{$min_lg} {
+			margin: 0 13%;
+		}
+	}
+}
+
+
+/* Card Items
+============================================================================= */
+
+.card_group_item {
+	margin-bottom: 30px;
+
+	@media #{$min_sm} {
+		width: 48%;
+	}
+
+	@media #{$min_lg} {
+		width: 24%;
+	}
+
+	@media #{$min_xl} {
+		width: 22%;
+	}
+
+	.card_group_items.card_count_3 & {
+
+		@media #{$min_lg} {
+			width: 32%;
+
+			margin-right: 1.845%;
+		}
+
+		@media #{$min_xl} {
+			width: 30%;
+
+			margin-right: 5%;
+		}
+	}
+
+	&:nth-child(3n + 3) {
+
+		.card_group_items.card_count_3 & {
+
+			@media #{$min_lg} {
+				margin-right: 0;
+			}
+		}
+	}
+
+	&:not(:nth-child(4n + 4)) {
+
+		@media #{$min_lg} {
+			margin-right: 1.333%;
+		}
+
+		@media #{$min_xl} {
+			margin-right: 4%;
+		}
+	}
+
+	&:last-of-type {
+
+		@media #{$min_lg} {
+			margin-right: 0;
+		}
+	}
+
+	&:first-child {
+
+		.card_count_2 & {
+
+			@media #{$min_lg} {
+				margin-left: 8.7%;
+			}
+
+			@media #{$min_xl} {
+				margin-left: 17.4%;
+			}
+		}
+	}
+}
+
+.card_group_item_figure {
+	margin-bottom: 18px;
+
+	@media print {
+		display: none;
+	}
+}
+
+.card_group_item_image_wrapper {
+	display: block;
+	padding-top: $classic;
+}
+
+.card_group_item_body {}
+
+.card_group_item_title {
+	@include h4;
+
+	margin: 0;
+}
+
+.card_group_item_title_label {}
+
+.card_group_item_stat {}
+
+.card_group_item_stat_figure {
+	@include title(700);
+
+	display: block;
+	font-size: 40px;
+
+	@media #{$min_xl} {
+		font-size: 64px;
+	}
+}
+
+.card_group_item_stat_context {
+	@include h5;
+
+	display: block;
+	margin-bottom: 18px;
+}
+
+.card_group_item_description {
+	@include body_text;
+
+	margin: 8px 0 0;
+
+	p {
+		margin: 0;
+	}
+
+	a {
+		color: $accent;
+		text-decoration: underline;
+		transition: color $base_speed;
+
+		&:hover,
+		&:focus {
+			color: #000;
+		}
+	}
+}

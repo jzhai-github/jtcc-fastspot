@@ -1,0 +1,162 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "Directory - Offices and Departments",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	subNav: false,
+	classes: [
+		"layout_listing"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+		{% include partial("filter") with {
+			label: "Directory",
+			active: "search",
+			action_category: "#",
+			action_search: "#",
+			tools: [
+				{
+					label: "Category",
+					options: [
+						{
+							label: "All Categories"
+						},
+						{
+							label: "Category One",
+							selected: true
+						},
+						{
+							label: "Another Category"
+						}
+					]
+				},
+			],
+			search_placeholder: "Search by name or department",
+			results: "",
+			category: ""
+		} %}
+
+		{% include partial("entity-list") with {
+			title: page.title,
+			items: [
+				{
+					name: "Department or Office Name",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "name@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Duffy 254"
+				},
+				{
+					name: "Cum sociis natoque penatibus",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "npenatibus@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "2980 Falls Road,<br> Baltimore, MD 21211"
+				},
+				{
+					name: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "name@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "101"
+				},
+				{
+					name: "Department",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "vivamus-elementum-semper@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Donec pede justo, fringilla vel, aliquet nec"
+				},
+				{
+					name: "Office",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "name@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Duffy 254"
+				},
+				{
+					name: "Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "email@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Aenean vulputate eleifend tellus. Aenean leo ligula."
+				},
+				{
+					name: "Aliquam lorem",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "vulputate-eget@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Etiam rhoncus"
+				},
+				{
+					name: "Phasellus viverra nulla ut metus varius laoreet.",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "pretium@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim."
+				},
+				{
+					name: "Quisque rutrum",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "IntegerTincidunt@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "Aliquam lorem ante"
+				},
+				{
+					name: "Etiam ultricies nisi vel augue",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "aenean@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "viverra quis"
+				},
+				{
+					name: "Nam eget dui",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "nam-eget-dui@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "ultricies nisi vel augue"
+				},
+				{
+					name: "Maecenas nec odio et ante tincidunt tempus.",
+					url: "page-directory-detail.html",
+					contact: {
+						email: "Maecenas@university.edu",
+						phone: "(410) 555-1234"
+					},
+					location: "dolor"
+				}
+			]
+		} %}
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

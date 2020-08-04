@@ -1,0 +1,117 @@
+/* ==========================================================================
+	Breadcrumb Navigation
+============================================================================= */
+
+.breadcrumb {
+	margin: 10px 0;
+
+	@media #{$min_lg} {
+		margin-bottom: 25px;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	.page_header_bg & {
+		background-color: rgba(#000, 0.5);
+		margin: 0;
+		padding: 20px 0;
+	}
+}
+
+.breadcrumb_inner {}
+
+.breadcrumb_nav {
+
+	@media print {
+		display: none !important;
+	}
+}
+
+.breadcrumb_nav_header {
+	@include visually_hide;
+}
+
+.breadcrumb_nav_title {}
+
+
+/* Breadcrumb Links
+============================================================================= */
+
+.breadcrumb_list {
+	@include small_text;
+
+	align-items: center;
+	display: flex;
+	list-style: none;
+	margin: 0;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 2px 0;
+	white-space: nowrap;
+}
+
+.breadcrumb_item {
+	align-items: center;
+	display: flex;
+
+	&:not(:nth-last-of-type(-n + 2)) {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+	}
+}
+
+.breadcrumb_pill {}
+
+.breadcrumb_pill_link {
+	color: $accent;
+	transition: color $base_speed;
+
+	&:focus,
+	&:hover {
+		color: #000;
+	}
+
+	.page_header_bg & {
+		color: #fff;
+
+		&:focus,
+		&:hover {
+			color: $accent;
+		}
+	}
+}
+
+.breadcrumb_pill_inner {
+	align-items: center;
+	display: flex;
+}
+
+.breadcrumb_pill_icon {
+	position: relative;
+	top: -2px;
+
+	margin-right: 4px;
+}
+
+.breadcrumb_pill_label {
+
+	.breadcrumb_item:last-child & {
+		@include visually_hide;
+	}
+}
+
+.breadcrumb_divider {
+	margin: 0 4px;
+
+	.breadcrumb_item:nth-last-child(2) & {
+		display: none;
+	}
+}
+
+.breadcrumb_end {
+	margin-left: 4px;
+}

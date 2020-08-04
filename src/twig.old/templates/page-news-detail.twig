@@ -1,0 +1,89 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "Article Detail",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+	subNav: false,
+	classes: [
+		"layout_detail"
+	],
+	image: "2"
+} %}
+
+{% block main %}
+
+	{% include partial("page-header") %}
+
+	<article class="news_entry">
+		<script type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "NewsArticle",
+				"url": "#",
+				"publisher": {
+					"@type": "{{ config.schema_type }}",
+					"name": "{{ config.name }}"
+				},
+				"headline": "{{ page.title }}",
+				"mainEntityOfPage": "#",
+				"image": "{{ page.image }}",
+				"datePublished": "2017-03-20T20:30:54+00:00",
+				"author": "person",
+				"description": "{{ page.description }}"
+			}
+		</script>
+
+		<!-- Page Feature -->
+		<div class="page_feature" id="skip_content" tabindex="-1">
+			{% include partial("news-meta") with {
+				item: {
+					categories: [
+						"Category 1"
+					],
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed"
+				}
+			} %}
+		</div>
+		<!-- END: Page Feature -->
+
+		<!-- Page Content -->
+		<div class="page_content">
+			<div class="fs-row">
+				<div class="fs-cell {{ cell }}">
+
+					{% if page.image %}
+					<figure class="news_entry_figure">
+						{% include partial("image") with {
+							class: "news_entry",
+							alt: "",
+							image: page.image,
+							sources: [
+								img.classic.xlrg,
+								img.classic.lrg,
+								img.classic.med,
+								img.classic.sml,
+								img.classic.xsml,
+								img.classic.xxsml
+							]
+						} %}
+					</figure>
+					{% endif %}
+
+					<!-- WYSIWYG -->
+					<div class="typography">
+						<h2>Lorem Ipsum</h2>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. <a href="#">Nulla consequat</a> massa quis enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem</p>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Quis enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem</p>
+					</div>
+					<!-- END: WYSIWYG -->
+				</div>
+			</div>
+		</div>
+		<!-- END: Page Content -->
+
+	</article>
+{% endblock %}

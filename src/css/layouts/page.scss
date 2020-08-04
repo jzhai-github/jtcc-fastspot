@@ -1,0 +1,47 @@
+/* ==========================================================================
+	Page
+============================================================================= */
+
+.page_wrapper {
+	width: 100%;
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.page {
+	flex-grow: 1;
+}
+
+.page_feature {
+	@include focus_outline_none;
+}
+
+.page_content {
+	@include focus_outline_none;
+	@include margined;
+}
+
+.page_sub_nav {}
+
+.page_main_content {
+	display: block;
+
+	@media #{$min_lg} {
+		float: left;
+	}
+
+	.body_layout_full & {
+
+		@media #{$min_lg} {
+			float: none;
+		}
+	}
+}
+
+.in_content_callouts {}
+
+.full_width_callouts {
+	@include focus_outline_none;
+}

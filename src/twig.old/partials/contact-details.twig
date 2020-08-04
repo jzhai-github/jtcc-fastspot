@@ -1,0 +1,68 @@
+{#
+	{% include partial("contact-details") with {
+		item: item
+	} %}
+#}
+
+<!-- Contact Details -->
+<div class="contact_details">
+	{% if item.phone_numbers or item.email %}
+	<div class="contact_detail">
+		<div class="contact_detail_label">Contact</div>
+		{% for phone in item.phone_numbers %}
+		<div class="contact_detail_item">
+			<div class="contact_detail_hint">{{ phone.label }}</div>
+			<a class="contact_detail_info" itemprop="{{ phone.type }}" href="tel:{{ tel(phone.number) }}">{{ phone.number }}</a>
+		</div>
+		{% endfor %}
+		{% if item.email %}
+		<div class="contact_detail_item">
+			<div class="contact_detail_hint">Email Address</div>
+			<a class="contact_detail_info" href="mailto:{{ item.email }}" itemprop="email">{{ item.email }}</a>
+		</div>
+		{% endif %}
+	</div>
+	{% endif %}
+	{% if item.location %}
+	<div class="contact_detail">
+		<div class="contact_detail_label">Location</div>
+		<div class="contact_detail_item">
+			<div class="contact_detail_info" itemprop="address">{{ item.location }}</div>
+		</div>
+	</div>
+	{% endif %}
+	{% if item.departments %}
+	<div class="contact_detail">
+		<div class="contact_detail_label">Department</div>
+		{% for department in item.departments %}
+		<div class="contact_detail_item">
+			<a class="contact_detail_info" href="{{ department.url }}">{{ department.name }}</a>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	{% if item.office_hours %}
+	<div class="contact_detail">
+		<div class="contact_detail_label">Office Hours</div>
+		{% for office_hours in item.office_hours %}
+		<div class="contact_detail_item">
+			<div class="contact_detail_hint">{{ office_hours.label }}</div>
+			<div class="contact_detail_info">{{ office_hours.hours }}</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	{% if item.social_links %}
+	<div class="contact_detail">
+		<div class="contact_detail_label">Social</div>
+		<ul class="contact_socials" aria-label="Social Links for {{ item.name }}">
+			{% for social in item.social_links %}
+			<li class="contact_social">
+				<a class="contact_social_link" href="{{ social.url }}" aria-label="{{ item.name }} {{ social.title }}" itemprop="sameAs">{{ social.title }}{% if not loop.last %}, {% endif %}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+</div>
+<!-- END: Contact Details -->

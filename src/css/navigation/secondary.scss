@@ -1,0 +1,79 @@
+/* ==========================================================================
+	Secondary Navigation Common
+============================================================================= */
+
+.secondary_nav {
+	font-size: 14px;
+	line-height: 1.4;
+
+	@media #{$min_lg} {
+		margin-right: 15px;
+	}
+
+	&.secondary_nav_lg {
+
+		@media #{$max_lg} {
+			display: none;
+		}
+	}
+}
+
+.secondary_nav_header {}
+
+.secondary_nav_title {
+	@include visually_hide;
+}
+
+
+/* Secondary Links
+============================================================================= */
+
+.secondary_nav_list {
+
+	.secondary_nav_lg & {
+		height: 100%;
+
+		display: flex;
+	}
+}
+
+.secondary_nav_item {}
+
+.secondary_nav_item_inner {
+
+	.secondary_nav_lg & {
+		height: 100%;
+	}
+}
+
+.secondary_nav_link {
+	color: inherit;
+	text-decoration: underline;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	.secondary_nav_sm & {
+		padding: 10px 0;
+	}
+
+	.secondary_nav_lg & {
+		height: 100%;
+
+		align-items: center;
+		display: flex;
+		padding: 10px 15px;
+	}
+
+	&:focus,
+	&:hover {
+		color: $accent;
+
+		@media #{$min_lg} {
+			background-color: #fff;
+			color: #000;
+		}
+	}
+}
+
+.secondary_nav_link_label {}

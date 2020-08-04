@@ -1,0 +1,11 @@
+<div class="entity_meta" id="meta" data-type="entity" data-category="{% for item in item.departments %}{{ item.name }}{% if not loop.last %}, {% endif %}{% endfor %}">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="entity_meta_inner">
+				{% render "@partial-contact-details" with {
+					item: item
+				} %}
+			</div>
+		</div>
+	</div>
+</div>

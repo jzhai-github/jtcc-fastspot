@@ -1,0 +1,54 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "News Search Results",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	subNav: false,
+	classes: [
+		"layout_default"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+
+		{% include partial("filter") with {
+			label: "",
+			active: "search",
+			action_category: "page-news-category.html",
+			action_search: "page-news-results.html",
+			tools: [
+				{
+					label: "Category",
+					options: [
+						{
+							label: "All Categories"
+						},
+						{
+							label: "Category One",
+							selected: true
+						},
+						{
+							label: "Another Category"
+						}
+					]
+				}
+			],
+			search_placeholder: "Search by keyword",
+			results: "0",
+			category: "search string"
+		} %}
+
+		{% include partial("no-results-message") with {
+			message: "<p>There are no results matching these criteria.</p>"
+		} %}
+
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

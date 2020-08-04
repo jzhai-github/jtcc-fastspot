@@ -1,0 +1,97 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "General Content",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+	classes: [
+		"layout_default"
+	],
+	image: "3",
+	video: "291134963",
+	activePage: 2,
+	alert: true,
+	breadcrumbNav: [
+		"Navigation Level",
+		"Parent Level"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header-bg") %}
+
+	<!-- Page Content -->
+	<div class="page_content" id="skip_content" tabindex="-1">
+		<div class="fs-row">
+			<div class="fs-cell {{ cell }}">
+				<!-- WYSIWYG -->
+				<div class="typography" itemprop="mainContentOfPage">
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+					<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</p>
+				</div>
+				<!-- END: WYSIWYG -->
+			</div>
+		</div>
+	</div>
+	<!-- END: Page Content -->
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts">
+		{% include component("topic-row") with {
+			title: "Ipsum Fermentum Tristique",
+			description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+			items: [
+				{
+					title: "Ipsum Fermentum Tristique",
+					image: "1",
+					description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+					links: [
+						{
+							title: "Link Title One",
+							url: "#"
+						},
+						{
+							title: "Link Title Two",
+							url: "#"
+						}
+					]
+				},
+				{
+					title: "Ipsum Fermentum Tristique",
+					image: "2",
+					description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+					links: ""
+				},
+				{
+					title: "Ipsum Fermentum Tristique",
+					image: "",
+					description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+					links: [
+						{
+							title: "Link Title One",
+							url: "#"
+						},
+						{
+							title: "Link Title Two",
+							url: "#"
+						},
+						{
+							title: "Link Title Three",
+							url: "#"
+						}
+					]
+				}
+			]
+		} %}
+
+		{% include component("call-to-action") with {
+			description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+			link_url: "#",
+			link_title: "Button Title",
+			aria: ""
+		} %}
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

@@ -1,0 +1,60 @@
+/* ==========================================================================
+	Utility Navigation
+============================================================================= */
+
+.utility_nav {
+
+	@media #{$min_lg} {
+		margin-bottom: 20px;
+	}
+
+	@media #{$min_xl} {
+		margin-bottom: 0;
+	}
+}
+
+.utility_nav_header {}
+
+.utility_nav_title {
+	@include visually_hide;
+}
+
+
+/* Utility Links
+============================================================================= */
+
+.utility_nav_list {
+	@include fw_emphasized;
+
+	font-size: 15px;
+
+	@media #{$min_lg} {
+		display: flex;
+		margin-left: -10px;
+	}
+}
+
+.utility_nav_item {}
+
+.utility_nav_item_inner {}
+
+.utility_nav_link {
+	color: inherit;
+	display: block;
+	padding: 4px 0;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@media #{$min_lg} {
+		padding: 10px;
+	}
+
+	&:focus,
+	&:hover {
+		color: $accent;
+	}
+}
+
+.utility_nav_link_icon {}
+
+.utility_nav_link_label {}

@@ -1,0 +1,94 @@
+/* ==========================================================================
+	Share
+============================================================================= */
+
+.share_tools {
+	position: relative;
+
+	display: none;
+	margin: 0 0 0 auto;
+
+	.js & {
+
+		@media #{$min_lg} {
+			display: block;
+
+			@media print {
+				display: none;
+			}
+		}
+	}
+}
+
+.share_tools_header {}
+
+.share_tools_title {
+	@include visually_hide;
+}
+
+.share_tools_toggle {
+	@include button_fill("accent");
+
+	position: relative;
+	z-index: 1;
+
+	display: inline-block;
+}
+
+.share_tools_toggle_inner {}
+
+.share_tools_toggle_label {}
+
+.share_tools_list {
+	position: absolute;
+	top: 50%;
+	right: 100%;
+
+	display: flex;
+	list-style: none;
+	margin: 0 20px 0 0;
+	padding: 0;
+	transform: translateY(-50%);
+}
+
+.share_tool_item {
+	opacity: 0;
+	transform: translate3d(166px, 0, 0);
+	transition:
+		opacity 0.3s,
+		transform 0.3s;
+
+	.share_tools.fs-swap-active & {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+@for $i from 1 to 10 {
+	.share_tools.fs-swap-active .share_tool_item:nth-child(#{$i}) {
+		transition-delay: $i * 0.1s;
+	}
+}
+
+.share_tool {
+	color: $accent;
+	display: block;
+	padding: 10px;
+	pointer-events: none;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+
+	.share_tools.fs-swap-active & {
+		pointer-events: auto;
+	}
+}
+
+.share_tool_icon {}
+
+.share_tool_label {
+	@include visually_hide;
+}

@@ -1,0 +1,35 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "WYSIWYG",
+	description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	classes: [
+		"layout_default"
+	],
+	activePage: "",
+	breadcrumbNav: false,
+	image: "",
+	video: ""
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Page Content -->
+	<div class="page_content" id="skip_content" tabindex="-1">
+		<div class="fs-row">
+			<div class="fs-cell {{ cell }}">
+				<!-- WYSIWYG -->
+				<div class="typography" itemprop="mainContentOfPage">
+					{% include partial("wysiwyg") %}
+				</div>
+				<!-- END: WYSIWYG -->
+			</div>
+		</div>
+	</div>
+	<!-- END: Page Content -->
+
+{% endblock %}

@@ -1,0 +1,603 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	title: "Listing Elements",
+	description: "",
+	subNav: false,
+	classes: [
+		"layout_full"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Page Content -->
+	<div class="page_content">
+		<div class="full_width_callouts" id="skip_content" tabindex="-1">
+
+			{% include partial("entity-list") with {
+				title: page.title,
+				items: [
+					{
+						name: "Department or Office Name",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Duffy 254"
+					},
+					{
+						name: "Cum sociis natoque penatibus",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "npenatibus@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "2980 Falls Road,<br> Baltimore, MD 21211"
+					},
+					{
+						name: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "101"
+					},
+					{
+						name: "Department",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "vivamus-elementum-semper@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Donec pede justo, fringilla vel, aliquet nec"
+					},
+					{
+						name: "Office",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Duffy 254"
+					},
+					{
+						name: "Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "email@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Aenean vulputate eleifend tellus. Aenean leo ligula."
+					},
+					{
+						name: "Aliquam lorem",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "vulputate-eget@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Etiam rhoncus"
+					},
+					{
+						name: "Phasellus viverra nulla ut metus varius laoreet.",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "pretium@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim."
+					},
+					{
+						name: "Quisque rutrum",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "IntegerTincidunt@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "Aliquam lorem ante"
+					},
+					{
+						name: "Etiam ultricies nisi vel augue",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "aenean@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "viverra quis"
+					},
+					{
+						name: "Nam eget dui",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "nam-eget-dui@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "ultricies nisi vel augue"
+					},
+					{
+						name: "Maecenas nec odio et ante tincidunt tempus.",
+						url: "page-directory-detail.html",
+						contact: {
+							email: "Maecenas@university.edu",
+							phone: "(410) 555-1234"
+						},
+						office: "dolor"
+					}
+				]
+			} %}
+
+			{% include partial("entity-list") with {
+				title: page.title,
+				items: [
+					{
+						name: "Jane Smith",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "1",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Cum sociis natoque",
+						url: "page-people-detail.html",
+						title: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem",
+						image: "2",
+						contact: {
+							email: "quisque-rutrum@university.edu",
+							phone: ""
+						},
+						department_url: "#",
+						department: "Aenean commodo ligula eget dolor"
+					},
+					{
+						name: "Aenean massa",
+						url: "page-people-detail.html",
+						title: "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus",
+						image: "3",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Mmagnis"
+					},
+					{
+						name: "Jane Smith",
+						url: "page-people-detail.html",
+						title: "",
+						image: "",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Quisque rutrum",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "4",
+						contact: {
+							email: "Director@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Nam quam nunc, blandit vel"
+					},
+					{
+						name: "Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu",
+						url: "page-people-detail.html",
+						title: "",
+						image: "",
+						contact: {
+							email: "enim-justo@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Jane Smith",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "1",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Nam Eget Dui",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "2",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Curabitur",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "3",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Department of Biology"
+					},
+					{
+						name: "Curabitur Ullamcorper",
+						url: "page-people-detail.html",
+						title: "",
+						image: "",
+						contact: {
+							email: "",
+							phone: ""
+						},
+						department_url: "#",
+						department: ""
+					},
+					{
+						name: "Donec Pede",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "4",
+						contact: {
+							email: "name@university.edu",
+							phone: ""
+						},
+						department_url: "#",
+						department: "Nam eget dui. Etiam rhoncus."
+					},
+					{
+						name: "Aenean Vulputate Eleifend",
+						url: "page-people-detail.html",
+						title: "Director of Department",
+						image: "1",
+						contact: {
+							email: "name@university.edu",
+							phone: "(410) 555-1234"
+						},
+						department_url: "#",
+						department: "Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus."
+					}
+				]
+			} %}
+
+			{% include partial("event-list") with {
+				items: [
+					{
+						image: "1",
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00",
+								end: "2017-05-31 19:00:00"
+							},
+							to: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Fastspot, 2980 Long Name of Road Rd. Baltimore, MD 21218",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00"
+							}
+						},
+						title: "Aenean commodo ligula eget dolor",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "2",
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00",
+								end: "2017-05-31 19:00:00"
+							},
+							to: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-event-detail.html",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "3",
+						date: {
+							from: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "Aenean commodo ligula eget dolor",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						date: {
+							from: {
+								begin: "2017-06-22 17:00:00"
+							}
+						},
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "4",
+						date: {
+							from: {
+								begin: "2017-06-23 17:00:00"
+							}
+						},
+						title: "Aenean commodo ligula eget dolor",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					}
+				]
+			} %}
+
+			{% include partial("news-list") with {
+				items: [
+					{
+						image: "1",
+						categories: [
+							"Category"
+						],
+						category_url: "page-news-category.html",
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-news-detail.html",
+						date: "2019-01-01 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					},
+					{
+						categories: [
+							"Category One",
+							"Another Category"
+						],
+						category_url: "page-news-category.html",
+						title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+						url: "page-news-detail.html",
+						date: "2019-01-24 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					},
+					{
+						image: "2",
+						categories: [
+							"Category"
+						],
+						category_url: "page-news-category.html",
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-news-detail.html",
+						date: "2019-01-01 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					},
+					{
+						image: "3",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-news-category.html",
+						title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+						url: "page-news-detail.html",
+						date: "2019-01-24 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					},
+					{
+						categories: [
+							"Category"
+						],
+						category_url: "page-news-category.html",
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-news-detail.html",
+						date: "2019-01-01 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					},
+					{
+						image: "3",
+						categories: [
+							"Category One",
+							"Another Category"
+						],
+						category_url: "page-news-category.html",
+						title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+						url: "page-news-detail.html",
+						date: "2019-01-24 17:00:00",
+						author: "Johnny Appleseed",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+					}
+				]
+			} %}
+
+			{% include partial("program-list") with {
+				grouped: false,
+				items: [
+					{
+						title: "Accounting",
+						description: "Accounting has long been one of Stonehill’s most popular majors and one that attracts many of the Northeast’s best students.",
+						url: "page-program-detail.html",
+						mode: [
+							"On-campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Business Administration",
+						degree: [
+							"B.S.",
+							"B.A."
+						]
+					},
+					{
+						title: "Advanced Manufacturing & Integrated Photonics Certificate",
+						description: "The Certificate in Advanced Manufacturing & Integrated Photonics Program is a <a href='#'>partnership initiative</a> designed to equip participants with the skills and experience needed to thrive in this burgeoning market.",
+						url: "page-program-detail.html",
+						mode: [
+							"Hybrid"
+						],
+						level: "",
+						department_url: "#",
+						department: "Partnership Program",
+						degree: [
+							"Certificate"
+						]
+					},
+					{
+						title: "American Studies",
+						description: "The American Studies major symbolizes Stonehill’s commitment to interdisciplinary programs that foster deeper learning by examining topics from multiple perspectives. American Studies is an interdisciplinary endeavor to better understand the American nation, its cultures and the diverse histories of its peoples and communities. This broad approach helps students develop skills in critical inquiry, communication, cultural knowledge and self-reflection that in turn engender a desire to advance social justice.",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "",
+						degree: [
+							"B.A."
+						]
+					},
+					{
+						title: "Anthropology",
+						description: "The anthropology program at Stonehill focuses on the holistic study and understanding of other cultures from an insider’s point of view and explores the diverse ways in which human beings perceive and order the social world.",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Sociology & Criminology",
+						degree: [
+							"B.A."
+						]
+					},
+					{
+						title: "Arabic",
+						description: "The Arabic Minor at Stonehill introduces students to the Modern Standard Arabic language as well as integrates aspects of Arabic history, culture, and contemporary events and issues. Minor can be combined with any number of majors, giving students a competitive advantage and unique set of skills. Minors are encouraged to study abroad, expanding their global knowledge and leadership. The study of languages, literatures and cultures is a cornerstone of the liberal arts education",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Languages, Literatures & Cultures",
+						degree: ""
+					},
+					{
+						title: "Asian Studies",
+						description: "The Asian Studies Program is an interdisciplinary minor that explores the history, culture and societies of Asia – a vitally important region in the global economy and international politics.",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Interdisciplinary",
+						degree: ""
+					},
+					{
+						title: "Biochemistry",
+						description: "Stonehill’s biochemistry program draws on the disciplines of biology and chemistry. It combines technical training and the liberal arts, resulting in superb scientists who are also well-rounded lifelong learners.",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Chemistry",
+						degree: [
+							"B.S."
+						]
+					},
+					{
+						title: "Biology",
+						description: "The Stonehill Biology Program prepares students for life sciences graduate programs and professional programs in medical, allied health and environmental fields. It also prepares graduates for direct entry into the workforce.",
+						url: "page-program-detail.html",
+						mode: [
+							"On Campus"
+						],
+						level: [
+							"Undergraduate"
+						],
+						department_url: "#",
+						department: "Biology",
+						degree: [
+							"B.S.",
+							"B.A."
+						]
+					}
+				]
+			} %}
+
+		</div>
+	</div>
+	<!-- END: Page Content -->
+
+{% endblock %}

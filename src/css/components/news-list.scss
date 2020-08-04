@@ -1,0 +1,18 @@
+/* ==========================================================================
+	News List
+============================================================================= */
+
+.news_list {
+	@include margined_xl;
+}
+
+.news_list_inner {}
+
+.news_list_items {
+	@include remove_list;
+}
+
+.news_list_item {
+	border-top: 2px solid $gray_10;
+	padding: 40px 0;
+}

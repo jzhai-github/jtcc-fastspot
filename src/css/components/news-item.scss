@@ -1,0 +1,177 @@
+/* ==========================================================================
+	News Item
+============================================================================= */
+
+.news_item {
+
+	@media #{$min_xl} {
+		align-items: center;
+	}
+
+	.news_list & {
+
+		@media #{$min_md} {
+			display: flex;
+		}
+	}
+
+	.news_feature & {
+
+		@media #{$min_lg} {
+			display: flex;
+		}
+	}
+}
+
+.news_item_figure {
+	@include responsive_image;
+
+	margin-bottom: 20px;
+
+	.news_list & {
+		width: 115px;
+
+		@media (min-width: 360px) {
+			float: right;
+			margin-left: 20px;
+		}
+
+		@media #{$min_sm} {
+			width: 30.5%;
+		}
+
+		@media #{$min_md} {
+			width: 30.5%;
+
+			margin: 0;
+			order: 2;
+		}
+
+		@media #{$min_lg} {
+			width: 28%;
+		}
+	}
+
+	.news_feature & {
+
+		@media #{$min_md} {
+			width: 40%;
+
+			float: right;
+			margin: 0 0 30px 30px;
+		}
+
+		@media #{$min_lg} {
+			width: 45%;
+
+			margin: 0;
+			order: 2;
+		}
+	}
+}
+
+.news_item_figure_link {
+	display: block;
+}
+
+.news_item_image_wrapper {
+	display: block;
+	padding-top: $classic;
+}
+
+.news_item_wrapper {
+
+	@media #{$min_md} {
+		margin-right: auto;
+	}
+
+	.news_list & {
+
+		@media #{$min_md} {
+			flex: 0 0 65%;
+		}
+	}
+
+	.news_feature & {
+
+		@media #{$min_md} {
+			flex: 0 0 48%;
+		}
+	}
+}
+
+.news_item_header {
+	display: flex;
+	flex-direction: column-reverse;
+	margin-bottom: 5px;
+}
+
+.news_item_title {
+	margin: 0;
+
+	.news_list & {
+		@include h3;
+	}
+
+	.news_feature & {
+		@include h2;
+	}
+
+	.news_related & {
+		@include h4;
+	}
+}
+
+.news_item_title_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.news_item_categories {
+	margin: 0 0 8px;
+}
+
+.news_item_category_hint {
+	@include visually_hide;
+}
+
+.news_item_category_list {
+	@include remove_list;
+}
+
+.news_item_category {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: (20 / 14);
+	margin-right: 10px;
+	text-transform: uppercase;
+}
+
+.news_item_category_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.news_item_body {}
+
+.news_item_description {
+	@include body_text;
+
+	p {
+		margin: 0;
+	}
+}

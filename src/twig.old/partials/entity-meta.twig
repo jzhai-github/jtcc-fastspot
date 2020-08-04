@@ -1,0 +1,34 @@
+{#
+	{% include partial("entity-meta") with {
+		item: {
+			phone_numbers: [
+				{
+					hint: "mobile",
+					label: "(410) 555-1234"
+				}
+			],
+			email: "name@university.edu"
+			location: "Appleseed Library <br> Room 214",
+			social_links: [
+				{
+					title: "LinkedIn",
+					url: "//www.linkedin.com"
+				}
+			]
+		}
+	} %}
+#}
+
+<!-- Entity Meta -->
+<div class="entity_meta" id="meta" data-type="entity" data-category="{% for item in item.departments %}{{ item.name }}{% if not loop.last %}, {% endif %}{% endfor %}">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="entity_meta_inner">
+				{% include partial("contact-details") with {
+					item: item
+				} %}
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Entity Meta -->

@@ -1,0 +1,125 @@
+{
+    "twig_variables": {
+        "namespace": "fs",
+        "color": "",
+        "name": "Client Name",
+        "description": "",
+        "images": "framework",
+        "domain": "example.dev.fastspot.com/site",
+        "schema_type": "Organization",
+        "twitter": "TwitterName",
+        "cse_key": "011737558837375720776:mbfrjmyam1g",
+        "place_id": "ChIJofvP7nsEyIkRAppsAwqW4SQ",
+        "street": "2980 Falls Road",
+        "city": "Baltimore",
+        "state": "MD",
+        "zip": "21211",
+        "email": "info@fastspot.com",
+        "phone": "(410) 537-5007",
+        "fax": "(410) 537-5008"
+    },
+    "navigation": {
+        "main": [
+            {
+                "title": "About",
+                "children": [
+                    { "title": "About", "url": "#" },
+                    { "title": "Lorem ipsum", "url": "#" },
+                    { "title": "Consectetuer Adipiscing Elit", "url": "#" },
+                    { "title": "Aenean Commodo", "url": "#" },
+                    {
+                        "title": "Penatibus et Magnis dis Parturient Montes Sapien ut Liber",
+                        "url": "#"
+                    },
+                    { "title": "Aenean Massa", "url": "#" }
+                ]
+            },
+            {
+                "title": "Academics",
+                "children": ["Nam Quam Nunc"]
+            },
+            {
+                "title": "Admissions",
+                "children": [
+                    "Nam quam nunc",
+                    "Blandit Vel",
+                    "Donec Vitae Sapien",
+                    "Ut Libero",
+                    "Venenatis Faucibus",
+                    "Nullam Quis Ante",
+                    "Orci Eget Eros Faucibus Tincidunt Maecenas Tempus Tellus Eget Condimentum",
+                    "Sed Fringilla Mauris Sit",
+                    "Amet Nibh",
+                    "Donec Sodales Sagittis"
+                ]
+            },
+            {
+                "title": "Financial Aid",
+                "children": [
+                    "Aliquam Lorem Ante",
+                    "Quisque Rutrum",
+                    "Aeneanimperdiet",
+                    "Tellus Eget Condimentum",
+                    "Duis Leo"
+                ]
+            },
+            {
+                "title": "Student Life",
+                "children": [
+                    "Aenean Vulputate Eleifend Tellus",
+                    "Nascetur",
+                    "Ridiculus Mus",
+                    "Pellentesque Eu",
+                    "Vivamus Elementum Semper",
+                    "Aenean Vulputate",
+                    "Aenean Leo Ligula",
+                    "Semper Libero"
+                ]
+            }
+        ],
+        "secondary": ["News", "Events", "Directory", "Giving", "Visit"],
+        "audience": [
+            "Faculty",
+            "Staff",
+            "Current Students",
+            "Prospective Student",
+            "Alumni",
+            "Parents & Families",
+            "Visitors"
+        ],
+        "utility": [
+            "Accessibility",
+            "Contact Us",
+            "Employment Opportunities",
+            "Maps & Directions",
+            "Privacy Policy"
+        ],
+        "footer": [
+            "Make a Gift",
+            "Library & Information Technology",
+            "Offices & Services",
+            "Bookstore",
+            "Apply Now"
+        ],
+        "social": [
+            { "title": "Facebook", "url": "//www.facebook.com" },
+            { "title": "Twitter", "url": "//www.twitter.com" },
+            { "title": "Instagram", "url": "//www.instagram.com" },
+            { "title": "Youtube", "url": "//www.youtube.com" },
+            { "title": "Linkedin", "url": "//www.linkedin.com" }
+        ],
+        "sub": [
+            "History",
+            "Leadership",
+            "Facts & Stats",
+            "Job Opportunities",
+            "Athletics",
+            "Transforming Hearts & Minds",
+            "Academic Goals",
+            "A Committed, Co-Educational University",
+            "International Student Experience",
+            "Multicultural Student Engagement",
+            "Counseling & Wellness"
+        ]
+    }
+}

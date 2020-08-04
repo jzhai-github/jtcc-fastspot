@@ -1,0 +1,26 @@
+{#
+	Macros:
+
+	{{ partial() }} - includes a file from the twig partials directory prefering the /custom/partials directory version first
+	{{ navigation() }} - includes a file from the twig navigation directory prefering the /custom/navigation directory version first
+	{{ layout() }} - includes a file from the twig layouts directory prefering the /custom/layouts directory version first
+	{{ component() }} - includes a file from the twig components directory prefering the /custom/components directory version first
+	{{ icon("arrow_right") }} - draws an SVG symbol from the sprite
+	{{ tel("number") }} - converts a phone number into a tel: number
+
+#}
+
+{% set grid = true %}
+{% set cell = "fs-lg-10 fs-xl-8 fs-lg-justify-center" %}
+{{ init_uniqid() }}
+
+{% include layout("header") with {
+	layout: page.layout|default("default"),
+	theme: page.theme|default("default"),
+	activePage: page.activePage|default(0)
+} %}
+
+{% block main %}
+{% endblock %}
+
+{% include layout("footer") %}

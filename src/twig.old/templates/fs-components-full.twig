@@ -1,0 +1,633 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	title: "Full Width Components",
+	description: "",
+	subNav: false,
+	classes: [
+		"layout_full"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Page Content -->
+	<div class="page_content">
+		<div class="full_width_callouts" id="skip_content" tabindex="-1">
+
+			{% include component("accordion") with {
+				title: "Admissions Deadlines",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						title: "Mar 15",
+						subtitle: "Quam Bibendum Pellentesque Tellus",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "June 16",
+						subtitle: "Quam Bibendum Pellentesque Tellus",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "Vulputate Porta Egestas Magna Dolor",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "August 12 - August 17",
+						subtitle: "Quam Bibendum Pellentesque Tellus",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "Lorem Tellus Sollicitudin Mollis",
+						subtitle: "Quam Bibendum Pellentesque Tellus",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "Vulputate Porta Egestas Magna Dolor",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					},
+					{
+						title: "Lorem Tellus Sollicitudin Mollis",
+						subtitle: "Quam Bibendum Pellentesque Tellus",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. <a href='#'>Donec ullamcorper nulla</a> non metus auctor fringilla."
+					}
+				]
+			} %}
+
+			{% include component("call-to-action") with {
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				link_title: "Link",
+				link_url: "#",
+				link_icon: "",
+				aria: "aria"
+			} %}
+
+			{% include component("card-group") with {
+				title: "Facts & Figures",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "2",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. <a href='#'>Vivamus ac turpis</a> quis eros consectetur ornare. "
+					},
+					{
+						image: "3",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "4",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					}
+				]
+			} %}
+
+			{% include component("card-group") with {
+				title: "Facts & Figures",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "2",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. <a href='#'>Vivamus ac turpis</a> quis eros consectetur ornare. "
+					},
+					{
+						image: "3",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					}
+				]
+			} %}
+
+			{% include component("card-group") with {
+				title: "Facts & Figures",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "2",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. <a href='#'>Vivamus ac turpis</a> quis eros consectetur ornare. "
+					}
+				]
+			} %}
+
+			{% include component("card-group") with {
+				title: "Facts & Figures",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "2",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. <a href='#'>Vivamus ac turpis</a> quis eros consectetur ornare. "
+					},
+					{
+						image: "3",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "4",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "1",
+						title: "Ornare Egestas",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare. "
+					},
+					{
+						image: "2",
+						stat: {
+							figure: "100%",
+							context: "of undergraduate students"
+						},
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. <a href='#'>Vivamus ac turpis</a> quis eros consectetur ornare. "
+					}
+				]
+			} %}
+
+			{% include component("contact-info") with {
+				item: {
+					name: "Full Name",
+					title: "Director of Department",
+					image: "1",
+					phone_numbers: [
+						{
+							label: "mobile",
+							type: "telephone",
+							number: "(410) 555-1234"
+						},
+						{
+							label: "office",
+							type: "telephone",
+							number: "(410) 555-1234"
+						}
+					],
+					email: "name@university.edu",
+					location: "1234 Maple Bacon Ln.<br>Baltimore, MD 21211",
+					office_hours: [
+						{
+							label: "Monday",
+							hours: "9am - 5pm"
+						},
+						{
+							label: "Wednesday",
+							hours: "11am-12pm"
+						}
+					],
+					social_links: [
+						{
+							title: "LinkedIn",
+							url: "#"
+						},
+						{
+							title: "Twitter",
+							url: "#"
+						},
+						{
+							title: "Facebook",
+							url: "#"
+						},
+						{
+							title: "Instagram",
+							url: "#"
+						}
+					]
+				}
+			} %}
+
+			{% include component("contact-info") with {
+				item: {
+					name: "Full Name",
+					title: "",
+					image: "",
+					phone_numbers: [
+						{
+							label: "mobile",
+							type: "telephone",
+							number: "(410) 555-1234"
+						}
+					],
+					email: "name@university.edu",
+					location: "1234 Maple Bacon Ln.<br>Baltimore, MD 21211",
+					office_hours: "",
+					social_links: ""
+				}
+			} %}
+
+			{% include partial("event-feature") with {
+				item: {
+					image: "1",
+					date: {
+						from: {
+							begin: "2017-05-31 17:00:00",
+							end: "2017-05-31 19:00:00"
+						},
+						to: {
+							begin: "2017-06-13 17:00:00",
+							end: "2017-06-13 19:00:00"
+						}
+					},
+					title: "In Enim Justo Rhoncus Ut",
+					url: "#",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Location",
+					categories: [
+						"Category 1"
+					],
+					category_url: "page-event-category.html"
+				}
+			} %}
+
+			{% include partial("filter") with {
+				label: "Directory",
+				active: "search",
+				action_category: "#",
+				action_search: "#",
+				tools: [
+					{
+						label: "Category",
+						options: [
+							{
+								label: "All Categories"
+							},
+							{
+								label: "Category One",
+								selected: true
+							},
+							{
+								label: "Another Category"
+							}
+						]
+					},
+				],
+				search_placeholder: "Search by name or department",
+				results: "",
+				category: ""
+			} %}
+
+			{% include partial("filter") with {
+				label: "",
+				active: "",
+				action_category: "#",
+				action_search: "#",
+				tools: [
+					{
+						label: "Category",
+						options: [
+							{
+								label: "All Categories"
+							},
+							{
+								label: "Category One",
+								selected: true
+							},
+							{
+								label: "Another Category"
+							}
+						]
+					},
+					{
+						label: "Type",
+						options: [
+							{
+								label: "All Types"
+							},
+							{
+								label: "Type One"
+							},
+							{
+								label: "Another Type"
+							}
+						]
+					}
+				],
+				search_placeholder: "Search by keyword",
+				results: "",
+				category: ""
+			} %}
+
+			{% include component("gallery") with {
+				title: "Ipsum Fermentum Tristique",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						caption: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec <a href='#'>ullamcorper nulla non metus auctor fringilla</a>."
+					},
+					{
+						image: "2",
+						video: "https://www.youtube.com/embed/XPjQhvjQbSM",
+						caption: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+					},
+					{
+						image: "3",
+						video: "https://player.vimeo.com/video/81742487",
+						caption: "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus."
+					},
+					{
+						image: "4",
+						caption: "Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem."
+					},
+					{
+						image: "1",
+						caption: "Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc."
+					}
+				]
+			} %}
+
+			{% include component("link-group") with {
+				title: "Ipsum Fermentum Tristique",
+				items: [
+					{
+						title: "Standard Link With Title",
+						url: "#"
+					},
+					{
+						title: "Standard Link With Title",
+						url: "#"
+					},
+					{
+						title: "Ipsum Consectetur Pharetra Purus Quam Consectetur Pharetra",
+						url: "#"
+					},
+					{
+						title: "Standard Link With Title",
+						url: "#"
+					},
+					{
+						title: "External Link With Title",
+						url: "#",
+						icon: "external"
+					},
+					{
+						title: "File Link With Title",
+						url: "#",
+						icon: "file"
+					},
+					{
+						title: "Standard Link With Title",
+						url: "#"
+					},
+					{
+						title: "Standard Link With Title",
+						url: "#"
+					}
+				]
+			} %}
+
+			{% include partial("news-feature") with {
+				item: {
+					image: "1",
+					categories: [
+						"Category 1"
+					],
+					category_url: "page-news-category.html",
+					title: "In Enim Justo Rhoncus Ut",
+					url: "#",
+					date: "2019-01-01 17:00:00",
+					author: "Johnny Appleseed",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus."
+				}
+			} %}
+
+			{% include component("related-news") with {
+				title: "Related News",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						categories: [
+							"Category 1"
+						],
+						category_url: "page-news-category.html",
+						title: "In Enim Justo Rhoncus Ut Lorem",
+						url: "page-news-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget est sed ex pretium fringilla. Vivamus ac turpis quis eros consectetur ornare."
+					},
+					{
+						image: "2",
+						categories: [
+							"Category One",
+							"Another Category"
+						],
+						category_url: "page-news-category.html",
+						title: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+						url: "page-news-detail.html",
+						description: "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."
+					},
+					{
+						image: "3",
+						categories: [
+							"Category"
+						],
+						category_url: "page-news-category.html",
+						title: "Etiam ultricies nisi vel augue",
+						url: "page-news-detail.html",
+						description: "Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem."
+					},
+					{
+						image: "4",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-news-category.html",
+						title: "Quisque rutrum",
+						url: "page-news-detail.html",
+						description: "Phasellus viverra nulla ut metus varius laoreet."
+					}
+				]
+			} %}
+
+			{% include component("related-events") with {
+				title: "Related Events",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						image: "1",
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00",
+								end: "2017-05-31 19:00:00"
+							},
+							to: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Fastspot, 2980 Long Name of Road Rd. Baltimore, MD 21218",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "4",
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00"
+							}
+						},
+						title: "Aenean commodo ligula eget dolor",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "2",
+						date: {
+							from: {
+								begin: "2017-05-31 17:00:00",
+								end: "2017-05-31 19:00:00"
+							},
+							to: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "In Enim Justo Rhoncus Ut",
+						url: "page-event-detail.html",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					},
+					{
+						image: "3",
+						date: {
+							from: {
+								begin: "2017-06-13 17:00:00",
+								end: "2017-06-13 19:00:00"
+							}
+						},
+						title: "Aenean commodo ligula eget dolor",
+						url: "page-event-detail.html",
+						description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+						location: "Location",
+						categories: [
+							"Category One"
+						],
+						category_url: "page-event-category.html"
+					}
+				]
+			} %}
+
+			{% include component("testimonial") with {
+				quote: "“Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Praesent eget est sed ex pretium fringilla. Vivamus <em>ac turpis quis eros consectetur</em> ornare. Proin pulvinar, magna id vulputate commodo, metus massa tincidunt lorem, <a href='#'>non elementum urna dui sed</a> neque. Nulla non ipsum fermentum, fermentum tellus ut, viverra est. Interdum et malesuada fames ac ant faucibus”.",
+				name: "Full Name",
+				title: "Senior Director of Department",
+				image: "1"
+			} %}
+
+			{% include component("topic-row") with {
+				title: "Ipsum Fermentum Tristique",
+				description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.",
+				items: [
+					{
+						title: "Ipsum Fermentum Tristique",
+						image: "1",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+						links: [
+							{
+								title: "Link Title One",
+								url: "#"
+							},
+							{
+								title: "Link Title Two",
+								url: "#"
+							}
+						]
+					},
+					{
+						title: "Ipsum Fermentum Tristique",
+						image: "2",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+						links: ""
+					},
+					{
+						title: "Ipsum Fermentum Tristique",
+						image: "",
+						description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.",
+						links: [
+							{
+								title: "Link Title One",
+								url: "#"
+							},
+							{
+								title: "Link Title Two",
+								url: "#"
+							},
+							{
+								title: "Link Title Three",
+								url: "#"
+							}
+						]
+					},
+					{
+						title: "Ipsum",
+						image: "2",
+						description: "Praesent",
+						links: ""
+					}
+				]
+			} %}
+
+			{% include component("wysiwyg") with {
+				content: '<h2>Nullam dictum felis eu pede mollis pretium</h2><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis <a href="#">natoque penatibus</a> et magnis dis parturient montes, nascetur ridiculus mus.</p><p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>'
+			} %}
+
+		</div>
+	</div>
+	<!-- END: Page Content -->
+
+{% endblock %}

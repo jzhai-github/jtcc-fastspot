@@ -1,0 +1,18 @@
+{#
+	{% include partial("background") with {
+		custom_class: "js-class",
+		class: "flex_callout",
+		image: image,
+		alt: "",
+		sources: {
+			"0px": img.square.sml,
+			"740px": img.ultraWide.med,
+			"980px": img.ultraWide.lrg,
+			"1220px": img.ultraWide.xlrg
+		}
+	} %}
+#}
+
+<div class="{{ custom_class ?: 'js-background' }} {{ class }}_background" data-background-options='{"source": { {% for key, source in sources %}"{{ key }}": "//images.fastspot.com/{{ config.images }}/{{ source.width }}x{{ source.height }}/{{ image }}"{% if not loop.last %}, {% endif %}{% endfor %}}, "lazy": true, "alt": "{{ alt }}"}' aria-hidden="true">
+	<div class="{{ class }}_background_fallback" style="background-image: url(' //images.fastspot.com/{{ config.images }}//{{ img.ultraWide.xxsml.width }}x{{ img.ultraWide.xxsml.height }}/{{ image }}');"></div>
+</div>

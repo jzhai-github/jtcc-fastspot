@@ -1,0 +1,20 @@
+/* ==========================================================================
+	Event Feature
+============================================================================= */
+
+.event_feature {
+	@include margined_xl;
+}
+
+.event_feature_inner {
+	border: 2px solid $gray_10;
+	padding: 20px;
+
+	@media #{$min_md} {
+		padding: 30px;
+	}
+
+	@media #{$min_xl} {
+		padding: 45px;
+	}
+}

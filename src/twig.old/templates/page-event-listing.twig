@@ -1,0 +1,194 @@
+{% extends "_base.twig" %}
+
+{% set page = {
+	metaImage: "/images/temp/social-wide.jpg",
+	metaImageWidth: "",
+	metaImageHeight: "",
+	title: "Events Listing",
+	description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+	subNav: false,
+	classes: [
+		"layout_listing"
+	]
+} %}
+
+{% block main %}
+	{% include partial("page-header") %}
+
+	<!-- Full Width Callouts -->
+	<div class="full_width_callouts" id="skip_content" tabindex="-1">
+		{% include partial("event-feature") with {
+			item: {
+				image: "1",
+				date: {
+					from: {
+						begin: "2017-05-31 17:00:00",
+						end: "2017-05-31 19:00:00"
+					},
+					to: {
+						begin: "2017-06-13 17:00:00",
+						end: "2017-06-13 19:00:00"
+					}
+				},
+				title: "In Enim Justo Rhoncus Ut",
+				url: "page-event-detail.html",
+				description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+				location: "Location",
+				categories: [
+					"Category 1"
+				],
+				category_url: "page-event-category.html"
+			}
+		} %}
+
+		{% include partial("filter") with {
+			label: "",
+			active: "",
+			action_category: "#",
+			action_search: "#",
+			tools: [
+				{
+					label: "Category",
+					options: [
+						{
+							label: "All Categories"
+						},
+						{
+							label: "Category One"
+						},
+						{
+							label: "Another Category"
+						}
+					]
+				},
+				{
+					label: "Type",
+					options: [
+						{
+							label: "All Types"
+						},
+						{
+							label: "Type One"
+						},
+						{
+							label: "Another Type"
+						}
+					]
+				}
+			],
+			search_placeholder: "Search by keyword",
+			results: "",
+			category: ""
+		} %}
+
+		{% include partial("event-list") with {
+			items: [
+				{
+					image: "1",
+					date: {
+						from: {
+							begin: "2017-05-31 17:00:00",
+							end: "2017-05-31 19:00:00"
+						},
+						to: {
+							begin: "2017-06-13 17:00:00",
+							end: "2017-06-13 19:00:00"
+						}
+					},
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-event-detail.html",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Fastspot, 2980 Long Name of Road Rd. Baltimore, MD 21218",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				},
+				{
+					date: {
+						from: {
+							begin: "2017-05-31 17:00:00"
+						}
+					},
+					title: "Aenean commodo ligula eget dolor",
+					url: "page-event-detail.html",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Location",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				},
+				{
+					image: "2",
+					date: {
+						from: {
+							begin: "2017-05-31 17:00:00",
+							end: "2017-05-31 19:00:00"
+						},
+						to: {
+							begin: "2017-06-13 17:00:00",
+							end: "2017-06-13 19:00:00"
+						}
+					},
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-event-detail.html",
+					location: "Location",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				},
+				{
+					image: "3",
+					date: {
+						from: {
+							begin: "2017-06-13 17:00:00",
+							end: "2017-06-13 19:00:00"
+						}
+					},
+					title: "Aenean commodo ligula eget dolor",
+					url: "page-event-detail.html",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Location",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				},
+				{
+					date: {
+						from: {
+							begin: "2017-06-22 17:00:00"
+						}
+					},
+					title: "In Enim Justo Rhoncus Ut",
+					url: "page-event-detail.html",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Location",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				},
+				{
+					image: "4",
+					date: {
+						from: {
+							begin: "2017-06-23 17:00:00"
+						}
+					},
+					title: "Aenean commodo ligula eget dolor",
+					url: "page-event-detail.html",
+					description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.",
+					location: "Location",
+					categories: [
+						"Category One"
+					],
+					category_url: "page-event-category.html"
+				}
+			]
+		} %}
+	</div>
+	<!-- END: Full Width Callouts -->
+{% endblock %}

@@ -1,0 +1,63 @@
+/* ==========================================================================
+	Social Navigation
+============================================================================= */
+
+.social_nav {
+	margin: 10px 0;
+
+	@media #{$min_lg} {
+		flex: 0 0 30.5%;
+		margin: 0;
+		text-align: right;
+	}
+
+	@media #{$min_xl} {
+		flex: 0 0 23.5%;
+	}
+
+	@media print {
+		display: none;
+	}
+}
+
+.social_nav_header {}
+
+.social_nav_title {
+	@include visually_hide;
+}
+
+
+/* Social Links
+============================================================================= */
+
+.social_nav_list {
+	list-style: none;
+	margin: 0 0 0 -8px;
+	padding: 0;
+
+	@media #{$min_lg} {
+		margin: 0 -8px 0 0;
+	}
+}
+
+.social_nav_item {
+	display: inline-block;
+}
+
+.social_nav_link {
+	color: inherit;
+	display: block;
+	padding: 10px 8px;
+	transition: color $base_speed;
+
+	&:focus,
+	&:hover {
+		color: $accent;
+	}
+}
+
+.social_nav_icon {}
+
+.social_nav_label {
+	@include visually_hide;
+}

@@ -1,0 +1,301 @@
+/* ==========================================================================
+	Google CSE
+============================================================================= */
+
+#___gcse_0 {
+
+	.gsc-control-cse {
+		background-color: transparent;
+		border: 0;
+		font-family: inherit;
+		font-size: inherit;
+		padding: 0;
+	}
+
+
+	/* Search Box
+	============================================================================= */
+
+	form.gsc-search-box {
+		font-size: inherit;
+		margin-bottom: 0;
+	}
+
+	table.gsc-search-box {
+		position: relative;
+
+		margin-bottom: 0;
+	}
+
+	td.gsc-input {
+		padding-right: 0;
+	}
+
+	.gsc-input-box {
+		position: relative;
+
+		background: none;
+		border: 0;
+		padding: 0;
+	}
+
+	table.gsc-input {
+		border-collapse: collapse;
+	}
+
+	#gs_tti50 {
+		padding: 0;
+	}
+
+	input.gsc-input {
+		@include body_text;
+
+		height: 60px !important;
+
+		background-color: #fff !important;
+		background-position: 20px 50% !important;
+		border: 1px solid #000 !important;
+		border-radius: 3px;
+		line-height: normal;
+		margin: 0 !important;
+		padding: 13px 50px 13px 20px !important;
+
+		@media #{$min_md} {
+			padding-right: 70px !important;
+		}
+
+		&::placeholder {
+			@include body_text;
+
+			line-height: normal;
+		}
+	}
+
+	.gsib_b {
+		position: absolute;
+		top: 50%;
+		right: 20px;
+
+		transform: translate(0, -50%);
+
+		@media #{$min_md} {
+			right: 30px;
+		}
+	}
+
+	.gsst_b {
+		padding: 0;
+	}
+
+	.gsst_a {
+		width: 26px;
+		height: 26px;
+
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAWpJREFUWAndmGEOwiAMhY1//Ou9vY+H8FLKMylhrGBpHyyThMBc+95Hh9nC5XLidk/sj9RvB6wBnvAGQ7ch4JX6O/Vn6ith4QVPeIOhCVtCInglbAkp3iqsBikJsyurQYr3Dhb7Qm5q4yzYHqRwgC03SwIb1u3pTszLtU/CXmEBAyvNgyakQNO16YIJeobmtxZMYaaW8qA4VZgOKeQRo0iu+A+NHkNPzhBUK3jEeCS25Rf63QogX0HyGqxH9ltOXZQFtgYrr5dACrkXdimkF/YQyFHYMORVHP95HN2n4ap6ijkKKf/6pbBeyKWwFkhUDV3AtHFqZa2QiBuJ9Wy9Zo7H2JPTBLDciBhGci1sOYZhxNDIQNqEacDU2rDOEKZr0gWLEtC0aUIFXD0Ne4QFaqLOtdvLndiB+XXL5XmaY8fTHOTiMWmwUz8eir2hbYPdaXMRv4FdBSn+JWwXUhJQWexZJK5u8IQ3GM7ZPqgwKEshiSLbAAAAAElFTkSuQmCC');
+		background-size: 20px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		margin-top: 2px;
+		padding: 0;
+	}
+
+	.gscb_a {
+		display: none;
+	}
+
+	td.gsc-search-button {
+		width: 60px;
+
+		@media #{$min_md} {
+			width: 130px;
+		}
+	}
+
+	button.gsc-search-button {
+		width: 100%;
+		height: 60px;
+
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAA6pJREFUWAm1mDloFVEUhn3ZjKSQQMRgCMEuCIlaJAoqLkSxcANRsLENdmqlfUSIYKs2YucCgnEJSaWdKGKj8AJGggtBg0vhEjUx8ftfXsLMmTszd55vfviZueee89/z7j6vsMwT8/PzNbhugQfherimzOU8J8sc5/kAjhQKhR888weJrYTn4RT0xTSON2FnbhkiXgNPwc+wUswQeBm2VDVRBNVrw7BamECou5IkCzYIobXYhmHc8BSpuwvHoObeb6j52AH3wq2wFlp8x3CMuXnfVniXSU49V4QuDGHsShPDZxUchJqHFrL1pmk46wnUnHMN6yfsu51BCUZiOuBTaDGJoS0h1F1FkBaExRgGDXlFILYRajVbjGYSJFpDa1ereq7i5BYTQKMePoIWfYs+qU8itc9ZZB7WuIYQboEfTAPPKUcWaUQDJ809uwkPRRz/00AbJ6BFT6osEdtsFOXU1ZoqbBzQrINvTFsDxi1S1PmqszWIInvVi6ChGu9ozqJz22gdMuVIUQnq4A9Cm3BeuGeE19Gj9cYWKipBnQJB6ITICzqFgtAiaQ0a7LsrQR1feWEK4b9G3HZQqFoJ6j4XhM7WXMA8nEN4xog3mnKoqARtjyX+olB0xgLzrZkQm5B6NRauBHUryQsu7Y9JjSnB18ZBV6a8YLXfMexfEhuj2w+bzXOWcnVvwOUM0H1i2rqamJwqCWiC9u42mBqY0YE2dpnkVDzqJYPjLROshF3zxUvPOqGl8/6ZaeM95Qbr6yzj2An1gROELpt2xTnj04zoXAgKl99Pp8WF6gm64hDRZTPxKAqJOArE9zt0x7E1OdzjTQTozjYBLXTZzLxoiNGwunpOi3BzfCYJNQR2w2/QQpdN3efqEsKXqvDTgrBzDlMJ9sKwFOf1gsQ+aFf1gvTCfe4ihZ2wFWof1U7QDDfAM9BuJZgiOOmVTJwTcr1QX19p0HDF/Zi02P649r3sqLfB0bRWPOpf4eNagHPYj3slk+SESB/UB05WaN6ehaXbEs8Bh4BGwG+zTkmygFAPPAdfQv16F95ivA6PwMj2hE3z1+IPhgNJ7WeuQ1Dfuu1wE9wBu+BqHyH8LkGLXxj2+MTn7kMiGo1rNkPKP+H23BPwaYBEauENaKE9uLJN3KfhLD4kou/kOzZDyl/hxixaufmSSAMcgRb6X6g9t4azCJPICvgQWpT+dSgdVVkEq+3LlX8azf3wsdFO/hQwzrkX6T79BaiLs/4G1DWvdBf9Bx10jEx7NnGhAAAAAElFTkSuQmCC');
+		background-size: 20px;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+		border: 0;
+		border-radius: 3px;
+		margin-left: 3px;
+		transition: background-color $base_speed;
+
+		&:hover,
+		&:focus {
+			background-color: #000;
+		}
+
+		img,
+		svg {
+			display: none;
+		}
+	}
+
+
+	/* Search Tabs
+	============================================================================= */
+
+	.gsc-positioningWrapper {
+		display: none;
+	}
+
+
+	/* Results Count
+	============================================================================= */
+
+	.gsc-above-wrapper-area {
+		border-bottom: 2px solid $gray_20;
+		padding: 20px 0 55px;
+	}
+
+	.gsc-result-info {
+		color: inherit;
+		font-size: 15px;
+		margin: 0;
+		padding: 0;
+		text-transform: uppercase;
+	}
+
+
+	/* Results
+	============================================================================= */
+
+	.gsc-result {
+		border-bottom: 2px solid $gray_20;
+		padding: 34px 0;
+	}
+
+	.gsc-thumbnail-inside {
+		padding: 0;
+	}
+
+	div.gs-title {
+		color: inherit;
+		font-size: inherit;
+		margin-bottom: 6px;
+		text-decoration: none;
+	}
+
+	a.gs-title {
+		@include h3;
+
+		color: $accent;
+		display: block;
+		transition: color $base_speed;
+
+		&:hover,
+		&:focus {
+			color: #000;
+		}
+
+		b {
+			color: inherit;
+			font: inherit;
+			text-decoration: none;
+		}
+	}
+
+	.gsc-url-top {
+		padding: 0;
+	}
+
+	.gs-visibleUrl {
+		@include small_text;
+
+		color: inherit;
+		margin-bottom: 8px;
+		padding-bottom: 0;
+
+		b {
+			color: inherit;
+		}
+	}
+
+	.gsc-table-result {
+		font-family: inherit;
+		font-size: inherit;
+		padding: 0;
+	}
+
+	.gsc-thumbnail {
+		display: none;
+	}
+
+	.gsc-url-top {}
+
+	.gs-snippet {
+		@include body_text;
+
+		color: inherit;
+		margin-top: 0;
+	}
+
+	.gsc-url-bottom {
+		display: none;
+		margin-top: 8px;
+	}
+
+
+	/* Pagination
+	============================================================================= */
+
+	.gsc-cursor-box {
+		margin: 40px 0;
+		padding: 0;
+	}
+
+	.gsc-cursor {
+		align-items: center;
+		color: inherit;
+		display: flex;
+		fill: none;
+	}
+
+	.gsc-cursor-page {
+		color: $accent;
+		display: block;
+		font-size: 18px;
+		justify-content: center;
+		margin: 0;
+		padding: 0 10px 0 0;
+		text-decoration: underline;
+		transition:
+			background $base_speed,
+			border $base_speed,
+			color $base_speed;
+
+		@media #{$min_md} {
+			padding-right: 20px;
+		}
+
+		&:hover,
+		&:focus {
+			color: #000;
+		}
+
+		&.gsc-cursor-current-page {
+			color: #000;
+			font-weight: inherit;
+			text-decoration: none;
+		}
+	}
+
+
+	/* Branding
+	============================================================================= */
+
+	.gcsc-more-maybe-branding-root {
+
+		> a {
+			display: none;
+		}
+	}
+
+	.gcsc-branding {
+		padding: 0;
+	}
+}

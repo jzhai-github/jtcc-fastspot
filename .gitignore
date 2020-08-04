@@ -1,0 +1,19 @@
+cache/
+custom/environment.php
+.DS_store
+node_cache/
+node_modules/
+package-lock.json
+pnpm-debug.log
+site/files/
+.idea/
+
+# compiled files
+/dist/axe.json
+/dist/css
+/dist/images
+/dist/js
+/dist/favicons
+
+# fractal output
+/static-html

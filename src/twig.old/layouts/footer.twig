@@ -1,0 +1,83 @@
+			</main>
+			<!-- END: Page -->
+
+			<!-- Footer -->
+			<footer class="footer" id="footer">
+				<div class="footer_primary">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="footer_primary_inner">
+								{% if page.alert == true %}
+								<div class="alert_open_wrapper">
+									<button class="js-alert-open alert_open">
+										<span class="alert_open_inner">
+											<span class="alert_open_icon" aria-hidden="true">
+												<span class="alert_open_icon_inner">{{ icon("plus") }}</span>
+											</span>
+											<span class="alert_open_label">Open site alert</span>
+										</span>
+									</button>
+								</div>
+								{% endif %}
+
+								{% include partial("meta") %}
+
+								{% include navigation("basic") with {
+									class: "footer_nav",
+									modifier: "",
+									title: "Footer",
+									toggle_icon: "",
+									active_index: "",
+									links: navigation.footer
+								} %}
+
+								{% include navigation("social") with {
+									title: "Social",
+									links: navigation.social
+								} %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer_ribbon">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="footer_ribbon_inner">
+								{% include navigation("basic") with {
+									class: "utility_nav",
+									modifier: "",
+									title: "Utility",
+									toggle_icon: "",
+									active_index: "",
+									links: navigation.utility
+								} %}
+
+								{% include partial("copyright") %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- END: Footer -->
+		</div>
+		<!-- END: page_wrapper -->
+
+		{% include "menu.twig" %}
+
+		<script>
+			var WWW_ROOT = "";
+			var STATIC_ROOT = "../";
+		</script>
+		{% if page.scripts %}
+		{% for script in page.scripts %}
+		{{ script }}
+		{% endfor %}
+		{% endif %}
+		<script src="../js/site.js" async></script>
+		{% if grid %}
+		<script>
+			(function(){if(typeof FSGridBookmarklet==='undefined'){document.body.appendChild(document.createElement('script')).src='../js/grid.js';}else{FSGridBookmarklet();}} )();
+		</script>
+		{% endif %}
+	</body>
+</html>

@@ -1,0 +1,20 @@
+{#
+	{% include partial("background-video") with {
+		custom_class: "js-class",
+		class: "background",
+		image: image,
+		image_size: img.wide.lrg,
+		video: "http://example.com/video.mp4",
+		options: {
+			autoPlay: false,
+			embedRatio: 1.777777,
+			loop: false,
+			mute: true,
+			alt: "",
+		}
+	} %}
+#}
+
+<div class="{{ custom_class ?: "js-background" }} js-background-video {{ class }}_background" data-background-options='{"source": {"poster": "//images.fastspot.com/{{ config.images }}/{{ image_size.width }}x{{ image_size.height }}/{{ image }}","mp4": "{{ video }}"},{% for key, option in options %}"{{ key }}": "{{ option }}",{% endfor %}"lazy": true}' aria-hidden="true">
+	<div class="{{ class }}_background_fallback" style="background-image: url(' //images.fastspot.com/{{ config.images }}//{{ img.wide.xxsml.width }}x{{ img.wide.xxsml.height }}/{{ image }}');"></div>
+</div>

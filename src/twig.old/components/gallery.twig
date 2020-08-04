@@ -1,0 +1,109 @@
+{#
+	{% include component("gallery") with {
+		title: "Title",
+		description: "Description",
+		items: [
+			{
+				image: "1",
+				caption: "Caption"
+			},
+			{
+				image: "2",
+				video: "//www.youtube.com/embed/XPjQhvjQbSM",
+				caption: ""
+			},
+			{
+				image: "3",
+				video: "//player.vimeo.com/video/81742487",
+				caption: ""
+			}
+		]
+	} %}
+#}
+
+{%
+	set carousel_options = {
+		contained: false
+	}
+%}
+
+{% if title %}
+	{%
+		set carousel_options = carousel_options|merge({
+			labels: {
+				controls: title|replace({"'": "&#39;"}) ~ " carousel controls",
+				pagination: title|replace({"'": "&#39;"}) ~ " carousel pagination"
+			}
+		})
+	%}
+{% endif %}
+
+{% set carousel_options = carousel_options|json_encode %}
+
+<!-- Gallery -->
+<div class="js-gallery gallery">
+	<div class="fs-row">
+		<div class="fs-cell {{ cell }}">
+			<div class="gallery_inner">
+				{% if title or description %}
+				<div class="gallery_header">
+					{% if title %}
+					<h2 class="gallery_title">{{ title }}</h2>
+					{% endif %}
+					{% if description %}
+					<div class="gallery_description">
+						<p>{{ description }}</p>
+					</div>
+					{% endif %}
+				</div>
+				{% endif %}
+				<div class="gallery_body">
+					<div class="js-carousel gallery_items" role="region" aria-label="{{ title|e('html_attr') }} Gallery" tabindex="0" data-carousel-options='{{ carousel_options }}'>
+						{% for item in items %}
+						<div class="js-gallery-item gallery_item{% if item.caption is empty %} no_caption{% endif %}{% if item.video %} js-gallery-item-video{% endif %}"{% if item.video %} data-video-service="{% if "youtube" in item.video %}youtube{% elseif "vimeo" in item.video %}vimeo{% endif %}" data-video-embed="{{ item.video }}"{% endif %}>
+							<figure class="gallery_item_figure" {% if item.caption %} aria-label="{{ item.caption|striptags }}"{% endif %}>
+								<span class="gallery_item_media">
+									{% include partial("image") with {
+										class: "gallery_item",
+										alt: "",
+										itemprop: "",
+										image: item.image,
+										sources: [
+											img.wide.lrg,
+											img.wide.med,
+											img.wide.sml,
+											img.wide.xsml,
+											img.wide.xxsml
+										]
+									} %}
+									{% if item.video %}
+									<span class="gallery_item_media_video">
+										{% if "youtube" in item.video %}
+											<iframe class="js-gallery-iframe js-gallery-iframe-youtube gallery_item_media_iframe" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										{% elseif "vimeo" in item.video %}
+											<iframe class="js-gallery-iframe js-gallery-iframe-vimeo gallery_item_media_iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+										{% endif %}
+									</span>
+									{% endif %}
+								</span>
+								<figcaption class="gallery_details">
+									<span class="gallery_index">
+										<span class="gallery_index_number">{{ loop.index }}</span>
+										<span class="gallery_index_label">of</span>
+										<span class="gallery_index_number">{{ loop.length }}</span>
+									</span>
+									{% if item.caption %}
+									<p class="gallery_item_caption">{{ item.caption }}</p>
+									{% endif %}
+								</figcaption>
+							</figure>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="//player.vimeo.com/api/player.js"></script>
+<!-- END: Gallery -->

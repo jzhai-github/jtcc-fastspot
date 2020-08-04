@@ -1,0 +1,74 @@
+/* ==========================================================================
+	Program Meta
+============================================================================= */
+
+.program_meta {}
+
+.program_meta_inner {
+	border-bottom: 2px solid $gray_10;
+	padding: 30px 0;
+
+	@media #{$min_lg} {
+		align-items: center;
+		display: flex;
+		// justify-content: space-between;
+	}
+}
+
+.program_details {
+
+	@media #{$min_md} {
+		width: 100%;
+
+		display: flex;
+	}
+}
+
+.program_detail {
+
+	@media #{$min_md} {
+		max-width: 25%;
+	}
+
+	@media #{$min_xl} {
+		flex: 0 0 18%;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 30px;
+
+		@media #{$min_md} {
+			margin: 0 30px 0 0;
+		}
+
+		@media #{$min_xl} {
+			// padding-right: 30px;
+		}
+	}
+}
+
+.program_detail_label {
+	@include label_text;
+
+	margin-bottom: 6px;
+}
+
+.program_detail_label_hint {
+	@include visually_hide;
+}
+
+.program_detail_data {
+	font-size: 15px;
+	line-height: (22 / 15);
+}
+
+.program_detail_data_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
