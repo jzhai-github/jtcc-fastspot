@@ -13,7 +13,6 @@ site/files/
 /dist/css
 /dist/images
 /dist/js
-/dist/favicons
 
 # fractal output
 /static-html
