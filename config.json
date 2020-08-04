@@ -2,10 +2,10 @@
 	"twig_variables": {
 		"namespace": "fs",
 		"color": "",
-		"name": "Client Name",
+		"name": "JTCC",
 		"description": "",
 		"images": "framework",
-		"domain": "example.dev.fastspot.com/site",
+		"domain": "jtcc.dev.fastspot.com",
 		"schema_type": "Organization",
 		"twitter": "TwitterName",
 		"cse_key": "011737558837375720776:mbfrjmyam1g",
