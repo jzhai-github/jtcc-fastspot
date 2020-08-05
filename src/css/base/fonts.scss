@@ -25,6 +25,7 @@
 
 /**
  * 300 - Sentinel Light
+ * 600 - Sentinel Semi Bold
  * 700 - Sentinel Bold
 */
 
@@ -33,6 +34,8 @@
 	(
 		('Sentinel-Light', 300),
 		('Sentinel-LightItal', 300, italic),
+		('Sentinel-Semibold', 600),
+		('Sentinel-SemiboldItal', 600, italic),
 		('Sentinel-Bold', 700),
 		('Sentinel-BoldItal', 700, italic)
 	)
