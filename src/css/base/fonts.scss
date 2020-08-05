@@ -50,13 +50,13 @@
 }
 
 @mixin sans($weight: null) {
-	@include serif($weight);
-}
-
-@mixin title($weight: null) {
 	font-family: 'Knockout', Arial, Helvetica, sans-serif;
 
 	@if $weight {
 		font-weight: $weight;
 	}
+}
+
+@mixin title($weight: null) {
+	@include sans($weight);
 }

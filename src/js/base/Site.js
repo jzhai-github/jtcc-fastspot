@@ -61,11 +61,7 @@ var Site = (function ($) {
 			markup += '<use xlink:href="#' + icon + '">';
 		} else {
 			markup +=
-				'<use xlink:href="' +
-				dirs.STATIC_ROOT +
-				'images/icons.svg#' +
-				icon +
-				'">';
+				'<use xlink:href="' + dirs.STATIC_ROOT + '#' + icon + '">';
 		}
 
 		return markup + '</use></svg>';

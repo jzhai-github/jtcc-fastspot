@@ -16,41 +16,46 @@
 		(arrow_left, 22, 22),
 		(arrow_right, 22, 22),
 		(caret_down, 12, 8),
-		(caret_right, 8, 16),
+		(caret_right, 5, 8),
 		(caret_left, 8, 16),
 		(clock, 16, 16),
 		(close, 20, 20),
 		(expand, 9, 18),
 		(external, 18, 18),
-		(facebook, 30, 29),
+		(facebook, 25, 25),
 		(fax, 18, 16),
 		(file, 16, 20),
 		(flickr, 22, 10),
 		(home, 14, 14),
-		(instagram, 30, 30),
+		(instagram, 26, 25),
 		(label, 14, 14),
-		(linkedin, 30, 30),
+		(linkedin, 26, 25),
 		(logo, 180, 65),
 		(mail, 22, 16),
 		(menu, 22, 12),
 		(minus, 14, 2),
 		(phone, 16, 16),
-		(place, 12, 16),
+		(place, 12, 18),
 		(play, 20, 20),
 		(plus, 14, 14),
 		(reset, 9, 10),
 		(search, 18, 18),
-		(twitter, 37, 30),
+		(twitter, 25, 21),
 		(video_pause, 20, 20),
 		(video_play, 20, 20),
 		(vimeo, 18, 18),
-		(youtube, 43, 30)
+		(youtube, 26, 19)
 	);
 
 	@each $label, $width, $height in $icons {
 		&_#{$label} {
-			width: $width#{px};
-			height: $height#{px};
+			// to two decimals
+			$percent_height: ceil($height / $width * 100) / 100;
+
+			width: 1em;
+			height: #{$percent_height}em;
+
+			font-size: $width#{px};
 		}
 	}
 }

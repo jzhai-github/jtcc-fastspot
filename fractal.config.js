@@ -68,12 +68,16 @@ fractal.components.set('default.collator', function (markup, item) {
 		item.preview === '@preview-dark' ? 'bg-gray-900' : 'bg-white';
 
 	return `
-        <div class="mt-6 p-6 ${bgModifier}">
+		<br><br>
+
+        <div class="${bgModifier}">
             <h2 class="heading-h2 ${headingModifier}">
                 ${item.title}
             </h2>
 
-            <div class="mt-3">
+			<br>
+
+            <div>
                 ${markup}
             </div>
         </div>

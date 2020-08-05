@@ -5,7 +5,7 @@ let twig_counter_namespaces = {};
 
 module.exports = {
 	svg_icons: function () {
-		let path = 'src/images/icons.svg';
+		let path = 'dist/images/icons.svg';
 
 		if (!fs.existsSync(path)) return '';
 
