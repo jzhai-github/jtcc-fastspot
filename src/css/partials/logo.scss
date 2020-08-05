@@ -6,21 +6,22 @@
 	margin: 0;
 }
 
-.logo_header {}
+.logo_header {
+}
 
-.logo_footer {}
+.logo_footer {
+}
 
 .logo_link {
 	position: relative;
 
-	color: #4A4A4A;
+	color: #4a4a4a;
 	display: block;
 	overflow: hidden;
 	transition: color $base_speed;
 	white-space: nowrap;
 
 	&:after {
-
 		@media print {
 			content: normal;
 			display: none;
@@ -44,7 +45,6 @@
 	vertical-align: top;
 
 	.icon_logo {
-
 		@media #{$min_lg} {
 			width: 250px;
 			height: 90px;

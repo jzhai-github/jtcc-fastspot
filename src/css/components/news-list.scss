@@ -6,7 +6,8 @@
 	@include margined_xl;
 }
 
-.news_list_inner {}
+.news_list_inner {
+}
 
 .news_list_items {
 	@include remove_list;

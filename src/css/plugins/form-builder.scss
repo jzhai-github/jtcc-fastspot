@@ -10,7 +10,8 @@
 		@include h2;
 	}
 
-	p {}
+	p {
+	}
 
 	fieldset {
 		border: 0;
@@ -32,7 +33,7 @@
 		margin-bottom: 8px;
 	}
 
-	input:not([type="submit"]):not([type="file"]),
+	input:not([type='submit']):not([type='file']),
 	textarea {
 		@include input;
 
@@ -50,11 +51,11 @@
 	}
 }
 
-
 /* Custom Elements
 ============================================================================= */
 
-.form_builder_required_star {}
+.form_builder_required_star {
+}
 
 .form_builder_full,
 .form_builder_split {
@@ -66,7 +67,6 @@
 }
 
 .form_builder_wrap {
-
 	@media #{$min_sm} {
 		display: flex;
 	}
@@ -94,7 +94,6 @@
 }
 
 .form_builder_firstname {
-
 	@media #{$min_sm} {
 		width: calc(50% - 10px);
 
@@ -109,7 +108,6 @@
 }
 
 .form_builder_lastname {
-
 	@media #{$min_sm} {
 		width: 50%;
 	}
@@ -134,7 +132,6 @@
 	float: left;
 }
 
-
 /* Checkboxes & Radios
 ============================================================================= */
 
@@ -143,14 +140,16 @@
 	@include checkbox_accent;
 }
 
-.form_builder_checkbox_indicator {}
+.form_builder_checkbox_indicator {
+}
 
 .form_builder_radio {
 	@include radio;
 	@include radio_accent;
 }
 
-.form_builder_radio_indicator {}
+.form_builder_radio_indicator {
+}
 
 .form_builder_for_checkbox {
 	cursor: pointer;
@@ -168,19 +167,16 @@
 }
 
 .form_builder_checkbox {
-
-	[class$="indicator"] {
+	[class$='indicator'] {
 		top: 6px;
 	}
 }
 
 .form_builder_radio {
-
-	[class$="indicator"] {
+	[class$='indicator'] {
 		top: 8px;
 	}
 }
-
 
 /* Selects
 ============================================================================= */
@@ -193,16 +189,14 @@
 	width: 100%;
 }
 
-
 /* Submit
 ============================================================================= */
 
 .form_builder_submit {
-	@include button_fill("accent");
+	@include button_fill('accent');
 
 	border: none;
 }
-
 
 /* Errors
 ============================================================================= */
@@ -220,7 +214,6 @@
 }
 
 .form_builder_error_list_entry {
-
 	a {
 		@include fw_type_link;
 	}

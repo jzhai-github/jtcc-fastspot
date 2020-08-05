@@ -2,7 +2,8 @@
 	People Entry
 ============================================================================= */
 
-.people_entry {}
+.people_entry {
+}
 
 .people_entry_figure {
 	@include responsive_image;
@@ -34,4 +35,5 @@
 	padding-top: $square;
 }
 
-.people_entry_image {}
+.people_entry_image {
+}

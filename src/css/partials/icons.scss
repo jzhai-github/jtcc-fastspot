@@ -8,9 +8,7 @@
 	margin: auto;
 	pointer-events: none;
 	stroke: inherit;
-	transition:
-		fill $base_speed,
-		stroke $base_speed;
+	transition: fill $base_speed, stroke $base_speed;
 
 	$icons: (
 		(angle_down, 5, 4),
@@ -50,7 +48,6 @@
 	);
 
 	@each $label, $width, $height in $icons {
-
 		&_#{$label} {
 			width: $width#{px};
 			height: $height#{px};

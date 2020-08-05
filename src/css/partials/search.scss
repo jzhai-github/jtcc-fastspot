@@ -17,12 +17,14 @@
 	@include fw_site_button;
 }
 
-.search_link_label {}
+.search_link_label {
+}
 
-.search_link_icon {}
+.search_link_icon {
+}
 
-.search_link_icon_inner {}
-
+.search_link_icon_inner {
+}
 
 /* Search Form
 ============================================================================= */
@@ -80,7 +82,8 @@
 		@include ellipsis;
 	}
 
-	.site_search_results & {}
+	.site_search_results & {
+	}
 }
 
 .site_search_button {
@@ -92,9 +95,7 @@
 	color: inherit;
 	flex: 0 0 48px;
 	cursor: pointer;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	transition: background $base_speed, color $base_speed;
 
 	&:focus,
 	&:hover {
@@ -112,7 +113,6 @@
 
 	pointer-events: none;
 }
-
 
 /* ==========================================================================
 	Site Search Header
@@ -134,7 +134,6 @@
 		}
 	}
 }
-
 
 /* ==========================================================================
 	Site Search Menu

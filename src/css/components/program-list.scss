@@ -6,7 +6,8 @@
 	@include margined_xl;
 }
 
-.program_list_inner {}
+.program_list_inner {
+}
 
 .program_list_items {
 	@include remove_list;
@@ -18,7 +19,8 @@
 	border-bottom: 2px solid $gray_10;
 }
 
-.program_item_inner {}
+.program_item_inner {
+}
 
 .program_item_heading {
 	margin: 0;
@@ -75,9 +77,11 @@
 	@include visually_hide;
 }
 
-.program_item_heading_mode_label_hint {}
+.program_item_heading_mode_label_hint {
+}
 
-.program_item_heading_mode_data {}
+.program_item_heading_mode_data {
+}
 
 .program_item_heading_icon {
 	width: 45px;
@@ -122,10 +126,8 @@
 
 		background: #fff;
 		border-radius: 2px;
-		content: "";
-		transition:
-			opacity 0.15s,
-			transform 0.15s;
+		content: '';
+		transition: opacity 0.15s, transform 0.15s;
 	}
 
 	&:before {
@@ -133,20 +135,15 @@
 	}
 
 	&:after {
-		transform:
-			translate(-50%, -50%)
-			rotate(90deg);
+		transform: translate(-50%, -50%) rotate(90deg);
 
 		.program_item.fs-swap-active & {
-			transform:
-				translate(-50%, -50%)
-				rotate(0deg);
+			transform: translate(-50%, -50%) rotate(0deg);
 		}
 	}
 }
 
 .program_item_content {
-
 	.program_item.fs-swap-enabled & {
 		display: none;
 
@@ -180,7 +177,6 @@
 }
 
 .program_item_content_group {
-
 	@media #{$min_md} {
 		margin-right: 5%;
 	}
@@ -207,16 +203,18 @@
 }
 
 .program_item_link {
-	@include button_fill("accent");
+	@include button_fill('accent');
 
 	display: inline-block;
 	vertical-align: top;
 	white-space: nowrap;
 }
 
-.program_item_link_inner {}
+.program_item_link_inner {
+}
 
-.program_item_link_label {}
+.program_item_link_label {
+}
 
 .program_item_details {
 	border-top: 1px solid $gray_10;
@@ -246,9 +244,11 @@
 	@include visually_hide;
 }
 
-.program_item_detail_label_hint {}
+.program_item_detail_label_hint {
+}
 
-.program_item_detail_data {}
+.program_item_detail_data {
+}
 
 .program_item_detail_data_link {
 	color: $accent;

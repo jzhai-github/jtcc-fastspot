@@ -2,7 +2,8 @@
 	News Entry
 ============================================================================= */
 
-.news_entry {}
+.news_entry {
+}
 
 .news_entry_figure {
 	@include responsive_image;
@@ -15,4 +16,5 @@
 	padding-top: $classic;
 }
 
-.news_entry_image {}
+.news_entry_image {
+}

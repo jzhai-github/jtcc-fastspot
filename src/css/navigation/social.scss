@@ -20,12 +20,12 @@
 	}
 }
 
-.social_nav_header {}
+.social_nav_header {
+}
 
 .social_nav_title {
 	@include visually_hide;
 }
-
 
 /* Social Links
 ============================================================================= */
@@ -56,7 +56,8 @@
 	}
 }
 
-.social_nav_icon {}
+.social_nav_icon {
+}
 
 .social_nav_label {
 	@include visually_hide;

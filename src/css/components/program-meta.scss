@@ -2,7 +2,8 @@
 	Program Meta
 ============================================================================= */
 
-.program_meta {}
+.program_meta {
+}
 
 .program_meta_inner {
 	border-bottom: 2px solid $gray_10;
@@ -16,7 +17,6 @@
 }
 
 .program_details {
-
 	@media #{$min_md} {
 		width: 100%;
 
@@ -25,7 +25,6 @@
 }
 
 .program_detail {
-
 	@media #{$min_md} {
 		max-width: 25%;
 	}

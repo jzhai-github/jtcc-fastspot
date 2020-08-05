@@ -6,7 +6,8 @@
 	@include margined_xl;
 }
 
-.entity_list_inner {}
+.entity_list_inner {
+}
 
 .entity_list_items {
 	@include remove_list;

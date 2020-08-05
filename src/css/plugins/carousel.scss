@@ -3,7 +3,6 @@
 ============================================================================= */
 
 .fs-carousel-canister {
-
 	@media print {
 		width: 100% !important;
 
@@ -13,7 +12,6 @@
 }
 
 .fs-carousel-item {
-
 	@media print {
 		width: 100% !important;
 		height: auto !important;
@@ -21,15 +19,14 @@
 		page-break-inside: avoid;
 	}
 
-	&.fs-carousel-visible {}
+	&.fs-carousel-visible {
+	}
 }
-
 
 /* Carousel Controls
 ============================================================================= */
 
 .fs-carousel-controls {
-
 	@media print {
 		display: none !important;
 	}
@@ -43,9 +40,7 @@
 	padding: 20px;
 	pointer-events: none;
 	visibility: hidden;
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 
 	&.fs-carousel-visible {
 		cursor: pointer;
@@ -54,12 +49,15 @@
 		visibility: visible;
 	}
 
-	&.fs-carousel-control_previous {}
+	&.fs-carousel-control_previous {
+	}
 
-	&.fs-carousel-control_next {}
+	&.fs-carousel-control_next {
+	}
 
 	&:focus,
-	&:hover {}
+	&:hover {
+	}
 }
 
 .fs-carousel-control-icon {
@@ -75,12 +73,10 @@
 	@include visually_hide;
 }
 
-
 /* Carousel Pagination
 ============================================================================= */
 
 .fs-carousel-pagination {
-
 	@media print {
 		display: none !important;
 	}
@@ -106,12 +102,11 @@
 
 		background-color: #999;
 		border-radius: 50%;
-		content: "";
+		content: '';
 		transform: translate(-50%, -50%);
 	}
 
 	&.fs-carousel-active {
-
 		&:before {
 			background-color: #000;
 		}

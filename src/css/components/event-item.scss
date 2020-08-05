@@ -3,20 +3,17 @@
 ============================================================================= */
 
 .event_item {
-
 	@media #{$min_xl} {
 		align-items: center;
 	}
 
 	.event_list & {
-
 		@media #{$min_md} {
 			display: flex;
 		}
 	}
 
 	.event_feature & {
-
 		@media #{$min_lg} {
 			display: flex;
 		}
@@ -53,7 +50,6 @@
 	}
 
 	.event_feature & {
-
 		@media #{$min_md} {
 			width: 40%;
 
@@ -80,20 +76,17 @@
 }
 
 .event_wrapper {
-
 	@media #{$min_md} {
 		margin-right: auto;
 	}
 
 	.event_list & {
-
 		@media #{$min_md} {
 			flex: 0 0 65%;
 		}
 	}
 
 	.event_feature & {
-
 		@media #{$min_md} {
 			flex: 0 0 48%;
 		}
@@ -152,14 +145,14 @@
 	}
 }
 
-.event_time_start {}
+.event_time_start {
+}
 
-.event_time_end {}
+.event_time_end {
+}
 
 .event_body {
-
 	.event_list & {
-
 		@media #{$min_xl} {
 			display: flex;
 		}
@@ -172,7 +165,6 @@
 	margin-bottom: 22px;
 
 	.event_list & {
-
 		@media #{$min_xl} {
 			flex: 0 0 47%;
 			margin: 0 auto 0 0;

@@ -2,7 +2,8 @@
 	Event Meta
 ============================================================================= */
 
-.event_meta {}
+.event_meta {
+}
 
 .event_meta_inner {
 	border-bottom: 2px solid $gray_10;
@@ -15,10 +16,10 @@
 }
 
 .event_meta_body {
-
 	@media #{$min_lg} {
 		margin-right: 30px;
 	}
 }
 
-.event_meta_details {}
+.event_meta_details {
+}

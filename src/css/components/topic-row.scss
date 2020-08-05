@@ -6,7 +6,8 @@
 	@include margined_xl;
 }
 
-.topics_inner {}
+.topics_inner {
+}
 
 .topics_header {
 	margin-bottom: 20px;
@@ -18,7 +19,8 @@
 	margin: 0 0 6px;
 }
 
-.topics_title_label {}
+.topics_title_label {
+}
 
 .topics_description {
 	@include body_text;
@@ -28,14 +30,13 @@
 	}
 }
 
-.topics_body {}
-
+.topics_body {
+}
 
 /* Topics
 ============================================================================= */
 
 .topic {
-
 	&:not(:last-child) {
 		margin-bottom: 60px;
 	}
@@ -87,11 +88,14 @@
 	padding-top: $classic;
 }
 
-.topic_image {}
+.topic_image {
+}
 
-.topic_wrapper {}
+.topic_wrapper {
+}
 
-.topic_header {}
+.topic_header {
+}
 
 .topic_title {
 	@include h3;
@@ -99,9 +103,11 @@
 	margin: 0 0 6px;
 }
 
-.topic_label {}
+.topic_label {
+}
 
-.topic_body {}
+.topic_body {
+}
 
 .topic_description {
 	@include body_text;

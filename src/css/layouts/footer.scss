@@ -17,7 +17,6 @@
 }
 
 .footer_primary {
-
 	@media #{$min_lg} {
 		margin-bottom: 70px;
 	}
@@ -28,7 +27,6 @@
 }
 
 .footer_primary_inner {
-
 	@media #{$min_lg} {
 		width: 100%;
 
@@ -37,18 +35,18 @@
 	}
 }
 
-.footer_ribbon {}
+.footer_ribbon {
+}
 
 .footer_ribbon_inner {
-
 	@media #{$min_xl} {
 		align-items: center;
 		display: flex;
 	}
 }
 
-.footer_group {}
-
+.footer_group {
+}
 
 /* Copyright
 ============================================================================= */
@@ -63,10 +61,14 @@
 	}
 }
 
-.copyright_icon {}
+.copyright_icon {
+}
 
-.copyright_holder {}
+.copyright_holder {
+}
 
-.copyright_holder_name {}
+.copyright_holder_name {
+}
 
-.copyright_year {}
+.copyright_year {
+}

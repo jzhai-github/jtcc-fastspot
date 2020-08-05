@@ -18,7 +18,6 @@
 	}
 }
 
-
 /* Pagination Nav
 ============================================================================= */
 
@@ -42,10 +41,7 @@
 	display: flex;
 	opacity: 1;
 	pointer-events: auto;
-	transition:
-		color $base_speed,
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: color $base_speed, opacity $base_speed, visibility $base_speed;
 	visibility: visible;
 
 	&:not(.pagination_arrow_disabled):hover,
@@ -74,8 +70,8 @@
 	@include visually_hide;
 }
 
-.pagination_arrow_icon {}
-
+.pagination_arrow_icon {
+}
 
 /* Pagination Form
 ============================================================================= */

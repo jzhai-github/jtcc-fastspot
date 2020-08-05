@@ -15,13 +15,13 @@
 		padding-bottom: 0;
 	}
 
-
 	@media #{$min_xl} {
 		flex: 0 0 40.5%;
 	}
 }
 
-.meta_info_details {}
+.meta_info_details {
+}
 
 .meta_info_detail {
 	display: flex;
@@ -34,20 +34,23 @@
 	}
 }
 
-.meta_info_detail_address {}
+.meta_info_detail_address {
+}
 
-.meta_info_detail_email {}
+.meta_info_detail_email {
+}
 
-.meta_info_detail_phone {}
+.meta_info_detail_phone {
+}
 
-.meta_info_detail_fax {}
+.meta_info_detail_fax {
+}
 
-.meta_info_detail_icon {}
+.meta_info_detail_icon {
+}
 
 .meta_info_detail_label {
-
 	&:after {
-
 		@media print {
 			content: normal;
 			display: none;
@@ -71,12 +74,17 @@
 	}
 }
 
-.meta_info_address_street {}
+.meta_info_address_street {
+}
 
-.meta_info_address_group {}
+.meta_info_address_group {
+}
 
-.meta_info_address_city {}
+.meta_info_address_city {
+}
 
-.meta_info_address_state {}
+.meta_info_address_state {
+}
 
-.meta_info_address_zip {}
+.meta_info_address_zip {
+}

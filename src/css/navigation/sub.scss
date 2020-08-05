@@ -2,7 +2,8 @@
 	Sub Navigation
 ============================================================================= */
 
-.sub_nav_group {}
+.sub_nav_group {
+}
 
 .sub_nav {
 	position: relative;
@@ -12,7 +13,8 @@
 	}
 }
 
-.sub_nav_header {}
+.sub_nav_header {
+}
 
 .sub_nav_title {
 	@include h5;
@@ -25,13 +27,12 @@
 }
 
 .sub_nav_body {
-
 	.js & {
 		height: 0;
 
 		overflow: hidden;
 		transition: height 0.4s;
-		transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+		transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 		@media #{$min_lg} {
 			height: auto;
@@ -40,7 +41,6 @@
 }
 
 .sub_nav_body_inner {
-
 	.sub_nav_group.fs-swap-enabled & {
 		opacity: 0;
 		transition: opacity $base_speed;
@@ -55,7 +55,6 @@
 		transition-delay: 0.15s;
 	}
 }
-
 
 /* Sub Nav Links
 ============================================================================= */
@@ -83,12 +82,15 @@
 		grid-template-columns: repeat(4, 1fr);
 	}
 
-	.sub_nav.fs-swap-enabled & {}
+	.sub_nav.fs-swap-enabled & {
+	}
 
-	.sub_nav.fs-swap-active & {}
+	.sub_nav.fs-swap-active & {
+	}
 }
 
-.sub_nav_item {}
+.sub_nav_item {
+}
 
 .sub_nav_link {
 	color: $accent;
@@ -103,10 +105,11 @@
 	}
 }
 
-.sub_nav_link_icon {}
+.sub_nav_link_icon {
+}
 
-.sub_nav_link_label {}
-
+.sub_nav_link_label {
+}
 
 /* Sub Nav Children
 ============================================================================= */
@@ -115,10 +118,11 @@
 	@include remove_list;
 }
 
-.sub_nav_child_item {}
+.sub_nav_child_item {
+}
 
-.sub_nav_child_link {}
-
+.sub_nav_child_link {
+}
 
 /* Sub Nav Toggle
 ============================================================================= */
@@ -143,7 +147,8 @@
 		text-align: left;
 	}
 
-	&.fs-swap-active {}
+	&.fs-swap-active {
+	}
 
 	&:hover,
 	&:focus {
@@ -157,9 +162,7 @@
 	align-items: center;
 	display: flex;
 	padding: 10px 0;
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 }
 
 .sub_nav_toggle_inner_default {
@@ -195,9 +198,11 @@
 	margin-right: 10px;
 }
 
-.sub_nav_toggle_label_default {}
+.sub_nav_toggle_label_default {
+}
 
-.sub_nav_toggle_label_active {}
+.sub_nav_toggle_label_active {
+}
 
 .sub_nav_toggle_icon {
 	width: 26px;
@@ -211,17 +216,21 @@
 	margin-left: auto;
 }
 
-.sub_nav_toggle_icon_default {}
+.sub_nav_toggle_icon_default {
+}
 
-.sub_nav_toggle_icon_active {}
+.sub_nav_toggle_icon_active {
+}
 
 .sub_nav_toggle_icon_inner {
 	@include center;
 }
 
-.sub_nav_toggle_icon_inner_default {}
+.sub_nav_toggle_icon_inner_default {
+}
 
-.sub_nav_toggle_icon_inner_active {}
+.sub_nav_toggle_icon_inner_active {
+}
 
 .sub_nav_toggle_icon_space {
 	display: none;

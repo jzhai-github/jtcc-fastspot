@@ -6,7 +6,8 @@
 	@include margined_xl;
 }
 
-.event_list_inner {}
+.event_list_inner {
+}
 
 .event_list_items {
 	@include remove_list;

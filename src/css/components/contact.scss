@@ -16,7 +16,8 @@
 	}
 }
 
-.contact {}
+.contact {
+}
 
 .contact_header {
 	align-items: center;
@@ -60,16 +61,16 @@
 	padding-top: $square;
 }
 
-.contact_image {}
+.contact_image {
+}
 
-.contact_body {}
-
+.contact_body {
+}
 
 /* Contact Details
 ============================================================================= */
 
 .contact_details {
-
 	@media #{$min_sm} {
 		display: flex;
 		flex-wrap: wrap;
@@ -132,7 +133,6 @@
 		}
 
 		&:after {
-
 			@media print {
 				content: normal;
 			}

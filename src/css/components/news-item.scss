@@ -3,20 +3,17 @@
 ============================================================================= */
 
 .news_item {
-
 	@media #{$min_xl} {
 		align-items: center;
 	}
 
 	.news_list & {
-
 		@media #{$min_md} {
 			display: flex;
 		}
 	}
 
 	.news_feature & {
-
 		@media #{$min_lg} {
 			display: flex;
 		}
@@ -53,7 +50,6 @@
 	}
 
 	.news_feature & {
-
 		@media #{$min_md} {
 			width: 40%;
 
@@ -80,20 +76,17 @@
 }
 
 .news_item_wrapper {
-
 	@media #{$min_md} {
 		margin-right: auto;
 	}
 
 	.news_list & {
-
 		@media #{$min_md} {
 			flex: 0 0 65%;
 		}
 	}
 
 	.news_feature & {
-
 		@media #{$min_md} {
 			flex: 0 0 48%;
 		}
@@ -166,7 +159,8 @@
 	}
 }
 
-.news_item_body {}
+.news_item_body {
+}
 
 .news_item_description {
 	@include body_text;

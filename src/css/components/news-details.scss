@@ -22,15 +22,16 @@
 }
 
 .news_item_detail_hint {
-
 	.news_item_date & {
 		@include visually_hide;
 	}
 }
 
-.news_item_detail_label {}
+.news_item_detail_label {
+}
 
-.news_item_date_label {}
+.news_item_date_label {
+}
 
 .news_item_publisher {
 	@include visually_hide;

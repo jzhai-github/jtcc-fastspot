@@ -3,9 +3,7 @@
 ============================================================================= */
 
 #fs-grid-menu {
-
 	.fs-grid-status-lg {
-
 		@media #{$min_xl} {
 			background: transparent !important;
 			color: #ccc !important;
@@ -13,16 +11,13 @@
 	}
 
 	.fs-grid-status-xl {
-
 		@media #{$min_xxl} {
 			background: transparent !important;
 			color: #ccc !important;
 		}
 	}
 
-
 	.fs-grid-status-xxl {
-
 		@media #{$min_xxl} {
 			background: #ccc;
 			color: #333 !important;
@@ -31,7 +26,6 @@
 
 	.fs-grid-show,
 	.fs-grid-remove {
-
 		&:focus {
 			color: #eee;
 		}

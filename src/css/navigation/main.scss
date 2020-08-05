@@ -3,7 +3,6 @@
 ============================================================================= */
 
 .main_nav {
-
 	@media #{$min_lg} {
 		margin: 10px 0 0 -20px;
 	}
@@ -13,7 +12,6 @@
 	}
 
 	&.main_nav_lg {
-
 		@media #{$max_lg} {
 			display: none;
 		}
@@ -28,14 +26,13 @@
 	@include visually_hide;
 }
 
-.main_nav_title {}
-
+.main_nav_title {
+}
 
 /* Main Nav Links
 ============================================================================= */
 
 .main_nav_list {
-
 	@media #{$min_lg} {
 		display: flex;
 	}
@@ -44,19 +41,19 @@
 .main_nav_item {
 	position: relative;
 
-	&.active {}
+	&.active {
+	}
 }
 
-.main_nav_item_inner {}
+.main_nav_item_inner {
+}
 
 .main_nav_link {
 	@include fw_emphasized;
 
 	color: $accent;
 	padding: 10px 0;
-	transition:
-		background-color $base_speed,
-		color $base_speed;
+	transition: background-color $base_speed, color $base_speed;
 
 	@media #{$min_lg} {
 		padding: 24px 34px 16px 20px;
@@ -77,7 +74,6 @@
 	}
 
 	&.active {
-
 		@media #{$min_lg} {
 			color: #fff;
 		}
@@ -88,7 +84,8 @@
 	text-decoration: underline;
 }
 
-.main_nav_link_icon {}
+.main_nav_link_icon {
+}
 
 .main_nav_toggle {
 	display: none;
@@ -125,7 +122,6 @@
 	.main_nav_item.active & {
 		color: #fff;
 	}
-
 }
 
 .main_nav_toggle_inner {
@@ -160,7 +156,6 @@
 	}
 }
 
-
 /* Main Nav Children
 ============================================================================= */
 
@@ -181,7 +176,8 @@
 	}
 }
 
-.main_nav_child_item {}
+.main_nav_child_item {
+}
 
 .main_nav_child_link {
 	color: inherit;
@@ -203,6 +199,8 @@
 	}
 }
 
-.main_nav_child_link_icon {}
+.main_nav_child_link_icon {
+}
 
-.main_nav_child_link_label {}
+.main_nav_child_link_label {
+}

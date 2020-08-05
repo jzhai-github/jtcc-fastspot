@@ -2,7 +2,8 @@
 	News Meta
 ============================================================================= */
 
-.news_meta {}
+.news_meta {
+}
 
 .news_meta_inner {
 	border-bottom: 2px solid $gray_10;
@@ -15,7 +16,6 @@
 }
 
 .news_meta_body {
-
 	@media #{$min_md} {
 		align-items: center;
 		display: flex;

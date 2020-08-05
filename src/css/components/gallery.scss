@@ -8,7 +8,8 @@
 	overflow: hidden;
 }
 
-.gallery_inner {}
+.gallery_inner {
+}
 
 .gallery_header {
 	margin-bottom: 20px;
@@ -75,9 +76,7 @@
 		height: 34px;
 
 		color: $gray_20;
-		transition:
-			color $base_speed,
-			opacity $base_speed,
+		transition: color $base_speed, opacity $base_speed,
 			visibility $base_speed;
 
 		&.fs-carousel-visible {
@@ -124,14 +123,14 @@
 	}
 
 	&.no_caption {
-
 		@media print {
 			display: none;
 		}
 	}
 }
 
-.gallery_item_figure {}
+.gallery_item_figure {
+}
 
 .gallery_item_media {
 	position: relative;
@@ -148,7 +147,7 @@
 
 	display: none;
 
-	.js	& {
+	.js & {
 		display: block;
 		opacity: 0;
 		transition: opacity 0.5s;
@@ -172,9 +171,7 @@
 	@include cover;
 
 	color: #fff;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	transition: background $base_speed, color $base_speed;
 
 	&:hover,
 	&:focus {
@@ -191,9 +188,7 @@
 	background: $accent;
 	border-radius: 50%;
 	color: inherit;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	transition: background $base_speed, color $base_speed;
 
 	.gallery_item_link:hover &,
 	.gallery_item_link:focus & {
@@ -227,16 +222,12 @@
 	.fs-carousel-item & {
 		opacity: 0;
 		transform: translate3d(60px, 0, 0);
-		transition:
-			transform 0.5s,
-			opacity 0.5s;
+		transition: transform 0.5s, opacity 0.5s;
 	}
 
 	.fs-carousel-item_previous &,
 	.fs-carousel-item_next & {
-		transition:
-			transform 0.5s,
-			opacity 0.15s;
+		transition: transform 0.5s, opacity 0.15s;
 		transition-delay: 0s;
 	}
 
@@ -255,9 +246,11 @@
 	}
 }
 
-.gallery_index_number {}
+.gallery_index_number {
+}
 
-.gallery_index_label {}
+.gallery_index_label {
+}
 
 .gallery_item_caption {
 	@include small_text;

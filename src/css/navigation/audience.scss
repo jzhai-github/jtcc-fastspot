@@ -21,7 +21,6 @@
 	padding: 6px 0 30px;
 
 	&.audience_nav_sm {
-
 		.audience_group.fs-swap-enabled & {
 			display: none;
 		}
@@ -38,9 +37,7 @@
 
 		opacity: 0;
 		pointer-events: none;
-		transition:
-			opacity $base_speed,
-			visibility $base_speed;
+		transition: opacity $base_speed, visibility $base_speed;
 		visibility: hidden;
 
 		.audience_group.fs-swap-enabled:hover & {
@@ -59,7 +56,8 @@
 	}
 }
 
-.audience_nav_header {}
+.audience_nav_header {
+}
 
 .audience_nav_title {
 	@include visually_hide;
@@ -69,9 +67,11 @@
 	line-height: 1.2;
 }
 
-.audience_nav_item {}
+.audience_nav_item {
+}
 
-.audience_nav_item_inner {}
+.audience_nav_item_inner {
+}
 
 .audience_nav_link {
 	color: inherit;
@@ -85,8 +85,8 @@
 	}
 }
 
-.audience_nav_link_label {}
-
+.audience_nav_link_label {
+}
 
 /* Audience Toggle
 ============================================================================= */
@@ -100,9 +100,7 @@
 	color: #fff;
 	display: block;
 	line-height: 1;
-	transition:
-		background-color $base_speed,
-		color $base_speed;
+	transition: background-color $base_speed, color $base_speed;
 
 	&:hover,
 	&:focus {
@@ -121,14 +119,11 @@
 	display: flex;
 	opacity: 1;
 	padding: 14px 20px;
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 	visibility: visible;
 }
 
 .audience_toggle_inner_default {
-
 	.audience_toggle.fs-swap-active & {
 		opacity: 0;
 		visibility: hidden;
@@ -156,9 +151,11 @@
 	margin-right: 10px;
 }
 
-.audience_toggle_label_default {}
+.audience_toggle_label_default {
+}
 
-.audience_toggle_label_active {}
+.audience_toggle_label_active {
+}
 
 .audience_toggle_icon {
 	margin-left: auto;
@@ -168,13 +165,17 @@
 	transition: transform $base_speed;
 }
 
-.audience_toggle_icon_active {}
+.audience_toggle_icon_active {
+}
 
-.audience_toggle_icon_inner {}
+.audience_toggle_icon_inner {
+}
 
-.audience_toggle_icon_inner_default {}
+.audience_toggle_icon_inner_default {
+}
 
-.audience_toggle_icon_inner_active {}
+.audience_toggle_icon_inner_active {
+}
 
 .audience_toggle_icon_space {
 	display: none;

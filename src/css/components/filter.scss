@@ -16,7 +16,8 @@
 	}
 }
 
-.filter_inner {}
+.filter_inner {
+}
 
 .filter_tabs {
 	margin-bottom: 28px;
@@ -32,10 +33,7 @@
 	margin-right: 4px;
 	padding: 14px 35px 15px;
 	text-decoration: underline;
-	transition:
-		background $base_speed,
-		border $base_speed,
-		color $base_speed,
+	transition: background $base_speed, border $base_speed, color $base_speed,
 		text-decoration $base_speed;
 
 	@media #{$min_sm} {
@@ -49,13 +47,9 @@
 
 		border: 12px solid transparent;
 		border-top-color: #000;
-		content: "";
-		transition:
-			border $base_speed,
-			transform $base_speed;
-		transform:
-			translate(-50%, 0)
-			scaleY(0);
+		content: '';
+		transition: border $base_speed, transform $base_speed;
+		transform: translate(-50%, 0) scaleY(0);
 		transform-origin: center top;
 	}
 
@@ -73,9 +67,7 @@
 		text-decoration-color: transparent;
 
 		&:after {
-			transform:
-				translate(-50%, 0)
-				scaleY(.65);
+			transform: translate(-50%, 0) scaleY(0.65);
 		}
 
 		&:focus {
@@ -88,7 +80,8 @@
 	}
 }
 
-.filter_form {}
+.filter_form {
+}
 
 .filter_tabpanel {
 	display: none;
@@ -99,7 +92,6 @@
 }
 
 .filter_tools {
-
 	@media #{$min_md} {
 		align-items: flex-end;
 		display: flex;
@@ -107,7 +99,6 @@
 }
 
 .filter_tool {
-
 	@media #{$min_md} {
 		margin-right: 20px;
 	}
@@ -139,7 +130,6 @@
 }
 
 .filter_tool_select {
-
 	&:focus {
 		box-shadow: 0 0 3px 1px $accent;
 	}
@@ -155,7 +145,7 @@
 }
 
 .filter_tools_submit {
-	@include button_fill("accent");
+	@include button_fill('accent');
 }
 
 .filter_search {
@@ -199,7 +189,8 @@
 	@include visually_hide;
 }
 
-.filter_search_submit_icon {}
+.filter_search_submit_icon {
+}
 
 .filter_results {
 	margin-top: 20px;
@@ -242,10 +233,7 @@
 	display: inline-block;
 	padding: 4px 12px;
 	margin-top: 10px;
-	transition:
-		background $base_speed,
-		border $base_speed,
-		color $base_speed;
+	transition: background $base_speed, border $base_speed, color $base_speed;
 
 	@media #{$min_md} {
 		margin-top: 0;

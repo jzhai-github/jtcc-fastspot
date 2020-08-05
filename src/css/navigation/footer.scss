@@ -13,12 +13,12 @@
 	}
 }
 
-.footer_nav_header {}
+.footer_nav_header {
+}
 
 .footer_nav_title {
 	@include visually_hide;
 }
-
 
 /* Footer Links
 ============================================================================= */
@@ -27,9 +27,11 @@
 	@include fw_emphasized;
 }
 
-.footer_nav_item {}
+.footer_nav_item {
+}
 
-.footer_nav_item_inner {}
+.footer_nav_item_inner {
+}
 
 .footer_nav_link {
 	color: inherit;
@@ -44,6 +46,8 @@
 	}
 }
 
-.footer_nav_link_label {}
+.footer_nav_link_label {
+}
 
-.footer_nav_link_icon {}
+.footer_nav_link_icon {
+}

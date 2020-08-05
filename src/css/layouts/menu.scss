@@ -26,10 +26,7 @@
 	}
 
 	.loaded & {
-		transition:
-			opacity 0.35s,
-			transform 0.35s,
-			visibility 0.35s;
+		transition: opacity 0.35s, transform 0.35s, visibility 0.35s;
 	}
 
 	.js & {
@@ -53,25 +50,29 @@
 	}
 }
 
-.menu_header {}
+.menu_header {
+}
 
-.menu_header_inner {}
+.menu_header_inner {
+}
 
 .menu_title {
 	@include visually_hide;
 }
 
-.menu_primary {}
+.menu_primary {
+}
 
-.menu_primary_inner {}
+.menu_primary_inner {
+}
 
 .menu_ribbon {
 	background: $gray_70;
 	padding: 30px 0;
 }
 
-.menu_ribbon_inner {}
-
+.menu_ribbon_inner {
+}
 
 /* Menu Close
 ============================================================================= */
@@ -109,14 +110,15 @@
 	@include fw_site_button;
 }
 
-.menu_close_toggle_icon {}
+.menu_close_toggle_icon {
+}
 
-.menu_close_toggle_label {}
+.menu_close_toggle_label {
+}
 
 .menu_close_toggle_icon_space {
 	display: none;
 }
-
 
 /* Menu Toggle
 ============================================================================= */
@@ -139,13 +141,10 @@
 .menu_toggle_inner {
 	@include fw_site_button;
 
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 }
 
 .menu_toggle_inner_default {
-
 	.menu_toggle.fs-swap-active & {
 		opacity: 0;
 		pointer-events: none;
@@ -168,19 +167,24 @@
 	}
 }
 
-.menu_toggle_label {}
+.menu_toggle_label {
+}
 
-.menu_toggle_label_default {}
+.menu_toggle_label_default {
+}
 
-.menu_toggle_label_active {}
+.menu_toggle_label_active {
+}
 
 .menu_toggle_icon {
 	pointer-events: none;
 }
 
-.menu_toggle_icon_default {}
+.menu_toggle_icon_default {
+}
 
-.menu_toggle_icon_active {}
+.menu_toggle_icon_active {
+}
 
 .menu_toggle_icon_space {
 	display: none;

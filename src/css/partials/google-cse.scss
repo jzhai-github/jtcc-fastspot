@@ -3,7 +3,6 @@
 ============================================================================= */
 
 #___gcse_0 {
-
 	.gsc-control-cse {
 		background-color: transparent;
 		border: 0;
@@ -11,7 +10,6 @@
 		font-size: inherit;
 		padding: 0;
 	}
-
 
 	/* Search Box
 	============================================================================= */
@@ -135,14 +133,12 @@
 		}
 	}
 
-
 	/* Search Tabs
 	============================================================================= */
 
 	.gsc-positioningWrapper {
 		display: none;
 	}
-
 
 	/* Results Count
 	============================================================================= */
@@ -159,7 +155,6 @@
 		padding: 0;
 		text-transform: uppercase;
 	}
-
 
 	/* Results
 	============================================================================= */
@@ -225,7 +220,8 @@
 		display: none;
 	}
 
-	.gsc-url-top {}
+	.gsc-url-top {
+	}
 
 	.gs-snippet {
 		@include body_text;
@@ -238,7 +234,6 @@
 		display: none;
 		margin-top: 8px;
 	}
-
 
 	/* Pagination
 	============================================================================= */
@@ -263,9 +258,7 @@
 		margin: 0;
 		padding: 0 10px 0 0;
 		text-decoration: underline;
-		transition:
-			background $base_speed,
-			border $base_speed,
+		transition: background $base_speed, border $base_speed,
 			color $base_speed;
 
 		@media #{$min_md} {
@@ -284,12 +277,10 @@
 		}
 	}
 
-
 	/* Branding
 	============================================================================= */
 
 	.gcsc-more-maybe-branding-root {
-
 		> a {
 			display: none;
 		}

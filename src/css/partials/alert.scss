@@ -48,7 +48,8 @@
 	}
 }
 
-.alert_header {}
+.alert_header {
+}
 
 .alert_title {
 	@include h3;
@@ -61,12 +62,13 @@
 	}
 }
 
-.alert_title_label {}
+.alert_title_label {
+}
 
-.alert_body {}
+.alert_body {
+}
 
 .alert_description {
-
 	p:first-child {
 		margin-top: 0;
 	}
@@ -97,7 +99,8 @@
 	}
 }
 
-.alert_close_inner {}
+.alert_close_inner {
+}
 
 .alert_close_icon {
 	width: 46px;
@@ -109,9 +112,7 @@
 	color: #fff;
 	border-radius: 50%;
 	display: block;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	transition: background $base_speed, color $base_speed;
 
 	.alert_close:hover &,
 	.alert_close:focus & {
@@ -128,7 +129,6 @@
 .alert_close_label {
 	@include visually_hide;
 }
-
 
 /* Alert Toggle
 ============================================================================= */
@@ -171,7 +171,8 @@
 	}
 }
 
-.alert_open_inner {}
+.alert_open_inner {
+}
 
 .alert_open_icon {
 	@include center;
@@ -183,9 +184,7 @@
 	color: #fff;
 	border-radius: 50%;
 	display: block;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	transition: background $base_speed, color $base_speed;
 
 	.alert_open:hover &,
 	.alert_open:focus & {

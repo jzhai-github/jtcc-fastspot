@@ -3,7 +3,6 @@
 ============================================================================= */
 
 .utility_nav {
-
 	@media #{$min_lg} {
 		margin-bottom: 20px;
 	}
@@ -13,12 +12,12 @@
 	}
 }
 
-.utility_nav_header {}
+.utility_nav_header {
+}
 
 .utility_nav_title {
 	@include visually_hide;
 }
-
 
 /* Utility Links
 ============================================================================= */
@@ -34,9 +33,11 @@
 	}
 }
 
-.utility_nav_item {}
+.utility_nav_item {
+}
 
-.utility_nav_item_inner {}
+.utility_nav_item_inner {
+}
 
 .utility_nav_link {
 	color: inherit;
@@ -55,6 +56,8 @@
 	}
 }
 
-.utility_nav_link_icon {}
+.utility_nav_link_icon {
+}
 
-.utility_nav_link_label {}
+.utility_nav_link_label {
+}

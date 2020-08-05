@@ -15,7 +15,8 @@
 	}
 }
 
-.page_header_inner {}
+.page_header_inner {
+}
 
 .page_title {
 	@include h1;
@@ -47,7 +48,8 @@
 	}
 }
 
-.page_intro_inner {}
+.page_intro_inner {
+}
 
 .page_description {
 	@include intro_text;
@@ -67,15 +69,18 @@
 	}
 }
 
-.page_nav_inner {}
+.page_nav_inner {
+}
 
-.page_header_media {}
+.page_header_media {
+}
 
 .page_header_media_inner {
 	position: relative;
 }
 
-.page_header_figure {}
+.page_header_figure {
+}
 
 .page_header_image_wrapper {
 	padding-top: $wide;

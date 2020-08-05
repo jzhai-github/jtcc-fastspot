@@ -2,12 +2,10 @@
 // Mixins
 // =============================================================================
 
-
 /* Framework
 ============================================================================= */
 
 @mixin fw_emphasized($font: text) {
-
 	@if $font == text {
 		font-size: 18px;
 		font-weight: 700;
@@ -24,13 +22,13 @@
 	display: flex;
 	justify-content: flex-end;
 
-	[class$="_label"] {
+	[class$='_label'] {
 		@include fw_emphasized(display);
 
 		margin-right: 10px;
 	}
 
-	[class$="_icon"] {
+	[class$='_icon'] {
 		width: 46px;
 		height: 46px;
 
@@ -39,19 +37,16 @@
 		background: $accent;
 		border-radius: 50%;
 		display: block;
-		transition:
-			background $base_speed,
-			color $base_speed;
+		transition: background $base_speed, color $base_speed;
 	}
 
-	[class$="_icon_inner"] {
+	[class$='_icon_inner'] {
 		@include center;
 	}
 
 	&:hover,
 	&:focus {
-
-		[class$="_icon"] {
+		[class$='_icon'] {
 			background: #fff;
 			color: #000;
 		}
@@ -59,7 +54,6 @@
 }
 
 @mixin fw_type_breakout() {
-
 	@media #{$min_lg} {
 		margin-right: -10.5%;
 		margin-left: -10.5%;
@@ -84,7 +78,6 @@
 }
 
 @mixin fw_card_grid_item() {
-
 	@media #{$min_sm} {
 		flex: 0 0 48%;
 		margin-right: auto;
@@ -101,21 +94,18 @@
 	}
 
 	&:nth-child(even) {
-
 		@media #{$min_sm $and_max_lg} {
 			margin-right: 0;
 		}
 	}
 
 	&:nth-child(3n + 3) {
-
 		@media #{$min_lg $and_max_xl} {
 			margin-right: 0;
 		}
 	}
 
 	&:nth-child(4n + 4) {
-
 		@media #{$min_xl} {
 			margin-right: 0;
 		}
