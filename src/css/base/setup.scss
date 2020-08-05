@@ -187,7 +187,7 @@ $portrait_classic: 150%;
 		@font-face {
 			font-display: swap;
 			font-family: $name;
-			src: url('../fonts/#{$file}.otf');
+			src: url('/fonts/#{$file}.otf');
 			font-weight: $weight;
 
 			@if $style {

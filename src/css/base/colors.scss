@@ -2,12 +2,26 @@
 // Colors
 // =============================================================================
 
-$black: #222;
-$accent: #0070eb;
-$gray_light: #fcfcfc;
-$error: #a70034;
+$bergundy: #660033;
+$maroon: #9f2140;
+$bright_pink: #e53e51;
+$peach: #ee907b;
+$blush: #e8b8a6;
+$light_pink: #f8e8e3;
+$navy: #173a45;
+$teal: #006068;
+$green_blue: #00a88f;
+$turquoise: #5cb8b2;
+$seaweed: #008375;
+$mustard: #f1c400;
+$dijon: #d7a14a;
+$cream: #fff1d0;
+$light_gray: #f0f0f0;
 
-$theme_colors: ((black, $black));
+$black: #000;
+$accent: #0070eb;
+$gray_light: $light_gray;
+$error: $bergundy;
 
 $gray_05: #f2f2f2;
 $gray_10: #eaeaea;
@@ -19,13 +33,3 @@ $gray_60: #666666;
 $gray_70: #4d4d4d;
 $gray_80: #333333;
 $gray_90: #222222;
-
-// Themes
-// =============================================================================
-
-@mixin theme($list: $theme_colors) {
-	@each $label, $color in $list {
-		.theme_#{$label} & {
-		}
-	}
-}

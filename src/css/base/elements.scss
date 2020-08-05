@@ -7,7 +7,7 @@ html {
 }
 
 body {
-	@include sans;
+	@include serif(300);
 
 	min-width: 300px;
 
@@ -41,6 +41,17 @@ video {
 	vertical-align: middle;
 }
 
+img,
+svg {
+	height: auto;
+	max-width: 100%;
+}
+
+svg {
+	transition: color $base_speed $base_timing,
+		background-color $base_speed $base_timing;
+}
+
 figure {
 	margin: 0;
 }
@@ -54,9 +65,38 @@ hr {
 }
 
 a {
+	color: currentColor;
+	display: inline;
 	text-decoration: none;
+	transition-duration: $base_speed;
+	transition-timing-function: $base_timing;
+	transition-property: color, text-decoration, border, background-color;
 }
 
 strong {
 	font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+figure,
+blockquote {
+	margin: 0;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
 }

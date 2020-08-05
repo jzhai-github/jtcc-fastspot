@@ -1,0 +1,29 @@
+printWidth: 80
+useTabs: true
+tabWidth: 4
+semi: true
+singleQuote: true
+trailingComma: 'none'
+bracketSpacing: true
+jsxBracketSameLine: false
+arrowParens: 'always'
+overrides:
+  - files:
+      - 'package.json'
+      - '*.yml'
+      - '*.yaml'
+      - '*.md'
+      - '.*'
+    options:
+      tabWidth: 2
+      trailingComma: 'all'
+  - files:
+      - '*.libraries.yml'
+    options:
+      printWidth: 200
+  - files:
+      - '*.module'
+      - '*.php'
+    options:
+      parser: 'php'
+      trailingComma: 'all'

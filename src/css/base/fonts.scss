@@ -2,43 +2,58 @@
 // Fonts
 // =============================================================================
 
-/* Sans - Fastspot Brand
-============================================================================= */
+/**
+ * 100 - Knockout Junior Featherweight (28)
+ * 300 - Knockout Junior Liteweight (29)
+ * 400 - Knockout Junior Welterweight (30)
+ * 500 - Knockout Full Featherweight (68)
+ * 600 - Knockout Full Liteweight (69)
+ * 700 - Knockout Full Welterweight (70)
+*/
 
 @include font-face(
-	'Neue Haas Grotesk Text Std',
+	'Knockout',
 	(
-		('NHaasGroteskTXStd-55Rg', 400),
-		('NHaasGroteskTXStd-56It', 400, italic),
-		('NHaasGroteskTXStd-65Md', 500),
-		('NHaasGroteskTXStd-75Bd', 700)
+		('Knockout-28', 100),
+		('Knockout-29', 300),
+		('Knockout-30', 400),
+		('Knockout-68', 500),
+		('Knockout-69', 600),
+		('Knockout-70', 700)
 	)
 );
 
-@mixin sans($weight: null) {
-	font-family: 'Neue Haas Grotesk Text Std', sans-serif;
+/**
+ * 300 - Sentinel Light
+ * 700 - Sentinel Bold
+*/
 
-	@if $weight != null {
+@include font-face(
+	'Sentinel',
+	(
+		('Sentinel-Light', 300),
+		('Sentinel-LightItal', 300, italic),
+		('Sentinel-Bold', 700),
+		('Sentinel-BoldItal', 700, italic)
+	)
+);
+
+@mixin serif($weight: null) {
+	font-family: 'Sentinel', Georgia, 'Times New Roman', Times, serif;
+
+	@if $weight {
 		font-weight: $weight;
 	}
 }
 
-/* Title - Fastspot Brand
-============================================================================= */
-
-@include font-face(
-	'Neue Haas Grotesk Display Std',
-	(
-		('NHaasGroteskDSStd-55Rg', 400),
-		('NHaasGroteskDSStd-65Md', 500),
-		('NHaasGroteskDSStd-75Bd', 700)
-	)
-);
+@mixin sans($weight: null) {
+	@include serif($weight);
+}
 
 @mixin title($weight: null) {
-	font-family: 'Neue Haas Grotesk Display Std', sans-serif;
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
 
-	@if $weight != null {
+	@if $weight {
 		font-weight: $weight;
 	}
 }
