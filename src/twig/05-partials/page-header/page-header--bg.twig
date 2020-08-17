@@ -3,97 +3,97 @@
 		<div class="page_header_bg_group">
 			<div class="page_header_bg_content">
 				{% if page.breadcrumbNav != false  %}
-				<div class="breadcrumb">
-					<div class="fs-row">
-						<div class="fs-cell">
-							<div class="breadcrumb_inner">
-								{% render "@navigation-breadcrumb" with {
+					<div class="breadcrumb">
+						<div class="fs-row">
+							<div class="fs-cell">
+								<div class="breadcrumb_inner">
+									{% render "@navigation-breadcrumb" with {
 									modifier: "",
 									links: page.breadcrumbNav,
 									icon_home: "home",
 									icon_divider: "angle_right",
 									icon_end: "angle_down"
 								} %}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 				{% endif %}
 				{% if page.title or page.description %}
-				<div class="page_intro">
-					<div class="fs-row">
-						<div class="fs-cell fs-lg-10 fs-xl-9">
-							<div class="page_intro_inner">
-								{% if page.title %}
-								<h1 class="page_title" itemprop="name">{{ page.title }}</h1>
-								{% endif %}
-								{% if page.description %}
-								<p class="page_description" itemprop="description">{{ page.description }}</p>
-								{% endif %}
+					<div class="page_intro">
+						<div class="fs-row">
+							<div class="fs-cell fs-lg-10 fs-xl-9">
+								<div class="page_intro_inner">
+									{% if page.title %}
+										<h1 class="page_title" itemprop="name">{{ page.title }}</h1>
+									{% endif %}
+									{% if page.description %}
+										<p class="page_description" itemprop="description">{{ page.description }}</p>
+									{% endif %}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 				{% endif %}
 			</div>
 			{% if page.layout != "detail" %}
-			{% if page.image or page.video %}
-			<div class="page_header_bg_media">
-				<div class="page_header_bg_media_inner">
-					{% if page.image %}
-					<figure class="page_header_bg_figure">
-						{% render "@partial-image" with {
+				{% if page.image or page.video %}
+					<div class="page_header_bg_media">
+						<div class="page_header_bg_media_inner">
+							{% if page.image %}
+								<figure class="page_header_bg_figure">
+									{% render "@partial-image" with {
 							class: "page_header_bg",
 							alt: "",
 							itemprop: "primaryImageOfPage",
 							image: page.image,
 							sources: [
-								img.wide.xlrg,
-								img.wide.lrg,
-								img.wide.med,
-								img.wide.sml,
-								img.wide.xsml
+								img("wide").xlrg,
+								img("wide").lrg,
+								img("wide").med,
+								img("wide").sml,
+								img("wide").xsml
 							]
 						} %}
-					</figure>
-					{% endif %}
-					{% if page.video %}
-					<div class="js-background-video-wrapper page_header_bg_video" aria-hidden="true">
-						<iframe class="js-background-video-iframe page_header_bg_iframe" src="//player.vimeo.com/video/{{ page.video }}?background=1" title="{{ page.title }} video" allow="autoplay"></iframe>
-						<div class="page_header_bg_video_controls">
-							{% render "@partial-button" with {
+								</figure>
+							{% endif %}
+							{% if page.video %}
+								<div class="js-background-video-wrapper page_header_bg_video" aria-hidden="true">
+									<iframe class="js-background-video-iframe page_header_bg_iframe" src="//player.vimeo.com/video/{{ page.video }}?background=1" title="{{ page.title }} video" allow="autoplay"></iframe>
+									<div class="page_header_bg_video_controls">
+										{% render "@partial-button" with {
 								class: "page_header_bg_video_play",
 								title: "Play Video",
 								icon: "video_play",
 								js: true
 							} %}
-							{% render "@partial-button" with {
+										{% render "@partial-button" with {
 								class: "page_header_bg_video_pause",
 								title: "Pause Video",
 								icon: "video_pause",
 								js: true
 							} %}
+									</div>
+								</div>
+							{% endif %}
 						</div>
 					</div>
-					{% endif %}
-				</div>
-			</div>
-			{% endif %}
+				{% endif %}
 			{% endif %}
 		</div>
 		{% if page.subNav != false  %}
-		<div class="page_nav">
-			<div class="fs-row">
-				<div class="fs-cell">
-					<div class="page_nav_inner">
-						{% render "@navigation-sub" with {
+			<div class="page_nav">
+				<div class="fs-row">
+					<div class="fs-cell">
+						<div class="page_nav_inner">
+							{% render "@navigation-sub" with {
 							modifier: "",
 							title: page.title
 						} %}
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		{% endif %}
 	</div>
 </div>

@@ -1,3 +1,3 @@
 module.exports = {
-    prefix: 'partial',
+	prefix: 'partial'
 };

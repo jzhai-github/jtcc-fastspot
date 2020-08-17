@@ -1,8 +1,8 @@
-var twigConfig = require('../../../twig.config');
+let fractal = require('@frctl/fractal').create();
 
 module.exports = {
 	context: {
-		title: twigConfig.context.page.title,
+		title: fractal.components.get('default.context').page.title,
 		items: [
 			{
 				name: 'Department or Office Name',

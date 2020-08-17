@@ -11,11 +11,11 @@
 	"scripts": {
 		"gulp": "gulp",
 		"fractal": "cross-env NODE_ENV=development fractal",
-		"fractal:build": "cross-env NODE_ENV=production npm run fractalBuild",
-		"fractal:sync": "cross-env NODE_ENV=development npm run fractal start --sync",
-		"build": "cross-env NODE_ENV=production npm run gulp build",
-		"github_build": "cross-env NODE_ENV=production npm run gulp github_build",
-		"axe": "cross-env NODE_ENV=development npm run gulp axe"
+		"fractal:build": "cross-env NODE_ENV=production yarn gulp fractal:build",
+		"fractal:sync": "cross-env NODE_ENV=development yarn gulp fractal:sync",
+		"build": "cross-env NODE_ENV=production yarn gulp build",
+		"github_build": "cross-env NODE_ENV=production yarn gulp github_build",
+		"axe": "cross-env NODE_ENV=development yarn gulp axe"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.10.2",

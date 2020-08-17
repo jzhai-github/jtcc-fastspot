@@ -2,15 +2,15 @@
 <div class="contact_block">
 	<script type="application/ld+json">
 		{
-		    "@context": "http://schema.org",
-		    "@type": "Person",
-		    "email": "mailto:{{ item.email }}",
-		    "image": "{{ item.image }}",
-		    "jobTitle": "{{ item.title }}",
-		    "name": "{{ item.name }}",
-		    "telephone": "{{ item.phone_numbers[0].number }}",
-		    "url": "#"
-		}
+				    "@context": "http://schema.org",
+				    "@type": "Person",
+				    "email": "mailto:{{ item.email }}",
+				    "image": "{{ item.image }}",
+				    "jobTitle": "{{ item.title }}",
+				    "name": "{{ item.name }}",
+				    "telephone": "{{ item.phone_numbers[0].number }}",
+				    "url": "#"
+				}
 	</script>
 	<div class="fs-row">
 		<div class="fs-cell">
@@ -30,8 +30,8 @@
                                     alt: "",
                                     image: item.image,
                                     sources: [
-                                        img.square.xxsml,
-                                        img.square.thumb
+                                        img("square").xxsml,
+                                        img("square").thumb
                                     ]
                                 } %}
 							</figure>

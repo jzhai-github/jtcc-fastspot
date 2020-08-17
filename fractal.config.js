@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const pkgJson = require('./package.json');
 const fractal = (module.exports = require('@frctl/fractal').create());
 const mandelbrot = require('@frctl/mandelbrot');
@@ -25,6 +24,8 @@ const isDevelopment = !isProduction;
 const customizedTheme = mandelbrot({
 	skin: 'black'
 });
+
+process.env.FRACTAL_CWD = __dirname;
 
 /* Set the title of the project */
 fractal.set('project.title', `${config.twig_variables.name} Component Library`);
@@ -87,6 +88,21 @@ fractal.components.set('default.collator', function (markup, item) {
 fractal.web.theme(customizedTheme);
 fractal.web.set('static.path', __dirname + '/dist');
 fractal.web.set('builder.dest', __dirname + '/static-html');
+
+fractal.components.set('default.context', {
+	grid: true,
+	cell: 'fs-lg-10 fs-xl-8 fs-lg-justify-center',
+	page: {
+		title: 'Page Title',
+		description:
+			'Dis facilisis tellus ultricies vestibulum cubilia risus, blandit commodo hac ut posuere ex cursus, class libero imperdiet nullam odio.',
+		layout: 'default',
+		theme: 'default',
+		activePage: 0,
+		subNav: false,
+		classes: []
+	}
+});
 
 // bug with babel
 bluebird.config({
