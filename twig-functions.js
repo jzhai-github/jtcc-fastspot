@@ -10,8 +10,10 @@ module.exports = {
 	img: function (key) {
 		return key in imageSizes ? imageSizes[key] : false;
 	},
-	variable: function (key) {
-		return key in config ? config.twig_variables[key] : false;
+	config: function (key) {
+		return key in config.twig_variables
+			? config.twig_variables[key]
+			: false;
 	},
 	navigation: function (key) {
 		return key in config.navigation ? config.navigation[key] : false;
