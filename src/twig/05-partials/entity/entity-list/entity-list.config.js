@@ -1,8 +1,6 @@
-let fractal = require('@frctl/fractal').create();
-
 module.exports = {
 	context: {
-		title: fractal.components.get('default.context').page.title,
+		title: 'Some Title',
 		items: [
 			{
 				name: 'Department or Office Name',

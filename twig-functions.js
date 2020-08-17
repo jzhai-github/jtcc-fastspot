@@ -26,7 +26,7 @@ module.exports = {
 	icon: function (name) {
 		return `
 			<svg class="icon icon_${name}">
-				<use href="#${name}" />
+				<use href="/images/icons.svg#${name}" />
 			</svg>
 		`;
 	},

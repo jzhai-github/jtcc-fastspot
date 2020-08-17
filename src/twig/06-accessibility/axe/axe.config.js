@@ -5,7 +5,7 @@ let axePath = `${fractal.web.get('static.path')}/axe.json`;
 let results = fs.existsSync(axePath) ? require(axePath) : [];
 
 module.exports = {
-    context: {
-        results: results,
-    },
+	context: {
+		results: results
+	}
 };

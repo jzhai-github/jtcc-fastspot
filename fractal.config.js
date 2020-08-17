@@ -92,16 +92,6 @@ fractal.web.set('builder.dest', __dirname + '/static-html');
 fractal.components.set('default.context', {
 	grid: true,
 	cell: 'fs-lg-10 fs-xl-8 fs-lg-justify-center',
-	page: {
-		title: 'Page Title',
-		description:
-			'Dis facilisis tellus ultricies vestibulum cubilia risus, blandit commodo hac ut posuere ex cursus, class libero imperdiet nullam odio.',
-		layout: 'default',
-		theme: 'default',
-		activePage: 0,
-		subNav: false,
-		classes: []
-	}
 });
 
 // bug with babel

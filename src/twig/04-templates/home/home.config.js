@@ -1,7 +1,7 @@
 module.exports = {
-    context: {
-        page: {
-            classes: ['layout_home'],
-        },
-    },
+	context: {
+		page: {
+			classes: ['layout_home']
+		}
+	}
 };
