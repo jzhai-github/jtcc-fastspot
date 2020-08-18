@@ -1,4 +1,5 @@
 let faker = require('faker');
+let random = require('lodash/random');
 
 let getContext = (obj) => {
 	return Object.assign(
@@ -6,7 +7,8 @@ let getContext = (obj) => {
 		{
 			quote: faker.lorem.paragraph(),
 			name: faker.name.findName(),
-			title: faker.name.jobType()
+			title: faker.name.jobType(),
+			image: random(0, 11)
 		},
 		obj
 	);
@@ -14,7 +16,7 @@ let getContext = (obj) => {
 
 module.exports = {
 	collated: true,
-	context: getContext({ theme: 'blue', image: 4 }),
+	context: getContext({ theme: 'blue' }),
 	default: 'blue',
 	variants: [
 		{
@@ -23,7 +25,8 @@ module.exports = {
 				theme: 'blue',
 				quote: `The support at Tyler was a really big factor for me in finding my self-confidence. You always have people tell you, ‘You can do it!’`,
 				name: 'Ravonte Campbell',
-				title: 'Mechanical Engineering'
+				title: 'Mechanical Engineering',
+				image: 4
 			}
 		},
 		{

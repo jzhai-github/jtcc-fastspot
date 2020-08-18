@@ -75,6 +75,12 @@
 
 .testimonial_background {
 	@include cover;
+
+	display: none;
+
+	@media #{$min_md} {
+		display: block;
+	}
 }
 
 .testimonial_info {

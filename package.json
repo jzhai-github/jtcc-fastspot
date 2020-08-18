@@ -45,6 +45,7 @@
 		"imagemin": "^7.0.0",
 		"imagemin-mozjpeg": "^9.0.0",
 		"imagemin-pngquant": "^9.0.0",
+		"lodash": "^4.17.20",
 		"normalize.css": "^8.0.1",
 		"postcss-pxtorem": "^5.1.1",
 		"table": "^5.4.6",
