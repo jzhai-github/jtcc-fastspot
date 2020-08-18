@@ -1,41 +1,45 @@
-<!-- Testimonial -->
-<div class="testimonial">
+<div class="testimonial theme-{{ theme }}">
 	<div class="fs-row">
-		<div class="fs-cell fs-lg-10 fs-lg-justify-center">
+		<div class="fs-cell {{ cell }}">
 			<div class="testimonial_inner">
-				<figure class="testimonial_figure">
+				<div class="testimonial_content">
 					<blockquote class="testimonial_quote">
 						<p>{{ quote }}</p>
 					</blockquote>
-					{% if image or name or title %}
-						<figcaption class="testimonial_figcaption">
-							{% if image %}
-								<span class="testimonial_media">
-									{% render "@partial-image" with {
-								class: "testimonial",
-								alt: "",
-								itemprop: "",
-								image: image,
-								sources: [
-									img("square").xxsml,
-									img("square").thumb
-								]
-							} %}
-								</span>
-							{% endif %}
-							{% if name or title %}
-								<span class="testimonial_info">
-									<span class="testimonial_quote_name">{{ name }}</span>
-									{% if title %}
-										<span class="testimonial_quote_title">{{ title }}</span>
-									{% endif %}
-								</span>
-							{% endif %}
-						</figcaption>
-					{% endif %}
-				</figure>
+
+					<div class="testimonial_info">
+						<div class="testimonial_quote_name">{{ name }}</div>
+						{% if title %}
+							<div class="testimonial_quote_title">{{ title }}</div>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="testimonial_media">
+					{% render "@partial-background" with {
+						class: "testimonial",
+						sources: {
+							'0px': img("portraitClassic").sml,
+							'500px': img("portraitClassic").med
+						}
+					} %}
+
+					<div class="testimonial_media_img">
+						{% render "@partial-image" with {
+							class: "testimonial",
+							alt: "",
+							itemprop: "",
+							image: image,
+							sources: [
+								img("portraitClassic").med,
+								img("portraitClassic").sml,
+								img("portraitClassic").xsml,
+								img("portraitClassic").xxsml
+							]
+						} %}
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- END: Testimonial -->

@@ -48,6 +48,10 @@ svg {
 	max-width: 100%;
 }
 
+img {
+	display: inline-block;
+}
+
 svg {
 	transition: color $base_speed $base_timing,
 		background-color $base_speed $base_timing;
@@ -88,7 +92,6 @@ h6 {
 }
 
 p {
-	font-size: 18px;
 	margin: 0;
 }
 

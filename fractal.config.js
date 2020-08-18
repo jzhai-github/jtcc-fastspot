@@ -3,7 +3,6 @@
 const pkgJson = require('./package.json');
 const fractal = (module.exports = require('@frctl/fractal').create());
 const mandelbrot = require('@frctl/mandelbrot');
-const bluebird = require('bluebird');
 const config = require('./config.json');
 const twigAdapter = require('@frctl/twig')({
 	namespaces: {
@@ -63,16 +62,18 @@ fractal.components.set('path', __dirname + '/src/twig');
 fractal.components.set('default.preview', '@preview');
 fractal.components.set('default.status', 'wip');
 fractal.components.set('default.collator', function (markup, item) {
-	const headingModifier =
-		item.preview === '@preview-dark' ? 'text-white' : '';
-	const bgModifier =
-		item.preview === '@preview-dark' ? 'bg-gray-900' : 'bg-white';
+	const headingStyle =
+		item.preview === '@preview-dark' ? 'color: #fff;' : 'color: #000;';
+	const bgStyle =
+		item.preview === '@preview-dark'
+			? 'background-color: #000;'
+			: 'background-color: #fff;';
 
 	return `
 		<br><br>
 
-        <div class="${bgModifier}">
-            <h2 class="heading-h2 ${headingModifier}">
+        <div style="${bgStyle}">
+            <h2 style="heading-h2 ${headingStyle}">
                 ${item.title}
             </h2>
 
@@ -88,16 +89,6 @@ fractal.components.set('default.collator', function (markup, item) {
 fractal.web.theme(customizedTheme);
 fractal.web.set('static.path', __dirname + '/dist');
 fractal.web.set('builder.dest', __dirname + '/static-html');
-
-fractal.components.set('default.context', {
-	grid: true,
-	cell: 'fs-lg-10 fs-xl-8 fs-lg-justify-center',
-});
-
-// bug with babel
-bluebird.config({
-	warnings: false
-});
 
 // add custom commands
 

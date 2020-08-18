@@ -2,77 +2,94 @@
 	Testimonial
 ============================================================================= */
 
+// theming
+
 .testimonial {
-	@include margined_lg;
+	--bg-color: #{$turquoise};
+	--color: #000;
+
+	&.theme-blue {
+		// same as default values
+	}
+
+	&.theme-maroon {
+		--bg-color: #{$maroon};
+		--color: #fff;
+	}
+
+	&.theme-gold {
+		--bg-color: #{$mustard};
+		--color: #000;
+	}
 }
 
 .testimonial_inner {
-	border-top: 4px solid $gray_10;
-	border-bottom: 4px solid $gray_10;
-	padding: 30px 0;
-
-	@media #{$min_lg} {
-		padding: 70px 0 50px;
-	}
+	background-color: var(--bg-color);
+	color: var(--color);
 }
 
-.testimonial_figure {
-}
+// layout
 
-.testimonial_quote {
-	@include h4;
-
-	margin: 0 0 30px;
-
-	@media #{$min_lg} {
-		margin-bottom: 46px;
-	}
-
-	p {
-		margin: 0;
-	}
-}
-
-.testimonial_figcaption {
-	align-items: center;
+.testimonial_inner {
 	display: flex;
-	justify-content: flex-end;
-	text-align: right;
+	flex-flow: column-reverse nowrap;
+
+	@media #{$min_md} {
+		flex-direction: row;
+	}
+}
+
+.testimonial_content {
+	padding: 30px 30px 40px;
+
+	@media #{$min_md} {
+		width: 60%;
+
+		padding: 60px 60px 80px;
+	}
+
+	@media #{$min_xl} {
+		width: 68%;
+	}
 }
 
 .testimonial_media {
-	width: 85px;
+	position: relative;
 
-	display: block;
-	order: 2;
+	@media #{$min_md} {
+		min-height: 444px;
 
-	@media print {
+		flex: 1;
+	}
+}
+
+.testimonial_media_img {
+	@media #{$min_md} {
 		display: none;
 	}
 }
 
 .testimonial_image_wrapper {
-	border-radius: 50%;
-	display: block;
-	padding-top: $square;
+	padding-top: $portrait_classic;
+}
+
+.testimonial_background {
+	@include cover;
 }
 
 .testimonial_info {
-	@include body_text;
+	margin-top: 40px;
+}
 
-	.testimonial_media + & {
-		padding-right: 30px;
+// component
 
-		@media print {
-			padding-right: 0;
-		}
-	}
+.testimonial_quote {
+	@include h4;
+	@include sans(300);
+
+	line-height: (42 / 36);
 }
 
 .testimonial_quote_name {
-	display: block;
-}
-
-.testimonial_quote_title {
-	display: block;
+	@include intro_text;
 }

@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-let config = require('./config');
-let imageSizes = require('./image-sizes');
+let config = require('./config.json');
+let imageSizes = require('./image-sizes.json');
 
 let twig_counter = 0;
 let twig_counter_namespaces = {};
