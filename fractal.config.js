@@ -5,6 +5,7 @@ const fractal = (module.exports = require('@frctl/fractal').create());
 const mandelbrot = require('@frctl/mandelbrot');
 const config = require('./config.json');
 const twigAdapter = require('@frctl/twig')({
+	importContext: true,
 	namespaces: {
 		'@components': './01-components',
 		'@navigation': './02-navigation',
