@@ -21,6 +21,11 @@
 	"css": ["src/css/site.scss", "src/css/tinymce.scss"],
 	"js": ["src/js/site.js"],
 	"navigation": {
+		"actions": [
+			"MyTyler",
+			"Apply Now",
+			"Give to Tyler"
+		],
 		"audience": [
 			"Faculty",
 			"Staff",
@@ -37,25 +42,21 @@
 		],
 		"main": [
 			{
-				"title": "About",
+				"title": "Admissions",
 				"children": [
 					{ "title": "About", "url": "#" },
 					{ "title": "Lorem ipsum", "url": "#" },
 					{ "title": "Consectetuer Adipiscing Elit", "url": "#" },
 					{ "title": "Aenean Commodo", "url": "#" },
-					{
-						"title": "Penatibus et Magnis dis Parturient Montes Sapien ut Liber",
-						"url": "#"
-					},
 					{ "title": "Aenean Massa", "url": "#" }
 				]
 			},
 			{
-				"title": "Academics",
+				"title": "Academics & Programs",
 				"children": ["Nam Quam Nunc"]
 			},
 			{
-				"title": "Admissions",
+				"title": "Training & Workforce",
 				"children": [
 					"Nam quam nunc",
 					"Blandit Vel",
@@ -70,7 +71,7 @@
 				]
 			},
 			{
-				"title": "Financial Aid",
+				"title": "Paying for Tyler",
 				"children": [
 					"Aliquam Lorem Ante",
 					"Quisque Rutrum",
@@ -80,7 +81,7 @@
 				]
 			},
 			{
-				"title": "Student Life",
+				"title": "Services",
 				"children": [
 					"Aenean Vulputate Eleifend Tellus",
 					"Nascetur",
@@ -101,14 +102,6 @@
 			"Financial Aid",
 			"Public Records"
 		],
-		"utility": [
-			"Accessibility",
-			"Contact Us",
-			"Employment Opportunities",
-			"Maps & Directions",
-			"Privacy Policy"
-		],
-		"secondary": ["News", "Events", "Directory", "Giving", "Visit"],
 		"social": [
 			{ "title": "Twitter", "url": "//www.twitter.com" },
 			{ "title": "Facebook", "url": "//www.facebook.com" },
@@ -128,6 +121,11 @@
 			"International Student Experience",
 			"Multicultural Student Engagement",
 			"Counseling & Wellness"
+		],
+		"utility": [
+			"About",
+			"Locations & Tours",
+			"Tyler A-Z"
 		]
 	}
 }

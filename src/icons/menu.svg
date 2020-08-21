@@ -1,3 +1,9 @@
-<svg viewBox="0 0 22 12" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h22v2H0V0zm0 5h22v2H0V5zm0 5h22v2H0v-2z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 19 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <g stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+        <g transform="translate(-336.000000, -21.000000)" fill="">
+            <path d="M354.666667,34.3333333 L354.666667,37 L336,37 L336,34.3333333 L354.666667,34.3333333 Z M354.666667,27.6666667 L354.666667,30.3333333 L336,30.3333333 L336,27.6666667 L354.666667,27.6666667 Z M354.666667,21 L354.666667,23.6666667 L336,23.6666667 L336,21 L354.666667,21 Z"></path>
+        </g>
+    </g>
 </svg>

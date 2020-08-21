@@ -7,6 +7,7 @@
 }
 
 .logo_header {
+	color: #50152B;
 }
 
 .logo_footer {
@@ -79,8 +80,16 @@
 .logo_link_icon {
 	display: inline-block;
 	vertical-align: top;
+}
 
-	.icon_logo {
+.icon_logo {
+
+	.logo_header & {
+		width: 60px;
+		height: 40px;
+	}
+
+	.logo_footer & {
 
 		@media #{$min_xl} {
 			width: 186px;

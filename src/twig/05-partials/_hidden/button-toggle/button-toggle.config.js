@@ -3,7 +3,7 @@ module.exports = {
 		class: '',
 		title: 'Button Text',
 		icon: '',
-		active_title: 'Active Text',
+		active_title: '',
 		active_icon: '',
 		swap_target: '',
 		swap_link: '',
