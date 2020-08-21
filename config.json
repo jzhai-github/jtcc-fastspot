@@ -21,6 +21,20 @@
 	"css": ["src/css/site.scss", "src/css/tinymce.scss"],
 	"js": ["src/js/site.js"],
 	"navigation": {
+		"audience": [
+			"Faculty",
+			"Staff",
+			"Current Students",
+			"Prospective Student",
+			"Alumni",
+			"Parents & Families",
+			"Visitors"
+		],
+		"auxilary": [
+			"FOIA",
+			"Employment at Tyler",
+			"VCCS"
+		],
 		"main": [
 			{
 				"title": "About",
@@ -79,15 +93,13 @@
 				]
 			}
 		],
-		"secondary": ["News", "Events", "Directory", "Giving", "Visit"],
-		"audience": [
-			"Faculty",
-			"Staff",
-			"Current Students",
-			"Prospective Student",
-			"Alumni",
-			"Parents & Families",
-			"Visitors"
+		"footer": [
+			"Contact Us",
+			"Nondiscrimination Policy",
+			"Diversity & Inclusion",
+			"Privacy/Disclaimer",
+			"Financial Aid",
+			"Public Records"
 		],
 		"utility": [
 			"Accessibility",
@@ -96,19 +108,13 @@
 			"Maps & Directions",
 			"Privacy Policy"
 		],
-		"footer": [
-			"Make a Gift",
-			"Library & Information Technology",
-			"Offices & Services",
-			"Bookstore",
-			"Apply Now"
-		],
+		"secondary": ["News", "Events", "Directory", "Giving", "Visit"],
 		"social": [
-			{ "title": "Facebook", "url": "//www.facebook.com" },
 			{ "title": "Twitter", "url": "//www.twitter.com" },
+			{ "title": "Facebook", "url": "//www.facebook.com" },
 			{ "title": "Instagram", "url": "//www.instagram.com" },
-			{ "title": "Youtube", "url": "//www.youtube.com" },
-			{ "title": "Linkedin", "url": "//www.linkedin.com" }
+			{ "title": "Linkedin", "url": "//www.linkedin.com" },
+			{ "title": "Youtube", "url": "//www.youtube.com" }
 		],
 		"sub": [
 			"History",

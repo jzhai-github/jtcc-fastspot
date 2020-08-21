@@ -4,7 +4,7 @@
     <g stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
         <g transform="translate(-1214.000000, -22.000000)" fill="">
             <g transform="translate(1087.000000, 0.000000)">
-                <polygon points="134 22 130.5 25.9500828 127 22"></polygon>
+                <polygon transform="translate(130.500000, 23.975041) scale(-1, -1) translate(-130.500000, -23.975041)" points="134 22 130.5 25.9500828 127 22"></polygon>
             </g>
         </g>
     </g>

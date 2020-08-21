@@ -5,11 +5,7 @@
 @import "normalize.css/normalize";
 @import "formstone/dist/css/background";
 @import "formstone/dist/css/carousel";
-@import "formstone/dist/css/checkpoint";
 @import "formstone/dist/css/lightbox";
-@import "formstone/dist/css/sticky";
-@import "formstone/dist/css/viewer";
-@import "grid/grid";
 
 @import "base/setup";
 @import "base/colors";
@@ -17,6 +13,9 @@
 @import "base/elements";
 @import "base/nav";
 
+@import "grid/grid";
+
+@import "partials/animations";
 @import "partials/icons";
 @import "partials/mixins";
 @import "partials/type";

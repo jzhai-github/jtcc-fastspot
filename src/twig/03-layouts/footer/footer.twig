@@ -20,21 +20,27 @@
 						</div>
 					{% endif %}
 
-					{% render "@partial-meta" %}
-
-					{% render "@navigation-basic" with {
-						class: "footer_nav",
-						modifier: "",
-						title: "Footer",
-						toggle_icon: "",
-						active_index: "",
-						links: navigation.footer
+					{% render "@partial-logo" with {
+						modifier: "footer",
+						icon: "logo",
+						print: ""
 					} %}
 
-					{% render "@navigation-social" with {
-						title: "Social",
-						links: navigation.social
-					} %}
+					<div class="footer_primary_content">
+						<div class="footer_primary_group footer_primary_group_meta">
+							{% render "@partial-meta--chester" %}
+							{% render "@partial-meta--midlothian" %}
+						</div>
+						<div class="footer_primary_group footer_primary_group_nav">
+							{% render "@navigation-basic--footer" with {
+								class: "footer_nav"
+							} %}
+							{% render "@navigation-basic--auxilary" with {
+								class: "auxilary_nav",
+								modifier: "sm"
+							} %}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -43,16 +49,20 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="footer_ribbon_inner">
-					{% render "@navigation-basic" with {
-						class: "utility_nav",
-						modifier: "",
-						title: "Utility",
-						toggle_icon: "",
-						active_index: "",
-						links: navigation.utility
-					} %}
+					<div class="footer_ribbon_group footer_ribbon_group_social">
+						{% render "@navigation-social" with {
+							title: "Social",
+							links: navigation.social
+						} %}
+					</div>
+					<div class="footer_ribbon_group footer_ribbon_group_auxilary">
+						{% render "@navigation-basic--auxilary" with {
+							class: "auxilary_nav",
+							modifier: "lg"
+						} %}
 
-					{% render "@partial-copyright" %}
+						{% render "@partial-copyright" %}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -3,17 +3,6 @@
 ============================================================================= */
 
 .social_nav {
-	margin: 10px 0;
-
-	@media #{$min_lg} {
-		flex: 0 0 30.5%;
-		margin: 0;
-		text-align: right;
-	}
-
-	@media #{$min_xl} {
-		flex: 0 0 23.5%;
-	}
 
 	@media print {
 		display: none;
@@ -32,31 +21,48 @@
 
 .social_nav_list {
 	list-style: none;
-	margin: 0 0 0 -8px;
+	margin: 0 0 0 -4px;
 	padding: 0;
 
-	@media #{$min_lg} {
-		margin: 0 -8px 0 0;
+	@media #{$min_xl} {
+		margin-left: -8px;
 	}
 }
 
 .social_nav_item {
 	display: inline-block;
+	vertical-align: middle;
 }
 
 .social_nav_link {
+	@include bubble_pop($peach);
+
+	position: relative;
+
 	color: inherit;
 	display: block;
-	padding: 10px 8px;
+	padding: 18px 4px;
 	transition: color $base_speed;
+
+	@media #{$min_xl} {
+		padding-right: 8px;
+		padding-left: 8px;
+	}
 
 	&:focus,
 	&:hover {
-		color: $accent;
+		color: $blush;
 	}
 }
 
 .social_nav_icon {
+	display: block;
+	transform-origin: left center;
+	transform: scale(.835);
+
+	@media #{$min_xl} {
+		transform: none;
+	}
 }
 
 .social_nav_label {

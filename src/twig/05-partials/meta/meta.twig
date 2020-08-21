@@ -6,19 +6,19 @@
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
-			"@type": "{{ config.schema_type }}",
-			"name": "{{ config.name }}",
-			"logo": "//{{ config.domain }}/images/logo-schema.png",
+			"@type": "{{ schema_type }}",
+			"name": "{{ name }}",
+			"logo": "//{{ domain }}/images/logo-schema.png",
 			"address": {
 				"@type": "PostalAddress",
-				"streetAddress": "{{ config.street }}",
-				"addressLocality": "{{ config.city }}",
-				"addressRegion": "{{ config.state }}",
-				"postalCode": "{{ config.zip }}"
+				"streetAddress": "{{ street }}",
+				"addressLocality": "{{ city }}",
+				"addressRegion": "{{ state }}",
+				"postalCode": "{{ zip }}"
 			},
-		{% if config.email %}"email": "{{ config.email }}",
+		{% if email %}"email": "{{ email }}",
 		{% endif %}
-		{% if config.phone %}"telephone": "{{ config.phone }}",
+		{% if phone %}"telephone": "{{ phone }}",
 		{% endif %}
 		"url": "//{{ config.domain }}",
 		{% if navigation.social %}
@@ -32,36 +32,40 @@
 		{% endif %}
 		}
 	</script>
+	{% if title %}
+		<a class="meta_info_link" href="#">
+			<span class="meta_info_link_label">{{ title }}</span>
+			<span class="meta_info_link_icon">{{ icon("caret_right") }}</span>
+		</a>
+	{% endif %}
 	<div class="meta_info_details">
 		<div class="meta_info_detail meta_info_detail_address">
 			<span class="meta_info_detail_icon">{{ icon("place") }}</span>
-			<a class="meta_info_detail_label meta_info_detail_link" href="//www.google.com/maps/place/?q=place_id:{{ config.place_id }}" target="_blank" rel="noopener">
-				<span class="meta_info_address_street">{{ config.street }},</span>
+			<a class="meta_info_detail_label meta_info_detail_link" href="//www.google.com/maps/place/?q=place_id:{{ place_id }}" target="_blank" rel="noopener">
+				<span class="meta_info_address_street">{{ street }},</span>
 				<span class="meta_info_address_group">
-					<span class="meta_info_address_city">{{ config.city }},</span>
-					<span class="meta_info_address_state">{{ config.state }}</span>
-					<span class="meta_info_address_zip">{{ config.zip }}</span>
+					<span class="meta_info_address_city">{{ city }},</span>
+					<span class="meta_info_address_state">{{ state }}</span>
+					<span class="meta_info_address_zip">{{ zip }}</span>
 				</span>
 			</a>
 		</div>
-		{% if config.email %}
+		{% if email %}
 			<div class="meta_info_detail meta_info_detail_email">
 				<span class="meta_info_detail_icon">{{ icon("mail") }}</span>
-				<a class="meta_info_detail_label meta_info_detail_link" href="mailto:{{ config.email }}">{{ config.email }}</a>
+				<a class="meta_info_detail_label meta_info_detail_link" href="mailto:{{ email }}">{{ email }}</a>
 			</div>
 		{% endif %}
-		{% if config.phone %}
+		{% if phone %}
 			<div class="meta_info_detail meta_info_detail_phone">
 				<span class="meta_info_detail_icon">{{ icon("phone") }}</span>
-				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(config.phone) }}">P<span class="meta_info_detail_label_hint">hone</span>:
-					{{ config.phone }}</a>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(phone) }}"><span class="meta_info_detail_label_hint">Phone</span>{{ phone }}</a>
 			</div>
 		{% endif %}
-		{% if config.fax %}
+		{% if fax %}
 			<div class="meta_info_detail meta_info_detail_fax">
 				<span class="meta_info_detail_icon">{{ icon("fax") }}</span>
-				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(config.fax) }}">F<span class="meta_info_detail_label_hint">ax</span>:
-					{{ config.fax }}</a>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(fax) }}"><span class="meta_info_detail_label_hint">Fax</span>{{ fax }}</a>
 			</div>
 		{% endif %}
 	</div>

@@ -3,20 +3,59 @@
 ============================================================================= */
 
 .meta_info {
-	@include fw_emphasized;
 
-	border-bottom: 1px solid rgba(#fff, 0.3);
-	line-height: 1.2;
-	padding-bottom: 16px;
+	&:not(:last-child) {
+		margin-bottom: 20px;
 
-	@media #{$min_lg} {
-		border-bottom-width: 0;
-		flex: 0 0 30.5%;
-		padding-bottom: 0;
+		@media #{$min_lg} {
+			margin-right: 60px;
+			margin-bottom: 0;
+		}
+
+		@media #{$min_xl} {
+			margin-right: 110px;
+		}
 	}
+}
+
+.meta_info_link {
+	align-items: center;
+	color: inherit;
+	display: flex;
+	padding: 7px 0 6px;
+	transition: color $base_speed;
 
 	@media #{$min_xl} {
-		flex: 0 0 40.5%;
+		margin-bottom: 10px;
+	}
+
+	&:hover,
+	&:focus {
+		color: $blush;
+	}
+}
+
+.meta_info_link_label {
+	@include sans(100);
+
+	font-size: 28px;
+
+	@media #{$min_xl} {
+		font-size: 36px;
+	}
+}
+
+.meta_info_link_icon {
+	color: $peach;
+	margin-left: 10px;
+
+	@media #{$min_xl} {
+		margin-left: 14px;
+	}
+
+	.meta_info_link:hover &,
+	.meta_info_link:focus & {
+		animation: dootdoot 1s infinite;
 	}
 }
 
@@ -25,12 +64,16 @@
 
 .meta_info_detail {
 	display: flex;
-	padding: 8px 0;
+	padding: 6px 0;
+
+	@media #{$min_xl} {
+		padding: 7px 0;
+	}
 
 	@supports (display: grid) {
 		display: grid;
-		grid-gap: 18px;
-		grid-template-columns: 22px 1fr;
+		grid-gap: 8px;
+		grid-template-columns: 16px 1fr;
 	}
 }
 
@@ -47,9 +90,21 @@
 }
 
 .meta_info_detail_icon {
+	position: relative;
+	top: 4px;
+
+	color: $peach;
 }
 
 .meta_info_detail_label {
+	font-size: 15px;
+	line-height: (22 / 15);
+
+	@media #{$min_xl} {
+		font-size: 16px;
+		line-height: (25 / 16);
+	}
+
 	&:after {
 		@media print {
 			content: normal;
@@ -65,19 +120,20 @@
 .meta_info_detail_link {
 	color: inherit;
 	display: inline-block;
-	text-decoration: underline;
 	transition: color $base_speed;
 
 	&:hover,
 	&:focus {
-		color: $accent;
+		color: $blush;
 	}
 }
 
 .meta_info_address_street {
+	display: block;
 }
 
 .meta_info_address_group {
+	display: block;
 }
 
 .meta_info_address_city {
