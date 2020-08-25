@@ -24,6 +24,7 @@ const webpackConfig = require('./webpack.config');
 const config = require('./config.json');
 const svgoConfig = require('./svgo.config.json');
 
+const CI = !!process.env.CI;
 const env = process.env.NODE_ENV || 'development';
 const isProduction = env === 'production';
 const isDevelopment = !isProduction;
@@ -31,7 +32,8 @@ const aliases = {
 	dist: 'dist',
 	build: 'static-html'
 };
-const basePath = isDevelopment ? `${__dirname}/${aliases.dist}` : __dirname;
+// const basePath = isDevelopment ? `${__dirname}/${aliases.dist}` : __dirname;
+const basePath = `${__dirname}/${aliases.dist}`;
 const srcPath = `${__dirname}/src`;
 const paths = {
 	js: {
@@ -47,15 +49,11 @@ const paths = {
 	},
 	icons: {
 		src: `${srcPath}/icons/*.svg`,
-		dest: `${basePath}/images`
+		dest: `${basePath}/images/src`
 	},
 	images: {
 		src: [`${srcPath}/images/*.{jpg,png,svg}`],
 		dest: `${basePath}/images`
-	},
-	symlink: {
-		src: [`${__dirname}/fonts`, `${__dirname}/favicons`],
-		dest: basePath
 	},
 	favicons: {
 		twigFilePath: `${srcPath}/twig/05-partials/_hidden`
@@ -108,7 +106,7 @@ function icons() {
 	return gulp
 		.src(paths.icons.src)
 		.pipe(svgmin(svgoConfig))
-		.pipe(gulp.dest(`${paths.icons.dest}/src`))
+		.pipe(gulp.dest(paths.icons.dest))
 		.pipe(
 			svgstore({
 				inlineSvg: true
@@ -142,10 +140,6 @@ function favicons(done) {
 	});
 }
 
-function symlink() {
-	return gulp.src(paths.symlink.src).pipe(gulp.symlink(paths.symlink.dest));
-}
-
 function clean(done) {
 	return del([
 		`${basePath}/css`,
@@ -175,19 +169,25 @@ function fractalSync() {
 	});
 }
 
-function fractalBuild() {
+function fractalBuild(cb) {
 	const builder = fractal.web.builder();
 
-	builder.on('progress', (completed, total) =>
-		fractalLogger.update(
-			`Exported ${completed} of ${total} items`,
-			'info'
-		)
-	);
+	if (!CI) {
+		builder.on('progress', (completed, total) =>
+			fractalLogger.update(
+				`Exported ${completed} of ${total} items`,
+				'info'
+			)
+		);
+	} else {
+		builder.on('start', () => {
+			fractalLogger.update(`Exporting items...`, 'info');
+		});
+	}
 
 	builder.on('error', (err) => fractalLogger.error(err.message));
 
-	return builder.build().then(() => {
+	return builder.start().then(() => {
 		fractalLogger.success('Fractal build completed!');
 	});
 }

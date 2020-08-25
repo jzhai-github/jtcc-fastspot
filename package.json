@@ -14,7 +14,7 @@
 		"fractal:build": "cross-env NODE_ENV=production yarn gulp fractal:build",
 		"fractal:sync": "cross-env NODE_ENV=development yarn gulp fractal:sync",
 		"build": "cross-env NODE_ENV=production yarn gulp build",
-		"github_build": "cross-env NODE_ENV=production yarn gulp github_build",
+		"github:build": "cross-env NODE_ENV=production CI=true yarn gulp github_build",
 		"axe": "cross-env NODE_ENV=development yarn gulp axe"
 	},
 	"devDependencies": {

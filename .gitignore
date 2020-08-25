@@ -15,4 +15,4 @@ site/files/
 /dist/js
 
 # fractal output
-/static-html
+# /static-html

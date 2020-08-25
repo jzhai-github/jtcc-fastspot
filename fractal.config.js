@@ -22,7 +22,10 @@ const env = process.env.NODE_ENV || 'development';
 const isProduction = env === 'production';
 const isDevelopment = !isProduction;
 const customizedTheme = mandelbrot({
-	skin: 'black'
+	skin: 'black',
+	highlightStyles:
+		'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css',
+	favicon: '/favicons/favicon.ico'
 });
 
 process.env.FRACTAL_CWD = __dirname;
@@ -57,6 +60,12 @@ fractal.components.set('statuses', {
 		color: '#38A169'
 	}
 });
+
+fractal.set('builder.urls', ['test']);
+// 'builder.ext'?: string;
+// 'builder.urls'?: WebBuilderUrls;
+// 'builder.urls.ext'?: string;
+
 fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
 fractal.components.set('path', __dirname + '/src/twig');
