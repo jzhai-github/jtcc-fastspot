@@ -52,7 +52,7 @@
 	function onMenuSwapActivate() {
 		$('body').addClass(LockClass);
 
-		Page.saveScrollYPosition();
+		Site.saveScrollYPosition();
 
 		$MenuToggle.attr('aria-expanded', 'true');
 
@@ -64,7 +64,7 @@
 			.find('.js-nav-link, button, input')
 			.removeAttr('tabindex');
 
-		$ShiftingElements.css('padding-right', Page.getScrollbarWidth());
+		$ShiftingElements.css('padding-right', Site.getScrollbarWidth());
 
 		$Menu.css({
 			'margin-right': '',
@@ -75,7 +75,7 @@
 	function onMenuSwapDeactivate() {
 		$('body').removeClass(LockClass);
 
-		Page.restoreScrollYPosition();
+		Site.restoreScrollYPosition();
 
 		$Menu
 			.attr('aria-hidden', 'true')
@@ -88,8 +88,8 @@
 		$ShiftingElements.css('padding-right', '');
 
 		$Menu.css({
-			'margin-right': Page.getScrollbarWidth() * -1,
-			width: 'calc(100% + ' + Page.getScrollbarWidth() + 'px)'
+			'margin-right': Site.getScrollbarWidth() * -1,
+			width: 'calc(100% + ' + Site.getScrollbarWidth() + 'px)'
 		});
 	}
 

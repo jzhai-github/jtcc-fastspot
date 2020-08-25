@@ -5,8 +5,10 @@
 .audience_group {
 	position: relative;
 
+	border-bottom: 1px solid $teal;
 	font-size: 14px;
-	margin-bottom: 10px;
+	margin-bottom: 14px;
+	padding-bottom: 34px;
 
 	@media #{$min_lg} {
 		width: 17%;
@@ -16,7 +18,7 @@
 }
 
 .audience_nav {
-	background-color: $accent;
+	background-color: $teal;
 	color: #fff;
 	padding: 6px 0 30px;
 
@@ -96,7 +98,7 @@
 
 	position: relative;
 
-	background-color: $accent;
+	border: 1px solid $teal;
 	color: #fff;
 	display: block;
 	line-height: 1;
@@ -104,8 +106,8 @@
 
 	&:hover,
 	&:focus {
-		background-color: #fff;
-		color: #000;
+		background-color: $teal;
+		color: #fff;
 	}
 
 	.icon_close {
@@ -118,7 +120,7 @@
 	align-items: center;
 	display: flex;
 	opacity: 1;
-	padding: 14px 20px;
+	padding: 14px 20px 15px;
 	transition: opacity $base_speed, visibility $base_speed;
 	visibility: visible;
 }
@@ -148,7 +150,10 @@
 }
 
 .audience_toggle_label {
+	@include sans(400);
+
 	margin-right: 10px;
+	text-transform: uppercase;
 }
 
 .audience_toggle_label_default {

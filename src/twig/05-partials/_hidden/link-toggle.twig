@@ -20,9 +20,7 @@
 			<span class="{{ class }}_toggle_icon_default {{ class }}_toggle_icon" aria-hidden="true">
 				<span class="{{ class }}_toggle_icon_inner_default {{ class }}_toggle_icon_inner">
 					<span class="{{ class }}_toggle_icon_space">&#xfeff;</span>
-					<svg class="icon icon_{{ icon }}">
-						<use xlink:href="#{{ icon }}"></use>
-					</svg>
+					{{icon(icon)}}
 				</span>
 			</span>
 		{% endif %}
@@ -34,9 +32,7 @@
 				<span class="{{ class }}_toggle_icon_active {{ class }}_toggle_icon" aria-hidden="true">
 					<span class="{{ class }}_toggle_icon_inner_active {{ class }}_toggle_icon_inner">
 						<span class="{{ class }}_toggle_icon_space">&#xfeff;</span>
-						<svg class="icon icon_{{ active_icon ?: icon }}">
-							<use xlink:href="#{{ active_icon ?: icon }}"></use>
-						</svg>
+						{{icon(active_icon)}}
 					</span>
 				</span>
 			{% endif %}

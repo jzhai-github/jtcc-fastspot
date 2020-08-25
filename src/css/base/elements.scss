@@ -2,6 +2,12 @@
 	Base Elements
 ============================================================================= */
 
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
 html {
 	background: #fff;
 	font-size: 100%;
