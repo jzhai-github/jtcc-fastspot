@@ -2,10 +2,10 @@ name: Fastspot Sync Action
 on:
   push:
     branches:
-      - test/github-actions
+      - dev
   pull_request:
     branches:
-      - test/github-actions
+      - dev
 jobs:
   sync:
     name: Build & Sync Assets
