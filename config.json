@@ -102,6 +102,11 @@
 			"Financial Aid",
 			"Public Records"
 		],
+		"secondary": [
+			"About",
+			"Locations & Tours",
+			"Tyler A-Z"
+		],
 		"social": [
 			{ "title": "Twitter", "url": "//www.twitter.com" },
 			{ "title": "Facebook", "url": "//www.facebook.com" },
@@ -121,11 +126,6 @@
 			"International Student Experience",
 			"Multicultural Student Engagement",
 			"Counseling & Wellness"
-		],
-		"utility": [
-			"About",
-			"Locations & Tours",
-			"Tyler A-Z"
 		]
 	}
 }

@@ -87,6 +87,16 @@
 	.logo_header & {
 		width: 60px;
 		height: 40px;
+
+		@media #{$min_lg} {
+			width: 100px;
+			height: 66px;
+		}
+
+		@media #{$min_xl} {
+			width: 129px;
+			height: 85px;
+		}
 	}
 
 	.logo_footer & {

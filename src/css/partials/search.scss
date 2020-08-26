@@ -63,7 +63,7 @@
 	background: none;
 	border: 0;
 	border-radius: 0;
-	color: inherit;
+	color: #000;
 	flex: 1;
 	font-size: 15px;
 	padding: 0 24px;
@@ -84,6 +84,7 @@
 	color: $bergundy;
 	flex: 0 0 55px;
 	cursor: pointer;
+	outline: 0;
 	transition:
 		background $base_speed,
 		color $base_speed;
@@ -110,19 +111,18 @@
 ============================================================================= */
 
 .site_search_header {
-	flex: 0 0 30%;
-	margin: 0 0 0 auto;
+	display: none;
 
-	.js & {
+	@media #{$min_lg} {
+		position: absolute;
+		top: 100%;
+		right: 0;
+
+		display: block;
+	}
+
+	@media print {
 		display: none;
-
-		@media #{$min_lg} {
-			display: block;
-		}
-
-		@media print {
-			display: none;
-		}
 	}
 }
 
@@ -132,4 +132,34 @@
 
 .site_search_menu {
 	margin-bottom: 15px;
+}
+
+/* ==========================================================================
+	Site Search Toggle
+============================================================================= */
+
+.search_toggle {
+	height: 38px;
+	width: 38px;
+
+	position: relative;
+
+	background: #F0F0F0;
+	border-radius: 50%;
+	color: $bergundy;
+}
+
+.search_toggle_label {
+	@include visually_hide;
+}
+
+.search_toggle_icon {
+
+	.icon_search {
+		@include center;
+
+		transform:
+			translate(-50%, -50%)
+			scale(.75);
+	}
 }

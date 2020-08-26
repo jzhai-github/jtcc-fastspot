@@ -10,17 +10,17 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="header_ribbon_inner">
-					<div class="header_ribbon_group">
+					<div class="header_ribbon_group header_ribbon_group_logo">
 						{% render "@partial-logo" with {
 							modifier: "header",
 							icon: "logo"
 						} %}
 					</div>
 
-					<div class="header_ribbon_group header_ribbon_group_lg">
+					<div class="header_ribbon_group header_ribbon_group_navigation">
 						<div class="header_ribbon_row">
-							{% render "@navigation-basic--utility" with {
-								class: "utility_nav",
+							{% render "@navigation-basic--secondary" with {
+								class: "secondary_nav",
 								modifier: "lg",
 							} %}
 
@@ -32,15 +32,15 @@
 							<div class="js-audience-group audience_group">
 								{% render "@partial-button-toggle" with {
 									class: "audience",
-									title: "Audience",
+									title: "Resources for…",
 									icon: "caret_down",
 									active_title: "Close",
-									active_icon: "close",
+									active_icon: "caret_up",
 									swap_target: ".js-audience-group",
 									swap_link: "audience"
 								} %}
 
-								{% render "@navigation-basic" with {
+								{% render "@navigation-basic--audience" with {
 									class: "audience_nav",
 									modifier: "lg",
 								} %}
@@ -56,36 +56,39 @@
 								links: navigation.main
 							} %}
 
-							{% render "@partial-search" with {
-								modifier: "header",
-								aria: "Site Search",
-								label: "Search",
-								placeholder: "",
-								button_text: "Submit"
-							} %}
+							<div class="header_ribbon_search">
+								{% render "@partial-button-toggle" with {
+									class: "search",
+									title: "Search",
+									icon: "search",
+									active_title: "Close",
+									active_icon: "close",
+									swap_target: ".site_search_header"
+								} %}
+
+								{% render "@partial-search" with {
+									modifier: "header",
+									aria: "Site Search",
+									label: "Search",
+									placeholder: "Search by keyword",
+									button_text: "Submit"
+								} %}
+							</div>
 						</div>
 					</div>
 
-					<div class="header_ribbon_group">
-						<div class="header_controls">
-							{% render "@partial-link-toggle" with {
-								class: "menu",
-								title: "Menu",
-								url: "#menu",
-								icon: "menu",
-								js: true,
-								swap_target: ".menu",
-								swap_link: "menu",
-								active_title: "Close",
-								active_icon: "close"
-							} %}
-
-							{% render "@partial-link" with {
-								class: "search",
-								title: "Search",
-								url: "page-search.html"
-							} %}
-						</div>
+					<div class="header_controls">
+						{% render "@partial-link-toggle" with {
+							class: "menu",
+							title: "Menu",
+							url: "#menu",
+							icon: "menu",
+							js: true,
+							swap_target: ".menu",
+							swap_link: "menu",
+							active_title: "Close",
+							active_icon: "close"
+						} %}
 					</div>
 				</div>
 			</div>

@@ -12,6 +12,15 @@
 	}
 }
 
+@keyframes dootdoot_mini {
+
+	50% {
+		transform:
+			scale(.75)
+			translate(4px, 0);
+	}
+}
+
 @keyframes bubble_pop {
 
 	100% {

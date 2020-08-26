@@ -14,8 +14,7 @@ module.exports = {
 			name: 'audience',
 			context: {
 				links: config.navigation.audience,
-				title: "Resources for…",
-				icon: "caret_right"
+				title: "Resources for…"
 			}
 		},
 		{
@@ -42,10 +41,10 @@ module.exports = {
 			}
 		},
 		{
-			name: 'utility',
+			name: 'secondary',
 			context: {
-				links: config.navigation.utility,
-				title: "Utility"
+				links: config.navigation.secondary,
+				title: "Secondary"
 			}
 		}
 	]
