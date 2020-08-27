@@ -44,6 +44,10 @@
 
 	background: #fff;
 	border: 0;
+
+	.site_search_header & {
+		background: #f0f0f0;
+	}
 }
 
 .site_search_label {
@@ -78,11 +82,11 @@
 
 .site_search_button {
 	height: 55px;
+	width: 55px;
 
 	position: relative;
 
 	color: $bergundy;
-	flex: 0 0 55px;
 	cursor: pointer;
 	outline: 0;
 	transition:
@@ -119,10 +123,27 @@
 		right: 0;
 
 		display: block;
+		margin-top: 5px;
+		opacity: 0;
+		transform: translate3d(0, -2px, 0);
+		visibility: hidden;
+		transition:
+			opacity $base_speed,
+			transform $base_speed,
+			visibility $base_speed;
 	}
 
 	@media print {
 		display: none;
+	}
+
+	&.fs-swap-active {
+
+		@media #{$min_lg} {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			visibility: visible;
+		}
 	}
 }
 
@@ -147,6 +168,34 @@
 	background: #F0F0F0;
 	border-radius: 50%;
 	color: $bergundy;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		background: $bergundy;
+		color: #fff;
+	}
+}
+
+.search_toggle_inner {
+	transition: opacity $base_speed;
+
+	&_default {
+
+		.search_toggle.fs-swap-active & {
+			opacity: 0;
+		}
+	}
+
+	&_active {
+		opacity: 0;
+
+		.search_toggle.fs-swap-active & {
+			opacity: 1;
+		}
+	}
 }
 
 .search_toggle_label {
@@ -154,12 +203,15 @@
 }
 
 .search_toggle_icon {
+	pointer-events: none;
 
-	.icon_search {
+	.icon {
 		@include center;
 
-		transform:
-			translate(-50%, -50%)
-			scale(.75);
+		&_close {
+			transform:
+				translate(-50%, -50%)
+				scale(.85);
+		}
 	}
 }

@@ -215,9 +215,9 @@
 	@media #{$min_lg} {
 		width: 260px;
 
-		background-color: $navy;
-		display: none !important;
-		padding: 12px 0 26px;
+		background-color: #fff;
+		box-shadow: 0 10px 10px 0 rgba(#000, .15);
+		padding: 0 0 26px;
 	}
 
 	.main_nav_item:last-child & {
@@ -242,6 +242,7 @@
 	transition: color $base_speed;
 
 	@media #{$min_lg} {
+		color: inherit;
 		padding: 7px 20px;
 	}
 
@@ -253,6 +254,10 @@
 	&:hover,
 	&:focus {
 		color: $turquoise;
+
+		@media #{$min_lg} {
+			color: $bergundy;
+		}
 	}
 }
 

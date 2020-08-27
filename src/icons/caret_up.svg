@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="7px" height="4px" viewBox="0 0 7 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg viewBox="0 0 15 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Path 3</title>
     <g stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
-        <g transform="translate(-1214.000000, -22.000000)" fill="">
-            <g transform="translate(1087.000000, 0.000000)">
-                <polygon transform="translate(130.500000, 23.975041) scale(-1, -1) translate(-130.500000, -23.975041)" points="134 22 130.5 25.9500828 127 22"></polygon>
+        <g transform="translate(-1406.000000, -20.000000)" fill="">
+            <g transform="translate(1239.000000, 0.000000)">
+                <polygon transform="translate(174.544229, 24.000000) scale(1, -1) translate(-174.544229, -24.000000) " points="178.088459 22 174.544229 26 171 22"></polygon>
             </g>
         </g>
     </g>
