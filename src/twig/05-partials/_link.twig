@@ -16,9 +16,7 @@
 			<span class="{{ class }}_link_icon" aria-hidden="true">
 				<span class="{{ class }}_link_icon_inner">
 					<span class="{{ class }}_link_icon_space">&#xfeff;</span>
-					<svg class="icon icon_{{ icon }}">
-						<use xlink:href="#{{ icon }}"></use>
-					</svg>
+					{{ icon(icon) }}
 				</span>
 			</span>
 		{% endif %}
