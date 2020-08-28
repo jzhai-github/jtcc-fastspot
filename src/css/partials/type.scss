@@ -9,8 +9,8 @@
 	@include title(100);
 
 	font-size: 64px;
-	line-height: (89 / 64);
-	letter-spacing: #{(2.49 / 64)}em;
+	line-height: (76 / 64);
+	letter-spacing: 2.5px;
 	text-transform: uppercase;
 }
 
@@ -19,7 +19,7 @@
 
 	font-size: 52px;
 	line-height: (52 / 52);
-	letter-spacing: #{(2.71 / 52)}em;
+	letter-spacing: 2.7px;
 	text-transform: uppercase;
 }
 
@@ -28,15 +28,15 @@
 
 	font-size: 40px;
 	line-height: (42 / 40);
-	letter-spacing: #{(0.5 / 52)}em;
+	letter-spacing: .5px;
 }
 
 @mixin h4 {
 	@include title(100);
 
 	font-size: 36px;
-	line-height: (36 / 38);
-	letter-spacing: #{(0.4 / 36)}em;
+	line-height: (38 / 36);
+	letter-spacing: .4px;
 }
 
 @mixin h5 {
@@ -44,7 +44,7 @@
 
 	font-size: 28px;
 	line-height: (34 / 28);
-	letter-spacing: #{(0.37 / 28)}em;
+	letter-spacing: .4px;
 }
 
 @mixin h6 {
@@ -52,7 +52,7 @@
 
 	font-size: 16px;
 	line-height: (19 / 16);
-	letter-spacing: #{(2 / 16)}em;
+	letter-spacing: 2px;
 	text-transform: uppercase;
 }
 
@@ -64,20 +64,22 @@
 }
 
 @mixin body_text {
-	@include sans;
+	@include serif(300);
 
 	font-size: 18px;
-	line-height: (32 / 18);
+	line-height: (28 / 18);
 }
 
 @mixin small_text {
-	@include serif(100);
+	@include serif(300);
 
 	font-size: 16px;
 	line-height: (22 / 16);
 }
 
 @mixin label_text {
+	@include serif(300);
+
 	font-size: 12px;
 	font-weight: 700;
 	line-height: (22 / 14);
@@ -117,7 +119,7 @@
 	h1 {
 		@include h1;
 
-		margin: 50px 0 10px;
+		margin: 50px 0 30px;
 	}
 
 	h2 {
@@ -129,7 +131,7 @@
 	h3 {
 		@include h3;
 
-		margin: 50px 0 10px;
+		margin: 50px 0 18px;
 	}
 
 	h4 {
@@ -137,7 +139,7 @@
 
 		color: rgba(#000, 0.7);
 
-		margin: 50px 0 10px;
+		margin: 50px 0 14px;
 	}
 
 	h5 {
@@ -149,7 +151,7 @@
 	h6 {
 		@include h6;
 
-		margin: 50px 0 10px;
+		margin: 50px 0 14px;
 	}
 
 	.intro {
@@ -202,7 +204,7 @@
 
 		display: table;
 		margin-top: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 14px;
 		table-layout: fixed;
 
 		img {
@@ -213,10 +215,12 @@
 		.wp-caption-text {
 			@include small_text();
 
+			border-bottom: 1px solid #F0F0F0;
 			caption-side: bottom;
 			color: rgba(#000, 0.8);
 			display: table-caption;
 			margin: 20px 0 0 0;
+			padding-bottom: 20px;
 		}
 	}
 

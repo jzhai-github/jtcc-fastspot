@@ -7,16 +7,19 @@
 }
 
 .topics_inner {
+	max-width: $max_content_width;
+
+	margin: 0 auto;
 }
 
 .topics_header {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .topics_title {
 	@include h2;
 
-	margin: 0 0 6px;
+	margin: 0 0 20px;
 }
 
 .topics_title_label {
@@ -47,6 +50,11 @@
 
 	@media #{$min_md} {
 		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	@media #{$min_lg} {
+		overflow: visible;
 	}
 }
 
@@ -71,12 +79,13 @@
 
 		flex: 0 0 30.5%;
 		float: none;
-		margin: 8px 30px 0 0;
+		margin: 8px 0 0 30px;
 	}
 
 	@media #{$min_lg} {
-		flex: 0 0 37%;
-		margin-right: 55px;
+		flex: 0 0 345px;
+		margin-right: -55px;
+		margin-left: 55px;
 	}
 
 	@media #{$min_xl} {
@@ -98,9 +107,10 @@
 }
 
 .topic_title {
-	@include h3;
+	@include h4;
 
-	margin: 0 0 6px;
+	color: $bergundy;
+	margin: 0 0 12px;
 }
 
 .topic_label {
@@ -124,14 +134,5 @@
 .topic_link {
 	@include button_text;
 
-	color: $accent;
 	display: block;
-	padding: 6px 0 7px;
-	text-decoration: underline;
-	transition: color $base_speed;
-
-	&:hover,
-	&:focus {
-		color: #000;
-	}
 }

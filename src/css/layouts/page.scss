@@ -12,6 +12,15 @@
 
 .page {
 	flex-grow: 1;
+	padding-top: 60px;
+
+	@media #{$min_lg} {
+		padding-top: 108px;
+	}
+
+	@media #{$min_xl} {
+		padding-top: 125px;
+	}
 }
 
 .page_feature {

@@ -11,7 +11,6 @@ button {
 
 @mixin button() {
 	cursor: pointer;
-	font-weight: 500;
 }
 
 @mixin button_layout($layout: left) {

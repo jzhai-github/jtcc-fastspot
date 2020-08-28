@@ -36,6 +36,8 @@ $and_max_xxl: 'and (max-width:' + ($mq_min_xxl - 1px) + ')';
 
 $reduce: '(prefers-reduced-motion: reduce)';
 
+$max_content_width: 860px;
+
 $margin_sm: 40px;
 $margin_md: 50px;
 $margin_lg: 60px;

@@ -100,13 +100,16 @@
 }
 
 @mixin fw_type_link() {
-	color: $accent;
-	font-weight: 700;
-	text-decoration: underline;
-	transition: color $base_speed;
+	border-bottom: 1px solid $peach;
+	color: $bergundy;
+	padding-bottom: 4px;
+	transition:
+		border $base_speed,
+		color $base_speed;
 
 	&:hover,
 	&:focus {
+		border-bottom-color: currentColor;
 		color: #000;
 	}
 }
