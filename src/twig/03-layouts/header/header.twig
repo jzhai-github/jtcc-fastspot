@@ -20,12 +20,10 @@
 					<div class="header_ribbon_group header_ribbon_group_navigation">
 						<div class="header_ribbon_row">
 							{% render "@navigation-basic--secondary" with {
-								class: "secondary_nav",
 								modifier: "lg",
 							} %}
 
 							{% render "@navigation-basic--actions" with {
-								class: "actions_nav",
 								modifier: "lg",
 							} %}
 
@@ -41,19 +39,14 @@
 								} %}
 
 								{% render "@navigation-basic--audience" with {
-									class: "audience_nav",
 									modifier: "lg",
 								} %}
 							</div>
 						</div>
 						<div class="header_ribbon_row">
 							{% render "@navigation-basic--main" with {
-								class: "main_nav",
 								modifier: "lg",
-								title: "Site",
-								toggle_icon: "caret_down",
 								active_index: page.activePage,
-								links: navigation.main
 							} %}
 
 							<div class="header_ribbon_search">
