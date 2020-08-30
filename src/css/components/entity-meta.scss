@@ -3,12 +3,17 @@
 ============================================================================= */
 
 .entity_meta {
+	@include padded_xl;
+
+	background: #F7F7F7;
+
+	&.theme_navy {
+		background: $navy;
+		color: #fff;
+	}
 }
 
-.entity_meta_inner {
-	border-bottom: 2px solid $gray_10;
-	padding: 30px 0;
-}
+.entity_meta_inner {}
 
 .entity_meta_details {
 }
