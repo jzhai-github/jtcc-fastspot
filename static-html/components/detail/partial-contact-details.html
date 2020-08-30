@@ -159,26 +159,12 @@
     <code class="Code Code--lang-html hljs">
         
         <pre><span class="hljs-comment">&lt;!-- Contact Details --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span>mobile<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"telephone"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:4105551234"</span>&gt;</span>(410) 555-1234<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span>Email Address<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:name@university.edu"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"email"</span>&gt;</span>name@university.edu<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details_wrapper"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details_title"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details"</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"address"</span>&gt;</span>1234 Maple Bacon Ln.<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>Baltimore, MD 21211<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- END: Contact Details --&gt;</span></pre>
+    <span class="hljs-comment">&lt;!-- END: Contact Details --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -187,70 +173,77 @@
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-446c27e44d793d1d6d846412d52db6d5-panel-view">
     <code class="Code Code--lang-twig hljs">
         <pre><span class="xml"><span class="hljs-comment">&lt;!-- Contact Details --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details"</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.phone_numbers or item.email %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> phone in item.phone_numbers %}</span><span class="xml">
-				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span></span><span class="hljs-template-variable">{{ phone.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ phone.type }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(phone.number) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ phone.number }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.email %}</span><span class="xml">
-				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span>Email Address<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:</span></span></span><span class="hljs-template-variable">{{ item.email }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"email"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.email }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.location %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"address"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.location }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.departments %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> department in item.departments %}</span><span class="xml">
-				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ department.url }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ department.name }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.office_hours %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Office Hours<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> office_hours in item.office_hours %}</span><span class="xml">
-				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span></span><span class="hljs-template-variable">{{ office_hours.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span>&gt;</span></span><span class="hljs-template-variable">{{ office_hours.hours }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.social_links %}</span><span class="xml">
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Social<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_socials"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Social Links for </span></span></span><span class="hljs-template-variable">{{ item.name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> social in item.social_links %}</span><span class="xml">
-					<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social"</span>&gt;</span>
-						<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ social.url }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ item.name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ social.title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"sameAs"</span>&gt;</span></span><span class="hljs-template-variable">{{ social.title }}</span><span class="xml">
-							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml">,
-							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details_wrapper"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details_title"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_details"</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.phone_numbers or item.email %}</span><span class="xml">
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Contact<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> phone in item.phone_numbers %}</span><span class="xml">
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ phone.type }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(phone.number) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("phone") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info_label"</span>&gt;</span></span><span class="hljs-template-variable">{{ phone.number }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 						<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-					<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
-			<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
-		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-	</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- END: Contact Details --&gt;</span></span></pre>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.email %}</span><span class="xml">
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:</span></span></span><span class="hljs-template-variable">{{ item.email }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"email"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("mail") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info_label"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.email }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.location %}</span><span class="xml">
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Location<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"address"</span>&gt;</span></span><span class="hljs-template-variable">{{ item.location }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.departments %}</span><span class="xml">
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Department<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> department in item.departments %}</span><span class="xml">
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ department.url }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ department.name }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.office_hours %}</span><span class="xml">
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Hours<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> office_hours in item.office_hours %}</span><span class="xml">
+					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_item"</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_hint"</span>&gt;</span></span><span class="hljs-template-variable">{{ office_hours.label }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_info"</span>&gt;</span></span><span class="hljs-template-variable">{{ office_hours.hours }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.social_links %}</span><span class="xml">
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail"</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_detail_label"</span>&gt;</span>Social Media<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_socials"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Social Links for </span></span></span><span class="hljs-template-variable">{{ item.name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> social in item.social_links %}</span><span class="xml">
+						<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social"</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ social.url }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ item.name }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ social.title }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"sameAs"</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social_link_label"</span>&gt;</span></span><span class="hljs-template-variable">{{ social.title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+								<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"contact_social_link_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("caret_right") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+							<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml">
+				<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-comment">&lt;!-- END: Contact Details --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -259,28 +252,7 @@
     <code class="Code Code--lang-json hljs">
         
             
-            <pre>{
-  <span class="hljs-attr">"item"</span>: {
-    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Name"</span>,
-    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Title"</span>,
-    <span class="hljs-attr">"image"</span>: <span class="hljs-string">"1"</span>,
-    <span class="hljs-attr">"phone_numbers"</span>: [
-      {
-        <span class="hljs-attr">"label"</span>: <span class="hljs-string">"mobile"</span>,
-        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"telephone"</span>,
-        <span class="hljs-attr">"number"</span>: <span class="hljs-string">"(410) 555-1234"</span>
-      }
-    ],
-    <span class="hljs-attr">"email"</span>: <span class="hljs-string">"name@university.edu"</span>,
-    <span class="hljs-attr">"location"</span>: <span class="hljs-string">"Appleseed Library&lt;br&gt;Room 214"</span>,
-    <span class="hljs-attr">"social_links"</span>: [
-      {
-        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Linkedin"</span>,
-        <span class="hljs-attr">"url"</span>: <span class="hljs-string">"#"</span>
-      }
-    ]
-  }
-}</pre>
+            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
             
         
     </code>
@@ -303,6 +275,25 @@
         
         
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Variants <em class="Meta-count">(3)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="partial-contact-details--default.html">
+                    <span>Default</span>
+                </a>, 
+            
+                <a href="partial-contact-details--chester.html">
+                    <span>Chester</span>
+                </a>, 
+            
+                <a href="partial-contact-details--midlothian.html">
+                    <span>Midlothian</span>
+                </a>
+            
+            </span>
+        </li>
         
         <li class="Meta-item">
             <strong class="Meta-key">Preview:</strong>
@@ -328,12 +319,14 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(2)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(3)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="component-contact-info.html">@<span>component-contact-info</span></a>, 
             
-                <a href="partial-entity-meta.html">@<span>partial-entity-meta</span></a>
+                <a href="partial-entity-meta.html">@<span>partial-entity-meta</span></a>, 
+            
+                <a href="partial-entity-meta--navy.html">@<span>partial-entity-meta--navy</span></a>
             
             </span>
         </li>
@@ -1604,10 +1597,98 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-partial-contact-details">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-partial-contact-details-items">
+                Contact Details
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-partial-contact-details-items">
+            
+            
+            
+            
+    
         
-        <li class="Tree-item Tree-entity is-current" data-state="current" data-role="item">
-            <a class="Tree-entityLink" href="" data-pjax>
-                <span>Contact Details</span>
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="partial-contact-details--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #DD6B20;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="partial-contact-details--chester.html" data-pjax>
+                <span>Chester</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #DD6B20;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="partial-contact-details--midlothian.html" data-pjax>
+                <span>Midlothian</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #DD6B20;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="partial-contact-header.html" data-pjax>
+                <span>Contact Header</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1687,10 +1768,21 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-4" data-behaviour="collection" id="tree-components-collection-partial-entity-meta">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-partial-entity-meta-items">
+                Entity Meta
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-partial-entity-meta-items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="partial-entity-meta.html" data-pjax>
-                <span>Entity Meta</span>
+            <a class="Tree-entityLink" href="partial-entity-meta--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1707,6 +1799,35 @@
 
 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="partial-entity-meta--navy.html" data-pjax>
+                <span>Navy</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #DD6B20;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2507,8 +2628,8 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-08-29T16:45:50.627Z">
-                8/29/2020
+            <time datetime="2020-08-30T19:56:49.958Z">
+                8/30/2020
             </time>
         </div>
     </div>
