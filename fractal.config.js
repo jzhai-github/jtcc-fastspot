@@ -100,8 +100,4 @@ fractal.web.theme(customizedTheme);
 fractal.web.set('static.path', __dirname + '/dist');
 fractal.web.set('builder.dest', __dirname + '/static-html');
 
-// add custom commands
-
-require('./fractal.commands');
-
 module.exports = fractal;

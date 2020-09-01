@@ -49,7 +49,8 @@ const paths = {
 	},
 	icons: {
 		src: `${srcPath}/icons/*.svg`,
-		dest: `${basePath}/images/src`
+		dest: `${basePath}/images/src`,
+		destSprite: `${basePath}/images`
 	},
 	images: {
 		src: [`${srcPath}/images/*.{jpg,png,svg}`],
@@ -92,16 +93,6 @@ function images() {
 	});
 }
 
-function axe() {
-	return axeWebdriver({
-		folderOutputReport: basePath,
-		saveOutputIn: 'axe.json',
-		urls: [`${aliases.build}/components/preview/template*.html`],
-		headless: true,
-		showOnlyViolations: true,
-		verbose: true
-	});
-}
 function icons() {
 	return gulp
 		.src(paths.icons.src)
@@ -117,7 +108,18 @@ function icons() {
 				basename: 'icons'
 			})
 		)
-		.pipe(gulp.dest(paths.icons.dest));
+		.pipe(gulp.dest(paths.icons.destSprite));
+}
+
+function axe() {
+	return axeWebdriver({
+		folderOutputReport: basePath,
+		saveOutputIn: 'axe.json',
+		urls: [`${aliases.build}/components/preview/template*.html`],
+		headless: true,
+		showOnlyViolations: true,
+		verbose: true
+	});
 }
 
 function favicons(done) {
@@ -140,7 +142,7 @@ function favicons(done) {
 	});
 }
 
-function clean(done) {
+function clean() {
 	return del([
 		`${basePath}/css`,
 		`${basePath}/images`,
@@ -169,7 +171,7 @@ function fractalSync() {
 	});
 }
 
-function fractalBuild(cb) {
+function fractalBuild() {
 	const builder = fractal.web.builder();
 
 	if (!CI) {

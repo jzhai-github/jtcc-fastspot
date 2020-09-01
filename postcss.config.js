@@ -7,13 +7,14 @@ module.exports = function (context) {
 				rootValue: 16,
 				replace: isProduction ? true : false,
 				propList: [
+					'*border',
 					'font-size',
-					'line-height',
+					'*height*',
 					'letter-spacing',
+					'line-height',
 					'*margin*',
 					'*padding*',
-					'*width*',
-					'*height*'
+					'*width*'
 				]
 			}),
 			require('autoprefixer')
