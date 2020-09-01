@@ -7,7 +7,7 @@ module.exports = function (context) {
 				rootValue: 16,
 				replace: isProduction ? true : false,
 				propList: [
-					'*border',
+					'*border*',
 					'font-size',
 					'*height*',
 					'letter-spacing',
