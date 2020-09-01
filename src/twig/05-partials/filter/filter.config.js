@@ -6,14 +6,44 @@ module.exports = {
 		action_search: '#',
 		tools: [
 			{
-				label: 'Category',
+				label: 'Filter by Degree & Certificate Type',
 				options: [
 					{
-						label: 'All Categories'
+						label: 'All Degrees & Certificates',
+						selected: true
 					},
 					{
-						label: 'Category One',
+						label: 'Category One'
+					},
+					{
+						label: 'Another Category'
+					}
+				]
+			},
+			{
+				label: 'Filter by Career Cluster',
+				options: [
+					{
+						label: 'All Career Clusters',
 						selected: true
+					},
+					{
+						label: 'Category One'
+					},
+					{
+						label: 'Another Category'
+					}
+				]
+			},
+			{
+				label: 'Filter by Modes of Study',
+				options: [
+					{
+						label: 'All Modes of Study',
+						selected: true
+					},
+					{
+						label: 'Category One'
 					},
 					{
 						label: 'Another Category'
@@ -21,8 +51,8 @@ module.exports = {
 				]
 			}
 		],
-		search_placeholder: 'Search by name or department',
-		results: '',
-		category: ''
+		search_placeholder: 'Search by keyword',
+		results: '12',
+		category: 'Information Technology'
 	}
 };

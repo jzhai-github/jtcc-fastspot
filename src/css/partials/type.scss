@@ -79,6 +79,15 @@
 	}
 }
 
+@mixin mini_h6 {
+	@include sans(400);
+
+	font-size: 14px;
+	letter-spacing: 1.75px;
+	line-height: (16 / 14);
+	text-transform: uppercase;
+}
+
 @mixin intro_text {
 	@include serif(600);
 
