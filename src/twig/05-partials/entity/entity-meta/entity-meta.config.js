@@ -1,9 +1,17 @@
 module.exports = {
+	collated: true,
+	context: {
+		theme: ''
+	},
+	default: 'default',
 	variants: [
 		{
-			name: "navy",
+			name: 'default'
+		},
+		{
+			name: 'navy',
 			context: {
-				theme: "navy"
+				theme: 'navy'
 			}
 		}
 	]
