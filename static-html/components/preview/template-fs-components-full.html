@@ -1445,46 +1445,96 @@ f.parentNode.insertBefore(j, f);
 	</div>
 </div>
 		<div class="filter">
-	<div class="fs-row">
-		<div class="fs-cell">
-			<div class="filter_inner">
-				<div class="filter_tabs" role="tablist" aria-label="Directory Filtering">
+	<div class="filter_tabs" role="tablist" aria-label="Directory Filtering">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_tabs_inner">
 					<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_tools" data-swap-group="filter_tabs"  data-swap-options='{"collapse": false}'>Filter</button>
 					<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs"  data-swap-active="true"  data-swap-options='{"collapse": false}'>Search</button>
 				</div>
-				<div class="filter_panels">
+			</div>
+		</div>
+	</div>
+	<div class="filter_panels">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_panels_inner">
 					<div class="filter_tabpanel filter_tabpanel_tools" role="tabpanel">
 						<form class="filter_tools" action="#" method="get">
 															<div class="filter_tool">
-									<label class="filter_label" for="filter_tool_label_1">Category</label>
+									<label class="filter_label" for="filter_tool_label_1">Filter by Degree & Certificate Type</label>
 									<div class="filter_tool_select_wrapper">
 										<select class="filter_tool_select" id="filter_tool_label_1">
-																							<option value="All Categories" >All Categories</option>
-																							<option value="Category One"  selected >Category One</option>
+																							<option value="All Degrees & Certificates"  selected >All Degrees & Certificates</option>
+																							<option value="Category One" >Category One</option>
 																							<option value="Another Category" >Another Category</option>
 																					</select>
 										<span class="filter_tool_select_icon">
-			<svg class="icon icon_expand">
-				<use href="/images/icons.svg#expand" />
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		</span>
+									</div>
+								</div>
+															<div class="filter_tool">
+									<label class="filter_label" for="filter_tool_label_2">Filter by Career Cluster</label>
+									<div class="filter_tool_select_wrapper">
+										<select class="filter_tool_select" id="filter_tool_label_2">
+																							<option value="All Career Clusters"  selected >All Career Clusters</option>
+																							<option value="Category One" >Category One</option>
+																							<option value="Another Category" >Another Category</option>
+																					</select>
+										<span class="filter_tool_select_icon">
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		</span>
+									</div>
+								</div>
+															<div class="filter_tool">
+									<label class="filter_label" for="filter_tool_label_3">Filter by Modes of Study</label>
+									<div class="filter_tool_select_wrapper">
+										<select class="filter_tool_select" id="filter_tool_label_3">
+																							<option value="All Modes of Study"  selected >All Modes of Study</option>
+																							<option value="Category One" >Category One</option>
+																							<option value="Another Category" >Another Category</option>
+																					</select>
+										<span class="filter_tool_select_icon">
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
 			</svg>
 		</span>
 									</div>
 								</div>
 														<div class="filter_tool">
-								<button class="filter_tools_submit" type="submit">Submit</button>
+								<button class="filter_tools_submit filter_tools_submit_tools" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+									<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+								</button>
 							</div>
 						</form>
 					</div>
 					<div class="filter_tabpanel filter_tabpanel_search" role="tabpanel">
 						<form class="filter_search" action="#" method="get">
-							<label class="filter_label" for="filter_search_input">Search</label>
+							<label class="filter_label" for="filter_search_input">Search our Majors & Programs</label>
 							<div class="filter_search_form">
-								<input class="filter_search_input" id="filter_search_input" type="search" placeholder="Search by name or department">
-								<button class="filter_search_submit" type="submit">
-									<span class="filter_search_submit_label">Submit</span>
-									<span class="filter_search_submit_icon">
+								<div class="filter_search_input_wrapper">
+									<input class="filter_search_input" id="filter_search_input" type="search" placeholder="Search by keyword">
+									<span class="filter_search_input_icon">
 			<svg class="icon icon_search">
 				<use href="/images/icons.svg#search" />
+			</svg>
+		</span>
+								</div>
+								<button class="filter_tools_submit filter_tools_submit_search" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+									<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
 			</svg>
 		</span>
 								</button>
@@ -1492,20 +1542,57 @@ f.parentNode.insertBefore(j, f);
 						</form>
 					</div>
 				</div>
-							</div>
+			</div>
 		</div>
 	</div>
-</div>
+			<div class="filter_results">
+			<div class="fs-row">
+				<div class="fs-cell">
+					<div class="filter_results_inner">
+						<p class="filter_results_description">
+							<span class="filter_results_label">12
+								Results for:</span>
+							<span class="filter_results_category">Information Technology</span>
+						</p>
+
+						
+
+<a href="page-news-listing.html" class="filter_results_reset_link" >
+	<span class="filter_results_reset_link_inner">
+		<span class="filter_results_reset_link_label">Reset</span>
+					<span class="filter_results_reset_link_icon" aria-hidden="true">
+				<span class="filter_results_reset_link_icon_inner">
+					<span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+					
+			<svg class="icon icon_reset">
+				<use href="/images/icons.svg#reset" />
+			</svg>
+		
+				</span>
+			</span>
+			</span>
+</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 		<div class="filter">
-	<div class="fs-row">
-		<div class="fs-cell">
-			<div class="filter_inner">
-				<div class="filter_tabs" role="tablist" aria-label=" Filtering">
+	<div class="filter_tabs" role="tablist" aria-label=" Filtering">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_tabs_inner">
 					<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_tools" data-swap-group="filter_tabs"  data-swap-active="true"  data-swap-options='{"collapse": false}'>Filter</button>
 					<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs"  data-swap-options='{"collapse": false}'>Search</button>
 				</div>
-				<div class="filter_panels">
+			</div>
+		</div>
+	</div>
+	<div class="filter_panels">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_panels_inner">
 					<div class="filter_tabpanel filter_tabpanel_tools" role="tabpanel">
 						<form class="filter_tools" action="#" method="get">
 															<div class="filter_tool">
@@ -1517,8 +1604,8 @@ f.parentNode.insertBefore(j, f);
 																							<option value="Another Category" >Another Category</option>
 																					</select>
 										<span class="filter_tool_select_icon">
-			<svg class="icon icon_expand">
-				<use href="/images/icons.svg#expand" />
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
 			</svg>
 		</span>
 									</div>
@@ -1532,27 +1619,41 @@ f.parentNode.insertBefore(j, f);
 																							<option value="Another Type" >Another Type</option>
 																					</select>
 										<span class="filter_tool_select_icon">
-			<svg class="icon icon_expand">
-				<use href="/images/icons.svg#expand" />
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
 			</svg>
 		</span>
 									</div>
 								</div>
 														<div class="filter_tool">
-								<button class="filter_tools_submit" type="submit">Submit</button>
+								<button class="filter_tools_submit filter_tools_submit_tools" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+									<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+								</button>
 							</div>
 						</form>
 					</div>
 					<div class="filter_tabpanel filter_tabpanel_search" role="tabpanel">
 						<form class="filter_search" action="#" method="get">
-							<label class="filter_label" for="filter_search_input">Search</label>
+							<label class="filter_label" for="filter_search_input">Search our Majors & Programs</label>
 							<div class="filter_search_form">
-								<input class="filter_search_input" id="filter_search_input" type="search" placeholder="Search by keyword">
-								<button class="filter_search_submit" type="submit">
-									<span class="filter_search_submit_label">Submit</span>
-									<span class="filter_search_submit_icon">
+								<div class="filter_search_input_wrapper">
+									<input class="filter_search_input" id="filter_search_input" type="search" placeholder="Search by keyword">
+									<span class="filter_search_input_icon">
 			<svg class="icon icon_search">
 				<use href="/images/icons.svg#search" />
+			</svg>
+		</span>
+								</div>
+								<button class="filter_tools_submit filter_tools_submit_search" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+									<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
 			</svg>
 		</span>
 								</button>
@@ -1560,10 +1661,10 @@ f.parentNode.insertBefore(j, f);
 						</form>
 					</div>
 				</div>
-							</div>
+			</div>
 		</div>
 	</div>
-</div>
+	</div>
 
 		
 	
