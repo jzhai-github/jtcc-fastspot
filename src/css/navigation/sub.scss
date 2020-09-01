@@ -2,8 +2,7 @@
 	Sub Navigation
 ============================================================================= */
 
-.sub_nav_group {
-}
+.sub_nav_group {}
 
 .sub_nav {
 	position: relative;
@@ -27,6 +26,14 @@
 }
 
 .sub_nav_body {
+	background: $teal;
+	padding: 0 20px;
+
+	@media #{$min_lg} {
+		background: none;
+		padding: 0;
+	}
+
 	.js & {
 		height: 0;
 
@@ -66,7 +73,7 @@
 	font-weight: 700;
 	list-style: none;
 	margin: 0;
-	padding: 20px 0;
+	padding: 5px 0 28px;
 
 	@media #{$min_md} {
 		display: grid;
@@ -75,11 +82,12 @@
 	}
 
 	@media #{$min_lg} {
-		padding: 30px 0;
+		padding: 15px 0;
 	}
 
 	@media #{$min_xl} {
-		grid-template-columns: repeat(4, 1fr);
+		display: block;
+		grid-gap: 0;
 	}
 
 	.sub_nav.fs-swap-enabled & {
@@ -90,26 +98,52 @@
 }
 
 .sub_nav_item {
+
+	@media #{$min_xl} {
+		display: inline-block;
+		margin: 5px 34px 5px 0;
+		vertical-align: top;
+	}
 }
 
 .sub_nav_link {
-	color: $accent;
-	display: block;
-	padding: 8px 0;
-	text-decoration: underline;
+	@include sans(400);
+
+	align-items: center;
+	color: inherit;
+	display: flex;
+	font-size: 14px;
+	line-height: (16 / 14);
+	letter-spacing: 1.75px;
+	padding: 11px 0 10px;
+	text-transform: uppercase;
 	transition: color $base_speed;
 
 	&:focus,
 	&:hover {
-		color: #000;
+		color: rgba(#fff, .7);
 	}
 }
 
-.sub_nav_link_icon {
+.sub_nav_link_label {
+	border-bottom: 1px solid $turquoise;
+	padding-bottom: 2px;
 }
 
-.sub_nav_link_label {
+.sub_nav_link_icon {
+	position: relative;
+	top: -1px;
+
+	margin-left: 6px;
+	transform: scale(.75);
+	transform-origin: left center;
+
+	.sub_nav_link:hover &,
+	.sub_nav_link:focus & {
+		animation: dootdoot_mini 1s infinite;
+	}
 }
+
 
 /* Sub Nav Children
 ============================================================================= */
@@ -128,6 +162,9 @@
 ============================================================================= */
 
 .sub_nav_toggle {
+	width: 100%;
+
+	background: $teal;
 	color: $accent;
 	display: none;
 	transition: color $base_speed;
@@ -161,7 +198,8 @@
 
 	align-items: center;
 	display: flex;
-	padding: 10px 0;
+	justify-content: space-between;
+	padding: 14px 20px 15px;
 	transition: opacity $base_speed, visibility $base_speed;
 }
 
@@ -193,9 +231,14 @@
 }
 
 .sub_nav_toggle_label {
-	@include h5;
+	@include sans(400);
 
+	color: #fff;
+	font-size: 14px;
+	line-height: (16 / 14);
+	letter-spacing: 1.75px;
 	margin-right: 10px;
+	text-transform: uppercase;
 }
 
 .sub_nav_toggle_label_default {
@@ -205,14 +248,9 @@
 }
 
 .sub_nav_toggle_icon {
-	width: 26px;
-	height: 26px;
-
 	position: relative;
 
-	background-color: $accent;
-	border-radius: 50%;
-	color: #fff;
+	color: $mustard;
 	margin-left: auto;
 }
 

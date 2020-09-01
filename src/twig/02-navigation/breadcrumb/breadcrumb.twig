@@ -20,6 +20,7 @@
 						<span class="breadcrumb_pill_icon" aria-hidden="true">{{ icon(icon_home) }}</span>
 					{% endif %}
 					<span class="breadcrumb_pill_label">Home</span>
+					<span class="breadcrumb_pill_icon">{{ icon("caret_right") }}</span>
 				</span>
 			</a>
 			{% if icon_divider %}
@@ -31,6 +32,7 @@
 				<a class="breadcrumb_pill breadcrumb_pill_link" href="{{ link.url ?: '#' }}">
 					<span class="breadcrumb_pill_inner">
 						<span class="breadcrumb_pill_label">{{ link.title ?: link }}</span>
+						<span class="breadcrumb_pill_icon">{{ icon("caret_right") }}</span>
 					</span>
 				</a>
 				{% if icon_divider %}
@@ -41,7 +43,7 @@
 		<li class="breadcrumb_item">
 			<span class="breadcrumb_pill">
 				<span class="breadcrumb_pill_inner">
-					<span class="breadcrumb_pill_label">{{ page.title }}</span>
+					<span class="breadcrumb_pill_label">{{ title }}</span>
 				</span>
 			</span>
 			{% if icon_end %}

@@ -1,5 +1,7 @@
 module.exports = {
 	context: {
-		links: ['Navigation Level', 'Parent Level']
+		links: ['Navigation Level', 'Parent Level'],
+		modifier: "",
+		title: "Page Title"
 	}
 };

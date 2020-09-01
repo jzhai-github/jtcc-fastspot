@@ -82,8 +82,13 @@
 @mixin intro_text {
 	@include serif(600);
 
-	font-size: 21px;
-	line-height: (32 / 21);
+	font-size: 18px;
+	line-height: (24 / 18);
+
+	@media #{$min_lg} {
+		font-size: 21px;
+		line-height: (32 / 21);
+	}
 }
 
 @mixin body_text {

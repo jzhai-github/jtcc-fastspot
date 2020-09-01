@@ -3,7 +3,7 @@
 ============================================================================= */
 
 .breadcrumb {
-	margin: 10px 0;
+	margin: 0 0 15px;
 
 	@media #{$min_lg} {
 		margin-bottom: 25px;
@@ -11,12 +11,6 @@
 
 	@media print {
 		display: none;
-	}
-
-	.page_header_bg & {
-		background-color: rgba(#000, 0.5);
-		margin: 0;
-		padding: 20px 0;
 	}
 }
 
@@ -57,6 +51,21 @@
 	display: flex;
 
 	&:not(:nth-last-of-type(-n + 2)) {
+		&:after {
+			height: 23px;
+			width: 1px;
+
+			background: rgba(#fff, .25);
+			content: "";
+			display: block;
+			margin: 0 16px 0 12px;
+			transform: skew(-16deg);
+
+			.page_header & {
+				background: $teal;
+			}
+		}
+
 		@media #{$max_lg} {
 			display: none;
 		}
@@ -64,24 +73,16 @@
 }
 
 .breadcrumb_pill {
+	display: block;
 }
 
 .breadcrumb_pill_link {
-	color: $accent;
+	color: #fff;
 	transition: color $base_speed;
 
 	&:focus,
 	&:hover {
-		color: #000;
-	}
-
-	.page_header_bg & {
-		color: #fff;
-
-		&:focus,
-		&:hover {
-			color: $accent;
-		}
+		color: rgba(#fff, .7);
 	}
 }
 
@@ -92,12 +93,20 @@
 
 .breadcrumb_pill_icon {
 	position: relative;
-	top: -2px;
 
-	margin-right: 4px;
+	margin-left: 6px;
+	transform-origin: left center;
+	transform: scale(.75);
+
+	.breadcrumb_pill_link:hover & ,
+	.breadcrumb_pill_link:focus & {
+		animation: dootdoot_mini 1s infinite;
+	}
 }
 
 .breadcrumb_pill_label {
+	@include small_text;
+
 	.breadcrumb_item:last-child & {
 		@include visually_hide;
 	}

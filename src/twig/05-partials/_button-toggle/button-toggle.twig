@@ -1,4 +1,4 @@
-<button class="js-{{ class|replace({ " _": " -"}) }}-toggle {% if swap_target %}js-swap {% endif %}{{ class }}_toggle " {% if aria %} aria-label="{{ aria }}" {% endif %} {% if swap_target %} data-swap-target="{{ swap_target }}" {% endif %} {% if swap_link %} data-swap-linked="{{ swap_link }}" {% endif %}>
+<button class="js-{{ class|replace({ "_": "-"}) }}-toggle {% if swap_target %}js-swap {% endif %}{{ class }}_toggle " {% if aria %} aria-label="{{ aria }}" {% endif %} {% if swap_target %} data-swap-target="{{ swap_target }}" {% endif %} {% if swap_link %} data-swap-linked="{{ swap_link }}" {% endif %}>
 	<span class="{{ class }}_toggle_inner_default {{ class }}_toggle_inner">
 		<span class="{{ class }}_toggle_label_default {{ class }}_toggle_label">{{ title }}</span>
 		{% if icon %}

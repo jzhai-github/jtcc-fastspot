@@ -3,10 +3,7 @@
 ============================================================================= */
 
 .page_header {
-	@include padded_lg;
-
-	background-color: $gray_light;
-	box-shadow: inset 0 -1px 0 $gray_10;
+	color: #fff;
 	overflow: hidden;
 
 	@media print {
@@ -15,30 +12,66 @@
 	}
 }
 
-.page_header_inner {
+.page_header_inner {}
+
+.page_header_body {
+	background-color: $navy;
+	padding: 20px 0 60px;
+
+	@media #{$min_md} {
+		padding: 46px 0 82px;
+	}
+
+	@media #{$min_lg} {
+		padding-bottom: 62px;
+	}
 }
 
 .page_title {
 	@include h1;
 
-	margin: 0 0 6px;
+	position: relative;
+
+	background: $maroon;
+	display: inline-block;
+	margin: 0;
+	padding-right: 8px;
+
+	@media #{$min_lg} {
+		padding: 4px 16px 5px 0;
+	}
+
+	&:before {
+		height: 100%;
+		width: 50vw;
+
+		position: absolute;
+		top: 0;
+		right: 100%;
+
+		background: inherit;
+		content: "";
+	}
 }
 
 .page_intro {
-	margin: 6px 0 25px;
 
 	.page_header_bg & {
-		@include gradient_down(rgba(#000, 0), rgba(#000, 0.5));
-
 		margin: auto 0 0;
-		padding: 30px 0;
+		padding: 30px 0 60px;
 
 		@media #{$min_md} {
-			padding: 100px 0 40px;
+			background:
+				linear-gradient(
+					to right,
+						rgba(#000, .9),
+						rgba(#000, 0) 60%
+				);
+			padding: 80px 0 94px;
 		}
 
 		@media #{$min_xl} {
-			padding: 280px 0 60px;
+			padding: 100px 0 124px;
 		}
 
 		@media print {
@@ -48,20 +81,33 @@
 	}
 }
 
-.page_intro_inner {
-}
+.page_intro_inner {}
 
 .page_description {
 	@include intro_text;
 
-	margin: 6px 0 0;
+	max-width: 745px;
+
+	margin: 12px 0 0;
+
+	@media #{$min_lg} {
+		margin-top: 30px;
+	}
+
+	.page_header_bg & {
+		max-width: 500px;
+	}
 }
 
 .page_nav {
-	margin: 25px 0;
+	position: relative;
+	z-index: 4;
+
+	margin-top: -23px;
 
 	@media #{$min_lg} {
-		margin: 40px 0;
+		background: $teal;
+		margin-top: 0;
 	}
 
 	@media print {
@@ -69,21 +115,18 @@
 	}
 }
 
-.page_nav_inner {
-}
+.page_nav_inner {}
 
-.page_header_media {
-}
+.page_header_media {}
 
 .page_header_media_inner {
 	position: relative;
 }
 
-.page_header_figure {
-}
+.page_header_figure {}
 
 .page_header_image_wrapper {
-	padding-top: $wide;
+	padding-top: $ultra_wide;
 }
 
 .page_header_image {
@@ -98,7 +141,7 @@
 	.js & {
 		background-color: #000;
 		display: block;
-		padding-top: $wide;
+		padding-top: $ultra_wide;
 
 		@media print {
 			display: none;
@@ -107,5 +150,8 @@
 }
 
 .page_header_iframe {
-	@include cover;
+
+	@media #{$min_md} {
+		@include cover;
+	}
 }

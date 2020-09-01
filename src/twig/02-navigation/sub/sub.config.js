@@ -4,7 +4,8 @@ module.exports = {
 	context: {
 		title: 'Sub Nav Title',
 		page: {
-			subNav: config.navigation.sub
+			subNav: config.navigation.sub,
+			icon: "caret_right"
 		}
 	}
 };
