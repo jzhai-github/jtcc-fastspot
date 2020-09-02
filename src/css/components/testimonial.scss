@@ -7,6 +7,9 @@
 .testimonial {
 	--bg-color: #{$turquoise};
 	--color: #000;
+	--quote_icon_color: #fff;
+	--quote_icon_bg_color: #{$teal};
+	--quote_icon_border_color: #{$teal};
 
 	&.theme-blue {
 		// same as default values
@@ -15,11 +18,17 @@
 	&.theme-maroon {
 		--bg-color: #{$maroon};
 		--color: #fff;
+		--quote_icon_color: #000;
+		--quote_icon_bg_color: #{$peach};
+		--quote_icon_border_color: #{$bergundy};
 	}
 
 	&.theme-gold {
 		--bg-color: #{$mustard};
 		--color: #000;
+		--quote_icon_color: #000;
+		--quote_icon_bg_color: #{$dijon};
+		--quote_icon_border_color: rgba(0, 0, 0, 0.2);
 	}
 }
 
@@ -89,11 +98,41 @@
 
 // component
 
+.testimonial_icon_wrap {
+	align-items: center;
+	display: flex;
+
+	&:after {
+		height: 1px;
+		min-width: 40px;
+
+		background-color: var(--quote_icon_border_color);
+		content: '';
+		display: block;
+		flex: 1;
+		margin-left: 20px;
+	}
+}
+
+.testimonial_icon {
+	height: 55px;
+	width: 55px;
+
+	align-items: center;
+	background-color: var(--quote_icon_bg_color);
+	border-radius: 999px;
+	color: var(--quote_icon_color);
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+}
+
 .testimonial_quote {
 	@include h4;
 	@include sans(300);
 
 	line-height: (42 / 36);
+	margin-top: 25px;
 }
 
 .testimonial_quote_name {
