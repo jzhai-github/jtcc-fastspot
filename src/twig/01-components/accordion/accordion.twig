@@ -6,20 +6,6 @@
 	<div class="fs-row">
 		<div class="fs-cell {{ cell }}">
 			<div class="accordion_inner">
-				{% if title or description %}
-					<div class="accordion_header">
-						{% if title %}
-							<h2 class="accordion_title">
-								<span class="accordion_title_label">{{ title }}</span>
-							</h2>
-						{% endif %}
-						{% if description %}
-							<div class="accordion_description">
-								<p>{{ description }}</p>
-							</div>
-						{% endif %}
-					</div>
-				{% endif %}
 				<div class="accordion_items">
 					{% for item in items %}
 						<div class="js-accordion-item {{ id }}-{{ loop.index }} accordion_item">
@@ -32,9 +18,6 @@
 										<span class="accordion_item_heading_inner">
 											<span class="accordion_item_heading_label">
 												<span class="accordion_item_heading_title">{{ item.title }}</span>
-												{% if item.subtitle %}
-													<span class="accordion_item_heading_subtitle">{{ item.subtitle }}</span>
-												{% endif %}
 											</span>
 											<span class="accordion_item_heading_icon"></span>
 										</span>

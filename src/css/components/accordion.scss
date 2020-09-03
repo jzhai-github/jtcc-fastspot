@@ -8,45 +8,23 @@
 
 .accordion {
 	@include margined_xl;
+
+	--border_color: rgba(0, 0, 0, 0.15);
 }
 
 .accordion_inner {
 	//
 }
 
-.accordion_header {
-	margin-bottom: 30px;
-
-	@media #{$min_lg} {
-		margin-bottom: 50px;
-	}
-}
-
-.accordion_title {
-	@include h2;
-
-	margin: 0 0 6px;
-}
-
-.accordion_description {
-	@include body_text;
-
-	p {
-		margin: 0;
-	}
-}
-
-// theme
-
 /* Accordion Items
 ============================================================================= */
 
 .accordion_items {
-	border-top: 2px solid $gray_10;
+	border-top: 1px solid var(--border_color);
 }
 
 .accordion_item {
-	border-bottom: 2px solid $gray_10;
+	border-bottom: 1px solid var(--border_color);
 }
 
 .accordion_item_heading {
@@ -69,11 +47,7 @@
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
-	padding: 18px 0;
-
-	@media #{$min_md} {
-		padding: 28px 0;
-	}
+	padding: 25px 0 30px;
 
 	@media print {
 		padding: 20px 0 10px;
@@ -86,8 +60,10 @@
 }
 
 .accordion_item_heading_title {
-	@include h4;
+	@include sans(100);
 
+	font-size: 48px;
+	line-height: (54 / 48);
 	margin-right: 10px;
 }
 
@@ -101,17 +77,30 @@
 }
 
 .accordion_item_heading_icon {
+	--color: #000;
+	--bg_color: transparent;
+	--border_color: #{$maroon};
+
+	.accordion_item_button:hover &,
+	.accordion_item_button:focus & {
+		--color: #fff;
+		--bg_color: #000;
+		--border_color: #000;
+	}
+
 	width: 45px;
 	height: 45px;
 
 	position: relative;
 
 	align-items: center;
-	background: $accent;
+	background: var(--bg_color);
+	border: 1px solid var(--border_color);
 	border-radius: 50%;
+	color: var(--color);
 	display: flex;
 	justify-content: center;
-	transition: background $base_speed;
+	transition: $base_speed $base_timing;
 
 	@media print {
 		display: none;
@@ -126,7 +115,7 @@
 		top: 50%;
 		left: 50%;
 
-		background: #fff;
+		background: currentColor;
 		border-radius: 2px;
 		content: '';
 		transition: opacity 0.15s, transform 0.15s;
@@ -143,16 +132,15 @@
 			transform: translate(-50%, -50%) rotate(0deg);
 		}
 	}
-
-	.accordion_item_button:hover &,
-	.accordion_item_button:focus & {
-		background: #000;
-	}
 }
 
 .accordion_item_content {
 	overflow: hidden;
-	padding: 10px 0 40px 0;
+	padding: 13px 0 40px;
+
+	@media #{$min_lg} {
+		max-width: 75%;
+	}
 
 	@media print {
 		padding: 0 0 20px;
