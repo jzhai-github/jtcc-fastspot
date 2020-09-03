@@ -180,11 +180,17 @@ button {
 	letter-spacing: #{(1.75 / 16)}em;
 	padding: 14px 15px 15px;
 	text-transform: uppercase;
+	transition: $base_speed $base_timing;
 
 	[class$='link_inner'] {
 		align-items: center;
 		display: flex;
 		justify-content: center;
+		padding-right: 25px;
+	}
+
+	[class$='label'] {
+		vertical-align: middle;
 	}
 
 	[class$='icon_inner'] {
@@ -196,29 +202,13 @@ button {
 	[class$='icon'] {
 		color: var(--icon_color, currentColor);
 		margin-left: 6px;
+		margin-right: -25px;
 
 		svg {
 			font-size: var(--icon_width, 7px);
+			transition: $base_speed $base_timing;
 		}
 	}
-
-	&:focus,
-	&:hover {
-		background-color: var(--bg_color_active, #000);
-		color: var(--color_active, #fff);
-
-		[class$='icon'] {
-			color: var(--icon_color_active, currentColor);
-		}
-	}
-}
-
-/* ==========================================================================
-	Button - Base
-============================================================================= */
-
-.button_link {
-	@include button;
 }
 
 /* ==========================================================================
@@ -226,13 +216,18 @@ button {
 ============================================================================= */
 
 @mixin button_primary {
+	@include button;
+
 	--bg_color: #{$bergundy};
-	--bg_color_active: #{$maroon};
 	--color: #fff;
-	--color_active: #fff;
 	--icon_color: #{$blush};
 
-	@include button;
+	&:focus,
+	&:hover {
+		--bg_color: #{$maroon};
+		--color: #fff;
+		--icon_color: #{$blush};
+	}
 }
 
 .button_primary_link {
@@ -244,13 +239,18 @@ button {
 ============================================================================= */
 
 @mixin button_secondary {
+	@include button;
+
 	--bg_color: #fff;
-	--bg_color_active: #{$bergundy};
 	--color: #000;
-	--color_active: #fff;
 	--icon_color: #{$maroon};
 
-	@include button;
+	&:focus,
+	&:hover {
+		--bg_color: #{$bergundy};
+		--color: #fff;
+		--icon_color: #fff;
+	}
 }
 
 .button_secondary_link {

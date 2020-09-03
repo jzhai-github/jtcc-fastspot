@@ -55,16 +55,44 @@
 }
 
 .accordion_item_heading_label {
+	@media #{$min_lg} {
+		flex: 1;
+	}
+}
+
+.accordion_item_wrap {
+	display: flex;
 	flex: 1;
-	padding-right: 20px;
+	flex-flow: column nowrap;
+	margin: 0 25px -20px 0;
+
+	> * {
+		margin-bottom: 20px;
+	}
+
+	@media #{$min_lg} {
+		align-items: center;
+		flex-flow: row wrap;
+	}
 }
 
 .accordion_item_heading_title {
-	@include sans(100);
+	@include h2;
 
-	font-size: 48px;
-	line-height: (54 / 48);
+	display: block;
+	font-weight: 100;
 	margin-right: 10px;
+	text-transform: none;
+
+	@media #{$min_md} {
+		font-size: 48px;
+		line-height: (54 / 48);
+	}
+
+	[class$='label'] {
+		border-bottom: 1px solid transparent;
+		transition: $base_speed $base_timing;
+	}
 }
 
 .accordion_item_heading_subtitle {
@@ -99,6 +127,7 @@
 	border-radius: 50%;
 	color: var(--color);
 	display: flex;
+	flex-shrink: 0;
 	justify-content: center;
 	transition: $base_speed $base_timing;
 
@@ -165,4 +194,25 @@
 	> *:last-child {
 		margin-bottom: 0;
 	}
+}
+
+.accordion_pills_wrap {
+	@media #{$min_lg} {
+		max-width: percentage(1 / 2);
+
+		margin-left: 25px;
+	}
+}
+
+.accordion_pills {
+	align-items: center;
+	display: flex;
+	flex-flow: row wrap;
+	flex-shrink: 0;
+	margin: 0 -5px -10px;
+}
+
+.accordion_pill {
+	margin-bottom: 10px;
+	padding: 0 5px;
 }

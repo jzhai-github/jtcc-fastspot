@@ -1,30 +1,25 @@
+let faker = require('faker');
+let startCase = require('lodash/startCase');
+
 module.exports = {
 	collated: true,
 	context: {
-		title: 'Button Text',
+		title: startCase(faker.random.words(3)),
 		class: 'button',
-		link_url: '#',
-		link_icon: 'caret_right'
+		url: '#',
+		icon: 'caret_right'
 	},
 	default: 'primary',
 	variants: [
 		{
-			name: 'base',
-			context: {
-				title: 'Button Text - Base'
-			}
-		},
-		{
 			name: 'primary',
 			context: {
-				title: 'Button Text - Primary',
 				class: 'button_primary'
 			}
 		},
 		{
 			name: 'secondary',
 			context: {
-				title: 'Button Text - Secondary',
 				class: 'button_secondary'
 			}
 		}
