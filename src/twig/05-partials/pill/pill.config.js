@@ -3,7 +3,7 @@ module.exports = {
 	context: {
 		//
 	},
-	default: 'dijon',
+	default: 'career-program',
 	variants: [
 		{
 			name: 'career-program',
