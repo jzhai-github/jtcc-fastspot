@@ -1,21 +1,19 @@
-let faker = require('faker');
-
 module.exports = {
 	collated: true,
 	context: {
 		//
 	},
-	default: 'dijon',
+	default: 'career-program',
 	variants: [
 		{
-			name: 'dijon',
+			name: 'career-program',
 			context: {
 				theme: 'dijon',
 				text: 'Career Program'
 			}
 		},
 		{
-			name: 'green_blue',
+			name: 'transfer-program',
 			context: {
 				theme: 'green_blue',
 				text: 'Transfer Program'

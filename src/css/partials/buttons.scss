@@ -167,92 +167,92 @@ button {
 	}
 }
 
-@mixin button {
-	@include sans(400);
+// @mixin button {
+// 	@include sans(400);
 
-	background-color: var(--bg_color, #fff);
-	color: var(--color, #000);
+// 	background-color: var(--bg_color, #fff);
+// 	color: var(--color, #000);
 
-	box-shadow: 0 2px 10px rgba(#000, 0.15);
-	display: inline-block;
-	font-size: 14px;
-	line-height: (16 / 14);
-	letter-spacing: #{(1.75 / 16)}em;
-	padding: 14px 15px 15px;
-	text-transform: uppercase;
+// 	box-shadow: 0 2px 10px rgba(#000, 0.15);
+// 	display: inline-block;
+// 	font-size: 14px;
+// 	line-height: (16 / 14);
+// 	letter-spacing: #{(1.75 / 16)}em;
+// 	padding: 14px 15px 15px;
+// 	text-transform: uppercase;
+// 	transition: $base_speed $base_timing;
 
-	[class$='link_inner'] {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-	}
+// 	[class$='link_inner'] {
+// 		align-items: center;
+// 		display: flex;
+// 		justify-content: center;
+// 		padding-right: 25px;
+// 	}
 
-	[class$='icon_inner'] {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-	}
+// 	[class$='label'] {
+// 		vertical-align: middle;
+// 	}
 
-	[class$='icon'] {
-		color: var(--icon_color, currentColor);
-		margin-left: 6px;
+// 	[class$='icon_inner'] {
+// 		align-items: center;
+// 		display: flex;
+// 		justify-content: center;
+// 	}
 
-		svg {
-			font-size: var(--icon_width, 7px);
-		}
-	}
+// 	[class$='icon'] {
+// 		color: var(--icon_color, currentColor);
+// 		margin-left: 6px;
+// 		margin-right: -25px;
 
-	&:focus,
-	&:hover {
-		background-color: var(--bg_color_active, #000);
-		color: var(--color_active, #fff);
+// 		svg {
+// 			font-size: var(--icon_width, 7px);
+// 			transition: $base_speed $base_timing;
+// 		}
+// 	}
+// }
 
-		[class$='icon'] {
-			color: var(--icon_color_active, currentColor);
-		}
-	}
-}
+// /* ==========================================================================
+// 	Button - Primary
+// ============================================================================= */
 
-/* ==========================================================================
-	Button - Base
-============================================================================= */
+// @mixin button_primary {
+// 	@include button;
 
-.button_link {
-	@include button;
-}
+// 	--bg_color: #{$bergundy};
+// 	--color: #fff;
+// 	--icon_color: #{$blush};
 
-/* ==========================================================================
-	Button - Primary
-============================================================================= */
+// 	&:focus,
+// 	&:hover {
+// 		--bg_color: #{$maroon};
+// 		--color: #fff;
+// 		--icon_color: #{$blush};
+// 	}
+// }
 
-@mixin button_primary {
-	--bg_color: #{$bergundy};
-	--bg_color_active: #{$maroon};
-	--color: #fff;
-	--color_active: #fff;
-	--icon_color: #{$blush};
+// .button_primary_link {
+// 	@include button_primary;
+// }
 
-	@include button;
-}
+// /* ==========================================================================
+// 	Button - Secondary
+// ============================================================================= */
 
-.button_primary_link {
-	@include button_primary;
-}
+// @mixin button_secondary {
+// 	@include button;
 
-/* ==========================================================================
-	Button - Secondary
-============================================================================= */
+// 	--bg_color: #fff;
+// 	--color: #000;
+// 	--icon_color: #{$maroon};
 
-@mixin button_secondary {
-	--bg_color: #fff;
-	--bg_color_active: #{$bergundy};
-	--color: #000;
-	--color_active: #fff;
-	--icon_color: #{$maroon};
+// 	&:focus,
+// 	&:hover {
+// 		--bg_color: #{$bergundy};
+// 		--color: #fff;
+// 		--icon_color: #fff;
+// 	}
+// }
 
-	@include button;
-}
-
-.button_secondary_link {
-	@include button_secondary;
-}
+// .button_secondary_link {
+// 	@include button_secondary;
+// }

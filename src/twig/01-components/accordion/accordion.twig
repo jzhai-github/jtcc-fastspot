@@ -9,24 +9,44 @@
 				<div class="accordion_items">
 					{% for item in items %}
 						<div class="js-accordion-item {{ id }}-{{ loop.index }} accordion_item">
-							{% if item.title %}
-								<h3 class="accordion_item_heading">
-								{% else %}
-									<h2 class="accordion_item_heading">
-									{% endif %}
-									<button class="js-accordion-swap js-swap accordion_item_button" data-swap-target=".{{ id }}-{{ loop.index }}" {% if grouped %} data-swap-group="{{ group_id }}" {% endif %}>
-										<span class="accordion_item_heading_inner">
+							<h2 class="accordion_item_heading">
+								<button class="js-accordion-swap js-swap accordion_item_button" data-swap-target=".{{ id }}-{{ loop.index }}" {% if grouped %} data-swap-group="{{ group_id }}" {% endif %}>
+									<span class="accordion_item_heading_inner">
+										<span class="accordion_item_wrap">
 											<span class="accordion_item_heading_label">
-												<span class="accordion_item_heading_title">{{ item.title }}</span>
+												<span class="accordion_item_heading_title">
+													<span class="title_wrap">
+														<span class="title_wrap_wrap">
+															<span class="title_wrap_label">
+																{{ item.title }}
+															</span>
+
+															<span class="title_wrap_icon">
+																{{ icon("caret_right") }}
+															</span>
+														</span>
+													</span>
+												</span>
 											</span>
-											<span class="accordion_item_heading_icon"></span>
+
+											{% if item.pills.length %}
+												<span class="accordion_pills_wrap">
+													<span class="accordion_pills">
+														{% for pill in item.pills %}
+															<div class="accordion_pill">
+																{% render "@partial-pill--" ~ pill %}
+															</div>
+														{% endfor %}
+													</span>
+												</span>
+											{% endif %}
 										</span>
-									</button>
-									{% if item.title %}
-									</h3>
-							{% else %}
-								</h2>
-							{% endif %}
+
+										<span class="accordion_item_heading_icon"></span>
+									</span>
+								</button>
+							</h2>
+
 							<div class="js-accordion-content accordion_item_content typography" aria-label="{{ item.title }}{% if item.subtitle %} {{ item.subtitle }}{% endif %}">
 								{{ item.description }}
 							</div>
