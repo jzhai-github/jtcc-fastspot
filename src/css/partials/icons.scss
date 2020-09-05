@@ -50,14 +50,10 @@
 	);
 
 	@each $label, $width, $height in $icons {
+
 		&_#{$label} {
-			// to two decimals
-			$percent_height: ceil($height / $width * 100) / 100;
-
-			width: 1em;
-			height: #{$percent_height}em;
-
-			font-size: $width#{px};
+			width: $width#{px};
+			height: $height#{px};
 		}
 	}
 }

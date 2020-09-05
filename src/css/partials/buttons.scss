@@ -83,16 +83,10 @@ button {
 @mixin button_fill($theme: 'gray') {
 	@include button;
 
-	padding: 16px 30px;
+	background: #fff;
+	padding: 13px 30px 14px;
+	text-align: center;
 	transition: background $base_speed, color $base_speed;
-
-	@if ($theme == 'gray') {
-		background: #eee;
-		color: #222;
-	} @else if ($theme == 'accent') {
-		background: $accent;
-		color: #fff;
-	}
 
 	@media print {
 		border: 1px solid #000;
@@ -100,21 +94,34 @@ button {
 
 	&:focus,
 	&:hover {
-		@if ($theme == 'gray') {
-			background: #222;
-			color: #eee;
-		} @else if ($theme == 'accent') {
-			background: #000;
+		background: #000;
+
+		[class$='label'] {
+			color: #fff;
+		}
+
+		[class$='icon'] {
+			animation: dootdoot_mini 1s infinite;
+			color: #fff;
 		}
 	}
 
 	[class$='label'] {
-		font-size: 18px;
-		font-weight: 700;
-		line-height: (23 / 18);
+		@include mini_h6;
+
+		transition: color $base_speed;
 	}
 
 	[class$='icon'] {
+		position: relative;
+		top: -1px;
+
+		color: $maroon;
+		display: block;
+		margin-left: 4px;
+		transform-origin: left center;
+		transform: scale(.75);
+		transition: color $base_speed;
 	}
 }
 

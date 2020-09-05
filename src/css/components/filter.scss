@@ -30,6 +30,7 @@
 	border: 1px solid $teal;
 	color: #fff;
 	margin-right: 4px;
+	margin-bottom: -1px;
 	padding: 16px 25px;
 	transition: background $base_speed, border $base_speed, color $base_speed,
 		text-decoration $base_speed;
@@ -90,11 +91,18 @@
 		}
 	}
 
+	&:nth-last-of-type(2) {
+
+		@media #{$min_lg} {
+			margin-right: 0;
+		}
+	}
+
 	&:last-child {
 
-		@media #{$min_xl} {
-			flex: 0 0 175px;
-			margin-left: 13px;
+		@media #{$min_lg} {
+			flex: 0;
+			margin-left: 16px;
 		}
 	}
 }
@@ -131,6 +139,8 @@
 }
 
 .filter_tools_submit {
+	width: 175px;
+
 	appearance: none;
 	align-items: center;
 	background: $mustard;
@@ -151,15 +161,11 @@
 		color: #fff;
 	}
 
-	&_tools {
-
-		@media #{$min_xl} {
-			width: 100%;
-		}
-	}
-
 	&_search {
-		min-width: 175px;
+
+		@media #{$min_md} {
+			margin-left: 16px;
+		}
 	}
 }
 
@@ -181,20 +187,27 @@
 .filter_search_form {
 	position: relative;
 
-	display: flex;
+	@media #{$min_md} {
+		display: flex;
+	}
 }
 
 .filter_search_input_wrapper {
 	position: relative;
 
 	box-shadow: 0 0 6px 0 rgba(#000, .25);
-	flex: auto;
-	margin-right: 16px;
+	margin-bottom: 16px;
+
+	@media #{$min_md} {
+		flex: auto;
+		margin-bottom: 0;
+	}
 }
 
 .filter_search_input {
 	@include serif(300);
 
+	max-height: 56px;
 	width: 100%;
 
 	appearance: none;
