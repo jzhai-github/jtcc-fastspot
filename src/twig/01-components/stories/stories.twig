@@ -1,0 +1,79 @@
+<div class="stories">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="stories_inner">
+				<div class="stories_header">
+					<h2 class="stories_title">
+						<span class="stories_title_group stories_title_group_primary">
+							<span class="stories_title_label stories_title_label_primary">{{ title.primary }}</span>
+						</span>
+						<span class="stories_title_group stories_title_group_secondary">
+							<span class="stories_title_label stories_title_label_secondary">{{ title.secondary }}</span>
+						</span>
+					</h2>
+					<div class="stories_details">
+						<p class="stories_caption">{{ caption }}</p>
+						{% render '@partial-link' with {
+							title: "View all Next Up Stories",
+							url: "#",
+							class: "stories_exploration",
+							icon: "caret_right"
+						} %}
+					</div>
+				</div>
+				<div class="stories_body">
+					<div class="js-carousel stories_carousel" data-carousel-options='{
+						"controls": false,
+						"contained": false,
+						"maxWidth": "739px",
+						"show": {
+							"500px": 2
+						}
+					}'>
+						{% for item in items %}
+						<div class="story">
+							<figure class="story_figure">
+								<a class="story_figure_link" href="{{ item.url }}" aria-label="Read more about {{ item.title }}" tabindex="-1">
+									{% render "@partial-image" with {
+										class: "story",
+										alt: "",
+										image: item.image,
+										sources: [
+											img("classic").med,
+											img("classic").sml
+										]
+									} %}
+								</a>
+							</figure>
+							<div class="story_wrapper">
+								<h2 class="story_title">
+									{% render "@partial-link" with {
+										class: "story_title",
+										title: item.title,
+										url: item.url
+									} %}
+								</h2>
+								<div class="story_description">
+									<p>{{ item.description }}</p>
+								</div>
+								{% render '@partial-link' with {
+									title: item.link,
+									url: "#",
+									class: "story_discovery",
+									icon: "caret_right"
+								} %}
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+					{% render '@partial-link' with {
+						title: "View all Next Up Stories",
+						url: "#",
+						class: "stories_discovery",
+						icon: "caret_right"
+					} %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

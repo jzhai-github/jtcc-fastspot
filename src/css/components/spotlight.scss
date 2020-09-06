@@ -1,0 +1,155 @@
+.spotlight {
+	position: relative;
+
+	background: $navy;
+	padding: 50px 0 55px;
+
+	@media #{$min_md} {
+		padding: 80px 0;
+	}
+
+	@media #{$min_xl} {
+		padding: 120px 0 130px;
+	}
+}
+
+.spotlight_background {
+	@include cover;
+
+	&:before {
+		@include cover;
+
+		z-index: 2;
+
+		background:
+			linear-gradient(
+				to bottom,
+					rgba(#000, .8),
+					rgba(#000, 0) 100%
+			);
+		content: "";
+
+		@media #{$min_md} {
+			background:
+				linear-gradient(
+					to right,
+						rgba(#000, .8),
+						rgba(#000, 0) 100%
+				);
+		}
+
+		@media #{$min_lg} {
+			background:
+				linear-gradient(
+					to right,
+						rgba(#000, .8),
+						rgba(#000, 0) 60%
+				);
+		}
+	}
+}
+
+.spotlight_inner {
+	position: relative;
+	z-index: 4;
+
+	min-height: calc(100vh - 60px - 50px - 55px);
+	display: flex;
+	flex-direction: column;
+
+	@media #{$min_md} {
+		min-height: inherit;
+	}
+}
+
+.spotlight_header {}
+
+.spotlight_title {
+	@include sans(500);
+
+	color: #fff;
+	display: inline-block;
+	font-size: 48px;
+	line-height: (55 / 48);
+	letter-spacing: 1.87px;
+	margin: 0 0 20px;
+	text-transform: uppercase;
+
+	@media #{$min_lg} {
+		font-size: 65px;
+		line-height: (75 / 65);
+		margin-bottom: 36px;
+	}
+
+	@media #{$min_xl} {
+		font-size: 90px;
+		line-height: (105 / 90);
+		letter-spacing: 3.5px;
+	}
+}
+
+.spotlight_title_group {
+	display: block;
+
+	&_primary {
+		margin-bottom: 2px;
+	}
+}
+
+.spotlight_title_label {
+	position: relative;
+
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 8px;
+
+	@media #{$min_xl} {
+		padding-right: 20px;
+	}
+
+	&:before {
+		height: 100%;
+		width: 50vw;
+
+		position: absolute;
+		top: 0;
+		right: 100%;
+
+		background: inherit;
+		content: "";
+	}
+
+
+	&_primary {
+		background: $maroon;
+		margin-bottom: 5px;
+
+		@media #{$min_xl} {
+			margin-bottom: 10px;
+		}
+	}
+
+	&_secondary {
+		background: $bright_pink;
+	}
+}
+
+.spotlight_caption {
+	@include intro_text;
+	@include serif(300);
+
+	max-width: 500px;
+
+	color: #fff;
+
+	strong {
+		display: block;
+	}
+}
+
+.spotlight_content {
+
+	@media #{$min_lg} {
+		min-width: 290px;
+	}
+}

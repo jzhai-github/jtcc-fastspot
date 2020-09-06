@@ -37,45 +37,78 @@ button {
 	}
 }
 
-@mixin button_text() {
+@mixin button_text($theme: "black") {
 	@include button;
 
 	padding: 10px 0;
-	transition: color $base_speed;
 
 	[class$='label'] {
 		@include sans(400);
 
-		border-bottom: 1px solid $peach;
+		border-bottom: 1px solid;
 		font-size: 14px;
 		letter-spacing: 1.75px;
 		line-height: (16 / 14);
 		padding-bottom: 2px;
 		text-transform: uppercase;
-		transition: border $base_speed;
+		transition:
+			border $base_speed,
+			color $base_speed;
+
+		@if $theme == "black" {
+			border-bottom-color: $peach;
+		} @else if $theme == "white" {
+			border-bottom-color: rgba(#fff, .35);
+			color: #fff;
+		} @else {
+			border-bottom-color: #fff;
+		}
 	}
 
 	[class$='icon'] {
 		position: relative;
 		top: -3px;
 
-		color: $maroon;
 		margin-left: 3px;
 		transform: scale(0.75);
 		transform-origin: left center;
 		transition: color $base_speed;
+
+		@if $theme == "black" {
+			color: $maroon;
+		} @else if $theme == "white" {
+			color: $turquoise;
+		} @else {
+			color: #000;
+		}
 	}
 
 	&:hover,
 	&:focus {
-		color: $maroon;
 
 		[class$='label'] {
-			border-bottom-color: $maroon;
+			@if $theme == "black" {
+				border-bottom-color: $maroon;
+				color: $maroon;
+			} @else if $theme == "white" {
+				border-bottom-color: $turquoise;
+				color: $turquoise;
+			} @else {
+				border-bottom-color: rgba(#000, .7);
+				color: rgba(#000, .7);
+			}
 		}
 
 		[class$='icon'] {
 			animation: dootdoot_mini 1s infinite;
+
+			@if $theme == "black" {
+
+			} @else if $theme == "white" {
+
+			} @else {
+				color: rgba(#000, .7);
+			}
 		}
 	}
 }

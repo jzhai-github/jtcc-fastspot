@@ -1,0 +1,28 @@
+<div class="spotlight">
+	{% render "@partial-background" with {
+		class: "spotlight",
+		image: image,
+		sources: {
+			'0px': img("portraitClassic").sml,
+			'500px': img("classic").med,
+			'740px': img("ultrawide").lrg
+		}
+	} %}
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="spotlight_inner">
+				<div class="spotlight_header">
+					<h2 class="spotlight_title">
+						<span class="spotlight_title_group spotlight_title_group_primary">
+							<span class="spotlight_title_label spotlight_title_label_primary">{{ title.primary }}</span>
+						</span>
+						<span class="spotlight_title_group spotlight_title_group_secondary">
+							<span class="spotlight_title_label spotlight_title_label_secondary">{{ title.secondary }}</span>
+						</span>
+					</h2>
+					<p class="spotlight_caption">{{ caption }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
