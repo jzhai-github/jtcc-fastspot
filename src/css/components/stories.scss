@@ -109,7 +109,12 @@
 	color: #fff;
 
 	@media #{$min_md} {
+		max-width: 420px;
 		padding-right: 40px;
+	}
+
+	@media #{$min_lg} {
+		max-width: 540px;
 	}
 
 	strong {
@@ -173,6 +178,7 @@
 }
 
 .story {
+	margin-right: 20px;
 
 	@media #{$min_md} {
 		width: calc(33.33% - 20px);

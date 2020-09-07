@@ -116,10 +116,16 @@ button {
 @mixin button_fill($theme: 'gray') {
 	@include button;
 
-	background: #fff;
+	box-shadow: 0 2px 10px 0 rgba(#000, .15);
 	padding: 13px 30px 14px;
 	text-align: center;
 	transition: background $base_speed, color $base_speed;
+
+	@if $theme == "bergundy" {
+		background: $bergundy;
+	} @else {
+		background: #fff;
+	}
 
 	@media print {
 		border: 1px solid #000;
@@ -143,6 +149,10 @@ button {
 		@include mini_h6;
 
 		transition: color $base_speed;
+
+		@if $theme == "bergundy" {
+			color: #fff;
+		}
 	}
 
 	[class$='icon'] {
@@ -155,6 +165,10 @@ button {
 		transform-origin: left center;
 		transform: scale(.75);
 		transition: color $base_speed;
+
+		@if $theme == "bergundy" {
+			color: $blush
+		}
 	}
 }
 

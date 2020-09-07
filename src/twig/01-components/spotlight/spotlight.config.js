@@ -1,6 +1,6 @@
 module.exports = {
 	context: {
-		image: "9",
+		image: "17",
 		title: {
 			primary: "A Success Story",
 			secondary: "For Every Student"
