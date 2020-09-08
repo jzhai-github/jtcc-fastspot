@@ -43,13 +43,13 @@
 	letter-spacing: .5px;
 }
 
-@mixin h4 {
+@mixin h4($query: $min_lg) {
 	@include title(100);
 
 	font-size: 28px;
 	line-height: (34 / 28);
 
-	@media #{$min_lg} {
+	@media #{$query} {
 		font-size: 36px;
 		letter-spacing: .4px;
 		line-height: (38 / 36);

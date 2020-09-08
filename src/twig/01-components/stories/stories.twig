@@ -31,39 +31,11 @@
 						}
 					}'>
 						{% for item in items %}
-						<div class="story">
-							<figure class="story_figure">
-								<a class="story_figure_link" href="{{ item.url }}" aria-label="Read more about {{ item.title }}" tabindex="-1">
-									{% render "@partial-image" with {
-										class: "story",
-										alt: "",
-										image: item.image,
-										sources: [
-											img("classic").med,
-											img("classic").sml
-										]
-									} %}
-								</a>
-							</figure>
-							<div class="story_wrapper">
-								<h2 class="story_title">
-									{% render "@partial-link" with {
-										class: "story_title",
-										title: item.title,
-										url: item.url
-									} %}
-								</h2>
-								<div class="story_description">
-									<p>{{ item.description }}</p>
-								</div>
-								{% render '@partial-link' with {
-									title: item.link,
-									url: "#",
-									class: "story_discovery",
-									icon: "caret_right"
+							<div class="stories_item">
+								{% render "@component-story" with {
+									item: item
 								} %}
 							</div>
-						</div>
 						{% endfor %}
 					</div>
 					{% render '@partial-link' with {

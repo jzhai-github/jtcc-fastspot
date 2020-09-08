@@ -1,0 +1,47 @@
+<div class="featured_news">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="featured_news_inner">
+				<div class="featured_news_header">
+					{% if breadcrumb %}
+					{% render '@navigation-breadcrumb' %}
+					{% endif %}
+					<h2 class="featured_news_title">{{ title }}</h2>
+					{% if discovery %}
+					{% render '@partial-link' with {
+						title: "View all News & Stories",
+						url: "#",
+						class: "featured_news",
+						icon: "caret_right"
+					} %}
+					{% endif %}
+				</div>
+				<div class="featured_news_body">
+					<div class="featured_news_spotlight">
+						{% render "@component-story" %}
+					</div>
+					<div class="featured_news_content">
+						{% if contentTitle %}
+						<h3 class="featured_news_content_title">The Latest News</h3>
+						{% endif %}
+						<ul class="featured_news_articles">
+							{% for article in articles %}
+							<li class="featured_news_article">
+								<time class="featured_news_article_date" datetime="{{ article.date }}">{{ article.date }}</time>
+								<h3 class="featured_news_article_title">
+									{% render '@partial-link' with {
+										title: article.title,
+										url: "#",
+										class: "featured_news_article_title",
+										icon: "caret_right"
+									} %}
+								</h3>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
