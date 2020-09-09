@@ -76,6 +76,10 @@
 				margin-top: 0.5rem;
 			}
 
+			.relative {
+				position: relative;
+			}
+
 			.report_filters_row {
 				display: flex;
 				flex-flow: row wrap;
@@ -252,7 +256,7 @@
 													<p class="report_item_context font-mono" v-text="violation.html"></p>
 
 													<p class="report_item_label"><strong>Context (raw)</strong></p>
-													<p class="report_item_context font-mono" v-html="violation.html"></p>
+													<p class="report_item_context font-mono relative" v-html="violation.html"></p>
 												</div>
 											</div>
 										</div>

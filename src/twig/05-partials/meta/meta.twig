@@ -2,7 +2,7 @@
 	Google Maps, Find the ID of a particular place - https://developers.google.com/places/place-id
 #}
 
-<div class="meta_info" id="meta_info">
+<div class="meta_info">
 	<script type="application/ld+json">
 		{
 			"@context": "http://schema.org",
@@ -59,13 +59,17 @@
 		{% if phone %}
 			<div class="meta_info_detail meta_info_detail_phone">
 				<span class="meta_info_detail_icon">{{ icon("phone") }}</span>
-				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(phone) }}"><span class="meta_info_detail_label_hint">Phone</span>{{ phone }}</a>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(phone) }}">
+					<span class="meta_info_detail_label_hint">Phone</span>
+					{{ phone }}</a>
 			</div>
 		{% endif %}
 		{% if fax %}
 			<div class="meta_info_detail meta_info_detail_fax">
 				<span class="meta_info_detail_icon">{{ icon("fax") }}</span>
-				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(fax) }}"><span class="meta_info_detail_label_hint">Fax</span>{{ fax }}</a>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(fax) }}">
+					<span class="meta_info_detail_label_hint">Fax</span>
+					{{ fax }}</a>
 			</div>
 		{% endif %}
 	</div>

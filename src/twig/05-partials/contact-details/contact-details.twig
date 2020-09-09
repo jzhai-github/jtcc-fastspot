@@ -1,6 +1,8 @@
 <!-- Contact Details -->
 <div class="contact_details_wrapper">
-	<h3 class="contact_details_title">{{ item.title }}</h3>
+	{% if item.title %}
+		<h3 class="contact_details_title">{{ item.title }}</h3>
+	{% endif %}
 	<div class="contact_details">
 		{% if item.phone_numbers or item.email %}
 			<div class="contact_detail">

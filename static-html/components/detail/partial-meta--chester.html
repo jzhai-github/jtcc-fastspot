@@ -156,7 +156,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-da19196b9c7d5b03d92595261ad7f650-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"meta_info"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="actionscript">
         {
             <span class="hljs-string">"@context"</span>: <span class="hljs-string">"http://schema.org"</span>,
@@ -204,7 +204,9 @@
                     <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/images/icons.svg#phone"</span> /&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:8047964000"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Phone<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>804-796-4000<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:8047964000"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Phone<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                804-796-4000<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
@@ -219,7 +221,7 @@
 	Google Maps, Find the ID of a particular place - https://developers.google.com/places/place-id
 #}</span><span class="xml">
 
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"meta_info"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"application/ld+json"</span>&gt;</span><span class="actionscript">
 		{
 			<span class="hljs-string">"@context"</span>: <span class="hljs-string">"http://schema.org"</span>,
@@ -276,13 +278,17 @@
 		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> phone %}</span><span class="xml">
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail meta_info_detail_phone"</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("phone") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(phone) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Phone<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{ phone }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(phone) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Phone<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+					</span><span class="hljs-template-variable">{{ phone }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> fax %}</span><span class="xml">
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail meta_info_detail_fax"</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("fax") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(fax) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Fax<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">{{ fax }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label meta_info_detail_link"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"tel:</span></span></span><span class="hljs-template-variable">{{ tel(fax) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"meta_info_detail_label_hint"</span>&gt;</span>Fax<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+					</span><span class="hljs-template-variable">{{ fax }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -2805,6 +2811,46 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-2" data-behaviour="collection" id="tree-docs-collection-fractal">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-docs-collection-fractal-items">
+                Fractal
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-docs-collection-fractal-items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../docs/fractal.html" data-pjax>
+                <span>Overview</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF3333;" title="Draft"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="../../index.html" data-pjax>
@@ -2848,8 +2894,8 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-08T22:18:18.370Z">
-                9/8/2020
+            <time datetime="2020-09-09T19:39:02.552Z">
+                9/9/2020
             </time>
         </div>
     </div>
