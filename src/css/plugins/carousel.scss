@@ -91,6 +91,10 @@
 		background: $teal;
 		content: "";
 		flex: auto;
+
+		.theme_dark & {
+			background: #F0F0F0;
+		}
 	}
 
 	&:before {
@@ -129,6 +133,10 @@
 		transition:
 			background $base_speed,
 			transform $base_speed;
+
+		.theme_dark & {
+			background: rgba(#000, .15);
+		}
 	}
 
 	&.fs-carousel-active {
@@ -137,6 +145,10 @@
 			transform:
 				translate(-50%, -50%)
 				scale(1.15);
+
+			.theme_dark & {
+				background: $bright_pink;
+			}
 		}
 	}
 }
