@@ -30,23 +30,32 @@
 }
 
 .pagination_arrow {
-	width: 24px;
+	width: 34px;
 	height: 34px;
 
 	position: relative;
 	z-index: 2;
 
 	align-items: center;
-	color: $accent;
+	background: $maroon;
+	border-radius: 50%;
+	box-shadow: 0 2px 10px 0 rgba(#000, .15);
+	color: #fff;
 	display: flex;
+	justify-content: center;
 	opacity: 1;
 	pointer-events: auto;
-	transition: color $base_speed, opacity $base_speed, visibility $base_speed;
+	transition: background $base_speed, opacity $base_speed, visibility $base_speed;
 	visibility: visible;
+
+	@media #{$min_lg} {
+		width: 50px;
+		height: 50px;
+	}
 
 	&:not(.pagination_arrow_disabled):hover,
 	&:focus {
-		color: #000;
+		background: #000;
 	}
 }
 
@@ -57,26 +66,24 @@
 	visibility: hidden;
 }
 
-.pagination_arrow_left {
-	border-right: 2px solid $gray_20;
-}
-
-.pagination_arrow_right {
-	border-left: 2px solid $gray_20;
-	justify-content: flex-end;
-}
-
 .pagination_arrow_label {
 	@include visually_hide;
 }
 
 .pagination_arrow_icon {
+	transform: scale(.85);
+
+	@media #{$min_lg} {
+		transform: scale(1.5);
+	}
 }
 
 /* Pagination Form
 ============================================================================= */
 
 .pagination_form {
+	@include mini_h6;
+
 	position: relative;
 
 	text-align: center;
@@ -90,8 +97,7 @@
 
 .pagination_form_label {
 	display: none;
-	font-size: 18px;
-	margin-right: 10px;
+	margin-right: 14px;
 
 	@media #{$min_sm} {
 		display: block;
@@ -107,13 +113,16 @@
 .pagination_form_select {
 	appearance: none;
 	-webkit-appearance: none;
-	background: none;
-	border: 1px solid #000;
-	border-radius: 3px;
-	color: $accent;
+	background: #F0F0F0;
+	border: 0;
+	color: inherit;
 	cursor: pointer;
-	font-size: 18px;
-	padding: 9px 30px 9px 14px;
+	padding: 14px 28px 15px 16px;
+
+	@media #{$min_lg} {
+		padding-right: 56px;
+		padding-left: 26px;
+	}
 }
 
 .pagination_form_select_icon {
@@ -121,25 +130,59 @@
 	top: 50%;
 	right: 18px;
 
+	color: rgba($bergundy, .75);
 	pointer-events: none;
 	transform: translate(0, -50%);
+
+	@media #{$min_lg} {
+		right: 24px;
+	}
 }
 
 .pagination_form_suffix {
-	font-size: 18px;
-	margin: 0 10px;
+	margin: 0 8px;
+
+	@media #{$min_lg} {
+		margin: 0 16px 0 14px;
+	}
 }
 
 .pagination_form_button {
-	background-color: $accent;
-	color: #fff;
-	font-size: 18px;
-	font-weight: 700;
-	padding: 10px 12px;
+	align-items: center;
+	background-color: $bergundy;
+	border: 0;
+	box-shadow: 0 2px 10px 0 rgba(#000, .15);
+	display: flex;
+	letter-spacing: inherit;
+	padding: 14px 14px 15px;
+	text-transform: inherit;
 	transition: background $base_speed;
+
+	@media #{$min_lg} {
+		padding-right: 22px;
+		padding-left: 22px;
+	}
 
 	&:hover,
 	&:focus {
 		background: #000;
+	}
+}
+
+.pagination_form_button_label {
+	color: #fff;
+}
+
+.pagination_form_button_icon {
+	position: relative;
+	top: 1px;
+
+	color: $peach;
+	margin-left: 6px;
+	transition: color $base_speed;
+
+	.pagination_form_button:hover &,
+	.pagination_form_button:focus & {
+		color: #fff;
 	}
 }

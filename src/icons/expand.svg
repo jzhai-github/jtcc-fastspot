@@ -1,3 +1,17 @@
-<svg viewBox="0 0 9 18" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4.5 2.83L7.608 6 8.99 4.59 4.5 0 0 4.59 1.392 6 4.5 2.83zm0 12.34L1.392 12 .01 13.41 4.5 18 9 13.41 7.608 12 4.5 15.17z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="12px" viewBox="0 0 7 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape 2</title>
+    <g stroke="none" stroke-width="1" fill="" fill-rule="evenodd" opacity="0.75">
+        <g transform="translate(-678.000000, -4344.000000)" fill="">
+            <g transform="translate(-745.000000, -225.000000)">
+                <g transform="translate(1331.000000, 4549.000000)">
+                    <g transform="translate(0.000000, 5.000000)">
+                        <g transform="translate(92.000000, 15.000000)">
+                            <path d="M7,8 L3.5,11.9500828 L0,8 L7,8 Z M3.5,1.94066985e-13 L7,3.95008281 L0,3.95008281 L3.5,1.94066985e-13 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>

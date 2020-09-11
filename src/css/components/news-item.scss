@@ -38,14 +38,8 @@
 		}
 
 		@media #{$min_md} {
-			width: 30.5%;
-
 			margin: 0;
 			order: 2;
-		}
-
-		@media #{$min_lg} {
-			width: 28%;
 		}
 	}
 
@@ -96,7 +90,7 @@
 .news_item_header {
 	display: flex;
 	flex-direction: column-reverse;
-	margin-bottom: 5px;
+	margin-bottom: 12px;
 }
 
 .news_item_title {
@@ -104,6 +98,12 @@
 
 	.news_list & {
 		@include h3;
+		@include sans(100);
+
+		@media #{$min_lg} {
+			font-size: 48px;
+			line-height: (54 / 48);
+		}
 	}
 
 	.news_feature & {
@@ -116,18 +116,47 @@
 }
 
 .news_item_title_link {
-	color: $accent;
-	text-decoration: underline;
+	display: block;
+}
+
+.news_item_title_link_label {
+	display: inline;
+	margin-right: 14px;
 	transition: color $base_speed;
 
-	&:hover,
-	&:focus {
-		color: #000;
+	.news_item_title_link:hover &,
+	.news_item_title_link:focus & {
+		color: $maroon;
 	}
 }
 
+.news_item_title_link_icon {
+	color: $maroon;
+	display: inline-block;
+	margin-left: -8px;
+	vertical-align: middle;
+
+	@media #{$min_lg} {
+		transform-origin: left center;
+		transform: scale(1.25);
+	}
+
+	.news_item_title_link:hover &,
+	.news_item_title_link:focus & {
+		animation: dootdoot 1s infinite;
+
+		@media #{$min_lg} {
+			animation: dootdoot_big 1s infinite;
+		}
+	}
+}
+
+.news_item_title_link_icon_space {
+	display: none;
+}
+
 .news_item_categories {
-	margin: 0 0 8px;
+	margin: 0 0 4px;
 }
 
 .news_item_category_hint {
@@ -149,13 +178,20 @@
 }
 
 .news_item_category_link {
-	color: $accent;
-	text-decoration: underline;
-	transition: color $base_speed;
+	@include mini_h6;
+
+	border-bottom: 1px solid rgba($peach, .35);
+	color: rgba(#000, .5);
+	display: block;
+	padding-bottom: 2px;
+	transition:
+		border $base_speed,
+		color $base_speed;
 
 	&:hover,
 	&:focus {
 		color: #000;
+		border-bottom-color: $maroon;
 	}
 }
 
