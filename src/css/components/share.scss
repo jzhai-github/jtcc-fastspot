@@ -9,6 +9,7 @@
 	margin: 0 0 0 auto;
 
 	.js & {
+
 		@media #{$min_lg} {
 			display: block;
 
@@ -19,27 +20,29 @@
 	}
 }
 
-.share_tools_header {
-}
+.share_tools_header {}
 
 .share_tools_title {
 	@include visually_hide;
 }
 
 .share_tools_toggle {
-	@include button_fill('accent');
+	@include button_fill("accent");
 
 	position: relative;
 	z-index: 1;
 
 	display: inline-block;
+
+	&:hover,
+	&:focus {
+		background: $bergundy;
+	}
 }
 
-.share_tools_toggle_inner {
-}
+.share_tools_toggle_inner {}
 
-.share_tools_toggle_label {
-}
+.share_tools_toggle_label {}
 
 .share_tools_list {
 	position: absolute;
@@ -56,7 +59,9 @@
 .share_tool_item {
 	opacity: 0;
 	transform: translate3d(166px, 0, 0);
-	transition: opacity 0.3s, transform 0.3s;
+	transition:
+		opacity 0.3s,
+		transform 0.3s;
 
 	.share_tools.fs-swap-active & {
 		opacity: 1;
@@ -71,7 +76,7 @@
 }
 
 .share_tool {
-	color: $accent;
+	color: #000;
 	display: block;
 	padding: 10px;
 	pointer-events: none;
@@ -79,7 +84,7 @@
 
 	&:hover,
 	&:focus {
-		color: #000;
+		color: $bergundy;
 	}
 
 	.share_tools.fs-swap-active & {
@@ -87,8 +92,7 @@
 	}
 }
 
-.share_tool_icon {
-}
+.share_tool_icon {}
 
 .share_tool_label {
 	@include visually_hide;
