@@ -26,6 +26,10 @@ button {
 	[class$='icon'] {
 	}
 
+	[class$='icon_space'] {
+		display: none;
+	}
+
 	.icon {
 		display: inline;
 	}
@@ -123,7 +127,10 @@ button {
 
 	@if $theme == "bergundy" {
 		background: $bergundy;
-	} @else {
+	} @else if $theme == "teal" {
+		background: $teal;
+	}
+	@else {
 		background: #fff;
 	}
 
@@ -150,7 +157,7 @@ button {
 
 		transition: color $base_speed;
 
-		@if $theme == "bergundy" {
+		@if $theme == "bergundy" or $theme == "teal" {
 			color: #fff;
 		}
 	}
@@ -168,6 +175,10 @@ button {
 
 		@if $theme == "bergundy" {
 			color: $blush
+		}
+
+		@if $theme == "teal" {
+			color: $turquoise;
 		}
 	}
 }
