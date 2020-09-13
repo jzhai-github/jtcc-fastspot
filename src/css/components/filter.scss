@@ -116,15 +116,57 @@
 }
 
 .filter_tool_select_wrapper {
-	@include select;
-
-	box-shadow: 0 0 6px 0 rgba(#000, .25);
-	display: block;
+	position: relative;
 }
 
 .filter_tool_select {
-	&:focus {
-		box-shadow: inset 0 0 0 1px $turquoise;
+	@include mini_h6;
+
+	max-height: 56px;
+	width: 100%;
+
+	appearance: none;
+	-webkit-appearance: none;
+	background: #fff;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 6px 0 rgba(#000, .25);
+	color: inherit;
+	cursor: pointer;
+	display: block;
+	line-height: 1;
+	margin: 0;
+	outline: 0;
+	padding: 15px 40px 15px 20px;
+
+	@media #{$min_lg} {
+		padding-top: 21px;
+		padding-bottom: 21px;
+	}
+
+	// Media query to target Firefox only
+	@-moz-document url-prefix() {
+		// Firefox hack to hide the arrow
+		text-indent: 0.01px;
+		text-overflow: '';
+	}
+
+	// Undo the Firefox inner focus ring
+	&:focus:-moz-focusring {
+		color: transparent;
+		text-shadow: 0 0 0 #000;
+	}
+
+	// Hide the arrow in IE10 and up
+	&::-ms-expand {
+		display: none;
+	}
+
+	option {
+		@-moz-document url-prefix() {
+			// <option> elements inherit styles from <select>, so reset them
+			background-color: #fff;
+		}
 	}
 }
 

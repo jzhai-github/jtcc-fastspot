@@ -9,14 +9,16 @@
 				<div class="footer_primary_inner">
 					{% if page.alert == true %}
 						<div class="alert_open_wrapper">
-							<button class="js-alert-open alert_open">
-								<span class="alert_open_inner">
-									<span class="alert_open_icon" aria-hidden="true">
-										<span class="alert_open_icon_inner">{{ icon("plus") }}</span>
-									</span>
-									<span class="alert_open_label">Open site alert</span>
-								</span>
-							</button>
+							<div class="fs-row">
+								<div class="fs-cell">
+									<button class="js-alert-open alert_open">
+										<span class="alert_open_inner">
+											<span class="alert_open_icon" aria-hidden="true"></span>
+											<span class="alert_open_label">Open site alert</span>
+										</span>
+									</button>
+								</div>
+							</div>
 						</div>
 					{% endif %}
 

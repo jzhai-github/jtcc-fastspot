@@ -7,7 +7,6 @@
 
 	width: 100%;
 
-	background-color: $gray_10;
 	display: block;
 	position: fixed;
 	bottom: 0;
@@ -36,10 +35,18 @@
 .alert_inner {
 	position: relative;
 
-	padding: 30px;
+	background: #fff;
+	box-shadow: 0 -2px 6px 0 rgba(#000, .15);
+	margin: 0 -10px;
+	overflow: hidden;
+	padding: 30px 40px 30px 20px;
+
+	@media #{$min_sm} {
+		margin: 0;
+	}
 
 	@media #{$min_lg} {
-		padding: 30px 9% 50px;
+		padding: 44px 9%;
 	}
 
 	@media print {
@@ -52,13 +59,56 @@
 }
 
 .alert_title {
-	@include h3;
+	@include sans(100);
 
-	margin: 0 50px 10px 0;
+	position: relative;
+
+	align-items: center;
+	background: $mustard;
+	display: inline-flex;
+	font-size: 30px;
+	letter-spacing: 1px;
+	margin: 0 50px 16px 0;
+	padding: 4px 8px 4px 0;
+	text-transform: uppercase;
+
+	@media #{$min_lg} {
+		left: -32px;
+
+		font-size: 40px;
+		letter-spacing: 1.6px;
+		padding: 7px 8px 7px 0;
+	}
 
 	@media print,
 	#{$min_lg} {
 		margin-right: 0;
+	}
+
+	&:before {
+		height: 100%;
+		width: 50vw;
+
+		position: absolute;
+		top: 0;
+		right: 100%;
+
+		background: inherit;
+		content: "";
+	}
+}
+
+.alert_title_icon {
+	display: none;
+
+	@media #{$min_sm} {
+		display: block;
+		margin-right: 10px;
+	}
+
+	@media #{$min_lg} {
+		transform-origin: right center;
+		transform: scale(1.35);
 	}
 }
 
@@ -69,6 +119,8 @@
 }
 
 .alert_description {
+	max-width: 860px;
+
 	p:first-child {
 		margin-top: 0;
 	}
@@ -80,13 +132,13 @@
 
 .alert_close {
 	position: absolute;
-	top: 15px;
-	right: 15px;
+	top: 10px;
+	right: 10px;
 
 	display: none;
 
 	@media #{$min_lg} {
-		top: 26px;
+		top: 38px;
 		right: 26px;
 	}
 
@@ -103,20 +155,44 @@
 }
 
 .alert_close_icon {
-	width: 46px;
-	height: 46px;
+	width: 32px;
+	height: 32px;
 
 	position: relative;
 
-	background: $accent;
-	color: #fff;
+	align-items: center;
+	background: #000;
 	border-radius: 50%;
-	display: block;
-	transition: background $base_speed, color $base_speed;
+	box-shadow: 0 0 4px 0 rgba(#000, .08);
+	display: flex;
+	justify-content: center;
+	margin-left: 25px;
+	transition:
+		background $base_speed,
+		border $base_speed;
+
+	@media #{$min_lg} {
+		width: 45px;
+		height: 45px;
+	}
 
 	.alert_close:hover &,
 	.alert_close:focus & {
-		background: #000;
+		background: $bergundy;
+	}
+
+	&:after {
+		width: 12px;
+		height: 2px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		background: #fff;
+		border-radius: 2px;
+		content: '';
+		transform: translate(-50%, -50%);
 	}
 }
 
@@ -134,8 +210,6 @@
 ============================================================================= */
 
 .alert_open_wrapper {
-	@include fake_padded;
-
 	width: 100%;
 
 	position: fixed;
@@ -147,15 +221,14 @@
 }
 
 .alert_open {
-	width: 100px;
-	height: 100px;
-
 	position: relative;
 
-	background-color: $gray_10;
+	background-color: #fff;
+	box-shadow: 0 -2px 6px 0 rgba(#000, .15);
 	color: #000;
 	display: none;
 	float: right;
+	padding: 20px;
 	pointer-events: auto;
 	transform: translate3d(0, 100%, 0);
 	transition: transform 0.3s;
@@ -175,25 +248,55 @@
 }
 
 .alert_open_icon {
-	@include center;
+	width: 45px;
+	height: 45px;
 
-	width: 46px;
-	height: 46px;
+	position: relative;
 
-	background: $accent;
-	color: #fff;
+	align-items: center;
+	border: 1px solid $maroon;
 	border-radius: 50%;
-	display: block;
-	transition: background $base_speed, color $base_speed;
+	display: flex;
+	justify-content: center;
+	transition:
+		background $base_speed,
+		border $base_speed;
 
 	.alert_open:hover &,
 	.alert_open:focus & {
 		background: #000;
-	}
-}
+		border-color: #000;
 
-.alert_open_icon_inner {
-	@include center;
+		&:before,
+		&:after {
+			background: #fff;
+		}
+	}
+
+	&:before,
+	&:after {
+		width: 12px;
+		height: 2px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		background: #000;
+		border-radius: 2px;
+		content: '';
+		transition:
+			opacity 0.15s,
+			transform 0.15s;
+	}
+
+	&:before {
+		transform: translate(-50%, -50%);
+	}
+
+	&:after {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
 }
 
 .alert_open_label {

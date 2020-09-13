@@ -9,7 +9,8 @@ module.exports = {
 			theme: 'default',
 			activePage: 0,
 			subNav: false,
-			classes: []
+			classes: [],
+			alert: true
 		}
 	}
 };
