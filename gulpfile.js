@@ -245,7 +245,11 @@ function confirmProductionMode(done) {
 	done();
 }
 
-const build = gulp.series(clean, gulp.parallel(styles, scripts, icons, images));
+const build = gulp.series(
+	clean,
+	gulp.parallel(styles, scripts, icons, images),
+	fractalBuild
+);
 const _cms = gulp.series(
 	cmsGitHook,
 	gulp.parallel(styles, scripts, icons, images),
