@@ -53,11 +53,10 @@ module.exports = {
 			name: 'four-up-no-image',
 			label: 'Four Up w/ No Image',
 			context: {
-				items: items.map((item) => {
-					item.image = null;
-
-					return item;
-				})
+				items: items.map((item) => ({
+					...item,
+					image: null
+				}))
 			}
 		},
 		{

@@ -26,8 +26,8 @@
 					{% for item in items %}
 						<li class="card_group_item">
 							{% if item.image %}
-							<figure class="card_group_item_figure">
-								{% render "@partial-image" with {
+								<figure class="card_group_item_figure">
+									{% render "@partial-image" with {
                                     class: "card_group_item",
                                     alt: "",
                                     image: item.image,
@@ -37,7 +37,7 @@
                                         img("classic").xxsml
                                     ]
                                 } %}
-							</figure>
+								</figure>
 							{% endif %}
 							<div class="card_group_item_header">
 								<h2 class="card_group_item_title">
@@ -49,8 +49,8 @@
 									} %}
 								</h2>
 								{% if item.categories %}
-								<div class="card_group_item_categories">
-									<div class="card_group_item_category_hint">Categories</div>
+									<div class="card_group_item_categories">
+										<div class="card_group_item_category_hint">Categories</div>
 										<ul class="card_group_item_category_list" aria-label="Categories">
 											{% for category in item.categories %}
 												<li class="card_group_item_category">
