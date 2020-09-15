@@ -109,11 +109,17 @@ yarn install</code></pre><h2 id="fractal">Fractal</h2>
 <p>To start <code>Fractal</code>, you’ll need to run the following command:</p>
 <pre><code class="hljs language-bash">yarn gulp</code></pre><p>This will create a local <code>Fractal server</code> instance available at <a href="http://localhost:3000">http://localhost:3000</a> <em>(unless port 3000 is taken)</em>.</p>
 <p>Full list of available <code>Fractal</code> commands:</p>
-<pre><code class="hljs"><span class="hljs-comment"># start fractal in development mode</span>
-<span class="hljs-attr">yarn</span> <span class="hljs-string">gulp</span>
-<span class="hljs-comment">
-# build fractal to static files</span>
-<span class="hljs-attr">yarn</span> <span class="hljs-string">build</span></code></pre><h3 id="fractal-build">Fractal Build</h3>
+<pre><code class="hljs"># start fractal <span class="hljs-keyword">in</span> development mode
+yarn gulp
+
+# build <span class="hljs-keyword">static</span> assets only
+yarn build
+
+# <span class="hljs-keyword">export</span> fractal <span class="hljs-keyword">to</span> <span class="hljs-keyword">static</span> files
+yarn fractal:build
+
+# build <span class="hljs-keyword">static</span> assets &amp; <span class="hljs-keyword">export</span> fractal <span class="hljs-keyword">to</span> <span class="hljs-keyword">static</span> files
+yarn build:all</code></pre><h3 id="fractal-build">Fractal Build</h3>
 <p>Using <code>yarn build</code> will export <code>Fractal</code> to static files, exported to <code>static-html</code>.</p>
 <p>This is useful for seeing the actual HTML output for each page, or just having a reference to components without having to start the <code>Fractal</code> server.</p>
 
@@ -1426,7 +1432,7 @@ yarn install</code></pre><h2 id="fractal">Fractal</h2>
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-15T20:51:56.143Z">
+            <time datetime="2020-09-15T21:04:06.467Z">
                 9/15/2020
             </time>
         </div>
