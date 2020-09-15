@@ -164,7 +164,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search_results_inner"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
                     (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-                        <span class="hljs-keyword">var</span> cx = <span class="hljs-string">'011737558837375720776:mbfrjmyam1g'</span>;
+                        <span class="hljs-keyword">var</span> cx = <span class="hljs-string">"011737558837375720776:mbfrjmyam1g"</span>;
                         <span class="hljs-keyword">var</span> gcse = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
                         gcse.type = <span class="hljs-string">'text/javascript'</span>;
                         gcse.async = <span class="hljs-literal">true</span>;
@@ -173,10 +173,10 @@
                         s.parentNode.insertBefore(gcse, s);
                     })();
                 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">gcse:searchbox-only</span> <span class="hljs-attr">resultsUrl</span>=<span class="hljs-string">"template-search.html"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">gcse:searchbox-only</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">gcse:search</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">gcse:search</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"typography"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The site search requires a JavaScript enabled browser. You can also search the site using <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//www.google.com/#q=site:"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The site search requires a JavaScript enabled browser. You can also search the site using <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//www.google.com/#q=site:jtcc.fastspot.com/site"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -194,17 +194,17 @@
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell </span></span></span><span class="hljs-template-variable">{{ cell }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"search_results_inner"</span>&gt;</span>
-				<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
-					(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-						<span class="hljs-keyword">var</span> cx = <span class="hljs-string">'011737558837375720776:mbfrjmyam1g'</span>;
-						<span class="hljs-keyword">var</span> gcse = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
-						gcse.type = <span class="hljs-string">'text/javascript'</span>;
-						gcse.async = <span class="hljs-literal">true</span>;
-						gcse.src = <span class="hljs-string">'//cse.google.com/cse.js?cx='</span> + cx;
-						<span class="hljs-keyword">var</span> s = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'script'</span>)[<span class="hljs-number">0</span>];
+				<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+					(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+						<span class="hljs-keyword">var</span> cx = <span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ config('cse_key') }}</span><span class="xml">";
+						var gcse = document.createElement('script');
+						gcse.type = 'text/javascript';
+						gcse.async = true;
+						gcse.src = '//cse.google.com/cse.js?cx=' + cx;
+						var s = document.getElementsByTagName('script')[0];
 						s.parentNode.insertBefore(gcse, s);
 					})();
-				</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> results_url %}</span><span class="xml">
 				<span class="hljs-tag">&lt;<span class="hljs-name">gcse:searchbox-only</span> <span class="hljs-attr">resultsUrl</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ results_url }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">gcse:searchbox-only</span>&gt;</span>
 				</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
@@ -212,7 +212,7 @@
 				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 				<span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"typography"</span>&gt;</span>
-						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The site search requires a JavaScript enabled browser. You can also search the site using <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//www.google.com/#q=site:</span></span></span><span class="hljs-template-variable">{{ config.domain }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The site search requires a JavaScript enabled browser. You can also search the site using <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//www.google.com/#q=site:</span></span></span><span class="hljs-template-variable">{{ config("domain") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>Google<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 				<span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -228,7 +228,7 @@
         
             
             <pre>{
-  <span class="hljs-attr">"results_url"</span>: <span class="hljs-string">"template-search.html"</span>,
+  <span class="hljs-attr">"results_url"</span>: <span class="hljs-string">""</span>,
   <span class="hljs-attr">"theme"</span>: <span class="hljs-string">""</span>
 }</pre>
             
@@ -276,6 +276,17 @@
             <span class="Meta-value">src/twig/05-partials/google-cse/google-cse.twig</span>
         </li>
         
+        
+        <li class="Meta-item">
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(2)</em>:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            
+                <a href="template-search.html">@<span>template-search</span></a>, 
+            
+                <a href="template-search--no-results.html">@<span>template-search--no-results</span></a>
+            
+            </span>
+        </li>
         
     </ul>
 </div>
@@ -1383,10 +1394,21 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-search">
+            <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-search-items">
+                Search
+            </button>
+            <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-search-items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-search.html" data-pjax>
-                <span>Search</span>
+            <a class="Tree-entityLink" href="template-search--results.html" data-pjax>
+                <span>Results</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1403,6 +1425,35 @@
 
 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-search--no-results.html" data-pjax>
+                <span>No Results</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -1558,7 +1609,7 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-15T19:41:32.959Z">
+            <time datetime="2020-09-15T20:51:56.143Z">
                 9/15/2020
             </time>
         </div>
