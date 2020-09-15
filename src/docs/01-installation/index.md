@@ -47,8 +47,14 @@ Full list of available `Fractal` commands:
 # start fractal in development mode
 yarn gulp
 
-# build fractal to static files
+# build static assets only
 yarn build
+
+# export fractal to static files
+yarn fractal:build
+
+# build static assets & export fractal to static files
+yarn build:all
 ```
 
 ### Fractal Build
