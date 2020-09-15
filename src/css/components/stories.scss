@@ -1,152 +1,4 @@
-.stories {
-	background: $navy;
-	padding: 50px 0 55px;
-
-	@media #{$min_md} {
-		padding: 80px 0;
-	}
-
-	@media #{$min_xl} {
-		padding: 120px 0 130px;
-	}
-}
-
-.stories_inner {}
-
-.stories_header {
-	margin-bottom: 38px;
-
-	@media #{$min_md} {
-		margin-bottom: 70px;
-	}
-}
-
-.stories_title {
-	@include sans(500);
-
-	color: #fff;
-	display: inline-block;
-	font-size: 48px;
-	line-height: (55 / 48);
-	letter-spacing: 1.87px;
-	margin: 0 0 20px;
-	text-transform: uppercase;
-
-	@media #{$min_lg} {
-		font-size: 65px;
-		line-height: (75 / 65);
-		margin-bottom: 36px;
-	}
-
-	@media #{$min_xl} {
-		font-size: 90px;
-		line-height: (105 / 90);
-		letter-spacing: 3.5px;
-	}
-}
-
-.stories_title_group {
-	display: block;
-
-	&_primary {
-		margin-bottom: 2px;
-	}
-}
-
-.stories_title_label {
-	position: relative;
-
-	display: inline-block;
-	vertical-align: top;
-	padding-right: 8px;
-
-	@media #{$min_xl} {
-		padding-right: 20px;
-	}
-
-	&:before {
-		height: 100%;
-		width: 50vw;
-
-		position: absolute;
-		top: 0;
-		right: 100%;
-
-		background: inherit;
-		content: "";
-	}
-
-	&_primary {
-		background: $maroon;
-		margin-bottom: 5px;
-
-		@media #{$min_xl} {
-			margin-bottom: 10px;
-		}
-	}
-
-	&_secondary {
-		background: $bright_pink;
-	}
-}
-
-.stories_details {
-
-	@media #{$min_md} {
-		align-items: flex-end;
-		display: flex;
-		justify-content: space-between;
-	}
-}
-
-.stories_caption {
-	@include intro_text;
-	@include serif(300);
-
-	max-width: 540px;
-
-	color: #fff;
-
-	@media #{$min_md} {
-		max-width: 420px;
-		padding-right: 40px;
-	}
-
-	@media #{$min_lg} {
-		max-width: 540px;
-	}
-
-	strong {
-		display: block;
-	}
-}
-
-.stories_exploration_link {
-	@include button_text("white");
-	@include button_layout;
-
-	position: relative;
-	top: 10px;
-
-	display: none;
-
-	@media #{$min_md} {
-		display: block;
-	}
-
-	@media #{$min_lg} {
-		top: 6px;
-	}
-}
-
-.stories_details {}
-
-.stories_body {
-
-	@media #{$min_lg} {
-		min-width: 290px;
-	}
-}
+.stories {}
 
 .stories_carousel {
 	position: relative;
@@ -179,6 +31,10 @@
 .stories_item {
 	margin-right: 20px;
 
+	@media screen and (min-width: 600px) {
+		opacity: 0;
+	}
+
 	@media #{$min_md} {
 		width: calc(33.33% - 20px);
 
@@ -189,6 +45,30 @@
 		width: calc(33.33% - 56px);
 
 		margin: 0 28px;
+	}
+
+	@for $i from 1 through 3 {
+
+		&:nth-child(#{$i}) {
+
+			@media screen and (min-width: 600px) {
+				transform: translate(0, 40px + (40px * $i));
+				transition:
+					opacity .5s .05s * $i,
+					transform .5s .05s * $i;
+			}
+		}
+	}
+
+	.visible & {
+
+		&:nth-child(n) {
+
+			@media screen and (min-width: 600px) {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+		}
 	}
 }
 

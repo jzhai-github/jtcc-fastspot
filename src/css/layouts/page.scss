@@ -11,15 +11,20 @@
 }
 
 .page {
+	--page_offset: 60px;
+
 	flex-grow: 1;
-	padding-top: 60px;
 
 	@media #{$min_lg} {
-		padding-top: 108px;
+		--page_offset: 108px;
 	}
 
 	@media #{$min_xl} {
-		padding-top: 125px;
+		--page_offset: 125px;
+	}
+
+	body:not(.body_layout_home) & {
+		padding-top: var(--page_offset);
 	}
 }
 

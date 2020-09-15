@@ -156,7 +156,7 @@
 }
 
 .news_item_categories {
-	margin: 0 0 4px;
+	margin: 0 0 2px;
 }
 
 .news_item_category_hint {
@@ -165,6 +165,9 @@
 
 .news_item_category_list {
 	@include remove_list;
+
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .news_item_category {
@@ -173,8 +176,17 @@
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	line-height: (20 / 14);
-	margin-right: 10px;
+	margin-right: 4px;
+	margin-bottom: 8px;
 	text-transform: uppercase;
+
+	&:not(:last-child) {
+
+		&:after {
+			content: ",";
+			margin-left: -2px;
+		}
+	}
 }
 
 .news_item_category_link {
@@ -182,7 +194,6 @@
 
 	border-bottom: 1px solid rgba($peach, .35);
 	color: rgba(#000, .5);
-	display: block;
 	padding-bottom: 2px;
 	transition:
 		border $base_speed,

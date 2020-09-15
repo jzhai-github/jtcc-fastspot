@@ -3,7 +3,7 @@
 ============================================================================= */
 
 .link_group {
-	@include margined_xl;
+	@include margined_lg;
 
 	--background: #F7F7F7;
 	--color: #000;
@@ -13,7 +13,7 @@
 	--accent: #{$bright_pink};
 	--hover: #{$bergundy};
 
-	&.theme-bergundy {
+	&.theme_bergundy {
 		--background: #{$bergundy};
 		--color: #fff;
 		--title: #{$blush};

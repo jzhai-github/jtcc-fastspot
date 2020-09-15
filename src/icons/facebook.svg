@@ -1,11 +1,13 @@
-<svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path id="a" d="M0 0h25v25H0z"/>
-    </defs>
-    <g fill="none" fill-rule="evenodd">
-        <mask id="b" fill="#fff">
-            <use xlink:href="#a"/>
-        </mask>
-        <path d="M25 12.576C25 5.631 19.404 0 12.5 0S0 5.63 0 12.576C0 18.854 4.571 24.056 10.547 25v-8.788H7.373v-3.636h3.174v-2.77c0-3.152 1.866-4.893 4.721-4.893 1.368 0 2.798.245 2.798.245v3.095H16.49c-1.553 0-2.037.97-2.037 1.964v2.36h3.467l-.554 3.635h-2.913V25C20.43 24.057 25 18.854 25 12.576" fill="currentColor" mask="url(#b)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Facebook Icon</title>
+    <g id="News-Listing-+-Detail--✔" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+        <g id="News-Detail----Simple" transform="translate(-1113.000000, -587.000000)" fill="">
+            <g id="News-Metadata" transform="translate(0.000000, 560.000000)">
+                <g id="Facebook-Icon" transform="translate(1113.000000, 27.000000)">
+                    <path d="M23.62,0 L1.37,0 C0.611755178,0.0054946717 0,0.62173527 0,1.38 L0,23.63 C0.0054946717,24.3882448 0.62173527,25 1.38,25 L13.355,25 L13.355,15.3325 L10.105,15.3325 L10.105,11.5475 L13.355,11.5475 L13.355,8.7625 C13.355,5.535 15.3275,3.775 18.2075,3.775 C19.1795343,3.7708606 20.151043,3.82093837 21.1175,3.925 L21.1175,7.3 L19.1325,7.3 C17.565,7.3 17.26,8.05 17.26,9.1375 L17.26,11.5475 L21,11.5475 L20.5,15.3325 L17.25,15.3325 L17.25,25 L23.62,25 C24.382153,25 25,24.382153 25,23.62 L25,1.37 C24.9945053,0.611755178 24.3782647,0 23.62,0 L23.62,0 Z" id="Background"></path>
+                </g>
+            </g>
+        </g>
     </g>
 </svg>

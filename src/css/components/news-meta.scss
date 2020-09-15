@@ -34,26 +34,12 @@
 	margin-top: 16px;
 
 	@media #{$min_md} {
-		margin-top: 0;
-	}
-
-	&:before {
-
-		@media #{$min_md} {
-			height: 23px;
-			width: 1px;
-
-			background: rgba(#000, .15);
-			content: "";
-			display: inline-block;
-			margin: 0 16px 0 12px;
-			transform: skew(-16deg);
-			vertical-align: middle;
-		}
+		margin-top: 2px;
 	}
 }
 
 .news_meta_categories_icon {
+	color: #D8D8D8;
 	margin-right: 6px;
 }
 

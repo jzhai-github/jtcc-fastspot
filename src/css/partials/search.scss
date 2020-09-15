@@ -180,6 +180,7 @@
 }
 
 .search_toggle_inner {
+	display: block;
 	transition: opacity $base_speed;
 
 	&_default {

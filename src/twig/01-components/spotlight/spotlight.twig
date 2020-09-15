@@ -1,4 +1,4 @@
-<div class="spotlight">
+<div class="js-view-test spotlight">
 	{% render "@partial-background" with {
 		class: "spotlight",
 		image: image,
@@ -12,15 +12,43 @@
 		<div class="fs-cell">
 			<div class="spotlight_inner">
 				<div class="spotlight_header">
-					<h2 class="spotlight_title">
-						<span class="spotlight_title_group spotlight_title_group_primary">
-							<span class="spotlight_title_label spotlight_title_label_primary">{{ title.primary }}</span>
-						</span>
-						<span class="spotlight_title_group spotlight_title_group_secondary">
-							<span class="spotlight_title_label spotlight_title_label_secondary">{{ title.secondary }}</span>
-						</span>
-					</h2>
-					<p class="spotlight_caption">{{ caption }}</p>
+					<div class="spotlight_header_inner">
+						<div class="spotlight_header_body">
+							<h2 class="spotlight_title">
+								<span class="spotlight_title_group spotlight_title_group_primary">
+									<span class="spotlight_title_label spotlight_title_label_primary">{{ title.primary }}</span>
+								</span>
+								<span class="spotlight_title_group spotlight_title_group_secondary">
+									<span class="spotlight_title_label spotlight_title_label_secondary">{{ title.secondary }}</span>
+								</span>
+							</h2>
+							<p class="spotlight_caption">{{ caption }}</p>
+						</div>
+					</div>
+				</div>
+				<div class="stories">
+					<div class="js-carousel stories_carousel" data-carousel-options='{
+						"controls": false,
+						"contained": false,
+						"maxWidth": "739px",
+						"show": {
+							"600px": 2
+						}
+					}'>
+						{% for item in items %}
+							<div class="stories_item">
+								{% render "@component-story" with {
+									item: item
+								} %}
+							</div>
+						{% endfor %}
+					</div>
+					{% render '@partial-link' with {
+						title: "View all Next Up Stories",
+						url: "#",
+						class: "stories_discovery",
+						icon: "caret_right"
+					} %}
 				</div>
 			</div>
 		</div>

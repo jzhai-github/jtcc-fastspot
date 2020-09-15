@@ -16,11 +16,8 @@
 .news_item_detail {
 	display: inline-block;
 	vertical-align: middle;
-}
 
-.news_item_detail_hint {
-
-	&:before {
+	&:after {
 		height: 23px;
 		width: 1px;
 
@@ -31,6 +28,19 @@
 		transform: skew(-16deg);
 		vertical-align: middle;
 	}
+
+	&:last-child {
+
+		&:after {
+
+			@media #{$max_md} {
+				display: none;
+			}
+		}
+	}
+}
+
+.news_item_detail_hint {
 
 	.news_item_date & {
 		@include visually_hide;

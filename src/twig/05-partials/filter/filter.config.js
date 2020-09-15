@@ -54,5 +54,32 @@ module.exports = {
 		search_placeholder: 'Search by keyword',
 		results: '12',
 		category: 'Information Technology'
-	}
+	},
+	variants: [
+		{
+			name: 'default'
+		},
+		{
+			name: 'news',
+			context: {
+				tools: [
+					{
+						label: 'Filter by Category',
+						options: [
+							{
+								label: 'Next Up',
+								selected: true
+							},
+							{
+								label: 'Category One'
+							},
+							{
+								label: 'Another Category'
+							}
+						]
+					}
+				]
+			}
+		}
+	]
 };

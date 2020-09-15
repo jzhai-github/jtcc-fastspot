@@ -15,7 +15,6 @@ let getContext = (obj) => {
 };
 
 module.exports = {
-	status: 'ready',
 	collated: true,
 	context: getContext({ theme: 'blue' }),
 	default: 'blue',

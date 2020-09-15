@@ -9,6 +9,10 @@
 	@media #{$min_md} {
 		padding: 56px 0 62px;
 	}
+
+	.page_header + & {
+		padding-top: 0;
+	}
 }
 
 .program_meta_inner {

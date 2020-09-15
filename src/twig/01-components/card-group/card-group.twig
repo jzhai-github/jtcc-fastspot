@@ -25,6 +25,7 @@
 				<ul class="card_group_items card_count_{{ card_count }}" {% if title %} aria-label="{{ title }}" {% endif %}>
 					{% for item in items %}
 						<li class="card_group_item">
+							{% if item.image %}
 							<figure class="card_group_item_figure">
 								{% render "@partial-image" with {
                                     class: "card_group_item",
@@ -37,6 +38,7 @@
                                     ]
                                 } %}
 							</figure>
+							{% endif %}
 							<div class="card_group_item_header">
 								<h2 class="card_group_item_title">
 									{% render "@partial-link" with {

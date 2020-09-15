@@ -1,6 +1,6 @@
 let items = [
 	{
-		image: '1',
+		image: '5',
 		categories: ['Emergency Medical Services', 'Next Up'],
 		category_url: 'page-news-category.html',
 		title: 'Next Up: Fire Captain',
@@ -45,6 +45,37 @@ module.exports = {
 	default: 'four-up',
 	variants: [
 		{
+			name: 'four-up-no-image',
+			context: {
+				items: [
+					{
+						categories: ['Academics', 'Announcements'],
+						category_url: 'page-news-category.html',
+						title: 'John Tyler Community College Celebrates the Class of 2020',
+						url: '#',
+						date: '2019-01-01 17:00:00',
+						description: 'Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.'
+					},
+					{
+						categories: ['Academics', 'Announcement'],
+						category_url: 'page-news-category.html',
+						title: 'Student Awards Virtual Ceremony',
+						url: '#',
+						date: '2019-01-01 17:00:00',
+						description: 'Each spring, Tyler honors its outstanding students during an awards ceremony. The unusual circumstances of this spring kept us from holding an in-person event, but that is not stopping us from celebrating our students for their leadership, academic achievements, community service commitments, and creativity.'
+					},
+					{
+						categories: ['Academics', 'Announcement'],
+						category_url: 'page-news-category.html',
+						title: 'Tyler Grad Designs Logo Supporting Frontline COVID Workers',
+						url: '#',
+						date: '2019-01-01 17:00:00',
+						description: 'While we cannot be together right now, we can still celebrate Tyler’s Class of 2020 and mark the end of a very unusual spring semester. During the week of May 4, the college will offer some fun ways to mark the achievement of our grads and our students.'
+					}
+				]
+			}
+		},
+		{
 			name: 'four-up',
 			context: {
 				items: items.slice(0, 4)
@@ -54,18 +85,6 @@ module.exports = {
 			name: 'three-up',
 			context: {
 				items: items.slice(0, 3)
-			}
-		},
-		{
-			name: 'two-up',
-			context: {
-				items: items.slice(0, 2)
-			}
-		},
-		{
-			name: 'one-up',
-			context: {
-				items: items.slice(0, 1)
 			}
 		}
 	]

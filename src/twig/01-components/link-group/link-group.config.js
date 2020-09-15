@@ -44,5 +44,16 @@ module.exports = {
 				icon: 'caret_right'
 			}
 		]
-	}
+	},
+	variants: [
+		{
+			name: 'default'
+		},
+		{
+			name: 'bergundy',
+			context: {
+				theme: 'bergundy'
+			}
+		}
+	]
 };

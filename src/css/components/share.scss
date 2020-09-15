@@ -34,6 +34,11 @@
 
 	display: inline-block;
 
+	@media #{$min_xl} {
+		padding-right: 48px;
+		padding-left: 48px;
+	}
+
 	&:hover,
 	&:focus {
 		background: $bergundy;

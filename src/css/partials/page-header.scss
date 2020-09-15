@@ -33,7 +33,7 @@
 	position: relative;
 
 	background: $maroon;
-	display: inline-block;
+	display: inline;
 	margin: 0;
 	padding-right: 8px;
 
@@ -86,7 +86,7 @@
 .page_description {
 	@include intro_text;
 
-	max-width: 745px;
+	max-width: 795px;
 
 	margin: 12px 0 0;
 
