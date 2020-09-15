@@ -6,7 +6,8 @@ let items = [
 		title: 'Next Up: Fire Captain',
 		url: '#',
 		date: '2019-01-01 17:00:00',
-		description: 'After graduating from Tyler’s emergency medical services – paramedic program, Damian Winn’s career is heating up. He’s gone from volunteer to full-time firefighter to paramedic mentor. With his sought-after paramedic skills, he’s not just putting out fires. He’s the crucial link in keeping people alive.'
+		description:
+			'After graduating from Tyler’s emergency medical services – paramedic program, Damian Winn’s career is heating up. He’s gone from volunteer to full-time firefighter to paramedic mentor. With his sought-after paramedic skills, he’s not just putting out fires. He’s the crucial link in keeping people alive.'
 	},
 	{
 		image: '2',
@@ -15,7 +16,8 @@ let items = [
 		title: 'Tyler Announces New Student Success Webinars',
 		url: '#',
 		date: '2019-01-01 17:00:00',
-		description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.'
+		description:
+			'Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.'
 	},
 	{
 		image: '3',
@@ -24,16 +26,19 @@ let items = [
 		title: 'Tyler Grad Designs Logo Supporting Frontline COVID Workers',
 		url: '#',
 		date: '2019-01-01 17:00:00',
-		description: 'Mark Van Der Hyde is part of a family devoted to public service. His wife is a critical care nurse at Lowell General Hospital near Boston, while his Dad and brother are nurses, his sister works in a medical office, and his mom works in food service.'
+		description:
+			'Mark Van Der Hyde is part of a family devoted to public service. His wife is a critical care nurse at Lowell General Hospital near Boston, while his Dad and brother are nurses, his sister works in a medical office, and his mom works in food service.'
 	},
 	{
 		image: '4',
 		categories: ['Academics', 'Announcement'],
 		category_url: 'page-news-category.html',
-		title: 'John Tyler Community College Announces its Annual Student Award Winners',
+		title:
+			'John Tyler Community College Announces its Annual Student Award Winners',
 		url: '#',
 		date: '2019-01-01 17:00:00',
-		description: 'Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.'
+		description:
+			'Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.'
 	}
 ];
 
@@ -46,33 +51,13 @@ module.exports = {
 	variants: [
 		{
 			name: 'four-up-no-image',
+			label: 'Four Up w/ No Image',
 			context: {
-				items: [
-					{
-						categories: ['Academics', 'Announcements'],
-						category_url: 'page-news-category.html',
-						title: 'John Tyler Community College Celebrates the Class of 2020',
-						url: '#',
-						date: '2019-01-01 17:00:00',
-						description: 'Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.'
-					},
-					{
-						categories: ['Academics', 'Announcement'],
-						category_url: 'page-news-category.html',
-						title: 'Student Awards Virtual Ceremony',
-						url: '#',
-						date: '2019-01-01 17:00:00',
-						description: 'Each spring, Tyler honors its outstanding students during an awards ceremony. The unusual circumstances of this spring kept us from holding an in-person event, but that is not stopping us from celebrating our students for their leadership, academic achievements, community service commitments, and creativity.'
-					},
-					{
-						categories: ['Academics', 'Announcement'],
-						category_url: 'page-news-category.html',
-						title: 'Tyler Grad Designs Logo Supporting Frontline COVID Workers',
-						url: '#',
-						date: '2019-01-01 17:00:00',
-						description: 'While we cannot be together right now, we can still celebrate Tyler’s Class of 2020 and mark the end of a very unusual spring semester. During the week of May 4, the college will offer some fun ways to mark the achievement of our grads and our students.'
-					}
-				]
+				items: items.map((item) => {
+					item.image = null;
+
+					return item;
+				})
 			}
 		},
 		{

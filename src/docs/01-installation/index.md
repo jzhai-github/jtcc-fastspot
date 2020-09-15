@@ -19,7 +19,6 @@ cd [code-directory]
 git clone git@github.com:jzhai-github/jtcc-fastspot.git
 
 # cd into project
-
 cd jtcc-fastspot
 
 # install dependencies; we recommend using yarn

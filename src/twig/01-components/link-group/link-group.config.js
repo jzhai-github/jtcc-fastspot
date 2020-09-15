@@ -1,4 +1,5 @@
 module.exports = {
+	collated: true,
 	context: {
 		title: 'Ipsum Fermentum Tristique',
 		items: [
@@ -45,9 +46,10 @@ module.exports = {
 			}
 		]
 	},
+	default: 'gray',
 	variants: [
 		{
-			name: 'default'
+			name: 'gray'
 		},
 		{
 			name: 'bergundy',

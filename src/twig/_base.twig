@@ -38,6 +38,16 @@
 		{% endblock %}
 
 		<script src="{{ "/js/site.js"|path }}"></script>
+		
+		<script>
+			(function() {
+				if (typeof FSGridBookmarklet === 'undefined') {
+					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
+				} else {
+					FSGridBookmarklet();
+				}
+			})();
+		</script>
 
 		{% block footer_scripts_below %}
 			{#  #}
