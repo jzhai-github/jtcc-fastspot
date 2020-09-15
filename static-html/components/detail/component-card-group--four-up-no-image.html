@@ -392,8 +392,8 @@
 					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> item in items %}</span><span class="xml">
 						<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item"</span>&gt;</span>
 							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.image %}</span><span class="xml">
-							<span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_figure"</span>&gt;</span>
-								</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> "<a href="partial-image.html">@partial-image</a>" with {
+								<span class="hljs-tag">&lt;<span class="hljs-name">figure</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_figure"</span>&gt;</span>
+									</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> "<a href="partial-image.html">@partial-image</a>" with {
                                     class: "card_group_item",
                                     alt: "",
                                     image: item.image,
@@ -403,7 +403,7 @@
                                         img("classic").xxsml
                                     ]
                                 } %}</span><span class="xml">
-							<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
+								<span class="hljs-tag">&lt;/<span class="hljs-name">figure</span>&gt;</span>
 							</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 							<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_header"</span>&gt;</span>
 								<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_title"</span>&gt;</span>
@@ -415,8 +415,8 @@
 									} %}</span><span class="xml">
 								<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 								</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> item.categories %}</span><span class="xml">
-								<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_categories"</span>&gt;</span>
-									<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_category_hint"</span>&gt;</span>Categories<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+									<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_categories"</span>&gt;</span>
+										<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_category_hint"</span>&gt;</span>Categories<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 										<span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_category_list"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Categories"</span>&gt;</span>
 											</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> category in item.categories %}</span><span class="xml">
 												<span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card_group_item_category"</span>&gt;</span>
@@ -1873,7 +1873,7 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-15T17:18:05.495Z">
+            <time datetime="2020-09-15T19:41:32.959Z">
                 9/15/2020
             </time>
         </div>
