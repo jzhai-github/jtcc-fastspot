@@ -1611,6 +1611,16 @@ electrical <b>wires</b>. Mixed with the rock salt used to clear city&nbsp;...</d
 					
 		
 		<script src="../../js/site.js"></script>
+		
+		<script>
+			(function() {
+				if (typeof FSGridBookmarklet === 'undefined') {
+					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
+				} else {
+					FSGridBookmarklet();
+				}
+			})();
+		</script>
 
 					
 		

@@ -150,6 +150,16 @@ f.parentNode.insertBefore(j, f);
 					
 		
 		<script src="../../js/site.js"></script>
+		
+		<script>
+			(function() {
+				if (typeof FSGridBookmarklet === 'undefined') {
+					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
+				} else {
+					FSGridBookmarklet();
+				}
+			})();
+		</script>
 
 					
 		
