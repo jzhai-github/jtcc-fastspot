@@ -255,7 +255,7 @@ const _cms = gulp.series(
 	gulp.parallel(styles, scripts, icons, images),
 	watch
 );
-const github_build = gulp.series(confirmProductionMode, build, fractalBuild);
+const github_build = gulp.series(confirmProductionMode, build);
 const _watch = gulp.series(build, fractalSync, watch);
 
 exports.build = build;
