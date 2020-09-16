@@ -246,6 +246,7 @@ function confirmProductionMode(done) {
 }
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts, icons, images));
+const buildAll = gulp.series(build, fractalBuild);
 const _cms = gulp.series(
 	cmsGitHook,
 	gulp.parallel(styles, scripts, icons, images),
@@ -255,6 +256,7 @@ const github_build = gulp.series(confirmProductionMode, build, fractalBuild);
 const _watch = gulp.series(build, fractalSync, watch);
 
 exports.build = build;
+exports.build_all = buildAll;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.axe = axe;

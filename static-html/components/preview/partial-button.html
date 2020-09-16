@@ -69,63 +69,6 @@ f.parentNode.insertBefore(j, f);
 		
 
 					
-		<br><br>
-
-        <div style="background-color: #fff;">
-            <h2 style="heading-h2 color: #000;">
-                Button: Primary
-            </h2>
-
-			<br>
-
-            <div>
-                <a href="#" class="button_primary_link" >
-	<span class="button_primary_link_inner">
-		<span class="button_primary_link_label">Auxiliary Cross Platform Cheese</span>
-					<span class="button_primary_link_icon" aria-hidden="true">
-				<span class="button_primary_link_icon_inner">
-					<span class="button_primary_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-            </div>
-        </div>
-    
-
-		<br><br>
-
-        <div style="background-color: #fff;">
-            <h2 style="heading-h2 color: #000;">
-                Button: Secondary
-            </h2>
-
-			<br>
-
-            <div>
-                <a href="#" class="button_secondary_link" >
-	<span class="button_secondary_link_inner">
-		<span class="button_secondary_link_label">Auxiliary Cross Platform Cheese</span>
-					<span class="button_secondary_link_icon" aria-hidden="true">
-				<span class="button_secondary_link_icon_inner">
-					<span class="button_secondary_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-            </div>
-        </div>
-    
 		
 		<script>
 			var WWW_ROOT = "";
@@ -137,6 +80,16 @@ f.parentNode.insertBefore(j, f);
 					
 		
 		<script src="../../js/site.js"></script>
+		
+		<script>
+			(function() {
+				if (typeof FSGridBookmarklet === 'undefined') {
+					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
+				} else {
+					FSGridBookmarklet();
+				}
+			})();
+		</script>
 
 					
 		

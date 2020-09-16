@@ -37,7 +37,7 @@ fractal.set('project.author', 'Fastspot');
 
 fractal.docs.engine(twigAdapter);
 fractal.docs.set('path', __dirname + '/src/docs');
-fractal.docs.set('default.status', 'draft');
+fractal.docs.set('default.status', 'ready');
 
 fractal.components.set('statuses', {
 	prototype: {
@@ -62,16 +62,11 @@ fractal.components.set('statuses', {
 	}
 });
 
-fractal.set('builder.urls', ['test']);
-// 'builder.ext'?: string;
-// 'builder.urls'?: WebBuilderUrls;
-// 'builder.urls.ext'?: string;
-
 fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
 fractal.components.set('path', __dirname + '/src/twig');
 fractal.components.set('default.preview', '@preview');
-fractal.components.set('default.status', 'wip');
+fractal.components.set('default.status', 'ready');
 fractal.components.set('default.collator', function (markup, item) {
 	const headingStyle =
 		item.preview === '@preview-dark' ? 'color: #fff;' : 'color: #000;';
@@ -84,7 +79,7 @@ fractal.components.set('default.collator', function (markup, item) {
 		<br><br>
 
         <div style="${bgStyle}">
-            <h2 style="heading-h2 ${headingStyle}">
+            <h2 class="heading-h2" style="${headingStyle}; padding: 0 24px;">
                 ${item.title}
             </h2>
 

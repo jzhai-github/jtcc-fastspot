@@ -71,7 +71,7 @@ f.parentNode.insertBefore(j, f);
 					
 
 <div class="logo logo_header logo_icon">
-	<a class="logo_link" href="page-home.html">
+	<a class="logo_link" href="#">
 		<span class="logo_link_label"></span>
 		<span class="logo_link_icon">
 			
@@ -94,6 +94,16 @@ f.parentNode.insertBefore(j, f);
 					
 		
 		<script src="../../js/site.js"></script>
+		
+		<script>
+			(function() {
+				if (typeof FSGridBookmarklet === 'undefined') {
+					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
+				} else {
+					FSGridBookmarklet();
+				}
+			})();
+		</script>
 
 					
 		
