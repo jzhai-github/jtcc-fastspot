@@ -273,7 +273,7 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f40a010ba8456ca698ed688a764fe8d5-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_news theme_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> theme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ theme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">default</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> items is empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_standalone</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_news theme_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> theme %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-variable">{{ theme }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">default</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> articles is empty %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_standalone</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_news_inner"</span>&gt;</span>
@@ -303,7 +303,7 @@
 						</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> "<a href="component-story.html">@component-story</a>" %}</span><span class="xml">
 						</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
 					<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> items %}</span><span class="xml">
+					</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> articles %}</span><span class="xml">
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_news_content"</span>&gt;</span>
 						</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> theme != "featured" %}</span><span class="xml">
 						<span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_news_content_title"</span>&gt;</span>The Latest News<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
@@ -349,22 +349,8 @@
             <pre>{
   <span class="hljs-attr">"title"</span>: <span class="hljs-string">"News"</span>,
   <span class="hljs-attr">"contentTitle"</span>: <span class="hljs-string">"The Latest News"</span>,
-  <span class="hljs-attr">"articles"</span>: [
-    {
-      <span class="hljs-attr">"date"</span>: <span class="hljs-string">"April 21, 2020"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"State Board for Community Colleges to Consider 2020-21 Fees at May Meeting"</span>
-    },
-    {
-      <span class="hljs-attr">"date"</span>: <span class="hljs-string">"April 15, 2020"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"JTCC adds new Maymester Session to Meet the Needs of Students Impacted by the Stay at Home Order"</span>
-    },
-    {
-      <span class="hljs-attr">"date"</span>: <span class="hljs-string">"March 09, 2020"</span>,
-      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Workshops and Activities Designed to Help you Succeed"</span>
-    }
-  ],
-  <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"featured"</span>,
-  <span class="hljs-attr">"items"</span>: <span class="hljs-string">""</span>
+  <span class="hljs-attr">"articles"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"theme"</span>: <span class="hljs-string">"featured"</span>
 }</pre>
             
         
@@ -1944,7 +1930,7 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-16T00:44:22.845Z">
+            <time datetime="2020-09-16T02:29:42.950Z">
                 9/16/2020
             </time>
         </div>
