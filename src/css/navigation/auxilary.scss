@@ -68,12 +68,19 @@
 .auxilary_nav_link_label {
 	@include serif(300);
 
+	border-bottom: 1px solid transparent;
 	font-size: 15px;
 	line-height: (22 / 15);
+	transition: border $base_speed;
 
 	@media #{$min_lg} {
 		font-size: 16px;
 		line-height: (25 / 16);
+	}
+
+	.auxilary_nav_link:hover &,
+	.auxilary_nav_link:focus & {
+		border-bottom-color: currentColor;
 	}
 }
 

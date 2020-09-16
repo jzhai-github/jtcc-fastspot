@@ -3,7 +3,7 @@
 ============================================================================= */
 
 .program_list {
-	@include margined_xl;
+	@include margined_xl_bottom;
 }
 
 .program_list_inner {
@@ -44,13 +44,16 @@
 	display: flex;
 	padding: 12px 0 18px;
 
-	@media #{$min_md} {
+	@media #{$min_lg} {
 		padding: 30px 0;
 	}
 }
 
 .program_item_heading_label {
+	width: calc(100% - 45px);
+
 	margin-right: auto;
+	padding-right: 25px;
 
 	@media #{$min_lg} {
 		align-items: center;
@@ -62,16 +65,15 @@
 .program_item_heading_title {
 	@include sans(100);
 
-	align-items: center;
-	display: flex;
+	display: block;
 	font-size: 28px;
-	justify-content: flex-start;
 	line-height: (34 / 28);
 	margin-bottom: 10px;
 	padding-right: 20px;
 	text-align: left;
 
 	@media #{$min_lg} {
+		flex: auto;
 		font-size: 36px;
 		line-height: (38 / 36);
 		margin-bottom: 0;
@@ -85,6 +87,8 @@
 
 .program_item_heading_title_label {
 	border-bottom: 1px solid transparent;
+	display: inline;
+	margin-right: 20px;
 	transition: border $base_speed;
 
 	.program_item_heading_title:hover &,
@@ -94,17 +98,23 @@
 }
 
 .program_item_heading_title_icon {
-	display: none;
+	color: $maroon;
+	display: inline-block;
+	margin-left: -14px;
+	vertical-align: middle;
 
 	@media #{$min_xl} {
-		position: relative;
-		top: 2px;
-
-		color: $maroon;
-		display: block;
-		margin-left: 10px;
 		transform: scale(1.315);
 		transform-origin: left center;
+	}
+
+	.program_item_heading_title:hover &,
+	.program_item_heading_title:focus & {
+		animation: dootdoot 1s infinite;
+
+		@media #{$min_xl} {
+			animation: dootdoot_big 1s infinite;
+		}
 	}
 }
 
@@ -159,7 +169,6 @@
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
-	margin-left: 25px;
 	opacity: 0;
 	transition:
 		background $base_speed,

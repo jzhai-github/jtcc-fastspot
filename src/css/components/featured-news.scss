@@ -284,12 +284,16 @@
 .featured_news_article_title_link {}
 
 .featured_news_article_title_link_label {
+	border-bottom: 1px solid transparent;
 	display: inline;
 	margin-right: 20px;
-	transition: color $base_speed;
+	transition:
+		border $base_speed,
+		color $base_speed;
 
 	.featured_news_article_title_link:hover &,
 	.featured_news_article_title_link:focus & {
+		border-color: currentColor;
 		color: $maroon;
 
 		.theme_featured & {

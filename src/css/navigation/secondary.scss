@@ -37,7 +37,7 @@
 	}
 
 	@media #{$min_xl} {
-		padding: 15px 14px 14px;
+		padding: 14px;
 	}
 
 	&:hover,
@@ -52,7 +52,7 @@
 
 .secondary_nav_link_icon {
 	color: $turquoise;
-	margin-left: 5px;
+	margin-left: 6px;
 	transform: scale(.75);
 	transform-origin: left center;
 
@@ -65,11 +65,18 @@
 .secondary_nav_link_label {
 	@include serif(400);
 
+	border-bottom: 1px solid transparent;
 	font-size: 15px;
 	line-height: (22 / 15);
+	transition: border $base_speed;
 
 	@media #{$min_xl} {
 		font-size: 18px;
 		line-height: (21 / 18);
+	}
+
+	.secondary_nav_link:hover &,
+	.secondary_nav_link:focus & {
+		border-bottom-color: currentColor;
 	}
 }

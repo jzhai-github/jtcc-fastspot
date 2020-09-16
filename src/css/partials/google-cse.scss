@@ -26,6 +26,7 @@
 		font-size: inherit;
 		margin-bottom: 0;
 		padding-top: 40px;
+		padding-bottom: 84px;
 
 		&:before,
 		&:after {
@@ -135,6 +136,8 @@
 		background-repeat: no-repeat;
 		margin-top: 2px;
 		padding: 0;
+		transform-origin: right center;
+		transform: scale(.85);
 	}
 
 	.gscb_a {
@@ -185,11 +188,14 @@
 	/* Results Count
 	============================================================================= */
 
+	.gsc-above-wrapper-area-invisible,
 	.gsc-above-wrapper-area {
 		position: relative;
 
 		background: $teal;
+		border-bottom: 0 !important;
 		color: #fff;
+		margin-top: -83px;
 		padding: 15px 0 50px;
 
 		&:before,
@@ -220,6 +226,10 @@
 		font-size: 16px;
 		margin: 0;
 		padding: 0;
+
+		@at-root .gsc-above-wrapper-area-invisible .gsc-result-info {
+			display: none;
+		}
 	}
 
 	.gsc-wrapper {
@@ -255,6 +265,7 @@
 		color: inherit;
 		font-size: inherit;
 		margin-bottom: 6px;
+		overflow: visible;
 		text-decoration: none;
 	}
 
@@ -263,6 +274,7 @@
 
 		border-bottom: 1px solid $maroon;
 		color: #000;
+		display: inline;
 		font-size: 30px;
 		line-height: (36 / 36);
 		overflow: visible;

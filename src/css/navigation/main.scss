@@ -96,6 +96,8 @@
 .main_nav_link_label {
 	@include sans(500);
 
+	position: relative;
+
 	font-size: 28px;
 	letter-spacing: 1px;
 	line-height: (34 / 28);
@@ -111,6 +113,33 @@
 		font-size: 28px;
 		letter-spacing: 1px;
 		line-height: (34 / 28);
+	}
+
+	&:after {
+
+		@media #{$min_lg} {
+			height: 1px;
+			width: 100%;
+
+			position: absolute;
+			bottom: 0;
+			left: 0;
+
+			background: currentColor;
+			content: "";
+			transform: scaleX(0);
+			transition: transform $base_speed;
+		}
+
+		.main_nav_item.fs-swap-active &,
+		.main_nav_item:hover &,
+		.main_nav_link:hover &,
+		.main_nav_link:focus & {
+
+			@media #{$min_lg} {
+				transform: scaleX(1);
+			}
+		}
 	}
 }
 
@@ -136,14 +165,6 @@
 	}
 
 	&.fs-swap-active {
-
-		@media #{$max_lg} {
-			transform: rotate(45deg);
-		}
-	}
-
-	.main_nav_item:hover &,
-	&:focus {
 
 		@media #{$max_lg} {
 			transform: rotate(45deg);

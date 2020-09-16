@@ -1,4 +1,4 @@
-<div class="featured_news theme_{% if theme %}{{ theme }}{% else %}default{% endif %}{% if items is empty %} layout_standalone{% endif %}">
+<div class="featured_news theme_{% if theme %}{{ theme }}{% else %}default{% endif %}{% if articles is empty %} layout_standalone{% endif %}">
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="featured_news_inner">
@@ -28,7 +28,7 @@
 						{% render "@component-story" %}
 						{% endif %}
 					</div>
-					{% if items %}
+					{% if articles %}
 					<div class="featured_news_content">
 						{% if theme != "featured" %}
 						<h3 class="featured_news_content_title">The Latest News</h3>

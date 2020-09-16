@@ -28,7 +28,7 @@
 	padding-bottom: 28px;
 
 	@media #{$min_lg} {
-		margin-bottom: 24px;
+		margin-bottom: 20px;
 		padding-bottom: 44px;
 	}
 
@@ -200,7 +200,7 @@
 
 	.theme_navy & {
 		border-bottom-color: $teal;
-		color: #F0F0F0;
+		color: rgba(#F0F0F0, .7);
 	}
 }
 
@@ -251,7 +251,15 @@
 	}
 }
 
-.contact_detail_info_label {}
+.contact_detail_info_label {
+	border-bottom: 1px solid transparent;
+	transition: border $base_speed;
+
+	.contact_detail_info[href]:hover &,
+	.contact_detail_info[href]:focus & {
+		border-bottom-color: currentColor;
+	}
+}
 
 .contact_socials {
 	@include remove_list;
@@ -286,6 +294,14 @@
 
 .contact_social_link_label {
 	@include body_text;
+
+	border-bottom: 1px solid transparent;
+	transition: border $base_speed;
+
+	.contact_social_link:hover &,
+	.contact_social_link:focus & {
+		border-bottom-color: currentColor;
+	}
 }
 
 .contact_social_link_icon {

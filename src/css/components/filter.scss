@@ -54,6 +54,7 @@
 
 	&:hover:not(.fs-swap-active),
 	&:focus:not(.fs-swap-active) {
+		background: rgba($teal, .25);
 		border-color: $turquoise;
 	}
 

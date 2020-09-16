@@ -33,7 +33,7 @@ module.exports = {
 			context: {
 				theme: 'featured',
 				title: 'News',
-				items: ''
+				articles: ''
 			}
 		}
 	]

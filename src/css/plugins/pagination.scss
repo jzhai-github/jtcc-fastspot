@@ -45,7 +45,11 @@
 	justify-content: center;
 	opacity: 1;
 	pointer-events: auto;
-	transition: background $base_speed, opacity $base_speed, visibility $base_speed;
+	transition:
+		background $base_speed,
+		opacity $base_speed,
+		transform $base_speed,
+		visibility $base_speed;
 	visibility: visible;
 
 	@media #{$min_lg} {
@@ -53,9 +57,18 @@
 		height: 50px;
 	}
 
+	&_left {
+		padding-right: 2px;
+	}
+
+	&_right {
+		padding-left: 2px;
+	}
+
 	&:not(.pagination_arrow_disabled):hover,
 	&:focus {
 		background: #000;
+		transform: scale(1.15);
 	}
 }
 
