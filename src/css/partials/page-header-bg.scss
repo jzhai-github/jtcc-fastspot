@@ -166,6 +166,7 @@
 .page_header_bg_video_play_link_icon,
 .page_header_bg_video_pause_link_icon {
 	color: $turquoise;
+	margin-left: 6px;
 	transition: color $base_speed;
 
 	.page_header_bg_video_play_link:hover &,
@@ -178,3 +179,8 @@
 
 .page_header_bg_video_play_link_icon_inner,
 .page_header_bg_video_pause_link_icon_inner {}
+
+.page_header_bg_video_play_link_icon_space,
+.page_header_bg_video_pause_link_icon_space {
+	display: none;
+}

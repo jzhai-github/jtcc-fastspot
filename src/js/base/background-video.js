@@ -19,11 +19,11 @@
 
 			resizeVideo();
 
-			$('.js-page-header-bg-video-play-button')
+			$('.page_header_bg_video_play_link')
 				.attr('aria-pressed', 'true')
 				.addClass('pressed')
 				.on('click', onPlayClick);
-			$('.js-page-header-bg-video-pause-button')
+			$('.page_header_bg_video_pause_link')
 				.attr('aria-pressed', 'false')
 				.on('click', onPauseClick);
 
@@ -72,7 +72,7 @@
 		$(this).addClass('pressed').attr('aria-pressed', 'true');
 
 		$videoWrapper
-			.find('.js-page-header-bg-video-pause-button')
+			.find('.page_header_bg_video_pause_link')
 			.removeClass('pressed')
 			.attr('aria-pressed', 'false');
 	}
@@ -85,7 +85,7 @@
 		$(this).addClass('pressed').attr('aria-pressed', 'true');
 
 		$videoWrapper
-			.find('.js-page-header-bg-video-play-button')
+			.find('.page_header_bg_video_play_link')
 			.removeClass('pressed')
 			.attr('aria-pressed', 'false');
 	}
