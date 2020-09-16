@@ -7,7 +7,6 @@
 
 	.js & {
 		display: block;
-		margin-bottom: 30px;
 
 		@media print {
 			display: none;
@@ -22,21 +21,35 @@
 	background: $navy;
 }
 
+.filter_tabs_inner {
+	display: flex;
+}
+
 .filter_tab {
-	@include mini_h6;
+	@include sans(400);
 
 	position: relative;
 
 	border: 1px solid $teal;
 	color: #fff;
-	margin-right: 4px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: (15 / 13);
 	margin-bottom: -1px;
-	padding: 16px 25px;
+	padding: 10px 20px 9px;
+	text-transform: uppercase;
 	transition: background $base_speed, border $base_speed, color $base_speed,
 		text-decoration $base_speed;
 
 	@media #{$min_sm} {
-		min-width: 100px;
+		min-width: 105px;
+	}
+
+	@media #{$min_md} {
+		font-size: 14px;
+		letter-spacing: 1.75px;
+		line-height: (16 / 14);
+		padding: 16px 25px;
 	}
 
 	&:hover:not(.fs-swap-active),
@@ -327,7 +340,7 @@
 }
 
 .filter_results {
-	margin-top: 30px;
+	padding: 31px 0;
 }
 
 .filter_results_inner {

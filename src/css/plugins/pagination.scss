@@ -118,10 +118,19 @@
 	color: inherit;
 	cursor: pointer;
 	padding: 14px 28px 15px 16px;
+	transition:
+		background $base_speed,
+		color $base_speed;
 
 	@media #{$min_lg} {
-		padding-right: 56px;
+		padding-right: 34px;
 		padding-left: 26px;
+	}
+
+	&:hover,
+	&:focus {
+		background: #000;
+		color: #fff;
 	}
 }
 
@@ -133,9 +142,15 @@
 	color: rgba($bergundy, .75);
 	pointer-events: none;
 	transform: translate(0, -50%);
+	transition: color $base_speed;
 
 	@media #{$min_lg} {
 		right: 24px;
+	}
+
+	.pagination_form_select:hover + &,
+	.pagination_form_select:focus + & {
+		color: #fff;
 	}
 }
 

@@ -90,7 +90,7 @@
 .news_item_header {
 	display: flex;
 	flex-direction: column-reverse;
-	margin-bottom: 12px;
+	margin-bottom: 14px;
 }
 
 .news_item_title {
@@ -156,7 +156,7 @@
 }
 
 .news_item_categories {
-	margin: 0 0 2px;
+	margin: 0;
 }
 
 .news_item_category_hint {
@@ -176,13 +176,14 @@
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	line-height: (20 / 14);
-	margin-right: 4px;
+	margin-right: 6px;
 	margin-bottom: 8px;
 	text-transform: uppercase;
 
 	&:not(:last-child) {
 
 		&:after {
+			color: rgba(#000, .5);
 			content: ",";
 			margin-left: -2px;
 		}

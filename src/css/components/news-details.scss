@@ -6,7 +6,7 @@
 	@include small_text;
 
 	color: rgba(#000, .8);
-	margin-bottom: 20px;
+	margin-bottom: 18px;
 
 	.news_meta & {
 		margin-bottom: 0;
@@ -35,6 +35,10 @@
 
 			@media #{$max_md} {
 				display: none;
+			}
+
+			.news_list & {
+				opacity: 0;
 			}
 		}
 	}

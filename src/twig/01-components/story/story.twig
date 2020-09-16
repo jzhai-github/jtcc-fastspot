@@ -1,4 +1,4 @@
-<div class="story theme_{{ item.theme }}">
+<div class="story theme_{{ item.theme }}{% if item.layout %} layout_{{ item.layout }}{% endif %}">
 	<figure class="story_figure{% if item.classicImage %} has_classic_image{% elseif item.wideImage %} has_wide_image{% endif %}">
 		<a class="story_figure_link" href="{{ item.url }}" aria-label="Read more about {{ item.title }}" tabindex="-1">
 			{% if item.classicImage %}

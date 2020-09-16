@@ -1,8 +1,6 @@
 module.exports = {
 	context: {
-		breadcrumb: false,
 		title: "Happening Here",
-		discovery: true,
 		contentTitle: "The Latest News",
 		articles: [
 			{
@@ -18,5 +16,25 @@ module.exports = {
 				title: "Workshops and Activities Designed to Help you Succeed"
 			}
 		]
-	}
+	},
+	variants: [
+		{
+			name: 'default'
+		},
+		{
+			name: 'featured',
+			context: {
+				theme: 'featured',
+				title: "News"
+			}
+		},
+		{
+			name: 'standalone',
+			context: {
+				theme: 'featured',
+				title: 'News',
+				items: ''
+			}
+		}
+	]
 }

@@ -139,7 +139,20 @@
 		}
 	}
 
+	&:hover,
+	&:focus {
+
+		&:before {
+			background: $turquoise;
+
+			.theme_dark & {
+				background: rgba(#000, .35);
+			}
+		}
+	}
+
 	&.fs-carousel-active {
+
 		&:before {
 			background-color: #fff;
 			transform:

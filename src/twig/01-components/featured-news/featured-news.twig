@@ -1,13 +1,15 @@
-<div class="featured_news">
+<div class="featured_news theme_{% if theme %}{{ theme }}{% else %}default{% endif %}{% if items is empty %} layout_standalone{% endif %}">
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="featured_news_inner">
-				<div class="featured_news_header">
-					{% if breadcrumb %}
+				{% if theme == "featured" %}
+				<div class="featured_news_breadcrumbs">
 					{% render '@navigation-breadcrumb' %}
-					{% endif %}
+				</div>
+				{% endif %}
+				<div class="featured_news_header">
 					<h2 class="featured_news_title">{{ title }}</h2>
-					{% if discovery %}
+					{% if theme != "featured" %}
 					{% render '@partial-link' with {
 						title: "View all News & Stories",
 						url: "#",
@@ -18,15 +20,24 @@
 				</div>
 				<div class="featured_news_body">
 					<div class="featured_news_spotlight">
+						{% if items is empty %}
+						{% render "@component-story--standalone" %}
+						{% elseif theme == "featured" %}
+						{% render "@component-story--turquoise" %}
+						{% else %}
 						{% render "@component-story" %}
+						{% endif %}
 					</div>
+					{% if items %}
 					<div class="featured_news_content">
-						{% if contentTitle %}
+						{% if theme != "featured" %}
 						<h3 class="featured_news_content_title">The Latest News</h3>
 						{% endif %}
-						<ul class="featured_news_articles">
+						<div class="{% if theme == "featured" %}js-carousel {% endif %}featured_news_articles" data-carousel-options='{
+							"maxWidth": "739px"
+						}'>
 							{% for article in articles %}
-							<li class="featured_news_article">
+							<div class="featured_news_article">
 								<time class="featured_news_article_date" datetime="{{ article.date }}">{{ article.date }}</time>
 								<h3 class="featured_news_article_title">
 									{% render '@partial-link' with {
@@ -36,10 +47,17 @@
 										icon: "caret_right"
 									} %}
 								</h3>
-							</li>
+							</div>
 							{% endfor %}
-						</ul>
+						</div>
+						{% if theme == "featured" %}
+						<div class="featured_news_hint">
+							<span class="featured_news_hint_icon">{{ icon("arrow_down") }}</span>
+							<span class="featured_news_hint_label">Scroll for more stories</span>
+						</div>
+						{% endif %}
 					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>

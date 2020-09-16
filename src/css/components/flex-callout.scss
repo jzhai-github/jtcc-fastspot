@@ -1,6 +1,7 @@
 .flex_callout {
 	position: relative;
 
+	background: $navy;
 	padding: 50px 0 55px;
 
 	@media #{$min_md} {
