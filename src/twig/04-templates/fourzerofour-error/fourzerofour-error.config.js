@@ -1,4 +1,5 @@
 module.exports = {
+	title: "404 Error",
 	context: {
 		title: '404 Error: Page Not Found',
 		description:

@@ -43,6 +43,7 @@ let items = [
 ];
 
 module.exports = {
+	collated: true,
 	context: {
 		title: 'Related News',
 		items: items
