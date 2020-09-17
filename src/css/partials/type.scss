@@ -166,19 +166,19 @@
 	h1 {
 		@include h1;
 
-		margin: 32px 0 30px;
+		margin: 42px 0 30px;
 	}
 
 	h2 {
 		@include h2;
 
-		margin: 32px 0 10px;
+		margin: 42px 0 10px;
 	}
 
 	h3 {
 		@include h3;
 
-		margin: 32px 0 18px;
+		margin: 42px 0 18px;
 	}
 
 	h4 {
@@ -186,19 +186,19 @@
 
 		color: rgba(#000, 0.7);
 
-		margin: 32px 0 14px;
+		margin: 42px 0 14px;
 	}
 
 	h5 {
 		@include h5;
 
-		margin: 32px 0 10px;
+		margin: 42px 0 10px;
 	}
 
 	h6 {
 		@include h6;
 
-		margin: 32px 0 14px;
+		margin: 42px 0 14px;
 	}
 
 	.intro {
@@ -554,7 +554,6 @@
 
 .table_wrapper {
 	@include margined;
-	@include fw_type_breakout();
 
 	min-height: 0.01%; // 1
 
