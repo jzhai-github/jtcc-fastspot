@@ -149,10 +149,42 @@
 .main_nav_toggle {
 	display: none;
 
+	@media #{$max_lg} {
+		position: relative;
+	}
+
+	&:before,
+	&:after {
+		width: 10px;
+		height: 2px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		background: $turquoise;
+		border-radius: 2px;
+		content: '';
+		transition: opacity 0.15s, transform 0.15s;
+
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&:before {
+		transform: translate(-50%, -50%);
+	}
+
+	&:after {
+		transform: translate(-50%, -50%) rotate(90deg);
+	}
+
 	&.fs-swap-enabled {
 		height: auto;
 
 		bottom: 0;
+		z-index: 4;
 
 		color: $accent;
 		display: block;
@@ -166,8 +198,11 @@
 
 	&.fs-swap-active {
 
-		@media #{$max_lg} {
-			transform: rotate(45deg);
+		&:after {
+
+			@media #{$max_lg} {
+				transform: translate(-50%, -50%) rotate(0deg);
+			}
 		}
 	}
 
@@ -180,22 +215,20 @@
 	width: 38px;
 	height: 38px;
 
-	position: relative;
-
 	background: rgba(#000, .2);
 	border-radius: 50%;
 	color: $turquoise;
 	display: block;
 	margin: auto;
-	will-change: transform;
 	transition:
 		background $base_speed,
-		color $base_speed,
-		opacity $base_speed;
+		color $base_speed;
 
 	@media #{$min_lg} {
 		width: 30px;
 		height: 30px;
+
+		position: relative;
 
 		background: none;
 		box-shadow: none;
@@ -236,10 +269,9 @@
 	@media #{$min_lg} {
 		width: 260px;
 
-		background-color: #fff;
+		background-color: #F0F0F0;
 		box-shadow: 0 10px 10px 0 rgba(#000, .15);
-		margin-top: -2px;
-		padding: 0 0 26px;
+		padding: 26px 0;
 	}
 
 	.main_nav_item:last-child & {

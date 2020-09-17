@@ -184,10 +184,14 @@
 	visibility: visible;
 
 	@media #{$min_lg} {
-		padding: 13px 10px;
+		min-height: 40px;
+
+		padding: 13px 15px;
 	}
 
 	@media #{$min_xl} {
+		min-height: 50px;
+
 		padding: 18px 24px;
 	}
 }

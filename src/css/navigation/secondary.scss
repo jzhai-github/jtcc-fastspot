@@ -13,12 +13,21 @@
 
 .secondary_nav_list {
 
-	@media #{$min_lg} {
+	@media #{$min_md} {
 		display: flex;
 	}
 }
 
-.secondary_nav_item {}
+.secondary_nav_item {
+
+	@media #{$min_md} {
+		margin-right: 20px;
+	}
+
+	@media #{$min_lg} {
+		margin-right: 0;
+	}
+}
 
 .secondary_nav_item_inner {}
 

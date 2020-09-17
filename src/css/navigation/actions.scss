@@ -8,12 +8,20 @@
 
 .actions_nav_list {
 
-	@media #{$min_lg} {
+	@media #{$min_md} {
 		display: flex;
 	}
 }
 
 .actions_nav_item {
+
+	@media #{$min_md} {
+		margin-right: 10px;
+	}
+
+	@media #{$min_lg} {
+		margin-right: 0;
+	}
 
 	&:not(:last-child) {
 		margin-bottom: 15px;
@@ -36,15 +44,23 @@
 	text-align: center;
 
 	@media #{$min_lg} {
-		padding: 12px 10px;
+		min-height: 40px;
+
+		padding: 12px 15px;
 	}
 
 	@media #{$min_xl} {
+		min-height: 50px;
+
 		padding: 17px 20px;
 	}
 
 	.actions_nav_item:nth-child(1) & {
 		background: $teal;
+
+		@media #{$min_lg} {
+			background: $navy;
+		}
 	}
 
 	.actions_nav_item:nth-child(2) & {
@@ -69,7 +85,7 @@
 		.actions_nav_item:nth-child(1) & {
 
 			@media #{$min_lg} {
-				background: darken($teal, 5%);
+				background: darken($navy, 5%);
 			}
 		}
 

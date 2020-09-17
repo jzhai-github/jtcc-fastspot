@@ -28,7 +28,9 @@
 				{% if link.children %}
 				<button class="js-swap js-nav-toggle js-{{ class|replace({ "_": "-" }) }}-toggle nav_toggle {{ class }}_toggle" data-swap-target=".js-{{ class|replace({ "_": "-" }) }}-item-{{ loop.index }}" data-swap-group="{{ class }}{% if modifier %}_{{ modifier }}{% endif %}" aria-label="{{ link.title ?: link }}" aria-haspopup="true" aria-expanded="false">
 					<span class="nav_toggle_inner {{ class }}_toggle_inner">
+						{% if toggle_icon %}
 						<span class="nav_toggle_icon {{ class }}_toggle_icon">{{ icon(toggle_icon) }}</span>
+						{% endif %}
 					</span>
 				</button>
 				{% endif %}
