@@ -103,7 +103,7 @@
 
 .page_header_bg_video_controls {
 	height: 38px;
-	width: 115px;
+	width: 114px;
 
 	position: absolute;
 	right: 50px;
@@ -131,6 +131,7 @@
 	top: 50%;
 	left: 0;
 
+	margin-top: -1px;
 	opacity: 1;
 	pointer-events: auto;
 	transform: translate(0, -50%);
@@ -166,7 +167,7 @@
 .page_header_bg_video_play_link_icon,
 .page_header_bg_video_pause_link_icon {
 	color: $turquoise;
-	margin-left: 6px;
+	margin-left: 11px;
 	transition: color $base_speed;
 
 	.page_header_bg_video_play_link:hover &,
