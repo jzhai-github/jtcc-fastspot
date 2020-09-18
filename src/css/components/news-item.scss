@@ -135,12 +135,17 @@
 }
 
 .news_item_title_link_icon {
+	position: relative;
+	top: -2px;
+
 	color: $maroon;
 	display: inline-block;
-	margin-left: -8px;
+	margin-left: -10px;
 	vertical-align: middle;
 
 	@media #{$min_lg} {
+		top: -4px;
+
 		transform-origin: left center;
 		transform: scale(1.25);
 	}

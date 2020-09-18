@@ -305,6 +305,9 @@
 }
 
 .contact_social_link_icon {
+	position: relative;
+	top: -1px;
+
 	color: $bergundy;
 	margin-left: 10px;
 	transform-origin: left center;

@@ -343,6 +343,9 @@
 }
 
 .featured_programs_item_link_icon {
+	position: relative;
+	top: -2px;
+
 	color: $blush;
 	display: inline-block;
 	margin-left: -8px;

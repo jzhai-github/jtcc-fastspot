@@ -60,6 +60,9 @@
 }
 
 .secondary_nav_link_icon {
+	position: relative;
+	top: -1px;
+
 	color: $turquoise;
 	margin-left: 6px;
 	transform: scale(.75);
