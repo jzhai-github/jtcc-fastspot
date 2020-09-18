@@ -8,6 +8,27 @@
 
 .logo_header {
 	color: #50152B;
+
+	@media #{$min_md} {
+		will-change: transform;
+		transform-origin: left bottom;
+		transition: transform $base_speed;
+	}
+
+	.scrolling & {
+
+		@media #{$min_lg} {
+			transform:
+				translate(0, 9px)
+				scale(.65);
+		}
+
+		@media #{$min_xl} {
+			transform:
+				translate(0, 4px)
+				scale(.5);
+		}
+	}
 }
 
 .logo_footer {
