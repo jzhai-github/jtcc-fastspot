@@ -164,6 +164,22 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_inner"</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_header"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_title"</span>&gt;</span>Upcoming Events<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link"</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link_inner"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link_label"</span>&gt;</span>View all News &amp; Stories<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link_icon"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
+                                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link_icon_inner"</span>&gt;</span>
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_details_link_icon_space"</span>&gt;</span><span class="hljs-symbol">&amp;#xfeff;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+                                    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon_caret_right"</span>&gt;</span>
+                                        <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/images/icons.svg#caret_right"</span> /&gt;</span>
+                                    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+
+                                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_body"</span>&gt;</span>
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-carousel featured_events_items"</span> <span class="hljs-attr">data-carousel-options</span>=<span class="hljs-string">'{
@@ -335,6 +351,12 @@
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_inner"</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_header"</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_title"</span>&gt;</span></span><span class="hljs-template-variable">{{ title }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+					</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> '<a href="partial-link.html">@partial-link</a>' with {
+						title: "View all News &amp; Stories",
+						url: "#",
+						class: "featured_events_details",
+						icon: "caret_right"
+					} %}</span><span class="xml">
 				<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 				<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"featured_events_body"</span>&gt;</span>
 					<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-carousel featured_events_items"</span> <span class="hljs-attr">data-carousel-options</span>=<span class="hljs-string">'{
@@ -1630,8 +1652,8 @@
         </div>
         <div class="Tree-aside">
             Built on:
-            <time datetime="2020-09-18T01:49:23.692Z">
-                9/18/2020
+            <time datetime="2020-09-19T04:32:21.878Z">
+                9/19/2020
             </time>
         </div>
     </div>
