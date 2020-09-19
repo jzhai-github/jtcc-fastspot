@@ -1,3 +1,7 @@
-<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.876 2.676l-5.658 5.657 5.658 5.657-1.886 1.886-5.657-5.658-5.657 5.658L.791 13.99l5.657-5.657L.791 2.676 2.676.791l5.657 5.656L13.99.791l1.886 1.885z" fill-rule="evenodd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <g id="Homepage-R3--✔" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+        <path d="M10.6755172,-1.13400675 L10.6749932,7.72299325 L19.5326602,7.72313625 L19.5326602,10.6755172 L10.6749932,10.6749932 L10.6755172,19.5326602 L7.72313625,19.5326602 L7.72299325,10.6749932 L-1.13400675,10.6755172 L-1.13400675,7.72313625 L7.72299325,7.72299325 L7.72313625,-1.13400675 L10.6755172,-1.13400675 Z" id="Combined-Shape" fill="" transform="translate(9.199327, 9.199327) rotate(45.000000) translate(-9.199327, -9.199327) "></path>
+    </g>
 </svg>

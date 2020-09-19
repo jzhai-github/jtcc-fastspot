@@ -10,7 +10,7 @@ module.exports = {
 				type: ['Transfer Program'],
 				certificate: ['Undergraduate'],
 				department: 'Business Administration',
-				mode: ['Hybrid']
+				mode: ['Transfer Program']
 			},
 			{
 				title:
@@ -18,7 +18,7 @@ module.exports = {
 				description:
 					"The Certificate in Advanced Manufacturing & Integrated Photonics Program is a <a href='#'>partnership initiative</a> designed to equip participants with the skills and experience needed to thrive in this burgeoning market.",
 				url: 'page-program-detail.html',
-				type: ['On-campus', 'Hybrid'],
+				type: ['Career Program', 'Transfer Program'],
 				level: '',
 				department_url: '#',
 				department: 'Partnership Program',

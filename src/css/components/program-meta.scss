@@ -120,8 +120,14 @@
 	@include button_fill("teal");
 	@include button_layout;
 
+	width: 100%;
+
 	display: inline-block;
 	vertical-align: top;
+
+	@media #{$min_md} {
+		width: auto;
+	}
 
 	@media #{$min_xl} {
 		width: 100%;

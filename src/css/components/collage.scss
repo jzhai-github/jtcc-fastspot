@@ -145,8 +145,8 @@
 .collage_item_figcaption {
 	@include small_text;
 
-
 	border-bottom: 1px solid rgba(#000, .15);
+	color: rgba(#000, .8);
 	margin: 0;
 	padding: 10px 0;
 

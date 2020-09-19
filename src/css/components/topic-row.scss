@@ -45,10 +45,18 @@
 
 .topic {
 	border-bottom: 1px solid rgba(#000, .15);
-	padding-bottom: 60px;
+	padding-bottom: 20px;
+
+	@media #{$min_lg} {
+		padding-bottom: 60px;
+	}
 
 	&:not(:last-child) {
-		margin-bottom: 60px;
+		margin-bottom: 30px;
+
+		@media #{$min_lg} {
+			margin-bottom: 60px;
+		}
 	}
 }
 
@@ -68,11 +76,13 @@
 .topic_figure {
 	@include responsive_image;
 
-	width: 115px;
+	width: 100%;
 
-	margin: 0 0 20px 0;
+	margin: 0 0 16px 0;
 
 	@media (min-width: 360px) {
+		width: 115px;
+
 		float: right;
 		margin-left: 20px;
 	}

@@ -94,6 +94,10 @@
 
 		if (header.bottom + 40 > stories.top) {
 			$(".stories").addClass("visible");
+			$(".spotlight_details_link").addClass("visible");
+		} else {
+			$(".stories").removeClass("visible");
+			$(".spotlight_details_link").removeClass("visible");
 		}
 	}
 

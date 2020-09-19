@@ -22,7 +22,15 @@
 									<span class="spotlight_title_label spotlight_title_label_secondary">{{ title.secondary }}</span>
 								</span>
 							</h2>
-							<p class="spotlight_caption">{{ caption }}</p>
+							<div class="spotlight_header_details">
+								<p class="spotlight_caption">{{ caption }}</p>
+								{% render '@partial-link' with {
+									title: "View all Next Up Stories",
+									url: "#",
+									class: "spotlight_details",
+									icon: "caret_right"
+								} %}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -30,7 +38,7 @@
 					<div class="js-carousel stories_carousel" data-carousel-options='{
 						"controls": false,
 						"contained": false,
-						"maxWidth": "739px",
+						"maxWidth": "980px",
 						"show": {
 							"600px": 2
 						}

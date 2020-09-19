@@ -29,7 +29,7 @@
 
 	background: var(--background);
 	margin: 0 auto;
-	padding: 30px 20px;
+	padding: 30px;
 
 	@media #{$min_lg} {
 		padding: 50px 60px;
@@ -97,6 +97,7 @@
 	transition: color $base_speed;
 
 	@media #{$min_lg} {
+		padding-right: 10px;
 		padding-left: 10px;
 	}
 

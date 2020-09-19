@@ -20,7 +20,7 @@
 				</div>
 				<div class="featured_news_body">
 					<div class="featured_news_spotlight">
-						{% if items is empty %}
+						{% if articles is empty %}
 						{% render "@component-story--standalone" %}
 						{% elseif theme == "featured" %}
 						{% render "@component-story--turquoise" %}

@@ -152,6 +152,15 @@
 	}
 }
 
+.spotlight_header_details {
+
+	@media #{$min_lg} {
+		align-items: flex-end;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
 .spotlight_caption {
 	@include intro_text;
 	@include serif(300);
@@ -168,6 +177,27 @@
 
 	strong {
 		display: block;
+	}
+}
+
+.spotlight_details_link {
+	@include button_text("white");
+	@include button_layout;
+
+	@media #{$min_lg} {
+		position: relative;
+		top: 7px;
+
+		opacity: 0;
+		transition: opacity $base_speed;
+	}
+
+	@media #{$max_lg} {
+		display: none;
+	}
+
+	&.visible {
+		opacity: 1;
 	}
 }
 

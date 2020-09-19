@@ -4,6 +4,12 @@
 			<div class="featured_events_inner">
 				<div class="featured_events_header">
 					<h2 class="featured_events_title">{{ title }}</h2>
+					{% render '@partial-link' with {
+						title: "View all News & Stories",
+						url: "#",
+						class: "featured_events_details",
+						icon: "caret_right"
+					} %}
 				</div>
 				<div class="featured_events_body">
 					<div class="js-carousel featured_events_items" data-carousel-options='{

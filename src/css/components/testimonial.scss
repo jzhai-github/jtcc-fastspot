@@ -10,6 +10,10 @@
 	--quote_icon_color: #fff;
 	--quote_icon_bg_color: #{$teal};
 	--quote_icon_border_color: #{$teal};
+	--name-color: inherit;
+	--title-border: #fff;
+
+	padding: 0 20px;
 
 	&.theme-blue {
 		// same as default values
@@ -21,6 +25,8 @@
 		--quote_icon_color: #000;
 		--quote_icon_bg_color: #{$peach};
 		--quote_icon_border_color: #{$bergundy};
+		--name-color: #{$blush};
+		--title-border: #{rgba($peach, .7)};
 	}
 
 	&.theme-gold {
@@ -29,19 +35,20 @@
 		--quote_icon_color: #000;
 		--quote_icon_bg_color: #{$dijon};
 		--quote_icon_border_color: rgba(0, 0, 0, 0.2);
+		--name-color: inherit;
+		--title-border: #{rgba($navy, .7)};
 	}
 }
 
 .testimonial_inner {
+	max-width: 1100px;
+
 	background-color: var(--bg-color);
 	color: var(--color);
-}
-
-// layout
-
-.testimonial_inner {
 	display: flex;
 	flex-flow: column-reverse nowrap;
+	margin-right: auto;
+	margin-left: auto;
 
 	@media #{$min_md} {
 		flex-direction: row;
@@ -52,48 +59,37 @@
 	padding: 30px 30px 40px;
 
 	@media #{$min_md} {
-		width: 60%;
+		width: 55%;
 
-		padding: 60px 60px 80px;
+		padding: 40px 40px 55px;
 	}
 
 	@media #{$min_xl} {
 		width: 68%;
+
+		padding: 80px 60px 104px;
 	}
 }
 
 .testimonial_media {
 	position: relative;
 
+	padding-top: $portrait_classic;
+
 	@media #{$min_md} {
 		min-height: 444px;
 
 		flex: 1;
+		padding-top: 0;
 	}
-}
-
-.testimonial_media_img {
-	@media #{$min_md} {
-		display: none;
-	}
-}
-
-.testimonial_image_wrapper {
-	padding-top: $portrait_classic;
 }
 
 .testimonial_background {
 	@include cover;
-
-	display: none;
-
-	@media #{$min_md} {
-		display: block;
-	}
 }
 
 .testimonial_info {
-	margin-top: 40px;
+	margin-top: 32px;
 }
 
 // component
@@ -132,9 +128,30 @@
 	@include sans(300);
 
 	line-height: (42 / 36);
-	margin-top: 25px;
+	margin-top: 28px;
 }
 
 .testimonial_quote_name {
 	@include intro_text;
+
+	color: var(--name-color);
+}
+
+.testimonial_quote_title {
+	@include mini_h6;
+
+	display: inline-block;
+	margin-top: 10px;
+	vertical-align: top;
+
+	&[href] {
+		border-bottom: 1px solid var(--title-border);
+		padding-bottom: 1px;
+		transition: opacity $base_speed;
+
+		&:hover,
+		&:focus {
+			opacity: .7;
+		}
+	}
 }

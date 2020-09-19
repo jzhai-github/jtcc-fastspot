@@ -5,6 +5,27 @@
 /* Custom
 ============================================================================= */
 
+@mixin decorated_link() {
+
+	&_label {
+		display: inline;
+		margin-right: 24px;
+	}
+
+	&_icon {
+		position: relative;
+
+		display: inline-block;
+		margin-left: -20px;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+
+	&_icon_space {
+		display: none;
+	}
+}
+
 @mixin bubble_pop($color: $accent) {
 
 	&:before {

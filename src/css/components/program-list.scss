@@ -22,10 +22,10 @@
 }
 
 .program_item_inner {
-	border-bottom: 1px solid $gray_10;
+	border-bottom: 1px solid rgba(#000, .15);
 
 	.program_item:first-child & {
-		border-top: 1px solid $gray_10;
+		border-top: 1px solid rgba(#000, .15);
 	}
 }
 
@@ -50,10 +50,10 @@
 }
 
 .program_item_heading_label {
-	width: calc(100% - 45px);
+	width: calc(100% - 30px);
 
 	margin-right: auto;
-	padding-right: 25px;
+	padding-right: 20px;
 
 	@media #{$min_lg} {
 		align-items: center;
@@ -63,6 +63,7 @@
 }
 
 .program_item_heading_title {
+	@include decorated_link;
 	@include sans(100);
 
 	display: block;
@@ -87,8 +88,6 @@
 
 .program_item_heading_title_label {
 	border-bottom: 1px solid transparent;
-	display: inline;
-	margin-right: 20px;
 	transition: border $base_speed;
 
 	.program_item_heading_title:hover &,
@@ -98,12 +97,13 @@
 }
 
 .program_item_heading_title_icon {
+	top: -2px;
+
 	color: $maroon;
-	display: inline-block;
-	margin-left: -14px;
-	vertical-align: middle;
 
 	@media #{$min_xl} {
+		top: -4px;
+
 		transform: scale(1.315);
 		transform-origin: left center;
 	}
@@ -122,6 +122,10 @@
 	@include mini_h6;
 
 	display: block;
+
+	@media #{$max_md} {
+		font-size: 12px;
+	}
 
 	@media #{$min_sm} {
 		margin-left: auto;
@@ -142,8 +146,12 @@
 
 .program_item_heading_mode_data {
 	border-radius: 38px;
-	padding: 11px 20px;
+	padding: 8px 15px 9px;
 	white-space: nowrap;
+
+	@media #{$min_md} {
+		padding: 11px 20px;
+	}
 
 	&:not(:last-child) {
 		margin-right: 10px;
@@ -159,8 +167,8 @@
 }
 
 .program_item_heading_icon {
-	width: 45px;
-	height: 45px;
+	width: 30px;
+	height: 30px;
 
 	position: relative;
 
@@ -173,6 +181,11 @@
 	transition:
 		background $base_speed,
 		border $base_speed;
+
+	@media #{$min_md} {
+		height: 45px;
+		width: 45px;
+	}
 
 	@media print {
 		display: none;

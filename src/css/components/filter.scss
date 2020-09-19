@@ -377,6 +377,8 @@
 }
 
 .filter_results_reset_link {
+	width: 100%;
+
 	background: rgba(#F0F0F0, .7);
 	border: 0;
 	border-radius: 38px;
@@ -384,6 +386,11 @@
 	display: inline-block;
 	padding: 11px 25px;
 	margin-top: 10px;
+	transition: background $base_speed;
+
+	@media #{$min_sm} {
+		width: auto;
+	}
 
 	@media #{$min_md} {
 		margin-top: 0;
@@ -393,13 +400,13 @@
 	&:hover,
 	&:focus {
 		background: #000;
-		color: #fff;
 	}
 }
 
 .filter_results_reset_link_inner {
 	align-items: center;
 	display: flex;
+	justify-content: center;
 }
 
 .filter_results_reset_link_label {
@@ -420,7 +427,7 @@
 
 	color: $bergundy;
 	display: block;
-	margin-left: 10px;
+	margin-left: 8px;
 	transition: color $base_speed;
 
 	.filter_results_reset_link:hover &,

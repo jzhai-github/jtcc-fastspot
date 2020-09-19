@@ -5,26 +5,6 @@
 	overflow: hidden;
 }
 
-.featured_programs_background {
-	@include cover;
-
-	@media #{$min_md} {
-		width: 50%;
-	}
-
-	@media #{$min_lg} {
-		width: 62%;
-	}
-
-	@media #{$min_xl} {
-		width: 73%;
-	}
-
-	@media #{$max_md} {
-		display: none;
-	}
-}
-
 .featured_programs_inner {
 	position: relative;
 	z-index: 4;
@@ -37,7 +17,9 @@
 .featured_programs_header {
 	position: relative;
 
-	padding: 145px 0 135px;
+	padding: 145px 20px 135px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
 
 	@media #{$min_md} {
 		width: 50%;
@@ -45,15 +27,15 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: (115px + 26px) 0;
-		padding-right: 20px;
+		padding: (115px + 26px) 20px;
+		padding-left: var(--page-offset);
 	}
 
 	@media #{$min_lg} {
 		width: 62%;
 
-		padding: (175px + 36px) 0;
-		padding-right: 40px;
+		padding: (175px + 36px) 40px;
+		padding-left: var(--page-offset);
 	}
 
 	@media #{$min_xl} {
@@ -65,14 +47,6 @@
 
 .featured_programs_header_background {
 	@include cover;
-
-	width: calc(100% + 40px);
-
-	margin: 0 -20px;
-
-	@media #{$min_md} {
-		display: none;
-	}
 }
 
 .featured_programs_title {
@@ -240,16 +214,22 @@
 	position: relative;
 
 	background: $maroon;
-	margin: 0 -20px;
 	padding: 35px 20px 38px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
 
 	@media #{$min_md} {
 		margin: 0;
-		padding: 40px 0 40px 40px;
+		padding: 40px;
 	}
 
 	@media #{$min_xl} {
-		padding: 50px 0 52px 60px;
+		padding: 50px 60px 52px;
+	}
+
+	@media #{$min_xxl} {
+		padding-right: 12%;
+		padding-left: 12%;
 	}
 
 	&:after {
@@ -329,7 +309,6 @@
 	border-bottom: 1px solid transparent;
 	color: #fff;
 	display: inline;
-	margin-right: 14px;
 	transition: border $base_speed;
 
 	@media #{$min_lg} {
@@ -344,21 +323,21 @@
 
 .featured_programs_item_link_icon {
 	position: relative;
-	top: -2px;
+	top: -4px;
 
 	color: $blush;
 	display: inline-block;
-	margin-left: -8px;
 	vertical-align: middle;
+	white-space: nowrap;
 
 	.featured_programs_item_link:hover &,
 	.featured_programs_item_link:focus & {
 		animation: dootdoot 1s infinite;
 	}
-}
 
-.featured_programs_item_link_icon_space {
-	display: none;
+	.icon {
+		display: inline;
+	}
 }
 
 .featured_programs_items_select_wrapper {
@@ -395,16 +374,22 @@
 	position: relative;
 
 	background: #91183c;
-	margin: 0 -20px;
 	padding: 40px 20px 45px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
 
 	@media #{$min_md} {
 		margin: 0;
-		padding: 40px 0 40px 40px;
+		padding: 40px;
 	}
 
 	@media #{$min_xl} {
-		padding: 60px 0 66px 60px
+		padding: 60px 60px 66px;
+	}
+
+	@media #{$min_xxl} {
+		padding-right: 12%;
+		padding-left: 12%;
 	}
 }
 

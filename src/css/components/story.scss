@@ -85,10 +85,6 @@
 	background: var(--background);
 	padding: 25px 30px 35px;
 
-	@media #{$min_md} {
-		padding: 15px 20px 25px;
-	}
-
 	@media #{$min_xl} {
 		padding: 38px 42px 54px;
 	}
@@ -143,18 +139,7 @@
 	}
 }
 
-.story_title_link {
-	border-bottom: 1px solid transparent;
-	transition:
-		border $base_speed,
-		opacity $base_speed;
-
-	&:hover,
-	&:focus {
-		border-bottom-color: currentColor;
-		opacity: .7;
-	}
-}
+.story_title_link {}
 
 .story_description {
 	@include body_text;

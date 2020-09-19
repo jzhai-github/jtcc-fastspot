@@ -184,13 +184,11 @@
 }
 
 .card_group_item_title_link {
-	display: block;
+	@include decorated_link;
 }
 
 .card_group_item_title_link_label {
 	border-bottom: 1px solid transparent;
-	display: inline;
-	margin-right: 18px;
 	transition:
 		border $base_speed,
 		color $base_speed;
@@ -204,9 +202,6 @@
 
 .card_group_item_title_link_icon {
 	color: $maroon;
-	display: inline-block;
-	margin-left: -12px;
-	vertical-align: middle;
 
 	@media #{$min_lg} {
 		transform-origin: left center;
@@ -221,10 +216,6 @@
 			animation: dootdoot_big 1s infinite;
 		}
 	}
-}
-
-.card_group_item_title_link_icon_space {
-	display: none;
 }
 
 .card_group_item_categories {
