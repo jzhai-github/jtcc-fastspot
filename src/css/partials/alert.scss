@@ -73,11 +73,15 @@
 	text-transform: uppercase;
 
 	@media #{$min_lg} {
-		left: -60px;
+		left: -56px;
 
 		font-size: 40px;
 		letter-spacing: 1.6px;
 		padding: 7px 8px 7px 0;
+	}
+
+	@media #{$min_xl} {
+		left: -60px;
 	}
 
 	@media print,
@@ -107,9 +111,12 @@
 	}
 
 	@media #{$min_lg} {
-		margin-right: 38px;
+		margin-right: 26px;
 		transform-origin: right center;
-		transform: scale(1.35);
+	}
+
+	@media #{$min_xl} {
+		margin-right: 38px;
 	}
 }
 
