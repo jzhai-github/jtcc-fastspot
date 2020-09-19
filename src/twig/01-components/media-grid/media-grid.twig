@@ -1,25 +1,53 @@
-<div class="collage">
+<div class="collage{% if format == "equal" %} layout_equal{% else %} layout_unbalanced{% endif %}{% if flipped %} layout_flipped{% endif %}">
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="collage_inner">
 				<div class="collage_header">
 					<h2 class="collage_title">{{ title }}</h2>
 				</div>
-				<div class="collage_items">
-					{% for item in items %}
+				<div class="collage_rows">
+					{% for row in rows %}
+					<div class="collage_items">
+						{% for item in row %}
 						<div class="collage_item">
 							<figure class="collage_item_figure">
 								<span class="collage_item_media">
-									{% render "@partial-image" with {
-										class: "collage_item",
-										alt: "",
-										image: item.image,
-										sources: [
-											img("wide").med,
-											img("wide").sml,
-											img("wide").xsml
-										]
-									} %}
+									{% if format == "equal" %}
+										{% render "@partial-image" with {
+											class: "collage_item",
+											alt: "",
+											image: item.image,
+											sources: [
+												img("wide").med,
+												img("wide").sml,
+												img("wide").xsml
+											]
+										} %}
+									{% else %}
+										{% if loop.index % 2 == 0 %}
+											{% render "@partial-image" with {
+												class: "collage_item",
+												alt: "",
+												image: item.image,
+												sources: [
+													img("portraitClassic").med,
+													img("portraitClassic").sml,
+													img("portraitClassic").xsml
+												]
+											} %}
+											{% else %}
+											{% render "@partial-image" with {
+												class: "collage_item",
+												alt: "",
+												image: item.image,
+												sources: [
+													img("wide").med,
+													img("wide").sml,
+													img("wide").xsml
+												]
+											} %}
+										{% endif %}
+									{% endif %}
 								</span>
 								{% if item.caption %}
 								<figcaption class="collage_item_figcaption">
@@ -28,6 +56,8 @@
 								{% endif %}
 							</figure>
 						</div>
+						{% endfor %}
+					</div>
 					{% endfor %}
 				</div>
 			</div>
