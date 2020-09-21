@@ -177,6 +177,20 @@
 	}
 }
 
+.featured_events_item_title_link {
+	border-bottom: 1px solid transparent;
+	color: inherit;
+	transition:
+		border $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		border-bottom-color: currentColor;
+		color: $bergundy;
+	}
+}
+
 .featured_events_item_details {
 
 }

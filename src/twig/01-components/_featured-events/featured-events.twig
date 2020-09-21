@@ -37,7 +37,9 @@
 								{% endif %}
 							</time>
 							<div class="featured_events_item_body">
-								<h3 class="featured_events_item_title">{{ item.title }}</h3>
+								<h3 class="featured_events_item_title">
+									<a class="featured_events_item_title_link" href="#">{{ item.title }}</a>
+								</h3>
 								<div class="featured_events_item_details">
 									<div class="featured_events_item_detail">
 										<span class="featured_events_item_detail_icon">{{ icon("place") }}</span>
@@ -54,7 +56,7 @@
 					</div>
 				</div>
 				{% render '@partial-link' with {
-					title: "View all News & Stories",
+					title: "View all Events",
 					url: "#",
 					class: "featured_events_discovery",
 					icon: "caret_right"

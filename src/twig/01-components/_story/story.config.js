@@ -30,7 +30,8 @@ module.exports = {
 			context: {
 				item: {
 					theme: 'turquoise',
-					layout: 'standalone'
+					layout: 'standalone',
+					label: 'Featured News'
 				}
 			}
 		}
