@@ -8,12 +8,11 @@
 
 .logo_header {
 	color: #50152B;
-
-	@media #{$min_md} {
-		will-change: transform;
-		transform-origin: left bottom;
-		transition: transform $base_speed;
-	}
+	transform-origin: left bottom;
+	transform:
+		translate(0, 0)
+		scale(1);
+	transition: transform $base_speed;
 
 	.scrolling & {
 
@@ -99,11 +98,11 @@
 }
 
 .logo_link_icon {
+	height: 59px;
+	width: 89px;
+
 	display: inline-block;
 	vertical-align: top;
-}
-
-.icon_logo {
 
 	.logo_header & {
 		width: 60px;
@@ -127,6 +126,11 @@
 			height: 123px;
 		}
 	}
+}
+
+.icon_logo {
+	height: 100%;
+	width: 100%;
 }
 
 .logo_print {

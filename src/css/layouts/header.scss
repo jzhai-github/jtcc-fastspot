@@ -49,6 +49,7 @@
 .header_ribbon_group {
 
 	&_logo {
+		transform: translateZ(0);
 
 		@media #{$min_lg} {
 			padding: 21px 0;

@@ -319,4 +319,11 @@
 }
 
 .main_nav_child_link_label {
+	border-bottom: 1px solid transparent;
+	transition: border $base_speed;
+
+	.main_nav_child_link:hover &,
+	.main_nav_child_link:focus & {
+		border-bottom-color: currentColor;
+	}
 }
