@@ -68,7 +68,8 @@ f.parentNode.insertBefore(j, f);
 
 		
 
-					<!DOCTYPE html>
+		<main>
+							<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -100,6 +101,7 @@ f.parentNode.insertBefore(j, f);
 				max-width: 56rem;
 				padding-left: 2rem;
 				padding-right: 2rem;
+				padding-bottom: 2rem;
 			}
 
 			.report_header {
@@ -180,6 +182,10 @@ f.parentNode.insertBefore(j, f);
 			.checkboxes label span {
 				display: inline-block;
 				margin-left: 10px;
+			}
+
+			.report_item + .report_item {
+				margin-top: 25px;
 			}
 
 			.report_pages {
@@ -505,10 +511,11 @@ f.parentNode.insertBefore(j, f);
 	</body>
 </html>
 
-		
+					</main>
+
 		<script>
 			var WWW_ROOT = "";
-			var STATIC_ROOT = "../../index.html";
+var STATIC_ROOT = "../../index.html";
 		</script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -516,16 +523,6 @@ f.parentNode.insertBefore(j, f);
 					
 		
 		<script src="../../js/site.js"></script>
-		
-		<script>
-			(function() {
-				if (typeof FSGridBookmarklet === 'undefined') {
-					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
-				} else {
-					FSGridBookmarklet();
-				}
-			})();
-		</script>
 
 					
 		

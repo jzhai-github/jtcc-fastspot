@@ -68,7 +68,8 @@ f.parentNode.insertBefore(j, f);
 
 		
 
-			<!-- Header -->
+		<main>
+				<!-- Header -->
 <header class="header" id="header">
 	<a class="skip_link skip_main" id="skip_link" href="#skip_content">Skip to main content</a>
 
@@ -82,7 +83,7 @@ f.parentNode.insertBefore(j, f);
 						
 
 <div class="logo logo_header logo_icon">
-	<a class="logo_link" href="#">
+	<a class="logo_link" href="#" aria-label="Logo Link">
 		<span class="logo_link_label"></span>
 		<span class="logo_link_icon">
 			
@@ -603,11 +604,11 @@ f.parentNode.insertBefore(j, f);
 
 	<!-- Page Wrapper -->
 	<div
-		class="page_wrapper">
+		id="skip_content" tabindex="-1" class="page_wrapper">
 		<!-- Page -->
-		<main class="page">
+		<div class="page">
 			<!-- Page Feature -->
-<div class="page_feature" id="skip_content" tabindex="-1">
+<div class="page_feature">
 	<div class="page_header">
 	<div class="page_header_inner">
 		<div class="page_header_body">
@@ -686,7 +687,7 @@ f.parentNode.insertBefore(j, f);
 </div>
 <!-- END: Page Feature -->
 
-<div class="full_width_callouts" id="skip_content" tabindex="-1">
+<div class="full_width_callouts">
 	<div class="search_results">
 	<div class="fs-row">
 		<div class="fs-cell ">
@@ -715,7 +716,7 @@ f.parentNode.insertBefore(j, f);
 </div>
 
 
-		</main>
+		</div>
 	</div>
 
 	</main>
@@ -747,7 +748,7 @@ f.parentNode.insertBefore(j, f);
 					
 
 <div class="logo logo_footer logo_icon">
-	<a class="logo_link" href="#">
+	<a class="logo_link" href="#" aria-label="Logo Link">
 		<span class="logo_link_label"></span>
 		<span class="logo_link_icon">
 			
@@ -1570,10 +1571,11 @@ f.parentNode.insertBefore(j, f);
 	</div>
 </div>
 <!-- END: Menu -->
+		</main>
 
 		<script>
 			var WWW_ROOT = "";
-			var STATIC_ROOT = "../../index.html";
+var STATIC_ROOT = "../../index.html";
 		</script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
@@ -1581,16 +1583,6 @@ f.parentNode.insertBefore(j, f);
 					
 		
 		<script src="../../js/site.js"></script>
-		
-		<script>
-			(function() {
-				if (typeof FSGridBookmarklet === 'undefined') {
-					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
-				} else {
-					FSGridBookmarklet();
-				}
-			})();
-		</script>
 
 					
 		
