@@ -56,6 +56,7 @@
 .featured_programs_title {
 	@include sans(100);
 
+	color: #000;
 	display: inline-block;
 	font-size: 36px;
 	line-height: (44 / 36);

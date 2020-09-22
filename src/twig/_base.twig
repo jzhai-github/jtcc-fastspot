@@ -15,16 +15,18 @@
 			{% if page.alert %}
 				<!-- WordPress / Drupal, use AlertURL to target the script that returns this content. For BigTree, enter the alert markup here. -->
 				<script>
-					var AlertURL = "/components/detail/template-home.html";
+					var AlertURL = "/components/detail/template-homepage.html";
 				</script>
 			{% endif %}
 		</div>
 
 		{{ init_uniqid() }}
 
-		{% block content %}
-			{{ yield }}
-		{% endblock %}
+		<main>
+			{% block content %}
+				{{ yield }}
+			{% endblock %}
+		</main>
 
 		<script>
 			var WWW_ROOT = "";
@@ -38,16 +40,6 @@
 		{% endblock %}
 
 		<script src="{{ "/js/site.js"|path }}"></script>
-		
-		<script>
-			(function() {
-				if (typeof FSGridBookmarklet === 'undefined') {
-					document.body.appendChild(document.createElement('script')).src = '//formstone.it/js/bookmarklet/grid.js';
-				} else {
-					FSGridBookmarklet();
-				}
-			})();
-		</script>
 
 		{% block footer_scripts_below %}
 			{#  #}

@@ -5,13 +5,13 @@
 // theming
 
 .testimonial {
-	--bg-color: #{$turquoise};
+	--bg_color: #{$turquoise};
 	--color: #000;
 	--quote_icon_color: #fff;
 	--quote_icon_bg_color: #{$teal};
 	--quote_icon_border_color: #{$teal};
-	--name-color: inherit;
-	--title-border: #fff;
+	--name_color: inherit;
+	--title_border: #fff;
 
 	padding: 0 20px;
 
@@ -20,30 +20,30 @@
 	}
 
 	&.theme-maroon {
-		--bg-color: #{$maroon};
+		--bg_color: #{$maroon};
 		--color: #fff;
 		--quote_icon_color: #000;
 		--quote_icon_bg_color: #{$peach};
 		--quote_icon_border_color: #{$bergundy};
-		--name-color: #{$blush};
-		--title-border: #{rgba($peach, .7)};
+		--name_color: #{$blush};
+		--title_border: #{rgba($peach, .7)};
 	}
 
 	&.theme-gold {
-		--bg-color: #{$mustard};
+		--bg_color: #{$mustard};
 		--color: #000;
 		--quote_icon_color: #000;
 		--quote_icon_bg_color: #{$dijon};
 		--quote_icon_border_color: rgba(0, 0, 0, 0.2);
-		--name-color: inherit;
-		--title-border: #{rgba($navy, .7)};
+		--name_color: inherit;
+		--title_border: #{rgba($navy, .7)};
 	}
 }
 
 .testimonial_inner {
 	max-width: 1100px;
 
-	background-color: var(--bg-color);
+	background-color: var(--bg_color);
 	color: var(--color);
 	display: flex;
 	flex-flow: column-reverse nowrap;
@@ -134,7 +134,7 @@
 .testimonial_quote_name {
 	@include intro_text;
 
-	color: var(--name-color);
+	color: var(--name_color);
 }
 
 .testimonial_quote_title {
@@ -145,7 +145,7 @@
 	vertical-align: top;
 
 	&[href] {
-		border-bottom: 1px solid var(--title-border);
+		border-bottom: 1px solid var(--title_border);
 		padding-bottom: 1px;
 		transition: opacity $base_speed;
 

@@ -32,7 +32,6 @@ const aliases = {
 	dist: 'dist',
 	build: 'static-html'
 };
-// const basePath = isDevelopment ? `${__dirname}/${aliases.dist}` : __dirname;
 const basePath = `${__dirname}/${aliases.dist}`;
 const srcPath = `${__dirname}/src`;
 const paths = {
@@ -111,14 +110,38 @@ function icons() {
 		.pipe(gulp.dest(paths.icons.destSprite));
 }
 
-function axe() {
-	return axeWebdriver({
-		folderOutputReport: basePath,
-		saveOutputIn: 'axe.json',
-		urls: [`${aliases.build}/components/preview/template*.html`],
-		headless: true,
-		showOnlyViolations: true,
-		verbose: true
+function axe(cb) {
+	let templateFilter = process.env.AXE_FILTER || '';
+	let urlBlockList = ['404', 'search-results', 'preview'];
+
+	fractal.load().then(() => {
+		let urls = isDevelopment
+			? fractal.components
+					.filter((item) =>
+						item.handle.startsWith(`template-${templateFilter}`)
+					)
+					.filter(
+						(item) =>
+							!urlBlockList.some((slug) =>
+								item.handle.endsWith(slug)
+							)
+					)
+					.flatten()
+					.toArray()
+					.map(
+						(item) =>
+							`http://localhost:3000/components/preview/${item.handle}`
+					)
+			: `${aliases.build}/components/preview/template*.html`;
+
+		axeWebdriver({
+			folderOutputReport: basePath,
+			saveOutputIn: 'axe.json',
+			urls: urls,
+			headless: true,
+			showOnlyViolations: true,
+			verbose: true
+		}).then(cb);
 	});
 }
 
@@ -161,7 +184,8 @@ function watch() {
 
 function fractalSync() {
 	const server = fractal.web.server({
-		sync: true
+		sync: true,
+		port: 3000
 	});
 
 	server.on('error', (err) => fractalLogger.error(err.message));
