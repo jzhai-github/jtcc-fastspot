@@ -25,8 +25,8 @@
 		--quote_icon_color: #000;
 		--quote_icon_bg_color: #{$peach};
 		--quote_icon_border_color: #{$bergundy};
-		--name_color: #{$blush};
-		--title_border: #{rgba($peach, .7)};
+		--name_color: #fff;
+		--title_border: #{rgba($peach, 0.7)};
 	}
 
 	&.theme-gold {
@@ -36,7 +36,7 @@
 		--quote_icon_bg_color: #{$dijon};
 		--quote_icon_border_color: rgba(0, 0, 0, 0.2);
 		--name_color: inherit;
-		--title_border: #{rgba($navy, .7)};
+		--title_border: #{rgba($navy, 0.7)};
 	}
 }
 
@@ -151,7 +151,7 @@
 
 		&:hover,
 		&:focus {
-			opacity: .7;
+			opacity: 0.7;
 		}
 	}
 }
