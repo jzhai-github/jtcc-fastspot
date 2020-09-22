@@ -15,7 +15,7 @@
 			{% if page.alert %}
 				<!-- WordPress / Drupal, use AlertURL to target the script that returns this content. For BigTree, enter the alert markup here. -->
 				<script>
-					var AlertURL = "/components/detail/template-homepage.html";
+					var AlertURL = '{{ "/components/preview/template-homepage" | path }}';
 				</script>
 			{% endif %}
 		</div>
@@ -30,7 +30,7 @@
 
 		<script>
 			var WWW_ROOT = "";
-			var STATIC_ROOT = "{{ "/"|path }}";
+var STATIC_ROOT = "{{ "/"|path }}";
 		</script>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
