@@ -4,7 +4,7 @@ Your site has been run through `Axe` and has been deemed accessible per accessib
 
 # What pages do we test?
 
-We test all the pages found in the `Templates` section of `Fractal`. This ensure every template type on your site meet accessibility standards for your users.
+We test all the pages found in the `Templates` section of `Fractal`. This ensure every template type on your site meets accessibility standards for your users.
 
 Here are some templates we have tested for your site (to name a few):
 
