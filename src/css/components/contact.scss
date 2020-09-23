@@ -236,6 +236,7 @@
 		&:hover,
 		&:focus {
 			color: var(--link_color);
+			text-decoration: none;
 		}
 
 		&:after {
@@ -252,8 +253,8 @@
 }
 
 .contact_detail_info_label {
-	border-bottom: 1px solid transparent;
-	transition: $base_speed border;
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	transition: $base_speed border-bottom-color;
 
 	.contact_detail_info[href]:hover &,
 	.contact_detail_info[href]:focus & {
