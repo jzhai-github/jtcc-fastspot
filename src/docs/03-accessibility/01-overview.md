@@ -25,5 +25,5 @@ You'll notice a violation for, _"Ensures the contrast between foreground and bac
 [page-general-content]: {{ "/components/preview/template-general-content-image" | path }}
 [page-program-listing]: {{ "/components/preview/template-program-listing" | path }}
 [page-program-detail]: {{ "/components/preview/template-program-detail-image" | path }}
-[page-axe]: {{ "/components/preview/axe" | path }}
+[page-axe]: {{ "/components/preview/accessibility-axe" | path }}
 [axe]: https://www.deque.com/axe/

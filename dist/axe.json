@@ -414,6 +414,105 @@
             "any": [
               {
                 "data": {
+                  "contrastRatio": 0,
+                  "expectedContrastRatio": "3:1",
+                  "fgColor": "#000000",
+                  "fontSize": "21.0pt (28px)",
+                  "fontWeight": "normal",
+                  "messageKey": "elmPartiallyObscured"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it's partially obscured by another element",
+                "relatedNodes": [
+                  {
+                    "html": "<html class=\"js supports svgclippaths no-touchevents csstransforms csstransforms3d\" lang=\"en\" data-whatinput=\"initial\" data-whatintent=\"initial\" style=\"--window_height:600px; --page-offset:42.5px;\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+            "html": "<a class=\"featured_events_item_title_link\" href=\"#\" tabindex=\"-1\">15-Week Session: Final Exams</a>",
+            "impact": "serious",
+            "none": [],
+            "target": [
+              ".fs-carousel-item_next.featured_events_item.fs-carousel-item > .featured_events_item_body > .featured_events_item_title > .featured_events_item_title_link[href=\"\\#\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "contrastRatio": 0,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#000000",
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "elmPartiallyObscured"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it's partially obscured by another element",
+                "relatedNodes": [
+                  {
+                    "html": "<html class=\"js supports svgclippaths no-touchevents csstransforms csstransforms3d\" lang=\"en\" data-whatinput=\"initial\" data-whatintent=\"initial\" style=\"--window_height:600px; --page-offset:42.5px;\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+            "html": "<span class=\"featured_events_item_detail_label\">Online</span>",
+            "impact": "serious",
+            "none": [],
+            "target": [
+              ".fs-carousel-item_next.featured_events_item.fs-carousel-item > .featured_events_item_body > .featured_events_item_details > .featured_events_item_detail:nth-child(1) > .featured_events_item_detail_label"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "contrastRatio": 0,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#000000",
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "elmPartiallyObscured"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it's partially obscured by another element",
+                "relatedNodes": [
+                  {
+                    "html": "<html class=\"js supports svgclippaths no-touchevents csstransforms csstransforms3d\" lang=\"en\" data-whatinput=\"initial\" data-whatintent=\"initial\" style=\"--window_height:600px; --page-offset:42.5px;\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element",
+            "html": "<time class=\"featured_events_item_detail_label\" datetime=\"\">All Day</time>",
+            "impact": "serious",
+            "none": [],
+            "target": [
+              ".fs-carousel-item_next.featured_events_item.fs-carousel-item > .featured_events_item_body > .featured_events_item_details > .featured_events_item_detail:nth-child(2) > .featured_events_item_detail_label[datetime=\"\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
                   "bgColor": "#fbfbfb",
                   "contrastRatio": 1,
                   "expectedContrastRatio": "4.5:1",
@@ -495,9 +594,9 @@
               {
                 "data": {
                   "contrastRatio": 0,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#660033",
-                  "fontSize": "11.3pt (15px)",
+                  "expectedContrastRatio": "3:1",
+                  "fgColor": "#000000",
+                  "fontSize": "22.5pt (30px)",
                   "fontWeight": "normal",
                   "messageKey": "elmPartiallyObscuring"
                 },
@@ -508,11 +607,11 @@
               }
             ],
             "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
-            "html": "<a href=\"\">Learn more.</a>",
+            "html": "<span class=\"alert_title_label\">COVID-19 Updates and Closures some more content here and some more</span>",
             "impact": "serious",
             "none": [],
             "target": [
-              "p > a[href=\"\"]"
+              ".alert_title_label"
             ]
           }
         ],
@@ -537,7 +636,7 @@
     "testRunner": {
       "name": "axe"
     },
-    "timestamp": 1600807842934,
+    "timestamp": 1600893338452,
     "toolOptions": {
       "reporter": "v1"
     },
@@ -591,7 +690,7 @@
         ]
       }
     ],
-    "time": 1289,
+    "time": 1339,
     "status": 200
   }
 ]
