@@ -488,6 +488,32 @@
             "target": [
               "div[aria-label=\"Carousel\\ 2\\ Pagination\"] > .fs-carousel-page[type=\"button\"]:nth-child(2)"
             ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "contrastRatio": 0,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#660033",
+                  "fontSize": "11.3pt (15px)",
+                  "fontWeight": "normal",
+                  "messageKey": "elmPartiallyObscuring"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element's background color could not be determined because it partially overlaps other elements",
+                "relatedNodes": []
+              }
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements",
+            "html": "<a href=\"\">Learn more.</a>",
+            "impact": "serious",
+            "none": [],
+            "target": [
+              "p > a[href=\"\"]"
+            ]
           }
         ],
         "tags": [
@@ -511,11 +537,11 @@
     "testRunner": {
       "name": "axe"
     },
-    "timestamp": 1600795363760,
+    "timestamp": 1600807842934,
     "toolOptions": {
       "reporter": "v1"
     },
-    "url": "http://localhost:3000/components/preview/template-homepage",
+    "url": "http://localhost:3000/components/preview/template-homepage--default",
     "violations": [
       {
         "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
@@ -565,7 +591,7 @@
         ]
       }
     ],
-    "time": 1377,
+    "time": 1289,
     "status": 200
   }
 ]
