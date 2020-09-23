@@ -4,19 +4,24 @@
 
 /* globals jQuery, Site */
 
-(function($, Site) {
+(function ($, Site) {
 	var offset;
 
 	function init() {
+		if (!$('.logo').length) return;
+
 		setOffset();
 
 		Site.OnResize.push(onResize);
 	}
 
 	function setOffset() {
-		offset = $(".logo")[0].getBoundingClientRect().left;
+		offset = $('.logo')[0].getBoundingClientRect().left;
 
-		document.documentElement.style.setProperty('--page-offset', offset + "px");
+		document.documentElement.style.setProperty(
+			'--page-offset',
+			offset + 'px'
+		);
 	}
 
 	function onResize() {
@@ -24,5 +29,4 @@
 	}
 
 	Site.OnInit.push(init);
-
 })(jQuery, Site);

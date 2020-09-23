@@ -28,13 +28,22 @@
 				.on('click', onPauseClick);
 
 			VideoPlayer.on('loaded', function () {
-				setTimeout(function () {
-					$Wrapper.addClass('loaded');
-				}, 1000);
+				setTimeout(onVideoLoaded, 1000);
 			});
 
 			Site.OnResize.push(onResize);
 		});
+	}
+
+	function onVideoLoaded() {
+		$Wrapper.addClass('loaded');
+
+		try {
+			VideoPlayer.setMuted(true);
+			VideoPlayer.play();
+		} catch (error) {
+			//
+		}
 	}
 
 	function onResize() {

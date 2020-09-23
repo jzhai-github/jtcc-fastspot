@@ -24,7 +24,7 @@
 							{% endif %}
 							{% if video %}
 								<div class="js-background-video-wrapper page_header_bg_video" aria-hidden="true">
-									<iframe class="js-background-video-iframe page_header_bg_iframe" src="//player.vimeo.com/video/{{ video }}?background=1" title="{{ title }} video" allow="autoplay"></iframe>
+									<iframe class="js-background-video-iframe page_header_bg_iframe" src="//player.vimeo.com/video/{{ video }}?background=1&muted=1" title="{{ title }} video" allow="autoplay"></iframe>
 									<div class="page_header_bg_video_controls">
 										{% render "@partial-button" with {
 											class: "page_header_bg_video_play",
