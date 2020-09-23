@@ -25,7 +25,7 @@
 
 	font-size: 36px;
 	line-height: (42 / 36);
-	letter-spacing: .3px;
+	letter-spacing: 0.3px;
 	text-transform: uppercase;
 
 	@media #{$min_lg} {
@@ -40,7 +40,7 @@
 
 	font-size: 40px;
 	line-height: (42 / 40);
-	letter-spacing: .5px;
+	letter-spacing: 0.5px;
 }
 
 @mixin h4($query: $min_lg) {
@@ -51,7 +51,7 @@
 
 	@media #{$query} {
 		font-size: 36px;
-		letter-spacing: .4px;
+		letter-spacing: 0.4px;
 		line-height: (38 / 36);
 	}
 }
@@ -61,7 +61,7 @@
 
 	font-size: 28px;
 	line-height: (34 / 28);
-	letter-spacing: .4px;
+	letter-spacing: 0.4px;
 }
 
 @mixin h6 {
@@ -146,6 +146,8 @@
 
 	a {
 		@include fw_type_link;
+
+		padding-bottom: 0;
 	}
 
 	p {
@@ -262,7 +264,7 @@
 		.wp-caption-text {
 			@include small_text();
 
-			border-bottom: 1px solid #F0F0F0;
+			border-bottom: 1px solid #f0f0f0;
 			caption-side: bottom;
 			color: rgba(#000, 0.8);
 			display: table-caption;
@@ -367,8 +369,8 @@
 	.quote {
 		position: relative;
 
-		border-top: 1px solid rgba(#000, .15);
-		border-bottom: 1px solid rgba(#000, .15);
+		border-top: 1px solid rgba(#000, 0.15);
+		border-bottom: 1px solid rgba(#000, 0.15);
 		margin: 50px 0;
 		padding: 40px 0 50px;
 
@@ -394,10 +396,8 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: 50% 50%;
-			box-shadow:
-				-18px 0 0 0 #fff,
-				18px 0 0 0 #fff;
-			content: "";
+			box-shadow: -18px 0 0 0 #fff, 18px 0 0 0 #fff;
+			content: '';
 			transform: translate(-50%, -50%);
 		}
 	}
@@ -413,7 +413,7 @@
 	.quote_caption {
 		@include mini_h6;
 
-		color: rgba(#000, .6);
+		color: rgba(#000, 0.6);
 	}
 
 	.quote_caption_name {
@@ -430,7 +430,6 @@
 ============================================================================= */
 
 .typography {
-
 	h3 + ol,
 	h4 + ol,
 	h3 + ul,
@@ -505,13 +504,11 @@
 			}
 
 			ul li {
-
 				&:before {
 					background: $teal;
 				}
 
 				li {
-
 					&:before {
 						background: none;
 						border: 1px solid $teal;
@@ -530,11 +527,11 @@
 		width: 100%;
 
 		border-collapse: collapse;
-		border: 1px solid #D9D9D9;
+		border: 1px solid #d9d9d9;
 
 		tr {
 			&:nth-child(even) {
-				background: #FAFAFA;
+				background: #fafafa;
 			}
 		}
 
