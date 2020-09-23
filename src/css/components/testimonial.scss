@@ -59,7 +59,7 @@
 	padding: 30px 30px 40px;
 
 	@media #{$min_md} {
-		width: 55%;
+		flex: 1;
 
 		padding: 40px 40px 55px;
 	}
@@ -74,18 +74,36 @@
 .testimonial_media {
 	position: relative;
 
-	padding-top: $portrait_classic;
-
 	@media #{$min_md} {
 		min-height: 444px;
+		width: 344px;
+	}
+}
 
-		flex: 1;
-		padding-top: 0;
+.testimonial_image_wrapper {
+	height: 0;
+
+	padding-top: $full;
+
+	@media #{$min_md} {
+		.js & {
+			display: none;
+		}
 	}
 }
 
 .testimonial_background {
-	@include cover;
+	display: none;
+
+	@media #{$min_md} {
+		@include cover;
+
+		display: block;
+	}
+
+	.fs-background-media {
+		// background-position: top center;
+	}
 }
 
 .testimonial_info {

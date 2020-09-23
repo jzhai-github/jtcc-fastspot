@@ -20,12 +20,21 @@
 		</div>
 
 		<div class="testimonial_media">
+			{% render "@partial-image" with {
+				class: 'testimonial',
+				image: image,
+				sources: [
+					img("full").med,
+					img("full").sml,
+				]
+			} %}
+
 			{% render "@partial-background" with {
 				class: "testimonial",
 				image: image,
 				sources: {
-					'0px': img("portraitClassic").sml,
-					'500px': img("portraitClassic").med
+					'740px': img("portraitFull").med,
+					'980px': img("portraitFull").lrg,
 				}
 			} %}
 		</div>
