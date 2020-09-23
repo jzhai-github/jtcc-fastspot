@@ -126,7 +126,7 @@ function axe(cb) {
 								item.handle.endsWith(slug)
 							)
 					)
-					.flatten()
+					.flattenDeep()
 					.toArray()
 					.map(
 						(item) =>
