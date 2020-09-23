@@ -45,7 +45,7 @@
 	}
 
 	@media #{$min_lg} {
-		line-height: 1.5;
+		line-height: 1.35;
 
 		@supports (box-decoration-break: clone) {
 			box-shadow: 20px 0 0 $maroon, -20px 0 0 $maroon;
