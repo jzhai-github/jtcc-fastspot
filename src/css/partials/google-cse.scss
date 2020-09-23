@@ -7,7 +7,6 @@
 }
 
 #___gcse_0 {
-
 	.gsc-control-cse {
 		background-color: transparent;
 		border: 0;
@@ -37,7 +36,7 @@
 			top: 0;
 
 			background: inherit;
-			content: "";
+			content: '';
 		}
 
 		&:before {
@@ -58,7 +57,7 @@
 			@include mini_h6;
 
 			color: #fff;
-			content: "Search the JTCC Site";
+			content: 'Search the JTCC Site';
 			display: block;
 			margin-bottom: 20px;
 		}
@@ -101,7 +100,7 @@
 		background-position: 20px 50% !important;
 		border: 0 !important;
 		border-radius: 0;
-		box-shadow: 0 2px 10px 0 rgba(#000, .15);
+		box-shadow: 0 2px 10px 0 rgba(#000, 0.15);
 		line-height: normal;
 		margin: 0 !important;
 		padding: 13px 50px 13px 20px !important;
@@ -154,7 +153,7 @@
 		margin-top: 2px;
 		padding: 0;
 		transform-origin: right center;
-		transform: scale(.85);
+		transform: scale(0.85);
 	}
 
 	.gscb_a {
@@ -186,7 +185,7 @@
 		background-repeat: no-repeat;
 		border: 0;
 		border-radius: 0;
-		box-shadow: 0 2px 10px 0 rgba(#000, .15);
+		box-shadow: 0 2px 10px 0 rgba(#000, 0.15);
 		margin-left: 0 !important;
 		transition: opacity $base_speed;
 
@@ -196,7 +195,7 @@
 
 		&:hover,
 		&:focus {
-			opacity: .7;
+			opacity: 0.7;
 		}
 
 		img,
@@ -234,7 +233,7 @@
 			top: 0;
 
 			background: inherit;
-			content: "";
+			content: '';
 		}
 
 		&:before {
@@ -271,7 +270,6 @@
 		display: none;
 	}
 
-
 	/* Results
 	============================================================================= */
 
@@ -281,11 +279,11 @@
 	}
 
 	.gsc-result {
-		border-bottom: 1px solid rgba(#000, .15);
+		border-bottom: 1px solid rgba(#000, 0.15);
 		padding: 34px 0 38px;
 
 		&:first-child {
-			border-top: 1px solid rgba(#000, .15);
+			border-top: 1px solid rgba(#000, 0.15);
 		}
 	}
 
@@ -372,7 +370,8 @@
 		margin-top: 8px;
 	}
 
-	@at-root #___gcse_0 .gs-no-results-result .gs-snippet, #___gcse_0 .gs-error-result .gs-snippet {
+	@at-root #___gcse_0 .gs-no-results-result .gs-snippet,
+		#___gcse_0 .gs-error-result .gs-snippet {
 		@include intro_text;
 
 		-webkit-font-smoothing: antialiased;
@@ -430,7 +429,7 @@
 			width: 38px;
 
 			background: $light_pink;
-			border-bottom: 0;
+			border-bottom-color: transparent;
 			border-radius: 50%;
 			color: $bergundy;
 			font-weight: inherit;
