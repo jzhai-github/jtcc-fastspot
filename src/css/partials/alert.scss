@@ -72,15 +72,9 @@
 	text-transform: uppercase;
 
 	@media #{$min_lg} {
-		left: -56px;
-
 		font-size: 40px;
 		letter-spacing: 1.6px;
 		padding: 7px 8px 7px 0;
-	}
-
-	@media #{$min_xl} {
-		left: -60px;
 	}
 
 	@media print,
@@ -92,12 +86,14 @@
 .alert_title_icon {
 	display: none;
 
-	@media #{$min_sm} {
-		display: block;
-		margin-right: 10px;
-	}
-
 	@media #{$min_lg} {
+		position: absolute;
+		top: 0;
+		left: -7%;
+		z-index: 1;
+		transform: translate(0, 70%);
+
+		display: block;
 		margin-right: 26px;
 		transform-origin: right center;
 	}
