@@ -1,5 +1,5 @@
 .featured_events {
-	background: rgba(#F6F6F6, .5);
+	background: rgba(#f6f6f6, 0.5);
 	padding: 40px 0 56px;
 
 	@media #{$min_md} {
@@ -12,14 +12,12 @@
 }
 
 .featured_events_inner {
-
 }
 
 .featured_events_header {
-
 	@media #{$min_md} {
 		align-items: center;
-		border-bottom: 1px solid rgba(#000, .08);
+		border-bottom: 1px solid rgba(#000, 0.08);
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 36px;
@@ -30,7 +28,7 @@
 .featured_events_title {
 	@include sans(400);
 
-	color: rgba(#000, .7);
+	color: rgba(#000, 0.7);
 	font-size: 15px;
 	letter-spacing: 1.88px;
 	line-height: (18 / 15);
@@ -57,7 +55,7 @@
 }
 
 .featured_events_body {
-
+	overflow: hidden;
 }
 
 .featured_events_items {
@@ -75,7 +73,6 @@
 	}
 
 	.fs-carousel-canister {
-
 		@media #{$min_lg} {
 			display: flex;
 			margin: 0 -10px;
@@ -134,8 +131,8 @@
 			top: 50%;
 			right: 100%;
 
-			background: rgba(#4A4A4A, .5);
-			content: "";
+			background: rgba(#4a4a4a, 0.5);
+			content: '';
 			display: block;
 			margin-right: 10px;
 		}
@@ -163,7 +160,8 @@
 	letter-spacing: 2.5px;
 }
 
-.featured_events_item_body {}
+.featured_events_item_body {
+}
 
 .featured_events_item_title {
 	@include h4($min_xl);
@@ -180,9 +178,7 @@
 .featured_events_item_title_link {
 	border-bottom: 1px solid transparent;
 	color: inherit;
-	transition:
-		border $base_speed,
-		color $base_speed;
+	transition: border $base_speed, color $base_speed;
 
 	&:hover,
 	&:focus {
@@ -192,7 +188,6 @@
 }
 
 .featured_events_item_details {
-
 }
 
 .featured_events_item_detail {
@@ -215,7 +210,7 @@
 }
 
 .featured_events_item_detail_icon {
-	color: #D7A141;
+	color: #d7a141;
 }
 
 .featured_events_item_detail_label {

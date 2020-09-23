@@ -1,4 +1,6 @@
-.stories {}
+.stories {
+	overflow: hidden;
+}
 
 .stories_carousel {
 	position: relative;
@@ -11,7 +13,6 @@
 	}
 
 	.fs-carousel-canister {
-
 		@media #{$min_md} {
 			display: flex;
 			margin: 0 -10px;
@@ -27,7 +28,7 @@
 		top: 0;
 
 		opacity: 0;
-		transition: opacity .5s;
+		transition: opacity 0.5s;
 
 		.visible & {
 			opacity: 1;
@@ -55,22 +56,16 @@
 	}
 
 	@for $i from 1 through 3 {
-
 		&:nth-child(#{$i}) {
-
 			@media screen and (min-width: 600px) {
 				transform: translate(0, 40px + (40px * $i));
-				transition:
-					opacity .5s .05s * $i,
-					transform .5s .05s * $i;
+				transition: opacity 0.5s 0.05s * $i, transform 0.5s 0.05s * $i;
 			}
 		}
 	}
 
 	.visible & {
-
 		&:nth-child(n) {
-
 			@media screen and (min-width: 600px) {
 				opacity: 1;
 				transform: translate(0, 0);
