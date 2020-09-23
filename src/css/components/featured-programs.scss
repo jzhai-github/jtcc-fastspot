@@ -22,19 +22,16 @@
 	padding-left: var(--page-offset);
 
 	@media #{$min_md} {
-		width: 50%;
+		width: 62%;
 
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding: (115px + 26px) 20px;
+		padding: (175px + 36px) 40px;
 		padding-left: var(--page-offset);
 	}
 
 	@media #{$min_lg} {
-		width: 62%;
-
-		padding: (175px + 36px) 40px;
 		padding-left: var(--page-offset);
 	}
 
@@ -113,9 +110,8 @@
 		right: 100%;
 
 		background: inherit;
-		content: "";
+		content: '';
 	}
-
 
 	&_primary {
 		margin-bottom: 5px;
@@ -129,7 +125,7 @@
 .featured_programs_input_wrapper {
 	position: relative;
 
-	box-shadow: 0 0 6px 0 rgba(#000, .25);
+	box-shadow: 0 0 6px 0 rgba(#000, 0.25);
 }
 
 .featured_programs_input {
@@ -181,9 +177,7 @@
 		right: 40px;
 
 		transform-origin: right center;
-		transform:
-			translate(0, -50%)
-			scale(1.5);
+		transform: translate(0, -50%) scale(1.5);
 	}
 }
 
@@ -191,13 +185,9 @@
 	position: relative;
 
 	@media #{$min_md} {
-		width: 50%;
+		width: 38%;
 
 		background: #91183c;
-	}
-
-	@media #{$min_lg} {
-		width: 38%;
 	}
 
 	@media #{$min_xl} {
@@ -209,7 +199,6 @@
 	}
 
 	&:after {
-
 		@media #{$min_md} {
 			height: 100%;
 			width: 50vw;
@@ -219,7 +208,7 @@
 			left: 100%;
 
 			background: inherit;
-			content: "";
+			content: '';
 		}
 	}
 }
@@ -247,7 +236,6 @@
 	}
 
 	&:after {
-
 		@media #{$min_md} {
 			height: 100%;
 			width: 50vw;
@@ -258,12 +246,13 @@
 			z-index: 2;
 
 			background: inherit;
-			content: "";
+			content: '';
 		}
 	}
 }
 
-.featured_programs_body_details {}
+.featured_programs_body_details {
+}
 
 .featured_programs_body_title {
 	@include sans(400);
@@ -308,14 +297,16 @@
 	}
 }
 
-.featured_programs_item {}
+.featured_programs_item {
+}
 
 .featured_programs_item_link {
 	display: block;
 	padding: 9px 0;
 }
 
-.featured_programs_item_link_inner {}
+.featured_programs_item_link_inner {
+}
 
 .featured_programs_item_link_label {
 	@include body_text;
@@ -382,7 +373,7 @@
 	top: 50%;
 	right: 20px;
 
-	color: rgba($blush, .75);
+	color: rgba($blush, 0.75);
 	transform: translate(0, -50%);
 }
 
@@ -409,7 +400,8 @@
 	}
 }
 
-.featured_programs_footer_details {}
+.featured_programs_footer_details {
+}
 
 .featured_programs_footer_title {
 	@include sans(400);
@@ -429,7 +421,7 @@
 		width: 100%;
 
 		background: $bergundy;
-		content: "";
+		content: '';
 		flex: auto;
 	}
 
@@ -449,14 +441,13 @@
 }
 
 .featured_programs_action {
-
 	&:not(:last-child) {
 		margin-bottom: 15px;
 	}
 }
 
 .featured_programs_action_link {
-	@include button_fill("bergundy");
+	@include button_fill('bergundy');
 	@include button_layout;
 
 	display: block;

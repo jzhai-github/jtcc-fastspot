@@ -66,8 +66,6 @@
 
 	@media #{$min_xl} {
 		width: 68%;
-
-		padding: 80px 60px 104px;
 	}
 }
 
@@ -125,8 +123,8 @@
 }
 
 .testimonial_icon {
-	height: 55px;
-	width: 55px;
+	height: 45px;
+	width: 45px;
 
 	align-items: center;
 	background-color: var(--quote_icon_bg_color);
@@ -135,6 +133,17 @@
 	display: flex;
 	flex-shrink: 0;
 	justify-content: center;
+
+	@media #{$max_md} {
+		.icon_quote {
+			width: 1em;
+		}
+	}
+
+	@media #{$min_md} {
+		height: 55px;
+		width: 55px;
+	}
 }
 
 .testimonial_quote {
@@ -142,7 +151,11 @@
 	@include sans(300);
 
 	line-height: (42 / 36);
-	margin-top: 28px;
+	margin-top: 20px;
+
+	@media #{$min_md} {
+		margin-top: 28px;
+	}
 }
 
 .testimonial_quote_name {

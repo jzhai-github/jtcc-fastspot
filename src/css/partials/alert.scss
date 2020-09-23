@@ -36,7 +36,7 @@
 	position: relative;
 
 	background: #fff;
-	box-shadow: 0 -2px 6px 0 rgba(#000, .15);
+	box-shadow: 0 -2px 6px 0 rgba(#000, 0.15);
 	margin: 0 -10px;
 	overflow: hidden;
 	padding: 30px 40px 30px 20px;
@@ -56,6 +56,9 @@
 }
 
 .alert_header {
+	position: relative;
+
+	margin: 0 50px 16px 0;
 }
 
 .alert_title {
@@ -63,12 +66,8 @@
 
 	position: relative;
 
-	align-items: center;
-	background: $mustard;
-	display: inline-flex;
 	font-size: 30px;
 	letter-spacing: 1px;
-	margin: 0 50px 16px 0;
 	padding: 4px 8px 4px 0;
 	text-transform: uppercase;
 
@@ -87,18 +86,6 @@
 	@media print,
 	#{$min_lg} {
 		margin-right: 0;
-	}
-
-	&:before {
-		height: 100%;
-		width: 50vw;
-
-		position: absolute;
-		top: 0;
-		right: 100%;
-
-		background: inherit;
-		content: "";
 	}
 }
 
@@ -121,6 +108,28 @@
 }
 
 .alert_title_label {
+	--primary_color: #{$mustard};
+
+	position: relative;
+
+	display: inline;
+	line-height: 1.4;
+	background-color: $mustard;
+	margin-left: -50vw;
+	padding-left: 50vw;
+
+	@supports (box-decoration-break: clone) {
+		box-decoration-break: clone;
+		box-shadow: 10px 0 0 var(--primary_color),
+			-10px 0 0 var(--primary_color);
+	}
+
+	@media #{$min_lg} {
+		@supports (box-decoration-break: clone) {
+			box-shadow: 20px 0 0 var(--primary_color),
+				-20px 0 0 var(--primary_color);
+		}
+	}
 }
 
 .alert_body {
@@ -171,13 +180,11 @@
 	align-items: center;
 	background: #000;
 	border-radius: 50%;
-	box-shadow: 0 0 4px 0 rgba(#000, .08);
+	box-shadow: 0 0 4px 0 rgba(#000, 0.08);
 	display: flex;
 	justify-content: center;
 	margin-left: 25px;
-	transition:
-		background $base_speed,
-		border $base_speed;
+	transition: background $base_speed, border $base_speed;
 
 	@media #{$min_lg} {
 		width: 45px;
@@ -232,15 +239,13 @@
 	position: relative;
 
 	background-color: $mustard;
-	box-shadow: 0 -2px 6px 0 rgba(#000, .15);
+	box-shadow: 0 -2px 6px 0 rgba(#000, 0.15);
 	color: #000;
 	display: none;
 	float: right;
 	pointer-events: auto;
 	transform: translate3d(0, 100%, 0);
-	transition:
-		background 0.3s,
-		transform 0.3s;
+	transition: background 0.3s, transform 0.3s;
 	transition-delay: 0s;
 
 	&:hover,
@@ -262,8 +267,8 @@
 }
 
 .alert_open_icon {
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
 
 	position: relative;
 
@@ -271,14 +276,7 @@
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
-	transition:
-		background $base_speed,
-		border $base_speed;
-
-	@media #{$min_sm} {
-		width: 60px;
-		height: 60px;
-	}
+	transition: background $base_speed, border $base_speed;
 }
 
 .alert_open_label {

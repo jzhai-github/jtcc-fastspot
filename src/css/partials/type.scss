@@ -103,7 +103,7 @@
 @mixin body_text {
 	@include serif(300);
 
-	font-size: 15px;
+	font-size: 16px;
 	line-height: (22 / 15);
 
 	@media #{$min_lg} {
