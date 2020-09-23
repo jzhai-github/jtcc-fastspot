@@ -21,7 +21,7 @@
 
 .contact_header {
 	align-items: center;
-	border-bottom: 1px solid rgba(#000, .2);
+	border-bottom: 1px solid rgba(#000, 0.2);
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 12px;
@@ -38,7 +38,6 @@
 }
 
 .contact_header_group {
-
 	&:first-child {
 		padding-right: 20px;
 	}
@@ -119,9 +118,8 @@
 ============================================================================= */
 
 .contact_details_wrapper {
-
 	&:not(:last-child) {
-		border-bottom: 1px solid rgba(#000, .2);
+		border-bottom: 1px solid rgba(#000, 0.2);
 		margin-bottom: 12px;
 		padding-bottom: 36px;
 
@@ -151,7 +149,6 @@
 }
 
 .contact_details {
-
 	@media #{$min_sm} {
 		display: flex;
 		flex-wrap: wrap;
@@ -164,6 +161,22 @@
 }
 
 .contact_detail {
+	--label_border_bottom_color: rgba(#000, 0.2);
+	--label_color: #4c4c4c;
+	--link_color: #{$bergundy};
+	--icon_color: #{$bergundy};
+	--social_link_color: #{$bergundy};
+	--social_link_icon_color: #{$bergundy};
+
+	.theme_navy & {
+		--label_border_bottom_color: $teal;
+		--label_color: rgba(#f0f0f0, 0.7);
+		--link_color: #{$turquoise};
+		--icon_color: #{$turquoise};
+		--social_link_color: #{$turquoise};
+		--social_link_icon_color: #{$turquoise};
+	}
+
 	margin-bottom: 24px;
 
 	@media #{$min_sm} {
@@ -187,8 +200,8 @@
 .contact_detail_label {
 	@include h6;
 
-	border-bottom: 1px solid rgba(#000, .2);
-	color: #4C4C4C;
+	border-bottom: 1px solid var(--label_border_bottom_color);
+	color: var(--label_color);
 	margin-bottom: 10px;
 	padding-bottom: 12px;
 	text-transform: uppercase;
@@ -196,11 +209,6 @@
 	@media #{$min_lg} {
 		margin-bottom: 14px;
 		padding-bottom: 20px;
-	}
-
-	.theme_navy & {
-		border-bottom-color: $teal;
-		color: rgba(#F0F0F0, .7);
 	}
 }
 
@@ -223,15 +231,11 @@
 	display: flex;
 
 	&[href] {
-		transition: color $base_speed;
+		transition: $base_speed color;
 
 		&:hover,
 		&:focus {
-			color: $bergundy;
-
-			.theme_navy & {
-				color: $turquoise;
-			}
+			color: var(--link_color);
 		}
 
 		&:after {
@@ -243,21 +247,17 @@
 }
 
 .contact_detail_info_icon {
-	color: $bergundy;
+	color: var(--icon_color);
 	margin-right: 10px;
-
-	.theme_navy & {
-		color: $turquoise;
-	}
 }
 
 .contact_detail_info_label {
 	border-bottom: 1px solid transparent;
-	transition: border $base_speed;
+	transition: $base_speed border;
 
 	.contact_detail_info[href]:hover &,
 	.contact_detail_info[href]:focus & {
-		border-bottom-color: currentColor;
+		border-bottom-color: var(--link_color);
 	}
 }
 
@@ -284,11 +284,7 @@
 
 	&:hover,
 	&:focus {
-		color: $bergundy;
-
-		.theme_navy & {
-			color: $turquoise;
-		}
+		color: var(--social_link_color);
 	}
 }
 
@@ -308,17 +304,13 @@
 	position: relative;
 	top: -1px;
 
-	color: $bergundy;
+	color: var(--social_link_icon_color);
 	margin-left: 10px;
 	transform-origin: left center;
-	transform: scale(.75);
+	transform: scale(0.75);
 
 	.contact_social_link:hover &,
 	.contact_social_link:focus & {
 		animation: dootdoot_mini 1s infinite;
-	}
-
-	.theme_navy & {
-		color: $turquoise;
 	}
 }

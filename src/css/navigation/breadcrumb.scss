@@ -55,8 +55,8 @@
 			height: 23px;
 			width: 1px;
 
-			background: rgba(#fff, .25);
-			content: "";
+			background: rgba(#fff, 0.25);
+			content: '';
 			display: block;
 			margin: 0 16px 0 12px;
 			transform: skew(-16deg);
@@ -82,7 +82,7 @@
 
 	&:focus,
 	&:hover {
-		color: rgba(#fff, .7);
+		color: rgba(#fff, 0.7);
 	}
 }
 
@@ -97,9 +97,9 @@
 
 	margin-left: 6px;
 	transform-origin: left center;
-	transform: scale(.75);
+	transform: scale(0.75);
 
-	.breadcrumb_pill_link:hover & ,
+	.breadcrumb_pill_link:hover &,
 	.breadcrumb_pill_link:focus & {
 		animation: dootdoot_mini 1s infinite;
 	}
@@ -111,7 +111,7 @@
 	border-bottom: 1px solid transparent;
 	transition: border $base_speed;
 
-	.breadcrumb_pill_link:hover & ,
+	.breadcrumb_pill_link:hover &,
 	.breadcrumb_pill_link:focus & {
 		border-bottom-color: currentColor;
 	}

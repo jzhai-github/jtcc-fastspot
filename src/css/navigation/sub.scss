@@ -2,7 +2,8 @@
 	Sub Navigation
 ============================================================================= */
 
-.sub_nav_group {}
+.sub_nav_group {
+}
 
 .sub_nav {
 	position: relative;
@@ -92,7 +93,6 @@
 }
 
 .sub_nav_item {
-
 	@media #{$min_lg} {
 		display: inline-block;
 		margin: 5px 34px 5px 0;
@@ -115,7 +115,7 @@
 
 	&:focus,
 	&:hover {
-		color: rgba(#fff, .7);
+		color: rgba(#fff, 0.7);
 	}
 }
 
@@ -126,7 +126,7 @@
 
 	.sub_nav_link:hover &,
 	.sub_nav_link:focus & {
-		border-bottom-color: currentColor;
+		border-bottom-color: rgba(#fff, 0.7);
 	}
 }
 
@@ -135,7 +135,7 @@
 	top: -2px;
 
 	margin-left: 6px;
-	transform: scale(.75);
+	transform: scale(0.75);
 	transform-origin: left center;
 
 	.sub_nav_link:hover &,
@@ -143,7 +143,6 @@
 		animation: dootdoot_mini 1s infinite;
 	}
 }
-
 
 /* Sub Nav Children
 ============================================================================= */
