@@ -1,5 +1,5 @@
 module.exports = {
-	preview: '@preview-bg',
+	preview: '@preview-dark',
 	context: {
 		links: ['Navigation Level', 'Parent Level'],
 		modifier: '',
