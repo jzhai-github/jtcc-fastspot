@@ -1,8 +1,8 @@
 {
-	"name": "framework-static",
+	"name": "jtcc",
 	"version": "1.0.0",
 	"license": "UNLICENSED",
-	"description": "Site description.",
+	"description": "JTCC Website Fractal Build",
 	"author": "Fastspot",
 	"repository": {
 		"type": "git",
