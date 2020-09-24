@@ -7,7 +7,7 @@ Make sure these dependencies are on your local computer:
 
 # Git Repository
 
-Clone the repository and intall dependencies:
+Clone the repository and install dependencies:
 
 ```bash
 # cd into Code directory; i.e. ~/Code
