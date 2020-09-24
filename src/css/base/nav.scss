@@ -3,16 +3,16 @@
 ============================================================================= */
 
 .nav {
-
 	@media print {
 		display: none;
 	}
 }
 
-.nav_header {}
+.nav_header {
+}
 
-.nav_title {}
-
+.nav_title {
+}
 
 /* Site Navigation Links
 ============================================================================= */
@@ -21,10 +21,10 @@
 	@include remove_list;
 }
 
-.nav_item {}
+.nav_item {
+}
 
 .nav_item_inner {
-
 	.has_children & {
 		position: relative;
 
@@ -37,9 +37,11 @@
 	flex: 1;
 }
 
-.nav_link_label {}
+.nav_link_label {
+}
 
-.nav_link_icon {}
+.nav_link_icon {
+}
 
 .nav_toggle {
 	display: none;
@@ -72,7 +74,6 @@
 	display: inline-block;
 }
 
-
 /* Site Navigation Children
 ============================================================================= */
 
@@ -85,8 +86,10 @@
 		position: absolute;
 
 		opacity: 0;
+		transform: translate3d(0, -2px, 0);
 		transition:
 			opacity $base_speed,
+			transform $base_speed,
 			visibility $base_speed;
 		visibility: hidden;
 	}
@@ -106,18 +109,20 @@
 	.nav_item.fs-swap-active &,
 	.nav_item:focus &,
 	.nav_item:hover & {
-
 		@media #{$min_lg} {
 			opacity: 1;
+			transform: translate3d(0, 0, 0);
 			visibility: visible;
 		}
 	}
 }
 
-.nav_child_item {}
+.nav_child_item {
+}
 
 .nav_child_link {
 	display: block;
 }
 
-.nav_child_link_label {}
+.nav_child_link_label {
+}

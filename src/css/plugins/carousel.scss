@@ -3,7 +3,6 @@
 ============================================================================= */
 
 .fs-carousel-canister {
-
 	@media print {
 		width: 100% !important;
 
@@ -13,7 +12,6 @@
 }
 
 .fs-carousel-item {
-
 	@media print {
 		width: 100% !important;
 		height: auto !important;
@@ -21,15 +19,14 @@
 		page-break-inside: avoid;
 	}
 
-	&.fs-carousel-visible {}
+	&.fs-carousel-visible {
+	}
 }
-
 
 /* Carousel Controls
 ============================================================================= */
 
 .fs-carousel-controls {
-
 	@media print {
 		display: none !important;
 	}
@@ -43,9 +40,7 @@
 	padding: 20px;
 	pointer-events: none;
 	visibility: hidden;
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 
 	&.fs-carousel-visible {
 		cursor: pointer;
@@ -54,12 +49,15 @@
 		visibility: visible;
 	}
 
-	&.fs-carousel-control_previous {}
+	&.fs-carousel-control_previous {
+	}
 
-	&.fs-carousel-control_next {}
+	&.fs-carousel-control_next {
+	}
 
 	&:focus,
-	&:hover {}
+	&:hover {
+	}
 }
 
 .fs-carousel-control-icon {
@@ -75,20 +73,42 @@
 	@include visually_hide;
 }
 
-
 /* Carousel Pagination
 ============================================================================= */
 
 .fs-carousel-pagination {
+	align-items: center;
+	display: flex !important;
 
 	@media print {
 		display: none !important;
 	}
+
+	&:before,
+	&:after {
+		height: 1px;
+
+		background: $teal;
+		content: "";
+		flex: auto;
+
+		.theme_dark & {
+			background: #F0F0F0;
+		}
+	}
+
+	&:before {
+		margin-right: 10px;
+	}
+
+	&:after {
+		margin-left: 10px;
+	}
 }
 
 .fs-carousel-page {
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 
 	position: relative;
 
@@ -104,16 +124,44 @@
 		top: 50%;
 		left: 50%;
 
-		background-color: #999;
+		background-color: $teal;
 		border-radius: 50%;
-		content: "";
-		transform: translate(-50%, -50%);
+		content: '';
+		transform:
+			translate(-50%, -50%)
+			scale(1);
+		transition:
+			background $base_speed,
+			transform $base_speed;
+
+		.theme_dark & {
+			background: rgba(#000, .15);
+		}
+	}
+
+	&:hover,
+	&:focus {
+
+		&:before {
+			background: $turquoise;
+
+			.theme_dark & {
+				background: rgba(#000, .35);
+			}
+		}
 	}
 
 	&.fs-carousel-active {
 
 		&:before {
-			background-color: #000;
+			background-color: #fff;
+			transform:
+				translate(-50%, -50%)
+				scale(1.15);
+
+			.theme_dark & {
+				background: $bright_pink;
+			}
 		}
 	}
 }

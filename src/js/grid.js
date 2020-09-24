@@ -6,7 +6,7 @@
  * Copyright 2016 Ben Plum <mr@benplum.co>
  */
 
-function FSGridBookmarklet() {
+export default function FSGridBookmarklet() {
 	var $jq,
 		OverlayObj,
 		Overlay = function() {
@@ -161,4 +161,3 @@ function FSGridBookmarklet() {
 	}
 }
 
-new FSGridBookmarklet();

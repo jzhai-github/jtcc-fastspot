@@ -3,16 +3,13 @@
 ============================================================================= */
 
 .event_details {
-
 	.event_list & {
-
 		@media #{$min_xl} {
 			flex: 0 0 47%;
 		}
 	}
 
 	.event_meta & {
-
 		@media #{$min_lg} {
 			display: flex;
 		}
@@ -26,7 +23,6 @@
 	padding-left: 22px;
 
 	.event_meta & {
-
 		@media #{$min_lg} {
 			margin-right: 44px;
 			margin-bottom: 0;

@@ -11,7 +11,21 @@
 }
 
 .page {
+	--page_offset: 60px;
+
 	flex-grow: 1;
+
+	@media #{$min_lg} {
+		--page_offset: 108px;
+	}
+
+	@media #{$min_xl} {
+		--page_offset: 125px;
+	}
+
+	body:not(.body_layout_home) & {
+		padding-top: var(--page_offset);
+	}
 }
 
 .page_feature {
@@ -23,7 +37,8 @@
 	@include margined;
 }
 
-.page_sub_nav {}
+.page_sub_nav {
+}
 
 .page_main_content {
 	display: block;
@@ -33,14 +48,14 @@
 	}
 
 	.body_layout_full & {
-
 		@media #{$min_lg} {
 			float: none;
 		}
 	}
 }
 
-.in_content_callouts {}
+.in_content_callouts {
+}
 
 .full_width_callouts {
 	@include focus_outline_none;

@@ -1,57 +1,37 @@
 module.exports = {
 	context: {
-		title: 'Ipsum Fermentum Tristique',
-		description:
-			'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auct.',
+		title: 'Finding JTCC',
+		description: 'Nullam quis risus eget urna mollis ornare vel eu leo. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.',
 		items: [
 			{
-				title: 'Ipsum Fermentum Tristique',
+				title: 'Chester Campus',
 				image: '1',
-				description:
-					'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.',
+				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.',
 				links: [
 					{
-						title: 'Link Title One',
+						title: 'Learn More',
 						url: '#'
 					},
 					{
-						title: 'Link Title Two',
+						title: 'Take a Virtual Tour',
 						url: '#'
 					}
 				]
 			},
 			{
-				title: 'Ipsum Fermentum Tristique',
+				title: 'Midlothian Campus',
 				image: '2',
-				description:
-					'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.',
-				links: ''
-			},
-			{
-				title: 'Ipsum Fermentum Tristique',
-				image: '',
-				description:
-					'Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla.',
+				description: 'Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.',
 				links: [
 					{
-						title: 'Link Title One',
+						title: 'Learn More',
 						url: '#'
 					},
 					{
-						title: 'Link Title Two',
-						url: '#'
-					},
-					{
-						title: 'Link Title Three',
+						title: 'Take a Virtual Tour',
 						url: '#'
 					}
 				]
-			},
-			{
-				title: 'Ipsum',
-				image: '2',
-				description: 'Praesent',
-				links: ''
 			}
 		]
 	}

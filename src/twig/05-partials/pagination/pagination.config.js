@@ -1,6 +1,6 @@
 module.exports = {
-    context: {
-        title: 'Template Pagination',
-        pages: 50,
-    },
+	context: {
+		title: 'Template Pagination',
+		pages: 50
+	}
 };

@@ -25,7 +25,8 @@
 	}
 }
 
-.entity_info {}
+.entity_info {
+}
 
 .entity_name {
 	@include h3;
@@ -72,7 +73,6 @@
 }
 
 .entity_body {
-
 	@media #{$min_lg} {
 		width: 48%;
 	}
@@ -84,7 +84,6 @@
 }
 
 .entity_details {
-
 	@media #{$min_sm} {
 		display: flex;
 	}
@@ -120,7 +119,6 @@
 }
 
 .entity_detail_hint {
-
 	.entity_list & {
 		@include visually_hide;
 	}
@@ -142,7 +140,6 @@
 		}
 
 		&:after {
-
 			@media print {
 				content: normal;
 			}
@@ -150,6 +147,8 @@
 	}
 }
 
-.entity_detail_link {}
+.entity_detail_link {
+}
 
-.entity_detail_info_label {}
+.entity_detail_info_label {
+}

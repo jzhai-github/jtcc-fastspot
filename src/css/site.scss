@@ -2,40 +2,40 @@
 // Imports
 // =============================================================================
 
-@import "normalize.css/normalize";
-@import "formstone/dist/css/background";
-@import "formstone/dist/css/carousel";
-@import "formstone/dist/css/checkpoint";
-@import "formstone/dist/css/lightbox";
-@import "formstone/dist/css/sticky";
-@import "formstone/dist/css/viewer";
-@import "grid/grid";
+@import 'normalize.css/normalize';
+@import 'formstone/dist/css/background';
+@import 'formstone/dist/css/carousel';
+@import 'formstone/dist/css/lightbox';
 
-@import "base/setup";
-@import "base/colors";
-@import "base/fonts";
-@import "base/elements";
-@import "base/nav";
+@import 'base/setup';
+@import 'base/colors';
+@import 'base/fonts';
+@import 'base/elements';
+@import 'base/nav';
 
-@import "partials/icons";
-@import "partials/mixins";
-@import "partials/type";
-@import "partials/buttons";
-@import "partials/alert";
-@import "partials/logo";
-@import "partials/page-header-bg";
-@import "partials/page-header";
-@import "partials/search";
-@import "partials/meta";
-@import "partials/google-cse";
-@import "partials/forms";
+@import 'grid/grid';
 
-@import "plugins/*";
+@import 'partials/animations';
+@import 'partials/icons';
+@import 'partials/mixins';
+@import 'partials/type';
+@import 'partials/buttons';
+@import 'partials/alert';
+@import 'partials/logo';
+@import 'partials/page-header-bg';
+@import 'partials/page-header';
+@import 'partials/search';
+@import 'partials/meta';
+@import 'partials/google-cse';
+@import 'partials/forms';
+@import 'partials/title-wrap';
 
-@import "layouts/*";
+@import 'plugins/*';
 
-@import "navigation/*";
+@import 'layouts/*';
 
-@import "components/*";
+@import 'navigation/*';
 
-@import "print";
+@import 'components/*';
+
+@import 'print';

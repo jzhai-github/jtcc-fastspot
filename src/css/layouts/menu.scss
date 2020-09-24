@@ -6,11 +6,11 @@
 	@include focus_outline_none;
 
 	position: relative;
-	top: 0;
+	top: 60px;
 	right: 0;
 	z-index: 400;
 
-	background: #000;
+	background: $navy;
 	color: #fff;
 
 	@media #{$min_lg} {
@@ -36,12 +36,11 @@
 		@include fake_scroll();
 
 		width: 100%;
-		height: 100%;
+		height: calc(100% - 60px);
 
 		position: fixed;
 
 		opacity: 0;
-		padding: 130px 0 0 0;
 		pointer-events: none;
 		visibility: hidden;
 	}
@@ -53,68 +52,24 @@
 	}
 }
 
-.menu_header {}
-
-.menu_header_inner {}
-
 .menu_title {
 	@include visually_hide;
 }
 
-.menu_primary {}
-
-.menu_primary_inner {}
-
-.menu_ribbon {
-	background: $gray_70;
-	padding: 30px 0;
+.menu_primary {
+	padding: 12px 0 36px;
 }
 
-.menu_ribbon_inner {}
-
-
-/* Menu Close
-============================================================================= */
-
-.menu_close {
-	display: none;
-
-	.js & {
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-
-		display: block;
-	}
+.menu_primary_inner {
 }
 
-.menu_close_button {
-	@include fw_emphasized(display);
+.menu_sole {
+	background: rgba(#000, .2);
+	overflow: hidden;
+	padding: 36px 0;
 }
 
-.menu_close_inner {
-	min-height: 105px;
-
-	align-items: center;
-	display: flex;
-	justify-content: flex-end;
-}
-
-.menu_close_toggle {
-	color: inherit;
-}
-
-.menu_close_toggle_inner {
-	@include fw_site_button;
-}
-
-.menu_close_toggle_icon {}
-
-.menu_close_toggle_label {}
-
-.menu_close_toggle_icon_space {
-	display: none;
+.menu_sole_inner {
 }
 
 
@@ -122,10 +77,16 @@
 ============================================================================= */
 
 .menu_toggle {
+	height: 100%;
+
 	position: relative;
 
-	color: inherit;
-	display: inline-block;
+	align-items: center;
+	background: $teal;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	transition: background $base_speed;
 
 	@media #{$min_lg} {
 		display: none;
@@ -134,18 +95,17 @@
 	@media print {
 		display: none;
 	}
+
+	&.fs-swap-active {
+		background: #000;
+	}
 }
 
 .menu_toggle_inner {
-	@include fw_site_button;
-
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	transition: opacity $base_speed, visibility $base_speed;
 }
 
 .menu_toggle_inner_default {
-
 	.menu_toggle.fs-swap-active & {
 		opacity: 0;
 		pointer-events: none;
@@ -155,11 +115,12 @@
 
 .menu_toggle_inner_active {
 	position: absolute;
-	top: 0;
+	top: 50%;
 
 	opacity: 0;
 	pointer-events: none;
 	visibility: hidden;
+	transform: translate(0, -50%);
 
 	.menu_toggle.fs-swap-active & {
 		opacity: 1;
@@ -168,19 +129,25 @@
 	}
 }
 
-.menu_toggle_label {}
+.menu_toggle_label {
+	@include visually_hide;
+}
 
-.menu_toggle_label_default {}
+.menu_toggle_label_default {
+}
 
-.menu_toggle_label_active {}
+.menu_toggle_label_active {
+}
 
 .menu_toggle_icon {
 	pointer-events: none;
 }
 
-.menu_toggle_icon_default {}
+.menu_toggle_icon_default {
+}
 
-.menu_toggle_icon_active {}
+.menu_toggle_icon_active {
+}
 
 .menu_toggle_icon_space {
 	display: none;

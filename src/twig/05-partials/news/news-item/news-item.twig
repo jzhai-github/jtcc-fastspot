@@ -9,10 +9,10 @@
 					alt: "",
 					image: item.image,
 					sources: [
-						img.classic.med,
-						img.classic.sml,
-						img.classic.xsml,
-						img.classic.xxsml
+						img("classic").med,
+						img("classic").sml,
+						img("classic").xsml,
+						img("classic").xxsml
 					]
 				} %}
 				{% if item.url %}
@@ -27,7 +27,8 @@
 					{% render "@partial-link" with {
 						class: "news_item_title",
 						title: item.title,
-						url: item.url
+						url: item.url,
+						icon: "caret_right"
 					} %}
 				{% else %}
 					{{ item.title }}
@@ -49,8 +50,8 @@
 		<div class="news_item_body">
 			{% if item.date or item.author %}
 				{% render "@partial-news-details" with {
-				item: item
-			} %}
+					item: item
+				} %}
 			{% endif %}
 			{% if item.description %}
 				<div class="news_item_description">

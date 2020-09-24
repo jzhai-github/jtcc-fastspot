@@ -3,30 +3,58 @@
 ============================================================================= */
 
 .card_group {
-	@include margined_xl;
-}
+	background: #F7F7F7;
+	padding: 40px 0 56px;
 
-.card_group_header {
-	margin-bottom: 30px;
-
-	@media #{$min_xl} {
-		margin-bottom: 45px;
+	@media #{$min_lg} {
+		padding: 64px 0 84px;
 	}
 }
 
-.card_group_header_inner {}
+.card_group_header {
+	border-bottom: 1px solid rgba(#000, .08);
+	margin-bottom: 20px;
+	padding-bottom: 14px;
 
-.card_group_title {
-	@include h2;
-
-	margin: 0 0 5px;
+	@media #{$min_md} {
+		margin-bottom: 42px;
+		padding-bottom: 14px;
+	}
 }
 
-.card_group_description {
-	@include body_text;
+.card_group_header_inner {
 
-	p {
-		margin: 0;
+	@media #{$min_md} {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.card_group_title {
+	@include sans(400);
+
+	color: rgba(#000, .7);
+	font-size: 15px;
+	letter-spacing: 1.88px;
+	line-height: (18 / 15);
+	text-transform: uppercase;
+
+	@media #{$min_lg} {
+		font-size: 16px;
+		line-height: (19 / 16);
+		letter-spacing: 2px;
+	}
+}
+
+.card_group_header_link {
+	@include button_text;
+	@include button_layout;
+
+	display: none;
+
+	@media #{$min_md} {
+		display: block;
 	}
 }
 
@@ -41,13 +69,6 @@
 
 	@media #{$min_lg} {
 		justify-content: flex-start;
-	}
-
-	&.card_count_3 {
-
-		@media #{$min_lg} {
-			margin: 0 13%;
-		}
 	}
 }
 
@@ -64,6 +85,8 @@
 
 	@media #{$min_lg} {
 		width: 24%;
+
+		margin-bottom: 0;
 	}
 
 	@media #{$min_xl} {
@@ -79,9 +102,9 @@
 		}
 
 		@media #{$min_xl} {
-			width: 30%;
+			width: 25%;
 
-			margin-right: 5%;
+			margin-right: 60px;
 		}
 	}
 
@@ -129,7 +152,7 @@
 }
 
 .card_group_item_figure {
-	margin-bottom: 18px;
+	margin-bottom: 26px;
 
 	@media print {
 		display: none;
@@ -141,53 +164,128 @@
 	padding-top: $classic;
 }
 
-.card_group_item_body {}
-
-.card_group_item_title {
-	@include h4;
-
-	margin: 0;
+.card_group_item_header {
+	display: flex;
+	flex-direction: column-reverse;
+	margin-bottom: 14px;
 }
 
-.card_group_item_title_label {}
+.card_group_item_title {
+	@include sans(100);
 
-.card_group_item_stat {}
-
-.card_group_item_stat_figure {
-	@include title(700);
-
-	display: block;
-	font-size: 40px;
+	font-size: 28px;
+	line-height: (34 / 28);
 
 	@media #{$min_xl} {
-		font-size: 64px;
+		font-size: 40px;
+		line-height: (42 / 40);
+		letter-spacing: .5px;
 	}
 }
 
-.card_group_item_stat_context {
-	@include h5;
+.card_group_item_title_link {
+	@include decorated_link;
+}
 
-	display: block;
-	margin-bottom: 18px;
+.card_group_item_title_link_label {
+	border-bottom: 1px solid transparent;
+	transition:
+		border $base_speed,
+		color $base_speed;
+
+	.card_group_item_title_link:hover &,
+	.card_group_item_title_link:focus & {
+		border-bottom-color: currentColor;
+		color: $maroon;
+	}
+}
+
+.card_group_item_title_link_icon {
+	color: $maroon;
+
+	@media #{$min_lg} {
+		transform-origin: left center;
+		transform: scale(1.25);
+	}
+
+	.card_group_item_title_link:hover &,
+	.card_group_item_title_link:focus & {
+		animation: dootdoot 1s infinite;
+
+		@media #{$min_lg} {
+			animation: dootdoot_big 1s infinite;
+		}
+	}
+}
+
+.card_group_item_categories {
+	margin: 0 0 2px;
+}
+
+.card_group_item_category_hint {
+	@include visually_hide;
+}
+
+.card_group_item_category_list {
+	@include remove_list;
+
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.card_group_item_category {
+	@include mini_h6;
+
+	color: rgba(#000, .6);
+	margin-right: 4px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+
+	&:not(:last-child) {
+
+		&:after {
+			content: ",";
+			margin-left: -2px;
+		}
+	}
+}
+
+.card_group_item_category_link {
+	border-bottom: 1px solid rgba($peach, .35);
+	padding-bottom: 2px;
+	transition:
+		border $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+		border-bottom-color: $maroon;
+	}
+}
+
+.card_group_item_body {
 }
 
 .card_group_item_description {
-	@include body_text;
-
-	margin: 8px 0 0;
+	@include small_text;
 
 	p {
 		margin: 0;
 	}
+}
 
-	a {
-		color: $accent;
-		text-decoration: underline;
-		transition: color $base_speed;
+.card_group_discovery_link {
+	@include button_fill;
+	@include button_layout;
 
-		&:hover,
-		&:focus {
-			color: #000;
-		}
+	display: block;
+
+	@media #{$min_md} {
+		display: none;
 	}
+}
+
+.card_group_discovery_link_inner {
+	justify-content: center;
 }

@@ -12,34 +12,36 @@ $mq_min_sm: 500;
 $mq_min_md: 740;
 $mq_min_lg: 980;
 $mq_min_xl: 1220;
-$mq_min_xxl: 1394;
+$mq_min_xxl: 1360;
 
-$min_xs: "(min-width:" + ($mq_min_xs * 1px) + ")";
-$min_sm: "(min-width:" + ($mq_min_sm * 1px) + ")";
-$min_md: "(min-width:" + ($mq_min_md * 1px) + ")";
-$min_lg: "(min-width:" + ($mq_min_lg * 1px) + ")";
-$min_xl: "(min-width:" + ($mq_min_xl * 1px) + ")";
-$min_xxl: "(min-width:" + ($mq_min_xxl * 1px) + ")";
+$min_xs: '(min-width:' + ($mq_min_xs * 1px) + ')';
+$min_sm: '(min-width:' + ($mq_min_sm * 1px) + ')';
+$min_md: '(min-width:' + ($mq_min_md * 1px) + ')';
+$min_lg: '(min-width:' + ($mq_min_lg * 1px) + ')';
+$min_xl: '(min-width:' + ($mq_min_xl * 1px) + ')';
+$min_xxl: '(min-width:' + ($mq_min_xxl * 1px) + ')';
 
-$max_xs: "(max-width:" + ($mq_min_xs - 1px) + ")";
-$max_sm: "(max-width:" + ($mq_min_sm - 1px) + ")";
-$max_md: "(max-width:" + ($mq_min_md - 1px) + ")";
-$max_lg: "(max-width:" + ($mq_min_lg - 1px) + ")";
-$max_xl: "(max-width:" + ($mq_min_xl - 1px) + ")";
-$max_xxl: "(max-width:" + ($mq_min_xxl - 1px) + ")";
+$max_xs: '(max-width:' + ($mq_min_xs - 1px) + ')';
+$max_sm: '(max-width:' + ($mq_min_sm - 1px) + ')';
+$max_md: '(max-width:' + ($mq_min_md - 1px) + ')';
+$max_lg: '(max-width:' + ($mq_min_lg - 1px) + ')';
+$max_xl: '(max-width:' + ($mq_min_xl - 1px) + ')';
+$max_xxl: '(max-width:' + ($mq_min_xxl - 1px) + ')';
 
-$and_max_sm: "and (max-width:" + ($mq_min_sm - 1px) + ")";
-$and_max_md: "and (max-width:" + ($mq_min_md - 1px) + ")";
-$and_max_lg: "and (max-width:" + ($mq_min_lg - 1px) + ")";
-$and_max_xl: "and (max-width:" + ($mq_min_xl - 1px) + ")";
-$and_max_xxl: "and (max-width:" + ($mq_min_xxl - 1px) + ")";
+$and_max_sm: 'and (max-width:' + ($mq_min_sm - 1px) + ')';
+$and_max_md: 'and (max-width:' + ($mq_min_md - 1px) + ')';
+$and_max_lg: 'and (max-width:' + ($mq_min_lg - 1px) + ')';
+$and_max_xl: 'and (max-width:' + ($mq_min_xl - 1px) + ')';
+$and_max_xxl: 'and (max-width:' + ($mq_min_xxl - 1px) + ')';
 
-$reduce: "(prefers-reduced-motion: reduce)";
+$reduce: '(prefers-reduced-motion: reduce)';
+
+$max_content_width: 860px;
 
 $margin_sm: 40px;
 $margin_md: 50px;
-$margin_lg: 60px;
-$margin_xl: 80px;
+$margin_lg: 70px;
+$margin_xl: 100px;
 
 $ultra_wide: 42.75%;
 $wide: 56.25%;
@@ -49,21 +51,17 @@ $classic: 66.6%;
 $portrait_full: 133.25%;
 $portrait_classic: 150%;
 
-
 // Mixins
 // =============================================================================
 
 @mixin mq_switch() {
-
 	&_sm {
-
 		@media #{$min_lg} {
 			display: none;
 		}
 	}
 
 	&_lg {
-
 		@media #{$max_lg} {
 			display: none;
 		}
@@ -149,30 +147,14 @@ $portrait_classic: 150%;
 	white-space: nowrap;
 }
 
-@mixin gradient_right(
-	$startColor: black,
-	$endColor: white
-) {
+@mixin gradient_right($startColor: black, $endColor: white) {
 	background-color: $startColor;
-	background:
-		linear-gradient(
-			to right,
-				$startColor,
-				$endColor
-		);
+	background: linear-gradient(to right, $startColor, $endColor);
 }
 
-@mixin gradient_down(
-	$startColor: black,
-	$endColor: white
-) {
+@mixin gradient_down($startColor: black, $endColor: white) {
 	background-color: $startColor;
-	background:
-		linear-gradient(
-			to bottom,
-				$startColor,
-				$endColor
-		);
+	background: linear-gradient(to bottom, $startColor, $endColor);
 }
 
 @mixin font_smoothing() {
@@ -199,7 +181,6 @@ $portrait_classic: 150%;
 	padding: 0;
 }
 
-
 // Fonts
 // =============================================================================
 
@@ -208,7 +189,7 @@ $portrait_classic: 150%;
 		@font-face {
 			font-display: swap;
 			font-family: $name;
-			src: url("../fonts/#{$file}.otf");
+			src: url('/fonts/#{$file}.otf');
 			font-weight: $weight;
 
 			@if $style {
@@ -217,7 +198,6 @@ $portrait_classic: 150%;
 		}
 	}
 }
-
 
 // Margins
 // =============================================================================
@@ -311,7 +291,6 @@ $portrait_classic: 150%;
 	@include margined_bottom_none;
 }
 
-
 // Padding
 // =============================================================================
 
@@ -404,7 +383,6 @@ $portrait_classic: 150%;
 	@include padded_bottom_none;
 }
 
-
 // Fake Padding
 // =============================================================================
 
@@ -452,7 +430,6 @@ $portrait_classic: 150%;
 	@include fake_padded_right;
 	@include fake_padded_left;
 }
-
 
 // Fake Margin
 // =============================================================================
@@ -502,7 +479,6 @@ $portrait_classic: 150%;
 	@include fake_margined_left;
 }
 
-
 // Helpers
 // =============================================================================
 
@@ -524,10 +500,9 @@ $portrait_classic: 150%;
 }
 
 @mixin clearfix() {
-
 	&:after {
 		clear: both;
-		content: "";
+		content: '';
 		display: table;
 	}
 }
@@ -537,7 +512,6 @@ $portrait_classic: 150%;
 }
 
 @mixin no_select() {
-
 	&,
 	& * {
 		user-select: none;
@@ -610,7 +584,6 @@ $portrait_classic: 150%;
 	}
 }
 
-
 // Transitions
 // =============================================================================
 
@@ -625,7 +598,6 @@ $portrait_classic: 150%;
 	pointer-events: auto;
 	visibility: visible;
 }
-
 
 // Images
 // =============================================================================
@@ -656,7 +628,6 @@ $portrait_classic: 150%;
 	}
 }
 
-
 // Layout
 // =============================================================================
 
@@ -678,23 +649,21 @@ $portrait_classic: 150%;
 	}
 }
 
-
 // Input Focus
 // =============================================================================
 
 // Uses 'What input ?' detection - https://github.com/ten1seven/what-input
 
-[data-whatinput="mouse"] a:focus,
-[data-whatinput="mouse"] button:focus,
-[data-whatinput="touch"] a:focus,
-[data-whatinput="touch"] button:focus {
+[data-whatinput='mouse'] a:focus,
+[data-whatinput='mouse'] button:focus,
+[data-whatinput='touch'] a:focus,
+[data-whatinput='touch'] button:focus {
 	outline: 0;
 }
 
 @mixin focus_outline_none() {
-
-	[data-whatinput="mouse"] &:focus,
-	[data-whatinput="touch"] &:focus {
+	[data-whatinput='mouse'] &:focus,
+	[data-whatinput='touch'] &:focus {
 		outline: 0;
 	}
 }

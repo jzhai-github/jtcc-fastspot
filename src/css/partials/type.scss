@@ -6,82 +6,127 @@
 // =============================================================================
 
 @mixin h1 {
-	@include title(700);
+	@include title(100);
 
-	font-size: 48px;
-	line-height: (64 / 48);
+	font-size: 42px;
+	line-height: (50 / 42);
+	letter-spacing: 1.25px;
+	text-transform: uppercase;
 
-	@media #{$min_md} {
-		font-size: 58px;
-		line-height: (72 / 58);
+	@media #{$min_lg} {
+		font-size: 64px;
+		line-height: (76 / 64);
+		letter-spacing: 2.5px;
 	}
 }
 
 @mixin h2 {
-	@include title(700);
+	@include title(500);
 
-	font-size: 38px;
-	line-height: (50 / 38);
+	font-size: 36px;
+	line-height: (42 / 36);
+	letter-spacing: 0.3px;
+	text-transform: uppercase;
 
-	@media #{$min_md} {
-		font-size: 48px;
-		line-height: (60 / 48);
+	@media #{$min_lg} {
+		font-size: 52px;
+		line-height: (52 / 52);
+		letter-spacing: 2.7px;
 	}
 }
 
 @mixin h3 {
 	@include title(500);
 
-	font-size: 28px;
-	line-height: (42 / 28);
+	font-size: 40px;
+	line-height: (42 / 40);
+	letter-spacing: 0.5px;
+}
 
-	@media #{$min_md} {
+@mixin h4($query: $min_lg) {
+	@include title(100);
+
+	font-size: 28px;
+	line-height: (34 / 28);
+
+	@media #{$query} {
 		font-size: 36px;
-		line-height: (46 / 36);
+		letter-spacing: 0.4px;
+		line-height: (38 / 36);
 	}
 }
 
-@mixin h4 {
-	@include title(500);
-
-	font-size: 26px;
-	line-height: (34 / 26);
-}
-
 @mixin h5 {
-	@include title(700);
+	@include title(600);
 
-	font-size: 18px;
-	line-height: (26 / 18);
+	font-size: 28px;
+	line-height: (34 / 28);
+	letter-spacing: 0.4px;
 }
 
 @mixin h6 {
-	@include title(700);
+	@include title(400);
+
+	font-size: 13px;
+	line-height: (15 / 13);
+	letter-spacing: 1.25px;
+	text-transform: uppercase;
+
+	@media #{$min_lg} {
+		font-size: 16px;
+		line-height: (19 / 16);
+		letter-spacing: 2px;
+	}
+}
+
+@mixin mini_h6 {
+	@include sans(400);
 
 	font-size: 14px;
-	line-height: (20 / 14);
+	letter-spacing: 1.75px;
+	line-height: (16 / 14);
 	text-transform: uppercase;
 }
 
 @mixin intro_text {
-	font-size: 24px;
-	font-weight: 700;
-	line-height: (38 / 24);
+	@include serif(600);
+
+	font-size: 18px;
+	line-height: (24 / 18);
+
+	@media #{$min_lg} {
+		font-size: 21px;
+		line-height: (32 / 21);
+	}
 }
 
 @mixin body_text {
-	@include sans;
+	@include serif(300);
 
-	font-size: 18px;
-	line-height: (32 / 18);
+	font-size: 16px;
+	line-height: (22 / 15);
+
+	@media #{$min_lg} {
+		font-size: 18px;
+		line-height: (28 / 18);
+	}
 }
 
 @mixin small_text {
+	@include serif(300);
+
 	font-size: 15px;
-	line-height: (24 / 15);
+	line-height: (22 / 15);
+
+	@media #{$min_lg} {
+		font-size: 16px;
+		line-height: (22 / 16);
+	}
 }
 
 @mixin label_text {
+	@include serif(300);
+
 	font-size: 12px;
 	font-weight: 700;
 	line-height: (22 / 14);
@@ -93,7 +138,6 @@
 	line-height: (22 / 14);
 }
 
-
 /* Typography
 ============================================================================= */
 
@@ -102,14 +146,20 @@
 
 	a {
 		@include fw_type_link;
+
+		padding-bottom: 0;
 	}
 
 	p {
-		margin: 30px 0;
+		margin: 18px 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
 		+ * {
 			margin-top: 0;
 		}
@@ -118,41 +168,45 @@
 	h1 {
 		@include h1;
 
-		margin: 50px 0 10px;
+		margin: 42px 0 30px;
 	}
 
 	h2 {
 		@include h2;
 
-		margin: 50px 0 10px;
+		margin: 42px 0 10px;
 	}
 
 	h3 {
 		@include h3;
 
-		margin: 50px 0 10px;
+		margin: 42px 0 18px;
 	}
 
 	h4 {
 		@include h4;
 
-		margin: 50px 0 10px;
+		color: rgba(#000, 0.7);
+
+		margin: 42px 0 14px;
 	}
 
 	h5 {
 		@include h5;
 
-		margin: 50px 0 10px;
+		margin: 42px 0 10px;
 	}
 
 	h6 {
 		@include h6;
 
-		margin: 50px 0 10px;
+		margin: 42px 0 14px;
 	}
 
 	.intro {
 		@include intro_text;
+
+		color: $navy;
 
 		p {
 			margin: 0;
@@ -176,12 +230,10 @@
 	}
 }
 
-
 /* WYSIWYG Images
 ============================================================================= */
 
 .typography {
-
 	img {
 		height: auto;
 		max-width: 100%;
@@ -201,7 +253,7 @@
 
 		display: table;
 		margin-top: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 14px;
 		table-layout: fixed;
 
 		img {
@@ -212,9 +264,12 @@
 		.wp-caption-text {
 			@include small_text();
 
+			border-bottom: 1px solid #f0f0f0;
 			caption-side: bottom;
+			color: rgba(#000, 0.8);
 			display: table-caption;
 			margin: 20px 0 0 0;
+			padding-bottom: 20px;
 		}
 	}
 
@@ -243,27 +298,35 @@
 	.block_left,
 	.alignleft,
 	.align-left {
-
 		@media #{$min_sm} {
 			float: left;
 			margin-right: 30px;
+		}
+
+		@media #{$min_xl} {
+			margin-right: 100px;
+			margin-left: -60px;
 		}
 	}
 
 	.block_right,
 	.alignright,
 	.align-right {
-
 		@media #{$min_sm} {
 			float: right;
 			margin-left: 30px;
+		}
+
+		@media #{$min_xl} {
+			margin-right: -60px;
+			margin-left: 100px;
 		}
 	}
 
 	.block_center,
 	.aligncenter,
 	.align-center {
-		text-align: center;
+		text-align: left;
 
 		img {
 			margin-right: auto;
@@ -279,18 +342,24 @@
 	}
 }
 
-
 /* Blockquote
 ============================================================================= */
 
 .typography {
-
 	blockquote {
-		@include intro_text;
+		@include h4;
+		@include sans(300);
 
-		margin: 50px 0;
+		letter-spacing: 0;
+		margin: 50px 0 4px;
 
-		&:not(.quote_content) {}
+		@media #{$min_lg} {
+			letter-spacing: 0;
+			line-height: (42 / 36);
+		}
+
+		&:not(.quote_content) {
+		}
 
 		p {
 			margin: 0;
@@ -300,35 +369,41 @@
 	.quote {
 		position: relative;
 
+		border-top: 1px solid rgba(#000, 0.15);
+		border-bottom: 1px solid rgba(#000, 0.15);
 		margin: 50px 0;
-		padding: 50px 0;
+		padding: 40px 0 50px;
 
-		&:before,
-		&:after {
-			@include fw_type_breakout();
+		@media #{$min_md} {
+			padding-right: 20px;
+			padding-left: 20px;
+		}
 
-			height: 2px;
-
-			position: absolute;
-			right: 0;
-			left: 0;
-
-			background-color: $gray_30;
-			content: "";
-			display: block;
+		@media #{$min_xl} {
+			padding-right: 60px;
+			padding-left: 60px;
 		}
 
 		&:before {
-			top: 0;
-		}
+			height: 38px;
+			width: 38px;
 
-		&:after {
-			bottom: 0;
+			position: absolute;
+			top: 0;
+			left: 50%;
+
+			background-image: url('data:image/png;base64,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');
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 50% 50%;
+			box-shadow: -18px 0 0 0 #fff, 18px 0 0 0 #fff;
+			content: '';
+			transform: translate(-50%, -50%);
 		}
 	}
 
 	.quote_content {
-		margin: 0 0 20px;
+		margin: 0 0 26px;
 
 		p {
 			margin: 0;
@@ -336,24 +411,31 @@
 	}
 
 	.quote_caption {
-		@include body_text;
+		@include mini_h6;
+
+		color: rgba(#000, 0.6);
 	}
 
 	.quote_caption_name {
-
 		&:before {
-			content: "- ";
+			content: '- ';
 		}
 	}
 
-	.quote_caption_title {}
+	.quote_caption_title {
+	}
 }
-
 
 /* Lists
 ============================================================================= */
 
 .typography {
+	h3 + ol,
+	h4 + ol,
+	h3 + ul,
+	h4 + ul {
+		margin-top: 0;
+	}
 
 	ol,
 	ul {
@@ -364,11 +446,11 @@
 		li {
 			position: relative;
 
-			margin: 12px 0;
+			margin: 10px 0;
 			padding: 0 0 0 20px;
 
 			@media #{$min_lg} {
-				padding-left: 30px;
+				padding-left: 24px;
 			}
 		}
 
@@ -382,73 +464,54 @@
 		counter-reset: li;
 
 		> li {
-
 			&:before {
-				content: counter(li) ". ";
+				color: $bergundy;
+				content: counter(li) '. ';
 				counter-increment: li;
 				float: left;
 				font-weight: 700;
-				margin: 1px 0 0 -30px;
+				margin: 0 0 0 -24px;
 
-				@at-root ol[type="A"] li:before {
-					content: counter(li, upper-latin) ". ";
+				@at-root ol[type='A'] li:before {
+					content: counter(li, upper-latin) '. ';
 				}
 
-				@at-root ol[type="a"] li:before {
-					content: counter(li, lower-latin) ". ";
+				@at-root ol[type='a'] li:before {
+					content: counter(li, lower-latin) '. ';
 				}
 			}
 		}
 	}
 
 	ul {
-
 		li {
-
 			&:before {
-				width: 6px;
-				height: 6px;
+				width: 7px;
+				height: 7px;
 
 				position: absolute;
 				left: 0;
-				top: 12px;
+				top: 10px;
 
-				background-color: currentColor;
+				background-color: $maroon;
 				border-radius: 50%;
-				content: "";
+				content: '';
 				display: block;
 
 				@media print {
 					border: 3px solid currentColor;
 				}
 			}
-		}
 
-		ul {
-
-			li {
-
+			ul li {
 				&:before {
-					opacity: 0.6;
+					background: $teal;
 				}
 
-				ul {
-
-					li {
-
-						&:before {
-							opacity: 1;
-						}
-					}
-
-					ul {
-
-						li {
-
-							&:before {
-								opacity: 0.6;
-							}
-						}
+				li {
+					&:before {
+						background: none;
+						border: 1px solid $teal;
 					}
 				}
 			}
@@ -456,39 +519,35 @@
 	}
 }
 
-
 /* Tables
 ============================================================================= */
 
 .typography {
-
 	table {
 		width: 100%;
 
 		border-collapse: collapse;
-		border: 1px solid $gray_10;
+		border: 1px solid #d9d9d9;
 
 		tr {
-
 			&:nth-child(even) {
-				background: $gray_05;
+				background: #fafafa;
 			}
 		}
 
 		th,
 		td {
-			padding: 10px 20px;
+			padding: 15px 20px 16px;
 			vertical-align: top;
 		}
 
 		th,
 		thead td {
-			@include h6;
+			@include mini_h6;
 
-			background: #000;
+			background: $navy;
 			border-width: 0;
 			color: #fff;
-			font-weight: 700;
 			text-align: left;
 
 			@media print {
@@ -498,8 +557,6 @@
 
 		td {
 			@include small_text;
-
-			border: 1px solid $gray_10;
 		}
 	}
 }
@@ -508,7 +565,6 @@
 
 .table_wrapper {
 	@include margined;
-	@include fw_type_breakout();
 
 	min-height: 0.01%; // 1
 
@@ -518,13 +574,8 @@
 .table_wrapper_overflow {
 	position: relative;
 
-	border: 1px solid #ccc;
-
 	&:after {
-		@include gradient_right(
-			rgba(#000, 0),
-			rgba(#000, 0.1)
-		);
+		@include gradient_right(rgba(#000, 0), rgba(#000, 0.1));
 
 		width: 20px;
 		height: 100%;
@@ -533,7 +584,7 @@
 		top: 0;
 		right: 0;
 
-		content: "";
+		content: '';
 	}
 }
 
@@ -543,13 +594,11 @@
 	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
-
 /* ==========================================================================
    iframe
 ============================================================================= */
 
 .typography {
-
 	.video_frame {
 		@include video_frame();
 

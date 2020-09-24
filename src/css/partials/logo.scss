@@ -6,30 +6,88 @@
 	margin: 0;
 }
 
-.logo_header {}
+.logo_header {
+	color: #50152B;
+	transform-origin: left bottom;
+	transform:
+		translate(0, 0)
+		scale(1);
+	transition: transform $base_speed;
 
-.logo_footer {}
+	.scrolling & {
+
+		@media #{$min_lg} {
+			transform:
+				translate(0, 9px)
+				scale(.65);
+		}
+
+		@media #{$min_xl} {
+			transform:
+				translate(0, 4px)
+				scale(.5);
+		}
+	}
+}
+
+.logo_footer {
+	align-items: center;
+	display: flex;
+	margin-bottom: 22px;
+
+	@media #{$min_lg} {
+		margin-bottom: 32px;
+	}
+
+	@media #{$min_xl} {
+		width: 100%;
+
+		position: absolute;
+		bottom: 0;
+
+		margin-bottom: 0;
+		transform: translate(0, 50%);
+	}
+
+	&:before,
+	&:after {
+		height: 1px;
+
+		background: $bright_pink;
+		content: "";
+		flex: auto;
+	}
+
+	&:before {
+		margin-right: 15px;
+
+		@media #{$min_xl} {
+			margin-right: 45px;
+		}
+	}
+
+	&:after {
+		margin-left: 15px;
+
+		@media #{$min_xl} {
+			margin-left: 45px;
+		}
+	}
+}
 
 .logo_link {
 	position: relative;
 
-	color: #4A4A4A;
 	display: block;
 	overflow: hidden;
 	transition: color $base_speed;
 	white-space: nowrap;
 
 	&:after {
-
 		@media print {
 			content: normal;
 			display: none;
 		}
-	}
-
-	&:hover,
-	&:focus {
-		color: #383738;
 	}
 }
 
@@ -40,16 +98,39 @@
 }
 
 .logo_link_icon {
+	height: 59px;
+	width: 89px;
+
 	display: inline-block;
 	vertical-align: top;
 
-	.icon_logo {
+	.logo_header & {
+		width: 60px;
+		height: 40px;
 
 		@media #{$min_lg} {
-			width: 250px;
-			height: 90px;
+			width: 90px;
+			height: 66px;
+		}
+
+		@media #{$min_xl} {
+			width: 129px;
+			height: 85px;
 		}
 	}
+
+	.logo_footer & {
+
+		@media #{$min_xl} {
+			width: 186px;
+			height: 123px;
+		}
+	}
+}
+
+.icon_logo {
+	height: 100%;
+	width: 100%;
 }
 
 .logo_print {

@@ -1,0 +1,72 @@
+<div class="featured_news theme_{% if theme %}{{ theme }}{% else %}default{% endif %}{% if articles is empty %} layout_standalone{% endif %}">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="featured_news_inner">
+				{% if theme == "featured" %}
+				<div class="featured_news_breadcrumbs">
+					{% render '@navigation-breadcrumb' %}
+				</div>
+				{% endif %}
+				<div class="featured_news_header">
+					<h1 class="featured_news_title">{{ title }}</h1>
+					{% if theme != "featured" %}
+					{% render '@partial-link' with {
+						title: "View all News & Stories",
+						url: "#",
+						class: "featured_news",
+						icon: "caret_right"
+					} %}
+					{% endif %}
+				</div>
+				<div class="featured_news_body">
+					<div class="featured_news_spotlight">
+						{% if articles is empty %}
+						{% render "@component-story--standalone" %}
+						{% elseif theme == "featured" %}
+						{% render "@component-story--turquoise" %}
+						{% else %}
+						{% render "@component-story" with {
+							item: {
+								label: 'Featured News',
+								title: 'Getting Ready for a Successful Spring Semester',
+								description: 'It’s a new year, and a new semester is about to begin. While this is an exciting time, it can also be a hectic time for students. Here are a few tips to help you get ready for spring.',
+								link: 'Read The Story'
+							}
+						} %}
+						{% endif %}
+					</div>
+					{% if articles %}
+					<div class="featured_news_content">
+						{% if theme != "featured" %}
+						<h3 class="featured_news_content_title">The Latest News</h3>
+						{% endif %}
+						<div class="{% if theme == "featured" %}js-carousel {% endif %}featured_news_articles" data-carousel-options='{
+							"maxWidth": "739px"
+						}'>
+							{% for article in articles %}
+							<div class="featured_news_article">
+								<time class="featured_news_article_date" datetime="{{ article.date }}">{{ article.date }}</time>
+								<h3 class="featured_news_article_title">
+									{% render '@partial-link' with {
+										title: article.title,
+										url: "#",
+										class: "featured_news_article_title",
+										icon: "caret_right"
+									} %}
+								</h3>
+							</div>
+							{% endfor %}
+						</div>
+						{% if theme == "featured" %}
+						<div class="featured_news_hint">
+							<span class="featured_news_hint_icon">{{ icon("arrow_down") }}</span>
+							<span class="featured_news_hint_label">Scroll for more stories</span>
+						</div>
+						{% endif %}
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,11 +1,29 @@
 var fs = require('fs');
 
+let config = require('./config.json');
+let imageSizes = require('./image-sizes.json');
+let data = require('./data.json');
+
 let twig_counter = 0;
 let twig_counter_namespaces = {};
 
 module.exports = {
+	img: function (key) {
+		return key in imageSizes ? imageSizes[key] : false;
+	},
+	config: function (key) {
+		return key in config.twig_variables
+			? config.twig_variables[key]
+			: false;
+	},
+	data: function (key) {
+		return key in data ? data[key] : false;
+	},
+	navigation: function (key) {
+		return key in config.navigation ? config.navigation[key] : false;
+	},
 	svg_icons: function () {
-		let path = 'src/images/icons.svg';
+		let path = 'dist/images/icons.svg';
 
 		if (!fs.existsSync(path)) return '';
 
@@ -14,7 +32,7 @@ module.exports = {
 	icon: function (name) {
 		return `
 			<svg class="icon icon_${name}">
-				<use href="#${name}" />
+				<use href="/images/icons.svg#${name}" />
 			</svg>
 		`;
 	},

@@ -1,42 +1,51 @@
-name: Compile
-
-on: [push]
-
+name: Fastspot Sync Action
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - dev
 jobs:
-  gulp:
-    name: Gulp Build
-
+  sync:
+    name: Build & Sync Assets
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2-beta
         with:
           node-version: '12.x'
-      - name: Cache Global Node Modules
-        uses: actions/cache@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Cache yarn
+        uses: actions/cache@v2
+        id: yarn-cache
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-build-${{ hashFiles('**/package.json') }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-npm-build-${{ hashFiles('**/package.json') }}
-            ${{ runner.os }}-npm-build
-      - name: Cache Local Node Modules
-        uses: actions/cache@v1
+            ${{ runner.os }}-yarn-
+      - name: Cache local node modules
+        uses: actions/cache@v2
+        id: local-node-modules-cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node_modules-${{ hashFiles('**/package.json') }}
-            ${{ runner.os }}-node_modules
-      - name: NPM install
-        run: npm install --silent
-        working-directory: ./
-      # - name: Gulp Install
-      #   run: npm install --silent -g gulp-cli
-      #   working-directory: ./
-      - name: Gulp Compile
-        run: npm run github_build
-        working-directory: ./
+          key: ${{ runner.os }}-local-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Install Dependencies
+        if: steps.local-node-modules-cache.outputs.cache-hit != 'true'
+        run: yarn install --silent
+      - name: Build
+        run: yarn github:build --silent
       - name: Git Commit
         run: sh .github/scripts/git.sh
+      # - name: Sync
+      #   if env variable is set
+      #   not working right now
+      #   if: ${{ secrets.DEV_DEPLOY_PATH }}
+      #   env:
+      #     destination: 'fastspot_dev@dev.fastspot.com:${{ secrets.DEV_DEPLOY_PATH }}'
+      #   run: |
+      #     echo "${{ secrets.DEV_DEPLOY_KEY }}" > deploy_key
+      #     chmod 600 ./deploy_key
+      #     ssh fastspot_dev@dev.fastspot.com "ls -al ${{ secrets.DEV_DEPLOY_PATH }}"

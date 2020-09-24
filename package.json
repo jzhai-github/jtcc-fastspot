@@ -1,8 +1,8 @@
 {
-	"name": "framework-static",
+	"name": "jtcc",
 	"version": "1.0.0",
 	"license": "UNLICENSED",
-	"description": "Site description.",
+	"description": "JTCC Website Fractal Build",
 	"author": "Fastspot",
 	"repository": {
 		"type": "git",
@@ -11,22 +11,23 @@
 	"scripts": {
 		"gulp": "gulp",
 		"fractal": "cross-env NODE_ENV=development fractal",
-		"fractal:build": "cross-env NODE_ENV=production npm run fractalBuild",
-		"fractal:sync": "cross-env NODE_ENV=development npm run fractal start --sync",
-		"build": "cross-env NODE_ENV=production npm run gulp build",
-		"github_build": "cross-env NODE_ENV=production npm run gulp github_build",
-		"axe": "cross-env NODE_ENV=development npm run gulp axe"
+		"fractal:build": "cross-env NODE_ENV=production yarn gulp fractal:build",
+		"fractal:sync": "cross-env NODE_ENV=development yarn gulp fractal:sync",
+		"build": "cross-env NODE_ENV=production yarn gulp build",
+		"build:all": "cross-env NODE_ENV=production yarn gulp build_all",
+		"github:build": "cross-env NODE_ENV=production CI=true yarn gulp github_build",
+		"axe": "cross-env NODE_ENV=development yarn gulp axe"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.10.2",
-		"@babel/preset-env": "^7.10.2",
+		"@babel/core": "^7.11.5",
+		"@babel/preset-env": "^7.11.5",
 		"@frctl/fractal": "^1.3.0",
 		"@frctl/twig": "^1.2.0",
 		"autoprefixer": "^9.7.6",
 		"babel-loader": "^8.1.0",
-		"chalk": "^4.1.0",
 		"cross-env": "^7.0.2",
 		"del": "^5.1.0",
+		"faker": "^5.1.0",
 		"formstone": "^1.4.16",
 		"gulp": "^4.0.2",
 		"gulp-axe-webdriver": "^3.1.3",
@@ -44,12 +45,12 @@
 		"imagemin": "^7.0.0",
 		"imagemin-mozjpeg": "^9.0.0",
 		"imagemin-pngquant": "^9.0.0",
+		"lodash": "^4.17.20",
 		"normalize.css": "^8.0.1",
 		"postcss-pxtorem": "^5.1.1",
-		"table": "^5.4.6",
 		"vinyl-named": "^1.1.0",
 		"webpack": "^4.43.0",
-		"webpack-stream": "^5.2.1",
+		"webpack-stream": "^6.0.0",
 		"what-input": "^5.2.6"
 	},
 	"browserslist": [

@@ -5,7 +5,8 @@
 .news_item_details {
 	@include small_text;
 
-	margin-bottom: 6px;
+	color: rgba(#000, .8);
+	margin-bottom: 18px;
 
 	.news_meta & {
 		margin-bottom: 0;
@@ -16,8 +17,30 @@
 	display: inline-block;
 	vertical-align: middle;
 
-	.news_meta & {
-		font-weight: 700;
+	&:after {
+		height: 23px;
+		width: 1px;
+
+		background: rgba(#000, .15);
+		content: "";
+		display: inline-block;
+		margin: 0 16px 0 12px;
+		transform: skew(-16deg);
+		vertical-align: middle;
+	}
+
+	&:last-child {
+
+		&:after {
+
+			@media #{$max_md} {
+				display: none;
+			}
+
+			.news_list & {
+				opacity: 0;
+			}
+		}
 	}
 }
 
@@ -28,9 +51,11 @@
 	}
 }
 
-.news_item_detail_label {}
+.news_item_detail_label {
+}
 
-.news_item_date_label {}
+.news_item_date_label {
+}
 
 .news_item_publisher {
 	@include visually_hide;

@@ -3,23 +3,29 @@
 ============================================================================= */
 
 @mixin form_label($theme: null) {
-	@include body_text;
+	@include sans(300);
 
-	font-weight: 700;
-}
-
-@mixin input($theme: null) {
-	border: 1px solid #000;
-	border-radius: 4px;
 	font-size: 18px;
-	line-height: (32 / 18);
-	padding: 8px 12px;
+	letter-spacing: .4px;
+	line-height: (24 / 18);
 
-	@media #{$min_md} {
-		padding: 12px 16px;
+	@media #{$min_lg} {
+		font-size: 21px;
+		letter-spacing: .5px;
+		line-height: (28 / 21);
 	}
 }
 
+@mixin input($theme: null) {
+	@include body_text;
+
+	border: 1px solid #D1D1D1;
+	padding: 12px 20px;
+
+	@media #{$min_lg} {
+		padding: 12px 30px;
+	}
+}
 
 /* Select
 ============================================================================= */
@@ -30,26 +36,38 @@
 	display: inline-block;
 
 	select {
+		@include mini_h6;
+
+		max-height: 56px;
 		width: 100%;
 
 		appearance: none;
 		-webkit-appearance: none;
-		background: none;
-		border: 1px solid #000;
-		border-radius: 3px;
+		background-color: #F0F0F0;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAADAAAAADiTSy+AAABO0lEQVQoFWNMYzDJZmT4H8JABfCfgXEN00yG09MYGRgPUGoeyAyQWUxAxn8JBsV2RgaGS+QaCtILMYPxP5ANAVkMDjz/GD5P+c/AIA8TI4YGGvCQiYE3ZxrDgS8g9cwwTacZHvyyZpA7/pfhvyNQjAsmjo8G+u4tOwNL4RSGo+9h6uAGggROMjz9asQgeRZoqwuQywpThIP+BvRN8TSG04+R5VEMBEmcZXj+3oxB8uZ/BiZnIJcJWTGCzfiXieF/9UyGc1cRYhAWhoEg4TMMz5+bMEg9BzJtIcrQScaOGQxnj6CLgvhYDQRJnGV4ds+YQeo30PvGID4MAL05exbD2Y0wPjqN00CQQqD3LxszSAsCDdUA8YEJdyPQsNkgNi6AI4wQyqUYfCYBDToKwiA2QoYCVi6DJzsIE2MEAK8gTyplzq96AAAAAElFTkSuQmCC');
+		background-position: calc(100% - 20px) 50%;
+		background-repeat: no-repeat;
+		background-size: 10px 6px;
+		border: 0;
+		border-radius: 0;
 		color: inherit;
 		cursor: pointer;
 		display: inline-block;
-		line-height: normal;
+		line-height: 1;
 		margin: 0;
 		outline: 0;
-		padding: 14px 40px 14px 20px;
+		padding: 15px 40px 15px 25px;
+
+		@media #{$min_lg} {
+			padding-top: 21px;
+			padding-bottom: 21px;
+		}
 
 		// Media query to target Firefox only
 		@-moz-document url-prefix() {
 			// Firefox hack to hide the arrow
 			text-indent: 0.01px;
-			text-overflow: "";
+			text-overflow: '';
 		}
 
 		// Undo the Firefox inner focus ring
@@ -64,7 +82,6 @@
 		}
 
 		option {
-
 			@-moz-document url-prefix() {
 				// <option> elements inherit styles from <select>, so reset them
 				background-color: #fff;
@@ -77,9 +94,7 @@
 ============================================================================= */
 
 @mixin select_accent() {
-
 	select {
-
 		&:focus {
 			box-shadow: 0 0 3px 1px $accent;
 		}
@@ -95,7 +110,6 @@
 	}
 }
 
-
 /* Checkbox and Radio
 ============================================================================= */
 
@@ -104,14 +118,12 @@
 
 	input {
 		position: absolute;
- 		z-index: -2;
+		z-index: -2;
 
 		opacity: 0;
 
 		&:checked {
-
-			~ [class$="indicator"] {
-
+			~ [class$='indicator'] {
 				&:before {
 					transform: scale(1);
 				}
@@ -119,7 +131,7 @@
 		}
 	}
 
-	[class$="indicator"] {
+	[class$='indicator'] {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -127,9 +139,7 @@
 		display: block;
 		pointer-events: none;
 		text-align: center;
-		transition:
-			background-color $base_speed,
-			border $base_speed,
+		transition: background-color $base_speed, border $base_speed,
 			color $base_speed;
 		user-select: none;
 
@@ -137,9 +147,7 @@
 			@include absolute_center;
 
 			display: block;
-			transition:
-				background $base_speed,
-				transform $base_speed;
+			transition: background $base_speed, transform $base_speed;
 		}
 	}
 }
@@ -148,31 +156,46 @@
 	@include option;
 
 	input {
-
 		&:checked {
-
-			~ [class$="indicator"] {
-
+			~ [class$='indicator'] {
 				&:before {
-					transform: scale(1);
+					transform:
+						translate(-50%, -50%)
+						rotate(45deg)
+						scale(1);
 				}
 			}
 		}
 	}
 
-	[class$="indicator"] {
-		width: 20px;
-		height: 20px;
+	[class$='indicator'] {
+		width: 22px;
+		height: 22px;
 
-		border-radius: 2px;
+		@media #{$min_lg} {
+			width: 30px;
+			height: 30px;
+		}
 
 		&:before {
-			top: 3px;
+			height: 14px;
+			width: 7px;
 
-			content:  "\2713";
+			top: 50%;
+			left: 50%;
+			right: auto;
+			bottom: auto;
+
+			border-right: 2px solid #fff;
+			border-bottom: 2px solid #fff;
+			content: '';
 			font-size: 14px;
 			line-height: 1;
-			transform: scale(0);
+			margin-top: -2px;
+			transform:
+				translate(-50%, -50%)
+				rotate(45deg)
+				scale(0);
 		}
 	}
 }
@@ -180,37 +203,43 @@
 @mixin radio() {
 	@include option;
 
-	[class$="indicator"] {
-		width: 16px;
-		height: 16px;
+	[class$='indicator'] {
+		width: 22px;
+		height: 22px;
 
 		border-radius: 50%;
 
+		@media #{$min_lg} {
+			width: 30px;
+			height: 30px;
+		}
+
 		&:before {
-			width: 6px;
-			height: 6px;
+			width: 10px;
+			height: 10px;
 
 			border-radius: inherit;
-			content: "";
+			content: '';
+
+			@media #{$min_lg} {
+				width: 16px;
+				height: 16px;
+			}
 		}
 	}
 }
 
 @mixin option_accent() {
-
 	input {
-
 		&:focus {
-
-			~ [class$="indicator"] {
-				box-shadow: 0 0 3px 1px $accent;
+			~ [class$='indicator'] {
+				box-shadow: 0 0 3px 1px $bright_pink;
 			}
 		}
 	}
 
-	[class$="indicator"] {
-		border: 1px solid;
-		color: $gray_40;
+	[class$='indicator'] {
+		border: 1px solid $bright_pink;
 	}
 }
 
@@ -218,12 +247,9 @@
 	@include option_accent;
 
 	input {
-
 		&:checked {
-
-			~ [class$="indicator"] {
-				background-color: $accent;
-				border-color: $accent;
+			~ [class$='indicator'] {
+				background-color: $bergundy;
 				color: #fff;
 			}
 		}
@@ -233,21 +259,17 @@
 @mixin radio_accent() {
 	@include option_accent;
 
-	[class$="indicator"] {
-
+	[class$='indicator'] {
 		&:before {
-			background-color: $gray_20;
+			background-color: none;
 		}
 	}
 
 	input {
-
 		&:checked {
-
-			~ [class$="indicator"] {
-
+			~ [class$='indicator'] {
 				&:before {
-					background-color: $accent;
+					background-color: $bergundy;
 				}
 			}
 		}

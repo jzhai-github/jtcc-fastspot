@@ -3,19 +3,16 @@
 ============================================================================= */
 
 .page {
-
 	.gform_wrapper {
 		@include margined_lg;
 		@include body_text;
 
 		form {
-
 			h3.gform_title {
 				@include h2;
 			}
 
 			label {
-
 				.gfield_label {
 					@include form_label;
 				}
@@ -25,20 +22,17 @@
 				@include body_text;
 			}
 
-			input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+			input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']),
 			textarea,
 			select {
 				@include input;
 			}
 
 			.gfield_checkbox {
-
 				li {
-
 					input {
-
 						&,
-						&[type=checkbox] {
+						&[type='checkbox'] {
 							margin-top: -5px;
 							margin-right: 8px;
 						}
@@ -47,13 +41,10 @@
 			}
 
 			.gfield_radio {
-
 				li {
-
 					input {
-
 						&,
-						&[type=radio] {
+						&[type='radio'] {
 							margin-top: -5px;
 							margin-right: 8px;
 						}
@@ -62,8 +53,7 @@
 			}
 
 			.ginput_container_consent {
-
-				input[type=checkbox] {
+				input[type='checkbox'] {
 					position: relative;
 					top: -2px;
 
@@ -73,17 +63,15 @@
 
 			.gform_footer,
 			.gform_page_footer {
-
 				input.button,
-				input[type=submit] {
-					@include button_fill("accent");
+				input[type='submit'] {
+					@include button_fill('accent');
 
 					border: none;
 				}
 			}
 
 			.gfield_error {
-
 				.gfield_label {
 					color: $error;
 				}
@@ -94,9 +82,7 @@
 			}
 
 			.gform_body {
-
 				.gfield {
-
 					&.gfield_error {
 						background-color: transparent;
 						border-color: $error;
@@ -105,8 +91,7 @@
 			}
 
 			li.gfield_error {
-
-				input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+				input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']),
 				textarea,
 				select {
 					border-color: $error;

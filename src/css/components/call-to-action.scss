@@ -48,11 +48,12 @@
 	}
 }
 
-.cta_action {}
+.cta_action {
+}
 
 .cta_link {
 	@include button_inline();
-	@include button_fill("accent");
+	@include button_fill('accent');
 
 	white-space: nowrap;
 }

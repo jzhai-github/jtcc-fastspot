@@ -22,13 +22,14 @@
 		}
 	}
 
-	.goog-te-gadget-icon {}
+	.goog-te-gadget-icon {
+	}
 
-	.goog-te-gadget-icon + span {}
+	.goog-te-gadget-icon + span {
+	}
 
 	.goog-te-menu-value {
-
-		[style*="border-left"] {
+		[style*='border-left'] {
 			display: none;
 		}
 
@@ -44,21 +45,15 @@
 
 				border: 6px solid transparent;
 				border-top-color: black;
-				content: "";
+				content: '';
 				margin-top: 3px;
-				transform:
-					translate(-50%, -50%)
-					scaleX(0.75)
-					rotate(0);
+				transform: translate(-50%, -50%) scaleX(0.75) rotate(0);
 			}
 
-			&[style*="213"] {
-
+			&[style*='213'] {
 				&:before {
 					margin-top: -2px;
-					transform:
-						translate(-50%, -50%)
-						scaleX(0.75)
+					transform: translate(-50%, -50%) scaleX(0.75)
 						rotateX(180deg);
 				}
 			}

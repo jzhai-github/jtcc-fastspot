@@ -2,12 +2,57 @@
 // Mixins
 // =============================================================================
 
+/* Custom
+============================================================================= */
+
+@mixin decorated_link() {
+	&_label {
+		display: inline;
+		margin-right: 24px;
+	}
+
+	&_icon {
+		position: relative;
+
+		display: inline-block;
+		margin-left: -20px;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+
+	&_icon_space {
+		display: none;
+	}
+}
+
+@mixin bubble_pop($color: $accent) {
+	&:before {
+		height: 30px;
+		width: 30px;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		background: $color;
+		border-radius: 50%;
+		content: '';
+		transform: translate(-50%, -50%) scale(0);
+		transition: opacity $base_speed, transform $base_speed;
+	}
+
+	&:hover,
+	&:focus {
+		&:before {
+			animation: bubble_pop $base_speed * 2 forwards;
+		}
+	}
+}
 
 /* Framework
 ============================================================================= */
 
 @mixin fw_emphasized($font: text) {
-
 	@if $font == text {
 		font-size: 18px;
 		font-weight: 700;
@@ -24,13 +69,13 @@
 	display: flex;
 	justify-content: flex-end;
 
-	[class$="_label"] {
+	[class$='_label'] {
 		@include fw_emphasized(display);
 
 		margin-right: 10px;
 	}
 
-	[class$="_icon"] {
+	[class$='_icon'] {
 		width: 46px;
 		height: 46px;
 
@@ -39,19 +84,16 @@
 		background: $accent;
 		border-radius: 50%;
 		display: block;
-		transition:
-			background $base_speed,
-			color $base_speed;
+		transition: background $base_speed, color $base_speed;
 	}
 
-	[class$="_icon_inner"] {
+	[class$='_icon_inner'] {
 		@include center;
 	}
 
 	&:hover,
 	&:focus {
-
-		[class$="_icon"] {
+		[class$='_icon'] {
 			background: #fff;
 			color: #000;
 		}
@@ -59,7 +101,6 @@
 }
 
 @mixin fw_type_breakout() {
-
 	@media #{$min_lg} {
 		margin-right: -10.5%;
 		margin-left: -10.5%;
@@ -72,19 +113,19 @@
 }
 
 @mixin fw_type_link() {
-	color: $accent;
-	font-weight: 700;
-	text-decoration: underline;
-	transition: color $base_speed;
+	border-bottom: 1px solid $peach;
+	color: $bergundy;
+	padding-bottom: 4px;
+	transition: border $base_speed, color $base_speed;
 
 	&:hover,
 	&:focus {
-		color: #000;
+		border-bottom-color: currentColor;
+		color: $maroon;
 	}
 }
 
 @mixin fw_card_grid_item() {
-
 	@media #{$min_sm} {
 		flex: 0 0 48%;
 		margin-right: auto;
@@ -101,21 +142,18 @@
 	}
 
 	&:nth-child(even) {
-
 		@media #{$min_sm $and_max_lg} {
 			margin-right: 0;
 		}
 	}
 
 	&:nth-child(3n + 3) {
-
 		@media #{$min_lg $and_max_xl} {
 			margin-right: 0;
 		}
 	}
 
 	&:nth-child(4n + 4) {
-
 		@media #{$min_xl} {
 			margin-right: 0;
 		}

@@ -5,22 +5,25 @@
 .audience_group {
 	position: relative;
 
-	font-size: 14px;
-	margin-bottom: 10px;
+	border-bottom: 1px solid $teal;
+	margin-bottom: 14px;
+	padding-bottom: 34px;
 
 	@media #{$min_lg} {
-		width: 17%;
+		width: 200px;
 
+		border-bottom: 0;
 		margin-bottom: 0;
+		padding-bottom: 0;
 	}
 }
 
 .audience_nav {
-	background-color: $accent;
-	color: #fff;
-	padding: 6px 0 30px;
+	padding: 0 0 26px;
 
 	&.audience_nav_sm {
+		background-color: $teal;
+		color: #fff;
 
 		.audience_group.fs-swap-enabled & {
 			display: none;
@@ -35,15 +38,18 @@
 		width: 100%;
 
 		position: absolute;
+		z-index: 200;
 
+		background: #f0f0f0;
 		opacity: 0;
+		transform: translate(0, -40px);
 		pointer-events: none;
-		transition:
-			opacity $base_speed,
+		transition: opacity $base_speed, transform $base_speed,
 			visibility $base_speed;
 		visibility: hidden;
 
 		.audience_group.fs-swap-enabled:hover & {
+			transform: translate(0, -40px);
 			opacity: 0;
 			pointer-events: none;
 			visibility: hidden;
@@ -52,6 +58,7 @@
 		.audience_group:hover &,
 		.audience_group.fs-swap-active &,
 		.audience_group.fs-swap-active:hover & {
+			transform: translate(0, 0);
 			opacity: 1;
 			pointer-events: auto;
 			visibility: visible;
@@ -59,34 +66,64 @@
 	}
 }
 
-.audience_nav_header {}
+.audience_nav_header {
+}
 
 .audience_nav_title {
 	@include visually_hide;
 }
 
 .audience_nav_list {
-	line-height: 1.2;
-}
+	&:before {
+		height: 1px;
+		width: 50px;
 
-.audience_nav_item {}
+		background: $navy;
+		display: block;
+		content: '';
+		margin-left: 20px;
+		margin-bottom: 12px;
 
-.audience_nav_item_inner {}
-
-.audience_nav_link {
-	color: inherit;
-	padding: 8px 20px;
-	text-decoration: underline;
-	transition: color $base_speed;
-
-	&:hover,
-	&:focus {
-		color: #000;
+		@media #{$min_lg} {
+			background: $bergundy;
+		}
 	}
 }
 
-.audience_nav_link_label {}
+.audience_nav_item {
+}
 
+.audience_nav_item_inner {
+}
+
+.audience_nav_link {
+	@include serif(300);
+
+	color: inherit;
+	font-size: 18px;
+	line-height: (20 / 18);
+	padding: 7px 20px;
+	transition: color $base_speed, opacity $base_speed;
+
+	&:hover {
+		@media #{$max_lg} {
+			opacity: 0.7;
+		}
+
+		@media #{$min_lg} {
+			color: $bergundy;
+		}
+	}
+}
+
+.audience_nav_link_label {
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color $base_speed;
+
+	.audience_nav_link:hover & {
+		border-bottom-color: currentColor;
+	}
+}
 
 /* Audience Toggle
 ============================================================================= */
@@ -95,19 +132,36 @@
 	width: 100%;
 
 	position: relative;
+	z-index: 300;
 
-	background-color: $accent;
+	border: 1px solid $teal;
 	color: #fff;
 	display: block;
+	font-size: 14px;
+	letter-spacing: 1.75px;
 	line-height: 1;
-	transition:
-		background-color $base_speed,
-		color $base_speed;
+	transition: background-color $base_speed, color $base_speed;
+
+	@media #{$min_lg} {
+		background: #f0f0f0;
+		border: 0;
+		color: #000;
+	}
+
+	&:hover,
+	&:focus,
+	&.fs-swap-active {
+		@media #{$max_lg} {
+			background-color: $teal;
+			color: #fff;
+		}
+	}
 
 	&:hover,
 	&:focus {
-		background-color: #fff;
-		color: #000;
+		@media #{$min_lg} {
+			background: darken(#f0f0f0, 5%);
+		}
 	}
 
 	.icon_close {
@@ -120,15 +174,24 @@
 	align-items: center;
 	display: flex;
 	opacity: 1;
-	padding: 14px 20px;
-	transition:
-		opacity $base_speed,
-		visibility $base_speed;
+	padding: 14px 20px 15px;
+	transition: opacity $base_speed, visibility $base_speed;
 	visibility: visible;
+
+	@media #{$min_lg} {
+		min-height: 40px;
+
+		padding: 13px 15px;
+	}
+
+	@media #{$min_xl} {
+		min-height: 50px;
+
+		padding: 18px 24px;
+	}
 }
 
 .audience_toggle_inner_default {
-
 	.audience_toggle.fs-swap-active & {
 		opacity: 0;
 		visibility: hidden;
@@ -153,28 +216,42 @@
 }
 
 .audience_toggle_label {
+	@include sans(400);
+
 	margin-right: 10px;
+	text-transform: uppercase;
 }
 
-.audience_toggle_label_default {}
+.audience_toggle_label_default {
+}
 
-.audience_toggle_label_active {}
+.audience_toggle_label_active {
+}
 
 .audience_toggle_icon {
 	margin-left: auto;
+
+	@media #{$min_lg} {
+		color: $bergundy;
+		opacity: 0.75;
+	}
 }
 
 .audience_toggle_icon_default {
 	transition: transform $base_speed;
 }
 
-.audience_toggle_icon_active {}
+.audience_toggle_icon_active {
+}
 
-.audience_toggle_icon_inner {}
+.audience_toggle_icon_inner {
+}
 
-.audience_toggle_icon_inner_default {}
+.audience_toggle_icon_inner_default {
+}
 
-.audience_toggle_icon_inner_active {}
+.audience_toggle_icon_inner_active {
+}
 
 .audience_toggle_icon_space {
 	display: none;

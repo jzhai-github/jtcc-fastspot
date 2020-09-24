@@ -15,48 +15,123 @@ button {
 }
 
 @mixin button_layout($layout: left) {
-
-	[class$="link_inner"] {
-		display: block;
+	[class$='link_inner'] {
+		align-items: center;
+		display: flex;
 	}
 
-	[class$="label"] {}
+	[class$='label'] {
+	}
 
-	[class$="icon"] {}
+	[class$='icon'] {
+	}
+
+	[class$='icon_space'] {
+		display: none;
+	}
 
 	.icon {
 		display: inline;
 	}
 
 	@if $layout == center {
-
-		[class$="link_inner"] {
+		[class$='link_inner'] {
 			text-align: center;
 		}
 	}
 }
 
-@mixin button_text() {
+@mixin button_text($theme: "black") {
 	@include button;
 
-	font-size: 18px;
-	line-height: (23 / 18);
+	padding: 10px 0;
+
+	[class$='label'] {
+		@include sans(400);
+
+		border-bottom: 1px solid;
+		font-size: 14px;
+		letter-spacing: 1.75px;
+		line-height: (16 / 14);
+		padding-bottom: 2px;
+		text-transform: uppercase;
+		transition:
+			border $base_speed,
+			color $base_speed;
+
+		@if $theme == "black" {
+			border-bottom-color: $peach;
+		} @else if $theme == "white" {
+			border-bottom-color: rgba(#fff, .35);
+			color: #fff;
+		} @else {
+			border-bottom-color: #fff;
+		}
+	}
+
+	[class$='icon'] {
+		position: relative;
+		top: -3px;
+
+		margin-left: 6px;
+		transform: scale(0.75);
+		transform-origin: left center;
+		transition: color $base_speed;
+
+		@if $theme == "black" {
+			color: $maroon;
+		} @else if $theme == "white" {
+			color: $turquoise;
+		} @else {
+			color: #000;
+		}
+	}
+
+	&:hover,
+	&:focus {
+
+		[class$='label'] {
+			@if $theme == "black" {
+				border-bottom-color: $maroon;
+				color: $maroon;
+			} @else if $theme == "white" {
+				border-bottom-color: $turquoise;
+				color: $turquoise;
+			} @else {
+				border-bottom-color: rgba(#000, .7);
+				color: rgba(#000, .7);
+			}
+		}
+
+		[class$='icon'] {
+			animation: dootdoot_mini 1s infinite;
+
+			@if $theme == "black" {
+
+			} @else if $theme == "white" {
+
+			} @else {
+				color: rgba(#000, .7);
+			}
+		}
+	}
 }
 
-@mixin button_fill($theme: "gray") {
+@mixin button_fill($theme: 'gray') {
 	@include button;
 
-	padding: 16px 30px;
-	transition:
-		background $base_speed,
-		color $base_speed;
+	box-shadow: 0 2px 10px 0 rgba(#000, .15);
+	padding: 13px 30px 14px;
+	text-align: center;
+	transition: background $base_speed, color $base_speed;
 
-	@if ($theme == "gray") {
-		background: #eee;
-		color: #222;
-	} @else if ($theme == "accent") {
-		background: $accent;
-		color: #fff;
+	@if $theme == "bergundy" {
+		background: $bergundy;
+	} @else if $theme == "teal" {
+		background: $teal;
+	}
+	@else {
+		background: #fff;
 	}
 
 	@media print {
@@ -65,22 +140,47 @@ button {
 
 	&:focus,
 	&:hover {
+		background: #000;
 
-		@if ($theme == "gray") {
-			background: #222;
-			color: #eee;
-		} @else if ($theme == "accent") {
-			background: #000;
+		[class$='label'] {
+			color: #fff;
+		}
+
+		[class$='icon'] {
+			animation: dootdoot_mini 1s infinite;
+			color: #fff;
 		}
 	}
 
-	[class$="label"] {
-		font-size: 18px;
-		font-weight: 700;
-		line-height: (23 / 18);
+	[class$='label'] {
+		@include mini_h6;
+
+		transition: color $base_speed;
+
+		@if $theme == "bergundy" or $theme == "teal" {
+			color: #fff;
+		}
 	}
 
-	[class$="icon"] {}
+	[class$='icon'] {
+		position: relative;
+		top: -1px;
+
+		color: $maroon;
+		display: block;
+		margin-left: 8px;
+		transform-origin: left center;
+		transform: scale(.75);
+		transition: color $base_speed;
+
+		@if $theme == "bergundy" {
+			color: $blush
+		}
+
+		@if $theme == "teal" {
+			color: $turquoise;
+		}
+	}
 }
 
 @mixin button_inline($layout: true) {
@@ -95,10 +195,7 @@ button {
 	display: block;
 }
 
-@mixin button_mixed_block(
-	$layout: left,
-	$query: $min_sm
-) {
+@mixin button_mixed_block($layout: left, $query: $min_sm) {
 	@include button_block;
 	@include button_layout($layout);
 
@@ -106,7 +203,6 @@ button {
 		display: inline-block;
 	}
 }
-
 
 /* Skip Link
 ============================================================================= */
@@ -126,9 +222,7 @@ button {
 	pointer-events: none;
 	text-align: center;
 	transform: translate(-50%, -300%);
-	transition:
-		opacity 0.35s
-		transform 0.35s;
+	transition: opacity 0.35s transform 0.35s;
 
 	&:focus,
 	&:active {
@@ -137,3 +231,93 @@ button {
 		transform: translate(-50%, 40px);
 	}
 }
+
+// @mixin button {
+// 	@include sans(400);
+
+// 	background-color: var(--bg_color, #fff);
+// 	color: var(--color, #000);
+
+// 	box-shadow: 0 2px 10px rgba(#000, 0.15);
+// 	display: inline-block;
+// 	font-size: 14px;
+// 	line-height: (16 / 14);
+// 	letter-spacing: #{(1.75 / 16)}em;
+// 	padding: 14px 15px 15px;
+// 	text-transform: uppercase;
+// 	transition: $base_speed $base_timing;
+
+// 	[class$='link_inner'] {
+// 		align-items: center;
+// 		display: flex;
+// 		justify-content: center;
+// 		padding-right: 25px;
+// 	}
+
+// 	[class$='label'] {
+// 		vertical-align: middle;
+// 	}
+
+// 	[class$='icon_inner'] {
+// 		align-items: center;
+// 		display: flex;
+// 		justify-content: center;
+// 	}
+
+// 	[class$='icon'] {
+// 		color: var(--icon_color, currentColor);
+// 		margin-left: 6px;
+// 		margin-right: -25px;
+
+// 		svg {
+// 			font-size: var(--icon_width, 7px);
+// 			transition: $base_speed $base_timing;
+// 		}
+// 	}
+// }
+
+// /* ==========================================================================
+// 	Button - Primary
+// ============================================================================= */
+
+// @mixin button_primary {
+// 	@include button;
+
+// 	--bg_color: #{$bergundy};
+// 	--color: #fff;
+// 	--icon_color: #{$blush};
+
+// 	&:focus,
+// 	&:hover {
+// 		--bg_color: #{$maroon};
+// 		--color: #fff;
+// 		--icon_color: #{$blush};
+// 	}
+// }
+
+// .button_primary_link {
+// 	@include button_primary;
+// }
+
+// /* ==========================================================================
+// 	Button - Secondary
+// ============================================================================= */
+
+// @mixin button_secondary {
+// 	@include button;
+
+// 	--bg_color: #fff;
+// 	--color: #000;
+// 	--icon_color: #{$maroon};
+
+// 	&:focus,
+// 	&:hover {
+// 		--bg_color: #{$bergundy};
+// 		--color: #fff;
+// 		--icon_color: #fff;
+// 	}
+// }
+
+// .button_secondary_link {
+// 	@include button_secondary;
+// }

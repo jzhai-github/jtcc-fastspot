@@ -1,3 +1,9 @@
 module.exports = {
-    prefix: 'layout',
+	hidden: true,
+	prefix: 'layout',
+	context: {
+		page: {
+			alert: true
+		}
+	}
 };

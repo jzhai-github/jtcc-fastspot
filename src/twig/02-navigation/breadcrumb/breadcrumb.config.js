@@ -1,5 +1,8 @@
 module.exports = {
-    context: {
-        links: ['Navigation Level', 'Parent Level'],
-    },
+	preview: '@preview-dark',
+	context: {
+		links: ['Navigation Level', 'Parent Level'],
+		modifier: '',
+		title: 'Page Title'
+	}
 };

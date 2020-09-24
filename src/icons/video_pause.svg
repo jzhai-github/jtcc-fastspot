@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <path d="M15,0 C6.75,0 0,6.75 0,15 C0,23.25 6.75,30 15,30 C23.25,30 30,23.25 30,15 C30,6.75 23.25,0 15,0 Z M13.5,21 L10.5,21 L10.5,9 L13.5,9 L13.5,21 Z M19.5,21 L16.5,21 L16.5,9 L19.5,9 L19.5,21 Z"></path>
+<svg width="12px" height="14px" viewBox="0 0 12 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>video_pause</title>
+    <g id="(╯°□°）╯︵-┻━┻---✔" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+        <g id="GeNeRaL-CoNtEnT-PaGe---Video-(BG)" transform="translate(-987.000000, -1041.000000)" fill="" fill-rule="nonzero">
+            <g id="video_pause" transform="translate(987.000000, 1041.000000)">
+                <path d="M8.016,0.016 L12,0.016 L12,13.985 L8.016,13.985 L8.016,0.016 Z M8.8817842e-16,13.984 L8.8817842e-16,0.015 L3.984,0.015 L3.984,13.984 L8.8817842e-16,13.984 L8.8817842e-16,13.984 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
 </svg>

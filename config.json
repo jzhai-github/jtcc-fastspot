@@ -2,10 +2,10 @@
 	"twig_variables": {
 		"namespace": "fs",
 		"color": "",
-		"name": "Client Name",
-		"description": "",
-		"images": "framework",
-		"domain": "example.dev.fastspot.com/site",
+		"name": "JTCC",
+		"description": "John Tyler Community College",
+		"images": "jtcc",
+		"domain": "jtcc.fastspot.com/site",
 		"schema_type": "Organization",
 		"twitter": "TwitterName",
 		"cse_key": "011737558837375720776:mbfrjmyam1g",
@@ -18,66 +18,45 @@
 		"phone": "(410) 537-5007",
 		"fax": "(410) 537-5008"
 	},
-	"css": [
-		"src/css/site.scss",
-		"src/css/tinymce.scss"
-	],
-	"js": [
-		"src/js/site.js"
-	],
-	"sitemap": {
-		"Base": [
-			"axe.twig",
-			"fs-components-feature.twig",
-			"fs-components-full.twig",
-			"fs-components-listing.twig",
-			"fs-wysiwyg.twig"
-		],
-		"Templates": [
-			"page-404.twig",
-			"page-search.twig",
-			"page-home.twig",
-			"page-general-content.twig",
-			"page-general-content-photo.twig",
-			"page-general-content-video.twig",
-			"page-general-content-bg.twig",
-			"page-admissions.twig",
-			"page-directory-listing.twig",
-			"page-directory-detail.twig",
-			"page-event-listing.twig",
-			"page-event-category.twig",
-			"page-event-detail.twig",
-			"page-news-listing.twig",
-			"page-news-grid.twig",
-			"page-news-category.twig",
-			"page-news-detail.twig",
-			"page-people-listing.twig",
-			"page-people-detail.twig",
-			"page-program-listing.twig",
-			"page-program-detail.twig"
-		]
-	},
+	"css": ["src/css/site.scss", "src/css/tinymce.scss"],
+	"js": ["src/js/site.js"],
 	"navigation": {
+		"actions": [
+			"MyTyler",
+			"Apply Now",
+			"Give to Tyler"
+		],
+		"audience": [
+			"Faculty",
+			"Staff",
+			"Current Students",
+			"Prospective Student",
+			"Alumni",
+			"Parents & Families",
+			"Visitors"
+		],
+		"auxilary": [
+			"FOIA",
+			"Employment at Tyler",
+			"VCCS"
+		],
 		"main": [
 			{
-				"title": "About",
+				"title": "Admissions",
 				"children": [
 					{ "title": "About", "url": "#" },
 					{ "title": "Lorem ipsum", "url": "#" },
 					{ "title": "Consectetuer Adipiscing Elit", "url": "#" },
 					{ "title": "Aenean Commodo", "url": "#" },
-					{ "title": "Penatibus et Magnis dis Parturient Montes Sapien ut Liber", "url": "#" },
 					{ "title": "Aenean Massa", "url": "#" }
 				]
 			},
 			{
-				"title": "Academics",
-				"children": [
-					"Nam Quam Nunc"
-				]
+				"title": "Academics & Programs",
+				"children": ["Nam Quam Nunc"]
 			},
 			{
-				"title": "Admissions",
+				"title": "Training & Workforce",
 				"children": [
 					"Nam quam nunc",
 					"Blandit Vel",
@@ -92,7 +71,7 @@
 				]
 			},
 			{
-				"title": "Financial Aid",
+				"title": "Paying for Tyler",
 				"children": [
 					"Aliquam Lorem Ante",
 					"Quisque Rutrum",
@@ -102,7 +81,7 @@
 				]
 			},
 			{
-				"title": "Student Life",
+				"title": "Services",
 				"children": [
 					"Aenean Vulputate Eleifend Tellus",
 					"Nascetur",
@@ -115,55 +94,31 @@
 				]
 			}
 		],
-		"secondary": [
-			"News",
-			"Events",
-			"Directory",
-			"Giving",
-			"Visit"
-		],
-		"audience": [
-			"Faculty",
-			"Staff",
-			"Current Students",
-			"Prospective Student",
-			"Alumni",
-			"Parents & Families",
-			"Visitors"
-		],
-		"utility": [
-			"Accessibility",
-			"Contact Us",
-			"Employment Opportunities",
-			"Maps & Directions",
-			"Privacy Policy"
-		],
 		"footer": [
-			"Make a Gift",
-			"Library & Information Technology",
-			"Offices & Services",
-			"Bookstore",
-			"Apply Now"
+			"Contact Us",
+			"Nondiscrimination Policy",
+			"Diversity & Inclusion",
+			"Privacy/Disclaimer",
+			"Financial Aid",
+			"Public Records"
+		],
+		"secondary": [
+			"About",
+			"Locations & Tours",
+			"Tyler A-Z"
 		],
 		"social": [
-			{ "title": "Facebook", "url": "//www.facebook.com" },
 			{ "title": "Twitter", "url": "//www.twitter.com" },
+			{ "title": "Facebook", "url": "//www.facebook.com" },
 			{ "title": "Instagram", "url": "//www.instagram.com" },
-			{ "title": "Youtube", "url": "//www.youtube.com" },
-			{ "title": "Linkedin", "url": "//www.linkedin.com" }
+			{ "title": "Linkedin", "url": "//www.linkedin.com" },
+			{ "title": "Youtube", "url": "//www.youtube.com" }
 		],
 		"sub": [
-			"History",
-			"Leadership",
-			"Facts & Stats",
-			"Job Opportunities",
-			"Athletics",
-			"Transforming Hearts & Minds",
-			"Academic Goals",
-			"A Committed, Co-Educational University",
-			"International Student Experience",
-			"Multicultural Student Engagement",
-			"Counseling & Wellness"
+			"Chester Campus",
+			"Midlothian Campus",
+			"Tyler a-z",
+			"Get Involved"
 		]
 	}
 }

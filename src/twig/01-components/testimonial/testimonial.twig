@@ -1,41 +1,43 @@
-<!-- Testimonial -->
-<div class="testimonial">
-	<div class="fs-row">
-		<div class="fs-cell fs-lg-10 fs-lg-justify-center">
-			<div class="testimonial_inner">
-				<figure class="testimonial_figure">
-					<blockquote class="testimonial_quote">
-						<p>{{ quote }}</p>
-					</blockquote>
-					{% if image or name or title %}
-						<figcaption class="testimonial_figcaption">
-							{% if image %}
-								<span class="testimonial_media">
-									{% render "@partial-image" with {
-								class: "testimonial",
-								alt: "",
-								itemprop: "",
-								image: image,
-								sources: [
-									img.square.xxsml,
-									img.square.thumb
-								]
-							} %}
-								</span>
-							{% endif %}
-							{% if name or title %}
-								<span class="testimonial_info">
-									<span class="testimonial_quote_name">{{ name }}</span>
-									{% if title %}
-										<span class="testimonial_quote_title">{{ title }}</span>
-									{% endif %}
-								</span>
-							{% endif %}
-						</figcaption>
-					{% endif %}
-				</figure>
+<div class="testimonial theme-{{ theme }}">
+	<div class="testimonial_inner">
+		<div class="testimonial_content">
+			<div class="testimonial_icon_wrap">
+				<div class="testimonial_icon">
+					{{ icon('quote') }}
+				</div>
 			</div>
+
+			<blockquote class="testimonial_quote">
+				<p>{{ quote }}</p>
+			</blockquote>
+
+			<div class="testimonial_info">
+				<div class="testimonial_quote_name">{{ name }}</div>
+				{% if title %}
+					<a class="testimonial_quote_title" href="#">{{ title }}</a>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="testimonial_media">
+			{% render "@partial-image" with {
+				class: 'testimonial',
+				image: image,
+				sources: [
+					img("full").med,
+					img("full").sml,
+				]
+			} %}
+
+			{% render "@partial-background" with {
+				class: "testimonial",
+				image: image,
+				sources: {
+					'740px': img("portraitFull").med,
+					'980px': img("portraitFull").lrg,
+					'1220px': img("portraitFull").xlrg,
+				}
+			} %}
 		</div>
 	</div>
 </div>
-<!-- END: Testimonial -->

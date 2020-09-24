@@ -2,39 +2,61 @@
 // Fonts
 // =============================================================================
 
+/**
+ * 100 - Knockout Junior Featherweight (28)
+ * 300 - Knockout Junior Liteweight (29)
+ * 400 - Knockout Junior Welterweight (30)
+ * 500 - Knockout Full Featherweight (68)
+ * 600 - Knockout Full Liteweight (69)
+ * 700 - Knockout Full Welterweight (70)
+*/
 
-/* Sans - Fastspot Brand
-============================================================================= */
+@include font-face(
+	'Knockout',
+	(
+		('Knockout-28', 100),
+		('Knockout-29', 300),
+		('Knockout-30', 400),
+		('Knockout-68', 500),
+		('Knockout-69', 600),
+		('Knockout-70', 700)
+	)
+);
 
-@include font-face("Neue Haas Grotesk Text Std", (
-	("NHaasGroteskTXStd-55Rg", 400),
-	("NHaasGroteskTXStd-56It", 400, italic),
-	("NHaasGroteskTXStd-65Md", 500),
-	("NHaasGroteskTXStd-75Bd", 700)
-));
+/**
+ * 300 - Sentinel Light
+ * 600 - Sentinel Semi Bold
+ * 700 - Sentinel Bold
+*/
 
-@mixin sans($weight: null) {
-	font-family: "Neue Haas Grotesk Text Std", sans-serif;
+@include font-face(
+	'Sentinel',
+	(
+		('Sentinel-Light', 300),
+		('Sentinel-LightItal', 300, italic),
+		('Sentinel-Semibold', 600),
+		('Sentinel-SemiboldItal', 600, italic),
+		('Sentinel-Bold', 700),
+		('Sentinel-BoldItal', 700, italic)
+	)
+);
 
-	@if $weight != null {
+@mixin serif($weight: null) {
+	font-family: 'Sentinel', Georgia, 'Times New Roman', Times, serif;
+
+	@if $weight {
 		font-weight: $weight;
 	}
 }
 
+@mixin sans($weight: null) {
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
 
-/* Title - Fastspot Brand
-============================================================================= */
-
-@include font-face("Neue Haas Grotesk Display Std", (
-	("NHaasGroteskDSStd-55Rg", 400),
-	("NHaasGroteskDSStd-65Md", 500),
-	("NHaasGroteskDSStd-75Bd", 700)
-));
-
-@mixin title($weight: null) {
-	font-family: "Neue Haas Grotesk Display Std", sans-serif;
-
-	@if $weight != null {
+	@if $weight {
 		font-weight: $weight;
 	}
+}
+
+@mixin title($weight: null) {
+	@include sans($weight);
 }

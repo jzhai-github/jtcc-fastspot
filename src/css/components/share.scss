@@ -33,6 +33,16 @@
 	z-index: 1;
 
 	display: inline-block;
+
+	@media #{$min_xl} {
+		padding-right: 48px;
+		padding-left: 48px;
+	}
+
+	&:hover,
+	&:focus {
+		background: $bergundy;
+	}
 }
 
 .share_tools_toggle_inner {}
@@ -71,7 +81,7 @@
 }
 
 .share_tool {
-	color: $accent;
+	color: #000;
 	display: block;
 	padding: 10px;
 	pointer-events: none;
@@ -79,7 +89,7 @@
 
 	&:hover,
 	&:focus {
-		color: #000;
+		color: $bergundy;
 	}
 
 	.share_tools.fs-swap-active & {

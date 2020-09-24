@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <polygon id="Path" points="10 7.45454547 17.4545455 0 20 2.54545455 12.5454545 10 20 17.4545455 17.4545455 20 10 12.5454545 2.54545455 20 0 17.4545455 7.45454547 10 0 2.54545455 2.54545455 0"></polygon>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <g id="Homepage-R3--✔" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
+        <path d="M10.6755172,-1.13400675 L10.6749932,7.72299325 L19.5326602,7.72313625 L19.5326602,10.6755172 L10.6749932,10.6749932 L10.6755172,19.5326602 L7.72313625,19.5326602 L7.72299325,10.6749932 L-1.13400675,10.6755172 L-1.13400675,7.72313625 L7.72299325,7.72299325 L7.72313625,-1.13400675 L10.6755172,-1.13400675 Z" id="Combined-Shape" fill="" transform="translate(9.199327, 9.199327) rotate(45.000000) translate(-9.199327, -9.199327) "></path>
+    </g>
 </svg>

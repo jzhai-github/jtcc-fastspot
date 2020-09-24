@@ -8,45 +8,47 @@
 	margin: auto;
 	pointer-events: none;
 	stroke: inherit;
-	transition:
-		fill $base_speed,
-		stroke $base_speed;
+	transition: fill $base_speed, stroke $base_speed;
 
 	$icons: (
 		(angle_down, 5, 4),
 		(angle_right, 7, 7),
 		(arrow_left, 22, 22),
+		(arrow_down, 8, 12),
 		(arrow_right, 22, 22),
-		(caret_down, 12, 8),
-		(caret_right, 8, 16),
-		(caret_left, 8, 16),
+		(alert, 30, 30),
+		(caret_down, 9, 6),
+		(caret_right, 6, 9),
+		(caret_left, 6, 9),
+		(caret_up, 9, 6),
 		(clock, 16, 16),
-		(close, 20, 20),
-		(expand, 9, 18),
-		(external, 18, 18),
-		(facebook, 30, 29),
+		(close, 18, 18),
+		(expand, 7, 12),
+		(external, 15, 15),
+		(facebook, 25, 25),
 		(fax, 18, 16),
-		(file, 16, 20),
+		(file, 12, 15),
 		(flickr, 22, 10),
 		(home, 14, 14),
-		(instagram, 30, 30),
-		(label, 14, 14),
-		(linkedin, 30, 30),
-		(logo, 180, 65),
-		(mail, 22, 16),
-		(menu, 22, 12),
+		(instagram, 26, 25),
+		(label, 15, 15),
+		(linkedin, 26, 25),
+		(logo, 89, 59),
+		(mail, 16, 12),
+		(menu, 21, 18),
 		(minus, 14, 2),
 		(phone, 16, 16),
-		(place, 12, 16),
+		(place, 12, 18),
 		(play, 20, 20),
-		(plus, 14, 14),
-		(reset, 9, 10),
-		(search, 18, 18),
-		(twitter, 37, 30),
-		(video_pause, 20, 20),
-		(video_play, 20, 20),
+		(plus, 10, 10),
+		(quote, 24, 18),
+		(reset, 14, 14),
+		(search, 14, 14),
+		(twitter, 25, 21),
+		(video_pause, 11, 11),
+		(video_play, 9, 11),
 		(vimeo, 18, 18),
-		(youtube, 43, 30)
+		(youtube, 26, 19)
 	);
 
 	@each $label, $width, $height in $icons {

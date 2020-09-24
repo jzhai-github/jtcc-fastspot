@@ -3,7 +3,7 @@
 ============================================================================= */
 
 .breadcrumb {
-	margin: 10px 0;
+	margin: 0 0 15px;
 
 	@media #{$min_lg} {
 		margin-bottom: 25px;
@@ -12,18 +12,12 @@
 	@media print {
 		display: none;
 	}
-
-	.page_header_bg & {
-		background-color: rgba(#000, 0.5);
-		margin: 0;
-		padding: 20px 0;
-	}
 }
 
-.breadcrumb_inner {}
+.breadcrumb_inner {
+}
 
 .breadcrumb_nav {
-
 	@media print {
 		display: none !important;
 	}
@@ -33,8 +27,8 @@
 	@include visually_hide;
 }
 
-.breadcrumb_nav_title {}
-
+.breadcrumb_nav_title {
+}
 
 /* Breadcrumb Links
 ============================================================================= */
@@ -57,6 +51,20 @@
 	display: flex;
 
 	&:not(:nth-last-of-type(-n + 2)) {
+		&:after {
+			height: 23px;
+			width: 1px;
+
+			background: rgba(#fff, 0.25);
+			content: '';
+			display: block;
+			margin: 0 16px 0 12px;
+			transform: skew(-16deg);
+
+			.page_header & {
+				background: $teal;
+			}
+		}
 
 		@media #{$max_lg} {
 			display: none;
@@ -64,24 +72,17 @@
 	}
 }
 
-.breadcrumb_pill {}
+.breadcrumb_pill {
+	display: block;
+}
 
 .breadcrumb_pill_link {
-	color: $accent;
+	color: #fff;
 	transition: color $base_speed;
 
 	&:focus,
 	&:hover {
-		color: #000;
-	}
-
-	.page_header_bg & {
-		color: #fff;
-
-		&:focus,
-		&:hover {
-			color: $accent;
-		}
+		color: rgba(#fff, 0.7);
 	}
 }
 
@@ -92,12 +93,28 @@
 
 .breadcrumb_pill_icon {
 	position: relative;
-	top: -2px;
+	top: -1px;
 
-	margin-right: 4px;
+	margin-left: 6px;
+	transform-origin: left center;
+	transform: scale(0.75);
+
+	.breadcrumb_pill_link:hover &,
+	.breadcrumb_pill_link:focus & {
+		animation: dootdoot_mini 1s infinite;
+	}
 }
 
 .breadcrumb_pill_label {
+	@include small_text;
+
+	border-bottom: 1px solid transparent;
+	transition: border $base_speed;
+
+	.breadcrumb_pill_link:hover &,
+	.breadcrumb_pill_link:focus & {
+		border-bottom-color: currentColor;
+	}
 
 	.breadcrumb_item:last-child & {
 		@include visually_hide;

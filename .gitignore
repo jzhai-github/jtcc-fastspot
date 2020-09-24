@@ -9,11 +9,10 @@ site/files/
 .idea/
 
 # compiled files
-/dist/axe.json
+# /dist/axe.json
 /dist/css
 /dist/images
 /dist/js
-/dist/favicons
 
 # fractal output
-/static-html
+# /static-html

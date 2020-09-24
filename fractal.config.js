@@ -1,12 +1,11 @@
 'use strict';
 
-const path = require('path');
 const pkgJson = require('./package.json');
 const fractal = (module.exports = require('@frctl/fractal').create());
 const mandelbrot = require('@frctl/mandelbrot');
-const bluebird = require('bluebird');
 const config = require('./config.json');
 const twigAdapter = require('@frctl/twig')({
+	importContext: true,
 	namespaces: {
 		'@components': './01-components',
 		'@navigation': './02-navigation',
@@ -23,16 +22,22 @@ const env = process.env.NODE_ENV || 'development';
 const isProduction = env === 'production';
 const isDevelopment = !isProduction;
 const customizedTheme = mandelbrot({
-	skin: 'black'
+	skin: 'black',
+	highlightStyles:
+		'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css',
+	favicon: '/favicons/favicon.ico'
 });
+
+process.env.FRACTAL_CWD = __dirname;
 
 /* Set the title of the project */
 fractal.set('project.title', `${config.twig_variables.name} Component Library`);
 fractal.set('project.version', pkgJson.version);
 fractal.set('project.author', 'Fastspot');
 
+fractal.docs.engine(twigAdapter);
 fractal.docs.set('path', __dirname + '/src/docs');
-fractal.docs.set('default.status', 'draft');
+fractal.docs.set('default.status', 'ready');
 
 fractal.components.set('statuses', {
 	prototype: {
@@ -56,24 +61,31 @@ fractal.components.set('statuses', {
 		color: '#38A169'
 	}
 });
+
 fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
 fractal.components.set('path', __dirname + '/src/twig');
 fractal.components.set('default.preview', '@preview');
-fractal.components.set('default.status', 'wip');
+fractal.components.set('default.status', 'ready');
 fractal.components.set('default.collator', function (markup, item) {
-	const headingModifier =
-		item.preview === '@preview-dark' ? 'text-white' : '';
-	const bgModifier =
-		item.preview === '@preview-dark' ? 'bg-gray-900' : 'bg-white';
+	const headingStyle =
+		item.preview === '@preview-dark' ? 'color: #fff;' : 'color: #000;';
+	const bgStyle =
+		item.preview === '@preview-dark'
+			? 'background-color: #000;'
+			: 'background-color: #fff;';
 
 	return `
-        <div class="mt-6 p-6 ${bgModifier}">
-            <h2 class="heading-h2 ${headingModifier}">
+		<br><br>
+
+        <div style="${bgStyle}">
+            <h2 class="heading-h2" style="${headingStyle}; padding: 0 24px;">
                 ${item.title}
             </h2>
 
-            <div class="mt-3">
+			<br>
+
+            <div>
                 ${markup}
             </div>
         </div>
@@ -83,14 +95,5 @@ fractal.components.set('default.collator', function (markup, item) {
 fractal.web.theme(customizedTheme);
 fractal.web.set('static.path', __dirname + '/dist');
 fractal.web.set('builder.dest', __dirname + '/static-html');
-
-// bug with babel
-bluebird.config({
-	warnings: false
-});
-
-// add custom commands
-
-require('./fractal.commands');
 
 module.exports = fractal;

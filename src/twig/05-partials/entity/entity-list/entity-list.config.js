@@ -1,8 +1,6 @@
-var twigConfig = require('../../../twig.config');
-
 module.exports = {
 	context: {
-		title: twigConfig.context.page.title,
+		title: 'Some Title',
 		items: [
 			{
 				name: 'Department or Office Name',

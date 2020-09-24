@@ -1,5 +1,12 @@
-# Documentation
+# Getting Started
 
-_Add any documentation for the build here._
+- [Setup your local environment][docs-installation]
+- [Learn about the development workflow & commands][docs-development]
 
-_Documentation can also be added to individual components._
+# Accessibility
+
+- [Learn more about accessibility testing][docs-accessibility]
+
+[docs-installation]: {{ "/docs/getting-started/installation" | path }}
+[docs-development]: {{ "/docs/getting-started/development" | path }}
+[docs-accessibility]: {{ "/docs/accessibility/overview" | path }}

@@ -9,11 +9,11 @@
 
 	<!-- Page Wrapper -->
 	<div
-		class="page_wrapper{% if page.image or page.video %} has_page_media{% endif %}">
+		id="skip_content" tabindex="-1" class="page_wrapper{% if page.image or page.video %} has_page_media{% endif %}">
 		<!-- Page -->
-		<main class="page">
+		<div class="page">
 			{{ yield }}
-		</main>
+		</div>
 	</div>
 
 	{% render "@layout-footer" %}

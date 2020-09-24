@@ -17,12 +17,14 @@
 	@include fw_site_button;
 }
 
-.search_link_label {}
+.search_link_label {
+}
 
-.search_link_icon {}
+.search_link_icon {
+}
 
-.search_link_icon_inner {}
-
+.search_link_icon_inner {
+}
 
 /* Search Form
 ============================================================================= */
@@ -38,26 +40,18 @@
 }
 
 .site_search_form {
-	@include fw_emphasized(display);
-
 	position: relative;
 
-	border: 1px solid currentColor;
-	border-radius: 3px;
-	padding: 6px;
+	background: #fff;
+	border: 0;
+
+	.site_search_header & {
+		background: #f0f0f0;
+	}
 }
 
 .site_search_label {
-	position: absolute;
-	top: 0;
-	left: 14px;
-
-	background-color: #000;
-	display: block;
-	font-size: 16px;
-	line-height: 1;
-	padding: 0 10px;
-	transform: translateY(-50%);
+	@include visually_hide;
 }
 
 .site_search_field {
@@ -67,39 +61,42 @@
 }
 
 .site_search_input {
+	@include serif(400);
+
 	appearance: none;
 	background: none;
 	border: 0;
 	border-radius: 0;
-	color: inherit;
+	color: #000;
 	flex: 1;
-	font: inherit;
-	padding: 0 10px;
+	font-size: 15px;
+	padding: 0 24px;
 
 	&::placeholder {
 		@include ellipsis;
 	}
 
-	.site_search_results & {}
+	.site_search_results & {
+	}
 }
 
 .site_search_button {
-	height: 48px;
+	height: 55px;
+	width: 65px;
 
 	position: relative;
 
-	background: $accent;
-	color: inherit;
-	flex: 0 0 48px;
+	color: $bergundy;
 	cursor: pointer;
+	outline: 0;
 	transition:
 		background $base_speed,
 		color $base_speed;
 
 	&:focus,
 	&:hover {
-		background: #fff;
-		color: #000;
+		background: $bergundy;
+		color: #fff;
 	}
 }
 
@@ -113,33 +110,109 @@
 	pointer-events: none;
 }
 
-
 /* ==========================================================================
 	Site Search Header
 ============================================================================= */
 
 .site_search_header {
-	flex: 0 0 30%;
-	margin: 0 0 0 auto;
+	display: none;
 
-	.js & {
+	@media #{$min_lg} {
+		position: absolute;
+		top: 100%;
+		right: 0;
+
+		display: block;
+		margin-top: 5px;
+		opacity: 0;
+		transform: translate3d(0, -2px, 0);
+		visibility: hidden;
+		transition:
+			opacity $base_speed,
+			transform $base_speed,
+			visibility $base_speed;
+	}
+
+	@media print {
 		display: none;
+	}
+
+	&.fs-swap-active {
 
 		@media #{$min_lg} {
-			display: block;
-		}
-
-		@media print {
-			display: none;
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			visibility: visible;
 		}
 	}
 }
-
 
 /* ==========================================================================
 	Site Search Menu
 ============================================================================= */
 
 .site_search_menu {
-	margin-bottom: 25px;
+	margin-bottom: 15px;
+}
+
+/* ==========================================================================
+	Site Search Toggle
+============================================================================= */
+
+.search_toggle {
+	height: 38px;
+	width: 38px;
+
+	position: relative;
+
+	background: #F0F0F0;
+	border-radius: 50%;
+	color: $bergundy;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		background: $bergundy;
+		color: #fff;
+	}
+}
+
+.search_toggle_inner {
+	display: block;
+	transition: opacity $base_speed;
+
+	&_default {
+
+		.search_toggle.fs-swap-active & {
+			opacity: 0;
+		}
+	}
+
+	&_active {
+		opacity: 0;
+
+		.search_toggle.fs-swap-active & {
+			opacity: 1;
+		}
+	}
+}
+
+.search_toggle_label {
+	@include visually_hide;
+}
+
+.search_toggle_icon {
+	pointer-events: none;
+
+	.icon {
+		@include center;
+
+		&_close {
+			transform:
+				translate(-50%, -50%)
+				scale(.85);
+		}
+	}
 }

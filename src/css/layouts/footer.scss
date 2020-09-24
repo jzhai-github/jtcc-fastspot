@@ -3,12 +3,16 @@
 ============================================================================= */
 
 .footer {
-	background: #000;
+	background: $bergundy;
 	color: #fff;
-	padding: 20px 0;
+	padding-top: 50px;
 
 	@media #{$min_lg} {
-		padding: 60px 0;
+		padding-top: 70px;
+	}
+
+	@media #{$min_xl} {
+		padding-top: 88px;
 	}
 
 	@media print {
@@ -18,55 +22,134 @@
 
 .footer_primary {
 
-	@media #{$min_lg} {
-		margin-bottom: 70px;
-	}
-
 	@media print {
 		margin-bottom: 0;
 	}
 }
 
 .footer_primary_inner {
-
-	@media #{$min_lg} {
-		width: 100%;
-
-		display: flex;
-		justify-content: space-between;
-	}
-}
-
-.footer_ribbon {}
-
-.footer_ribbon_inner {
+	position: relative;
 
 	@media #{$min_xl} {
-		align-items: center;
-		display: flex;
+		padding-bottom: 70px;
 	}
 }
 
-.footer_group {}
+.footer_primary_content {
+
+	@media #{$min_md} {
+		border-bottom: 1px solid $bright_pink;
+		display: flex;
+		padding-bottom: 40px;
+	}
+
+	@media #{$min_xl} {
+		border-bottom: 0;
+		padding-bottom: 62px;
+	}
+}
+
+.footer_primary_group {
+	border-bottom: 1px solid $bright_pink;
+
+	@media #{$min_md} {
+		border-bottom: 0;
+	}
+
+	&_meta {
+		margin-bottom: 20px;
+		padding-bottom: 45px;
+
+		@media #{$min_md} {
+			width: 65%;
+
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		@media #{$min_lg} {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		@media #{$min_xl} {
+			width: 60%;
+		}
+	}
+
+	&_nav {
+		padding-bottom: 28px;
+
+		@media #{$min_md} {
+			width: 35%;
+
+			padding-top: 12px;
+			padding-bottom: 0;
+		}
+
+		@media #{$min_xl} {
+			width: 40%;
+
+			border-top: 1px solid $bright_pink;
+			margin-top: 26px;
+			padding-top: 22px;
+		}
+	}
+}
+
+.footer_ribbon {
+
+	@media #{$min_xl} {
+		padding: 25px 0;
+	}
+}
+
+.footer_ribbon_inner {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer_ribbon_group {
+	position: relative;
+
+	&_auxilary {
+
+		@media #{$min_md} {
+			align-items: center;
+			display: flex;
+		}
+	}
+}
 
 
 /* Copyright
 ============================================================================= */
 
 .copyright {
-	@include small_text;
+	@include serif(300);
 
-	margin: 20px 0 30px;
+	color: $blush;
+	font-size: 15px;
+	margin-top: -5px;
+
+	@media #{$min_md} {
+		margin-top: 0;
+	}
 
 	@media #{$min_lg} {
-		margin: 0 0 0 auto;
+		font-size: 16px;
 	}
 }
 
-.copyright_icon {}
+.copyright_icon {
+}
 
-.copyright_holder {}
+.copyright_holder {
+}
 
-.copyright_holder_name {}
+.copyright_holder_name {
+}
 
-.copyright_year {}
+.copyright_year {
+}

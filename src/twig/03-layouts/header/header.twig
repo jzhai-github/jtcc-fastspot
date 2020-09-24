@@ -10,48 +10,65 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="header_ribbon_inner">
-					{% render "@navigation-basic" with {
-						class: "secondary_nav",
-						modifier: "lg",
-						title: "Secondary",
-						toggle_icon: "",
-						active_index: "",
-						links: navigation.secondary
-					} %}
-
-					<div class="js-audience-group audience_group">
-						{% render "@partial-button-toggle" with {
-							class: "audience",
-							title: "Audience",
-							icon: "caret_down",
-							active_title: "Close",
-							active_icon: "close",
-							swap_target: ".js-audience-group",
-							swap_link: "audience"
-						} %}
-
-						{% render "@navigation-basic" with {
-							class: "audience_nav",
-							modifier: "lg",
-							title: "Audience",
-							toggle_icon: "",
-							active_index: "",
-							links: navigation.audience
+					<div class="header_ribbon_group header_ribbon_group_logo">
+						{% render "@partial-logo" with {
+							modifier: "header",
+							icon: "logo"
 						} %}
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="header_primary">
-		<div class="fs-row">
-			<div class="fs-cell">
-				<div class="header_primary_inner">
-					{% render "@partial-logo" with {
-						modifier: "header",
-						icon: "logo",
-						print: ""
-					} %}
+
+					<div class="header_ribbon_group header_ribbon_group_navigation">
+						<div class="header_ribbon_row">
+							{% render "@navigation-basic--secondary" with {
+								modifier: "lg",
+							} %}
+
+							{% render "@navigation-basic--actions" with {
+								modifier: "lg",
+							} %}
+
+							<div class="js-audience-group audience_group">
+								{% render "@partial-button-toggle" with {
+									class: "audience",
+									title: "Resources for…",
+									icon: "caret_down",
+									active_title: "Resources for…",
+									active_icon: "caret_up",
+									swap_target: ".js-audience-group",
+									swap_link: "audience"
+								} %}
+
+								{% render "@navigation-basic--audience" with {
+									modifier: "lg",
+								} %}
+							</div>
+						</div>
+						<div class="header_ribbon_row">
+							{% render "@navigation-basic--main" with {
+								modifier: "lg",
+								active_index: page.activePage,
+							} %}
+
+							<div class="header_ribbon_search">
+								{% render "@partial-button-toggle" with {
+									class: "search",
+									title: "Search",
+									icon: "search",
+									active_title: "Close",
+									active_icon: "close",
+									swap_target: ".site_search_header"
+								} %}
+
+								{% render "@partial-search" with {
+									modifier: "header",
+									aria: "Site Search",
+									label: "Search",
+									placeholder: "Search by keyword",
+									button_text: "Submit"
+								} %}
+							</div>
+						</div>
+					</div>
 
 					<div class="header_controls">
 						{% render "@partial-link-toggle" with {
@@ -59,33 +76,13 @@
 							title: "Menu",
 							url: "#menu",
 							icon: "menu",
+							js: true,
 							swap_target: ".menu",
-							swap_link: "menu"
-						} %}
-
-						{% render "@partial-link" with {
-							class: "search",
-							title: "Search",
-							url: "page-search.html"
+							swap_link: "menu",
+							active_title: "Close",
+							active_icon: "close"
 						} %}
 					</div>
-
-					{% render "@partial-search" with {
-						modifier: "header",
-						aria: "Site Search",
-						label: "Search",
-						placeholder: "",
-						button_text: "Submit"
-					} %}
-
-					{% render "@navigation-basic" with {
-						class: "main_nav",
-						modifier: "lg",
-						title: "Site",
-						toggle_icon: "caret_down",
-						active_index: page.activePage,
-						links: navigation.main
-					} %}
 				</div>
 			</div>
 		</div>
