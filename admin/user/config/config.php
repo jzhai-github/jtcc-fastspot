@@ -1,13 +1,19 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-$system_folder = "admin";
-$protocol      = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
-$base_url      = $protocol . $_SERVER['HTTP_HOST'];
-$base_path     = $_SERVER['DOCUMENT_ROOT'];
+$config['multiple_sites_enabled'] = 'n';
+$config['show_ee_news'] = 'n';
+// Most code copied from:
+// https://u.expressionengine.com/article/creating-a-multi-environment-config-in-expressionengine-5
+$config['save_tmpl_files'] = 'y';
 
-$images_folder = "images";
-$images_path   = $base_path . "/" . $images_folder;
-$images_url    = $base_url . "/" . $images_folder;
+$protocol           = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+$base_url           = $protocol . $_SERVER['HTTP_HOST'];
+$base_path          = $_SERVER['DOCUMENT_ROOT'];
+$system_folder      = "admin";
+
+$images_folder      = "images";
+$images_path        = $base_path . "/" . $images_folder;
+$images_url         = $base_url . "/" . $images_folder;
 
 $config['cp_url']               = $base_url.'/'.$system_folder.'/index.php';
 $config['doc_url']              = 'http://expressionengine.com/user_guide/';
@@ -17,7 +23,7 @@ $config['site_label']           = 'Site Label';
 $config['site_name']            = 'Site Name';
 $config['cookie_prefix']        = '';
 
-$config['index_page']           = "";
+$config['index_page']           = "index.php";
 $config['base_url']             = $base_url . "/";
 $config['site_url']             = $config['base_url'];
 $config['cp_url']               = $config['base_url'].$system_folder."/index.php";
@@ -59,21 +65,21 @@ $config['session_crypt_key'] = 'f4b860726dbfee5bb8dddda232142261abbb8550';
 
 switch($_SERVER['HTTP_HOST']) {
 
-    case 'dev.jtcc.edu':
-        $dbConnection = array (
-            'hostname' => 'localhost',
-            'username' => 'jtcc_dev',
-            'password' => 'VdleL7N_krUS',
-            'database' => 'dbname',
-                );
-    break;
-
     case 'newjtcc.local':
         $dbConnection = array (
             'hostname' => 'localhost',
             'username' => 'root',
             'password' => 'root',
             'database' => 'jtcc_dev_local',
+                );
+    break;
+
+    case 'dev.jtcc.edu':
+        $dbConnection = array (
+            'hostname' => 'localhost',
+            'username' => 'jtcc_dev',
+            'password' => 'VdleL7N_krUS',
+            'database' => 'jtcc_dev',
                 );
     break;
 }

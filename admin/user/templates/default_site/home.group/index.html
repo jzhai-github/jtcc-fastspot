@@ -7,9 +7,14 @@
 		<div class="page">--}
 <div class="full_width_callouts">
 	<div class="js-view-test spotlight">
-	<div class="js-background spotlight_background" data-background-options='{"source": { "1220px": "//images.fastspot.com/jtcc/1080x1440/17", "740px": "//images.fastspot.com/jtcc/1220x523/17", "500px": "//images.fastspot.com/jtcc/980x654/17", "0px": "//images.fastspot.com/jtcc/494x740/17", "980px": "//images.fastspot.com/jtcc/915x1220/17"}, "lazy": true, "alt": ""}' aria-hidden="true">
-	<div class="spotlight_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/17');"></div>
-</div>
+	{exp:channel:entries channel="home_page"}
+		<div class="js-background spotlight_background" data-background-options='{"source": { 
+		"1220px": "{home_top_banner}{img:url:resize width="1080" height="1440"}{/home_top_banner}", 
+		"740px": "{home_top_banner}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/home_top_banner}", 
+		"500px": "{home_top_banner}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/home_top_banner}", "0px": "{home_top_banner}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/home_top_banner}", "980px": "{home_top_banner}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/home_top_banner}"}, "lazy": true, "alt": ""}' aria-hidden="true">
+		<div class="spotlight_background_fallback" style="background-image: url(' {home_top_banner}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner}');"></div>
+		</div>
+	{/exp:channel:entries}
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="spotlight_inner">
