@@ -4,9 +4,9 @@ $config['is_system_on'] = 'y';
 $config['cache_driver'] = 'file';
 $config['doc_url'] = 'http://expressionengine.com/user_guide/';
 $config['index_page'] = '';
-$config['app_version'] = "X.X.X"; // Fill version number here
+$config['app_version'] = "5.3.2"; // Fill version number here
 
-$system_folder                  = "system";
+$system_folder                  = "admin";
 
 $protocol                       = (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") ? "https://" : "http://";
 $base_url                       = $protocol . $_SERVER['HTTP_HOST'];
