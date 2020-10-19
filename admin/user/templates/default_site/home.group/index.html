@@ -9,30 +9,31 @@
 	<div class="js-view-test spotlight">
 	{exp:channel:entries channel="home_page"}
 		<div class="js-background spotlight_background" data-background-options='{"source": { 
-		"1220px": "{home_top_banner}{img:url:resize width="1080" height="1440"}{/home_top_banner}", 
-		"740px": "{home_top_banner}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/home_top_banner}", 
-		"500px": "{home_top_banner}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/home_top_banner}", "0px": "{home_top_banner}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/home_top_banner}", "980px": "{home_top_banner}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/home_top_banner}"}, "lazy": true, "alt": ""}' aria-hidden="true">
-		<div class="spotlight_background_fallback" style="background-image: url(`{home_top_banner}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner}`);"></div>
+		"1220px": "{home_top_banner_background_image}{img:url:resize width="1080" height="1440"}{/home_top_banner_background_image}", 
+		"740px": "{home_top_banner_background_image}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/home_top_banner_background_image}", 
+		"500px": "{home_top_banner_background_image}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/home_top_banner_background_image}", "0px": "{home_top_banner_background_image}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/home_top_banner_background_image}", "980px": "{home_top_banner_background_image}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/home_top_banner_background_image}"}, "lazy": true, "alt": ""}' aria-hidden="true">
+		<div class="spotlight_background_fallback" style="background-image: url(`{home_top_banner_background_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner_background_image}`);"></div>
 		</div>
-	{/exp:channel:entries}
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="spotlight_inner">
 				<div class="spotlight_header">
 					<div class="spotlight_header_inner">
 						<div class="spotlight_header_body">
+						
 							<h1 class="spotlight_title">
 								<span class="spotlight_title_group spotlight_title_group_primary">
-									<span class="spotlight_title_label spotlight_title_label_primary">A Success Story</span>
+									<span class="spotlight_title_label spotlight_title_label_primary">{home_top_banner_text_1}</span>
 								</span>
 								<span class="spotlight_title_group spotlight_title_group_secondary">
-									<span class="spotlight_title_label spotlight_title_label_secondary">For Every Student</span>
+									<span class="spotlight_title_label spotlight_title_label_secondary">{home_top_banner_text_2} </span>
 								</span>
 							</h1>
+							
 							<div class="spotlight_header_details">
-								<p class="spotlight_caption">At Tyler, we are invested in student success and focused on equipping our graduates with workforce-ready skills. <strong>Will you be next up?</strong></p>
+								<p class="spotlight_caption">{home_top_banner_text_block}</p>
 								
-
+{/exp:channel:entries}
 <a href="#" class="spotlight_details_link" >
 	<span class="spotlight_details_link_inner">
 		<span class="spotlight_details_link_label">View all Next Up Stories</span>
@@ -650,7 +651,7 @@
 
 <a href="#" class="featured_events_details_link" >
 	<span class="featured_events_details_link_inner">
-		<span class="featured_events_details_link_label">View all News & Stories</span>
+		<span class="featured_events_details_link_label">View all Events</span>
 					<span class="featured_events_details_link_icon" aria-hidden="true">
 				<span class="featured_events_details_link_icon_inner">
 					<span class="featured_events_details_link_icon_space">&#xfeff;</span>
@@ -835,96 +836,92 @@
 	<div class="js-background flex_callout_background" data-background-options='{"source": { "1220px": "//images.fastspot.com/jtcc/1440x1080/10", "740px": "//images.fastspot.com/jtcc/1220x523/10", "500px": "//images.fastspot.com/jtcc/980x654/10", "0px": "//images.fastspot.com/jtcc/494x740/10", "980px": "//images.fastspot.com/jtcc/915x1220/10"}, "lazy": true, "alt": ""}' aria-hidden="true">
 	<div class="flex_callout_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/10');"></div>
 </div>
+{exp:channel:entries channel="home_page"}
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="flex_callout_inner">
 				<div class="flex_callout_header">
-					<h2 class="flex_callout_title">What’s Next Up</h2>
-					<p class="flex_callout_caption">No matter your goal, Tyler is a smart choice. Earn a career-focused credential in two years or less.  Or, spend two years at Tyler and transfer.</p>
+					<h2 class="flex_callout_title">{home_bottom_banner_text}</h2>
+					<p class="flex_callout_caption">{home_bottom_banner_text_block}</p>
 				</div>
+				{home_bottom_buttons}
 				<div class="flex_callout_content">
 					<ul class="flex_callout_links">
-												<li class="flex_callout_item">
-							
-
-<a href="#" class="flex_callout_link" >
-	<span class="flex_callout_link_inner">
-		<span class="flex_callout_link_label">Request Info</span>
-					<span class="flex_callout_link_icon" aria-hidden="true">
-				<span class="flex_callout_link_icon_inner">
-					<span class="flex_callout_link_icon_space">&#xfeff;</span>
+						<li class="flex_callout_item">
+							<a href="{home_bottom_buttons:top_link}" class="flex_callout_link" >
+								<span class="flex_callout_link_inner">
+									<span class="flex_callout_link_label">{home_bottom_buttons:top_text}</span>
+									<span class="flex_callout_link_icon" aria-hidden="true">
+										<span class="flex_callout_link_icon_inner">
+												<span class="flex_callout_link_icon_space">&#xfeff;</span>
 					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right" />
+											</svg>
 		
-				</span>
-			</span>
-			</span>
-</a>
+										</span>
+									</span>
+								</span>
+							</a>
 						</li>
-												<li class="flex_callout_item">
-							
-
-<a href="#" class="flex_callout_link" >
-	<span class="flex_callout_link_inner">
-		<span class="flex_callout_link_label">Virtual Info Sessions</span>
-					<span class="flex_callout_link_icon" aria-hidden="true">
-				<span class="flex_callout_link_icon_inner">
-					<span class="flex_callout_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
+						<li class="flex_callout_item">
+							<a href="{home_bottom_buttons:middle_link}" class="flex_callout_link" >
+								<span class="flex_callout_link_inner">
+									<span class="flex_callout_link_label">{home_bottom_buttons:middle_text}</span>
+									<span class="flex_callout_link_icon" aria-hidden="true">
+										<span class="flex_callout_link_icon_inner">
+											<span class="flex_callout_link_icon_space">&#xfeff;</span>
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right" />
+											</svg>
+										</span>
+									</span>
+								</span>
+							</a>
 						</li>
-												<li class="flex_callout_item">
-							
-
-<a href="#" class="flex_callout_link" >
-	<span class="flex_callout_link_inner">
-		<span class="flex_callout_link_label">Apply Now</span>
-					<span class="flex_callout_link_icon" aria-hidden="true">
-				<span class="flex_callout_link_icon_inner">
-					<span class="flex_callout_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
+						<li class="flex_callout_item">
+							<a href="{home_bottom_buttons:bottom_link}" class="flex_callout_link" >
+								<span class="flex_callout_link_inner">
+									<span class="flex_callout_link_label">{home_bottom_buttons:bottom_text}</span>
+									<span class="flex_callout_link_icon" aria-hidden="true">
+										<span class="flex_callout_link_icon_inner">
+											<span class="flex_callout_link_icon_space">&#xfeff;</span>		
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right" />
+											</svg>
+										</span>
+									</span>
+								</span>
+							</a>
 						</li>
-											</ul>
-				</div>
-			</div>
+					</ul>
+				</div> {!-- / flex_callout_content --}
+				{/home_bottom_buttons}
+			</div>{!-- / flex_callout_inner --}
 		</div>
 	</div>
+	{/exp:channel:entries}
 </div>
-
+	{exp:channel:entries channel="alert" limit="1" disable="categories|category_fields|member_data|pagination" dynamic="no"}
+		{if alert_text_block}
 	<div class="js-alert alert" id="alert" role="alert" data-time="2019-10-18 14:52:4" aria-labelledby="alert_title" tabindex="-1">
 	<div class="fs-row">
 		<div class="fs-cell">
+
 			<div class="alert_inner">
 				<div class="alert_header">
 					<h2 class="alert_title" id="alert_title">
 						<span class="alert_title_icon">
-			<svg class="icon icon_alert">
-				<use href="/images/icons.svg#alert" />
-			</svg>
-		</span>
-						<span class="alert_title_label">COVID-19 Updates and Closures</span>
+							<svg class="icon icon_alert">
+								<use href="/images/icons.svg#alert" />
+							</svg>
+						</span>
+						<span class="alert_title_label">{title}</span>
 					</h2>
 				</div>
 				<div class="alert_body">
 					<div class="alert_description typography">
-						<p>Etiam porta sem malesuada magna mollis euismod. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. <a href>Learn more.</a></p>
+						<p>{alert_text_block}</p>
 					</div>
 				</div>
 				<button class="js-alert-close alert_close">
@@ -934,9 +931,11 @@
 					</span>
 				</button>
 			</div>
-		</div>
-	</div>
-</div>
+		</div> {!-- /fs-cell --}
+	</div> {!-- /fs-row --}
+</div>{!-- js-alert --}
+{/if}
+{/exp:channel:entries}
 </div>
 
 	{!--	</div>
