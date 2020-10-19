@@ -58,6 +58,15 @@ switch($_SERVER['HTTP_HOST']) {
                 );
     break;
 
+    case 'newjtcc':
+        $dbConnection = array (
+            'hostname' => 'localhost',
+            'username' => 'root',
+            'password' => 'mysql',
+            'database' => 'jtcc_dev_local',
+                );
+    break;
+
     case 'dev.jtcc.edu':
         $dbConnection = array (
             'hostname' => 'localhost',
