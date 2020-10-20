@@ -847,6 +847,7 @@
 				{home_bottom_buttons}
 				<div class="flex_callout_content">
 					<ul class="flex_callout_links">
+						{if home_bottom_buttons:top_text}
 						<li class="flex_callout_item">
 							<a href="{home_bottom_buttons:top_link}" class="flex_callout_link" >
 								<span class="flex_callout_link_inner">
@@ -864,6 +865,8 @@
 								</span>
 							</a>
 						</li>
+						{/if}
+						{if home_bottom_buttons:middle_text}
 						<li class="flex_callout_item">
 							<a href="{home_bottom_buttons:middle_link}" class="flex_callout_link" >
 								<span class="flex_callout_link_inner">
@@ -879,6 +882,8 @@
 								</span>
 							</a>
 						</li>
+						{/if}
+						{if home_bottom_buttons:bottom_text}
 						<li class="flex_callout_item">
 							<a href="{home_bottom_buttons:bottom_link}" class="flex_callout_link" >
 								<span class="flex_callout_link_inner">
@@ -894,6 +899,7 @@
 								</span>
 							</a>
 						</li>
+						{/if}
 					</ul>
 				</div> {!-- / flex_callout_content --}
 				{/home_bottom_buttons}
