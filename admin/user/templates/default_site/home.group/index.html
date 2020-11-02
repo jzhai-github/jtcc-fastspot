@@ -834,30 +834,11 @@
 {exp:channel:entries channel="home_page"}
 	<div class="flex_callout">
 	{if flex_callout}
-				{flex_callout}
-				{img:url}
-		<div class="js-background flex_callout_background" data-background-options='{"source": { "1220px": "
-	{flex_callout:background_image}
-		{img:url:resize width=`1440` height=`1080`}
-	{/flex_callout:background_image}", 
-	"740px": "
-	{flex_callout:background_image}
-		{img:url:resize width=`1220` height=`523` crop=`true` scale_up=`true`}
-	{/flex_callout:background_image}", 
-	"500px": "
-	{flex_callout:background_image}
-		{img:url:resize width=`980` height=`654`}
-	{/flex_callout:background_image}", 
-	"0px": "
-	{flex_callout:background_image}
-		{img:url:resize width=`494` height=`740`}
-	{/flex_callout:background_image}", 
-	"980px": "
-	{flex_callout:background_image}
-		{img:url:resize width=`915` height=`1220`}
-	{/flex_callout:background_image}"}, "lazy": true, "alt": ""}' aria-hidden="true">
-	<div class="flex_callout_background_fallback" style="background-image: url(' {flex_callout:background_image}{img:url:resize width=`300` height=`129`}{/flex_callout:background_image}');"></div>
-</div>
+	{flex_callout}
+		
+			<img src="/images/uploads/studentscomingdowntbuildingstairs.jpg" />
+		
+
 
 	
 	<div class="fs-row">
@@ -868,9 +849,9 @@
 					<h2 class="flex_callout_title">{flex_callout:banner_text}</h2>
 					<p class="flex_callout_caption">{flex_callout:paragraph}</p>
 				</div>
+				
 				{/flex_callout}
 				{/if}
-				
 				<div class="flex_callout_content">
 					<ul class="flex_callout_links">
 						{if flex_callout_button}
