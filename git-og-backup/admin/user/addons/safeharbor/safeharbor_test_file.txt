@@ -1,5 +1,0 @@
-This file was created by Safe Harbor, an ExpressionEngine add-on for backing up websites.
-
-If you are reading this file on your webserver, someone specified it as a backup location for their website.
-
-If you have any questions or concerns, you can contact the creators of Safe Harbor at EEHarbor.com or email us at help@eeharbor.com
