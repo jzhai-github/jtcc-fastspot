@@ -2,8 +2,7 @@ module.exports = {
 	context: {
 		page: {
 			title: 'Search Results',
-			subNav: false,
-			classes: ['layout_full']
+			subNav: false
 		},
 		show_results: true,
 		search_term: 'About'
