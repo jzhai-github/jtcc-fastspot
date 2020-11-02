@@ -1,0 +1,22 @@
+{# manually #}
+
+<div>
+	<svg>
+		<use href="/images/icons.svg#alert"/>
+	</svg>
+</div>
+
+<div>
+	<svg style="fill: #f1c400;">
+		<use href="/images/icons.svg#alert"/>
+	</svg>
+</div>
+
+{# or through our helper function #}
+{#
+	this adds a class to the <svg> for sizing purposes
+#}
+
+<div>
+	{{ icon("alert") }}
+</div>
