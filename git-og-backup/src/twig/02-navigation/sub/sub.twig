@@ -1,0 +1,59 @@
+{#
+	{% include navigation("sub") with {
+		modifier: "lg",
+		title: ""
+	} %}
+#}
+
+<div class="js-sub-nav-group sub_nav_group">
+	{% render "@partial-button-toggle" with {
+		class: "sub_nav",
+		title: "Explore This Section",
+		icon: "caret_down",
+		active_title: "Close",
+		active_icon: "caret_up",
+		swap_target: ".js-sub-nav-group"
+	} %}
+
+	<nav class="js-sub-nav sub_nav{% if modifier %} sub_nav_{{ modifier }}{% endif %}" aria-labelledby="sub_nav_title{% if modifier %}_{{ modifier }}{% endif %}">
+		<div class="sub_nav_header">
+			<h2 class="sub_nav_title" id="sub_nav_title{% if modifier %}_{{ modifier }}{% endif %}">{{ title }}</h2>
+		</div>
+		<div class="js-sub-nav-body sub_nav_body">
+			<div class="js-sub-nav-body-inner sub_nav_body_inner">
+				<ul class="js-sub-nav-list sub_nav_list" aria-labelledby="sub_nav_title{% if modifier %}_{{ modifier }}{% endif %}">
+					{% for link in page.subNav %}
+						<li class="sub_nav_item">
+							<a class="sub_nav_link" href="{{ link.url ?: '#' }}">
+								<span class="sub_nav_link_label">{{ link.title ?: link }}</span>
+								<span class="sub_nav_link_icon">{{ icon("caret_right") }}</span>
+							</a>
+							{% if link.children %}
+								<ul class="sub_nav_children">
+									{% for child in link.children %}
+										<li class="sub_nav_child_item">
+											<a class="sub_nav_child_link" href="{{ child.url ?: '#' }}">
+												<span class="sub_nav_child_link_label">{{ child.title ?: child }}</span>
+											</a>
+											{% if child.children %}
+												<ul class="sub_nav_grandchildren">
+													{% for child in child.children %}
+														<li class="sub_nav_grandchild_item">
+															<a class="sub_nav_grandchild_link" href="{{ child.url ?: '#' }}">
+																<span class="sub_nav_grandchild_link_label">{{ child.title ?: child }}</span>
+															</a>
+														</li>
+													{% endfor %}
+												</ul>
+											{% endif %}
+										</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>

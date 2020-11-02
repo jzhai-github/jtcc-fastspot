@@ -1,0 +1,90 @@
+.stories {
+	overflow: hidden;
+}
+
+.stories_carousel {
+	position: relative;
+
+	margin-bottom: 25px;
+	padding-top: 45px;
+
+	@media #{$min_lg} {
+		padding-top: 0;
+	}
+
+	.fs-carousel-canister {
+		@media #{$min_md} {
+			display: flex;
+			margin: 0 -10px;
+		}
+
+		@media #{$min_xl} {
+			margin: 0 -28px;
+		}
+	}
+
+	.fs-carousel-pagination {
+		position: absolute;
+		top: 0;
+
+		opacity: 0;
+		transition: opacity 0.5s;
+
+		.visible & {
+			opacity: 1;
+		}
+	}
+}
+
+.stories_item {
+	margin-right: 20px;
+
+	@media screen and (min-width: 600px) {
+		opacity: 0;
+	}
+
+	@media #{$min_md} {
+		width: calc(33.33% - 20px);
+
+		margin: 0 10px;
+	}
+
+	@media #{$min_xl} {
+		width: calc(33.33% - 56px);
+
+		margin: 0 28px;
+	}
+
+	@for $i from 1 through 3 {
+		&:nth-child(#{$i}) {
+			@media screen and (min-width: 600px) {
+				transform: translate(0, 40px + (40px * $i));
+				transition: opacity 0.5s 0.05s * $i, transform 0.5s 0.05s * $i;
+			}
+		}
+	}
+
+	.visible & {
+		&:nth-child(n) {
+			@media screen and (min-width: 600px) {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+		}
+	}
+}
+
+.stories_discovery_link {
+	@include button_fill;
+	@include button_layout;
+
+	display: block;
+
+	@media #{$min_md} {
+		display: none;
+	}
+}
+
+.stories_discovery_link_inner {
+	justify-content: center;
+}

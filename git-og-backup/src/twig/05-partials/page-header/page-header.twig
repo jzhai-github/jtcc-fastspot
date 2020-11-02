@@ -1,0 +1,33 @@
+<div class="page_header{% if stretch %} theme_stretch{% endif %}">
+	<div class="page_header_inner">
+		<div class="page_header_body">
+			{% if breadcrumbNav != false  %}
+				<div class="breadcrumb">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="breadcrumb_inner">
+								{% render "@navigation-breadcrumb" %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+			{% if title or description %}
+				<div class="page_intro">
+					<div class="fs-row">
+						<div class="fs-cell fs-lg-10 fs-xl-9">
+							<div class="page_intro_inner">
+								{% if title %}
+									<h1 class="page_title" itemprop="name">{{ title }}</h1>
+								{% endif %}
+								{% if description %}
+									<p class="page_description" itemprop="description">{{ description }}</p>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

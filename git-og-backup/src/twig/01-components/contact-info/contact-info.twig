@@ -1,0 +1,50 @@
+<!-- Contact Info -->
+<div class="contact_block">
+	<script type="application/ld+json">
+		{
+				    "@context": "http://schema.org",
+				    "@type": "Person",
+				    "email": "mailto:{{ item.email }}",
+				    "image": "{{ item.image }}",
+				    "jobTitle": "{{ item.title }}",
+				    "name": "{{ item.name }}",
+				    "telephone": "{{ item.phone_numbers[0].number }}",
+				    "url": "#"
+				}
+	</script>
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="contact_block_inner">
+				<div class="contact">
+					<div class="contact_header">
+						<div class="contact_info">
+							<h2 class="contact_name">{{ item.name }}</h2>
+							{% if item.title %}
+								<div class="contact_title">{{ item.title }}</div>
+							{% endif %}
+						</div>
+						{% if item.image %}
+							<figure class="contact_figure">
+								{% render "@partial-image" with {
+                                    class: "contact",
+                                    alt: "",
+                                    image: item.image,
+                                    sources: [
+                                        img("square").xxsml,
+                                        img("square").thumb
+                                    ]
+                                } %}
+							</figure>
+						{% endif %}
+					</div>
+					<div class="contact_body">
+						{% render "@partial-contact-details" with {
+							item: item
+						} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Contact Info -->

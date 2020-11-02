@@ -1,0 +1,154 @@
+/* ==========================================================================
+	Entity Item
+============================================================================= */
+
+.entity {
+	position: relative;
+
+	@media #{$min_xl} {
+		display: flex;
+	}
+}
+
+.entity_header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 26px;
+
+	@media #{$min_xl} {
+		width: 52%;
+
+		display: block;
+		margin-bottom: 0;
+		padding-right: 20px;
+	}
+}
+
+.entity_info {
+}
+
+.entity_name {
+	@include h3;
+
+	margin: 0;
+}
+
+.entity_name_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.entity_title {
+	@include body_text;
+}
+
+.entity_figure {
+	width: 60px;
+
+	@media #{$min_sm} {
+		width: 100px;
+	}
+
+	@media #{$min_xl} {
+		position: absolute;
+		top: 50%;
+		right: 0;
+
+		margin-top: 8px;
+		transform: translate(0, -50%);
+	}
+}
+
+.entity_image_wrapper {
+	border-radius: 50%;
+	display: block;
+	padding-top: $square;
+}
+
+.entity_body {
+	@media #{$min_lg} {
+		width: 48%;
+	}
+
+	@media #{$min_xl} {
+		margin-top: 8px;
+		padding-right: 100px;
+	}
+}
+
+.entity_details {
+	@media #{$min_sm} {
+		display: flex;
+	}
+}
+
+.entity_detail {
+	margin-bottom: 26px;
+
+	@media #{$min_sm} {
+		width: 50%;
+
+		margin-bottom: 0;
+		padding-right: 20px;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.entity_detail_label {
+	@include label_text;
+
+	margin-bottom: 6px;
+}
+
+.entity_detail_item {
+	margin-bottom: 6px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.entity_detail_hint {
+	.entity_list & {
+		@include visually_hide;
+	}
+}
+
+.entity_detail_info {
+	display: block;
+	font-size: 15px;
+	line-height: (22 / 15);
+
+	&[href] {
+		color: $accent;
+		text-decoration: underline;
+		transition: color $base_speed;
+
+		&:hover,
+		&:focus {
+			color: #000;
+		}
+
+		&:after {
+			@media print {
+				content: normal;
+			}
+		}
+	}
+}
+
+.entity_detail_link {
+}
+
+.entity_detail_info_label {
+}

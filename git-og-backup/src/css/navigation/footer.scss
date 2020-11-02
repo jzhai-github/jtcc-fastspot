@@ -1,0 +1,86 @@
+/* ==========================================================================
+	Footer Navigation
+============================================================================= */
+
+.footer_nav {
+}
+
+.footer_nav_header {
+}
+
+.footer_nav_title {
+	@include visually_hide;
+}
+
+/* Footer Links
+============================================================================= */
+
+.footer_nav_list {
+
+	@media #{$min_xl} {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.footer_nav_item {
+
+	@media #{$min_xl} {
+		width: 50%;
+	}
+}
+
+.footer_nav_item_inner {
+}
+
+.footer_nav_link {
+	align-items: center;
+	color: inherit;
+	display: inline-flex;
+	padding: 5px 0;
+	flex-direction: row-reverse;
+	transition: color $base_speed;
+
+	@media #{$min_xl} {
+		padding: 7px 0;
+	}
+
+	&:hover,
+	&:focus {
+		color: $blush;
+	}
+}
+
+.footer_nav_link_label {
+	@include serif(300);
+
+	border-bottom: 1px solid transparent;
+	font-size: 15px;
+	line-height: (22 / 15);
+	transition: border $base_speed;
+
+	@media #{$min_lg} {
+		font-size: 16px;
+		line-height: (25 / 16);
+	}
+
+	.footer_nav_link:hover &,
+	.footer_nav_link:focus & {
+		border-bottom-color: currentColor;
+	}
+}
+
+.footer_nav_link_icon {
+	position: relative;
+	top: 1px;
+
+	color: $peach;
+	margin-left: 8px;
+	transform-origin: left center;
+	transform: scale(.75);
+
+	.footer_nav_link:hover &,
+	.footer_nav_link:focus & {
+		animation: dootdoot 1s infinite;
+	}
+}

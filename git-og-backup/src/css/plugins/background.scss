@@ -1,0 +1,17 @@
+/* ==========================================================================
+	Formstone Background
+============================================================================= */
+
+.fs-background-container {
+	opacity: 0;
+	transition: opacity 0.35s;
+
+	.fs-background-loaded & {
+		opacity: 1;
+	}
+}
+
+.fs-background-controls {
+	position: absolute;
+	z-index: 4;
+}

@@ -1,0 +1,22 @@
+/* ==========================================================================
+	WYSIWYG
+============================================================================= */
+
+.wysiwyg_block {
+	@include margined_lg;
+}
+
+.wysiwyg_block_inner {
+	max-width: $max_content_width;
+
+	margin-right: auto;
+	margin-left: auto;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
