@@ -1,4 +1,4 @@
-{layout='layouts/_about-layout'}
+{layout='layouts/_main-layout'}
 
 {!--
 	404 redirect
@@ -31,9 +31,17 @@
 		{exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 			{!-- layout vars, dynamic, not output --}
 			{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
-			{!-- Jerad testing --}
-			{layout:set name='page_description' value='{if page_feature}{page_feature}{page_feature:page_header_bg_image}{/page_feature}{/if}'}
-			{layout:set name='page_header_bg_image' value='{if page_feature}{page_feature}{page_feature:page_header_bg_image}{/page_feature}{/if}'}
+
+			{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
+
+			{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
+
+			{layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
+
+			{layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
+			{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
+			{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
+			{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
 			
 			{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
 			{!-- OpenGraph meta output --}
@@ -49,131 +57,7 @@
 		  {/if}--}
 			
 			{!-- page_content --}
-			<!-- Page Feature -->
-<div class="page_feature">
-	<div class="page_header_bg">
-		<div class="page_header_bg_inner">
-			<div class="page_header_bg_group">
-				<div class="page_header_bg_media">
-					<div class="page_header_bg_media_inner">
-						 {page_feature} 
-						<figure class="page_header_bg_figure">
-							<span class="lazy_image_wrapper page_header_bg_image_wrapper">
-								<img class="js-lazy js-lazyload page_header_bg_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='{page_feature:page_header_bg_image}{img:url:resize width="500" height="214"}{/page_feature:page_header_bg_image}' data-srcset='{page_feature:page_header_bg_image}{img:url:resize width="500" height="214"}{/page_feature:page_header_bg_image} 500w, {page_feature:page_header_bg_image}{img:url:resize width="740" height="317"}{/page_feature:page_header_bg_image} 740w, {page_feature:page_header_bg_image}{img:url:resize width="980" height="420"}{/page_feature:page_header_bg_image} 980w, {page_feature:page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_feature:page_header_bg_image} 1220w, {page_feature:page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_feature:page_header_bg_image} 1440w'  alt="">
-							</span>
-							<noscript>
-								<img class="page_header_bg_image" src='{page_feature:page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_feature:page_header_bg_image}'  srcset='{page_feature:page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_feature:page_header_bg_image} 1440w, {page_feature:page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_feature:page_header_bg_image} 1220w, {page_feature:page_header_bg_image}{img:url:resize width="980" height="420"}{/page_feature:page_header_bg_image} 980w, {page_feature:page_header_bg_image}{img:url:resize width="740" height="317"}{/page_feature:page_header_bg_image} 740w, {page_feature:page_header_bg_image}{img:url:resize width="500" height="214"}{/page_feature:page_header_bg_image} 500w' sizes="100vw"  alt=""  itemprop="primaryImageOfPage" >
-							</noscript>
-						</figure>
-						 {/page_feature} 
-					</div>
-				</div>
-				<div class="page_header_bg_content">
-					<div class="page_intro">
-						<div class="fs-row">
-							<div class="fs-cell fs-lg-10 fs-xl-9">
-								<div class="page_intro_inner">
-									{embed="common/_breadcrumbs_tyler"}
-									
-										<h1 class="page_title" itemprop="name">{title}</h1>
-										<p class="page_description" itemprop="description">{page_feature}{page_feature:page_description}{/page_feature}</p>
-									
-								</div>
-							</div>{!-- /fs-cell --}
-						</div>{!-- /fs-row --}
-					</div>{!-- /page_intro --}
-				</div>{!-- /page_header_bg_content --}
-			</div>{!-- /page_header_bg_group --}
-		</div>{!-- /page_header_bg_inner --}
-	</div>{!-- /page_header_bg_inner --}
-
-	<div class="page_nav">
-		<div class="fs-row">
-			<div class="fs-cell">
-				<div class="page_nav_inner">
-					<div class="js-sub-nav-group sub_nav_group">
-						<button class="js-sub-nav-toggle js-swap sub_nav_toggle "   data-swap-target=".js-sub-nav-group"  >
-							<span class="sub_nav_toggle_inner_default sub_nav_toggle_inner">
-								<span class="sub_nav_toggle_label_default sub_nav_toggle_label">Explore This Section</span>
-								<span class="sub_nav_toggle_icon_default sub_nav_toggle_icon" aria-hidden="true">
-									<span class="sub_nav_toggle_icon_inner_default sub_nav_toggle_icon_inner">
-										<span class="sub_nav_toggle_icon_space">&#xfeff;</span>	
-											<svg class="icon icon_caret_down">
-												<use href="/images/icons.svg#caret_down" />
-											</svg>
-									</span>
-								</span>
-							</span>
-							<span class="sub_nav_toggle_inner_active sub_nav_toggle_inner">
-								<span class="sub_nav_toggle_label_active sub_nav_toggle_label">Close</span>
-								<span class="sub_nav_toggle_icon_active sub_nav_toggle_icon" aria-hidden="true">
-									<span class="sub_nav_toggle_icon_inner_active sub_nav_toggle_icon_inner">
-										<span class="sub_nav_toggle_icon_space">&#xfeff;</span>
-											<svg class="icon icon_caret_up">
-												<use href="/images/icons.svg#caret_up" />
-											</svg>
-									</span>
-								</span>
-							</span>
-						</button>
-						<nav class="js-sub-nav sub_nav" aria-labelledby="sub_nav_title">
-							<div class="sub_nav_header">
-								<h2 class="sub_nav_title" id="sub_nav_title">Sub Nav Title</h2>
-							</div>
-							<div class="js-sub-nav-body sub_nav_body">
-								<div class="js-sub-nav-body-inner sub_nav_body_inner">
-									<ul class="js-sub-nav-list sub_nav_list" aria-labelledby="sub_nav_title">
-										<li class="sub_nav_item">
-											<a class="sub_nav_link" href="#">
-												<span class="sub_nav_link_label">Chester Campus</span>
-												<span class="sub_nav_link_icon">
-													<svg class="icon icon_caret_right">
-														<use href="/images/icons.svg#caret_right" />
-													</svg>
-												</span>
-											</a>
-										</li>
-										<li class="sub_nav_item">
-											<a class="sub_nav_link" href="#">
-												<span class="sub_nav_link_label">Midlothian Campus</span>
-												<span class="sub_nav_link_icon">
-													<svg class="icon icon_caret_right">
-														<use href="/images/icons.svg#caret_right" />
-													</svg>
-												</span>
-											</a>
-										</li>
-										<li class="sub_nav_item">
-											<a class="sub_nav_link" href="#">
-												<span class="sub_nav_link_label">Tyler a-z</span>
-												<span class="sub_nav_link_icon">
-													<svg class="icon icon_caret_right">
-														<use href="/images/icons.svg#caret_right" />
-													</svg>
-												</span>
-											</a>
-										</li>
-										<li class="sub_nav_item">
-											<a class="sub_nav_link" href="#">
-												<span class="sub_nav_link_label">Get Involved</span>
-												<span class="sub_nav_link_icon">
-													<svg class="icon icon_caret_right">
-														<use href="/images/icons.svg#caret_right" />
-													</svg>
-												</span>
-											</a>
-										</li>
-									</ul>
-								</div>{!-- /js-sub-nav-body-inner --}
-							</div>{!-- /js-sub-nav-body --}
-						</nav>{!-- /js-sub-nav --}
-					</div>{!-- /js-sub-nav-group --}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- END: Page Feature -->
+			
 
 			<!-- Full Width Callouts -->
 <div class="full_width_callouts">
