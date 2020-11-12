@@ -177,67 +177,48 @@
 {/content}
 {/main_content:topic_row}
 
-	{/main_content}
+	
 
-
+{main_content:link_group_theme_and_title}
+	{content}
 	<!-- Link Group -->
-	{!-- <div class="link_group theme_bergundy">
+	<div class='link_group {if content:link_group_theme == "burgundy"}theme_bergundy{/if}'>
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="link_group_inner">
 					<div class="link_group_header">
-						<h2 class="link_group_title">Ipsum Fermentum Tristique</h2>
+						<h2 class="link_group_title">{content:link_group_title}</h2>
 					</div>
 					<ul class="link_group_list">
+	{/content}
+{/main_content:link_group_theme_and_title}
+{main_content:link_group}
+{content}
 						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
+							<a class="link_group_link" href="{content:link}"  target="_blank"  itemprop="relatedLink">
 								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Standard Link With Title</span>
+									<span class="link_group_link_label">{content:link_label}</span>
 									<span class="link_group_link_icon">
+										{if content:link_icon == "file_link"}
+										<svg class="icon icon_file">
+											<use href="/images/icons.svg#file" />
+										</svg>
+										{if:elseif content:link_icon == "external_link"}
+											<svg class="icon icon_external">
+											<use href="/images/icons.svg#external" />
+										</svg>
+										{if:else}
 										<svg class="icon icon_caret_right">
 											<use href="/images/icons.svg#caret_right" />
 										</svg>
+										{/if}
 									</span>
 								</span>
 							</a>
 						</li>
-						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
-								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Standard Link With Title</span>
-									<span class="link_group_link_icon">
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
-								</span>
-							</a>
-						</li>
-						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
-								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Ipsum Consectetur Pharetra Purus Quam Consectetur Pharetra</span>
-									<span class="link_group_link_icon">
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
-								</span>
-							</a>
-						</li>
-						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
-								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Standard Link With Title</span>
-										<span class="link_group_link_icon">
-											<svg class="icon icon_caret_right">
-												<use href="/images/icons.svg#caret_right" />
-											</svg>
-										</span>
-								</span>
-							</a>
-						</li>
-						<li class="link_group_item">
+						{/content}
+						{/main_content:link_group}
+						{!-- <li class="link_group_item">
 							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
 								<span class="link_group_link_inner">
 									<span class="link_group_link_label">External Link With Title</span>
@@ -260,39 +241,21 @@
 									</span>
 								</span>
 							</a>
-						</li>
-						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
-								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Standard Link With Title</span>
-									<span class="link_group_link_icon">
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
-								</span>
-							</a>
-						</li>
-						<li class="link_group_item">
-							<a class="link_group_link" href="#"  target="_blank"  itemprop="relatedLink">
-								<span class="link_group_link_inner">
-									<span class="link_group_link_label">Standard Link With Title</span>
-									<span class="link_group_link_icon">
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
-								</span>
-							</a>
-						</li>
+						</li> --}
+	{main_content:link_group}
+		{content}
+		{if content:count == 1}
 					</ul>
 				</div>
 			</div>
 		</div>
-	</div> --}
+	</div>
 	<!-- END: Link Group -->
+	{/if}
+	{/content}
+	{/main_content:link_group}
 	
-
+{/main_content}
 		
 
 			{!--
