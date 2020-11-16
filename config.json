@@ -5,7 +5,7 @@
 		"name": "JTCC",
 		"description": "John Tyler Community College",
 		"images": "jtcc",
-		"domain": "jtcc.fastspot.com/site",
+		"domain": "dev.jtcc.edu",
 		"schema_type": "Organization",
 		"twitter": "TwitterName",
 		"cse_key": "011737558837375720776:mbfrjmyam1g",

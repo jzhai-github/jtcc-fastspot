@@ -528,8 +528,8 @@
 	<meta itemprop="url" content="http://">
 	{!--<form class="site_search_form" action="/static-html/templates/page-search.html" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
 		<meta itemprop="target" content="http:///static-html/templates/page-search.html?q={q}">--}
-		<form class="site_search_form" action="/index.php/search/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
-		<meta itemprop="target" content="/index.php/search/?q={q}">
+		<form class="site_search_form" action="/search/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+		<meta itemprop="target" content="/search/?q={q}">
 		<label class="js-site-search-label site_search_label" for="search_string__header">Search</label>
 		<div class="site_search_field">
 			<input class="js-site-search-input site_search_input" itemprop="query-input" type="search" id="search_string__header" name="q"  placeholder="Search by keyword"  required>
@@ -1240,8 +1240,10 @@
 </nav>
 					<div class="js-site-search site_search site_search_menu" id="site_search_menu" role="search" itemscope itemtype="https://schema.org/WebSite" aria-label="Site Search">
 	<meta itemprop="url" content="http://">
-	<form class="site_search_form" action="/static-html/templates/page-search.html" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
-		<meta itemprop="target" content="http:///static-html/templates/page-search.html?q={q}">
+	<!--<form class="site_search_form" action="/static-html/templates/page-search.html" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+		<meta itemprop="target" content="http:///static-html/templates/page-search.html?q={q}">-->
+		<form class="site_search_form" action="/search/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
+		<meta itemprop="target" content="/search/?q={q}">
 		<label class="js-site-search-label site_search_label" for="search_string__menu">Search</label>
 		<div class="site_search_field">
 			<input class="js-site-search-input site_search_input" itemprop="query-input" type="search" id="search_string__menu" name="q"  placeholder="Search by keyword"  required>

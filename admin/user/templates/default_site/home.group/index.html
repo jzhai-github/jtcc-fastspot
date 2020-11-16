@@ -885,40 +885,7 @@
 	</div>
 	{/exp:channel:entries}
 </div>
-	{exp:channel:entries channel="alert" limit="1" disable="categories|category_fields|member_data|pagination" dynamic="no"}
-		{if alert_text_block}
-	<div class="js-alert alert" id="alert" role="alert" data-time="2019-10-18 14:52:4" aria-labelledby="alert_title" tabindex="-1">
-	<div class="fs-row">
-		<div class="fs-cell">
-
-			<div class="alert_inner">
-				<div class="alert_header">
-					<h2 class="alert_title" id="alert_title">
-						<span class="alert_title_icon">
-							<svg class="icon icon_alert">
-								<use href="/images/icons.svg#alert" />
-							</svg>
-						</span>
-						<span class="alert_title_label">{title}</span>
-					</h2>
-				</div>
-				<div class="alert_body">
-					<div class="alert_description typography">
-						<p>{alert_text_block}</p>
-					</div>
-				</div>
-				<button class="js-alert-close alert_close">
-					<span class="alert_close_inner">
-						<span class="alert_close_icon" aria-hidden="true"></span>
-						<span class="alert_close_label">Close site alert</span>
-					</span>
-				</button>
-			</div>
-		</div> {!-- /fs-cell --}
-	</div> {!-- /fs-row --}
-</div>{!-- js-alert --}
-{/if}
-{/exp:channel:entries}
+	{snp_alert}
 </div>
 
 	{!--	</div>
