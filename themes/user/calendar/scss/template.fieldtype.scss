@@ -1,0 +1,372 @@
+@import "framework/mixins";
+@import "framework/colors";
+@import "framework/grid";
+
+$sectionDistance: 10px;
+
+
+.target-date-wrapper {
+  width: 250px;
+  height: 45px;
+
+  &.no-time {
+    width: 156px;
+  }
+}
+
+.calendarFieldType {
+  label.choice {
+    margin-right: 5px !important;
+  }
+
+  .calendarDate {
+    background-position-y: 10px;
+  }
+
+  .calendarTime {
+    width: 90px !important;
+  }
+
+  ul.calendarRecurrence {
+    width: 85%;
+    margin-left: 15% !important;
+
+    > li {
+      background: $recurrence-background !important;
+      padding: 20px !important;
+      @include border-radius;
+
+      input.calendarInterval {
+        width: 40px !important;
+        margin: 0 10px !important;
+        display: inline-block !important;
+      }
+    }
+  }
+
+  label.choice {
+    &.chosen {
+      background: #edfee1 !important;
+      border-color: #61d60a !important;
+    }
+  }
+
+  .calendarYearlyDaySelector,
+  .calendarYearlyMonthSelector,
+  .calendarMonthlyOption {
+    margin: 10px 0 0 !important;
+  }
+
+  .calendarMonthlyOption,
+  .calendarYearlyDaySelector {
+    > label {
+      width: 36px;
+      padding: 7px 0 !important;
+      @include box-sizing;
+
+      text-align: center;
+    }
+  }
+}
+
+.calendarExceptSection {
+  ul.exclusion-list {
+    margin: 15px 0 0 !important;
+    display: block;
+
+    @include border-radius;
+    background: $recurrence-background !important;
+
+    li {
+      position: relative;
+      display: block;
+
+      padding: 8px 35px !important;
+
+      font-size: 12px !important;
+
+      a.close-button {
+        position: absolute !important;
+        left: 9px !important;
+        top: 4.5px !important;
+
+        display: block !important;
+        padding: 1px 4px !important;
+        cursor: pointer;
+
+        color: #bc4848 !important;
+        background-color: #fff !important;
+        border: 1px solid #cdcdcd !important;
+        border-bottom: none !important;
+        @include border-radius;
+        @include box-shadow(0 1px 0 0 rgba(0, 0, 0, 0.5));
+
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        text-decoration: none;
+        font-family: 'Glyphicons Halflings' !important;
+
+        &:before {
+          content: "\e014";
+        }
+      }
+    }
+  }
+}
+
+
+.calendarDatesSection {
+  ul.dates-list {
+    margin: 15px 0 0 !important;
+    display: block;
+
+    @include border-radius;
+    background: $recurrence-background !important;
+
+    li {
+      position: relative;
+      display: block;
+
+      padding: 8px 35px !important;
+
+      font-size: 12px !important;
+
+      a.close-button {
+        position: absolute !important;
+        left: 9px !important;
+        top: 4.5px !important;
+
+        display: block !important;
+        padding: 1px 4px !important;
+        cursor: pointer;
+
+        color: #bc4848 !important;
+        background-color: #fff !important;
+        border: 1px solid #cdcdcd !important;
+        border-bottom: none !important;
+        @include border-radius;
+        @include box-shadow(0 1px 0 0 rgba(0, 0, 0, 0.5));
+
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        text-decoration: none;
+        font-family: 'Glyphicons Halflings' !important;
+
+        &:before {
+          content: "\e014";
+        }
+      }
+    }
+  }
+}
+
+.ui-timepicker-wrapper {
+  @include border-radius;
+}
+
+#ui-datepicker-div {
+  table {
+    border: 1px solid #cdcdcd;
+    margin-bottom: 10px;
+
+    @include box-sizing;
+    @include border-radius;
+    @include box-shadow(0 2px 0 0 rgba(0,0,0,0.05));
+
+
+    //tr:first-child th:first-child {
+    //  @include border-radius(5px 0 0);
+    //}
+    //
+    //tr:first-child th:last-child {
+    //  @include border-radius(0 5px 0 0);
+    //}
+
+    tbody tr:nth-child(2n) td {
+      background-color: #f9f9f9
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0
+    }
+
+    tbody tr:last-child td .light td {
+      border-bottom: 1px solid #e6e6e6
+    }
+
+    tbody tr:last-child td .light tbody tr:last-child td {
+      border-bottom: 0
+    }
+
+    tbody tr:last-child td:first-child {
+      @include border-radius(0 0 5px);
+    }
+
+    tbody tr:last-child td:last-child {
+      @include border-radius(0 0 5px);
+    }
+
+    tbody tr.last td {
+      border-bottom: 0
+    }
+
+    tbody tr:hover td {
+      background-color: #f2fbff
+    }
+
+    tbody tr:hover td .meta-info {
+      color: gray
+    }
+
+    th {
+      padding: 10px;
+      white-space: nowrap
+    }
+
+    th {
+      background-color: #e6e6e6;
+      border-bottom: 1px solid #cdcdcd;
+      position: relative;
+      z-index: 1;
+      -moz-box-shadow: 0 2px 0 0 rgba(0, 0, 0, .03), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+      -webkit-box-shadow: 0 2px 0 0 rgba(0, 0, 0, .03), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+      box-shadow: 0 2px 0 0 rgba(0, 0, 0, .03), 0 2px 0 0 rgba(255, 255, 255, .7) inset
+    }
+
+    td {
+      border-bottom: 1px solid #e6e6e6
+    }
+
+  }
+}
+
+
+.ui-widget-content {
+  background: white;
+  border: 1px solid $border-color;
+  padding: 10px;
+
+  font-size: 12px;
+
+  .ui-datepicker-header {
+    position: relative;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      position: absolute;
+      top: 5px;
+
+      cursor: pointer;
+    }
+
+    .ui-datepicker-prev {
+      left: 0;
+    }
+
+    .ui-datepicker-next {
+      right: 0;
+    }
+  }
+
+  .ui-datepicker-title {
+    padding: 5px 0;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .ui-datepicker-today {
+    background-color: rgba(#fffd00, .2);
+  }
+
+  .ui-datepicker-current-day {
+    background-color: #1f80bd;
+
+    > a {
+      color: #FFFFFF;
+    }
+  }
+
+  .ui-datepicker-calendar {
+    > tbody {
+      > tr {
+        > td {
+          padding: 6px;
+          border-right: 1px solid $border-color;
+
+          text-align: center;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          &.ui-state-disabled {
+            background: #f3f3f3;
+          }
+        }
+      }
+    }
+  }
+}
+
+label.calendarLabel {
+  //float: left;
+  //width: $left-column-width;
+
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.calendarRepeatDropdown {
+  margin-top: 7px !important;
+}
+
+.calendarIntervalWrapper {
+  float: left;
+  margin-bottom: $sectionDistance;
+
+  > input {
+    width: 40px !important;
+    margin: 0 10px !important;
+  }
+}
+
+.toggle-btn {
+  background-color: #b8b8b8 !important;
+  border: 1px solid #b8b8b8 !important;
+  display: inline-block !important;
+  margin-bottom: 0 !important;
+  padding: 5px 7px !important;
+  position: relative !important;
+  text-decoration: none !important;
+  @include border-radius(20px);
+  @include transition(all .5s linear);
+
+  .slider {
+    background-color: #fff !important;
+    padding: 10px !important;
+    position: absolute !important;
+    top: 3px !important;
+    @include border-radius(50px);
+    @include transition(left .2s ease);
+  }
+
+  .option {
+    padding: 10px 17px !important;
+  }
+
+  &.off .slider {
+    left: 4px !important;
+  }
+
+  &.on {
+    background-color: #22a456 !important;
+    border-color: #22a456 !important;
+
+    .slider {
+      left: 24px
+    }
+  }
+}
