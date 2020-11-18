@@ -1,0 +1,20 @@
+										<div class="btn-group">
+											<button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<strong>{embed:date}</strong> <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu">
+											{exp:calendar:month_list
+												date_range_start="6 months ago"
+												date_range_end="7 months"
+												limit="13"
+											}
+												{if calendar:current_month}
+													<li role="separator" class="divider"></li>
+												{/if}
+												<li><a href="{path='calendar_main/month'}/{calendar:date format='%Y/%m'}/">{calendar:date format="%F %Y"}</a></li>
+												{if calendar:current_month}
+													<li role="separator" class="divider"></li>
+												{/if}
+											{/exp:calendar:month_list}
+											</ul>
+										</div>

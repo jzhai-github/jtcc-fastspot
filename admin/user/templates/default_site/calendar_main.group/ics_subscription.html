@@ -1,0 +1,10 @@
+{exp:calendar:ics_subscription
+	{if segment_3 == "category"}
+		category="{segment_4}"
+		hash="{segment_5}"
+	{if:else}
+		hash="{segment_3}"
+	{/if}
+	date_range_start="1 year ago"
+	date_range_end="5 years"
+}

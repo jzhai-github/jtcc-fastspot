@@ -1,0 +1,14 @@
+							{exp:calendar:events
+								calendar_id="{embed:calendar_id}"
+								date_range_start="today"
+								date_range_end="6 months"
+								limit="{embed:limit}"
+							}
+								<li>
+									<a href="{path='calendar_main/event'}/{calendar:entry_id}/">{calendar:title}</a>
+									&nbsp; <small><i>{calendar:event_start_date format="%F %j, %Y"}</i></small>
+								</li>
+							{if calendar:no_results}
+								<li>No events could be found within the specified time range (today until 6 months from today) for this Calendar.</li>
+							{/if}
+							{/exp:calendar:events}

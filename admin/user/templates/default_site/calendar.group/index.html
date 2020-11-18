@@ -1,0 +1,90 @@
+{layout='layouts/_main-layout'}
+
+{preload_replace:p_title='Calendar'}
+{layout:set name='title' value='{p_title}'}
+
+<div class="fs-row">
+	<div class="fs-cell typography">
+		<div id="week_calendar">
+			{exp:calendar:week
+				{if segment_3 == ""} {!-- Is this a regular view in current week? --}
+					date_range_start="today"
+				{if:else} {!-- Or is this a regular view in a week other than current? --}
+					date_range_start="{segment_3}-{segment_4}-{segment_5}"
+				{/if}
+			}
+				<div class="clearfix">
+					<div class="left">
+						<ul class="pager">
+							<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">&larr; Last Week</a></li>
+						</ul>
+					</div>
+					<div class="center">
+						<h2>
+							Week of {calendar:week_date format="%F %j, %Y"} &nbsp;
+							<span class="label {if calendar:week_total_events == '0'}label-default{if:else}label-warning{/if}">
+								{calendar:week_total_events} event{if calendar:week_total_events > "1" OR calendar:week_total_events == "0"}s{/if}
+							</span>
+						</h2>
+					</div>
+					<div class="right">
+						<ul class="pager">
+							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week &rarr;</a></li>
+						</ul>
+					</div>
+				</div>
+				{calendar:days}
+				<div class="panel {if calendar:current_day}panel-warning{if:else}panel-default{/if}">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<a href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:day_date format='%Y/%m/%d'}/">
+								{if calendar:current_day}
+									TODAY
+								{if:else}
+									{calendar:day_date format="%l, %F %j, %Y"}
+								{/if}
+							</a> &nbsp;
+						{if calendar:day_total_events}
+							<span class="label label-warning">
+								{calendar:day_total_events} event{if calendar:day_total_events > "1" OR calendar:day_total_events == "0"}s{/if}
+							</span>
+						{/if}
+						</h3>
+					</div>
+					<div class="panel-body">
+					{if calendar:day_total_events == "0"}
+						<p>No events for this day.</p>
+					{/if}
+					{calendar:events}
+						{if calendar:event_count == "1"}<ul class="list-group">{/if}
+							<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
+								<a href="{path='calendar_main/calendars'}/{calendar:calendar_short_name}/" class="badge" style="background-color: {calendar:calendar_color};">{calendar:calendar_name}</a>
+								<span class="glyphicon glyphicon-time"></span>
+								{if calendar:event_all_day}
+									All Day
+								{if:else}
+									{if calendar:event_multi_day} {!-- Special handling for non all-day multi-day events --}
+										{if calendar:event_first_day}
+											Starts {calendar:event_start_date format="%g:%i%a"}
+										{if:elseif calendar:event_last_day}
+											Ends {calendar:event_end_date format="%g:%i%a"}
+										{if:else}
+											All Day
+										{/if} 
+									{if:else}
+										{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+									{/if}
+								{/if} &nbsp;
+								<b><a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a></b>
+								{if calendar:event_location}&nbsp; <i>{calendar:event_location}</i>{/if}
+							</li>
+						{if calendar:event_count == calendar:event_total_results}</ul>{/if}
+					{/calendar:events}
+					</div>
+				</div>
+				{/calendar:days}
+			{/exp:calendar:week}
+			</div>{!-- /week_calendar --}
+
+		</div>{!-- /col-md-9 --}
+	</div>{!-- /row --}

@@ -1,0 +1,204 @@
+{embed="calendar_inc/index" page_title="Month View"}
+	</head>
+
+	<body role="document">
+
+{embed="calendar_inc/header" page="month"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Month View</h1>
+				<p class="lead">Below is full month calendar view, which allows you to see all your event occurrences.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+			{if segment_3 == "by_calendar"}
+				{exp:calendar:calendars
+					calendar_short_name="{segment_4}"
+				}
+					<div class="alert" role="alert" style="background-color: {calendar:color_light}; border-color: {calendar:color};">
+						<p class="lead" style="color: {calendar:text_color} !important;">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
+							Events for <strong>{calendar:name}</strong> calendar
+						</p>
+					</div>
+				{/exp:calendar:calendars}
+			{/if}
+
+					<div id="month_calendar">
+					{exp:calendar:month
+						{if segment_3 == "by_calendar"} {!-- Are we filtering by Calendar? --}
+							calendar_short_name="{segment_4}"
+							{if segment_5} {!-- Are we in a month other than current? --}
+								date_range_start="{segment_5}-{segment_6}-01"
+							{if:else} {!-- Or is this current month? --}
+								date_range_start="today"
+							{/if}
+						{if:elseif segment_3 == ""} {!-- Is this a regular view in current month? --}
+							date_range_start="today"
+						{if:else} {!-- Or is this a regular view in a month other than current? --}
+							date_range_start="{segment_3}-{segment_4}-01"
+						{/if}
+					}
+						<table id="month_calendar_outer">
+							<thead>
+								<tr id="month_year">
+									<th class="left">
+										<ul class="pager">
+											<li><a href="{path='calendar_main/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:previous_month format='%Y/%m'}/">&larr; {calendar:previous_month format="%F"}</a></li>
+										</ul>
+									</th>
+									<th class="center" colspan="3">
+										<h3>
+											{embed="calendar_inc/month_heading" date="{calendar:month_date format='%F %Y'}"} &nbsp;
+											<span class="label {if calendar:month_total_events == '0'}label-default{if:else}label-warning{/if}">
+												{calendar:month_total_events} event{if calendar:month_total_events > "1" OR calendar:month_total_events == "0"}s{/if}
+											</span>
+										</h3>
+									</th>
+									<th class="right">
+										<ul class="pager">
+											<li><a href="{path='calendar_main/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_month format='%Y/%m'}/">{calendar:next_month format="%F"} &rarr;</a></li>
+										</ul>
+									</th>
+								</tr>
+								<tr>
+									<td colspan="5">
+										<table id="month_calendar_inner" class="table table-bordered">
+											<thead>
+												<tr id="days_of_week" class="active">
+												{calendar:days_of_week}
+													<th class="day_of_week">{calendar:day_of_week_full}</th>
+												{/calendar:days_of_week}
+												</tr>
+											</thead>
+											<tbody>
+											{calendar:weeks}
+												<tr>
+												{calendar:days}
+													{if calendar:day_in_current_month}
+														<td class="day_cell{if calendar:current_day} today{/if}">
+															<div class="date{if calendar:day_total_events != '0'} has_events{/if}">
+																<a class="num" href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:day_date format='%Y/%m/%d'}/">{calendar:day_date format="%j"}</a>
+															</div>
+													{if:else}
+														<td class="day_cell out_of_range">
+															<div class="date">
+																<span class="num">{calendar:day_date format="%j"}</span>
+															</div>
+													{/if}
+														{calendar:events}
+															<div class="event tips
+																	{if calendar:event_all_day}all_day{/if} 
+																	{if calendar:event_multi_day}
+																		multi_day
+																		{if calendar:event_first_day}first_day{/if} 
+																		{if calendar:event_last_day}last_day{/if}
+																	{/if} 
+																"
+																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it's all/multi-day --}
+																	style="background-color: {calendar:calendar_color_light} !important; border-color: {calendar:calendar_color} !important;"
+																{/if}
+																data-toggle="popover"
+																data-placement="bottom"
+																title="
+																	{calendar:title} &nbsp; 
+																	<span class='event_time'>
+																		<span class='glyphicon glyphicon-time'></span>
+																	{if calendar:event_all_day}
+																		All Day
+																		{if calendar:event_duration_days > '1'}
+																			({calendar:event_duration_days} days)
+																		{/if}
+																	{if:else}
+																		{if calendar:event_multi_day} {!-- Special handling for Multi-day events --}
+																			{if calendar:event_first_day}
+																				Starts {calendar:event_start_date format='%g:%i%a'}
+																			{if:elseif calendar:event_last_day}
+																				Ends {calendar:event_end_date format='%g:%i%a'}
+																			{if:else}
+																				All Day
+																			{/if}
+																			({calendar:event_duration_days} days)
+																		{if:else}
+																			{calendar:event_start_date format='%g:%i%a'} - {calendar:event_end_date format='%g:%i%a'}
+																			&nbsp;({if calendar:event_duration_hours}{calendar:event_duration_hours}h{/if}{if calendar:event_duration_hours AND calendar:event_duration_minutes} {/if}{if calendar:event_duration_minutes}{calendar:event_duration_minutes}m{/if})
+																		{/if}
+																	{/if}
+																	</span>
+																"
+																data-content="
+																	<span class='glyphicon glyphicon-calendar' style='color: {calendar:calendar_color};'></span>
+																	<span style='color: {calendar:calendar_color};'>{calendar:calendar_name}</span><hr />
+																	{if calendar:event_all_day} {!-- Is this an All Day event? --}
+																		{if calendar:event_multi_day} {!-- Is this a Multi-Day event also? --}
+																			<b>Starts</b> {calendar:event_start_date format="%F %j, %Y"}<br />
+																			<b>Ends</b> {calendar:event_end_date format="%F %j, %Y"}
+																		{if:else}
+																			{calendar:event_start_date format="%F %j, %Y"} (All Day)
+																		{/if}
+																	{if:else} {!-- Or is this just a regular event? --}
+																		<b>Starts</b> {calendar:event_start_date format="%F %j, %Y at %g:%i%a"}<br />
+																		<b>Ends</b> {calendar:event_end_date format="%F %j, %Y at %g:%i%a"}
+																	{/if}
+																	{if calendar:event_recurs}
+																		<hr /><span class='glyphicon glyphicon-repeat'></span>&nbsp; Repeats {calendar:event_recurrence_rule}
+																	{/if}
+																">
+																{if calendar:event_multi_day} 
+
+																	<a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" style="color: {calendar:calendar_text_color} !important;">
+																		{if calendar:event_first_day OR calendar:event_last_day}
+																			{calendar:title}
+																		{if:else}
+																			&nbsp;
+																		{/if}
+																	</a>
+																{if:else}
+																	{if calendar:event_all_day == ""}
+																		<span class="calendar-color"{if calendar:calendar_color} style="background-color: {calendar:calendar_color};"{/if}></span>
+																	{/if}
+																	<a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}"{if calendar:event_all_day} style="color: {calendar:calendar_text_color};"{/if}>{calendar:title}</a>
+																{/if}
+															</div>
+														{/calendar:events}
+														</td>
+												{/calendar:days}
+												</tr>
+											{/calendar:weeks}
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					{/exp:calendar:month}
+					</div>
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="calendar_inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Month" page is meant to show a typical Calendar month view of all events that fall within the selected month. Additionally, this page is set to allow filtering down to a specific Calendar (if you've come to this page from the Calendars page).</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a month view of events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month-list.html">Calendar:Month_List</a> to display a list of months.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="calendar_inc/footer"}
