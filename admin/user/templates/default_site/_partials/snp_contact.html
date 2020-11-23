@@ -1,4 +1,3 @@
-
 {if has_categories}
 {categories}
 <div class="entity_meta theme_navy" id="meta" data-type="entity" data-category="">
@@ -73,14 +72,14 @@
 							</div>
 						</div>
 						{/if}
-						{if facebook_url || twitter_url}
+						{if chester_facebook_url || chester_instagram_url}
 						<div class="contact_detail">			
 							<div class="contact_detail_label">Social Media</div>
 							<ul class="contact_socials" aria-label="Social Links for ">
 							{/if}
-							{if facebook_url}
+							{if chester_facebook_url}
 							<li class="contact_social">
-								<a class="contact_social_link" href="{facebook_url}" aria-label=" Facebook" itemprop="sameAs">
+								<a class="contact_social_link" href="{chester_facebook_url}" aria-label=" Facebook" itemprop="sameAs">
 									<span class="contact_social_link_label">Facebook</span>
 									<span class="contact_social_link_icon">
 										<svg class="icon icon_caret_right">
@@ -90,10 +89,10 @@
 								</a>
 							</li>
 							{/if}
-							{if twitter_url}
+							{if chester_instagram_url}
 							<li class="contact_social">
-								<a class="contact_social_link" href="{twitter_url}" aria-label=" Twitter" itemprop="sameAs">
-									<span class="contact_social_link_label">Twitter</span>
+								<a class="contact_social_link" href="{chester_instagram_url}" aria-label="Instagram" itemprop="sameAs">
+									<span class="contact_social_link_label">Instagram</span>
 									<span class="contact_social_link_icon">
 										<svg class="icon icon_caret_right">
 											<use href="/images/icons.svg#caret_right" />
@@ -102,14 +101,14 @@
 								</a>
 							</li>
 							{/if}
-						{if facebook_url || twitter_url}</ul>
+						{if chester_facebook_url || chester_instagram_url}</ul>
 						</div>{!-- /contact_detail --}
 						{/if}
 					</div>{!-- /contact_details --}
 					<!-- END: Contact Details -->
 				</div>{!-- /contact_details_wrapper --}
 				{/if}
-				{if midlothian_phone || midlothian_email || midlothian_location}
+			{if midlothian_phone || midlothian_email || midlothian_location}
 				<!-- Contact Details -->
 				<div class="contact_details_wrapper">
 					<h3 class="contact_details_title">Midlothian Campus</h3>
@@ -159,13 +158,45 @@
 									</div>
 							</div>{!-- /contact_detail --}
 							{/if}
+							{if midlothian_facebook_url || midlothian_instagram_url}
+						<div class="contact_detail">			
+							<div class="contact_detail_label">Social Media</div>
+							<ul class="contact_socials" aria-label="Social Links for ">
+							{/if}
+							{if midlothian_facebook_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{midlothian_facebook_url}" aria-label=" Facebook" itemprop="sameAs">
+									<span class="contact_social_link_label">Facebook</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+							{if midlothian_instagram_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{midlothian_instagram_url}" aria-label="Instagram" itemprop="sameAs">
+									<span class="contact_social_link_label">Instagram</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+						{if midlothian_facebook_url || midlothian_instagram_url}</ul>
 						</div>{!-- /contact_details --}
+						{/if}
+					</div>{!-- /contact_details --}
 					<!-- END: Contact Details -->
 					</div>{!-- /contact_details_wrapper --}
-					{/if}
+				{/if}
 				</div>
 			</div>
 		</div>
 	</div>
 	{/categories}
-	{/if}	
+{/if}	
