@@ -4,7 +4,7 @@
 {layout:set name='title' value='{p_title}'}
 
 <div class="fs-row">
-	<div class="fs-cell typography">
+	<div class="fs-cell fs-md-9 fs-lg-6 typography">
 		<div id="week_calendar">
 			{exp:calendar:week
 				{if segment_3 == ""} {!-- Is this a regular view in current week? --}
@@ -84,7 +84,9 @@
 				</div>
 				{/calendar:days}
 			{/exp:calendar:week}
-			</div>{!-- /week_calendar --}
-
-		</div>{!-- /col-md-9 --}
-	</div>{!-- /row --}
+		</div>{!-- /week_calendar --}
+	</div>{!-- /fs-md --}
+	<div class="fs-cell fs-md-3 fs-lg-6 typography">
+		Test 3 column
+	</div>
+</div>{!-- / --}
