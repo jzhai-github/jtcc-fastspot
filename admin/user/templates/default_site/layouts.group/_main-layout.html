@@ -1,6 +1,5 @@
 {layout='layouts/_main-wrapper'}
 
-
 			<!-- Page Feature -->
 			
 <div class="page_feature">
@@ -26,6 +25,7 @@
 						<div class="fs-row">
 							<div class="fs-cell fs-lg-10 fs-xl-9">
 								<div class="page_intro_inner">
+									
 									{embed="common/_breadcrumbs_tyler"}
 									
 										<h1 class="page_title" itemprop="name">{layout:title}</h1>
@@ -105,46 +105,18 @@
 		<div class="js-sub-nav-body sub_nav_body">
 			<div class="js-sub-nav-body-inner sub_nav_body_inner">
 				<ul class="js-sub-nav-list sub_nav_list" aria-labelledby="sub_nav_title">
-											<li class="sub_nav_item">
-							<a class="sub_nav_link" href="#">
-								<span class="sub_nav_link_label">Chester Campus</span>
-								<span class="sub_nav_link_icon">
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		</span>
-							</a>
-													</li>
-											<li class="sub_nav_item">
-							<a class="sub_nav_link" href="#">
-								<span class="sub_nav_link_label">Midlothian Campus</span>
-								<span class="sub_nav_link_icon">
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		</span>
-							</a>
-													</li>
-											<li class="sub_nav_item">
-							<a class="sub_nav_link" href="#">
-								<span class="sub_nav_link_label">Tyler a-z</span>
-								<span class="sub_nav_link_icon">
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		</span>
-							</a>
-													</li>
-											<li class="sub_nav_item">
-							<a class="sub_nav_link" href="#">
-								<span class="sub_nav_link_label">Get Involved</span>
-								<span class="sub_nav_link_icon">
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		</span>
-							</a>
-													</li>
+					{exp:channel:entries channel="{layout:ch}" dynamic="no"}
+					<li class="sub_nav_item">
+						<a class="sub_nav_link" href="{page_url}">
+							<span class="sub_nav_link_label">{title}</span>
+							<span class="sub_nav_link_icon">
+							<svg class="icon icon_caret_right">
+								<use href="/images/icons.svg#caret_right" />
+							</svg>
+						</span>
+						</a>
+					</li>
+					{/exp:channel:entries}
 									</ul>
 			</div>
 		</div>

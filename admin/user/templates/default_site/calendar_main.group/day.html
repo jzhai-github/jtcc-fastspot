@@ -1,0 +1,150 @@
+{embed="calendar_inc/index" page_title="Day View"}
+	</head>
+
+	<body role="document">
+
+{embed="calendar_inc/header" page="day"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Day View</h1>
+				<p class="lead">Below is full day calendar view, which allows you to see all your event occurrences by the hour.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+			{if segment_3 == "by_calendar"}
+				{exp:calendar:calendars
+					calendar_short_name="{segment_4}"
+				}
+					<div class="alert" role="alert" style="background-color: {calendar:color_light}; border-color: {calendar:color};">
+						<p class="lead" style="color: {calendar:text_color} !important;">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
+							Events for <strong>{calendar:name}</strong> calendar
+						</p>
+					</div>
+				{/exp:calendar:calendars}
+			{/if}
+
+					<div id="day_calendar">
+					{exp:calendar:day
+						{if segment_3 == "by_calendar"} {!-- Are we filtering by Calendar? --}
+							calendar_short_name="{segment_4}"
+							{if segment_5} {!-- Are we in a day other than today? --}
+								date_range_start="{segment_5}-{segment_6}-{segment_7}"
+							{if:else} {!-- Or is this today? --}
+								date_range_start="today"
+							{/if}
+						{if:elseif segment_3 == ""} {!-- Is this a regular view for today? --}
+							date_range_start="today"
+						{if:else} {!-- Or is this a regular view in a day other than today? --}
+							date_range_start="{segment_3}-{segment_4}-{segment_5}"
+						{/if}
+					}
+						<div class="header clearfix">
+							<div class="left">
+								<ul class="pager">
+									<li><a href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:previous_day format='%Y/%m/%d'}/">&larr; Previous</a></li>
+								</ul>
+							</div>
+							<div class="center">
+								<h3>
+									{calendar:day_date format="%l, %F %j, %Y"} &nbsp;
+									<span class="label {if calendar:day_total_events == '0'}label-default{if:else}label-warning{/if}">
+										{calendar:day_total_events} event{if calendar:day_total_events > "1" OR calendar:day_total_events == "0"}s{/if}
+									</span>
+								</h3>
+							</div>
+							<div class="right">
+								<ul class="pager">
+									<li><a href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_day format='%Y/%m/%d'}/">Next &rarr;</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table">
+							{calendar:all_day_events}
+								<tr>
+									<td>
+									{if calendar:all_day_total_events}
+										<strong>All Day</strong>
+										<span class="label pull-right label-warning">
+											{calendar:all_day_total_events}
+										</span>
+									{if:else}
+										All Day
+									{/if}
+									</td>
+									<td>
+									{calendar:events}
+										{if calendar:event_count == "1"}<ul class="list-group">{/if}
+											<li class="list-group-item" style="background-color: {calendar:calendar_color_light}; border-left: 5px solid {calendar:calendar_color};">
+												<a href="{path='calendar_main/calendars'}/{calendar:calendar_short_name}/" class="badge" style="background-color: {calendar:calendar_color};">{calendar:calendar_name}</a>
+												<b><a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" style="color: {calendar:calendar_text_color} !important;">{calendar:title}</a></b>
+												{if calendar:event_location}&nbsp; <i>{calendar:event_location}</i>{/if}
+											</li>
+										{if calendar:event_count == calendar:event_total_results}</ul>{/if}
+									{/calendar:events}
+									</td>
+								</tr>
+							{/calendar:all_day_events}
+							{calendar:hours}
+								<tr>
+									<td>
+										{if calendar:hour_total_events}
+											<strong>{calendar:hour_date format="%g %a"}</strong>
+											<span class="label pull-right label-warning">
+												{calendar:hour_total_events}
+											</span>
+										{if:else}
+											{calendar:hour_date format="%g %a"}
+										{/if}
+									</td>
+									<td>
+									{calendar:events}
+										{if calendar:event_count == "1"}<ul class="list-group">{/if}
+											<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
+												<a href="{path='calendar_main/calendars'}/{calendar:calendar_short_name}/" class="badge" style="background-color: {calendar:calendar_color};">{calendar:calendar_name}</a>
+												<span class="glyphicon glyphicon-time"></span>
+												{if calendar:event_multi_day} {!-- Special handling for non all-day multi-day events --}
+													Starts {calendar:event_start_date format="%g:%i%a"} ({calendar:event_duration_days} days)
+												{if:else}
+													{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+												{/if} &nbsp;
+												<b><a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a></b>
+												{if calendar:event_location}&nbsp; <i>{calendar:event_location}</i>{/if}
+											</li>
+										{if calendar:event_count == calendar:event_total_results}</ul>{/if}
+									{/calendar:events}
+									</td>
+								</tr>
+							{/calendar:hours}
+							</table>
+						</div>
+					{/exp:calendar:day}
+					</div>
+				</div>
+
+				<div class="col-md-3">				
+{embed="calendar_inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Day" page is meant to show events that are happening within the selected date. Additionally, this can be filtered down to a selected calendar (if you came to this page from the Calendars page).</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/day.html">Calendar:Day</a> to display events for a particular day.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="calendar_inc/footer"}

@@ -1,0 +1,88 @@
+{embed="calendar_inc/index" page_title="Create Event" load_fieldtype="yes"}
+	</head>
+
+	<body role="document">
+
+{embed="calendar_inc/header" page="create"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Create Event</h1>
+				<p class="lead">The below form allows members with appropriate privileges to create new events.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+			{if logged_in_group_id == "1"}
+					<h3>Create New Event</h3>
+				{exp:channel:form
+					channel="events" {!-- update to a valid channel on your site --}
+					return="calendar_main/event/ENTRY_ID/created"
+				}
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" name="title" id="title" class="form-control" placeholder="Enter event title here" maxlength="100" onkeyup="liveUrlTitle();" />
+						<input type="hidden" name="url_title" id="url_title" value="{url_title}" maxlength="75" />
+					</div>
+					<div class="form-group">
+						{status_menu}
+						<label for="status">Status</label>
+						<select name="status" id="status" class="form-control">
+							{select_options}
+						</select>
+						{/status_menu}
+					</div>
+					<div class="form-group">
+						{!-- Calendar Event field will populate here --}
+						<label for="event_info">Event Info</label>
+						{field:YOUR_CALENDAR_FIELD_NAME} {!-- update to a valid Calendar field short name on your site --}
+					</div>
+					<div class="form-group">
+						<label for="location">Location</label>
+						<input type="text" name="event_location" id="location" class="form-control" placeholder="Enter event location here" maxlength="100" />
+						{!-- update to a valid custom field name on your site --}
+					</div>
+					<div class="form-group">
+						<label for="description">Description</label>
+						<textarea name="event_description" id="description" class="form-control" placeholder="Enter event description here" /></textarea>
+						{!-- update to a valid custom field name on your site --}
+					</div>
+					<button type="submit" class="btn btn-md btn-success">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+						Publish
+					</button>
+				{/exp:channel:form}
+			{if:else}
+					<div class="alert alert-danger" role="alert">
+						<p class="lead">
+                        	<b>Error!</b> You do not have sufficient privileges to create new events.
+						</p>
+					</div>
+			{/if}
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="calendar_inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Create an Event" page is meant to allow members with appropriate privileges to create new events.</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.expressionengine.com/latest/channels/channel-form/overview.html">Channel:Form</a> to display the channel entry form for users to create entries (also see <a href="https://docs.solspace.com/expressionengine/calendar/v3/getting-started/channel-form.html">Calendar Channel Form documentation</a>).</li>
+					<li><a href="https://docs.expressionengine.com/latest/channels/channel-form/fields.html">{field:MY_CALENDAR_FIELD_NAME}</a> to display a Calendar custom field using the EE Fieldtype API’s display_field method.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="calendar_inc/footer" load_fieldtype="yes"}
