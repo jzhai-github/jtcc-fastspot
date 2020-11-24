@@ -1,0 +1,20 @@
+/* ==========================================================================
+	News Entry
+============================================================================= */
+
+.news_entry {
+}
+
+.news_entry_figure {
+	@include responsive_image;
+
+	margin: 30px 0;
+}
+
+.news_entry_image_wrapper {
+	display: block;
+	padding-top: $classic;
+}
+
+.news_entry_image {
+}

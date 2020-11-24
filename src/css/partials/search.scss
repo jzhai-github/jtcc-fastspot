@@ -1,0 +1,218 @@
+/* ==========================================================================
+	Site Search
+============================================================================= */
+
+.search_link {
+	display: none;
+
+	@media #{$min_lg} {
+		position: relative;
+
+		color: inherit;
+		display: inline-block;
+	}
+}
+
+.search_link_inner {
+	@include fw_site_button;
+}
+
+.search_link_label {
+}
+
+.search_link_icon {
+}
+
+.search_link_icon_inner {
+}
+
+/* Search Form
+============================================================================= */
+
+.site_search {
+	position: relative;
+
+	display: none;
+
+	.js & {
+		display: block;
+	}
+}
+
+.site_search_form {
+	position: relative;
+
+	background: #fff;
+	border: 0;
+
+	.site_search_header & {
+		background: #f0f0f0;
+	}
+}
+
+.site_search_label {
+	@include visually_hide;
+}
+
+.site_search_field {
+	position: relative;
+
+	display: flex;
+}
+
+.site_search_input {
+	@include serif(400);
+
+	appearance: none;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	color: #000;
+	flex: 1;
+	font-size: 15px;
+	padding: 0 24px;
+
+	&::placeholder {
+		@include ellipsis;
+	}
+
+	.site_search_results & {
+	}
+}
+
+.site_search_button {
+	height: 55px;
+	width: 65px;
+
+	position: relative;
+
+	color: $bergundy;
+	cursor: pointer;
+	outline: 0;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	&:focus,
+	&:hover {
+		background: $bergundy;
+		color: #fff;
+	}
+}
+
+.site_search_button_label {
+	@include visually_hide;
+}
+
+.site_search_button_icon {
+	@include center;
+
+	pointer-events: none;
+}
+
+/* ==========================================================================
+	Site Search Header
+============================================================================= */
+
+.site_search_header {
+	display: none;
+
+	@media #{$min_lg} {
+		position: absolute;
+		top: 100%;
+		right: 0;
+
+		display: block;
+		margin-top: 5px;
+		opacity: 0;
+		transform: translate3d(0, -2px, 0);
+		visibility: hidden;
+		transition:
+			opacity $base_speed,
+			transform $base_speed,
+			visibility $base_speed;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	&.fs-swap-active {
+
+		@media #{$min_lg} {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+			visibility: visible;
+		}
+	}
+}
+
+/* ==========================================================================
+	Site Search Menu
+============================================================================= */
+
+.site_search_menu {
+	margin-bottom: 15px;
+}
+
+/* ==========================================================================
+	Site Search Toggle
+============================================================================= */
+
+.search_toggle {
+	height: 38px;
+	width: 38px;
+
+	position: relative;
+
+	background: #F0F0F0;
+	border-radius: 50%;
+	color: $bergundy;
+	transition:
+		background $base_speed,
+		color $base_speed;
+
+	&:hover,
+	&:focus {
+		background: $bergundy;
+		color: #fff;
+	}
+}
+
+.search_toggle_inner {
+	display: block;
+	transition: opacity $base_speed;
+
+	&_default {
+
+		.search_toggle.fs-swap-active & {
+			opacity: 0;
+		}
+	}
+
+	&_active {
+		opacity: 0;
+
+		.search_toggle.fs-swap-active & {
+			opacity: 1;
+		}
+	}
+}
+
+.search_toggle_label {
+	@include visually_hide;
+}
+
+.search_toggle_icon {
+	pointer-events: none;
+
+	.icon {
+		@include center;
+
+		&_close {
+			transform:
+				translate(-50%, -50%)
+				scale(.85);
+		}
+	}
+}

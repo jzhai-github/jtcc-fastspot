@@ -1,0 +1,165 @@
+/* ==========================================================================
+	Page Header
+============================================================================= */
+
+.page_header {
+	color: #fff;
+	overflow: hidden;
+
+	@media print {
+		margin: 30px 0;
+		padding: 0;
+	}
+}
+
+.page_header_inner {
+}
+
+.page_header_body {
+	background-color: $navy;
+	padding: 20px 0 60px;
+
+	@media #{$min_md} {
+		padding: 46px 0 82px;
+	}
+
+	@media #{$min_lg} {
+		padding-bottom: 62px;
+	}
+}
+
+.page_title {
+	@include h1;
+
+	position: relative;
+
+	background-color: $maroon;
+	display: inline;
+	line-height: 1.35;
+	margin-left: -50vw;
+	padding-left: 50vw;
+
+	@supports (box-decoration-break: clone) {
+		box-decoration-break: clone;
+		box-shadow: 10px 0 0 $maroon, -10px 0 0 $maroon;
+	}
+
+	@media #{$min_lg} {
+		line-height: 1.35;
+
+		@supports (box-decoration-break: clone) {
+			box-shadow: 20px 0 0 $maroon, -20px 0 0 $maroon;
+			padding-right: 0;
+		}
+	}
+}
+
+.page_intro {
+	.page_header_bg & {
+		margin: auto 0 0;
+		padding: 30px 0 60px;
+
+		@media #{$min_md} {
+			min-height: 500px;
+
+			background: linear-gradient(
+				to right,
+				rgba(#000, 0.9),
+				rgba(#000, 0) 60%
+			);
+			align-items: center;
+			display: flex;
+			padding: 80px 0 94px;
+		}
+
+		@media #{$min_xl} {
+			min-height: 550px;
+
+			padding: 100px 0 124px;
+		}
+
+		@media print {
+			margin: 6px 0 25px;
+			padding: 0;
+		}
+	}
+}
+
+.page_intro_inner {
+}
+
+.page_description {
+	@include intro_text;
+
+	max-width: 795px;
+
+	-webkit-font-smoothing: antialiased;
+	margin: 12px 0 0;
+
+	@media #{$min_lg} {
+		margin-top: 30px;
+	}
+
+	.page_header_bg & {
+		max-width: 500px;
+	}
+}
+
+.page_nav {
+	position: relative;
+	z-index: 4;
+
+	margin-top: -23px;
+
+	@media #{$min_lg} {
+		background: $teal;
+		margin-top: 0;
+	}
+
+	@media print {
+		display: none;
+	}
+}
+
+.page_nav_inner {
+}
+
+.page_header_media {
+}
+
+.page_header_media_inner {
+	position: relative;
+}
+
+.page_header_figure {
+}
+
+.page_header_image_wrapper {
+	padding-top: $ultra_wide;
+}
+
+.page_header_image {
+	@include responsive_image;
+
+	max-width: 100%;
+}
+
+.page_header_video {
+	display: none;
+
+	.js & {
+		background-color: #000;
+		display: block;
+		padding-top: $ultra_wide;
+
+		@media print {
+			display: none;
+		}
+	}
+}
+
+.page_header_iframe {
+	@media #{$min_md} {
+		@include cover;
+	}
+}

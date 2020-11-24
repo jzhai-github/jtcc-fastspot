@@ -1,0 +1,177 @@
+/* ==========================================================================
+	Event Item
+============================================================================= */
+
+.event_item {
+	@media #{$min_xl} {
+		align-items: center;
+	}
+
+	.event_list & {
+		@media #{$min_md} {
+			display: flex;
+		}
+	}
+
+	.event_feature & {
+		@media #{$min_lg} {
+			display: flex;
+		}
+	}
+}
+
+.event_figure {
+	@include responsive_image;
+
+	margin-bottom: 20px;
+
+	.event_list & {
+		width: 115px;
+
+		@media (min-width: 360px) {
+			float: right;
+			margin-left: 20px;
+		}
+
+		@media #{$min_sm} {
+			width: 30.5%;
+		}
+
+		@media #{$min_md} {
+			width: 30.5%;
+
+			margin: 0;
+			order: 2;
+		}
+
+		@media #{$min_lg} {
+			width: 28%;
+		}
+	}
+
+	.event_feature & {
+		@media #{$min_md} {
+			width: 40%;
+
+			float: right;
+			margin: 0 0 30px 30px;
+		}
+
+		@media #{$min_lg} {
+			width: 45%;
+
+			margin: 0;
+			order: 2;
+		}
+	}
+}
+
+.event_figure_link {
+	display: block;
+}
+
+.event_image_wrapper {
+	display: block;
+	padding-top: $classic;
+}
+
+.event_wrapper {
+	@media #{$min_md} {
+		margin-right: auto;
+	}
+
+	.event_list & {
+		@media #{$min_md} {
+			flex: 0 0 65%;
+		}
+	}
+
+	.event_feature & {
+		@media #{$min_md} {
+			flex: 0 0 48%;
+		}
+	}
+}
+
+.event_header {
+	display: flex;
+	flex-direction: column-reverse;
+	margin-bottom: 5px;
+}
+
+.event_title {
+	margin: 0 0 8px;
+
+	.event_list & {
+		@include h3;
+	}
+
+	.event_feature & {
+		@include h2;
+	}
+
+	.event_related & {
+		@include h4;
+	}
+}
+
+.event_title_link {
+	color: $accent;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.event_time_wrapper {
+	margin-bottom: 15px;
+}
+
+.event_time {
+	background: #000;
+	border-radius: 40px;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	padding: 12px 30px;
+	vertical-align: top;
+	text-transform: uppercase;
+
+	@media print {
+		padding: 0;
+	}
+}
+
+.event_time_start {
+}
+
+.event_time_end {
+}
+
+.event_body {
+	.event_list & {
+		@media #{$min_xl} {
+			display: flex;
+		}
+	}
+}
+
+.event_description {
+	@include body_text;
+
+	margin-bottom: 22px;
+
+	.event_list & {
+		@media #{$min_xl} {
+			flex: 0 0 47%;
+			margin: 0 auto 0 0;
+		}
+	}
+
+	p {
+		margin: 0;
+	}
+}

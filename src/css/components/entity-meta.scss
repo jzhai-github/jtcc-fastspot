@@ -1,0 +1,19 @@
+/* ==========================================================================
+	Entity Meta
+============================================================================= */
+
+.entity_meta {
+	@include padded_xl;
+
+	background: #F7F7F7;
+
+	&.theme_navy {
+		background: $navy;
+		color: #fff;
+	}
+}
+
+.entity_meta_inner {}
+
+.entity_meta_details {
+}

@@ -1,0 +1,154 @@
+/* ==========================================================================
+	Menu
+============================================================================= */
+
+.menu {
+	@include focus_outline_none;
+
+	position: relative;
+	top: 60px;
+	right: 0;
+	z-index: 400;
+
+	background: $navy;
+	color: #fff;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	@media #{$reduce} {
+		transition-duration: 0.6s;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	.loaded & {
+		transition:
+			opacity 0.35s,
+			transform 0.35s,
+			visibility 0.35s;
+	}
+
+	.js & {
+		@include fake_scroll();
+
+		width: 100%;
+		height: calc(100% - 60px);
+
+		position: fixed;
+
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	&.fs-swap-active {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.menu_title {
+	@include visually_hide;
+}
+
+.menu_primary {
+	padding: 12px 0 36px;
+}
+
+.menu_primary_inner {
+}
+
+.menu_sole {
+	background: rgba(#000, .2);
+	overflow: hidden;
+	padding: 36px 0;
+}
+
+.menu_sole_inner {
+}
+
+
+/* Menu Toggle
+============================================================================= */
+
+.menu_toggle {
+	height: 100%;
+
+	position: relative;
+
+	align-items: center;
+	background: $teal;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	transition: background $base_speed;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	&.fs-swap-active {
+		background: #000;
+	}
+}
+
+.menu_toggle_inner {
+	transition: opacity $base_speed, visibility $base_speed;
+}
+
+.menu_toggle_inner_default {
+	.menu_toggle.fs-swap-active & {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+}
+
+.menu_toggle_inner_active {
+	position: absolute;
+	top: 50%;
+
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+	transform: translate(0, -50%);
+
+	.menu_toggle.fs-swap-active & {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.menu_toggle_label {
+	@include visually_hide;
+}
+
+.menu_toggle_label_default {
+}
+
+.menu_toggle_label_active {
+}
+
+.menu_toggle_icon {
+	pointer-events: none;
+}
+
+.menu_toggle_icon_default {
+}
+
+.menu_toggle_icon_active {
+}
+
+.menu_toggle_icon_space {
+	display: none;
+}
