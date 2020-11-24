@@ -1,0 +1,162 @@
+/* ==========================================================================
+	Link Group
+============================================================================= */
+
+.link_group {
+	@include margined_lg;
+
+	--background: #F7F7F7;
+	--color: #000;
+	--title: #{rgba(#000, .6)};
+	--dividers: #{rgba(#000, .15)};
+	--highlight: #{$maroon};
+	--accent: #{$bright_pink};
+	--hover: #{$bergundy};
+
+	&.theme_bergundy {
+		--background: #{$bergundy};
+		--color: #fff;
+		--title: #{$blush};
+		--dividers: #{rgba($peach, .35)};
+		--highlight: #{$peach};
+		--accent: #{$bright_pink};
+		--hover: #fff;
+	}
+}
+
+.link_group_inner {
+	max-width: $max_content_width;
+
+	background: var(--background);
+	margin: 0 auto;
+	padding: 30px;
+
+	@media #{$min_lg} {
+		padding: 50px 60px;
+	}
+}
+
+.link_group_header {
+	margin-bottom: 12px;
+}
+
+.link_group_title {
+	@include h6;
+
+	align-items: center;
+	color: var(--title);
+	display: flex;
+	margin: 0;
+
+	&:before,
+	&:after {
+		height: 1px;
+
+		background: var(--dividers);
+		content: "";
+		flex: auto;
+	}
+
+	&:before {
+		margin-right: 20px;
+	}
+
+	&:after {
+		margin-left: 20px;
+	}
+}
+
+.link_group_list {
+	@include remove_list;
+
+	@media #{$min_md} {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -28px;
+	}
+}
+
+.link_group_item {
+	@media #{$min_md} {
+		width: 50%;
+
+		display: flex;
+		padding: 0 28px;
+	}
+}
+
+.link_group_link {
+	width: 100%;
+
+	position: relative;
+
+	border-bottom: 1px solid var(--dividers);
+	color: var(--color);
+	display: block;
+	padding: 14px 0;
+	transition: color $base_speed;
+
+	@media #{$min_lg} {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+
+	&:before {
+		height: 1px;
+		width: 100%;
+
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+
+		background: var(--highlight);
+		content: "";
+		transform-origin: left center;
+		transform: scaleX(0);
+		transition: transform $base_speed;
+	}
+
+	&:hover,
+	&:focus {
+
+		&:before {
+			transform: scaleX(1);
+		}
+	}
+}
+
+.link_group_link_inner {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.link_group_link_label {
+	@include sans;
+
+	display: inline;
+	font-size: 14px;
+	letter-spacing: 1.75px;
+	line-height: (27 / 18);
+	text-transform: uppercase;
+}
+
+.link_group_link_icon {
+	position: relative;
+	top: -2px;
+
+	color: var(--highlight);
+	display: inline;
+	margin-left: 14px;
+	white-space: nowrap;
+	transition: color $base_speed;
+
+	.link_group_link:hover &,
+	.link_group_link:focus & {
+		color: var(--hover);
+	}
+
+	.icon {
+		display: inline;
+	}
+}

@@ -1,0 +1,25 @@
+/* ==========================================================================
+	News Grid
+============================================================================= */
+
+.news_grid {
+	@include margined_xl;
+}
+
+.news_grid_inner {
+}
+
+.news_grid_items {
+	@include remove_list;
+
+	@media #{$min_sm} {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.news_grid_item {
+	@include fw_card_grid_item;
+
+	margin-bottom: 30px;
+}

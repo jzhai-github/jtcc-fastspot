@@ -1,0 +1,458 @@
+.featured_programs {
+	position: relative;
+
+	background: $navy;
+	overflow: hidden;
+}
+
+.featured_programs_inner {
+	position: relative;
+	z-index: 4;
+
+	@media #{$min_md} {
+		display: flex;
+	}
+}
+
+.featured_programs_header {
+	position: relative;
+
+	padding: 145px 20px 135px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
+
+	@media #{$min_md} {
+		width: 62%;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: (175px + 36px) 40px;
+		padding-left: var(--page-offset);
+	}
+
+	@media #{$min_lg} {
+		padding-left: var(--page-offset);
+	}
+
+	@media #{$min_xl} {
+		width: calc(100% - 415px);
+
+		padding-right: 60px;
+	}
+
+	@media #{$min_xxl} {
+		width: 73%;
+	}
+}
+
+.featured_programs_header_background {
+	@include cover;
+}
+
+.featured_programs_title {
+	@include sans(100);
+
+	color: #000;
+	display: inline-block;
+	font-size: 36px;
+	line-height: (44 / 36);
+	letter-spacing: 1.4px;
+	margin: 0 0 26px;
+	text-transform: uppercase;
+
+	@media #{$min_md} {
+		font-size: 48px;
+		line-height: (55 / 48);
+		letter-spacing: 1.87px;
+		margin-top: -115px - 26px;
+	}
+
+	@media #{$min_lg} {
+		font-size: 64px;
+		letter-spacing: 2.5px;
+		line-height: (85 / 64);
+		margin-top: -175px - 70px;
+		margin-bottom: 70px;
+	}
+
+	strong {
+		@include sans(500);
+	}
+}
+
+.featured_programs_title_group {
+	display: block;
+
+	&_primary {
+		margin-bottom: 2px;
+	}
+}
+
+.featured_programs_title_label {
+	position: relative;
+
+	background: $mustard;
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 8px;
+
+	@media #{$min_xl} {
+		padding-right: 20px;
+	}
+
+	&:before {
+		height: 100%;
+		width: 50vw;
+
+		position: absolute;
+		top: 0;
+		right: 100%;
+
+		background: inherit;
+		content: '';
+	}
+
+	&_primary {
+		margin-bottom: 5px;
+
+		@media #{$min_xl} {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.featured_programs_input_wrapper {
+	position: relative;
+
+	box-shadow: 0 0 6px 0 rgba(#000, 0.25);
+}
+
+.featured_programs_input {
+	@include serif(300);
+
+	max-height: 56px;
+	width: 100%;
+
+	appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	flex: auto;
+	font-size: 16px;
+	padding: 19px 40px 19px 26px;
+
+	@media #{$min_lg} {
+		max-height: 85px;
+
+		font-size: 24px;
+		padding: 29px 60px 29px 40px;
+	}
+
+	&::-ms-clear,
+	&::-ms-reveal {
+		width: 0;
+		height: 0;
+
+		display: none;
+	}
+
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none;
+	}
+}
+
+.featured_programs_input_icon {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+
+	color: $bergundy;
+	pointer-events: none;
+	transform: translate(0, -50%);
+
+	@media #{$min_lg} {
+		right: 40px;
+
+		transform-origin: right center;
+		transform: translate(0, -50%) scale(1.5);
+	}
+}
+
+.featured_programs_content {
+	position: relative;
+
+	@media #{$min_md} {
+		width: 38%;
+
+		background: #91183c;
+	}
+
+	@media #{$min_xl} {
+		width: 415px;
+	}
+
+	@media #{$min_xxl} {
+		width: 27%;
+	}
+
+	&:after {
+		@media #{$min_md} {
+			height: 100%;
+			width: 50vw;
+
+			position: absolute;
+			top: 0;
+			left: 100%;
+
+			background: inherit;
+			content: '';
+		}
+	}
+}
+
+.feature_programs_body {
+	position: relative;
+
+	background: $maroon;
+	padding: 35px 20px 38px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
+
+	@media #{$min_md} {
+		margin: 0;
+		padding: 40px;
+	}
+
+	@media #{$min_xl} {
+		padding: 50px 60px 52px;
+	}
+
+	@media #{$min_xxl} {
+		padding-right: 12%;
+		padding-left: 12%;
+	}
+
+	&:after {
+		@media #{$min_md} {
+			height: 100%;
+			width: 50vw;
+
+			position: absolute;
+			top: 0;
+			left: 100%;
+			z-index: 2;
+
+			background: inherit;
+			content: '';
+		}
+	}
+}
+
+.featured_programs_body_details {
+}
+
+.featured_programs_body_title {
+	@include sans(400);
+
+	color: #fff;
+	font-size: 15px;
+	line-height: (20 / 15);
+	letter-spacing: 1.88px;
+	margin-bottom: 15px;
+	text-transform: uppercase;
+
+	@media #{$min_md} {
+		border-bottom: 1px solid $bergundy;
+		padding-bottom: 20px;
+	}
+
+	@media #{$min_lg} {
+		font-size: 16px;
+		line-height: (24 / 16);
+		letter-spacing: 2px;
+	}
+
+	strong {
+		@include sans(700);
+
+		font-size: 17px;
+
+		@media #{$min_lg} {
+			font-size: 20px;
+		}
+	}
+}
+
+.featured_programs_items {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@media #{$min_md} {
+		display: block;
+	}
+}
+
+.featured_programs_item {
+}
+
+.featured_programs_item_link {
+	display: block;
+	padding: 9px 0;
+}
+
+.featured_programs_item_link_inner {
+}
+
+.featured_programs_item_link_label {
+	@include body_text;
+
+	border-bottom: 1px solid transparent;
+	color: #fff;
+	display: inline;
+	margin-right: 20px;
+	transition: border $base_speed;
+
+	@media #{$min_lg} {
+		line-height: (25 / 18);
+	}
+
+	.featured_programs_item_link:hover &,
+	.featured_programs_item_link:focus & {
+		border-bottom-color: $blush;
+	}
+}
+
+.featured_programs_item_link_icon {
+	position: relative;
+	top: -3px;
+
+	color: $blush;
+	display: inline-block;
+	margin-left: -16px;
+	vertical-align: middle;
+	white-space: nowrap;
+
+	.featured_programs_item_link:hover &,
+	.featured_programs_item_link:focus & {
+		animation: dootdoot 1s infinite;
+	}
+
+	.icon {
+		display: inline;
+	}
+}
+
+.featured_programs_items_select_wrapper {
+	position: relative;
+
+	@media #{$min_md} {
+		display: none;
+	}
+}
+
+.featured_programs_items_select {
+	@include body_text;
+
+	width: 100%;
+
+	appearance: none;
+	background: none;
+	border: 1px solid $bergundy;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px 30px 11px 20px;
+}
+
+.featured_programs_items_select_icon {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+
+	color: rgba($blush, 0.75);
+	transform: translate(0, -50%);
+}
+
+.feature_programs_footer {
+	position: relative;
+
+	background: #91183c;
+	padding: 40px 20px 45px;
+	padding-right: var(--page-offset);
+	padding-left: var(--page-offset);
+
+	@media #{$min_md} {
+		margin: 0;
+		padding: 40px;
+	}
+
+	@media #{$min_xl} {
+		padding: 60px 60px 66px;
+	}
+
+	@media #{$min_xxl} {
+		padding-right: 12%;
+		padding-left: 12%;
+	}
+}
+
+.featured_programs_footer_details {
+}
+
+.featured_programs_footer_title {
+	@include sans(400);
+
+	align-items: center;
+	color: #fff;
+	display: flex;
+	font-size: 15px;
+	letter-spacing: 1.88px;
+	margin: 0 0 16px;
+	text-transform: uppercase;
+	white-space: nowrap;
+
+	&:before,
+	&:after {
+		height: 1px;
+		width: 100%;
+
+		background: $bergundy;
+		content: '';
+		flex: auto;
+	}
+
+	&:before {
+		margin-right: 10px;
+	}
+
+	&:after {
+		margin-left: 10px;
+	}
+}
+
+.featured_programs_actions {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.featured_programs_action {
+	&:not(:last-child) {
+		margin-bottom: 15px;
+	}
+}
+
+.featured_programs_action_link {
+	@include button_fill('bergundy');
+	@include button_layout;
+
+	display: block;
+}
+
+.featured_programs_action_link_inner {
+	justify-content: center;
+}

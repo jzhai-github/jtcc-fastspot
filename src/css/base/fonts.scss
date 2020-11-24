@@ -1,0 +1,62 @@
+// =============================================================================
+// Fonts
+// =============================================================================
+
+/**
+ * 100 - Knockout Junior Featherweight (28)
+ * 300 - Knockout Junior Liteweight (29)
+ * 400 - Knockout Junior Welterweight (30)
+ * 500 - Knockout Full Featherweight (68)
+ * 600 - Knockout Full Liteweight (69)
+ * 700 - Knockout Full Welterweight (70)
+*/
+
+@include font-face(
+	'Knockout',
+	(
+		('Knockout-28', 100),
+		('Knockout-29', 300),
+		('Knockout-30', 400),
+		('Knockout-68', 500),
+		('Knockout-69', 600),
+		('Knockout-70', 700)
+	)
+);
+
+/**
+ * 300 - Sentinel Light
+ * 600 - Sentinel Semi Bold
+ * 700 - Sentinel Bold
+*/
+
+@include font-face(
+	'Sentinel',
+	(
+		('Sentinel-Light', 300),
+		('Sentinel-LightItal', 300, italic),
+		('Sentinel-Semibold', 600),
+		('Sentinel-SemiboldItal', 600, italic),
+		('Sentinel-Bold', 700),
+		('Sentinel-BoldItal', 700, italic)
+	)
+);
+
+@mixin serif($weight: null) {
+	font-family: 'Sentinel', Georgia, 'Times New Roman', Times, serif;
+
+	@if $weight {
+		font-weight: $weight;
+	}
+}
+
+@mixin sans($weight: null) {
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
+
+	@if $weight {
+		font-weight: $weight;
+	}
+}
+
+@mixin title($weight: null) {
+	@include sans($weight);
+}

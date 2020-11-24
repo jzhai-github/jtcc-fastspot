@@ -1,0 +1,187 @@
+/* ==========================================================================
+	Page Header BG
+============================================================================= */
+
+.page_header_bg {
+	color: #fff;
+
+	@media print {
+		margin: 30px 0;
+	}
+}
+
+.page_header_bg_inner {}
+
+.page_header_bg_group {
+	position: relative;
+
+	background-color: $navy;
+	overflow: hidden;
+
+	@media #{$min_md} {
+		min-height: auto;
+		max-height: 810px;
+
+		display: flex;
+	}
+
+	@media print {
+		height: auto;
+		min-height: auto;
+	}
+}
+
+.page_header_bg_content {
+	width: 100%;
+
+	position: relative;
+	z-index: 1;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.page_header_bg_media {
+
+	@media print {
+		display: none;
+	}
+}
+
+.page_header_bg_media_inner {}
+
+.page_header_bg_figure {
+	@include responsive_image;
+}
+
+.page_header_bg_image_wrapper {
+	padding-bottom: $ultra_wide;
+
+	@media #{$min_md} {
+		@include cover;
+
+		position: absolute !important;
+
+		padding-bottom: 0;
+	}
+}
+
+.page_header_bg_image {
+
+	@media #{$min_md} {
+		@include cover;
+
+		object-fit: cover;
+	}
+}
+
+
+/* Video
+============================================================================= */
+
+.page_header_bg_video {
+	display: none;
+
+	@media #{$min_lg} {
+		@include cover;
+
+		display: block;
+	}
+}
+
+.page_header_bg_iframe {
+	@include center;
+
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.5s;
+
+	.page_header_bg_video.loaded & {
+		opacity: 1;
+	}
+}
+
+.page_header_bg_video_controls {
+	height: 38px;
+	width: 114px;
+
+	position: absolute;
+	right: 50px;
+	bottom: 40px;
+	z-index: 5;
+
+	background: rgba(#000, .7);
+	border-radius: 38px;
+
+	@media print {
+		display: none;
+	}
+
+	&:hover,
+	&:focus {
+		background: #000;
+	}
+}
+
+.page_header_bg_video_play_link,
+.page_header_bg_video_pause_link {
+	width: 100%;
+
+	position: absolute;
+	top: 50%;
+	left: 0;
+
+	margin-top: -1px;
+	opacity: 1;
+	pointer-events: auto;
+	transform: translate(0, -50%);
+	transition:
+		opacity $base_speed,
+		visibility $base_speed;
+	visibility: visible;
+
+	&.pressed {
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+}
+
+.page_header_bg_video_play_link_inner,
+.page_header_bg_video_pause_link_inner {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.page_header_bg_video_play_link_label,
+.page_header_bg_video_pause_link_label {
+	@include sans(400);
+
+	font-size: 14px;
+	line-height: (16 / 14);
+	letter-spacing: 1.75px;
+	text-transform: uppercase;
+}
+
+.page_header_bg_video_play_link_icon,
+.page_header_bg_video_pause_link_icon {
+	color: $turquoise;
+	margin-left: 11px;
+	transition: color $base_speed;
+
+	.page_header_bg_video_play_link:hover &,
+	.page_header_bg_video_play_link:focus &,
+	.page_header_bg_video_pause_link:hover &,
+	.page_header_bg_video_pause_link:focus & {
+		color: #fff;
+	}
+}
+
+.page_header_bg_video_play_link_icon_inner,
+.page_header_bg_video_pause_link_icon_inner {}
+
+.page_header_bg_video_play_link_icon_space,
+.page_header_bg_video_pause_link_icon_space {
+	display: none;
+}
