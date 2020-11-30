@@ -118,10 +118,10 @@
 								<div class="filter_tool">
 									<label class="filter_label" for="filter_tool_label_2">Filter by Career Cluster</label>
 									<div class="filter_tool_select_wrapper">
-										<select class="filter_tool_select" id="filter_tool_label_2">
+										<select class="filter_tool_select" id="filter_tool_label_2" onchange="document.location.href=this.value">
 											<option value="All Career Clusters"  selected >All Career Clusters</option>
 											{exp:channel:categories category_group="4"}
-    											<option value="{category_name}">{category_name}</option>
+    											<option value="/major/{category_url_title}">{category_name}</option>
 											{/exp:channel:categories}
 										</select>
 		<span class="filter_tool_select_icon">
@@ -187,15 +187,17 @@
 	</div>
 	
 {if segment_2 != ''}
-	{exp:channel:entries channel="major" disable="member_data" sort="asc"}
-	{categories}
+	{exp:query sql="SELECT cat_id FROM exp_categories WHERE cat_url_title = '{segment_2}'"}
+		
+	{exp:channel:entries channel="major" disable="member_data" category="{cat_id}" dynamic="no"} 
+		{!--{categories}--}
 		{if category_url_title == '{segment_2}'}
 		<div class="filter_results">
 			<div class="fs-row">
 				<div class="fs-cell">
 					<div class="filter_results_inner">
 						<p class="filter_results_description">
-							<span class="filter_results_label">12
+							<span class="filter_results_label">{total_results}
 								Results for:</span>
 							<span class="filter_results_category">{category_name}</span>
 						</p>
@@ -221,11 +223,109 @@
 				</div>
 			</div>
 		</div>
-		{/if}
-		{/categories}
-	{/exp:channel:entries}
-{if:else}
 	</div>
+	{/if}
+	{!--{/categories}--}
+	{/exp:channel:entries}
+	{if no_results}  <p>There is no result available.</p>  {/if}
+	
+	<div class="js-accordion program_list">
+	<div class="program_list_inner">
+		<ul class="program_list_items" id="item_list" aria-label="">
+		{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="{cat_id}"}
+				<li class="js-accordion-item js-program-item-2-{count} program_item">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="program_item_inner">
+								<h2 class="program_item_heading">
+									<button class="js-accordion-swap js-swap program_item_button" data-swap-target=".js-program-item-2-{count}" data-swap-group="program-group-2">
+										<span class="program_item_heading_inner">
+											<span class="program_item_heading_label">
+												<span class="program_item_heading_title">
+													<span class="program_item_heading_title_label">{title}</span>
+													<span class="program_item_heading_title_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+													</span>
+												</span>
+												<span class="program_item_heading_mode">
+													<span class="program_item_heading_mode_label">Learning Mode<span class="program_item_heading_mode_label_hint">:	</span>
+												</span>
+												<span class="program_item_heading_mode_data_wrapper">
+													<span class="program_item_heading_mode_data theme_green_blue">
+														Transfer Program
+													</span>
+												</span>
+											</span>
+										</span>
+										<span class="program_item_heading_icon"></span>
+									</span>
+									</button>
+								</h2>
+								<div class="js-accordion-content program_item_content" aria-label="{title}">
+									<div class="program_item_content_inner">
+										<div class="program_item_content_group">
+											<div class="program_item_description typography">
+												<p>{page_description}</p>
+												{!--<p><a href="{link}">More Information about {title} in Catalog</a></p>--}
+												{!--<h4><a href="{link}">More Information about {title} in Catalog</a></h4>--}
+											</div>
+										</div>
+										<div class="program_item_details">
+											<div class="program_item_detail">
+												<span class="program_item_detail_label">Degree & Certificate Type<span class="program_item_detail_label_hint">:</span>
+													</span>
+													<span class="program_item_detail_data">
+															{!--<a class="program_item_detail_data_link" href="{url_title}">--}
+															{!--{if has_categories}--}
+																{categories show_group="5"}
+																	<span class="program_item_detail_data_link_label">{category_name}</span>
+																{/categories}
+															{!--{/if}--}
+													{!--<span class="program_item_detail_data_link_icon">
+															<svg class="icon icon_caret_right">
+																<use href="/images/icons.svg#caret_right" />
+															</svg>
+														</span>
+														</a>--}
+													</span>
+												</div>
+												<div class="program_item_detail">
+													<span class="program_item_detail_label">Career Cluster<span class="program_item_detail_label_hint">:</span>
+													</span>
+													{categories show_group="4"}
+													<span class="program_item_detail_data">{category_name}</span>
+													{/categories}
+												</div>
+												<div class="program_item_detail">
+													<span class="program_item_detail_label">Mode of Study<span class="program_item_detail_label_hint">:</span>
+													</span>
+													<span class="program_item_detail_data">
+													Transfer Program
+																																																						</span>
+												</div>
+											</div>
+											<!-- I added the catalog link here, not Fastspot original code -->
+											<div class="program_item_content_group">
+											<div class="program_item_description typography">
+												<h4><a href="{link}">More Information about {title} in Catalog</a></h4>
+											</div>
+											</div> <!-- end catalog link -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+		{/exp:channel:entries}
+		</ul>
+	</div>
+</div>	
+{/exp:query}
+
+{if:else}
+	{!--</div>--}
 
 	
 <div class="js-accordion program_list">

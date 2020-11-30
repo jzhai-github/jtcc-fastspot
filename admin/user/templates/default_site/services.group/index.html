@@ -5,27 +5,29 @@
 	============
 	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
 --}
-{if segment_3}
+{if segment_6}
 	{redirect='404'}
 {/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='admissions'}
-{preload_replace:p_description='admissions section'}
-{preload_replace:p_url='admissions'}
+{preload_replace:p_title='Services'}
+{preload_replace:p_description='Services at John Tyler Community College'}
+{preload_replace:p_url='services'}
 {!-- channel vars (prefix ch_) --}
-{preload_replace:ch='admissions'}
+{preload_replace:ch='services'}
+{preload_replace:ch_title='Services'}
 {preload_replace:ch_status='Open|Default Page'}
-{preload_replace:ch_disable='categories|category_fields|member_data|pagination'}
+{preload_replace:ch_disable='member_data|pagination'}
 {!-- layout vars, channel/page related --}
 {layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
 {layout:set name='p_url' value='{p_url}'}
 {layout:set name='p_title' value='{p_title}'}
 {layout:set name='ch_disable' value='{ch_disable}'}
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
-		{!-- channel entries tag --}
+{!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
