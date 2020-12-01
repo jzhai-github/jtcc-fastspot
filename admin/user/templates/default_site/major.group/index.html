@@ -105,7 +105,7 @@
 										<select class="filter_tool_select" id="filter_tool_label_1" onchange="document.location.href=this.value">
 											<option value="All Degrees & Certificates"  selected >All Degrees & Certificates</option>
 												{exp:channel:categories category_group="5"}
-    												<option value="/major/{category_url_title}">{category_name}</option>
+    												<option value="/major/{category_id}">{category_name}</option>
 												{/exp:channel:categories}
 										</select>
 		<span class="filter_tool_select_icon">
@@ -188,10 +188,16 @@
 	
 {if segment_2 != ''}
 	{exp:query sql="SELECT cat_id FROM exp_categories WHERE cat_url_title = '{segment_2}'"}
+		{!--{layout:set name="cat" value="{cat_id}"}--}
+		<?php $cat_id = '{cat_id}'; ?>
+	{/exp:query}
+	
+	{!--{snp_cat_id}--}{!--<?php echo $cat_id; ?>--}
 		
-	{exp:channel:entries channel="major" disable="member_data" category="{cat_id}" dynamic="no"} 
-		{!--{categories}--}
-		{if category_url_title == '{segment_2}'}
+	{exp:channel:entries channel="major" disable="member_data" category="{segment_2}" dynamic="no"} 
+		{categories}
+		{if category_id == '{segment_2}'}
+		{if {count} == "1"}
 		<div class="filter_results">
 			<div class="fs-row">
 				<div class="fs-cell">
@@ -225,14 +231,15 @@
 		</div>
 	</div>
 	{/if}
-	{!--{/categories}--}
+	{/if}
+	{/categories}
 	{/exp:channel:entries}
 	{if no_results}  <p>There is no result available.</p>  {/if}
 	
 	<div class="js-accordion program_list">
 	<div class="program_list_inner">
 		<ul class="program_list_items" id="item_list" aria-label="">
-		{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="{cat_id}"}
+		{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="{segment_2}" dynamic="no"}
 				<li class="js-accordion-item js-program-item-2-{count} program_item">
 					<div class="fs-row">
 						<div class="fs-cell">
@@ -322,7 +329,7 @@
 		</ul>
 	</div>
 </div>	
-{/exp:query}
+{!--{/exp:query}--}
 
 {if:else}
 	{!--</div>--}
