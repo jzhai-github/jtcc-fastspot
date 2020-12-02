@@ -192,6 +192,20 @@
 		<?php $cat_id = '{cat_id}'; ?>
 	{/exp:query}
 	
+	<?php
+	$cat_url_title = "{segment_2}";
+	//$db = $this->EE->load->database('jtcc_dev', TRUE);
+                
+    //$getCat = ee()->db->select('channel_name')->from('channels')->get();"SELECT cat_id FROM exp_categories WHERE cat_url_title = '$cat_url_title'";
+	//$cat_id = ee()->db->select('cat_id') ->from('exp_categories')->where('cat_url_title=$cat_url_title')->get();
+                                
+    //$cat = $db->query($getCat);
+	//$cat_id = $query->row()->cat_id;
+	
+	//echo $cat_id;
+	//echo $db;
+	?>
+	
 	{!--{snp_cat_id}--}{!--<?php echo $cat_id; ?>--}
 		
 	{exp:channel:entries channel="major" disable="member_data" category="{segment_2}" dynamic="no"} 
