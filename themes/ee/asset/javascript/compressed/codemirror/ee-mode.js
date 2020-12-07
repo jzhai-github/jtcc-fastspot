@@ -6,4 +6,259 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-!function(){"use strict";function t(t){var e=jQuery.inArray(t,EE.editor.lint.available)>=0,n=jQuery.inArray(t,EE.editor.lint.not_installed)>=0;return!e||n?e?'Module "'+t+'" exists, but is not installed.':'Addon "'+t+'" does not exist.':""}EE.codemirror_linter={getAnnotations:function(e){for(var n,r=[],i=/(\{\/?exp:)([\w]+)/i,o=0,u=0;n=i.exec(e);){var a=e.substr(0,n.index),c=a.split("\n"),f=c.length-1,s=c[f].length+n[1].length;f+=o,o=f,1==c.length&&(s+=u);var d=t(n[2]);d&&r.push({from:CodeMirror.Pos(f,s),to:CodeMirror.Pos(f,s+n[2].length),message:d}),u=s+n[2].length,e=e.substr(n.index+n[0].length)}return r}}}(),function(t){"use strict";t.defineMode("ee:inner",function(){function t(t,c){return t.eatWhile(/[^\{]/),(o=t.match(/^\{!--/,!1))?(c.tokenize=i(),"tag"):(u=t.match(/^\{(if|if:elseif)\s/,!1))?(c.tokenize=r(),"tag"):(u=t.match(/\{(if:else|\/if)\}/,!1))?(c.tokenize=e(),"punctuation"):(a=t.match(/\{\/?([\w:]+)/,!1))?(c.tokenize=n(a[1]),"punctuation"):void t.next()}function e(){return function(e,n){if(e.match(/(if:else|\/if)/))return"keyword";var r=e.next();return"{"==r?"punctuation":"}"==r?(e.next(),n.tokenize=t,"punctuation"):"punctuation"}}function n(e){return function(n,r){if(n.eatWhile(/\s+/),n.match(/^"(\\|\"|[^"])*?"/))return"string";if(n.match(/^'(\\|\'|[^'])*?'/))return"string";var i;if(i=n.match(/\w*([a-zA-Z]([\w:-]+\w)?|(\w[\w:-]+)?[a-zA-Z])\w*/))return i[0]==e?"variable":"variable-2";var o=n.next();return"="==o||"{"==o?"punctuation":"}"==o?(n.next(),r.tokenize=t,"punctuation"):"punctuation"}}function r(){return function(e,n){if(e.eatWhile(/\s+/),e.match(/(if|if:elseif)/))return"keyword";if(e.match(/\b(true|false)\b/i))return"keyword";if(e.match(/\b(and|or|xor)\b/i))return"operator";if(e.match(/"(\\|\"|[^"])*?"/))return"string";if(e.match(/'(\\|\'|[^'])*?'/))return"string";if(e.match(/\b(\d+\.\d*|\d*\.\d+|\d+)\b/))return"number";if(e.match(/\w*([a-zA-Z]([\w:-]+\w)?|(\w[\w:-]+)?[a-zA-Z])\w*/))return"variable";if(e.match(/[=!|<>!&%~\(\)\$\^\*\+\-\.]+/))return"operator";var r=e.next();return"{"==r||"/"==r?"punctuation":"}"==r?(e.next(),n.tokenize=t,"punctuation"):"punctuation"}}function i(){return function(e,n){return e.eat(/\{!--/),e.match(/^--}/,!0)?(n.tokenize=t,"comment"):(e.next(),"comment")}}var o,u,a;return{startState:function(){return{tokenize:t}},token:function(t,e){return e.tokenize(t,e)}}}),t.defineMode("ee",function(e){var n=t.getMode(e,"text/html"),r=t.getMode(e,"ee:inner");return t.overlayMode(n,r)}),t.defineMIME("text/x-ee","ee")}(CodeMirror);
+
+/**
+ * EE codemirror linter.
+ */
+(function() {
+	"use strict";
+
+	function tagError(tagname) {
+
+		var addon_exists = (jQuery.inArray(tagname, EE.editor.lint.available) >= 0),
+			addon_not_installed = (jQuery.inArray(tagname, EE.editor.lint.not_installed) >= 0);
+
+		if ( ! addon_exists || addon_not_installed) {
+
+			if ( ! addon_exists) {
+				return 'Addon "' + tagname + '" does not exist.';
+			}
+
+			return 'Module "' + tagname + '" exists, but is not installed.';
+		}
+
+		return '';
+	}
+
+	EE.codemirror_linter = {
+		getAnnotations: function(text) {
+	 		var found = [],
+	 			regex = /(\{\/?exp:)([\w]+)/i,
+	 			skipped_lines = 0,
+	 			last_ch = 0,
+	 			tag;
+
+	 		while (tag = regex.exec(text)) {
+
+	 			// find the line and character of the match
+	 			var skipped_text = text.substr(0, tag.index),
+	 				lines = skipped_text.split("\n"),
+	 				line = lines.length - 1,
+	 				ch = lines[line].length + tag[1].length;
+
+	 			// adjust line to absolute position in the textarea
+	 			line += skipped_lines;
+	 			skipped_lines = line;
+
+	 			// adjust character for same-line tags
+	 			if (lines.length == 1) {
+	 				ch += last_ch;
+	 			}
+
+	 			// check tag for validity
+	 			var error = tagError(tag[2]);
+
+	 			if (error) {
+	 				found.push({
+	 					from: CodeMirror.Pos(line, ch),
+	 					to: CodeMirror.Pos(line, ch + tag[2].length),
+	 					message: error
+	 				});
+	 			}
+
+	 			// store ch for next search
+	 			last_ch = ch + tag[2].length;
+
+	 			// trim text for next search
+	 			text = text.substr(tag.index + tag[0].length);
+	 		}
+
+	 		return found;
+	 	}
+	 };
+
+ })();
+
+/**
+ * An EE textmirror "mode". Basically a lexer.
+ */
+(function(CodeMirror) {
+
+	"use strict";
+
+	CodeMirror.defineMode("ee:inner", function() {
+		var comment, condition, tag;
+
+		function tokenBase(stream, state) {
+			stream.eatWhile(/[^\{]/);
+
+			if (comment = stream.match(/^\{!--/, false)) {
+				state.tokenize = inComment();
+				return 'tag';
+			}
+			else if (condition = stream.match(/^\{(if|if:elseif)\s/, false)) {
+				state.tokenize = inCondition();
+				return 'tag';
+			}
+			else if (condition = stream.match(/\{(if:else|\/if)\}/, false)) {
+				state.tokenize = inConditionalKeyword();
+				return 'punctuation';
+			}
+			else if (tag = stream.match(/\{\/?([\w:]+)/, false)) {
+				state.tokenize = inEETag(tag[1]);
+				return 'punctuation';
+			}
+
+			stream.next();
+		}
+
+		function inConditionalKeyword() {
+
+			return function(stream, state) {
+				if (stream.match(/(if:else|\/if)/)) {
+					return 'keyword';
+				}
+
+				var ch = stream.next();
+
+				if (ch == '{') {
+					return 'punctuation';
+				}
+
+				if (ch == '}') {
+					stream.next();
+					state.tokenize = tokenBase;
+					return 'punctuation';
+				}
+
+				return 'punctuation';
+			};
+		}
+
+		function inEETag(tagname) {
+
+			return function(stream, state) {
+				stream.eatWhile(/\s+/);
+
+				if (stream.match(/^"(\\|\"|[^"])*?"/)) {
+					return 'string';
+				}
+
+				if (stream.match(/^'(\\|\'|[^'])*?'/)) {
+					return 'string';
+				}
+
+				var variable;
+
+				if (variable = stream.match(/\w*([a-zA-Z]([\w:-]+\w)?|(\w[\w:-]+)?[a-zA-Z])\w*/)) {
+					return variable[0] == tagname ? 'variable' : 'variable-2';
+				}
+
+				var ch = stream.next();
+
+				if (ch == '=' || ch == '{') {
+					return 'punctuation';
+				}
+
+				if (ch == '}') {
+					stream.next();
+					state.tokenize = tokenBase;
+					return 'punctuation';
+				}
+
+				return 'punctuation';
+			};
+		}
+
+		function inCondition() {
+
+			return function(stream, state) {
+
+				stream.eatWhile(/\s+/);
+
+				if (stream.match(/(if|if:elseif)/)) {
+					return 'keyword';
+				}
+
+				if (stream.match(/\b(true|false)\b/i)) {
+					return 'keyword';
+				}
+
+				if (stream.match(/\b(and|or|xor)\b/i)) {
+					return 'operator';
+				}
+
+				if (stream.match(/"(\\|\"|[^"])*?"/)) {
+					return 'string';
+				}
+
+				if (stream.match(/'(\\|\'|[^'])*?'/)) {
+					return 'string';
+				}
+
+				if (stream.match(/\b(\d+\.\d*|\d*\.\d+|\d+)\b/)) {
+					return 'number';
+				}
+
+				if (stream.match(/\w*([a-zA-Z]([\w:-]+\w)?|(\w[\w:-]+)?[a-zA-Z])\w*/)) {
+					return 'variable';
+				}
+
+				if (stream.match(/[=!|<>!&%~\(\)\$\^\*\+\-\.]+/)) {
+					return 'operator';
+				}
+
+				var ch = stream.next();
+
+				if (ch == '{' || ch == '/') {
+					return 'punctuation';
+				}
+
+
+				if (ch == '}') {
+					stream.next();
+					state.tokenize = tokenBase;
+					return 'punctuation';
+				}
+
+				return 'punctuation';
+			};
+		}
+
+		function inComment() {
+
+			return function(stream, state) {
+				stream.eat(/\{!--/);
+
+				if (stream.match(/^--}/, true)) {
+					state.tokenize = tokenBase;
+					return 'comment';
+				}
+
+				stream.next();
+
+				return 'comment';
+			};
+		}
+
+		return {
+			startState: function () {
+				return {tokenize: tokenBase};
+			},
+
+			token: function (stream, state) {
+				return state.tokenize(stream, state);
+			}
+		};
+	});
+
+	// lay ee on top of the html mode
+	CodeMirror.defineMode("ee", function(config) {
+		var htmlBase = CodeMirror.getMode(config, "text/html");
+		var eeInner = CodeMirror.getMode(config, "ee:inner");
+		return CodeMirror.overlayMode(htmlBase, eeInner);
+	});
+
+	CodeMirror.defineMIME("text/x-ee", "ee");
+
+})(CodeMirror);

@@ -4,7 +4,7 @@ $config['is_system_on'] = 'y';
 $config['cache_driver'] = 'file';
 $config['doc_url'] = 'http://expressionengine.com/user_guide/';
 $config['index_page'] = 'index.php';
-$config['app_version'] = "5.3.2"; // Fill version number here
+$config['app_version'] = "5.4.0"; // Fill version number here
 
 $system_folder                  = "admin";
 
@@ -39,10 +39,10 @@ $config['theme_folder_url']     = $base_url . "/themes/";
 $config['cp_theme']             = "default";
 
 
-$config['show_profiler']        = 'n'; # y/n
-$config['template_debugging']   = 'n'; # y/n
+#$config['show_profiler']        = 'n'; # y/n
+$config['template_debugging']   = 'y'; # y/n
 $config['save_tmpl_files']      = "y";  # y/n
-$config['debug']                = "1"; # 0: no errors shown. 1: Errors shown to Super Admins. 2: Errors shown to everyone.
+$config['debug']                = "2"; # 0: no errors shown. 1: Errors shown to Super Admins. 2: Errors shown to everyone.
 $config['enable_sql_caching']   = 'n'; # Cache Dynamic Channel Queries?
 $config['email_debug']          = 'n'; # y/n
 
@@ -81,8 +81,8 @@ $config['database'] = array (
   'expressionengine' => $dbConnection
 );
 
-$config['enable_devlog_alerts']      = 'n';
-$config['app_version'] = '5.3.2';
+$config['enable_devlog_alerts']      = 'y';
+$config['app_version'] = '5.4.0';
 $config['encryption_key'] = '78e307bb286224bd336e71417c800997eb9612a5';
 $config['session_crypt_key'] = 'f4b860726dbfee5bb8dddda232142261abbb8550';
 $config['share_analytics']           = 'y';

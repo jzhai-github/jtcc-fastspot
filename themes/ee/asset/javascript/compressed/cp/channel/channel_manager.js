@@ -6,4 +6,58 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-!function(e){new MutableSelectField("field_groups",EE.channelManager.fieldGroup);var n={onFormLoad:function(n){FieldManager.fireEvent("fieldModalDisplay",n),EE.cp.fieldToggleDisable(n),e("input[name=field_label]",n).bind("keyup keydown",function(){e(this).ee_url_title("input[name=field_name]",!0)})}};new MutableSelectField("custom_fields",Object.assign(EE.channelManager.fields,n)),new MutableSelectField("cat_group",EE.channelManager.catGroup);var n={onFormLoad:function(n){var a=e(".status-tag",n);e('input[name="status"]',n).on("keyup",function(n){var t=e(this).val()?e(this).val():EE.status.default_name;a.text(t)}),e("input.color-picker",n).minicolors({changeDelay:200,change:function(n,t){a.css("background-color",n).css("border-color",n),e.post(EE.status.foreground_color_url,{highlight:n},function(e){a.css("color","#"+e)},"json")}})}};new MutableSelectField("statuses",Object.assign(EE.channelManager.statuses,n))}(jQuery);
+
+(function($) {
+
+new MutableSelectField('field_groups', EE.channelManager.fieldGroup)
+
+var options = {
+	onFormLoad: function(modal) {
+		FieldManager.fireEvent('fieldModalDisplay', modal)
+
+		EE.cp.fieldToggleDisable(modal)
+
+		$('input[name=field_label]', modal).bind("keyup keydown", function() {
+			$(this).ee_url_title('input[name=field_name]', true);
+		});
+	}
+}
+
+new MutableSelectField('custom_fields', Object.assign(EE.channelManager.fields, options))
+
+new MutableSelectField('cat_group', EE.channelManager.catGroup)
+
+var options = {
+	onFormLoad: function(modal) {
+		var $status_tag = $('.status-tag', modal);
+
+		// Change the status example's name when you change the name
+		$('input[name="status"]', modal).on('keyup', function(event) {
+			var status = $(this).val() ? $(this).val() : EE.status.default_name;
+			$status_tag.text(status);
+		});
+
+		$('input.color-picker', modal).minicolors({
+			changeDelay: 200,
+			change: function (value, opacity) {
+				// Change background and border colors
+				$status_tag.css('background-color', value)
+					.css('border-color', value);
+
+				// Get foreground color
+				$.post(
+					EE.status.foreground_color_url,
+					{highlight: value},
+					function (data) {
+						$status_tag.css('color', '#'+data);
+					},
+					'json'
+				);
+			}
+		});
+	}
+}
+
+new MutableSelectField('statuses', Object.assign(EE.channelManager.statuses, options))
+
+})(jQuery);

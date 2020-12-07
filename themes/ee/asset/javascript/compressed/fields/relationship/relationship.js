@@ -1,4 +1,26 @@
-"use strict";function _typeof(e){return(_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,t){for(var i=0;i<t.length;i++){var n=t[i];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function _createClass(e,t,i){return t&&_defineProperties(e.prototype,t),i&&_defineProperties(e,i),e}function _possibleConstructorReturn(e,t){return!t||"object"!==_typeof(t)&&"function"!=typeof t?_assertThisInitialized(e):t}function _getPrototypeOf(e){return(_getPrototypeOf=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&_setPrototypeOf(e,t)}function _setPrototypeOf(e,t){return(_setPrototypeOf=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function _assertThisInitialized(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function _defineProperty(e,t,i){return t in e?Object.defineProperty(e,t,{value:i,enumerable:!0,configurable:!0,writable:!0}):e[t]=i,e}/*!
+"use strict";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/*!
  * This source file is part of the open source project
  * ExpressionEngine (https://expressionengine.com)
  *
@@ -6,4 +28,142 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-var FilterableSelectList=makeFilterableComponent(SelectList),Relationship=function(e){function t(e){var i;return _classCallCheck(this,t),i=_possibleConstructorReturn(this,_getPrototypeOf(t).call(this,e)),_defineProperty(_assertThisInitialized(_assertThisInitialized(i)),"selectedItemsChanged",function(e){i.setState({selectedVisible:e})}),_defineProperty(_assertThisInitialized(_assertThisInitialized(i)),"selectionChanged",function(e){i.setState({selected:e,selectedVisible:e})}),_defineProperty(_assertThisInitialized(_assertThisInitialized(i)),"handleRemove",function(e,t){i.selectionChanged(i.state.selected.filter(function(e){return e.value!=t.value})),e.preventDefault()}),i.state={selected:SelectList.formatItems(e.selected)},i.state.selectedVisible=i.state.selected,i}return _inherits(t,e),_createClass(t,[{key:"componentDidMount",value:function(){var e=this;new MutableRelationshipField($(this.container),{success:function(t,i){var n=e.state.selected;e.props.multi?n.push(t.item):n=[t.item],e.selectionChanged(n),e.entryList.forceAjaxRefresh(),i.trigger("modal:close")}})}},{key:"render",value:function(){var e=this,t=makeFilterableComponent(SelectList);return React.createElement("div",{className:"fields-relate"+(this.props.multi?" fields-relate-multi":""),ref:function(t){e.container=t}},React.createElement(FilterableSelectList,{items:this.props.items,name:this.props.name,limit:this.props.limit,multi:this.props.multi,selected:this.state.selected,selectionChanged:this.selectionChanged,selectionRemovable:!0,selectionShouldRetainItemOrder:!1,noResults:this.props.no_results,filterable:!0,tooMany:!0,filters:this.props.select_filters,filterUrl:this.props.filter_url,toggleAll:!!(this.props.multi&&this.props.items.length>SelectList.defaultProps.toggleAllLimit)||null,ref:function(t){e.entryList=t}}),this.props.multi&&React.createElement(t,{items:this.state.selectedVisible,selected:[],filterable:!0,tooMany:!0,selectable:!1,reorderable:!0,removable:!0,handleRemove:function(t,i){return e.handleRemove(t,i)},itemsChanged:this.selectionChanged,selectionChanged:this.selectionChanged,noResults:this.props.no_related,toggleAll:!(this.props.items.length>SelectList.defaultProps.toggleAllLimit)&&null}))}}],[{key:"renderFields",value:function(e){$("div[data-relationship-react]",e).each(function(){var e=JSON.parse(window.atob($(this).data("relationshipReact")));e.name=$(this).data("inputValue"),ReactDOM.render(React.createElement(t,e,null),this)}),$.fuzzyFilter()}}]),t}(React.Component);$(document).ready(function(){Relationship.renderFields()}),Grid.bind("relationship","display",function(e){Relationship.renderFields(e)}),FluidField.on("relationship","add",function(e){Relationship.renderFields(e)});
+var FilterableSelectList = makeFilterableComponent(SelectList);
+
+var Relationship =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Relationship, _React$Component);
+
+  function Relationship(props) {
+    var _this;
+
+    _classCallCheck(this, Relationship);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Relationship).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectedItemsChanged", function (selectedItems) {
+      _this.setState({
+        selectedVisible: selectedItems
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectionChanged", function (selected) {
+      _this.setState({
+        selected: selected,
+        selectedVisible: selected
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleRemove", function (event, item) {
+      _this.selectionChanged(_this.state.selected.filter(function (thisItem) {
+        return thisItem.value != item.value;
+      }));
+
+      event.preventDefault();
+    });
+
+    _this.state = {
+      selected: SelectList.formatItems(props.selected)
+    };
+    _this.state.selectedVisible = _this.state.selected;
+    return _this;
+  }
+
+  _createClass(Relationship, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      // Allow new entries to be added to this field on the fly
+      new MutableRelationshipField($(this.container), {
+        success: function success(result, modal) {
+          var selected = _this2.state.selected;
+
+          if (_this2.props.multi) {
+            selected.push(result.item);
+          } else {
+            selected = [result.item];
+          }
+
+          _this2.selectionChanged(selected);
+
+          _this2.entryList.forceAjaxRefresh();
+
+          modal.trigger('modal:close');
+        }
+      });
+    } // Items visible in the selection container changed via filtering
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      // Force the selected pane to re-render because we need to pass in new
+      // items as props which the filterable component doesn't expect...
+      var SelectedFilterableSelectList = makeFilterableComponent(SelectList);
+      return React.createElement("div", {
+        className: "fields-relate" + (this.props.multi ? ' fields-relate-multi' : ''),
+        ref: function ref(container) {
+          _this3.container = container;
+        }
+      }, React.createElement(FilterableSelectList, {
+        items: this.props.items,
+        name: this.props.name,
+        limit: this.props.limit,
+        multi: this.props.multi,
+        selected: this.state.selected,
+        selectionChanged: this.selectionChanged,
+        selectionRemovable: true,
+        selectionShouldRetainItemOrder: false,
+        noResults: this.props.no_results,
+        filterable: true,
+        tooMany: true,
+        filters: this.props.select_filters,
+        filterUrl: this.props.filter_url,
+        toggleAll: this.props.multi && this.props.items.length > SelectList.defaultProps.toggleAllLimit ? true : null,
+        ref: function ref(entryList) {
+          _this3.entryList = entryList;
+        }
+      }), this.props.multi && React.createElement(SelectedFilterableSelectList, {
+        items: this.state.selectedVisible,
+        selected: [],
+        filterable: true,
+        tooMany: true,
+        selectable: false,
+        reorderable: true,
+        removable: true,
+        handleRemove: function handleRemove(e, item) {
+          return _this3.handleRemove(e, item);
+        },
+        itemsChanged: this.selectionChanged,
+        selectionChanged: this.selectionChanged,
+        noResults: this.props.no_related,
+        toggleAll: this.props.items.length > SelectList.defaultProps.toggleAllLimit ? false : null
+      }));
+    }
+  }], [{
+    key: "renderFields",
+    value: function renderFields(context) {
+      $('div[data-relationship-react]', context).each(function () {
+        var props = JSON.parse(window.atob($(this).data('relationshipReact')));
+        props.name = $(this).data('inputValue');
+        ReactDOM.render(React.createElement(Relationship, props, null), this);
+      });
+      $.fuzzyFilter();
+    }
+  }]);
+
+  return Relationship;
+}(React.Component);
+
+$(document).ready(function () {
+  Relationship.renderFields();
+});
+Grid.bind('relationship', 'display', function (cell) {
+  Relationship.renderFields(cell);
+});
+FluidField.on('relationship', 'add', function (field) {
+  Relationship.renderFields(field);
+});

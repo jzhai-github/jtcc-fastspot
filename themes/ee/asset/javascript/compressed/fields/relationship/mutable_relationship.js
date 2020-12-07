@@ -1,4 +1,12 @@
-"use strict";function _classCallCheck(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}function _defineProperties(e,n){for(var t=0;t<n.length;t++){var a=n[t];a.enumerable=a.enumerable||!1,a.configurable=!0,"value"in a&&(a.writable=!0),Object.defineProperty(e,a.key,a)}}function _createClass(e,n,t){return n&&_defineProperties(e.prototype,n),t&&_defineProperties(e,t),e}/*!
+"use strict";
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/*!
  * This source file is part of the open source project
  * ExpressionEngine (https://expressionengine.com)
  *
@@ -6,4 +14,58 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-var MutableRelationshipField=function(){function e(n,t){_classCallCheck(this,e),this.field=n,this.options=t,this.bindAdd()}return _createClass(e,[{key:"bindAdd",value:function(){var e=this;this.field.closest("[data-relationship-react]").parent().find("[rel=add_new][data-channel-id]").on("click",function(n){n.preventDefault();var t=$(n.currentTarget);e.openPublishFormForChannel(t.data("channelId"),t.data("channelTitle")),t.closest(".sub-menu").length&&t.closest(".filters").find(".open").removeClass("open").siblings(".sub-menu").hide()})}},{key:"openPublishFormForChannel",value:function(e,n){var t=this;EE.cp.ModalForm.openForm({url:EE.relationship.publishCreateUrl.replace("###",e),full:!0,iframe:!0,success:this.options.success,load:function(e){var a=t.field.closest("[data-publish]").find("input[name=title]").val(),i=EE.relationship.lang.creatingNew.replace("#to_channel#",n).replace("#from_channel#",EE.publish.channel_title);a&&(i+="<b>: "+a+"</b>"),EE.cp.ModalForm.setTitle(i)}})}}]),e}();
+var MutableRelationshipField =
+/*#__PURE__*/
+function () {
+  function MutableRelationshipField(field, options) {
+    _classCallCheck(this, MutableRelationshipField);
+
+    this.field = field;
+    this.options = options;
+    this.bindAdd();
+  }
+
+  _createClass(MutableRelationshipField, [{
+    key: "bindAdd",
+    value: function bindAdd() {
+      var _this = this;
+
+      this.field.closest('[data-relationship-react]').parent().find('[rel=add_new][data-channel-id]').on('click', function (e) {
+        e.preventDefault();
+        var channelLink = $(e.currentTarget);
+
+        _this.openPublishFormForChannel(channelLink.data('channelId'), channelLink.data('channelTitle')); // Close sub menu
+
+
+        if (channelLink.closest('.sub-menu').length) {
+          channelLink.closest('.filters').find('.open').removeClass('open').siblings('.sub-menu').hide();
+        }
+      });
+    }
+  }, {
+    key: "openPublishFormForChannel",
+    value: function openPublishFormForChannel(channelId, channelTitle) {
+      var _this2 = this;
+
+      EE.cp.ModalForm.openForm({
+        url: EE.relationship.publishCreateUrl.replace('###', channelId),
+        full: true,
+        iframe: true,
+        success: this.options.success,
+        load: function load(modal) {
+          var entryTitle = _this2.field.closest('[data-publish]').find('input[name=title]').val();
+
+          var title = EE.relationship.lang.creatingNew.replace('#to_channel#', channelTitle).replace('#from_channel#', EE.publish.channel_title);
+
+          if (entryTitle) {
+            title += '<b>: ' + entryTitle + '</b>';
+          }
+
+          EE.cp.ModalForm.setTitle(title);
+        }
+      });
+    }
+  }]);
+
+  return MutableRelationshipField;
+}();

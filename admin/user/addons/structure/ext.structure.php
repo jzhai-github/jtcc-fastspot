@@ -61,7 +61,8 @@ class Structure_ext extends Ext
             'template_post_parse'               => 'template_post_parse',
             'cp_custom_menu'                    => 'cp_custom_menu',
             'publish_live_preview_route'        => 'publish_live_preview_route',
-            'entry_save_and_close_redirect'     => 'entry_save_and_close_redirect'
+            'entry_save_and_close_redirect'     => 'entry_save_and_close_redirect',
+            'rte_autocomplete_pages'         => 'rte_autocomplete_pages'
         );
 
         foreach ($hooks as $hook => $method) {
@@ -168,6 +169,11 @@ class Structure_ext extends Ext
             $updated = true;
         }
 
+        if (version_compare($current, '4.7.0', "<")) {
+            $this->registerExtension("rte_autocomplete_pages");
+            $updated = true;
+        }
+
         if ($updated) {
             $this->updateVersion();
         }
@@ -177,10 +183,60 @@ class Structure_ext extends Ext
      ******************* ALL HOOKS: *******************
     \**************************************************/
 
+    public function rte_autocomplete_pages($pages, $search, $site_id)
+    {
+        $this->extensions->end_script = true;
+
+        $entries = ee('Model')->get('ChannelEntry')->fields('entry_id, title, channel_id');
+        if (!empty($search)) {
+            $entries->filter('title', 'LIKE', '%' . $search . '%');
+        }
+        if (!empty($site_id)) {
+            $entries->filter('site_id', $site_id);
+        }
+        $entries->limit(10);
+        $channels = ee('Model')->get('Channel')->fields('channel_id', 'channel_title');
+        if (!empty($site_id)) {
+            $channels->filter('site_id', $site_id);
+        }
+        $channel_names = $channels->all()->getDictionary('channel_id', 'channel_title');
+        $titles = $entries->all()->getDictionary('entry_id', 'title');
+        $channel_ids = $entries->all()->getDictionary('entry_id', 'channel_id');
+
+        $structure_q = ee()->db->select('entry_id, structure_url_title')
+            ->from('structure')
+            ->where_in('entry_id', array_keys($titles))
+            ->get();
+        foreach ($structure_q->result_array() as $row) {
+            $pages[] = (object) [
+                'id' => '@' . $row['entry_id'],
+                'text' => $titles[$row['entry_id']],
+                'extra' => $channel_names[$channel_ids[$row['entry_id']]],
+                'href' => '{page' . $row['entry_id'] . '}'
+            ];
+        }
+
+        return $pages;
+    }
+
     public function publish_live_preview_route($data, $uri, $template_id)
     {
+
+		$structure_uri = '';
+		if (!empty($data['structure__parent_id'])) {
+			$structure_uri = (!empty($this->site_pages['uris'][$data['structure__parent_id']])) ? $this->site_pages['uris'][$data['structure__parent_id']].'/' : '';
+		}
+
+		$structure_uri .= (!empty($data['structure__uri'])) ? $data['structure__uri'] : $uri;
+
+
+        if (isset($data['entry_id']) && !empty($data['entry_id'])) {
+            ee()->uri->page_query_string = $data['entry_id'];
+        }
+
+
         return array(
-            'uri' => (!empty($data['structure__uri']) ? $data['structure__uri'] : $uri),
+            'uri' => $structure_uri,
             'template_id' => (!empty($data['structure__template_id']) ? $data['structure__template_id'] : $template_id),
         );
     }
@@ -357,6 +413,17 @@ class Structure_ext extends Ext
 
         // If this is a live-preview request, we have to process things slightly differently.
         if (REQ === 'CP' && strpos($this->uri, 'cp/publish/preview') !== false) {
+            $isLivePreviewRequest = true;
+        } elseif (REQ == 'ACTION') {
+            $action_id = ee()->db->select('action_id')
+                ->where('class', 'Channel')
+                ->where('method', 'live_preview')
+                ->get('actions');
+            if (ee()->input->get('ACT') == $action_id->row('action_id')) {
+                $isLivePreviewRequest = true;
+            }
+        }
+        if ($isLivePreviewRequest) {
             $this->page_title = ee()->input->post('title');
             $segment_count = ee()->uri->total_segments();
 
