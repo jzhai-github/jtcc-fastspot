@@ -1,0 +1,84 @@
+{layout='layouts/_news-layout'}
+
+{!--
+	404 redirect
+	============
+	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
+--}
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Test'}
+{preload_replace:p_description='John Tyler Community College News'}
+{preload_replace:p_url='news'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='news_stories'}
+{preload_replace:ch_title='News & Stories'}
+{preload_replace:ch_status='Open|Default Page'}
+{preload_replace:ch_disable='member_data'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='ch_disable' value='{ch_disable}'}
+{layout:set name='ch_status' value='{ch_status}'}
+{if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
+
+<div class="fs-row">
+			<div class="fs-cell">
+				<div class="wysiwyg_block_inner typography">
+<ul>
+{!-- channel entries tag --}
+{exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no"}
+	{!-- layout vars, dynamic, not output --}
+	{layout:set name='title' value='{p_title}'}
+
+	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
+
+	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
+
+	{layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
+
+	{layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
+	
+	{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+	{!-- OpenGraph meta output --}
+	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
+	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
+	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
+	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+	{!-- /layout vars, dynamic, not output --}
+
+	{!-- content output --}
+	{!--{if logged_in}
+	<a href="{cp_edit_entry_url}" class="edit-entry">Edit Entry</a>
+  {/if}--}
+	
+	{!-- page_content --}
+
+
+{layout:contents}
+
+
+<li><a href="{page_url}">{title}</a></li>
+
+
+{!--
+				no results redirect
+				===================
+				If the entry doesn't exist, we redirect to 404. This works in tandem with the require_entry='yes' parameter on the channel entries tag.
+			--}
+			{if no_results}
+				{redirect='404'}
+			{/if}
+		{/exp:channel:entries}		
+		</ul>
+		</div>
+		</div>
+		</div>

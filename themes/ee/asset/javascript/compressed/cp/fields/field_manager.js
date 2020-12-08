@@ -6,4 +6,21 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-!function(e){var i={onFormLoad:function(i){FieldManager.fireEvent("fieldModalDisplay",i),EE.cp.fieldToggleDisable(i),e("input[name=field_label]",i).bind("keyup keydown",function(){e(this).ee_url_title("input[name=field_name]",!0)})}};new MutableSelectField("channel_fields",Object.assign(EE.fieldManager.fields,i))}(jQuery);
+
+(function($) {
+
+var options = {
+	onFormLoad: function(modal) {
+		FieldManager.fireEvent('fieldModalDisplay', modal)
+
+		EE.cp.fieldToggleDisable(modal)
+
+		$('input[name=field_label]', modal).bind("keyup keydown", function() {
+			$(this).ee_url_title('input[name=field_name]', true);
+		});
+	}
+}
+
+new MutableSelectField('channel_fields', Object.assign(EE.fieldManager.fields, options))
+
+})(jQuery);

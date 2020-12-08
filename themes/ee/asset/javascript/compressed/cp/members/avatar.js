@@ -6,4 +6,58 @@
  * @copyright Copyright (c) 2003-2019, EllisLab Corp. (https://ellislab.com)
  * @license   https://expressionengine.com/license Licensed under Apache License, Version 2.0
  */
-"use strict";!function(i){i(document).ready(function(){i("input[name='avatar_picker']").each(function(){i(this).is(":checked")||i(this).parent().next().hide()}),i('input[name="avatar_picker"]').click(function(){i(this).is(":checked")&&(i(this).parent().next().show(),i("input[name='avatar_picker']").each(function(){i(this).is(":checked")||i(this).parent().next().hide()}))}),i("li.remove a").click(function(t){i(this).closest("figure").find('input[type="hidden"]').val(""),i(this).closest("fieldset").hide(),t.preventDefault()}),i(".avatarPicker").FilePicker({ajax:!1,filters:!1,callback:function(i,t){i instanceof jQuery?(i=i.find("img"),t.modal.find(".m-close").click(),t.input_value.val(i.attr("alt")),t.input_img.html("<img src='"+i.attr("src")+"' />"),t.input_img.parents("fieldset").show()):(t.modal.find(".m-close").click(),t.input_value.val(i.file_id),t.input_name.html(i.file_name),t.input_img.html("<img src='"+i.path+"' />"),t.input_img.parents("fieldset").show())}})})}(jQuery);
+
+"use strict";
+
+(function ($) {
+	$(document).ready(function () {
+
+		$("input[name='avatar_picker']").each(function(){
+			if ( ! $(this).is(':checked')) {
+				$(this).parent().next().hide();
+			}
+		});
+
+		$('input[name="avatar_picker"]').click(function(){
+			if ($(this).is(':checked'))
+			{
+				$(this).parent().next().show();
+				$("input[name='avatar_picker']").each(function(){
+					if ( ! $(this).is(':checked')) {
+						$(this).parent().next().hide();
+					}
+				});
+			}
+		});
+
+		$('li.remove a').click(function (e) {
+			$(this).closest('figure').find('input[type="hidden"]').val('');
+			$(this).closest('fieldset').hide();
+			e.preventDefault();
+		});
+
+		$('.avatarPicker').FilePicker({
+			ajax: false,
+			filters: false,
+			callback: function(data, picker) {
+				if (data instanceof jQuery)
+				{
+					data = data.find('img');
+					picker.modal.find('.m-close').click();
+					picker.input_value.val(data.attr('alt'));
+					picker.input_img.html("<img src='" + data.attr('src') + "' />");
+					picker.input_img.parents('fieldset').show();
+				}
+				else
+				{
+					picker.modal.find('.m-close').click();
+					picker.input_value.val(data.file_id);
+					picker.input_name.html(data.file_name);
+					picker.input_img.html("<img src='" + data.path + "' />");
+					picker.input_img.parents('fieldset').show();
+				}
+			}
+		});
+
+	});
+})(jQuery);
