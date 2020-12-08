@@ -62,41 +62,47 @@
 
 {layout:contents}
 
-{/exp:channel:entries}	
-<div class="featured_news_body">
-	{exp:channel:entries
-		channel='{ch}' 
-		disable='{ch_disable}' 
-		dynamic="no" 
-		limit="1"
-	}
+					{/exp:channel:entries}	
+					<div class="featured_news_body">
+						{exp:channel:entries
+							channel='{ch}' 
+							disable='{ch_disable}' 
+							dynamic="no" 
+							limit="1"
+							category="39"
+							search:featured_on_news_page="not IS_EMPTY" 
+						}
                         <div class="featured_news_spotlight">
                             <div class="story theme_turquoise">
                                 <figure class="story_figure has_wide_image">
-                                    <a class="story_figure_link" href="" aria-label="Read more about Getting Ready for a Successful Spring Semester" tabindex="-1">
+                                    <a class="story_figure_link" href="" aria-label="Read more about {title}" tabindex="-1">
+										{story_image} 
                                         <span class="lazy_image_wrapper story_image_wrapper">
-                                            <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src="https://images.fastspot.com/jtcc/740x494/12" data-srcset="//images.fastspot.com/jtcc/740x494/12 740w, //images.fastspot.com/jtcc/980x654/12 980w" alt="">
+                                            <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
+											{img:url:resize width="740" height="494"}
+                                            ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
                                         </span>
                                         <noscript>
-                                            <img class="story_image" src="https://images.fastspot.com/jtcc/980x654/12" srcset="//images.fastspot.com/jtcc/980x654/12 980w, //images.fastspot.com/jtcc/740x494/12 740w" sizes="100vw" alt="">
+                                            <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="{img:title}">
                                         </noscript>
+                                        {/story_image}
                                     </a>
                                 </figure>
                                 <div class="story_wrapper">
                                     <div class="story_label">Featured News</div>
                                     <h2 class="story_title">
 
-                                        <a href="#" class="story_title_link">
+                                        <a href="{url_title_path=news}" class="story_title_link">
                                             <span class="story_title_link_inner">
-                                                <span class="story_title_link_label">Getting Ready for a Successful Spring Semester</span>
+                                                <span class="story_title_link_label">{title}</span>
                                             </span>
                                         </a>
                                     </h2>
                                     <div class="story_description">
-                                        <p>It’s a new year, and a new semester is about to begin. While this is an exciting time, it can also be a hectic time for students. Here are a few tips to help you get ready for spring.</p>
+                                        <p>{story_description}</p>
                                     </div>
 
-                                    <a href="#" class="story_discovery_link">
+                                    <a href="{url_title_path=news}" class="story_discovery_link">
                                         <span class="story_discovery_link_inner">
                                             <span class="story_discovery_link_label">Read The Story</span>
                                             <span class="story_discovery_link_icon" aria-hidden="true">
@@ -112,24 +118,28 @@
                                         </span>
                                     </a>
                                 </div>
-                            </div>
-                        </div>
-                        {/exp:channel:entries}
-                        {exp:channel:entries
-							channel='{ch}' 
-							disable='{ch_disable}' 
-							dynamic="no" 
-							limit="3"
-						}
+                            </div><!-- /story theme_turquoise -->
+                            {/exp:channel:entries}
+                        </div><!-- /featured_news_spotlight -->
+                        
+                        
                         <div class="featured_news_content">
                             <div class="js-carousel featured_news_articles" data-carousel-options='{
 							"maxWidth": "739px"
 						}'>
-                                <div class="featured_news_article">
+						{exp:channel:entries
+							channel='{ch}' 
+							disable='{ch_disable}' 
+							dynamic="no"
+							category="39"
+							search:featured_on_news_page="IS_EMPTY" 
+							limit="3"
+						}
+                                <div class="featured_news_article fs-carousel-item">
                                     <time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
                                     <h3 class="featured_news_article_title">
 
-                                        <a href="{page_url}" class="featured_news_article_title_link">
+                                        <a href="{url_title_path=news}" class="featured_news_article_title_link">
                                             <span class="featured_news_article_title_link_inner">
                                                 <span class="featured_news_article_title_link_label">{title}</span>
                                                 <span class="featured_news_article_title_link_icon" aria-hidden="true">
@@ -145,30 +155,26 @@
                                             </span>
                                         </a>
                                     </h3>
-                                </div>
-                            </div>
+                                </div><!-- /featured_news_article fs-carousel-item -->
+                            {/exp:channel:entries}
                             <div class="featured_news_hint">
                                 <span class="featured_news_hint_icon">
                                     <svg class="icon icon_arrow_down">
                                         <use href="/images/icons.svg#arrow_down" />
                                     </svg>
                                 </span>
-                                <span class="featured_news_hint_label">Scroll for more stories</span>
-                            </div>
-                        </div>
-                    </div>
+                                <span class="featured_news_hint_label"><a href="#entries">Scroll for more stories</a></span>
+                            </div><!-- /featured_news_hint -->
+                           </div><!-- /featured_news_content -->
 
+                    </div><!-- /featured_news_body -->
 
-{!--
-				no results redirect
-				===================
-				If the entry doesn't exist, we redirect to 404. This works in tandem with the require_entry='yes' parameter on the channel entries tag.
-			--}
-			{if no_results}
-				{redirect='404'}
-			{/if}
-		{/exp:channel:entries}	
-
+				</div><!-- /featured_news_inner -->
+            </div><!-- /fs-cell -->
+        </div> <!-- /fs-row -->
+    </div><!-- /featured_news theme_featured -->
+</div>
+<!-- END: Page Feature -->
 		<!-- Full Width Callouts -->
 <div class="full_width_callouts">
     <div class="filter">
@@ -242,7 +248,7 @@
                 </div>
             </div>
         </div>
-        <div class="filter_results">
+        <div class="filter_results" id="entries">
             <div class="fs-row">
                 <div class="fs-cell">
                     <div class="filter_results_inner">
@@ -278,25 +284,37 @@
             <div class="fs-cell">
                 <div class="news_list_inner">
                     <ul class="news_list_items" id="item_list" aria-label="">
+                    	{exp:channel:entries
+							channel='{ch}' 
+							disable='{ch_disable}' 
+							dynamic="no"
+							category="39"
+							offset="0"
+							paginate="bottom"
+							limit="5"
+						}
                         <li class="news_list_item">
                             <div class="news_item">
+                            	{if story_image}
+                            	{story_image} 
                                 <figure class="news_item_figure">
-                                    <a class="news_item_figure_link" href="#" aria-label="Read more about Next Up: Fire Captain" tabindex="-1">
+                                    <a class="news_item_figure_link" href="#" aria-label="Read more about {title}" tabindex="-1">
                                         <span class="lazy_image_wrapper news_item_image_wrapper">
-                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src="https://images.fastspot.com/jtcc/300x200/1" data-srcset="//images.fastspot.com/jtcc/300x200/1 300w, //images.fastspot.com/jtcc/500x334/1 500w, //images.fastspot.com/jtcc/740x494/1 740w, //images.fastspot.com/jtcc/980x654/1 980w" alt="">
+                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src='{img:url:resize width="300" height="200"}' data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
                                         </span>
                                         <noscript>
-                                            <img class="news_item_image" src="https://images.fastspot.com/jtcc/980x654/1" srcset="//images.fastspot.com/jtcc/980x654/1 980w, //images.fastspot.com/jtcc/740x494/1 740w, //images.fastspot.com/jtcc/500x334/1 500w, //images.fastspot.com/jtcc/300x200/1 300w" sizes="100vw" alt="">
+                                            <img class="news_item_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, {img:url:resize width="740" height="494"} 740w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="300" height="200"} 300w' sizes="100vw" alt="">
                                         </noscript>
                                     </a>
                                 </figure>
+                                {/story_image}
+                                {/if}
                                 <div class="news_item_wrapper">
                                     <div class="news_item_header">
                                         <h2 class="news_item_title">
-
                                             <a href="#" class="news_item_title_link">
                                                 <span class="news_item_title_link_inner">
-                                                    <span class="news_item_title_link_label">Next Up: Fire Captain</span>
+                                                    <span class="news_item_title_link_label">{title}</span>
                                                     <span class="news_item_title_link_icon" aria-hidden="true">
                                                         <span class="news_item_title_link_icon_inner">
                                                             <span class="news_item_title_link_icon_space">&#xfeff;</span>
@@ -311,15 +329,27 @@
                                             </a>
                                         </h2>
                                         <div class="news_item_categories">
-                                            <div class="news_item_category_hint">Categories</div>
+                                        	{exp:tag:tags
+										        entry_id="{entry_id}"
+										        orderby="tag_name" sort="asc"
+										        limit="4"
+										        backspace="2"
+										    }
+										        {if tag_count == "1"}
+										            <div class="news_item_category_hint">Categories</div>
+										        {/if}
+                                            
                                             <ul class="news_item_category_list" aria-label="Categories">
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Emergency Medical Services</a>
-                                                </li>
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Next Up</a>
-                                                </li>
-                                            </ul>
+                                            	<li class="news_item_category">
+									                <a href="{path='news'}/{websafe_tag}" class="news_item_category_link">
+									                    {tag}
+									                </a>
+										        </li>
+										        {if tag_count == tag_total_results}
+										        </ul>							            
+										        {/if}
+										    {/exp:tag:tags}
+                                                                  
                                         </div>
                                     </div>
                                     <div class="news_item_body">
@@ -327,7 +357,7 @@
                                             <div class="news_item_detail news_item_date">
                                                 <span class="news_item_detail_hint">Published:
                                                 </span>
-                                                <time class="news_item_detail_label" datetime="2019-01-01 17:00:00">January 1, 2019</time>
+                                                <time class="news_item_detail_label" datetime='%Y-%m-%d'>{entry_date format="%F %d, %Y"}</time>
                                             </div>
                                             <div class="news_item_detail news_item_author">
                                                 <span class="news_item_detail_hint">by
@@ -336,208 +366,14 @@
                                             </div>
                                         </div>
                                         <div class="news_item_description">
-                                            <p>After graduating from Tyler’s emergency medical services – paramedic program, Damian Winn’s career is heating up. He’s gone from volunteer to full-time firefighter to paramedic mentor. With his sought-after paramedic skills, he’s not just putting out fires. He’s the crucial link in keeping people alive.</p>
+                                            <p>{story_description}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- END: News Item -->
                         </li>
-                        <li class="news_list_item">
-                            <div class="news_item">
-                                <figure class="news_item_figure">
-                                    <a class="news_item_figure_link" href="#" aria-label="Read more about Tyler Announces New Student Success Webinars" tabindex="-1">
-                                        <span class="lazy_image_wrapper news_item_image_wrapper">
-                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src="https://images.fastspot.com/jtcc/300x200/2" data-srcset="//images.fastspot.com/jtcc/300x200/2 300w, //images.fastspot.com/jtcc/500x334/2 500w, //images.fastspot.com/jtcc/740x494/2 740w, //images.fastspot.com/jtcc/980x654/2 980w" alt="">
-                                        </span>
-                                        <noscript>
-                                            <img class="news_item_image" src="https://images.fastspot.com/jtcc/980x654/2" srcset="//images.fastspot.com/jtcc/980x654/2 980w, //images.fastspot.com/jtcc/740x494/2 740w, //images.fastspot.com/jtcc/500x334/2 500w, //images.fastspot.com/jtcc/300x200/2 300w" sizes="100vw" alt="">
-                                        </noscript>
-                                    </a>
-                                </figure>
-                                <div class="news_item_wrapper">
-                                    <div class="news_item_header">
-                                        <h2 class="news_item_title">
-
-                                            <a href="#" class="news_item_title_link">
-                                                <span class="news_item_title_link_inner">
-                                                    <span class="news_item_title_link_label">Tyler Announces New Student Success Webinars</span>
-                                                    <span class="news_item_title_link_icon" aria-hidden="true">
-                                                        <span class="news_item_title_link_icon_inner">
-                                                            <span class="news_item_title_link_icon_space">&#xfeff;</span>
-
-                                                            <svg class="icon icon_caret_right">
-                                                                <use href="/images/icons.svg#caret_right" />
-                                                            </svg>
-
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </h2>
-                                        <div class="news_item_categories">
-                                            <div class="news_item_category_hint">Categories</div>
-                                            <ul class="news_item_category_list" aria-label="Categories">
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Academics</a>
-                                                </li>
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Announcement</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="news_item_body">
-                                        <div class="news_item_details">
-                                            <div class="news_item_detail news_item_date">
-                                                <span class="news_item_detail_hint">Published:
-                                                </span>
-                                                <time class="news_item_detail_label" datetime="2019-01-01 17:00:00">January 1, 2019</time>
-                                            </div>
-                                            <div class="news_item_detail news_item_author">
-                                                <span class="news_item_detail_hint">by
-                                                </span>
-                                                <span class="news_item_detail_label">Author</span>
-                                            </div>
-                                        </div>
-                                        <div class="news_item_description">
-                                            <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END: News Item -->
-                        </li>
-                        <li class="news_list_item">
-                            <div class="news_item">
-                                <figure class="news_item_figure">
-                                    <a class="news_item_figure_link" href="#" aria-label="Read more about Tyler Grad Designs Logo Supporting Frontline COVID Workers" tabindex="-1">
-                                        <span class="lazy_image_wrapper news_item_image_wrapper">
-                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src="https://images.fastspot.com/jtcc/300x200/3" data-srcset="//images.fastspot.com/jtcc/300x200/3 300w, //images.fastspot.com/jtcc/500x334/3 500w, //images.fastspot.com/jtcc/740x494/3 740w, //images.fastspot.com/jtcc/980x654/3 980w" alt="">
-                                        </span>
-                                        <noscript>
-                                            <img class="news_item_image" src="https://images.fastspot.com/jtcc/980x654/3" srcset="//images.fastspot.com/jtcc/980x654/3 980w, //images.fastspot.com/jtcc/740x494/3 740w, //images.fastspot.com/jtcc/500x334/3 500w, //images.fastspot.com/jtcc/300x200/3 300w" sizes="100vw" alt="">
-                                        </noscript>
-                                    </a>
-                                </figure>
-                                <div class="news_item_wrapper">
-                                    <div class="news_item_header">
-                                        <h2 class="news_item_title">
-
-                                            <a href="#" class="news_item_title_link">
-                                                <span class="news_item_title_link_inner">
-                                                    <span class="news_item_title_link_label">Tyler Grad Designs Logo Supporting Frontline COVID Workers</span>
-                                                    <span class="news_item_title_link_icon" aria-hidden="true">
-                                                        <span class="news_item_title_link_icon_inner">
-                                                            <span class="news_item_title_link_icon_space">&#xfeff;</span>
-
-                                                            <svg class="icon icon_caret_right">
-                                                                <use href="/images/icons.svg#caret_right" />
-                                                            </svg>
-
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </h2>
-                                        <div class="news_item_categories">
-                                            <div class="news_item_category_hint">Categories</div>
-                                            <ul class="news_item_category_list" aria-label="Categories">
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Graphic Design</a>
-                                                </li>
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Noteworthy Stories</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="news_item_body">
-                                        <div class="news_item_details">
-                                            <div class="news_item_detail news_item_date">
-                                                <span class="news_item_detail_hint">Published:
-                                                </span>
-                                                <time class="news_item_detail_label" datetime="2019-01-01 17:00:00">January 1, 2019</time>
-                                            </div>
-                                            <div class="news_item_detail news_item_author">
-                                                <span class="news_item_detail_hint">by
-                                                </span>
-                                                <span class="news_item_detail_label">Author</span>
-                                            </div>
-                                        </div>
-                                        <div class="news_item_description">
-                                            <p>Mark Van Der Hyde is part of a family devoted to public service. His wife is a critical care nurse at Lowell General Hospital near Boston, while his Dad and brother are nurses, his sister works in a medical office, and his mom works in food service.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END: News Item -->
-                        </li>
-                        <li class="news_list_item">
-                            <div class="news_item">
-                                <figure class="news_item_figure">
-                                    <a class="news_item_figure_link" href="#" aria-label="Read more about John Tyler Community College Announces its Annual Student Award Winners" tabindex="-1">
-                                        <span class="lazy_image_wrapper news_item_image_wrapper">
-                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src="https://images.fastspot.com/jtcc/300x200/4" data-srcset="//images.fastspot.com/jtcc/300x200/4 300w, //images.fastspot.com/jtcc/500x334/4 500w, //images.fastspot.com/jtcc/740x494/4 740w, //images.fastspot.com/jtcc/980x654/4 980w" alt="">
-                                        </span>
-                                        <noscript>
-                                            <img class="news_item_image" src="https://images.fastspot.com/jtcc/980x654/4" srcset="//images.fastspot.com/jtcc/980x654/4 980w, //images.fastspot.com/jtcc/740x494/4 740w, //images.fastspot.com/jtcc/500x334/4 500w, //images.fastspot.com/jtcc/300x200/4 300w" sizes="100vw" alt="">
-                                        </noscript>
-                                    </a>
-                                </figure>
-                                <div class="news_item_wrapper">
-                                    <div class="news_item_header">
-                                        <h2 class="news_item_title">
-
-                                            <a href="#" class="news_item_title_link">
-                                                <span class="news_item_title_link_inner">
-                                                    <span class="news_item_title_link_label">John Tyler Community College Announces its Annual Student Award Winners</span>
-                                                    <span class="news_item_title_link_icon" aria-hidden="true">
-                                                        <span class="news_item_title_link_icon_inner">
-                                                            <span class="news_item_title_link_icon_space">&#xfeff;</span>
-
-                                                            <svg class="icon icon_caret_right">
-                                                                <use href="/images/icons.svg#caret_right" />
-                                                            </svg>
-
-                                                        </span>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        </h2>
-                                        <div class="news_item_categories">
-                                            <div class="news_item_category_hint">Categories</div>
-                                            <ul class="news_item_category_list" aria-label="Categories">
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Academics</a>
-                                                </li>
-                                                <li class="news_item_category">
-                                                    <a class="news_item_category_link" href="page-news-category.html">Announcement</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="news_item_body">
-                                        <div class="news_item_details">
-                                            <div class="news_item_detail news_item_date">
-                                                <span class="news_item_detail_hint">Published:
-                                                </span>
-                                                <time class="news_item_detail_label" datetime="2019-01-01 17:00:00">January 1, 2019</time>
-                                            </div>
-                                            <div class="news_item_detail news_item_author">
-                                                <span class="news_item_detail_hint">by
-                                                </span>
-                                                <span class="news_item_detail_label">Author</span>
-                                            </div>
-                                        </div>
-                                        <div class="news_item_description">
-                                            <p>Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END: News Item -->
-                        </li>
+                        {/exp:channel:entries}
                     </ul>
                     <div class="pagination">
                         <nav class="pagination_nav" aria-label="Template Pagination">
