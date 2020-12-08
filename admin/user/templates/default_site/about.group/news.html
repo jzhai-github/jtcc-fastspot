@@ -10,7 +10,7 @@
 {/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='Test'}
+{preload_replace:p_title='News & Stories'}
 {preload_replace:p_description='John Tyler Community College News'}
 {preload_replace:p_url='news'}
 {!-- channel vars (prefix ch_) --}
@@ -66,7 +66,7 @@
 {layout:contents}
 
 
-<li><a href="{page_url}">{title}</a></li>
+<li>{entry_date format="%F %d, %Y"} <a href="{page_url}">{title}</a></li>
 
 
 {!--

@@ -235,14 +235,16 @@
 					<span class="featured_programs_title_label featured_programs_title_label_secondary">Want to study?</span>
 				</span>
 			</h2>
+			{exp:search:simple_form channel="major" status="open|Default Page" search_in="everywhere" where="any" result_page="/major/results" no_result_page="/major/noresults"}
 			<div class="featured_programs_input_wrapper">
-				<input class="featured_programs_input" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
+				<input class="featured_programs_input" name="keywords" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
 				<span class="featured_programs_input_icon">
 			<svg class="icon icon_search">
 				<use href="/images/icons.svg#search" />
 			</svg>
 		</span>
 			</div>
+			{/exp:search:simple_form}
 		</div>
 		<div class="featured_programs_content">
 			<div class="feature_programs_body">
@@ -250,7 +252,27 @@
 					<h3 class="featured_programs_body_title"><strong>60+</strong> Majors in…</h3>
 				</div>
 				<ul class="featured_programs_items">
-											<li class="featured_programs_item">
+				{exp:channel:categories category_group="4" style="linear"}							
+					<li class="featured_programs_item">
+							
+<a href="/major/{category_id}" class="featured_programs_item_link" >
+	<span class="featured_programs_item_link_inner">
+		<span class="featured_programs_item_link_label">{category_name}</span>
+					<span class="featured_programs_item_link_icon" aria-hidden="true">
+				<span class="featured_programs_item_link_icon_inner">
+					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+					
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		
+				</span>
+			</span>
+			</span>
+</a>
+					</li>
+				{/exp:channel:categories}
+					{!--<li class="featured_programs_item">
 							
 
 <a href="#" class="featured_programs_item_link" >
@@ -420,7 +442,7 @@
 			</span>
 			</span>
 </a>
-						</li>
+						</li>--}
 									</ul>
 				<div class="featured_programs_items_select_wrapper">
 					<select class="featured_programs_items_select">
