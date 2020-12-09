@@ -1,0 +1,23 @@
+<div class="contact_header">
+	<div class="contact_header_group">
+		<h2 class="contact_header_title">{{ item.title }}</h2>
+		<p class="contact_header_caption">{{ item.caption }}</p>
+	</div>
+	<div class="contact_header_group">
+		{% if item.image %}
+			<figure class="contact_header_figure" aria-hidden="true">
+				{% render "@partial-image" with {
+					class: "contact_header",
+					alt: "",
+					itemprop: "image",
+					image: item.image,
+					sources: [
+						img("square").sml,
+						img("square").xsml,
+						img("square").xxsml
+					]
+				} %}
+			</figure>
+		{% endif %}
+	</div>
+</div>

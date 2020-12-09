@@ -1,0 +1,55 @@
+{#
+	{% include navigation("basic") with {
+		class: "basic_nav",
+		modifier: "lg",
+		title: "Basic Navigation",
+		toggle_icon: "caret_down",
+		active_index: "",
+		links: [{ "title": "Page Title", "url": "#", "children": [] }],
+		icon: "",
+		child_icon: ""
+	} %}
+#}
+
+<nav class="js-nav js-{{ class|replace({ "_": "-" }) }}{% if modifier %} js-{{ class|replace({ "_": "-" }) }}-{{ modifier }}{% endif %} nav {{ class }}{% if modifier %} {{ class }}_{{ modifier }}{% endif %}" aria-labelledby="{{ class }}_title{% if modifier %}_{{ modifier }}{% endif %}">
+	<div class="nav_header {{ class }}_header">
+		<h2 class="nav_title {{ class }}_title" id="{{ class }}_title{% if modifier %}_{{ modifier }}{% endif %}">{{ title }}</h2>
+	</div>
+	<ul class="js-nav-list js-{{ class|replace({ "_": "-" }) }}-list nav_list {{ class }}_list" aria-labelledby="{{ class }}_title{% if modifier %}_{{ modifier }}{% endif %}">
+		{% for link in links %}
+		<li class="js-nav-item js-{{ class|replace({ "_": "-" }) }}-item js-{{ class|replace({ "_": "-" }) }}-item-{{ loop.index }} nav_item {{ class }}_item{% if link.children %} has_children{% endif %}{% if loop.index == active_index %} active{% endif %}">
+			<div class="nav_item_inner {{ class }}_item_inner">
+				<a class="js-nav-link js-{{ class|replace({ "_": "-" }) }}-link nav_link {{ class }}_link{% if loop.index == active_index %} active{% endif %}" href="{{ link.url ?: '#' }}"{% if loop.index == active_index %} aria-current="page"{% endif %}>
+					{% if icon %}
+					<span class="nav_link_icon {{ class }}_link_icon" aria-hidden="true">{{ icon(icon) }}</span>
+					{% endif %}
+					<span class="nav_link_label {{ class }}_link_label">{{ link.title ?: link }}</span>
+				</a>
+				{% if link.children %}
+				<button class="js-swap js-nav-toggle js-{{ class|replace({ "_": "-" }) }}-toggle nav_toggle {{ class }}_toggle" data-swap-target=".js-{{ class|replace({ "_": "-" }) }}-item-{{ loop.index }}" data-swap-group="{{ class }}{% if modifier %}_{{ modifier }}{% endif %}" aria-label="{{ link.title ?: link }}" aria-haspopup="true" aria-expanded="false">
+					<span class="nav_toggle_inner {{ class }}_toggle_inner">
+						{% if toggle_icon %}
+						<span class="nav_toggle_icon {{ class }}_toggle_icon">{{ icon(toggle_icon) }}</span>
+						{% endif %}
+					</span>
+				</button>
+				{% endif %}
+			</div>
+			{% if link.children %}
+			<ul class="js-nav-children js-{{ class|replace({ "_": "-" }) }}-children nav_children {{ class }}_children" aria-label="{{ link.title ?: link }}">
+				{% for child in link.children %}
+				<li class="js-nav-child-item js-{{ class|replace({ "_": "-" }) }}-child-item nav_child_item {{ class }}_child_item">
+					<a class="js-nav-child-link js-{{ class|replace({ "_": "-" }) }}-child-link nav_child_link {{ class }}_child_link" href="{{ child.url ?: '#' }}">
+						{% if child_icon %}
+						<span class="nav_child_link_icon {{ class }}_child_link_icon" aria-hidden="true">{{ icon(child_icon) }}</span>
+						{% endif %}
+						<span class="nav_child_link_label {{ class }}_child_link_label">{{ child.title ?: child }}</span>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</li>
+		{% endfor %}
+	</ul>
+</nav>

@@ -1,0 +1,76 @@
+{#
+	Google Maps, Find the ID of a particular place - https://developers.google.com/places/place-id
+#}
+
+<div class="meta_info">
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "{{ schema_type }}",
+			"name": "{{ name }}",
+			"logo": "//{{ domain }}/images/logo-schema.png",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "{{ street }}",
+				"addressLocality": "{{ city }}",
+				"addressRegion": "{{ state }}",
+				"postalCode": "{{ zip }}"
+			},
+		{% if email %}"email": "{{ email }}",
+		{% endif %}
+		{% if phone %}"telephone": "{{ phone }}",
+		{% endif %}
+		"url": "//{{ config.domain }}",
+		{% if navigation.social %}
+			"sameAs": [
+			{% for social in navigation.social %}
+				"{{ social.url }}"
+				{% if not loop.last %},
+				{% endif %}
+			{% endfor %}
+			]
+		{% endif %}
+		}
+	</script>
+	{% if title %}
+		<a class="meta_info_link" href="#">
+			<span class="meta_info_link_label">{{ title }}</span>
+			<span class="meta_info_link_icon">{{ icon("caret_right") }}</span>
+		</a>
+	{% endif %}
+	<div class="meta_info_details">
+		<div class="meta_info_detail meta_info_detail_address">
+			<span class="meta_info_detail_icon">{{ icon("place") }}</span>
+			<a class="meta_info_detail_label meta_info_detail_link" href="//www.google.com/maps/place/?q=place_id:{{ place_id }}" target="_blank" rel="noopener">
+				<span class="meta_info_address_street">{{ street }},</span>
+				<span class="meta_info_address_group">
+					<span class="meta_info_address_city">{{ city }},</span>
+					<span class="meta_info_address_state">{{ state }}</span>
+					<span class="meta_info_address_zip">{{ zip }}</span>
+				</span>
+			</a>
+		</div>
+		{% if email %}
+			<div class="meta_info_detail meta_info_detail_email">
+				<span class="meta_info_detail_icon">{{ icon("mail") }}</span>
+				<a class="meta_info_detail_label meta_info_detail_link" href="mailto:{{ email }}">{{ email }}</a>
+			</div>
+		{% endif %}
+		{% if phone %}
+			<div class="meta_info_detail meta_info_detail_phone">
+				<span class="meta_info_detail_icon">{{ icon("phone") }}</span>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(phone) }}">
+					<span class="meta_info_detail_label_hint">Phone</span>
+					{{ phone }}</a>
+			</div>
+		{% endif %}
+		{% if fax %}
+			<div class="meta_info_detail meta_info_detail_fax">
+				<span class="meta_info_detail_icon">{{ icon("fax") }}</span>
+				<a class="meta_info_detail_label meta_info_detail_link" href="tel:{{ tel(fax) }}">
+					<span class="meta_info_detail_label_hint">Fax</span>
+					{{ fax }}</a>
+			</div>
+		{% endif %}
+	</div>
+</div>

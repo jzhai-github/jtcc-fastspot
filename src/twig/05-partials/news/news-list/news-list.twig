@@ -1,0 +1,18 @@
+<div class="news_list">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="news_list_inner">
+				<ul class="news_list_items" id="item_list" aria-label="{{ page.title }}">
+					{% for item in items %}
+					<li class="news_list_item">
+						{% render "@partial-news-item" with {
+							item: item
+						} %}
+					</li>
+					{% endfor %}
+				</ul>
+				{% render "@partial-pagination" %}
+			</div>
+		</div>
+	</div>
+</div>

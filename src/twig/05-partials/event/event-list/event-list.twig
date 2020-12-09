@@ -1,0 +1,18 @@
+<div class="event_list">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="event_list_inner">
+				<ul class="event_list_items" id="item_list" aria-label="{{ page.title }}">
+					{% for item in items %}
+					<li class="event_list_item">
+						{% render "@partial-event-item" with {
+							item: item
+						} %}
+					</li>
+					{% endfor %}
+				</ul>
+				{% render "@partial-pagination" %}
+			</div>
+		</div>
+	</div>
+</div>

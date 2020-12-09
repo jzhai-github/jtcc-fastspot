@@ -1,0 +1,48 @@
+<div class="story theme_{{ item.theme }}{% if item.layout %} layout_{{ item.layout }}{% endif %}">
+	<figure class="story_figure{% if item.classicImage %} has_classic_image{% elseif item.wideImage %} has_wide_image{% endif %}">
+		<a class="story_figure_link" href="{{ item.url }}" aria-label="Read more about {{ item.title }}" tabindex="-1">
+			{% if item.classicImage %}
+			{% render "@partial-image" with {
+				class: "story",
+				alt: "",
+				image: item.classicImage,
+				sources: [
+					img("classic").med,
+					img("classic").sml
+				]
+			} %}
+			{% elseif item.wideImage %}
+			{% render "@partial-image" with {
+				class: "story",
+				alt: "",
+				image: item.wideImage,
+				sources: [
+					img("classic").med,
+					img("classic").sml
+				]
+			} %}
+			{% endif %}
+		</a>
+	</figure>
+	<div class="story_wrapper">
+		{% if item.label %}
+		<div class="story_label">{{ item.label }}</div>
+		{% endif %}
+		<h2 class="story_title">
+			{% render "@partial-link" with {
+				class: "story_title",
+				title: item.title,
+				url: item.url
+			} %}
+		</h2>
+		<div class="story_description">
+			<p>{{ item.description }}</p>
+		</div>
+		{% render '@partial-link' with {
+			title: item.link,
+			url: "#",
+			class: "story_discovery",
+			icon: "caret_right"
+		} %}
+	</div>
+</div>
