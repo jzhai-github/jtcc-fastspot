@@ -118,11 +118,13 @@
                                 </span>
                                 <time class="news_item_detail_label" datetime="{layout:entry_date format='%Y-%m-%d'}">{layout:entry_date format="%F %d, %Y"}</time>
                             </div>
+                            {if layout:author}
                             <div class="news_item_detail news_item_author">
                                 <span class="news_item_detail_hint">by
                                 </span>
-                                <span class="news_item_detail_label">Author</span>
+                                <span class="news_item_detail_label">{layout:author}</span>
                             </div>
+                            {/if}
                         </div>
                         <div class="news_meta_categories_block">
                             <span class="news_meta_categories_icon">

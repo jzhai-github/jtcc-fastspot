@@ -359,11 +359,13 @@
                                                 </span>
                                                 <time class="news_item_detail_label" datetime='%Y-%m-%d'>{entry_date format="%F %d, %Y"}</time>
                                             </div>
+                                            {if news_author}
                                             <div class="news_item_detail news_item_author">
                                                 <span class="news_item_detail_hint">by
                                                 </span>
-                                                <span class="news_item_detail_label">Author</span>
+                                                <span class="news_item_detail_label">{news_author}</span>
                                             </div>
+                                            {/if}
                                         </div>
                                         <div class="news_item_description">
                                             <p>{story_description}</p>

@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
 
-	<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news'}News{if:else}{layout:title}{/if}</title>
+	<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news' && segment_2 == ''}News{if:else}{layout:title}{/if}</title>
 
 <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">

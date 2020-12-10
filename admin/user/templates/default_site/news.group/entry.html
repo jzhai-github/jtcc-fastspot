@@ -32,7 +32,9 @@
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
 	{layout:set name='entry_date' value='{entry_date}'}
-	{layout:set name='categories' value='{exp:tag:tags
+	{layout:set name='author' value='{news_author}'}
+	{layout:set name="categories"}
+  {exp:tag:tags
                                                 entry_id="{entry_id}"
                                                 orderby="tag_name" sort="asc"
                                                 limit="4"
@@ -45,7 +47,8 @@
                                                     {if tag_count == tag_total_results}
                                                 </ul>                                       
                                                 {/if}
-                                            {/exp:tag:tags}'}
+                                            {/exp:tag:tags}
+{/layout:set}
 
 	{layout:set name='page_description' value='{if story_description}{story_description}{/if}'}
 
