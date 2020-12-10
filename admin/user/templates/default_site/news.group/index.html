@@ -1,12 +1,12 @@
 {layout='layouts/_news-layout'}
 
 {!--
-	404 redirect
-	============
-	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
+    404 redirect
+    ============
+    This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
 --}
 {if segment_6}
-	{redirect='404'}
+    {redirect='404'}
 {/if}
 
 {!-- page vars (prefix p_) --}
@@ -30,56 +30,56 @@
 
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no"}
-	{!-- layout vars, dynamic, not output --}
-	{layout:set name='title' value='{p_title}'}
+    {!-- layout vars, dynamic, not output --}
+    {layout:set name='title' value='{p_title}'}
+    
+    {layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
 
-	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
+    {layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
 
-	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
+    {layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
 
-	{layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
+    {layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
+    {layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
+    {layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
+    {layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
+    
+    {layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+    {!-- OpenGraph meta output --}
+    {layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
+    {layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
+    {layout:set name='og_url'}{path='{p_url}'}{/layout:set}
+    {layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+    {!-- /layout vars, dynamic, not output --}
 
-	{layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
-	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
-	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
-	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
-	
-	{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
-	{!-- OpenGraph meta output --}
-	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
-	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
-	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
-	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
-	{!-- /layout vars, dynamic, not output --}
-
-	{!-- content output --}
-	{!--{if logged_in}
-	<a href="{cp_edit_entry_url}" class="edit-entry">Edit Entry</a>
+    {!-- content output --}
+    {!--{if logged_in}
+    <a href="{cp_edit_entry_url}" class="edit-entry">Edit Entry</a>
   {/if}--}
-	
-	{!-- page_content --}
+    
+    {!-- page_content --}
 
 
 {layout:contents}
 
-					{/exp:channel:entries}	
-					<div class="featured_news_body">
-						{exp:channel:entries
-							channel='{ch}' 
-							disable='{ch_disable}' 
-							dynamic="no" 
-							limit="1"
-							category="39"
-							search:featured_on_news_page="not IS_EMPTY" 
-						}
+                    {/exp:channel:entries}  
+                    <div class="featured_news_body">
+                        {exp:channel:entries
+                            channel='{ch}' 
+                            disable='{ch_disable}' 
+                            dynamic="no" 
+                            limit="1"
+                            category="39"
+                            search:featured_on_news_page="not IS_EMPTY" 
+                        }
                         <div class="featured_news_spotlight">
                             <div class="story theme_turquoise">
                                 <figure class="story_figure has_wide_image">
                                     <a class="story_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
-										{story_image} 
+                                        {story_image} 
                                         <span class="lazy_image_wrapper story_image_wrapper">
                                             <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
-											{img:url:resize width="740" height="494"}
+                                            {img:url:resize width="740" height="494"}
                                             ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
                                         </span>
                                         <noscript>
@@ -125,16 +125,16 @@
                         
                         <div class="featured_news_content">
                             <div class="js-carousel featured_news_articles" data-carousel-options='{
-							"maxWidth": "739px"
-						}'>
-						{exp:channel:entries
-							channel='{ch}' 
-							disable='{ch_disable}' 
-							dynamic="no"
-							category="39"
-							search:featured_on_news_page="IS_EMPTY" 
-							limit="3"
-						}
+                            "maxWidth": "739px"
+                        }'>
+                        {exp:channel:entries
+                            channel='{ch}' 
+                            disable='{ch_disable}' 
+                            dynamic="no"
+                            category="39"
+                            search:featured_on_news_page="IS_EMPTY" 
+                            limit="3"
+                        }
                                 <div class="featured_news_article fs-carousel-item">
                                     <time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
                                     <h3 class="featured_news_article_title">
@@ -169,13 +169,13 @@
 
                     </div><!-- /featured_news_body -->
 
-				</div><!-- /featured_news_inner -->
+                </div><!-- /featured_news_inner -->
             </div><!-- /fs-cell -->
         </div> <!-- /fs-row -->
     </div><!-- /featured_news theme_featured -->
 </div>
 <!-- END: Page Feature -->
-		<!-- Full Width Callouts -->
+        <!-- Full Width Callouts -->
 <div class="full_width_callouts">
     <div class="filter">
         <div class="filter_tabs" role="tablist" aria-label="Directory Filtering">
@@ -284,19 +284,19 @@
             <div class="fs-cell">
                 <div class="news_list_inner">
                     <ul class="news_list_items" id="item_list" aria-label="">
-                    	{exp:channel:entries
-							channel='{ch}' 
-							disable='{ch_disable}' 
-							dynamic="no"
-							category="39"
-							offset="0"
-							paginate="bottom"
-							limit="5"
-						}
+                        {exp:channel:entries
+                            channel='{ch}' 
+                            disable='{ch_disable}' 
+                            dynamic="no"
+                            category="39"
+                            offset="0"
+                            paginate="bottom"
+                            limit="3"
+                        }
                         <li class="news_list_item">
                             <div class="news_item">
-                            	{if story_image}
-                            	{story_image} 
+                                {if story_image}
+                                {story_image} 
                                 <figure class="news_item_figure">
                                     <a class="news_item_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
                                         <span class="lazy_image_wrapper news_item_image_wrapper">
@@ -329,26 +329,26 @@
                                             </a>
                                         </h2>
                                         <div class="news_item_categories">
-                                        	{exp:tag:tags
-										        entry_id="{entry_id}"
-										        orderby="tag_name" sort="asc"
-										        limit="4"
-										        backspace="2"
-										    }
-										        {if tag_count == "1"}
-										            <div class="news_item_category_hint">Categories</div>
-										        {/if}
+                                            {exp:tag:tags
+                                                entry_id="{entry_id}"
+                                                orderby="tag_name" sort="asc"
+                                                limit="4"
+                                                backspace="2"
+                                            }
+                                                {if tag_count == "1"}
+                                                    <div class="news_item_category_hint">Categories</div>
+                                                {/if}
                                             
                                             <ul class="news_item_category_list" aria-label="Categories">
-                                            	<li class="news_item_category">
-									                <a href="{path='news'}/{websafe_tag}" class="news_item_category_link">
-									                    {tag}
-									                </a>
-										        </li>
-										        {if tag_count == tag_total_results}
-										        </ul>							            
-										        {/if}
-										    {/exp:tag:tags}
+                                                <li class="news_item_category">
+                                                    <a href="{path='news'}/{websafe_tag}" class="news_item_category_link">
+                                                        {tag}
+                                                    </a>
+                                                </li>
+                                                {if tag_count == tag_total_results}
+                                                </ul>                                       
+                                                {/if}
+                                            {/exp:tag:tags}
                                                                   
                                         </div>
                                     </div>
@@ -373,8 +373,66 @@
                             </div>
                             <!-- END: News Item -->
                         </li>
+
+
+{paginate}
+    <div class="pagination">
+        {pagination_links}
+            <nav class="pagination_nav" aria-label="Search Results Pagination">
+                {previous_page}
+                <a class="pagination_arrow pagination_arrow_left" href="{pagination_url}">
+                    <span class="pagination_arrow_label">Previous Page</span>
+                    <span class="pagination_arrow_icon">
+                        <use href="/images/icons.svg#caret_left" />
+                    </span>
+                </a>
+                {/previous_page}
+
+                {next_page}
+                <a class="pagination_arrow pagination_arrow_right" href="{pagination_url}">
+                    <span class="pagination_arrow_label">Next Page</span>
+                    <span class="pagination_arrow_icon">
+                        <svg class="icon icon_caret_right">
+                            <use href="/images/icons.svg#caret_right" />
+                        </svg>
+                    </span>
+                </a>
+                {/next_page}
+            </nav>
+            <form class="pagination_form" action="" method="get">
+                <div class="pagination_form_inner">
+                    <label class="pagination_form_label" for="pagination_form_select">Page</label>
+                    <div class="pagination_form_select_wrapper">
+                        <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
+                                {page}
+                                <option url="{pagination_url}" value="{pagination_page_number}" {if current_page}selected{/if}>{pagination_page_number}</option>
+                                {/page}
+                        </select>
+                        <span class="pagination_form_select_icon"><svg class="icon icon_expand">
+                                            <use href="/images/icons.svg#expand" />
+                                        </svg></span>
+                    </div>
+                    <span class="pagination_form_suffix">of {total_pages}</span>
+                    <button class="pagination_form_button" type="submit" aria-label="View Page">
+                        <span class="pagination_form_button_label">Go</span>
+                        <span class="pagination_form_button_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        {/pagination_links}
+    </div>
+{/paginate}
+
+
+
                         {/exp:channel:entries}
-                    </ul>
+
+
+
                     <div class="pagination">
                         <nav class="pagination_nav" aria-label="Template Pagination">
                             <a class="pagination_arrow pagination_arrow_left pagination_arrow_disabled" href="#">
@@ -423,7 +481,21 @@
                             </div>
                         </form>
                     </div>
+
+
+
+
+                    </ul>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+
                 </div>
             </div>
         </div>
-    </div>	
+    </div>  

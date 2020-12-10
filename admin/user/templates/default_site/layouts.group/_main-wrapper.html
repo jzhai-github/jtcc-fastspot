@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
 
-	<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian{if:else}{layout:title}{/if}</title>
+	<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news'}News{if:else}{layout:title}{/if}</title>
 
 <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -133,7 +133,7 @@
 					</li>
 				<li class="js-nav-item js-actions-nav-item js-actions-nav-item-2 nav_item actions_nav_item">
 			<div class="nav_item_inner actions_nav_item_inner">
-				<a class="js-nav-link js-actions-nav-link nav_link actions_nav_link" href="#">
+				<a class="js-nav-link js-actions-nav-link nav_link actions_nav_link" href="/applynow">
 										<span class="nav_link_icon actions_nav_link_icon" aria-hidden="true">
 			<svg class="icon icon_caret_right">
 				<use href="/static-html/images/icons.svg#caret_right" />
@@ -145,7 +145,7 @@
 					</li>
 				<li class="js-nav-item js-actions-nav-item js-actions-nav-item-3 nav_item actions_nav_item">
 			<div class="nav_item_inner actions_nav_item_inner">
-				<a class="js-nav-link js-actions-nav-link nav_link actions_nav_link" href="#">
+				<a class="js-nav-link js-actions-nav-link nav_link actions_nav_link" href="/donatenow">
 										<span class="nav_link_icon actions_nav_link_icon" aria-hidden="true">
 			<svg class="icon icon_caret_right">
 				<use href="/static-html/images/icons.svg#caret_right" />

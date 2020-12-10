@@ -1,7 +1,74 @@
 {layout='layouts/_main-wrapper'}
+
+            <!-- Page Feature -->
             
-<!-- Page Feature -->
 <div class="page_feature">
+    {!-- Check if field has images
+        /news never will since it's a template
+     --}
+    {if layout:page_header_bg_image != ''}
+    <div class="page_header_bg">
+        <div class="page_header_bg_inner">
+            <div class="page_header_bg_group">
+                <div class="page_header_bg_media">
+                    <div class="page_header_bg_media_inner">
+                        <figure class="page_header_bg_figure">
+                            <span class="lazy_image_wrapper page_header_bg_image_wrapper">
+                                <img class="js-lazy js-lazyload page_header_bg_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='{layout:page_header_bg_image_500x214}' data-srcset='{layout:page_header_bg_image_500x214} 500w, {layout:page_header_bg_image_740x317} 740w, {layout:page_header_bg_image_980x420} 980w, {layout:page_header_bg_image_1220x523} 1220w, {layout:page_header_bg_image_1440x617} 1440w'  alt="">
+                            </span>
+                            <noscript>
+                                <img class="page_header_bg_image" src='{layout:page_header_bg_image_1440x617}'  srcset='{layout:page_header_bg_image_1440x617} 1440w, {layout:page_header_bg_image_1220x523} 1220w, {layout:page_header_bg_image_980x420} 980w, {layout:page_header_bg_image_740x317} 740w, {layout:page_header_bg_image_500x214} 500w' sizes="100vw"  alt=""  itemprop="primaryImageOfPage" >
+                            </noscript>
+                        </figure>
+                    </div>
+                </div>
+                <div class="page_header_bg_content">
+                    <div class="page_intro">
+                        <div class="fs-row">
+                            <div class="fs-cell fs-lg-10 fs-xl-9">
+                                <div class="page_intro_inner">
+                                    
+                                    {!--{snp_breadcrumbs}--}    
+                                    {embed="common/_breadcrumbs_tyler"}
+                                        <h1 class="page_title" itemprop="name">{layout:title}</h1>
+                                        {if layout:page_description}
+                                        <p class="page_description" itemprop="description">{layout:page_description}</p>
+                                        {/if}
+                                </div>
+                            </div>{!-- /fs-cell --}
+                        </div>{!-- /fs-row --}
+                    </div>{!-- /page_intro --}
+                </div>{!-- /page_header_bg_content --}
+            </div>{!-- /page_header_bg_group --}
+        </div>{!-- /page_header_bg_inner --}
+    </div>{!-- /page_header_bg --}
+    {if:elseif segment_2 != ''}
+    
+    <div class="page_header">
+        <div class="page_header_inner">
+            <div class="page_header_body">
+                {if segment_1 == 'major'}
+                    {embed="common/_breadcrumbs_major"}
+                {if:else}
+                    {embed="common/_breadcrumbs_tyler_no_image"}
+                {/if}
+                <div class="page_intro">
+                    <div class="fs-row">
+                        <div class="fs-cell fs-lg-10 fs-xl-9">
+                            <div class="page_intro_inner">
+                                <h1 class="page_title" itemprop="name">{layout:title}</h1>
+                                {if layout:page_description}
+                                        <p class="page_description" itemprop="description">{layout:page_description}</p>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {if:else}
+    {!-- News home --}
     <div class="featured_news theme_featured">
         <div class="fs-row">
             <div class="fs-cell">
@@ -27,7 +94,7 @@
                                 <li class="breadcrumb_item">
                                     <span class="breadcrumb_pill">
                                         <span class="breadcrumb_pill_inner">
-                                            <span class="breadcrumb_pill_label">Page Title</span>
+                                            <span class="breadcrumb_pill_label">News</span>
                                         </span>
                                     </span>
                                 </li>
@@ -37,15 +104,95 @@
                     <div class="featured_news_header">
                         <h1 class="featured_news_title">News</h1>
                     </div>
+
+    {/if}
+   {if segment_2 != ''}
+    <div class="news_meta" id="meta" data-type="news" data-category="Category 1">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="news_meta_inner">
+                    <div class="news_meta_body">
+                        <div class="news_item_details">
+                            <div class="news_item_detail news_item_date">
+                                <span class="news_item_detail_hint">Published:
+                                </span>
+                                <time class="news_item_detail_label" datetime="{layout:entry_date format='%Y-%m-%d'}">{layout:entry_date format="%F %d, %Y"}</time>
+                            </div>
+                            <div class="news_item_detail news_item_author">
+                                <span class="news_item_detail_hint">by
+                                </span>
+                                <span class="news_item_detail_label">Author</span>
+                            </div>
+                        </div>
+                        <div class="news_meta_categories_block">
+                            <span class="news_meta_categories_icon">
+                                <svg class="icon icon_label">
+                                    <use href="/images/icons.svg#label"></use>
+                                </svg>
+                            </span>
+                            {layout:categories}
+                        </div>
+                    </div><!-- /news_meta_body -->
+                    <div class="js-share-tools share_tools fs-swap-target fs-swap-enabled">
+                        <div class="share_tools_header">
+                            <h2 class="share_tools_title">Share Options</h2>
+                            <button class="js-share-tools-toggle share_tools_toggle fs-swap-element fs-swap-enabled" data-swap-target=".js-share-tools" aria-haspopup="true" aria-expanded="false">
+                                <span class="share_tools_toggle_inner">
+                                    <span class="share_tools_toggle_label">Share This</span>
+                                </span>
+                            </button>
+                        </div>
+                        <ul class="js-share-tools-list share_tools_list" aria-label="Share Options" aria-hidden="true">
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-twitter share_tool" href="//twitter.com/intent/tweet?text=%0A%09%09Default%0A%09%09%C2%BB%20Pattern%20Library%0A%09&amp;url=https://jtcc.dev.fastspot.com/components/preview/template-news-detail-image.html" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_twitter">
+                                            <use href="/images/icons.svg#twitter"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Twitter</span>
+                                </a>
+                            </li>
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-facebook share_tool fbc-has-badge fbc-UID_1" href="//www.facebook.com/sharer/sharer.php?u=https://jtcc.dev.fastspot.com/components/preview/template-news-detail-image.html" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_facebook">
+                                            <use href="/images/icons.svg#facebook"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Facebook</span>
+                                </a>
+                            </li>
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-linkedin share_tool" href="//www.linkedin.com/shareArticle?mini=true&amp;url=https://jtcc.dev.fastspot.com/components/preview/template-news-detail-image.html&amp;title=%0A%09%09Default%0A%09%09%C2%BB%20Pattern%20Library%0A%09" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_linkedin">
+                                            <use href="/images/icons.svg#linkedin"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Linkedin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- /js-share-tools share_tools fs-swap-target fs-swap-enabled -->
+                </div><!-- /news_meta_inner -->
+            </div><!-- /fs-cell -->
+        </div><!-- /fs-row -->
+    </div><!-- /news_meta -->
+    {/if}
+</div>
+<!-- END: Page Feature -->
+                    {!-- <div class="featured_news_header">
+                        <h1 class="featured_news_title">{if segment_2 == ''}News{if:else}{layout:title}{/if}</h1>
+                    </div> --}
                     
-                
-
-
-
-
-
+<div class="full_width_callouts">
 
     {layout:contents}
     {snp_alert}
-
+</div>
 <!-- END: Full Width Callouts -->
+
+                    {!-- <div class="featured_news_header">
+                        <h1 class="featured_news_title">{if segment_2 == ''}News{if:else}{layout:title}{/if}</h1>
+                    </div> --}

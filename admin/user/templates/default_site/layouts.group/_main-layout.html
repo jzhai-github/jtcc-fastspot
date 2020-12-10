@@ -26,9 +26,8 @@
 							<div class="fs-cell fs-lg-10 fs-xl-9">
 								<div class="page_intro_inner">
 									
-									{!--{snp_breadcrumbs}--}
+									{!--{snp_breadcrumbs}--}	
 									{embed="common/_breadcrumbs_tyler"}
-									{exp:structure:breadcrumb here_as_title="yes" separator="/&nbsp;" wrap_each="li"}
 										<h1 class="page_title" itemprop="name">{layout:title}</h1>
 										{if layout:page_description}
 										<p class="page_description" itemprop="description">{layout:page_description}</p>
@@ -45,7 +44,11 @@
 	<div class="page_header">
 		<div class="page_header_inner">
 			<div class="page_header_body">
-				{embed="common/_breadcrumbs_tyler_no_image"}
+				{if segment_1 == 'major'}
+					{embed="common/_breadcrumbs_major"}
+				{if:else}
+					{embed="common/_breadcrumbs_tyler_no_image"}
+				{/if}
 				<div class="page_intro">
 					<div class="fs-row">
 						<div class="fs-cell fs-lg-10 fs-xl-9">
@@ -63,6 +66,7 @@
 </div>
 	{/if}
 
+{if segment_1 != 'major'}
 	<div class="page_nav">
 	<div class="fs-row">
 		<div class="fs-cell">
@@ -140,11 +144,11 @@
 		</div>
 	</div>
 </div>
+{/if}
 </div>
 <!-- END: Page Feature -->
 
 <div class="full_width_callouts">
-{exp:structure:nav  start_from="/{segment_1}"}
 	{layout:contents}
 	{snp_alert}
 </div>
