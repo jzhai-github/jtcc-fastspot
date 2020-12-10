@@ -26,8 +26,12 @@
 							<div class="fs-cell fs-lg-10 fs-xl-9">
 								<div class="page_intro_inner">
 									
-									{!--{snp_breadcrumbs}--}	
-									{embed="common/_breadcrumbs_tyler"}
+									{!--{snp_breadcrumbs}--}
+									{if segment_1 == 'major'}
+										{embed="common/_breadcrumbs_major"}
+									{if:else}	
+										{embed="common/_breadcrumbs_tyler"}
+									{/if}
 										<h1 class="page_title" itemprop="name">{layout:title}</h1>
 										{if layout:page_description}
 										<p class="page_description" itemprop="description">{layout:page_description}</p>
