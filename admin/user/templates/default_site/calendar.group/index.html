@@ -4,7 +4,7 @@
 {layout:set name='title' value='{p_title}'}
 
 <div class="fs-row">
-	<div class="fs-cell fs-md-9 fs-lg-6 typography">
+	<div class="fs-cell fs-lg-8 typography">
 		<div id="week_calendar">
 			{exp:calendar:week
 				{if segment_3 == ""} {!-- Is this a regular view in current week? --}
@@ -13,26 +13,12 @@
 					date_range_start="{segment_3}-{segment_4}-{segment_5}"
 				{/if}
 			}
-				<div class="clearfix">
-					<div class="left">
-						<ul class="pager">
-							<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">&larr; Last Week</a></li>
-						</ul>
-					</div>
-					<div class="center">
-						<h2>
-							Week of {calendar:week_date format="%F %j, %Y"} &nbsp;
-							<span class="label {if calendar:week_total_events == '0'}label-default{if:else}label-warning{/if}">
-								{calendar:week_total_events} event{if calendar:week_total_events > "1" OR calendar:week_total_events == "0"}s{/if}
-							</span>
-						</h2>
-					</div>
-					<div class="right">
-						<ul class="pager">
-							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week &rarr;</a></li>
-						</ul>
-					</div>
-				</div>
+				<h2>
+					Week of {calendar:week_date format="%F %j, %Y"} <br />
+					<span class="label {if calendar:week_total_events == '0'}label-default{if:else}label-warning{/if}">
+						{calendar:week_total_events} event{if calendar:week_total_events > "1" OR calendar:week_total_events == "0"}s{/if}
+					</span>
+				</h2>
 				{calendar:days}
 				<div class="panel {if calendar:current_day}panel-warning{if:else}panel-default{/if}">
 					<div class="panel-heading">
@@ -86,7 +72,20 @@
 			{/exp:calendar:week}
 		</div>{!-- /week_calendar --}
 	</div>{!-- /fs-md --}
-	<div class="fs-cell fs-md-3 fs-lg-6 typography">
-		Test 3 column
+	<div class="fs-cell fs-lg-4 typography" id="week_calendar">
+		<div id="mini-cal-wrapper">
+			{embed="calendar/mini_cal"}
+
+		</div>
+		<div class="left">
+			<ul class="pager">
+				<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">« Last Week</a></li>
+			</ul>
+		</div>
+		<div class="right">
+						<ul class="pager">
+							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week »</a></li>
+						</ul>
+					</div>
 	</div>
 </div>{!-- / --}

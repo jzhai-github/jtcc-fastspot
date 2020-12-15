@@ -1,16 +1,9 @@
-{embed="calendar_inc/index" page_title="Month View"}
-	</head>
+{layout='layouts/_main-layout'}
 
-	<body role="document">
-
-{embed="calendar_inc/header" page="month"}
+{preload_replace:p_title='Calendar - Month View'}
+{layout:set name='title' value='{p_title}'}
 
 		<div class="container">
-
-			<div class="page-header">
-				<h1>Month View</h1>
-				<p class="lead">Below is full month calendar view, which allows you to see all your event occurrences.</p>
-			</div>
 
 			<div class="row">
 				<div class="col-md-9">
@@ -186,19 +179,4 @@
 
       		</div>
 
-			<div class="well ss-pageinfo">
-				<h2>About This Page</h2>
-				<p>The "Month" page is meant to show a typical Calendar month view of all events that fall within the selected month. Additionally, this page is set to allow filtering down to a specific Calendar (if you've come to this page from the Calendars page).</p>
-				<p>It makes use of the following tags:</p>
-				<ul>
-					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a month view of events.</li>
-					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month-list.html">Calendar:Month_List</a> to display a list of months.</li>
-				</ul>
-				<p>The global sidebar on the right makes use of the following tags:</p>
-				<ul>
-					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
-					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
-				</ul>
-			</div>
-
-{embed="calendar_inc/footer"}
+			
