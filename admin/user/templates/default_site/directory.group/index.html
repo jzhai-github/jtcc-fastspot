@@ -82,6 +82,75 @@
 </div>
 <!-- END: Page Feature -->
 
+<?php
+//$host = "10.70.200.12"; //database location internal
+//$host = "apps.jtcc.edu"; //database location
+//$user = "diruser"; //database username
+//$pass = "J20tcc17#"; //database password
+//$db_name = "jtccdirdb"; //database name
+
+//database connection
+//$con = new mysqli($host, $user, $pass, $db_name);
+/*if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+$getDepts = "SELECT dept 
+	FROM jtccdirdb.tbllkdept
+	WHERE DeptAbbr is NULL OR DeptAbbr = ''
+	UNION
+	SELECT adept 
+	FROM  jtccdirdb.tblacaddeptdiv
+	ORDER BY 1";*/
+                                
+//$dept_result = mysqli_query($con, $getDepts);
+
+//mysqli_close($con);
+
+$host = "164.106.55.222"; //database location external
+//$host = "10.70.200.12"; //database location internal
+//$host = "apps.jtcc.edu"; //database location
+$user = "diruser"; //database username
+$pass = "J20tcc17#"; //database password
+$db_name = "jtccdirdb"; //database name
+
+//database connection
+$con = mysqli_connect($host, $user, $pass, $db_name);
+if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+//object oriented - db connection
+$mysqli = new mysqli($host, $user, $pass, $db_name);
+if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+$getDepts = "SELECT dept 
+            FROM jtccdirdb.tbllkdept
+            WHERE DeptAbbr is NULL OR DeptAbbr = ''
+            UNION
+            SELECT adept 
+            FROM  jtccdirdb.tblacaddeptdiv
+            ORDER BY 1";
+                                
+//$dept_result = $dir_db->query($getDepts);
+
+$dept_result = mysqli_query($con, $getDepts);
+
+	mysqli_close($con);
+	
+	echo '<h1>Data is from the DWA server</h1>';
+	
+	if (mysqli_num_rows($dept_result) > 0) {
+		echo '<p>';
+		while ($row = mysqli_fetch_assoc($dept_result)) {
+			echo $row['dept'] . '<br />';
+		}
+		echo '</p>';
+	}
+?>
+
 <div class="full_width_callouts">
 	<div class="filter">
 	<div class="filter_tabs" role="tablist" aria-label="Directory Filtering">
@@ -138,6 +207,13 @@
 									<div class="filter_tool_select_wrapper">
 										<select class="filter_tool_select" id="filter_tool_label_3">
 											<option value=""  selected >All Departments</option>
+											<?php 
+											/*if (mysqli_num_rows($dept_result) > 0) {	
+												while ($dept_row = mysqli_fetch_assoc($dept_result)) {
+													echo '<option value="' . $dept_row['dept'] . '" label="' . $dept_row['dept'] . '">' . $dept_row['dept'] . '</option>';
+												}
+											}*/	
+											?>
 											<option value="">Office of the Dean of Arts, Humanities, Mathematics, and Social Sciences</option>
 										</select>
 		<span class="filter_tool_select_icon">
