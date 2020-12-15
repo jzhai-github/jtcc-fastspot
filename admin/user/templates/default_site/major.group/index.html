@@ -143,14 +143,14 @@
 															</svg>
 														</span>
 														</a>--}
-														{!--<br /><br /><a class="program_item_detail_data_link" href="/major/{url_title}">
+														<br /><br /><h3><a class="program_item_detail_data_link" href="/major/{url_title}">
 															<span class="program_item_detail_data_link_label">Major Details</span>
 													<span class="program_item_detail_data_link_icon">
 															<svg class="icon icon_caret_right">
 																<use href="/images/icons.svg#caret_right" />
 															</svg>
 														</span>
-														</a>--}
+														</a></h3>
 													</span>
 												</div>
 												<div class="program_item_detail">
@@ -186,6 +186,7 @@
 	</div>
 </div>
 
+
 {if:else}
 	{!--</div>--}
 
@@ -193,7 +194,7 @@
 <div class="js-accordion program_list">
 	<div class="program_list_inner">
 		<ul class="program_list_items" id="item_list" aria-label="">
-			{exp:channel:entries channel="major" disable="member_data" sort="asc"}
+			{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc"}
 				<li class="js-accordion-item js-program-item-1-{count} program_item">
 					<div class="fs-row">
 						<div class="fs-cell">
