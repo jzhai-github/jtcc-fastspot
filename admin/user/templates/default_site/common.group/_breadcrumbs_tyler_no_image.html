@@ -11,7 +11,7 @@
     </div>
     <ol class="breadcrumb_list" aria-labelledby="breadcrumb_nav_title">
         <li class="breadcrumb_item breadcrumb_item_home">
-            <a class="breadcrumb_pill breadcrumb_pill_link" href="page-home.html">
+            <a class="breadcrumb_pill breadcrumb_pill_link" href="/">
                 <span class="breadcrumb_pill_inner">
                     <span class="breadcrumb_pill_label">Home</span>
                     <span class="breadcrumb_pill_icon">
@@ -49,6 +49,7 @@
                                     </a>
                                 </li>
                                  {/if}
+                                 {if layout:title != ''}
                                 <li class="breadcrumb_item">
                                     <span class="breadcrumb_pill">
                                         <span class="breadcrumb_pill_inner">
@@ -56,6 +57,7 @@
                                         </span>
                                     </span>
                                 </li>
+                                {/if}
     </ol>
 </nav>
 											</div>
