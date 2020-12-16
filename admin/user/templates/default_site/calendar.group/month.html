@@ -3,34 +3,13 @@
 {preload_replace:p_title='Calendar - Month View'}
 {layout:set name='title' value='{p_title}'}
 
-		<div class="container">
+		<div class="fs-row">
 
-			<div class="row">
-				<div class="col-md-9">
-
-			{if segment_3 == "by_calendar"}
-				{exp:calendar:calendars
-					calendar_short_name="{segment_4}"
-				}
-					<div class="alert" role="alert" style="background-color: {calendar:color_light}; border-color: {calendar:color};">
-						<p class="lead" style="color: {calendar:text_color} !important;">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
-							Events for <strong>{calendar:name}</strong> calendar
-						</p>
-					</div>
-				{/exp:calendar:calendars}
-			{/if}
+			<div class="fs-cell fs-lg-9 typography">
 
 					<div id="month_calendar">
-					{exp:calendar:month
-						{if segment_3 == "by_calendar"} {!-- Are we filtering by Calendar? --}
-							calendar_short_name="{segment_4}"
-							{if segment_5} {!-- Are we in a month other than current? --}
-								date_range_start="{segment_5}-{segment_6}-01"
-							{if:else} {!-- Or is this current month? --}
-								date_range_start="today"
-							{/if}
-						{if:elseif segment_3 == ""} {!-- Is this a regular view in current month? --}
+					{exp:calendar:month	
+						{if segment_3 == ""} {!-- Is this a regular view in current month? --}
 							date_range_start="today"
 						{if:else} {!-- Or is this a regular view in a month other than current? --}
 							date_range_start="{segment_3}-{segment_4}-01"
@@ -41,7 +20,7 @@
 								<tr id="month_year">
 									<th class="left">
 										<ul class="pager">
-											<li><a href="{path='calendar_main/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:previous_month format='%Y/%m'}/">&larr; {calendar:previous_month format="%F"}</a></li>
+											<li><a href="{path='calendar/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:previous_month format='%Y/%m'}/">« {calendar:previous_month format="%F"}</a></li>
 										</ul>
 									</th>
 									<th class="center" colspan="3">
@@ -54,7 +33,7 @@
 									</th>
 									<th class="right">
 										<ul class="pager">
-											<li><a href="{path='calendar_main/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_month format='%Y/%m'}/">{calendar:next_month format="%F"} &rarr;</a></li>
+											<li><a href="{path='calendar/month'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_month format='%Y/%m'}/">{calendar:next_month format="%F"} »</a></li>
 										</ul>
 									</th>
 								</tr>
@@ -75,7 +54,7 @@
 													{if calendar:day_in_current_month}
 														<td class="day_cell{if calendar:current_day} today{/if}">
 															<div class="date{if calendar:day_total_events != '0'} has_events{/if}">
-																<a class="num" href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:day_date format='%Y/%m/%d'}/">{calendar:day_date format="%j"}</a>
+																{calendar:day_date format="%j"}
 															</div>
 													{if:else}
 														<td class="day_cell out_of_range">
@@ -125,7 +104,9 @@
 																"
 																data-content="
 																	<span class='glyphicon glyphicon-calendar' style='color: {calendar:calendar_color};'></span>
-																	<span style='color: {calendar:calendar_color};'>{calendar:calendar_name}</span><hr />
+																	<span style='color: {calendar:calendar_color};'>
+{exp:channel:entries channel='calendar' limit='1' }{event_summary}{/exp:channel:entries}
+																	</span><hr />
 																	{if calendar:event_all_day} {!-- Is this an All Day event? --}
 																		{if calendar:event_multi_day} {!-- Is this a Multi-Day event also? --}
 																			<b>Starts</b> {calendar:event_start_date format="%F %j, %Y"}<br />
@@ -154,7 +135,7 @@
 																	{if calendar:event_all_day == ""}
 																		<span class="calendar-color"{if calendar:calendar_color} style="background-color: {calendar:calendar_color};"{/if}></span>
 																	{/if}
-																	<a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}"{if calendar:event_all_day} style="color: {calendar:calendar_text_color};"{/if}>{calendar:title}</a>
+																	<a {if calendar:event_all_day} style="color: {calendar:calendar_text_color};"{/if}>{calendar:title}</a>
 																{/if}
 															</div>
 														{/calendar:events}
@@ -169,14 +150,29 @@
 							</tbody>
 						</table>
 					{/exp:calendar:month}
+					</div><!-- /month_calendar -->
+
+				</div><!-- /fs-cell fs-lg-8 typography -->
+
+								
+<div class="fs-cell fs-lg-3 typography" id="week_calendar">
+		<div id="mini-cal-wrapper">
+			{embed="calendar/mini_cal"}
+
+		</div>
+		<div class="left">
+			<ul class="pager">
+				<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">« Last Week</a></li>
+			</ul>
+		</div>
+		<div class="right">
+						<ul class="pager">
+							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week »</a></li>
+						</ul>
 					</div>
+	</div>
+				
 
-				</div>
-
-				<div class="col-md-3">				
-{embed="calendar_inc/sidebar"}
-				</div>
-
-      		</div>
+      		</div><!-- /fs-row -->
 
 			
