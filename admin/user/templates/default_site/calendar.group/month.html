@@ -79,7 +79,7 @@
 																title="
 																	{calendar:title} &nbsp; 
 																	<span class='event_time'>
-																		<span class='glyphicon glyphicon-time'></span>
+		
 																	{if calendar:event_all_day}
 																		All Day
 																		{if calendar:event_duration_days > '1'}
@@ -109,14 +109,14 @@
 																	</span><hr />
 																	{if calendar:event_all_day} {!-- Is this an All Day event? --}
 																		{if calendar:event_multi_day} {!-- Is this a Multi-Day event also? --}
-																			<b>Starts</b> {calendar:event_start_date format="%F %j, %Y"}<br />
-																			<b>Ends</b> {calendar:event_end_date format="%F %j, %Y"}
+																			<b>Starts</b> {calendar:event_start_date format="%m/%d/%Y"}<br />
+																			<b>Ends</b> {calendar:event_end_date format="%m/%d/%Y"}
 																		{if:else}
 																			{calendar:event_start_date format="%F %j, %Y"} (All Day)
 																		{/if}
 																	{if:else} {!-- Or is this just a regular event? --}
-																		<b>Starts</b> {calendar:event_start_date format="%F %j, %Y at %g:%i%a"}<br />
-																		<b>Ends</b> {calendar:event_end_date format="%F %j, %Y at %g:%i%a"}
+																		<b>Starts</b> {calendar:event_start_date format="%m/%d/%Y at %g:%i%a"}<br />
+																		<b>Ends</b> {calendar:event_end_date format="%m/%d/%Y at %g:%i%a"}
 																	{/if}
 																	{if calendar:event_recurs}
 																		<hr /><span class='glyphicon glyphicon-repeat'></span>&nbsp; Repeats {calendar:event_recurrence_rule}
