@@ -28,12 +28,115 @@
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
 {layout:set name='title' value='{p_title}'}
-
 {layout:set name='page_description' value='{p_description}'}
 
 <!-- Full Width Callouts -->
 <div class="full_width_callouts">
-    <form method="post" action="/services/declare-major-form" enctype="multipart/form-data" class="form_builder">
+<?php 
+    $studentRes = '<ul>
+                    <li>Contact your faculty advisor prior to your next registration for classes.</li>
+                    <li>Periodically check your Advisement Report on myTyler (online) to confirm your academic progress and the acceptance of any transfer credits.</li>
+                    <li>Regularly meet or communicate with your faculty advisor to ensure that you are enrolling in the appropriate course.</li>
+                    <li>Complete SDV 100-College Success Skills within the first 15 credits of enrolling at John Tyler Community College.</li>
+                    <li>Apply for graduation in accordance with posted College Deadlines.  Apply for Graduation online through the myTyler portal by going to: Student Information System>Student Center>Apply for Graduation. You may also obtain an Application for Graduation from your advisor or from the Admissions and Records Office. </li>
+                </ul>';
+?>
+
+    <script type="text/javascript"> 
+        function validateForm(){
+            var f = document.declare_major;
+            
+            if (f.first_name.value.length == 0) { 
+                alert("please enter your first name.");
+                f.first_name.focus();
+                return false;
+            } 
+            if (f.last_name.value.length == 0) { 
+                alert("please enter your last name.");
+                f.last_name.focus();
+                return false;
+            }
+            if (f.emp_id.value.length == 0) { 
+                alert("please enter your student emplID.");
+                f.emp_id.focus();
+                return false;
+            } 
+            /*if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+                alert("please enter your VCCS e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^.+@email.vccs.edu$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }*/
+            if (f.email.value.length == 0) { 
+                alert("please enter your e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }
+            if (f.phone.value.length == 0) {
+                alert("Please enter your phone number.");
+                f.phone.focus();
+                return false;
+            } 
+            if (f.major.value.length == 0) {
+                alert("Please select your desired major.");
+                f.major.focus();
+                return false;
+            }
+            if (f.term.value.length == 0) {
+                alert("Please enter the term/semester year.");
+                f.term.focus();
+                return false;
+            }
+            if (f.campus.options[f.campus.selectedIndex].value == "") {
+                alert("Please select your campus.");
+                f.campus.focus();
+                return false;
+            } 
+            if (f.best_time.value.length == 0) {
+                alert("Please enter your best time to contact.");
+                f.best_time.focus();
+                return false;
+            }
+            if (f.be_advised1.checked == false && f.be_advised2.checked == false) {
+                alert("Do you want to be advised?");
+                f.be_advised1.focus();
+                return false;
+            }   
+            if (f.transfer1.checked == false && f.transfer2.checked == false) {
+                alert("Do you plan to transfer after attending John Tyler Community College?");
+                f.transfer1.focus();
+                return false;
+            }
+            if(!f.responsibilities.checked)
+            {
+                alert('Please read the student responsibilities and check "I agree".');
+                f.responsibilities.focus();
+                return false;
+            }   
+            if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+                alert ("Please check on the reCAPTCHA box.");
+                return false;
+            }   
+            return true;
+        }
+    </script>  
+
+    <!--<form method="post" action="/services/declare-major-form" enctype="multipart/form-data" class="form_builder">-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <form action="/services/declare-major-form" accept-charset="utf-8" class="form_builder" name="declare_major" method="post" onsubmit="return validateForm();">
         <div class="fs-row">
             <div class="fs-cell">
                 <div class="form_builder_required_message">
@@ -42,14 +145,101 @@
                     </p>
                 </div>
                 <div class="form_builder_section_header">
-                    <h2>Section Break</h2>
+                    <!--<h2>Section Break</h2>-->
                     <p>
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-                        auctor. Aenean lacinia bibendum nulla sed consectetur. Sed posuere
-                        consectetur est at lobortis. Integer posuere erat a ante venenatis
-                        dapibus posuere velit aliquet.
+                        Form cannot be submitted if it is incomplete.  All fields (except additional information) must be completed.  Students will receive a response from an advisor within 3 business days.
                     </p>
                 </div>
+
+                <fieldset id="student_name">
+                    <legend for="student_name">
+                        Student Name <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_wrap">
+                        <div class="form_builder_firstname">
+                            <input type="text" maxlength="30" name="first_name" id="first_name" class="form_builder_text form_builder_required" value="" />
+                            <label for="first_name" class="form_builder_sublabel">First</label>
+                        </div>
+
+                        <div class="form_builder_lastname">
+                            <input type="text" maxlength="30" name="last_name" id="last_name" class="form_builder_text form_builder_required" value="" />
+                            <label for="last_name" class="form_builder_sublabel">Last</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="student_id">
+                    <label for="student_id">
+                        Student ID Number
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="7" name="emp_id" id="student_id" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                <fieldset id="student_contact">
+                    <legend for="student_contact">
+                        Student Contact <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_wrap">
+                        <div class="form_builder_split">
+                            <input type="text" maxlength="50" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+                            <label for="email" class="form_builder_sublabel">E-mail</label>
+                        </div>
+
+                        <div class="form_builder_split">
+                            <input type="text" maxlength="20" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+                            <label for="phone" class="form_builder_sublabel">Phone</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="desired_major">
+                    <label for="major"> Desired major 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select form_builder_required">
+                        <select name="major" id="major">
+                            <option value="" data-price="0">Please select: </option>
+                            <option value="val2" data-price="0">Option 2</option>
+                            <option value="val3" data-price="0">Option 3</option>
+                        </select>
+                    </div>
+                </fieldset>   
+                <p><strong>Nursing Students: </strong>Students who wish to apply to the Nursing Program at John Tyler Community College should indicate they wish to be placed in the Health Sciences major to complete the prerequisites required for the Nursing Application.</p>
+                    
+                <fieldset id="term">
+                    <label for="term">
+                        Term (Semester) Year
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="50" name="term" id="term" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+                
+                <fieldset id="campus">
+                    <label for="major"> Campus 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select form_builder_required">
+                        <select name="campus" id="campus">
+                            <option value="">Please select: </option>
+                            <option value="Chester">Chester</option>
+                            <option value="Midlothian">Midlothian</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </div>
+                </fieldset> 
+
+                <fieldset id="best_time">
+                    <label for="best_time">
+                        Best time to contact
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="100" name="best_time" id="best_time" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                
+
+
                 <fieldset id="form_builder_data_2">
                     <label for="form_builder_field_2">
                         Single Line Text w/ Max Length
