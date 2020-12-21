@@ -6,12 +6,12 @@
 	@include sans(300);
 
 	font-size: 18px;
-	letter-spacing: .4px;
+	letter-spacing: 0.4px;
 	line-height: (24 / 18);
 
 	@media #{$min_lg} {
 		font-size: 21px;
-		letter-spacing: .5px;
+		letter-spacing: 0.5px;
 		line-height: (28 / 21);
 	}
 }
@@ -19,12 +19,19 @@
 @mixin input($theme: null) {
 	@include body_text;
 
-	border: 1px solid #D1D1D1;
+	border: 1px solid #d1d1d1;
 	padding: 12px 20px;
 
 	@media #{$min_lg} {
 		padding: 12px 30px;
 	}
+}
+
+@mixin input_file {
+	width: 100%;
+
+	border: 1px solid #d1d1d1;
+	padding: 20px;
 }
 
 /* Select
@@ -43,7 +50,7 @@
 
 		appearance: none;
 		-webkit-appearance: none;
-		background-color: #F0F0F0;
+		background-color: #f0f0f0;
 		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAADAAAAADiTSy+AAABO0lEQVQoFWNMYzDJZmT4H8JABfCfgXEN00yG09MYGRgPUGoeyAyQWUxAxn8JBsV2RgaGS+QaCtILMYPxP5ANAVkMDjz/GD5P+c/AIA8TI4YGGvCQiYE3ZxrDgS8g9cwwTacZHvyyZpA7/pfhvyNQjAsmjo8G+u4tOwNL4RSGo+9h6uAGggROMjz9asQgeRZoqwuQywpThIP+BvRN8TSG04+R5VEMBEmcZXj+3oxB8uZ/BiZnIJcJWTGCzfiXieF/9UyGc1cRYhAWhoEg4TMMz5+bMEg9BzJtIcrQScaOGQxnj6CLgvhYDQRJnGV4ds+YQeo30PvGID4MAL05exbD2Y0wPjqN00CQQqD3LxszSAsCDdUA8YEJdyPQsNkgNi6AI4wQyqUYfCYBDToKwiA2QoYCVi6DJzsIE2MEAK8gTyplzq96AAAAAElFTkSuQmCC');
 		background-position: calc(100% - 20px) 50%;
 		background-repeat: no-repeat;
@@ -95,6 +102,8 @@
 
 @mixin select_accent() {
 	select {
+		border: 1px solid transparent;
+
 		&:focus {
 			box-shadow: 0 0 3px 1px $accent;
 		}
@@ -102,6 +111,10 @@
 		&:active {
 			color: #fff;
 			background-color: #000;
+		}
+
+		&[class*='required'] {
+			border-color: $maroon;
 		}
 	}
 
@@ -159,10 +172,7 @@
 		&:checked {
 			~ [class$='indicator'] {
 				&:before {
-					transform:
-						translate(-50%, -50%)
-						rotate(45deg)
-						scale(1);
+					transform: translate(-50%, -50%) rotate(45deg) scale(1);
 				}
 			}
 		}
@@ -192,10 +202,7 @@
 			font-size: 14px;
 			line-height: 1;
 			margin-top: -2px;
-			transform:
-				translate(-50%, -50%)
-				rotate(45deg)
-				scale(0);
+			transform: translate(-50%, -50%) rotate(45deg) scale(0);
 		}
 	}
 }
@@ -236,10 +243,16 @@
 				box-shadow: 0 0 3px 1px $bright_pink;
 			}
 		}
+
+		&[class*='required'] {
+			~ [class$='indicator'] {
+				border-color: $maroon;
+			}
+		}
 	}
 
 	[class$='indicator'] {
-		border: 1px solid $bright_pink;
+		border: 1px solid #d8d8d8;
 	}
 }
 
