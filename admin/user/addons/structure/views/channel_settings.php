@@ -9,19 +9,27 @@
 
 <?php if ($channel_check === true): ?>
 <?php   if (! $are_page_channels):?>
-    <div class="ootb-message">
-        <p><?=lang('ootb_message_channel_settings')?>. <span class="ootb-message-go"><a href="http://buildwithstructure.com/documentation/channel_settings/"><?=lang('ootb_message_channel_settings_read')?> &rarr;</a></span></p>
-    </div> <!-- close .ootb-message -->
+    <?php if ($ee_ver >= 6) { ?>
+        <?=ee('CP/Alert')->makeInline('structure_assign_channels')->asAttention()->withTitle(lang('ootb_message_channel_settings'))->addToBody('<a href="http://buildwithstructure.com/documentation/channel_settings/" target="_blank">' . lang('ootb_message_channel_settings_read') . ' &rarr;</a>')->render()?>
+    <?php } else { ?>
+        <div class="ootb-message">
+            <p><?=lang('ootb_message_channel_settings')?>. <span class="ootb-message-go"><a href="http://buildwithstructure.com/documentation/channel_settings/"><?=lang('ootb_message_channel_settings_read')?> &rarr;</a></span></p>
+        </div> <!-- close .ootb-message -->
+    <?php } ?>
 <?php   endif; ?>
 <?php   if ($page_count == 0 && $are_page_channels): ?>
-    <div class="ootb-message-go">
-        <p>
-            <?=lang('ootb_message_channel_settings_go')?>!
-            <span class="ootb-message-btn" id="tree-controls">
-                <a href="<?=$add_page_url?>" class="pop <?php if (count($page_choices) > 1): ?>tree-add-solo<?php endif ?>" title="pop"><?=lang('ootb_add_first_page')?></a></li>
-            </span>
-        </p>
-    </div> <!-- close .ootb-message -->
+    <?php if ($ee_ver >= 6) { ?>
+        <?=ee('CP/Alert')->makeInline('structure_ready_to_assign_pages')->asSuccess()->withTitle(lang('ootb_message_channel_settings_go'))->addToBody('<a href="' . $add_page_url . '" class="pop ' . (count($page_choices) > 1 ? 'tree-add-solo' : '') . '" title="pop">' . lang('ootb_add_first_page') . '</a>', null, false)->render()?>
+    <?php } else { ?>
+        <div class="ootb-message-go">
+            <p>
+                <?=lang('ootb_message_channel_settings_go')?>!
+                <span class="ootb-message-btn" id="tree-controls">
+                    <a href="<?=$add_page_url?>" class="pop <?php if (count($page_choices) > 1): ?>tree-add-solo<?php endif ?>" title="pop"><?=lang('ootb_add_first_page')?></a></li>
+                </span>
+            </p>
+        </div> <!-- close .ootb-message -->
+    <?php } ?>
 <?php   endif; ?>
 
 <?php   if (isset($channel_data)):?>

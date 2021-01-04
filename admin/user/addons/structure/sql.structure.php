@@ -519,7 +519,7 @@ class Sql_structure
         if ($show_overview) {
             // add sql to get this entry
             $overview = $this->get_overview($branch_entry_id);
-            $rename_overview = $rename_overview == 'title' ? $overview['title'] : $rename_overview; // override if "title"
+            $rename_overview = ($rename_overview == 'title' &&  isset($overview['title'])) ? $overview['title'] : $rename_overview; // override if "title"
 
             $overview['title'] = $rename_overview;
             $overview['overview'] = $rename_overview;
@@ -1982,32 +1982,63 @@ class Sql_structure
      */
     public function get_member_groups()
     {
-        $sql = "SELECT mg.group_id AS id, mg.group_title AS title
-                FROM exp_member_groups AS mg
-                INNER JOIN exp_module_member_groups AS modmg
-                ON (mg.group_id = modmg.group_id)
-                WHERE mg.can_access_cp = 'y' ";
+        if (version_compare(APP_VER, '6.0', '>=')) {
+            foreach (['can_create_entries', 'can_edit_other_entries', 'can_edit_self_entries'] as $permission) {
+                ${$permission} = ee('Model')->get('Permission')
+                    ->fields('role_id')
+                    ->filter('permission', 'LIKE', $permission.'%')
+                    ->filter('site_id', ee()->config->item('site_id'))
+                    ->all()
+                    ->pluck('role_id');
+            }
 
-        if ($this->flux->getEEVersion() == 2) {
-            $sql .= "AND mg.can_access_publish = 'y'
-                    AND mg.can_access_edit = 'y' ";
+            $roles = ee('Model')->get('Role')
+                ->filter('role_id', 'IN', $can_create_entries)
+                ->filter('role_id', 'IN', $can_edit_other_entries)
+                ->filter('role_id', 'IN', $can_edit_self_entries)
+                ->filter('role_id', 'NOT IN', [1])
+                ->order('role_id', 'asc')
+                ->all()
+                ->toArray();
+
+
+            if(!empty($roles)) {
+                foreach ($roles as $i=>$role) {
+                    $roles[$i]['id'] = $role['role_id'];
+                    $roles[$i]['title'] = $role['name'];
+                }
+            }
+
+
+            return $roles;
         } else {
-            $sql .= "AND mg.can_create_entries = 'y'
-                    AND mg.can_edit_other_entries = 'y'
-                    AND mg.can_edit_self_entries = 'y' ";
-        }
+            $sql = "SELECT mg.group_id AS id, mg.group_title AS title
+                    FROM exp_member_groups AS mg
+                    INNER JOIN exp_module_member_groups AS modmg
+                    ON (mg.group_id = modmg.group_id)
+                    WHERE mg.can_access_cp = 'y' ";
 
-        $sql .= " AND mg.group_id <> 1
-                    AND modmg.module_id = {$this->get_module_id()}
-                    AND mg.site_id = {$this->site_id}
-                ORDER BY mg.group_id";
+            if ($this->flux->getEEVersion() == 2) {
+                $sql .= "AND mg.can_access_publish = 'y'
+                        AND mg.can_access_edit = 'y' ";
+            } else {
+                $sql .= "AND mg.can_create_entries = 'y'
+                        AND mg.can_edit_other_entries = 'y'
+                        AND mg.can_edit_self_entries = 'y' ";
+            }
 
-        $groups = ee()->db->query($sql);
+            $sql .= " AND mg.group_id <> 1
+                        AND modmg.module_id = {$this->get_module_id()}
+                        AND mg.site_id = {$this->site_id}
+                    ORDER BY mg.group_id";
 
-        if ($groups->num_rows > 0) {
-            return $groups->result_array();
-        } else {
-            return false;
+            $groups = ee()->db->query($sql);
+
+            if ($groups->num_rows > 0) {
+                return $groups->result_array();
+            } else {
+                return false;
+            }
         }
     }
 

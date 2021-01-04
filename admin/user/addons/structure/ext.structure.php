@@ -221,19 +221,18 @@ class Structure_ext extends Ext
 
     public function publish_live_preview_route($data, $uri, $template_id)
     {
-
 		$structure_uri = '';
 		if (!empty($data['structure__parent_id'])) {
-			$structure_uri = (!empty($this->site_pages['uris'][$data['structure__parent_id']])) ? $this->site_pages['uris'][$data['structure__parent_id']].'/' : '';
+			$structure_uri = (!empty($this->site_pages['uris'][$data['structure__parent_id']])) ? rtrim($this->site_pages['uris'][$data['structure__parent_id']], '/').'/' : '';
 		}
 
 		$structure_uri .= (!empty($data['structure__uri'])) ? $data['structure__uri'] : $uri;
 
+		$structure_uri = Structure_Helper::remove_double_slashes($structure_uri);
 
         if (isset($data['entry_id']) && !empty($data['entry_id'])) {
             ee()->uri->page_query_string = $data['entry_id'];
         }
-
 
         return array(
             'uri' => $structure_uri,

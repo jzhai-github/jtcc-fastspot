@@ -668,7 +668,7 @@ class Structure_mcp extends Mcp
             $vars['to_be_deleted'] = implode(',', $to_be_deleted);
 
             $vars['action_url'] = $this->flux->moduleURL('delete_channels');
-            $vars['attributes'] = array('class' => 'form', 'id' => 'delete_channel');
+            $vars['attributes'] = array('class' => 'forms', 'id' => 'delete_channel');
             $vars['base_url'] = $this->flux->moduleURL('channel_settings');
 
             $vars['foundation'] = $this->flux;

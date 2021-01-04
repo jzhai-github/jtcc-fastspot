@@ -58,7 +58,7 @@
             <th><?=lang('member_group_permission')?></th>
             <?php if ($groups) : ?>
                 <?php foreach ($groups as $group): ?>
-                    <th class="group-column"><?=$group['title'];?> <?=lang('group')?></th>
+                    <th class="group-column"><?=$group['title'];?> <?=(version_compare(APP_VER, '6.0', '>=') ? lang('role') : lang('group'))?></th>
                 <?php endforeach; ?>
             <?php endif; ?>
         </tr>
@@ -66,7 +66,11 @@
     <tbody>
         <?php if ( ! $groups): ?>
             <tr>
+                <?php if (version_compare(APP_VER, '6.0', '>=')): ?>
+                <td><?=lang('no_roles')?>: <strong><a href="<?=$foundation->cpURL('members', 'roles');?>"><?=lang('no_roles_add')?> &rarr;</a></strong></td>
+                <?php else: ?>
                 <td><?=lang('no_groups')?>: <strong><a href="<?=$foundation->cpURL('members', 'groups');?>"><?=lang('no_groups_add')?> &rarr;</a></strong></td>
+                <?php endif; ?>
             </tr>
         <?php else: ?>
             <?php $i = 0; foreach ($perms as $perm_id => $perm): ?>

@@ -17,7 +17,14 @@ require_once PATH_THIRD.'structure/helper.php';
 require_once PATH_THIRD.'structure/libraries/nestedset/structure_nestedset.php';
 require_once PATH_THIRD.'structure/libraries/nestedset/structure_nestedset_adapter_ee.php';
 require_once PATH_THIRD.'structure/libraries/Structure_nav_parser.php';
-require_once PATH_MOD.'channel/mod.channel.php';
+if (version_compare(APP_VER, '6.0.0', '>=') && defined('PATH_PRO_ADDONS') && is_dir(PATH_PRO_ADDONS))
+{
+    require_once PATH_PRO_ADDONS.'channel/mod.channel.php';
+}
+else
+{
+    require_once PATH_MOD.'channel/mod.channel.php';
+}
 
 use EEHarbor\Structure\FluxCapacitor\FluxCapacitor;
 
@@ -234,7 +241,7 @@ class Structure extends Channel
         }
 
         // Get site pages data
-        $this->site_pages = $this->sql->get_site_pages();
+        $site_pages =  $this->site_pages;
 
         // Get all pages
         $pages = $this->sql->get_data();
@@ -527,6 +534,7 @@ class Structure extends Channel
         $here_as_title = $here_as_title === 'yes' ? true : false;
 
         $wrap_each = ee()->TMPL->fetch_param('wrap_each', '');
+		$wrap_each_class = ee()->TMPL->fetch_param('wrap_each_class');
         $wrap_here = ee()->TMPL->fetch_param('wrap_here', '');
         $wrap_separator = ee()->TMPL->fetch_param('wrap_separator', '');
         $separator = $wrap_separator ? "<{$wrap_separator}>{$separator}</{$wrap_separator}>" : $separator;
@@ -554,6 +562,7 @@ class Structure extends Channel
             $entry_id = array_search($uri, $site_pages['uris']);
         }
 
+		$entry_id = ee()->TMPL->fetch_param('entry_id', $entry_id);
 
         // get node of the current entry
         $node = $entry_id ? $this->nset->getNode($entry_id) : false;
@@ -634,6 +643,9 @@ class Structure extends Channel
             }
         }
 
+		$last_class = 'class="last';
+		$last_class .= ($wrap_each_class) ? ' '.$wrap_each_class.'"' : '"';
+		$wrap_class = ($wrap_each_class) ? ' '.'class="'.$wrap_each_class.'"' : '';
         $count = count($crumbs);
         for ($i = 0; $i < $count; $i++) {
             if (! empty($separator) && $i != ($count-1)) {
@@ -642,9 +654,9 @@ class Structure extends Channel
 
             if (! empty($wrap_each)) {
                 if ($add_last_class === true && $i == $count -1) {
-                    $crumbs[$i] = "<{$wrap_each} class=\"last\">{$crumbs[$i]}</{$wrap_each}>";
+                    $crumbs[$i] = "<{$wrap_each}  {$last_class}>{$crumbs[$i]}</{$wrap_each}>";
                 } else {
-                    $crumbs[$i] = "<{$wrap_each}>{$crumbs[$i]}</{$wrap_each}>";
+                    $crumbs[$i] = "<{$wrap_each}{$wrap_class}>{$crumbs[$i]}</{$wrap_each}>";
                 }
             } else {
                 if ($add_last_class === true && $i == $count -1) {
@@ -2202,7 +2214,14 @@ class Structure extends Channel
             return ee()->TMPL->no_results();
         }
 
-        return ee()->TMPL->parse_variables(ee()->TMPL->tagdata, $variables);
+		$tagdata = ee()->TMPL->parse_variables(ee()->TMPL->tagdata, $variables);
+
+		if (strpos($tagdata, '{filedir_') !== FALSE) {
+			ee()->load->library('file_field');
+			$tagdata = ee()->file_field->parse_string($tagdata);
+		}
+
+		return $tagdata;
     }
 
     public function nav_advanced()
