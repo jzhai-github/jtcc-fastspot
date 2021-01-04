@@ -40,6 +40,10 @@
                     <li>Complete SDV 100-College Success Skills within the first 15 credits of enrolling at John Tyler Community College.</li>
                     <li>Apply for graduation in accordance with posted College Deadlines.  Apply for Graduation online through the myTyler portal by going to: Student Information System>Student Center>Apply for Graduation. You may also obtain an Application for Graduation from your advisor or from the Admissions and Records Office. </li>
                 </ul>';
+
+if (isset($_POST['sbmt'])) {
+    echo 'Form is submitted.';
+}
 ?>
 
     <script type="text/javascript"> 
@@ -126,10 +130,10 @@
                 f.responsibilities.focus();
                 return false;
             }   
-            if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+            /*if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
                 alert ("Please check on the reCAPTCHA box.");
                 return false;
-            }   
+            } */  
             return true;
         }
     </script>  
@@ -207,7 +211,7 @@
                 </fieldset>   
                 <p><strong>Nursing Students: </strong>Students who wish to apply to the Nursing Program at John Tyler Community College should indicate they wish to be placed in the Health Sciences major to complete the prerequisites required for the Nursing Application.</p>
                     
-                <fieldset id="term">
+                <fieldset id="semester">
                     <label for="term">
                         Term (Semester) Year
                         <span class="form_builder_required_star">*</span>
@@ -215,8 +219,8 @@
                     <input type="text" maxlength="50" name="term" id="term" class="form_builder_text form_builder_required" value="" />
                 </fieldset>
                 
-                <fieldset id="campus">
-                    <label for="major"> Campus 
+                <fieldset id="select_campus">
+                    <label for="campus"> Campus 
                         <span class="form_builder_required_star">*</span>
                     </label>
                     <div class="form_builder_select form_builder_required">
@@ -229,7 +233,7 @@
                     </div>
                 </fieldset> 
 
-                <fieldset id="best_time">
+                <fieldset id="best_time_to_contact">
                     <label for="best_time">
                         Best time to contact
                         <span class="form_builder_required_star">*</span>
@@ -237,9 +241,77 @@
                     <input type="text" maxlength="100" name="best_time" id="best_time" class="form_builder_text form_builder_required" value="" />
                 </fieldset>
 
-                
+                 <fieldset id="additional_info">
+                    <label for="other">
+                        Additional information 
+                    </label>
+                    <textarea id="other" name="other"></textarea>
+                </fieldset>
+
+                <fieldset id="be_advised">
+                    <legend>
+                        Do you want to be advised?
+                    </legend>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="be_advised" id="be_advised1" value="Yes"  />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="be_advised1">Yes</label>
+                    </div>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="be_advised" id="be_advised2" value="No" />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="be_advised2">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="transfer">
+                    <legend>
+                        Do you plan to transfer after attending John Tyler Community College?
+                    </legend>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="transfer" id="transfer1" value="Yes"  />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="transfer1">Yes</label>
+                    </div>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="transfer" id="transfer2" value="No" />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="transfer2">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="i_agree">
+                    <legend>
+                        Read the Student Responsibilities and agree to do the following: 
+                        <?php echo $studentRes; ?>
+                    </legend>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="responsibilities" id="responsibilities" value="I agree" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="responsibilities">I agree</label>
+                    </div>
+                </fieldset>
+
+                <div class="row">
+                    <label for="captcha">reCAPTCHA below is required: </label>
+                    <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+                </div>
+
+                <div class="form_builder_submit_wrapper">
+                    <div class="form_builder_submit_pill">
+                        <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                        <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                        <span class="form_builder_submit_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
 
 
+
+{!--
                 <fieldset id="form_builder_data_2">
                     <label for="form_builder_field_2">
                         Single Line Text w/ Max Length
@@ -435,7 +507,7 @@
                             </svg>
                         </span>
                     </div>
-                </div>
+                </div>--}
             </div>
         </div>
     </form>
