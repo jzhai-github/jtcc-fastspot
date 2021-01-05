@@ -23,6 +23,14 @@ ul.pager {
 		text-align: right;
 	}
 }
+.typography #week_calendar ul li::before {
+	height: 0;
+	width: 0;
+}
+span.time{
+	float: left;
+	margin-right: 1rem;
+}
 #week_calendar{
 	margin:1.875rem 0;
 	thead a{
@@ -41,6 +49,12 @@ ul.pager {
 	}
 	.today{
 		background-color:#f1c400;
+	}
+	a:hover{
+		cursor: pointer;
+	}
+	.event.tips{
+		float:left;
 	}
 }
 #month_calendar{
@@ -126,6 +140,7 @@ ul.pager {
 	}
 }
 #mini_calendar{
+	margin-bottom: 1.25rem;
 	.table_wrapper{
 		margin: 0;
 	}
