@@ -287,6 +287,10 @@ ul.pager {
   border-right-width: 0;
   border-left-color: #fff;
 }
+.typography a.square-button{
+	border:0.0625rem solid rgba(98,98,98,0.25);
+	padding:0.3125rem 0.625rem;
+}
 @media #{$min_lg} {
 	
 }
