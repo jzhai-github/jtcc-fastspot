@@ -18,9 +18,9 @@
     }
 </style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.7.0" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.7.0" type="text/css">
 
 
 <title>Background | JTCC Component Library</title>
@@ -80,6 +80,9 @@
 
         </a>
     </h1>
+
+    <span class="Pen-preview-size" data-role="preview-size"></span>
+
     
 
 <div class="Status Status--tag">
@@ -175,8 +178,8 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-70cca9bd4e036f7c1698ca2f38305d87-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-background flex_callout_background"</span> <span class="hljs-attr">data-background-options</span>=<span class="hljs-string">'{"source": { "1220px": "//images.fastspot.com/jtcc/1080x1440/1", "740px": "//images.fastspot.com/jtcc/735x980/1", "500px": "//images.fastspot.com/jtcc/980x654/1", "0px": "//images.fastspot.com/jtcc/494x740/1", "980px": "//images.fastspot.com/jtcc/915x1220/1"}, "lazy": true, "alt": ""}'</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"flex_callout_background_fallback"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-image: url(' //images.fastspot.com/jtcc/300x129/1');"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-background flex_callout_background&quot;</span> <span class="hljs-attr">data-background-options</span>=<span class="hljs-string">&#x27;{&quot;source&quot;: { &quot;1220px&quot;: &quot;//images.fastspot.com/jtcc/1080x1440/1&quot;, &quot;740px&quot;: &quot;//images.fastspot.com/jtcc/735x980/1&quot;, &quot;500px&quot;: &quot;//images.fastspot.com/jtcc/980x654/1&quot;, &quot;0px&quot;: &quot;//images.fastspot.com/jtcc/494x740/1&quot;, &quot;980px&quot;: &quot;//images.fastspot.com/jtcc/915x1220/1&quot;}, &quot;lazy&quot;: true, &quot;alt&quot;: &quot;&quot;}&#x27;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;flex_callout_background_fallback&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-image: url(&#x27; //images.fastspot.com/jtcc/300x129/1&#x27;);&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
         
     </code>
@@ -185,8 +188,8 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-70cca9bd4e036f7c1698ca2f38305d87-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ custom_class ?: 'js-background' }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_background"</span> <span class="hljs-attr">data-background-options</span>=<span class="hljs-string">'{"source": { </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> key, <span class="hljs-name">source</span> in sources %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ key }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">": "//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">}, "lazy": true, "alt": "</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"}'</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_background_fallback"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"background-image: url(' //images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ img("ultrawide").xxsml.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ img("ultrawide").xxsml.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">');"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ custom_class ?: &#x27;js-background&#x27; }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_background&quot;</span> <span class="hljs-attr">data-background-options</span>=<span class="hljs-string">&#x27;{&quot;source&quot;: { </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> key, <span class="hljs-name">source</span> in sources %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ key }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;: &quot;//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ source.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ source.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">}, &quot;lazy&quot;: true, &quot;alt&quot;: &quot;</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;}&#x27;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_background_fallback&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-image: url(&#x27; //images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ img(&quot;ultrawide&quot;).xxsml.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ img(&quot;ultrawide&quot;).xxsml.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&#x27;);&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -197,10 +200,10 @@
         
             
             <pre>{
-  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"flex_callout"</span>,
-  <span class="hljs-attr">"image"</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-attr">"alt"</span>: <span class="hljs-string">""</span>,
-  <span class="hljs-attr">"sources"</span>: {}
+  <span class="hljs-attr">&quot;class&quot;</span>: <span class="hljs-string">&quot;flex_callout&quot;</span>,
+  <span class="hljs-attr">&quot;image&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">&quot;alt&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-attr">&quot;sources&quot;</span>: {}
 }</pre>
             
         
@@ -1185,10 +1188,23 @@
         
     
         
+            
+            
+            <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-form">
+                <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-form-items">
+                    Form
+                </button>
+                <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-form-items">
+                
+                
+                
+                
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-form.html" data-pjax>
-                <span>Form</span>
+            <a class="Tree-entityLink" href="template-form--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1206,6 +1222,36 @@
 
             </a>
         </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-form--no-image.html" data-pjax>
+                <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+                </ul>
+            </li>
+            
         
     
         
@@ -3198,8 +3244,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2020-12-21T20:19:06.548Z">
-                                12/21/2020
+                            <time datetime="2021-01-05T17:15:49.301Z">
+                                1/5/2021
                             </time>
                         
                     </dd>
@@ -3220,7 +3266,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.6.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.7.0"></script>
 
 
 

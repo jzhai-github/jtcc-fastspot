@@ -18,9 +18,9 @@
     }
 </style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.7.0" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.7.0" type="text/css">
 
 
 <title>Image | JTCC Component Library</title>
@@ -80,6 +80,9 @@
 
         </a>
     </h1>
+
+    <span class="Pen-preview-size" data-role="preview-size"></span>
+
     
 
 <div class="Status Status--tag">
@@ -175,11 +178,11 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-48b8ec213473197271dc1c0a988c5826-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lazy_image_wrapper media_image_wrapper"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-lazy js-lazyload media_image"</span> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"auto"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/images/placeholder.png"</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"https://images.fastspot.com/jtcc/300x169/1"</span> <span class="hljs-attr">data-srcset</span>=<span class="hljs-string">"//images.fastspot.com/jtcc/300x169/1 300w, //images.fastspot.com/jtcc/500x282/1 500w, //images.fastspot.com/jtcc/740x416/1 740w, //images.fastspot.com/jtcc/980x552/1 980w"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lazy_image_wrapper media_image_wrapper&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-lazy js-lazyload media_image&quot;</span> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">&quot;auto&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/placeholder.png&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;https://images.fastspot.com/jtcc/300x169/1&quot;</span> <span class="hljs-attr">data-srcset</span>=<span class="hljs-string">&quot;//images.fastspot.com/jtcc/300x169/1 300w, //images.fastspot.com/jtcc/500x282/1 500w, //images.fastspot.com/jtcc/740x416/1 740w, //images.fastspot.com/jtcc/980x552/1 980w&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"media_image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://images.fastspot.com/jtcc/980x552/1"</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"//images.fastspot.com/jtcc/980x552/1 980w, //images.fastspot.com/jtcc/740x416/1 740w, //images.fastspot.com/jtcc/500x282/1 500w, //images.fastspot.com/jtcc/300x169/1 300w"</span> <span class="hljs-attr">sizes</span>=<span class="hljs-string">"100vw"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">""</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;media_image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://images.fastspot.com/jtcc/980x552/1&quot;</span> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;//images.fastspot.com/jtcc/980x552/1 980w, //images.fastspot.com/jtcc/740x416/1 740w, //images.fastspot.com/jtcc/500x282/1 500w, //images.fastspot.com/jtcc/300x169/1 300w&quot;</span> <span class="hljs-attr">sizes</span>=<span class="hljs-string">&quot;100vw&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span></pre>
         
     </code>
@@ -188,11 +191,11 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-48b8ec213473197271dc1c0a988c5826-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lazy_image_wrapper </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image_wrapper"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-lazy js-lazyload </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">"auto"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">src</span>=<span class="hljs-string">"/images/placeholder.png"</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">"https://images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> <span class="hljs-name">source</span> in sources|<span class="hljs-keyword">reverse</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lazy_image_wrapper </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image_wrapper&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-lazy js-lazyload </span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-sizes</span>=<span class="hljs-string">&quot;auto&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/images/placeholder.png&quot;</span> <span class="hljs-attr">data-src</span>=<span class="hljs-string">&quot;https://images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">data-srcset</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> <span class="hljs-name">source</span> in sources|<span class="hljs-keyword">reverse</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ source.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ source.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ source.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">noscript</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> <span class="hljs-name">source</span> in sources|<span class="hljs-keyword">reverse</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config("images") }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ <span class="hljs-name">source</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">sizes</span>=<span class="hljs-string">"100vw"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> itemprop %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ itemprop }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ class }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ sources|<span class="hljs-keyword">last</span>.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> sources|<span class="hljs-keyword">length</span> &gt; 1 %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">srcset</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">for</span></span> <span class="hljs-name">source</span> in sources|<span class="hljs-keyword">reverse</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">//images.fastspot.com/</span></span></span><span class="hljs-template-variable">{{ config(&quot;images&quot;) }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ source.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">x</span></span></span><span class="hljs-template-variable">{{ source.height }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/</span></span></span><span class="hljs-template-variable">{{ image }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-variable">{{ source.width }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">w</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not loop.last %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">, </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endfor</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">sizes</span>=<span class="hljs-string">&quot;100vw&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ alt }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> itemprop %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ itemprop }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">noscript</span>&gt;</span></span></pre>
     </code>
 </div>
@@ -203,26 +206,26 @@
         
             
             <pre>{
-  <span class="hljs-attr">"class"</span>: <span class="hljs-string">"media"</span>,
-  <span class="hljs-attr">"alt"</span>: <span class="hljs-string">""</span>,
-  <span class="hljs-attr">"itemprop"</span>: <span class="hljs-string">""</span>,
-  <span class="hljs-attr">"image"</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-attr">"sources"</span>: [
+  <span class="hljs-attr">&quot;class&quot;</span>: <span class="hljs-string">&quot;media&quot;</span>,
+  <span class="hljs-attr">&quot;alt&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-attr">&quot;itemprop&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+  <span class="hljs-attr">&quot;image&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">&quot;sources&quot;</span>: [
     {
-      <span class="hljs-attr">"width"</span>: <span class="hljs-number">980</span>,
-      <span class="hljs-attr">"height"</span>: <span class="hljs-number">552</span>
+      <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-number">980</span>,
+      <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-number">552</span>
     },
     {
-      <span class="hljs-attr">"width"</span>: <span class="hljs-number">740</span>,
-      <span class="hljs-attr">"height"</span>: <span class="hljs-number">416</span>
+      <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-number">740</span>,
+      <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-number">416</span>
     },
     {
-      <span class="hljs-attr">"width"</span>: <span class="hljs-number">500</span>,
-      <span class="hljs-attr">"height"</span>: <span class="hljs-number">282</span>
+      <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-number">500</span>,
+      <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-number">282</span>
     },
     {
-      <span class="hljs-attr">"width"</span>: <span class="hljs-number">300</span>,
-      <span class="hljs-attr">"height"</span>: <span class="hljs-number">169</span>
+      <span class="hljs-attr">&quot;width&quot;</span>: <span class="hljs-number">300</span>,
+      <span class="hljs-attr">&quot;height&quot;</span>: <span class="hljs-number">169</span>
     }
   ]
 }</pre>
@@ -1239,10 +1242,23 @@
         
     
         
+            
+            
+            <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-form">
+                <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-form-items">
+                    Form
+                </button>
+                <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-form-items">
+                
+                
+                
+                
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-form.html" data-pjax>
-                <span>Form</span>
+            <a class="Tree-entityLink" href="template-form--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1260,6 +1276,36 @@
 
             </a>
         </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-form--no-image.html" data-pjax>
+                <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+                </ul>
+            </li>
+            
         
     
         
@@ -3252,8 +3298,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2020-12-21T20:19:06.548Z">
-                                12/21/2020
+                            <time datetime="2021-01-05T17:15:49.301Z">
+                                1/5/2021
                             </time>
                         
                     </dd>
@@ -3274,7 +3320,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.6.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.7.0"></script>
 
 
 

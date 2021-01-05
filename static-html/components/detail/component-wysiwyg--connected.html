@@ -18,9 +18,9 @@
     }
 </style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.7.0" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.7.0" type="text/css">
 
 
 <title>WYSIWYG: Connected | JTCC Component Library</title>
@@ -80,6 +80,9 @@
 
         </a>
     </h1>
+
+    <span class="Pen-preview-size" data-role="preview-size"></span>
+
     
 
 <div class="Status Status--tag">
@@ -173,10 +176,10 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-04888352bed90ade62cdba7f48d4595d-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block_inner typography"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block_inner typography&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Stay Connected<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Email<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>All students are assigned a Virginia Community College System (VCCS) e-mail address when they enroll in a class at the College. This e-mail address is the primary e-mail address the College will use for communication with students. Students can access their VCCS student e-mail in their myTyler account once they are enrolled in a class. Students should check their student e-mail regularly for financial aid updates, class information from instructors, reminders about College deadlines and dates, closing and delay notifications, notes from faculty advisors, details on student activities, and many other important messages.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -193,10 +196,10 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-04888352bed90ade62cdba7f48d4595d-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block_inner typography"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block_inner typography&quot;</span>&gt;</span>
 				</span><span class="hljs-template-variable">{{ content }}</span><span class="xml">
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -211,7 +214,7 @@
         
             
             <pre>{
-  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"&lt;h2&gt;Stay Connected&lt;/h2&gt;&lt;h3&gt;Email&lt;/h3&gt;&lt;p&gt;All students are assigned a Virginia Community College System (VCCS) e-mail address when they enroll in a class at the College. This e-mail address is the primary e-mail address the College will use for communication with students. Students can access their VCCS student e-mail in their myTyler account once they are enrolled in a class. Students should check their student e-mail regularly for financial aid updates, class information from instructors, reminders about College deadlines and dates, closing and delay notifications, notes from faculty advisors, details on student activities, and many other important messages.&lt;/p&gt;&lt;h3&gt;Social Media&lt;/h3&gt;&lt;p&gt;Tap into the Tyler community by connecting with the College on social media. These spaces exist to digitally connect students, faculty and staff, and the community to one another and to Tyler. They tell the Tyler story one post, photo, or video at a time.&lt;/p&gt;"</span>
+  <span class="hljs-attr">&quot;content&quot;</span>: <span class="hljs-string">&quot;&lt;h2&gt;Stay Connected&lt;/h2&gt;&lt;h3&gt;Email&lt;/h3&gt;&lt;p&gt;All students are assigned a Virginia Community College System (VCCS) e-mail address when they enroll in a class at the College. This e-mail address is the primary e-mail address the College will use for communication with students. Students can access their VCCS student e-mail in their myTyler account once they are enrolled in a class. Students should check their student e-mail regularly for financial aid updates, class information from instructors, reminders about College deadlines and dates, closing and delay notifications, notes from faculty advisors, details on student activities, and many other important messages.&lt;/p&gt;&lt;h3&gt;Social Media&lt;/h3&gt;&lt;p&gt;Tap into the Tyler community by connecting with the College on social media. These spaces exist to digitally connect students, faculty and staff, and the community to one another and to Tyler. They tell the Tyler story one post, photo, or video at a time.&lt;/p&gt;&quot;</span>
 }</pre>
             
         
@@ -1223,10 +1226,23 @@
         
     
         
+            
+            
+            <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-form">
+                <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-form-items">
+                    Form
+                </button>
+                <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-form-items">
+                
+                
+                
+                
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-form.html" data-pjax>
-                <span>Form</span>
+            <a class="Tree-entityLink" href="template-form--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1244,6 +1260,36 @@
 
             </a>
         </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-form--no-image.html" data-pjax>
+                <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+                </ul>
+            </li>
+            
         
     
         
@@ -3236,8 +3282,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2020-12-21T20:19:06.548Z">
-                                12/21/2020
+                            <time datetime="2021-01-05T17:15:49.301Z">
+                                1/5/2021
                             </time>
                         
                     </dd>
@@ -3258,7 +3304,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.6.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.7.0"></script>
 
 
 
