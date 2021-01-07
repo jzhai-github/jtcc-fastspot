@@ -18,9 +18,9 @@
     }
 </style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.7.0" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.7.0" type="text/css">
 
 
 <title>WYSIWYG: Involved | JTCC Component Library</title>
@@ -80,6 +80,9 @@
 
         </a>
     </h1>
+
+    <span class="Pen-preview-size" data-role="preview-size"></span>
+
     
 
 <div class="Status Status--tag">
@@ -173,10 +176,10 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-11448d6493a48305641e1b0da10107bd-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block_inner typography"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block_inner typography&quot;</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Get Involved<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>&gt;</span>The Student Activities Office<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> provides a variety of educational, cultural, and social experiences for students, faculty, staff and members of the Tyler community. Student activities and organizations are open to all interested students. Students may seek leadership opportunities in Tyler’s Student Government Association.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
@@ -199,10 +202,10 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-11448d6493a48305641e1b0da10107bd-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-row"</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fs-cell"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"wysiwyg_block_inner typography"</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;wysiwyg_block_inner typography&quot;</span>&gt;</span>
 				</span><span class="hljs-template-variable">{{ content }}</span><span class="xml">
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -217,7 +220,7 @@
         
             
             <pre>{
-  <span class="hljs-attr">"content"</span>: <span class="hljs-string">"&lt;h2&gt;Get Involved&lt;/h2&gt;&lt;p&gt;&lt;a href&gt;The Student Activities Office&lt;/a&gt; provides a variety of educational, cultural, and social experiences for students, faculty, staff and members of the Tyler community. Student activities and organizations are open to all interested students. Students may seek leadership opportunities in Tyler’s Student Government Association.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Social and Cultural Programs&lt;/strong&gt;: The Student Activities Office sponsors movie nights, volunteer projects, intermural sports, guest speakers, sports viewing parties, cardio/fitness classes, game nights and more.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Clubs and Organizations&lt;/strong&gt;: John Tyler Community College offers a diverse selection of student clubs and organizations, and it encourages the formation of new student groups. The College currently recognized more than 35 student clubs and organizations.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Honorary Organizations&lt;/strong&gt;: Phi Theta Kappa International Honor Society Tau Rho (Chester) , Beta Omicron Omicron (Midlothian).&lt;/li&gt;&lt;li&gt;&lt;a href&gt;&lt;strong&gt;Intramurals&lt;/strong&gt;&lt;/a&gt;: Basketball, Soccer, and flag football.&lt;/li&gt;&lt;li&gt;&lt;a href&gt;&lt;strong&gt;Student Ambassador Program&lt;/strong&gt;&lt;/a&gt;: Tyler’s Student Ambassador Program is a leadership opportunity for Tyler students who are dedicated to serving and representing John Tyler Community College. Student Ambassadors give campus tours, assist prospective and new students, and support various campus events including Open House and New Student Orientation.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Study Abroad&lt;/strong&gt;: John Tyler Community College has a multifaceted international education program aimed at developing global awareness and global learners through international travel presentations and study-abroad opportunities for faculty, staff, and students. These substantive learning opportunities prepare students for possible international employment, international study, and personal enrichment.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Safe Zone Allies&lt;/strong&gt;: The JTCC Safe Zone program supports the College’s vision for a success story for every student, by recruiting, educating and supporting faculty, staff, and students to become allies to the lesbian, gay, bisexual, transgender and queer (LGBTQ) community. Allies learn about LGBTQ issues to promote a safe and supportive environment for people who self-identify as lesbian, gay, bisexual, transgender or queer. By working together members of the LGBTQ community and allies can inspire a spirit of inclusion for all.&lt;/li&gt;&lt;/ul&gt;"</span>
+  <span class="hljs-attr">&quot;content&quot;</span>: <span class="hljs-string">&quot;&lt;h2&gt;Get Involved&lt;/h2&gt;&lt;p&gt;&lt;a href&gt;The Student Activities Office&lt;/a&gt; provides a variety of educational, cultural, and social experiences for students, faculty, staff and members of the Tyler community. Student activities and organizations are open to all interested students. Students may seek leadership opportunities in Tyler’s Student Government Association.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Social and Cultural Programs&lt;/strong&gt;: The Student Activities Office sponsors movie nights, volunteer projects, intermural sports, guest speakers, sports viewing parties, cardio/fitness classes, game nights and more.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Clubs and Organizations&lt;/strong&gt;: John Tyler Community College offers a diverse selection of student clubs and organizations, and it encourages the formation of new student groups. The College currently recognized more than 35 student clubs and organizations.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Honorary Organizations&lt;/strong&gt;: Phi Theta Kappa International Honor Society Tau Rho (Chester) , Beta Omicron Omicron (Midlothian).&lt;/li&gt;&lt;li&gt;&lt;a href&gt;&lt;strong&gt;Intramurals&lt;/strong&gt;&lt;/a&gt;: Basketball, Soccer, and flag football.&lt;/li&gt;&lt;li&gt;&lt;a href&gt;&lt;strong&gt;Student Ambassador Program&lt;/strong&gt;&lt;/a&gt;: Tyler’s Student Ambassador Program is a leadership opportunity for Tyler students who are dedicated to serving and representing John Tyler Community College. Student Ambassadors give campus tours, assist prospective and new students, and support various campus events including Open House and New Student Orientation.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Study Abroad&lt;/strong&gt;: John Tyler Community College has a multifaceted international education program aimed at developing global awareness and global learners through international travel presentations and study-abroad opportunities for faculty, staff, and students. These substantive learning opportunities prepare students for possible international employment, international study, and personal enrichment.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Safe Zone Allies&lt;/strong&gt;: The JTCC Safe Zone program supports the College’s vision for a success story for every student, by recruiting, educating and supporting faculty, staff, and students to become allies to the lesbian, gay, bisexual, transgender and queer (LGBTQ) community. Allies learn about LGBTQ issues to promote a safe and supportive environment for people who self-identify as lesbian, gay, bisexual, transgender or queer. By working together members of the LGBTQ community and allies can inspire a spirit of inclusion for all.&lt;/li&gt;&lt;/ul&gt;&quot;</span>
 }</pre>
             
         
@@ -1229,10 +1232,23 @@
         
     
         
+            
+            
+            <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-form">
+                <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-form-items">
+                    Form
+                </button>
+                <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-form-items">
+                
+                
+                
+                
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-form.html" data-pjax>
-                <span>Form</span>
+            <a class="Tree-entityLink" href="template-form--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1250,6 +1266,36 @@
 
             </a>
         </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-form--no-image.html" data-pjax>
+                <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+                </ul>
+            </li>
+            
         
     
         
@@ -3242,8 +3288,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2020-12-21T20:19:10.521Z">
-                                12/21/2020
+                            <time datetime="2021-01-07T22:19:38.723Z">
+                                1/7/2021
                             </time>
                         
                     </dd>
@@ -3264,7 +3310,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.6.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.7.0"></script>
 
 
 

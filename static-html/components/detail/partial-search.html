@@ -18,9 +18,9 @@
     }
 </style>
 
-<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="../../themes/mandelbrot/css/black.css?cachebust=1.7.0" type="text/css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.6.0" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css?cachebust=1.7.0" type="text/css">
 
 
 <title>Search | JTCC Component Library</title>
@@ -80,6 +80,9 @@
 
         </a>
     </h1>
+
+    <span class="Pen-preview-size" data-role="preview-size"></span>
+
     
 
 <div class="Status Status--tag">
@@ -175,18 +178,18 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-f7c81099bc337e85712928fc230da120-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search site_search site_search_header"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"site_search_header"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"https://schema.org/WebSite"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Site Search"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"http://"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_form"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/static-html/templates/page-search.html"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"potentialAction"</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"http://schema.org/SearchAction"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"target"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"http:///static-html/templates/page-search.html?q={q}"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search-label site_search_label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search_string__header"</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_field"</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search-input site_search_input"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"query-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search_string__header"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"q"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Placeholder text"</span> <span class="hljs-attr">required</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button_label"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button_icon"</span>&gt;</span>
-                    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon icon_search"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/images/icons.svg#search"</span> /&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search site_search site_search_header&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;site_search_header&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;search&quot;</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;https://schema.org/WebSite&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Site Search&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;http://&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_form&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/static-html/templates/page-search.html&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;potentialAction&quot;</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;http://schema.org/SearchAction&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;target&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;http:///static-html/templates/page-search.html?q={q}&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search-label site_search_label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;search_string__header&quot;</span>&gt;</span>Search<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_field&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search-input site_search_input&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;query-input&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;search&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;search_string__header&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;q&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Placeholder text&quot;</span> <span class="hljs-attr">required</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button_label&quot;</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button_icon&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon icon_search&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/images/icons.svg#search&quot;</span> /&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
                 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
@@ -200,18 +203,18 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-f7c81099bc337e85712928fc230da120-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search site_search</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> site_search_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"site_search</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"https://schema.org/WebSite"</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ aria }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"url"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"http://</span></span></span><span class="hljs-template-variable">{{ config.domain }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span>
-	<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_form"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"/static-html/templates/page-search.html"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"potentialAction"</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">"http://schema.org/SearchAction"</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"target"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"http://</span></span></span><span class="hljs-template-variable">{{ config.domain }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/static-html/templates/page-search.html?q={q}"</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search-label site_search_label"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"search_string_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>&gt;</span></span><span class="hljs-template-variable">{{ label ?: "Search" }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
-		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_field"</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-site-search-input site_search_input"</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">"query-input"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"search"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"search_string_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"></span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"q"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> placeholder %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{{ placeholder }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">required</span>&gt;</span>
-			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not button_text %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">"Search"</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search site_search</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> site_search_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;site_search</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;search&quot;</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;https://schema.org/WebSite&quot;</span> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ aria }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;http://</span></span></span><span class="hljs-template-variable">{{ config.domain }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_form&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/static-html/templates/page-search.html&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;potentialAction&quot;</span> <span class="hljs-attr">itemscope</span> <span class="hljs-attr">itemtype</span>=<span class="hljs-string">&quot;http://schema.org/SearchAction&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;target&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;http://</span></span></span><span class="hljs-template-variable">{{ config.domain }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">/static-html/templates/page-search.html?q={q}&quot;</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search-label site_search_label&quot;</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;search_string_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ label ?: &quot;Search&quot; }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_field&quot;</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;js-site-search-input site_search_input&quot;</span> <span class="hljs-attr">itemprop</span>=<span class="hljs-string">&quot;query-input&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;search&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;search_string_</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> modifier %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">_</span></span></span><span class="hljs-template-variable">{{ modifier }}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;q&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> placeholder %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ placeholder }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">required</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> not button_text %}</span><span class="xml"><span class="hljs-tag"> <span class="hljs-attr">aria-label</span>=<span class="hljs-string">&quot;Search&quot;</span> </span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag">&gt;</span>
 				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> button_text %}</span><span class="xml">
-					<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button_label"</span>&gt;</span></span><span class="hljs-template-variable">{{ button_text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button_label&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ button_text }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 				</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml">
-				<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"site_search_button_icon"</span>&gt;</span></span><span class="hljs-template-variable">{{ icon("search") }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;site_search_button_icon&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ icon(&quot;search&quot;) }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 			<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
@@ -225,11 +228,11 @@
         
             
             <pre>{
-  <span class="hljs-attr">"modifier"</span>: <span class="hljs-string">"header"</span>,
-  <span class="hljs-attr">"aria"</span>: <span class="hljs-string">"Site Search"</span>,
-  <span class="hljs-attr">"label"</span>: <span class="hljs-string">"Search"</span>,
-  <span class="hljs-attr">"placeholder"</span>: <span class="hljs-string">"Placeholder text"</span>,
-  <span class="hljs-attr">"button_text"</span>: <span class="hljs-string">"Submit"</span>
+  <span class="hljs-attr">&quot;modifier&quot;</span>: <span class="hljs-string">&quot;header&quot;</span>,
+  <span class="hljs-attr">&quot;aria&quot;</span>: <span class="hljs-string">&quot;Site Search&quot;</span>,
+  <span class="hljs-attr">&quot;label&quot;</span>: <span class="hljs-string">&quot;Search&quot;</span>,
+  <span class="hljs-attr">&quot;placeholder&quot;</span>: <span class="hljs-string">&quot;Placeholder text&quot;</span>,
+  <span class="hljs-attr">&quot;button_text&quot;</span>: <span class="hljs-string">&quot;Submit&quot;</span>
 }</pre>
             
         
@@ -1206,10 +1209,23 @@
         
     
         
+            
+            
+            <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-template-form">
+                <button class="Tree-collectionLabel" data-role="toggle" aria-expanded="true" aria-controls="tree-components-collection-template-form-items">
+                    Form
+                </button>
+                <ul class="Tree-collectionItems" data-role="items" id="tree-components-collection-template-form-items">
+                
+                
+                
+                
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="template-form.html" data-pjax>
-                <span>Form</span>
+            <a class="Tree-entityLink" href="template-form--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1227,6 +1243,36 @@
 
             </a>
         </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="template-form--no-image.html" data-pjax>
+                <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+                </ul>
+            </li>
+            
         
     
         
@@ -3219,8 +3265,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2020-12-21T20:19:10.521Z">
-                                12/21/2020
+                            <time datetime="2021-01-07T22:19:38.723Z">
+                                1/7/2021
                             </time>
                         
                     </dd>
@@ -3241,7 +3287,7 @@
 
 
 
-<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.6.0"></script>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.7.0"></script>
 
 
 
