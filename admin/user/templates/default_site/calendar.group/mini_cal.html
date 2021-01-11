@@ -24,15 +24,15 @@
         <tr>
             <th colspan="1">
                 {if segment_2 != "calendars"}
-                <a id="mini_calendar_prev_month" href="{path='calendar_main/month'}/{calendar:previous_month format='%Y/%m'}/">&larr;</a>
+                <a id="mini_calendar_prev_month" href="{path='calendar/month'}/{calendar:previous_month format='%Y/%m'}/">&larr;</a>
                 {/if}
             </th>
             <th colspan="5" class="center">
-                <a href="{path='calendar_main/month'}/{calendar:month_date format='%Y/%m'}/">{calendar:month_date format="%F %Y"}</a>
+                <a href="{path='calendar/month'}/{calendar:month_date format='%Y/%m'}/">{calendar:month_date format="%F %Y"}</a>
             </th>
             <th colspan="1">
                 {if segment_2 != "calendars"}
-                <a id="mini_calendar_next_month" href="{path='calendar_main/month'}/{calendar:next_month format='%Y/%m'}/"> &rarr;</a>
+                <a id="mini_calendar_next_month" href="{path='calendar/month'}/{calendar:next_month format='%Y/%m'}/"> &rarr;</a>
                 {/if}
             </th>
         </tr>
@@ -54,7 +54,7 @@
                 <div class="mini_calendar_date">
                     {if calendar:day_in_current_month}
                     {if calendar:day_total_events != ""}
-                    <a href="{path='calendar_main/day'}/{calendar:day_date format='%Y/%m/%d'}/">
+                    <a href="{path='calendar/week'}/{calendar:day_date format='%Y/%m/%d'}/#{calendar:day_date format='%d'}">
                         {/if}
                         {calendar:day_date format="%j"}
                         {if calendar:day_total_events != ""}</a>{/if}

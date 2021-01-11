@@ -1,0 +1,237 @@
+{layout='layouts/_main-layout'}
+
+{!--
+	404 redirect
+	============
+	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
+--}
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Class Schedule'}
+{preload_replace:p_description=''}
+{preload_replace:p_url='/schedule'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch=''}
+{preload_replace:ch_title='Class Schedule'}
+{preload_replace:ch_status='Open|Default Page'}
+{preload_replace:ch_disable='member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='ch_disable' value='{ch_disable}'}
+{layout:set name='ch_status' value='{ch_status}'}
+{if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
+
+{layout:set name='title' value='{p_title}'}
+{layout:set name='page_description' value='{p_description}'}
+
+<?php
+	include("includes/courses_conn.php");
+
+	$default_term = "courses_spring";
+
+	echo '<script type="text/javascript">
+		function termSelected(){
+			if (document.getElementById("term_fall").selected == true){		
+				document.getElementById("fall").style.display = "block";	
+				document.getElementById("spring").style.display = "none";
+				document.getElementById("summer").style.display = "none";	
+				document.getElementById("fall2").style.display = "block";	
+				document.getElementById("spring2").style.display = "none";
+				document.getElementById("summer2").style.display = "none";
+				document.getElementById("location").style.display = "none";
+				document.getElementById("online").style.display = "none";
+				document.getElementById("fall20spring21").style.display = "block";
+				document.getElementById("searchByDays").style.display = "block";
+			}
+			if (document.getElementById("term_spring").selected == true){		
+				document.getElementById("fall").style.display = "none";	
+				document.getElementById("spring").style.display = "block";
+				document.getElementById("summer").style.display = "none";
+				document.getElementById("fall2").style.display = "none";	
+				document.getElementById("spring2").style.display = "block";
+				document.getElementById("summer2").style.display = "none";
+				document.getElementById("location").style.display = "none";
+				document.getElementById("online").style.display = "none";
+				document.getElementById("fall20spring21").style.display = "block";
+				document.getElementById("searchByDays").style.display = "block";
+			} 
+			if (document.getElementById("term_summer").selected == true){ 
+				document.getElementById("fall").style.display = "none";	
+				document.getElementById("spring").style.display = "none";
+				document.getElementById("summer").style.display = "block";
+				document.getElementById("fall2").style.display = "none";	
+				document.getElementById("spring2").style.display = "none";
+				document.getElementById("summer2").style.display = "block";
+				document.getElementById("location").style.display = "none";
+				document.getElementById("online").style.display = "block";
+				document.getElementById("fall20spring21").style.display = "none";
+				document.getElementById("searchByDays").style.display = "none";
+			}
+		}
+		
+		function reset_form() {
+			document.getElementById("schedule").reset(); 		
+		}	
+	</script>';
+
+	$fall_term_result = mysql_query("SELECT DISTINCT term FROM courses_fall");
+	$fall_term_row = mysql_fetch_assoc($fall_term_result);
+	$fall = explode(" ", $fall_term_row["term"]);
+	$fall_term = $fall[1] . ' ' . $fall[0];
+
+	$spring_term_result = mysql_query("SELECT DISTINCT term FROM courses_spring");
+	$spring_term_row = mysql_fetch_assoc($spring_term_result);
+	$spring = explode(" ", $spring_term_row["term"]);
+	$spring_term = $spring[1] . ' ' . $spring[0];
+
+	$summer_term_result = mysql_query("SELECT DISTINCT term FROM courses_summer");
+	$summer_term_row = mysql_fetch_assoc($summer_term_result);
+	$summer = explode(" ", $summer_term_row["term"]);
+	$summer_term = $summer[1] . ' ' . $summer[0];
+	
+	$fall_subject_query = "SELECT DISTINCT academic_subject FROM courses_fall WHERE location NOT LIKE 'CCWA%' ORDER BY academic_subject";
+	$spring_subject_query = "SELECT DISTINCT academic_subject FROM courses_spring WHERE location NOT LIKE 'CCWA%' ORDER BY academic_subject";
+	$summer_subject_query = "SELECT DISTINCT academic_subject FROM courses_summer WHERE location NOT LIKE 'CCWA%' ORDER BY academic_subject";
+
+	$fall_subject_result = mysql_query($fall_subject_query);
+	$spring_subject_result = mysql_query($spring_subject_query);
+	$summer_subject_result = mysql_query($summer_subject_query);
+
+	$fall_session_query = "SELECT DISTINCT session FROM courses_fall WHERE location NOT LIKE 'CCWA%'";
+	$spring_session_query = "SELECT DISTINCT session FROM courses_spring WHERE location NOT LIKE 'CCWA%'";
+	$summer_session_query = "SELECT DISTINCT session FROM courses_summer WHERE location NOT LIKE 'CCWA%'";
+
+	$fall_session_result = mysql_query($fall_session_query);
+	$spring_session_result = mysql_query($spring_session_query);
+	$summer_session_result = mysql_query($summer_session_query);
+
+	mysql_close($conn);
+
+	$show = 'style="display:block"';
+	$hide = 'style="display:none"';
+
+	// echo '<body  onload="reset_form();">';
+
+	echo '<form name="schedule" id="schedule" action="/mobile/courses_search" method="post">
+		<input type="hidden" name="default_term" value="' . $default_term . '">
+		<label for="term" class="hide">Term</label>
+		<select name="term" id="term" onchange="termSelected();">
+			<option id="term_fall" value="courses_fall"'; if ($default_term == 'courses_fall'){echo ' selected="selected"'; } echo '>' . $fall_term . '</option>
+			<option id="term_spring" value="courses_spring"'; if ($default_term == 'courses_spring'){echo ' selected="selected"'; } echo '>' . $spring_term . '</option>	
+			<option id="term_summer" value="courses_summer"'; if ($default_term == 'courses_summer'){echo ' selected="selected"'; } echo '>' . $summer_term . '</option>
+		</select>';
+	
+	
+	echo '<div name="fall" id="fall" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+		echo '<label for="fall_subject" class="hide">Fall Subject</label><select name="fall_subject" id="fall_subject">
+				<option value="" selected>All Subjects</option>';
+				while ($subject_row = mysql_fetch_array($fall_subject_result)) { 
+					echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+				}
+			echo '</select></div>';
+	echo '<div name="spring" id="spring" ';  if ($default_term == 'courses_spring') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="spring_subject">
+		<option value="" selected>All Subjects</option>';
+			while ($subject_row = mysql_fetch_array($spring_subject_result)) { 
+				echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+			}
+		echo '</select></div>';
+	echo '<div name="summer" id="summer" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="summer_subject">
+				<option value="" selected>All Subjects</option>';
+				while ($subject_row = mysql_fetch_array($summer_subject_result)) { 
+					echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+				}
+		echo '</select></div>';
+	
+	echo '<div name="location" id="location" ';  if ($default_term != 'courses_summer' && $default_term != 'courses_fall' && $default_term != 'courses_spring') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="campus">
+			<option value="" selected>All Locations</option>
+			<option value="Chester Campus">Chester Campus</option>
+			<option value="Midlothian Campus">Midlothian Campus</option>
+			<option value="Virtual">Virtual</option>						
+		</select>';
+	echo '</div>';
+	echo '<div name="online" id="online" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="online-format">
+			<option value="">All Online Formats</option>
+			<option value="hybrid">Video-enhanced classes</option>
+			<option value="non-hybrid">Virtual classes</option>						
+		</select>';
+	echo '</div>';
+	echo '<div name="fall20spring21" id="fall20spring21" ';  if ($default_term != 'courses_summer') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="class-format">
+			<option value="">All Class Formats</option>
+			<option value="Virtual">Virtual</option>
+			<option value="Zoom">Zoom Classes</option>
+			<option value="Hybrid_zoom">Hybrid: Virtual and Zoom</option>
+			<option value="Hybrid_campus">Hybrid: Virtual/Zoom and On Campus</option>
+			<option value="Chester">On Campus: Chester</option>
+			<option value="Midlothian">On Campus: Midlothian</option>
+		</select>';
+	echo '</div>';
+	
+	echo '<div name="fall2" id="fall2" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="fall_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysql_fetch_array($fall_session_result)) { 
+				echo "  <option value=\"" . $session_row[0] . "\">" . $session_row[0] . "</option>\n";
+			}
+		echo '</select>';	
+	echo '</div>';
+	echo '<div name="spring2" id="spring2" ';  if ($default_term == 'courses_spring') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="spring_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysql_fetch_array($spring_session_result)) { 
+				echo "  <option value=\"" . $session_row[0] . "\">" . $session_row[0] . "</option>\n";
+			}
+		echo '</select>';	
+	echo '</div>';
+	echo '<div name="summer2" id="summer2" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="summer_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysql_fetch_array($summer_session_result)) { 
+				echo "  <option value=\"" . $session_row[0] . "\">" . $session_row[0] . "</option>\n";
+			}
+			echo ' <option value="maymester">Maymester: May 15 – June 7</option>';
+		echo '</select>';	
+	echo '</div>';
+	
+	echo '<div name="searchByDays" id="searchByDays" ';  if ($default_term != 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+	echo '<select name="select_days">
+			<option value="" selected>All Days</option>
+			<option value="M">M</option>
+			<option value="Tu">Tu</option>
+			<option value="W">W</option>
+			<option value="Th">Th</option>
+			<option value="F">F</option>
+			<option value="MW">MW</option>
+			<option value="TuTh">TuTh</option>
+			<option value="Sa">Sa</option>
+			<option value="Other">Other</option>						
+		</select>';
+	echo '</div>';
+					
+	echo '<input type="hidden" name="XID" value="{XID_HASH}" />
+		<input type="submit" name="Submit" value="Search" data-theme="b" data-icon="search" />
+		</form>';
+
+	mysql_free_result($fall_term_result);
+	mysql_free_result($spring_term_result);
+	mysql_free_result($summer_term_result);
+
+	mysql_free_result($fall_subject_result);
+	mysql_free_result($spring_subject_result);
+	mysql_free_result($summer_subject_result);
+
+	mysql_free_result($fall_session_result);
+	mysql_free_result($spring_session_result);
+	mysql_free_result($summer_session_result);
+
+	?>

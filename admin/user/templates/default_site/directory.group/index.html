@@ -83,30 +83,6 @@
 <!-- END: Page Feature -->
 
 <?php
-//$host = "10.70.200.12"; //database location internal
-//$host = "apps.jtcc.edu"; //database location
-//$user = "diruser"; //database username
-//$pass = "J20tcc17#"; //database password
-//$db_name = "jtccdirdb"; //database name
-
-//database connection
-//$con = new mysqli($host, $user, $pass, $db_name);
-/*if (mysqli_connect_errno()){
-	echo "Failed to connect to database.";
-}
-
-$getDepts = "SELECT dept 
-	FROM jtccdirdb.tbllkdept
-	WHERE DeptAbbr is NULL OR DeptAbbr = ''
-	UNION
-	SELECT adept 
-	FROM  jtccdirdb.tblacaddeptdiv
-	ORDER BY 1";*/
-                                
-//$dept_result = mysqli_query($con, $getDepts);
-
-//mysqli_close($con);
-
 $host = "164.106.55.222"; //database location external
 //$host = "10.70.200.12"; //database location internal
 //$host = "apps.jtcc.edu"; //database location
@@ -121,10 +97,10 @@ if (mysqli_connect_errno()){
 }
 
 //object oriented - db connection
-$mysqli = new mysqli($host, $user, $pass, $db_name);
+/*$mysqli = new mysqli($host, $user, $pass, $db_name);
 if (mysqli_connect_errno()){
 	echo "Failed to connect to database.";
-}
+}*/
 
 $getDepts = "SELECT dept 
             FROM jtccdirdb.tbllkdept
@@ -132,15 +108,13 @@ $getDepts = "SELECT dept
             UNION
             SELECT adept 
             FROM  jtccdirdb.tblacaddeptdiv
-            ORDER BY 1";
-                                
-//$dept_result = $dir_db->query($getDepts);
+            ORDER BY 1";                               
 
 $dept_result = mysqli_query($con, $getDepts);
 
-	mysqli_close($con);
+mysqli_close($con);
 	
-	echo '<h1>Data is from the DWA server</h1>';
+	/*echo '<h1>Data is from the DWA server</h1>';
 	
 	if (mysqli_num_rows($dept_result) > 0) {
 		echo '<p>';
@@ -148,7 +122,7 @@ $dept_result = mysqli_query($con, $getDepts);
 			echo $row['dept'] . '<br />';
 		}
 		echo '</p>';
-	}
+	}*/
 ?>
 
 <div class="full_width_callouts">
@@ -168,7 +142,7 @@ $dept_result = mysqli_query($con, $getDepts);
 			<div class="fs-cell">
 				<div class="filter_panels_inner">
 					<div class="filter_tabpanel filter_tabpanel_tools" role="tabpanel">
-						<form class="filter_tools" action="/major" method="get">
+						<form class="filter_tools" action="/directory" method="post">
 							<div class="filter_tool">
 								<label class="filter_label" for="filter_tool_label_1">First Name</label>
 									<div class="filter_search_input_wrapper">
@@ -205,16 +179,16 @@ $dept_result = mysqli_query($con, $getDepts);
 								<div class="filter_tool">
 									<label class="filter_label" for="filter_tool_label_3">Department</label>
 									<div class="filter_tool_select_wrapper">
-										<select class="filter_tool_select" id="filter_tool_label_3">
+										<select class="filter_tool_select" id="filter_tool_label_3" name="dept">
 											<option value=""  selected >All Departments</option>
 											<?php 
-											/*if (mysqli_num_rows($dept_result) > 0) {	
+											if (mysqli_num_rows($dept_result) > 0) {	
 												while ($dept_row = mysqli_fetch_assoc($dept_result)) {
 													echo '<option value="' . $dept_row['dept'] . '" label="' . $dept_row['dept'] . '">' . $dept_row['dept'] . '</option>';
 												}
-											}*/	
+											}	
 											?>
-											<option value="">Office of the Dean of Arts, Humanities, Mathematics, and Social Sciences</option>
+											<!--<option value="">Office of the Dean of Arts, Humanities, Mathematics, and Social Sciences</option>-->
 										</select>
 		<span class="filter_tool_select_icon">
 			<svg class="icon icon_caret_down">
@@ -224,7 +198,8 @@ $dept_result = mysqli_query($con, $getDepts);
 									</div>
 								</div>
 								<div class="filter_tool">
-								<button class="filter_tools_submit filter_tools_submit_tools" type="submit">
+								<input type="hidden" name="XID" value="{XID_HASH}" />
+								<button class="filter_tools_submit filter_tools_submit_tools" type="submit" name="dir_sbmt">
 									<span class="filter_tools_submit_label">Submit</span>
 		<span class="filter_tools_submit_icon">
 			<svg class="icon icon_caret_right">
@@ -263,3 +238,143 @@ $dept_result = mysqli_query($con, $getDepts);
 			</div>
 		</div>
 	</div>
+
+	<div class="filter_results">
+		<div class="fs-row">
+			<div class="fs-cell">
+
+<?php 
+if($_SERVER['REQUEST_METHOD'] == "POST") { 
+		$host = "164.106.55.222"; //database location external
+//$host = "10.70.200.12"; //database location internal
+//$host = "apps.jtcc.edu"; //database location
+$user = "diruser"; //database username
+$pass = "J20tcc17#"; //database password
+$db_name = "jtccdirdb"; //database name
+
+//database connection
+$con = mysqli_connect($host, $user, $pass, $db_name);
+if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+        $FName = mysqli_real_escape_string($con, $_POST['fname']);
+        $LName = mysqli_real_escape_string($con, $_POST['lname']);
+        $Dept  = $_POST['dept'];
+            		
+            		$sql = "SELECT 	tblemp.StateID,
+                                    tblemp.Prefix, 
+                                    tblemp.FName, 
+                                    tblemp.MName, 
+                                    tblemp.LName,
+                                    tblemp.Nickname,
+                                    tblemp.Suffix, 
+            						tblemp.Email,
+                                    tblemp.WTitleID,
+            						tbllkwtitle.WorkTitle,
+                                    tblemp.DeptID,
+                                    tblemp.DivID,
+            						tbllkdiv.DivDesc,         
+                                    tbllkdept.Dept,
+            						tblacaddeptdiv.ADept,
+                                    tblacaddeptdiv.AcadDeptID
+                            FROM tblemp
+                            LEFT OUTER JOIN tbllkwtitle
+                            USING (WTitleID)
+                            Left outer join tbllkdiv
+                            USING (DivID)
+                            LEFT OUTER JOIN tbllkdept
+                            USING (DeptID)
+                            LEFT OUTER JOIN tblacaddeptdis
+                            USING (DeptID)
+                            LEFT OUTER JOIN tblacaddeptdiv 
+                            USING (AcadDeptID)
+                            WHERE 1 = 1";    
+                    if (strlen($FName) > 0) {
+                      	$sql .= " AND (tblemp.FName LIKE '$FName%'
+            					OR tblemp.Nickname LIKE '$FName%')";
+                    }
+                    if (strlen($LName) > 0) {
+                    	$sql .= " AND tblemp.LName LIKE '$LName%'";
+                    }    
+                    if ($Dept != "") {
+                    	$sql .= " AND (tbllkdept.Dept = '$Dept' OR tblacaddeptdiv.ADept = '$Dept')";
+                    }       		
+                    $sql .= " ORDER BY LName, FName";
+
+                    $result = mysqli_query($con, $sql);
+            		
+                    
+                	if (mysqli_num_rows($result)) {
+            			while ($row = mysqli_fetch_assoc($result)) {
+            				$sID = $row['StateID'];
+                        	$getLoc = "SELECT StateID, Building, Room, PACode, PExt, Phone, FACode, FExt, FAX, Location
+                                        FROM tblemploc
+                                        LEFT OUTER JOIN tbllocbuild
+                                        USING (BuildID)
+                                        LEFT OUTER JOIN tbllkloc
+                                        USING (LocID)
+                                        WHERE StateID = '$sID'
+                                        ORDER BY StateID, Location";
+                            $getLoc_result = mysqli_query($con, $getLoc);
+                            
+                            
+                            echo '<h3>';            
+            				echo $row['Prefix']; 
+                            if (strlen(trim($row['Nickname'])) > 0) {
+                            	echo ' ' . $row['Nickname'];
+                            } else {
+                            	echo ' ' . $row['FName'];
+                            }
+                            echo ' ' . $row['LName'] . '</h3>';
+                            echo '<h4>' . $row['WorkTitle'] . '</h4>';
+                            if (strlen($row['Email']) > 0) {
+                            	echo '<p>E-mail: <a href="mailto:' . $row['Email'] . '">' . $row['Email'] . '</a></p>';
+                            }
+                            if ($row['DivID'] != 17) {
+                            	echo '<p>' . $row['DivDesc'] . '</p>';
+                            }
+                            if (strlen(trim($row['ADept'])) > 0) {
+                            	echo '<p>' . $row['ADept'] . '</p>';
+                            }
+                            if ($row['ADept'] != $row['Dept']) {
+                            	echo '<p>' . $row['Dept'] . '</p>';
+                            }
+                            if (mysqli_num_rows($getLoc_result) > 0) {
+                            	while ($loc_row = mysqli_fetch_assoc($getLoc_result)) {
+                                	if (strlen($loc_row['Location']) > 0) {
+                                		//echo '<h6>' . strtoupper($loc_row['Location']) . '</h6>';
+                                		echo '<p>' . $loc_row['Location'] . '</p>';
+                                    }
+                                    echo '<p>';
+                                        if (strlen($loc_row['Room']) > 0 && $loc_row['Room'] != '0') {
+                                            echo $loc_row['Room'] . ', ';
+                                        }
+                                        if (strlen($loc_row['Building']) > 0) {
+                                            echo $loc_row['Building'];
+                                        }
+                                    echo '</p>';
+                                    if (strlen($loc_row['PACode']) > 0) {
+                                    	echo '<p>Phone: ' . $loc_row['PACode'] . '-' . $loc_row['PExt'] . '-' . $loc_row['Phone'] . '</p>';
+                                    }
+                                    if (strlen($loc_row['FACode']) > 0) {
+                                    	echo '<p>Fax: ' . $loc_row['FACode'] . '-' . $loc_row['FExt'] . '-' . $loc_row['FAX'] . '</p>';
+                                    }
+                                }
+                                mysqli_free_result($getLoc_result);
+                                //unset($loc_row);
+                            }
+                    		echo '<hr />';
+                    	}
+            			mysqli_free_result($result);
+                   		//unset($row);        
+                    } else {
+                    	echo 'No record found. Please try it again.'; 
+                    }
+                   mysqli_close($con); 
+            	}
+                
+            ?>
+     </div>
+     </div>
+     </div>       
