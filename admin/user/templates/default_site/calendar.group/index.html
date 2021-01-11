@@ -22,14 +22,12 @@
 				{calendar:days}
 				<div class="panel {if calendar:current_day}panel-warning{if:else}panel-default{/if}">
 					<div class="panel-heading">
-						<h3 class="panel-title">
-							<a href="{path='calendar_main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:day_date format='%Y/%m/%d'}/">
+						<h3 class="panel-title" id="{calendar:day_date format='%d'}">
 								{if calendar:current_day}
 									TODAY
 								{if:else}
 									{calendar:day_date format="%l, %F %j, %Y"}
 								{/if}
-							</a> &nbsp;
 						{if calendar:day_total_events}
 							<span class="label label-warning">
 								{calendar:day_total_events} event{if calendar:day_total_events > "1" OR calendar:day_total_events == "0"}s{/if}
@@ -44,24 +42,112 @@
 					{calendar:events}
 						{if calendar:event_count == "1"}<ul class="list-group">{/if}
 							<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
-								<a href="{path='calendar_main/calendars'}/{calendar:calendar_short_name}/" class="badge" style="background-color: {calendar:calendar_color};">{calendar:calendar_name}</a>
-								<span class="glyphicon glyphicon-time"></span>
+								{!-- <a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a> --}
+								<span class="time">
 								{if calendar:event_all_day}
-									All Day
-								{if:else}
-									{if calendar:event_multi_day} {!-- Special handling for non all-day multi-day events --}
-										{if calendar:event_first_day}
-											Starts {calendar:event_start_date format="%g:%i%a"}
-										{if:elseif calendar:event_last_day}
-											Ends {calendar:event_end_date format="%g:%i%a"}
-										{if:else}
-											All Day
-										{/if} 
-									{if:else}
-										{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
-									{/if}
-								{/if} &nbsp;
-								<b><a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a></b>
+																	All Day
+																{if:else}
+																	{if calendar:event_multi_day} {!-- Special handling for non all-day multi-day events --}
+																		{if calendar:event_first_day}
+																			Starts {calendar:event_start_date format="%g:%i%a"}
+																		{if:elseif calendar:event_last_day}
+																			Ends {calendar:event_end_date format="%g:%i%a"}
+																		{if:else}
+																			All Day
+																		{/if} 
+																	{if:else}
+																		{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+																	{/if}
+																{/if} &nbsp;
+
+								</span>
+								<div class="event tips
+																	{if calendar:event_all_day}all_day{/if} 
+																	{if calendar:event_multi_day}
+																		multi_day
+																		{if calendar:event_first_day}first_day{/if} 
+																		{if calendar:event_last_day}last_day{/if}
+																	{/if} 
+																"
+																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it's all/multi-day --}
+																	style="background-color: {calendar:calendar_color_light} !important; border-color: {calendar:calendar_color} !important;"
+																{/if}
+																data-toggle="popover"
+																data-placement="bottom"
+																title="
+																	{calendar:title} &nbsp; 
+																	<span class='event_time'>
+		
+																	{if calendar:event_all_day}
+																		All Day
+																		{if calendar:event_duration_days > '1'}
+																			({calendar:event_duration_days} days)
+																		{/if}
+																	{if:else}
+																		{if calendar:event_multi_day} {!-- Special handling for Multi-day events --}
+																			{if calendar:event_first_day}
+																				Starts {calendar:event_start_date format='%g:%i%a'}
+																			{if:elseif calendar:event_last_day}
+																				Ends {calendar:event_end_date format='%g:%i%a'}
+																			{if:else}
+																				All Day
+																			{/if}
+																			({calendar:event_duration_days} days)
+																		{if:else}
+																			{calendar:event_start_date format='%g:%i%a'} - {calendar:event_end_date format='%g:%i%a'}
+																			&nbsp;({if calendar:event_duration_hours}{calendar:event_duration_hours}h{/if}{if calendar:event_duration_hours AND calendar:event_duration_minutes} {/if}{if calendar:event_duration_minutes}{calendar:event_duration_minutes}m{/if})
+																		{/if}
+																	{/if}
+																	</span>
+																"
+																data-content="
+																	<span class='glyphicon glyphicon-calendar' style='color: {calendar:calendar_color};'></span>
+																	<span class='summary'>
+{exp:channel:entries channel='calendar' limit='1' }{event_summary}{/exp:channel:entries}
+																	</span><hr />
+																	{if calendar:event_all_day} {!-- Is this an All Day event? --}
+																		{if calendar:event_multi_day} {!-- Is this a Multi-Day event also? --}
+																		<span class='starts-ends-all'>
+																			<strong>Starts</strong> {calendar:event_start_date format='%m/%d/%Y'}<br />
+																			<strong>Ends</strong> {calendar:event_end_date format='%m/%d/%Y'}
+																		</span>
+																		{if:else}
+																		<span class='starts-ends-all'>
+																			{calendar:event_start_date format='%F %j, %Y'} (All Day)
+																		</span>
+																		{/if}
+																	{if:else} {!-- Or is this just a regular event? --}
+																	<span class='starts-ends-all'>
+																		<strong>Starts</strong> {calendar:event_start_date format='%m/%d/%Y at %g:%i%a'}<br />
+																		<strong>Ends</strong> {calendar:event_end_date format='%m/%d/%Y at %g:%i%a'}
+																	</span>
+																	{/if}
+																	{if calendar:event_recurs}
+																	<span class='starts-ends-all'>
+																		<hr /><span class='glyphicon glyphicon-repeat'></span>&nbsp; Repeats {calendar:event_recurrence_rule}
+																	</span>
+																	{/if}
+																">
+
+																{if calendar:event_multi_day} 
+
+																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" style="color: {calendar:calendar_text_color} !important;">
+																		{if calendar:event_first_day OR calendar:event_last_day}
+																			{calendar:title}
+																		{if:else}
+																			&nbsp;
+																		{/if}
+																	</a>
+																{if:else}
+																	{if calendar:event_all_day == ""}
+																		<span class="calendar-color"{if calendar:calendar_color} style="background-color: {calendar:calendar_color};"{/if}></span>
+																	{/if}
+																	<a {if calendar:event_all_day} style="color: {calendar:calendar_text_color};"{/if}>{calendar:title}</a>
+																{/if}
+															</div>
+
+
+
 								{if calendar:event_location}&nbsp; <i>{calendar:event_location}</i>{/if}
 							</li>
 						{if calendar:event_count == calendar:event_total_results}</ul>{/if}
@@ -75,17 +161,32 @@
 	<div class="fs-cell fs-lg-4 typography" id="week_calendar">
 		<div id="mini-cal-wrapper">
 			{embed="calendar/mini_cal"}
-
+			<div class="fs-row" style="margin-left:0;">
+<a href="/calendar/month" class="square-button">View Full Month »</a>
+</div>
+{if segment_2 != ''}
+<div class="fs-row" style="margin-left:0;">
+<a href="/calendar/" class="square-button" style="margin-top:1rem;">View Current Week »</a>
+</div>
+{/if}
 		</div>
+		{exp:calendar:week
+				{if segment_3 == ""} {!-- Is this a regular view in current week? --}
+					date_range_start="today"
+				{if:else} {!-- Or is this a regular view in a week other than current? --}
+					date_range_start="{segment_3}-{segment_4}-{segment_5}"
+				{/if}
+			}
 		<div class="left">
 			<ul class="pager">
 				<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">« Last Week</a></li>
 			</ul>
 		</div>
 		<div class="right">
-						<ul class="pager">
-							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week »</a></li>
-						</ul>
-					</div>
+			<ul class="pager">
+				<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week »</a></li>
+			</ul>
+		</div>
+		{/exp:calendar:week}
 	</div>
 </div>{!-- / --}
