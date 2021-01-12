@@ -114,19 +114,119 @@
 
 echo '<form class="form_builder" name="schedule" id="schedule" action="/schedule/courses_search" method="post">
 
-	<input type="hidden" name="default_term" value="' . $default_term . '">
+	<input type="hidden" name="default_term" value="' . $default_term . '">';
 
-	<fieldset id="semester">
-        <label for="term"> Term </label>
+echo '<fieldset id="semester">
         <div class="form_builder_select">
-            <select class="form_builder_select" name="term" id="term" onchange="termSelected();">
+            <select name="term" id="term" onchange="termSelected();">
 				<option id="term_fall" value="courses_fall"'; if ($default_term == 'courses_fall'){echo ' selected="selected"'; } echo '>' . $fall_term . '</option>
 				<option id="term_spring" value="courses_spring"'; if ($default_term == 'courses_spring'){echo ' selected="selected"'; } echo '>' . $spring_term . '</option>	
 				<option id="term_summer" value="courses_summer"'; if ($default_term == 'courses_summer'){echo ' selected="selected"'; } echo '>' . $summer_term . '</option>
 			</select>
         </div>
     </fieldset>';
+
+echo '<fieldset id="subjects">
+        <div class="form_builder_select">
+             <div name="fall" id="fall" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+			echo '<select name="fall_subject" id="fall_subject">
+				<option value="" selected>All Subjects</option>';
+				while ($subject_row = mysqli_fetch_array($fall_subject_result)) { 
+					echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+				}
+			echo '</select></div>';
+	echo '<div name="spring" id="spring" ';  if ($default_term == 'courses_spring') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="spring_subject">
+		<option value="" selected>All Subjects</option>';
+			while ($subject_row = mysqli_fetch_array($spring_subject_result)) { 
+				echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+			}
+		echo '</select></div>';
+	echo '<div name="summer" id="summer" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="summer_subject">
+				<option value="" selected>All Subjects</option>';
+				while ($subject_row = mysqli_fetch_array($summer_subject_result)) { 
+					echo "  <option value=\"" . $subject_row[0] . "\">" . $subject_row[0] . "</option>\n";
+				}
+		echo '</select></div>
+        </div>
+    </fieldset>'; 
 	
+echo '<fieldset id="class_formats">
+        <div class="form_builder_select">
+            <div name="location" id="location" ';  if ($default_term != 'courses_summer' && $default_term != 'courses_fall' && $default_term != 'courses_spring') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="campus">
+			<option value="" selected>All Locations</option>
+			<option value="Chester Campus">Chester Campus</option>
+			<option value="Midlothian Campus">Midlothian Campus</option>
+			<option value="Virtual">Virtual</option>						
+		</select>';
+	echo '</div>';
+	echo '<div name="online" id="online" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="online-format">
+			<option value="">All Online Formats</option>
+			<option value="hybrid">Video-enhanced classes</option>
+			<option value="non-hybrid">Virtual classes</option>						
+		</select>';
+	echo '</div>';
+	echo '<div name="fall20spring21" id="fall20spring21" ';  if ($default_term != 'courses_summer') {echo $show; } else {echo $hide; } echo '>';	
+	echo '<select name="class-format">
+			<option value="">All Class Formats</option>
+			<option value="Virtual">Virtual</option>
+			<option value="Zoom">Zoom Classes</option>
+			<option value="Hybrid_zoom">Hybrid: Virtual and Zoom</option>
+			<option value="Hybrid_campus">Hybrid: Virtual/Zoom and On Campus</option>
+			<option value="Chester">On Campus: Chester</option>
+			<option value="Midlothian">On Campus: Midlothian</option>
+		</select>
+		</div>
+        </div>
+    </fieldset>';
+
+echo '<fieldset id="sessions">
+        <div class="form_builder_select">
+            <div name="fall2" id="fall2" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="fall_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysqli_fetch_array($fall_session_result)) { 
+				echo '<option value="' . $session_row[0] . '">' . $session_row[0] . '</option>';
+			}
+		echo '</select>';	
+	echo '</div>';
+	echo '<div name="spring2" id="spring2" ';  if ($default_term == 'courses_spring') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="spring_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysqli_fetch_array($spring_session_result)) { 
+				echo '<option value="' . $session_row[0] . '">' . $session_row[0] . '</option>';
+			}
+		echo '</select>';	
+	echo '</div>';
+	echo '<div name="summer2" id="summer2" ';  if ($default_term == 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+		echo '<select name="summer_session">
+			<option value="" selected>All Sessions</option>';
+			while ($session_row = mysqli_fetch_array($summer_session_result)) { 
+				echo '<option value="' . $session_row[0] . '">' . $session_row[0] . '</option>';
+			}
+			echo ' <option value="maymester">Maymester: May 15 – June 7</option>';
+		echo '</select>';	
+	echo '</div>
+        </div>
+    </fieldset> ';
+
+echo '<fieldset id="desired_major">
+                    <label for="major"> Desired major 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select form_builder_required">
+                        <select name="major" id="major">
+                            <option value="" data-price="0">Please select: </option>
+                            <option value="val2" data-price="0">Option 2</option>
+                            <option value="val3" data-price="0">Option 3</option>
+                        </select>
+                    </div>
+                </fieldset> ';
+
+
 	
 	echo '<div name="fall" id="fall" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
 		echo '<label for="fall_subject" class="hide">Fall Subject</label><select name="fall_subject" id="fall_subject">
