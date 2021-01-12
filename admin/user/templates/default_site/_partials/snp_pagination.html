@@ -1,0 +1,81 @@
+{paginate}
+    <div class="pagination js-pagination-via-url">
+            <nav class="pagination_nav" aria-label="Search Results Pagination">
+                {if previous_page}
+                    {pagination_links}
+                    {previous_page}
+                   
+                        <a class="pagination_arrow pagination_arrow_left" href="{auto_path}">
+                            <span class="pagination_arrow_label">Previous Page</span>
+                            <span class="pagination_arrow_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_left" />
+                                </svg>
+                            </span>
+                        </a>
+                    {/previous_page}
+                    {/pagination_links}
+                    
+                {if:else}
+                    <a class="pagination_arrow pagination_arrow_left pagination_arrow_disabled" href="#">
+                        <span class="pagination_arrow_icon">
+                            <svg class="icon icon_caret_left">
+                                <use href="/images/icons.svg#caret_left"></use>
+                            </svg>
+                        </span>
+                        <span class="pagination_arrow_label">Previous Page</span>
+                    </a>
+                {/if}
+
+                {if next_page}
+                    {pagination_links}
+                    {next_page}
+                        <a class="pagination_arrow pagination_arrow_right" href="{pagination_url}">
+                            <span class="pagination_arrow_label">Next Page</span>
+                            <span class="pagination_arrow_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_right" />
+                                </svg>
+                            </span>
+                        </a>
+                    {/next_page}
+                    {/pagination_links}
+                {if:else}
+                    <a class="pagination_arrow pagination_arrow_right pagination_arrow_disabled" href="#">
+                        <span class="pagination_arrow_label">Next Page</span>
+                        <span class="pagination_arrow_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </a>
+                {/if} 
+            </nav>
+            {pagination_links}
+            <form class="pagination_form" action="" method="get">
+                <div class="pagination_form_inner">
+                    <label class="pagination_form_label" for="pagination_form_select">Page</label>
+                    <div class="pagination_form_select_wrapper">
+                        <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
+                                {page}
+                                <option url="{pagination_url}" value="P{pagination_page_number}" {if current_page}selected{/if}>{pagination_page_number}</option>
+                                {/page}
+                        </select>
+                        <span class="pagination_form_select_icon"><svg class="icon icon_expand">
+                                            <use href="/images/icons.svg#expand" />
+                                        </svg></span>
+                    </div>
+                    <span class="pagination_form_suffix">of {total_pages}</span>
+                    <button class="pagination_form_button" type="submit" aria-label="View Page">
+                        <span class="pagination_form_button_label">Go</span>
+                        <span class="pagination_form_button_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </form>
+            {/pagination_links}
+    </div>
+{/paginate}

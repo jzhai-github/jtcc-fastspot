@@ -67,6 +67,7 @@
             </div>
         </div>
     </div>
+
     {if:else}
     {!-- News home --}
     <div class="featured_news theme_featured">
@@ -100,13 +101,134 @@
                                 </li>
                             </ol>
                         </nav>
-                    </div>
+                    </div><!-- /featured_news_breadcrumbs -->
                     <div class="featured_news_header">
                         <h1 class="featured_news_title">News</h1>
-                    </div>
+                    </div><!-- /featured_news_header -->
+
+
+                    <div class="featured_news_body">
+                        {exp:channel:entries
+                            channel='{layout:ch}' 
+                            disable='{layout:ch_disable}' 
+                            dynamic="no" 
+                            limit="1"
+                            category="39"
+                            search:featured_on_news_page="not IS_EMPTY" 
+                        }
+                        <div class="featured_news_spotlight">
+                            <div class="story theme_turquoise">
+                                <figure class="story_figure has_wide_image">
+                                    <a class="story_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
+                                        {story_image} 
+                                        <span class="lazy_image_wrapper story_image_wrapper">
+                                            <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
+                                            {img:url:resize width="740" height="494"}
+                                            ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
+                                        </span>
+                                        <noscript>
+                                            <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="{img:title}">
+                                        </noscript>
+                                        {/story_image}
+                                    </a>
+                                </figure>
+                                <div class="story_wrapper">
+                                    <div class="story_label">Featured News</div>
+                                    <h2 class="story_title">
+
+                                        <a href="{url_title_path=news}" class="story_title_link">
+                                            <span class="story_title_link_inner">
+                                                <span class="story_title_link_label">{title}</span>
+                                            </span>
+                                        </a>
+                                    </h2>
+                                    <div class="story_description">
+                                        <p>{story_description}</p>
+                                    </div>
+
+                                    <a href="{url_title_path=news}" class="story_discovery_link">
+                                        <span class="story_discovery_link_inner">
+                                            <span class="story_discovery_link_label">Read The Story</span>
+                                            <span class="story_discovery_link_icon" aria-hidden="true">
+                                                <span class="story_discovery_link_icon_inner">
+                                                    <span class="story_discovery_link_icon_space">&#xfeff;</span>
+
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div><!-- /story theme_turquoise -->
+                            {/exp:channel:entries}
+                        </div><!-- /featured_news_spotlight -->
+                        
+                        
+                        <div class="featured_news_content">
+                            <div class="js-carousel featured_news_articles" data-carousel-options='{
+                            "maxWidth": "739px"
+                        }'>
+                        {exp:channel:entries
+                            channel='{layout:ch}' 
+                            disable='{layout:ch_disable}' 
+                            dynamic="no"
+                            category="39"
+                            search:featured_on_news_page="IS_EMPTY" 
+                            limit="3"
+                        }
+                                <div class="featured_news_article fs-carousel-item">
+                                    <time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
+                                    <h3 class="featured_news_article_title">
+
+                                        <a href="{url_title_path=news}" class="featured_news_article_title_link">
+                                            <span class="featured_news_article_title_link_inner">
+                                                <span class="featured_news_article_title_link_label">{title}</span>
+                                                <span class="featured_news_article_title_link_icon" aria-hidden="true">
+                                                    <span class="featured_news_article_title_link_icon_inner">
+                                                        <span class="featured_news_article_title_link_icon_space">&#xfeff;</span>
+
+                                                        <svg class="icon icon_caret_right">
+                                                            <use href="/images/icons.svg#caret_right" />
+                                                        </svg>
+
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </h3>
+                                </div><!-- /featured_news_article fs-carousel-item -->
+                            {/exp:channel:entries}
+                            <div class="featured_news_hint">
+                                <span class="featured_news_hint_icon">
+                                    <svg class="icon icon_arrow_down">
+                                        <use href="/images/icons.svg#arrow_down" />
+                                    </svg>
+                                </span>
+                                <span class="featured_news_hint_label"><a href="#entries">Scroll for more stories</a></span>
+                            </div><!-- /featured_news_hint -->
+                           </div><!-- /featured_news_content -->
+
+                    </div><!-- /featured_news_body -->
+
+
+                </div><!-- /featured_news_inner -->
+            </div><!-- /fs-cell -->
+        </div><!-- /fs-row -->
+    </div><!-- /featured_news theme_featured -->
+
+                    
+
+                
+                  
+
+
+
 
     {/if}
-   {if segment_2 != ''}
+   {if segment_2 != '' AND segment_2 == '{layout:url_title}'}
     <div class="news_meta" id="meta" data-type="news" data-category="Category 1">
         <div class="fs-row">
             <div class="fs-cell">
@@ -188,12 +310,11 @@
                         <h1 class="featured_news_title">{if segment_2 == ''}News{if:else}{layout:title}{/if}</h1>
                     </div> --}
                     
-<div class="full_width_callouts">
+
 
     {layout:contents}
     {snp_alert}
-</div>
-<!-- END: Full Width Callouts -->
+
 
                     {!-- <div class="featured_news_header">
                         <h1 class="featured_news_title">{if segment_2 == ''}News{if:else}{layout:title}{/if}</h1>

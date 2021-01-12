@@ -31,6 +31,7 @@
 {exp:channel:entries channel='{ch}' dynamic="yes" disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
+	{layout:set name='url_title' value='{url_title}'}
 	{layout:set name='entry_date' value='{entry_date}'}
 	{layout:set name='author' value='{news_author}'}
 	{layout:set name="categories"}

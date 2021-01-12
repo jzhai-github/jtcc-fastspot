@@ -62,119 +62,9 @@
 
 {layout:contents}
 
-                    {/exp:channel:entries}  
-                    <div class="featured_news_body">
-                        {exp:channel:entries
-                            channel='{ch}' 
-                            disable='{ch_disable}' 
-                            dynamic="no" 
-                            limit="1"
-                            category="39"
-                            search:featured_on_news_page="not IS_EMPTY" 
-                        }
-                        <div class="featured_news_spotlight">
-                            <div class="story theme_turquoise">
-                                <figure class="story_figure has_wide_image">
-                                    <a class="story_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
-                                        {story_image} 
-                                        <span class="lazy_image_wrapper story_image_wrapper">
-                                            <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
-                                            {img:url:resize width="740" height="494"}
-                                            ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
-                                        </span>
-                                        <noscript>
-                                            <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="{img:title}">
-                                        </noscript>
-                                        {/story_image}
-                                    </a>
-                                </figure>
-                                <div class="story_wrapper">
-                                    <div class="story_label">Featured News</div>
-                                    <h2 class="story_title">
+                    {/exp:channel:entries} 
 
-                                        <a href="{url_title_path=news}" class="story_title_link">
-                                            <span class="story_title_link_inner">
-                                                <span class="story_title_link_label">{title}</span>
-                                            </span>
-                                        </a>
-                                    </h2>
-                                    <div class="story_description">
-                                        <p>{story_description}</p>
-                                    </div>
-
-                                    <a href="{url_title_path=news}" class="story_discovery_link">
-                                        <span class="story_discovery_link_inner">
-                                            <span class="story_discovery_link_label">Read The Story</span>
-                                            <span class="story_discovery_link_icon" aria-hidden="true">
-                                                <span class="story_discovery_link_icon_inner">
-                                                    <span class="story_discovery_link_icon_space">&#xfeff;</span>
-
-                                                    <svg class="icon icon_caret_right">
-                                                        <use href="/images/icons.svg#caret_right" />
-                                                    </svg>
-
-                                                </span>
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div><!-- /story theme_turquoise -->
-                            {/exp:channel:entries}
-                        </div><!-- /featured_news_spotlight -->
-                        
-                        
-                        <div class="featured_news_content">
-                            <div class="js-carousel featured_news_articles" data-carousel-options='{
-                            "maxWidth": "739px"
-                        }'>
-                        {exp:channel:entries
-                            channel='{ch}' 
-                            disable='{ch_disable}' 
-                            dynamic="no"
-                            category="39"
-                            search:featured_on_news_page="IS_EMPTY" 
-                            limit="3"
-                        }
-                                <div class="featured_news_article fs-carousel-item">
-                                    <time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
-                                    <h3 class="featured_news_article_title">
-
-                                        <a href="{url_title_path=news}" class="featured_news_article_title_link">
-                                            <span class="featured_news_article_title_link_inner">
-                                                <span class="featured_news_article_title_link_label">{title}</span>
-                                                <span class="featured_news_article_title_link_icon" aria-hidden="true">
-                                                    <span class="featured_news_article_title_link_icon_inner">
-                                                        <span class="featured_news_article_title_link_icon_space">&#xfeff;</span>
-
-                                                        <svg class="icon icon_caret_right">
-                                                            <use href="/images/icons.svg#caret_right" />
-                                                        </svg>
-
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </h3>
-                                </div><!-- /featured_news_article fs-carousel-item -->
-                            {/exp:channel:entries}
-                            <div class="featured_news_hint">
-                                <span class="featured_news_hint_icon">
-                                    <svg class="icon icon_arrow_down">
-                                        <use href="/images/icons.svg#arrow_down" />
-                                    </svg>
-                                </span>
-                                <span class="featured_news_hint_label"><a href="#entries">Scroll for more stories</a></span>
-                            </div><!-- /featured_news_hint -->
-                           </div><!-- /featured_news_content -->
-
-                    </div><!-- /featured_news_body -->
-
-                </div><!-- /featured_news_inner -->
-            </div><!-- /fs-cell -->
-        </div> <!-- /fs-row -->
-    </div><!-- /featured_news theme_featured -->
-</div>
-<!-- END: Page Feature -->
+                    
         <!-- Full Width Callouts -->
 <div class="full_width_callouts">
     <div class="filter">
@@ -292,7 +182,7 @@
                             disable='categories|member_data' 
                             dynamic="no"
                             category="39"
-                            offset="0"
+                            offset="3"
                             paginate="bottom"
                             limit="2"
                             sort="desc"
@@ -383,102 +273,15 @@
                         </li>
 
 
-{paginate}
-    <div class="pagination js-pagination-via-url">
-        {pagination_links}
-            <nav class="pagination_nav" aria-label="Search Results Pagination">
-                {if previous_page}
-                    {previous_page}
-                        <a class="pagination_arrow pagination_arrow_left" href="{pagination_url}">
-                            <span class="pagination_arrow_label">Previous Page</span>
-                            <span class="pagination_arrow_icon">
-                                <use href="/images/icons.svg#caret_left" />
-                            </span>
-                        </a>
-                    {/previous_page}
-                {if:else}
-                    <a class="pagination_arrow pagination_arrow_left pagination_arrow_disabled" href="#">
-                        <span class="pagination_arrow_icon">
-                            <svg class="icon icon_caret_left">
-                                <use href="/images/icons.svg#caret_left"></use>
-                            </svg>
-                        </span>
-                        <span class="pagination_arrow_label">Previous Page</span>
-                    </a>
-                {/if}
 
-                {if next_page}
-                    {next_page}
-                        <a class="pagination_arrow pagination_arrow_right" href="{pagination_url}">
-                            <span class="pagination_arrow_label">Next Page</span>
-                            <span class="pagination_arrow_icon">
-                                <svg class="icon icon_caret_right">
-                                    <use href="/images/icons.svg#caret_right" />
-                                </svg>
-                            </span>
-                        </a>
-                    {/next_page}
-                {if:else}
-                    <a class="pagination_arrow pagination_arrow_right pagination_arrow_disabled" href="#">
-                        <span class="pagination_arrow_label">Next Page</span>
-                        <span class="pagination_arrow_icon">
-                            <svg class="icon icon_caret_right">
-                                <use href="/images/icons.svg#caret_right" />
-                            </svg>
-                        </span>
-                    </a>
-                {/if} 
-            </nav>
-            <form class="pagination_form" action="" method="get">
-                <div class="pagination_form_inner">
-                    <label class="pagination_form_label" for="pagination_form_select">Page</label>
-                    <div class="pagination_form_select_wrapper">
-                        <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
-                                {page}
-                                <option url="{pagination_url}" value="{pagination_page_number}" {if current_page}selected{/if}>{pagination_page_number}</option>
-                                {/page}
-                        </select>
-                        <span class="pagination_form_select_icon"><svg class="icon icon_expand">
-                                            <use href="/images/icons.svg#expand" />
-                                        </svg></span>
-                    </div>
-                    <span class="pagination_form_suffix">of {total_pages}</span>
-                    <button class="pagination_form_button" type="submit" aria-label="View Page">
-                        <span class="pagination_form_button_label">Go</span>
-                        <span class="pagination_form_button_icon">
-                            <svg class="icon icon_caret_right">
-                                <use href="/images/icons.svg#caret_right" />
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-            </form>
-        {/pagination_links}
-    </div>
-{/paginate}
+{snp_pagination}
  
-
-{!--      {paginate}
-                <p class="pagination">Page {current_page} of {total_pages} pages {pagination_links}</p>
-                {/paginate} --}
 
 
 
                         {/exp:channel:entries}
 
-
-
-
                     </ul>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-
                 </div>
             </div>
         </div>
