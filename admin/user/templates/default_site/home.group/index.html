@@ -514,7 +514,7 @@
 					<h1 class="featured_news_title">Happening Here</h1>
 										
 
-<a href="#" class="featured_news_link" >
+<a href="/news" class="featured_news_link" >
 	<span class="featured_news_link_inner">
 		<span class="featured_news_link_label">View all News & Stories</span>
 					<span class="featured_news_link_icon" aria-hidden="true">
@@ -660,59 +660,30 @@
 							"740px": 3
 						}
 					}'>
-					<div class="featured_events_item">
-							<time class="featured_events_item_date" datetime="2020-05-31 17:00:00">
-								<span class="featured_events_item_date_flag featured_events_item_date_flag_from">
-									<span class="featured_events_item_date_start_month">May</span>
-									<span class="featured_events_item_date_start_day">31</span>
-								</span>
-								<span class="featured_events_item_date_flag featured_events_item_date_flag_to">
-									<span class="featured_events_item_date_start_month">Jun</span>
-									<span class="featured_events_item_date_start_day">13</span>
-								</span>
-							</time>
-							<div class="featured_events_item_body">
-								<h3 class="featured_events_item_title">
-									<a class="featured_events_item_title_link" href="#">Maker Space: Duct Tape Wallets & Low-Cost Crafts</a>
-								</h3>
-								<div class="featured_events_item_details">
-									<div class="featured_events_item_detail">
-										<span class="featured_events_item_detail_icon">
-											<svg class="icon icon_place">
-												<use href="/images/icons.svg#place" />
-											</svg>
-										</span>
-										<span class="featured_events_item_detail_label">Midlothian Library</span>
-									</div>
-									<div class="featured_events_item_detail">
-										<span class="featured_events_item_detail_icon">
-											<svg class="icon icon_clock">
-												<use href="/images/icons.svg#clock" />
-											</svg>
-										</span>
-										<time class="featured_events_item_detail_label" datetime="">12:00 pm – 4:00 pm</time>
-									</div>
-								</div><!-- /featured_events_item_details -->
-							</div><!-- /featured_events_item_body -->
-						</div><!-- /featured_events_item -->
-					{exp:calendar:month}
-						{exp:calendar:events}
+					
+						{exp:calendar:events
+							date_range_start="2020-01-01" {!-- will start at this date --}
+						    date_range_end="2100-01-01" {!-- will stop at this date --}
+						    limit="4"
+						}
 						<div class="featured_events_item">
-							<time class="featured_events_item_date" datetime="2020-05-31 17:00:00">
+							<time class="featured_events_item_date" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">
 								<span class="featured_events_item_date_flag featured_events_item_date_flag_from">
-									<span class="featured_events_item_date_start_month">{calendar:month_date format="%M"}</span>
-									<span class="featured_events_item_date_start_day">{calendar:event_start_date format='%g:%i%a'}{calendar:event_start_date format="%d"}</span>
+
+
+									<span class="featured_events_item_date_start_month">{calendar:event_start_date format="%M"}</span>
+									<span class="featured_events_item_date_start_day">{calendar:event_start_date format="%d"}</span>
 								</span>
 								{if calendar:event_multi_day}
 								<span class="featured_events_item_date_flag featured_events_item_date_flag_to">
 									<span class="featured_events_item_date_start_month">{calendar:event_end_date format='%M'}</span>
-									<span class="featured_events_item_date_start_day">{calendar:event_end_date format='%g:%i%a'}</span>
+									<span class="featured_events_item_date_start_day">{calendar:event_end_date format='%d'}</span>
 								</span>
 								{/if}
 							</time>
 							<div class="featured_events_item_body">
 								<h3 class="featured_events_item_title">
-									<a class="featured_events_item_title_link" href="#">{calendar:title}</a>
+									<a class="featured_events_item_title_link" href="/calendar/event/{calendar:entry_id}">{calendar:title}</a>
 								</h3>
 								<div class="featured_events_item_details">
 									<div class="featured_events_item_detail">
@@ -721,7 +692,9 @@
 												<use href="/images/icons.svg#place" />
 											</svg>
 										</span>
-										<span class="featured_events_item_detail_label">{if calendar:event_location}&nbsp; {calendar:event_location}{/if}</span>
+										{if calendar:location}
+											<span class="featured_events_item_detail_label">&nbsp; {calendar:location}</span>
+										{/if}
 									</div>
 									<div class="featured_events_item_detail">
 										<span class="featured_events_item_detail_icon">
@@ -729,13 +702,17 @@
 												<use href="/images/icons.svg#clock" />
 											</svg>
 										</span>
-										<time class="featured_events_item_detail_label" datetime="">{if calendar:event_all_day}All Day{/if}</time>
+										<time class="featured_events_item_detail_label" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">{if calendar:event_all_day} 
+								            (All Day)
+								        {if:else} 
+											{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+								        {/if}</time>
 									</div>
 								</div><!-- /featured_events_item_details -->
 							</div><!-- /featured_events_item_body -->
 						</div><!-- /featured_events_item -->
 						{/exp:calendar:events}
-					{/exp:calendar:month}				
+								
 												
 												
 					</div><!-- /js-carousel featured_events_items -->

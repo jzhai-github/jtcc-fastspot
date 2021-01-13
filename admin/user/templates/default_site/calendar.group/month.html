@@ -5,7 +5,7 @@
 
 		<div class="fs-row">
 
-			<div class="fs-cell fs-md-12 fs-lg-9 typography">
+			<div class="fs-cell fs-md-12 typography">
 
 					<div id="month_calendar">
 					{exp:calendar:month	
@@ -151,15 +151,17 @@
 						</table>
 					{/exp:calendar:month}
 					</div><!-- /month_calendar -->
-
-				</div><!-- /fs-cell fs-lg-8 typography -->
+					<div class="wysiwyg_block">
+						<a href="/calendar/" class="square-button">View Current Week »</a>
+					</div>
+				</div><!-- /fs-cell fs-lg-12 typography -->
 
 								
-<div class="fs-cell fs-md-12 fs-lg-3 typography" id="week_calendar">
+{!-- <div class="fs-cell fs-md-12 fs-lg-3 typography" id="week_calendar">
 		<div id="mini-cal-wrapper">
 			{embed="calendar/mini_cal"}
 
-		</div>
+		</div> --}
 		{!--<div class="left">
 			<ul class="pager">
 				<li><a href="{path='calendar/week'}/{calendar:previous_week format='%Y/%m/%d'}/">« Last Week</a></li>
@@ -170,8 +172,8 @@
 							<li><a href="{path='calendar/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week »</a></li>
 						</ul>
 					</div> --}
-					<a href="/calendar/" class="square-button">View Current Week »</a>
-	</div>
+					{!-- <a href="/calendar/" class="square-button">View Current Week »</a> --}
+	{!-- </div> --}
 				
 
       		</div><!-- /fs-row -->

@@ -112,7 +112,7 @@
 	// echo '<body  onload="reset_form();">';
 
 
-echo '<form class="form_builder" name="schedule" id="schedule" action="/schedule/courses_search" method="post">
+echo '<form class="form_builder" name="schedule" id="schedule" action="/schedule/results" method="post">
 
 	<input type="hidden" name="default_term" value="' . $default_term . '">';
 
@@ -213,22 +213,40 @@ echo '<fieldset id="sessions">
         </div>
     </fieldset> ';
 
-echo '<fieldset id="desired_major">
-                    <label for="major"> Desired major 
-                        <span class="form_builder_required_star">*</span>
-                    </label>
-                    <div class="form_builder_select form_builder_required">
-                        <select name="major" id="major">
-                            <option value="" data-price="0">Please select: </option>
-                            <option value="val2" data-price="0">Option 2</option>
-                            <option value="val3" data-price="0">Option 3</option>
-                        </select>
-                    </div>
-                </fieldset> ';
+echo '<fieldset id="days">
+        <div class="form_builder_select">
+            <div name="searchByDays" id="searchByDays" ';  if ($default_term != 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
+	echo '<select name="select_days">
+			<option value="" selected>All Days</option>
+			<option value="M">M</option>
+			<option value="Tu">Tu</option>
+			<option value="W">W</option>
+			<option value="Th">Th</option>
+			<option value="F">F</option>
+			<option value="MW">MW</option>
+			<option value="TuTh">TuTh</option>
+			<option value="Sa">Sa</option>
+			<option value="Other">Other</option>						
+		</select>';
+	echo '</div>
+        </div>
+    </fieldset>';
 
+echo '<div class="form_builder_submit_wrapper">
+        <div class="form_builder_submit_pill">
+            <input type="hidden" name="XID" value="{XID_HASH}" /> 
+            <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+            <span class="form_builder_submit_icon">
+                <svg class="icon icon_caret_right">
+                    <use href="/images/icons.svg#caret_right" />
+                </svg>
+            </span>
+        </div>
+    </div>';
 
+echo '</form>';
 	
-	echo '<div name="fall" id="fall" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+	/*echo '<div name="fall" id="fall" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
 		echo '<label for="fall_subject" class="hide">Fall Subject</label><select name="fall_subject" id="fall_subject">
 				<option value="" selected>All Subjects</option>';
 				while ($subject_row = mysqli_fetch_array($fall_subject_result)) { 
@@ -277,7 +295,7 @@ echo '<fieldset id="desired_major">
 		</select>';
 	echo '</div>';
 	
-	/*echo '<div name="fall2" id="fall2" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
+	echo '<div name="fall2" id="fall2" ';  if ($default_term == 'courses_fall') {echo $show; } else {echo $hide; } echo '>';
 		echo '<select name="fall_session">
 			<option value="" selected>All Sessions</option>';
 			while ($session_row = mysqli_fetch_array($fall_session_result)) { 
@@ -301,7 +319,7 @@ echo '<fieldset id="desired_major">
 			}
 			echo ' <option value="maymester">Maymester: May 15 – June 7</option>';
 		echo '</select>';	
-	echo '</div>';*/
+	echo '</div>';
 	
 	echo '<div name="searchByDays" id="searchByDays" ';  if ($default_term != 'courses_summer') {echo $show; } else {echo $hide; } echo '>';
 	echo '<select name="select_days">
@@ -318,21 +336,7 @@ echo '<fieldset id="desired_major">
 		</select>';
 	echo '</div>';
 
-	echo '<div class="form_builder_submit_wrapper">
-                    <div class="form_builder_submit_pill">
-                        <input type="hidden" name="XID" value="{XID_HASH}" /> 
-                        <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
-                        <span class="form_builder_submit_icon">
-                            <svg class="icon icon_caret_right">
-                                <use href="/images/icons.svg#caret_right" />
-                            </svg>
-                        </span>
-                    </div>
-                </div>';
-
-     echo '</form>';
-					
-	/*echo '<input type="hidden" name="XID" value="{XID_HASH}" />
+	echo '<input type="hidden" name="XID" value="{XID_HASH}" />
 		<input type="submit" name="Submit" value="Search" data-theme="b" data-icon="search" />
 		</form>';*/
 

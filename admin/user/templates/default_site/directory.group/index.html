@@ -239,9 +239,13 @@ mysqli_close($con);
 		</div>
 	</div>
 
-	<div class="filter_results">
-		<div class="fs-row">
-			<div class="fs-cell">
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+    <div class="wysiwyg_block">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="wysiwyg_block_inner typography">
+	
 
 <?php 
 if($_SERVER['REQUEST_METHOD'] == "POST") { 
@@ -328,42 +332,49 @@ if (mysqli_connect_errno()){
                             }
                             echo ' ' . $row['LName'] . '</h3>';
                             echo '<h4>' . $row['WorkTitle'] . '</h4>';
-                            if (strlen($row['Email']) > 0) {
-                            	echo '<p>E-mail: <a href="mailto:' . $row['Email'] . '">' . $row['Email'] . '</a></p>';
-                            }
+                            echo '<p>';
                             if ($row['DivID'] != 17) {
-                            	echo '<p>' . $row['DivDesc'] . '</p>';
+                            	echo $row['DivDesc'] . '<br />';
                             }
                             if (strlen(trim($row['ADept'])) > 0) {
-                            	echo '<p>' . $row['ADept'] . '</p>';
+                            	echo $row['ADept'] . '<br />';
                             }
                             if ($row['ADept'] != $row['Dept']) {
-                            	echo '<p>' . $row['Dept'] . '</p>';
+                            	echo $row['Dept'] . '<br />';
                             }
+                            /*if (strlen($row['Email']) > 0) {
+                            	echo '<a href="mailto:' . $row['Email'] . '">' . $row['Email'] . '</a>';
+                            }*/
+                            echo '</p>';
                             if (mysqli_num_rows($getLoc_result) > 0) {
                             	while ($loc_row = mysqli_fetch_assoc($getLoc_result)) {
+                            		echo '<p>';
                                 	if (strlen($loc_row['Location']) > 0) {
                                 		//echo '<h6>' . strtoupper($loc_row['Location']) . '</h6>';
-                                		echo '<p>' . $loc_row['Location'] . '</p>';
+                                		echo $loc_row['Location'] . '<br />';
                                     }
-                                    echo '<p>';
-                                        if (strlen($loc_row['Room']) > 0 && $loc_row['Room'] != '0') {
-                                            echo $loc_row['Room'] . ', ';
-                                        }
-                                        if (strlen($loc_row['Building']) > 0) {
-                                            echo $loc_row['Building'];
-                                        }
-                                    echo '</p>';
+                                    if (strlen($loc_row['Room']) > 0 && $loc_row['Room'] != '0') {
+                                        echo $loc_row['Room'] . ', ';
+                                    }
+                                    if (strlen($loc_row['Building']) > 0) {
+                                        echo $loc_row['Building'];
+                                    }
+                                    echo '<br />';
                                     if (strlen($loc_row['PACode']) > 0) {
-                                    	echo '<p>Phone: ' . $loc_row['PACode'] . '-' . $loc_row['PExt'] . '-' . $loc_row['Phone'] . '</p>';
+                                    	echo 'Phone: ' . $loc_row['PACode'] . '-' . $loc_row['PExt'] . '-' . $loc_row['Phone'] . '<br />';
                                     }
                                     if (strlen($loc_row['FACode']) > 0) {
-                                    	echo '<p>Fax: ' . $loc_row['FACode'] . '-' . $loc_row['FExt'] . '-' . $loc_row['FAX'] . '</p>';
+                                    	echo 'Fax: ' . $loc_row['FACode'] . '-' . $loc_row['FExt'] . '-' . $loc_row['FAX'] . '<br />';
                                     }
+                                    //echo '<p>';
                                 }
                                 mysqli_free_result($getLoc_result);
                                 //unset($loc_row);
                             }
+                            if (strlen($row['Email']) > 0) {
+                            	echo '<a href="mailto:' . $row['Email'] . '">' . $row['Email'] . '</a>';
+                            }
+                            echo '<p>';
                     		echo '<hr />';
                     	}
             			mysqli_free_result($result);
@@ -372,9 +383,13 @@ if (mysqli_connect_errno()){
                     	echo 'No record found. Please try it again.'; 
                     }
                    mysqli_close($con); 
-            	}
-                
+            	} 
             ?>
+            
+            <p>Need general information? Call our Student Information Center at 804-796-4000.</p>
+        	</div>
+    	</div>
      </div>
-     </div>
-     </div>       
+   </div>
+</div>  
+<!-- end full_width_callouts -->     
