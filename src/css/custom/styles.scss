@@ -109,13 +109,13 @@ span.time{
 	    height: 0;
 	    margin-left: 2px;
 	    vertical-align: middle;
-	    border-top: 6px dashed;
-	        border-top-width: 6px;
-	    border-top: 6px solid\9;
-	    border-right: 6px solid transparent;
-	        border-right-width: 6px;
-	    border-left: 6px solid transparent;
-	        border-left-width: 6px;
+	    border-top: 8px dashed;
+	        border-top-width: 8px;
+	    border-top: 8px solid\9;
+	    border-right: 8px solid transparent;
+	        border-right-width: 8px;
+	    border-left: 8px solid transparent;
+	        border-left-width: 8px;
 	}
 	.table_wrapper_inner{
 		overflow-y: visible;
@@ -349,7 +349,9 @@ span.time{
 // =============================================================================
 
 @media #{$min_lg} {
-	
+	.mobile-only{
+		display: none;
+	}
 }
 
 @media #{$min_xl} {
