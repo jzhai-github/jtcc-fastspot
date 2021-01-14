@@ -96,6 +96,9 @@ span.time{
 	    	background-color:transparent;
 	    }
 	}
+	.event{
+		padding: 2px 0 0 0;
+	}
 	.open > .dropdown-menu {
 	    display: block;
 	}
@@ -134,11 +137,8 @@ span.time{
 	#month_calendar_inner table th{
 		background:#ffffff;
 	}
-	#month_calendar_outer td.day_cell{
-	    min-height: 130px;
-	    padding: 5px;
-	}
-	.day_cell .all_day, #month_calendar .day_cell .multi_day {
+	.day_cell .all_day, .day_cell .multi_day {
+	    border: 1px solid;
 	    padding: 0 6px;
 	    line-height: 20px;
 	    color: #7f7f7f;
@@ -165,7 +165,8 @@ span.time{
 			padding-top:0;
 		}
 		td.day_cell{
-			padding:2rem 1.25rem 2rem;
+			min-height: 130px;
+	    	padding: 5px;
 			.has_events{
 				margin-bottom: .8rem;
 			}
