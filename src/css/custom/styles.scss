@@ -73,12 +73,13 @@ span.time{
 		border: 1px solid rgba(98,98,98,0.25);
 		color: #ffffff;
 		padding:0.5rem 1rem;
+		width: 100%;
 	}
 	.dropdown-menu {
 	    position: absolute;
 	    z-index: 1000;
 	    display: none;
-		left:38%;
+		left:39%;
 	    min-width: 15rem;
 	    padding: 5px 0;
 	    margin: 2px 0 0;
@@ -108,13 +109,13 @@ span.time{
 	    height: 0;
 	    margin-left: 2px;
 	    vertical-align: middle;
-	    border-top: 4px dashed;
-	        border-top-width: 4px;
-	    border-top: 4px solid\9;
-	    border-right: 4px solid transparent;
-	        border-right-width: 4px;
-	    border-left: 4px solid transparent;
-	        border-left-width: 4px;
+	    border-top: 6px dashed;
+	        border-top-width: 6px;
+	    border-top: 6px solid\9;
+	    border-right: 6px solid transparent;
+	        border-right-width: 6px;
+	    border-left: 6px solid transparent;
+	        border-left-width: 6px;
 	}
 	.table_wrapper_inner{
 		overflow-y: visible;
@@ -166,7 +167,7 @@ span.time{
 		}
 		td.day_cell{
 			height: 100px;
-	     	padding: 5px;
+	     	padding: 10px 5px 5px;
 			.has_events{
 				margin-bottom: .8rem;
 			}
