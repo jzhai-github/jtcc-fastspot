@@ -134,6 +134,24 @@ span.time{
 	#month_calendar_inner table th{
 		background:#ffffff;
 	}
+	#month_calendar_inner td {
+	    min-height: 130px;
+	    padding: 5px;
+	}
+	.day_cell .multi_day {
+	    margin-bottom: 2px;
+	    background-color: #f2f2f2;
+	    border-top: 1px solid;
+	        border-top-color: currentcolor;
+	    border-bottom: 1px solid;
+	        border-bottom-color: currentcolor;
+	    border-left: none;
+	    border-right: none;
+	        border-right-color: currentcolor;
+	    border-color: #c6c6c6;
+	    margin-left: -5px;
+	    margin-right: -5px;
+	}
 	#month_calendar_outer{
 		.table_wrapper{
 			margin: 0;
