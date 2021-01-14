@@ -42,7 +42,7 @@
 					{calendar:events}
 						{if calendar:event_count == "1"}<ul class="list-group">{/if}
 								<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
-									<a href="{path='calendar_main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a>
+									<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a>
 									<span class="time">
 									{if calendar:event_all_day}
 											All Day
