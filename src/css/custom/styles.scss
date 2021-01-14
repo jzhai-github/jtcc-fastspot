@@ -134,9 +134,14 @@ span.time{
 	#month_calendar_inner table th{
 		background:#ffffff;
 	}
-	#month_calendar_inner td {
+	#month_calendar_outer td.day_cell{
 	    min-height: 130px;
 	    padding: 5px;
+	}
+	.day_cell .all_day, #month_calendar .day_cell .multi_day {
+	    padding: 0 6px;
+	    line-height: 20px;
+	    color: #7f7f7f;
 	}
 	.day_cell .multi_day {
 	    margin-bottom: 2px;
