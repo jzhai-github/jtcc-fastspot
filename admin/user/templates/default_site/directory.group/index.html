@@ -336,11 +336,18 @@ if (mysqli_connect_errno()){
                             if ($row['DivID'] != 17) {
                             	echo $row['DivDesc'] . '<br />';
                             }
-                            if (strlen(trim($row['ADept'])) > 0) {
+                            /*if (strlen(trim($row['ADept'])) > 0) {
                             	echo $row['ADept'] . '<br />';
-                            }
+                            } 
                             if ($row['ADept'] != $row['Dept']) {
                             	echo $row['Dept'] . '<br />';
+                            }*/
+                            if (strlen(trim($row['ADept'])) > 0) {
+                            	echo $row['ADept'] . '<br />';
+                            } else {
+                            	if (strlen(trim($row['Dept'])) > 0) {
+                            		echo $row['Dept'] . '<br />';
+                            	}
                             }
                             /*if (strlen($row['Email']) > 0) {
                             	echo '<a href="mailto:' . $row['Email'] . '">' . $row['Email'] . '</a>';
