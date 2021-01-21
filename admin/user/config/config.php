@@ -28,7 +28,7 @@ $config['cookie_prefix']        = '';
 
 $config['profile_trigger']      = substr(md5(microtime()),rand(0,26),8);
 
-$config['disable_all_tracking'] = 'y'; # y/n
+#$config['disable_all_tracking'] = 'y'; # y/n
 
 $config['index_page']           = "/";
 $config['base_url']             = $base_url . "/";
