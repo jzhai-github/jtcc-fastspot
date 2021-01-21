@@ -39,7 +39,7 @@
                                  <li class="breadcrumb_item">
                                     <a class="breadcrumb_pill breadcrumb_pill_link" href="/news">
                                         <span class="breadcrumb_pill_inner">
-                                            <span class="breadcrumb_pill_label">News</span>
+                                            <span class="breadcrumb_pill_label"><a href="/news">News</a></span>
                                             <span class="breadcrumb_pill_icon">
                                                 <svg class="icon icon_caret_right">
                                                     <use href="/images/icons.svg#caret_right"></use>
@@ -49,7 +49,7 @@
                                     </a>
                                 </li>
                                  {/if}
-                                 {if layout:title != ''}
+                                 {if segment_1 != 'news' && layout:title != ''}
                                 <li class="breadcrumb_item">
                                     <span class="breadcrumb_pill">
                                         <span class="breadcrumb_pill_inner">

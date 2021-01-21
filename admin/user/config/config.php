@@ -88,5 +88,9 @@ $config['session_crypt_key'] = 'f4b860726dbfee5bb8dddda232142261abbb8550';
 $config['share_analytics']           = 'y';
 $config['show_ee_news']              = 'y';
 $config['multiple_sites_enabled']    = 'n';
+$config['enable_online_user_tracking'] = 'y';
+$config['enable_hit_tracking'] = 'n';
+$config['enable_entry_view_tracking'] = 'n';
+$config['dynamic_tracking_disabling'] = '';
 
 // END EE config items

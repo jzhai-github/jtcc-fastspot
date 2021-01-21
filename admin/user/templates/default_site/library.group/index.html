@@ -5,17 +5,17 @@
 	============
 	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
 --}
-{!--{if segment_6}
+{if segment_6}
 	{redirect='404'}
-{/if}--}
+{/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='Training & Workforce'}
-{preload_replace:p_description='By training students of all ages to enter the workforce in high-demand fields, Tyler is a major contributor to our local economy.'}
-{preload_replace:p_url='training-workforce'}
+{preload_replace:p_title='Library'}
+{preload_replace:p_description='John Tyler Community College Library'}
+{preload_replace:p_url='library'}
 {!-- channel vars (prefix ch_) --}
-{preload_replace:ch='training_workforce'}
-{preload_replace:ch_title='Training & Workforce'}
+{preload_replace:ch='library'}
+{preload_replace:ch_title='Library'}
 {preload_replace:ch_status='Open|Default Page'}
 {preload_replace:ch_disable='member_data|pagination'}
 {!-- layout vars, channel/page related --}
@@ -27,13 +27,12 @@
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
-
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
 
-	{layout:set name='seo_description' value='{if seo_description}{seo_description}{/if}'}
+	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
 
 	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
 
@@ -43,13 +42,13 @@
 	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
-	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
-	{layout:set name='description' value='{if seo_description}{seo_description}{if:else}{p_description}{/if}'}
+	
+	{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
 	{!-- OpenGraph meta output --}
 	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
-	{layout:set name='og_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
+	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
 	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
-	{layout:set name='og_description' value='{if seo_description}{seo_description}{if:else}{p_description}{/if}'}
+	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
 	{!-- /layout vars, dynamic, not output --}
 
 	{!-- content output --}
@@ -111,7 +110,7 @@
 								{content:topic_image}
 								<figure class="topic_figure" aria-hidden="true">
 									<span class="lazy_image_wrapper topic_image_wrapper">
-										<img class="js-lazy js-lazyload topic_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='
+										<img class="js-lazy js-lazyload topic_image"  data-sizes="auto"  src='/images/placeholder.png' data-src='
 										{img:url:resize width="300" height="200"}'  data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w'  alt="{img:title}">
 									</span>
 									<noscript>
@@ -260,15 +259,15 @@
 					<div class="testimonial_media">
 						<span class="lazy_image_wrapper testimonial_image_wrapper">
 							<img class="js-lazy testimonial_image lazyautosizes js-lazyloaded" data-sizes="auto" src='
-							{img:url:resize width="740" height="555"}' data-src='{img:url:resize width="740" height="555"}' data-srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w' alt="" sizes="478px" srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w'>
+							{img:url:resize width="740" height="555"}' data-src='{img:url:resize width="740" height="555"}' data-srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w' alt="{img:title}" sizes="478px" srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w'>
 						</span>
 						<noscript>
-							<img class="testimonial_image" src='{img:url:resize width="980" height="735"}'  srcset='{img:url:resize width="980" height="735"} 980w, {img:url:resize width="740" height="555"} 740w' sizes="100vw"  alt="" >
+							<img class="testimonial_image" src='{img:url:resize width="980" height="735"}'  srcset='{img:url:resize width="980" height="735"} 980w, {img:url:resize width="740" height="555"} 740w' sizes="100vw"  alt="{img:title}" >
 						</noscript>
 						<div class="js-background testimonial_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{&quot;source&quot;: { &quot;1220px&quot;: &quot;{img:url:resize width="1080" height="1440"}&quot;, &quot;740px&quot;: &quot;{img:url:resize width="735" height="980"}&quot;, &quot;500px&quot;: &quot;{img:url:resize width="980" height="654"}&quot;, &quot;0px&quot;: &quot;{img:url:resize width="494" height="740"}&quot;, &quot;980px&quot;: &quot;{img:url:resize width="915" height="1220"}&quot;}, &quot;lazy&quot;: true, &quot;alt&quot;: &quot;&quot;}' aria-hidden="true">
 							<div class="testimonial_background_fallback" style=&quot;background-image: url(' {img:url:resize width="300" height="129"}');&quot;></div>
 							<div class="fs-background-container">
-								<div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{img:url:resize width="1080" height="1440"}'); opacity: 1;"><img alt="" src='{img:url:resize width="1080" height="1440"}'>
+								<div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{img:url:resize width="1080" height="1440"}'); opacity: 1;"><img alt="{img:title}" src='{img:url:resize width="1080" height="1440"}'>
 								</div>
 							</div>
 						</div>{!-- /js-background --}
@@ -561,9 +560,6 @@
 			{if no_results}
 				{redirect='404'}
 			{/if}
-		{/exp:channel:entries}
- parent title: {structure:parent:title} - {structure:parent:entry_id}<br>
- parent url: {structure:parent:url} <br>
-top slug: {structure:top:slug}  <br>
-top title: {structure:top:title}
-<hr>
+		{/exp:channel:entries}			
+		
+		
