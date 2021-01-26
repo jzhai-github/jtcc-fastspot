@@ -55,8 +55,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	if (isset($_POST['term'])) {
     	$term		= $_POST['term'];
 	} else { 
-		header('Location:http://www.jtcc.edu/mobile/courses');	
-		die();
+		header('Location: https://dev.jtcc.edu/schedule/search');	
+		die(); 
 	}	
 	$campus = '';
 	if (isset($_POST['campus'])) { 	
@@ -155,8 +155,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		$search_query.=	" ORDER BY subject, catalog, location, section";				// IMPORTANT keeps all results sorted as desired
 		
-		$search_result = mysqli_query($conn, $search_query) or die("Unable to process search query.");
-		$search_num = mysql_num_rows($search_result);
+		$search_result = mysqli_query($conn, $search_query);
+		$search_num = mysqli_num_rows($search_result);
 		//mysql_close($conn);
 		
 		/*echo '<p><strong>Abbreviations</strong></p>
@@ -179,25 +179,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		if ($search_num > 0){
 			$i=0;																				
 			while ($i < $search_num) {			
-				$semester	= explode(" ", mysql_result($search_result, $i, "term"));
-				$campus		= mysql_result($search_result, $i, "campus");
-				//$academic_subject	= mysql_result($search_result, $i, "academic_subject");
-				$units		= mysql_result($search_result, $i, "units");	
-				$section	= mysql_result($search_result, $i, "section");
-				$subject	= mysql_result($search_result, $i, "subject");
-				$catalog	= mysql_result($search_result, $i, "catalog");
-				$title		= mysql_result($search_result, $i, "title");
-				$class_nbr	= mysql_result($search_result, $i, "class_nbr");
-				$pre_note	= mysql_result($search_result, $i, "pre_note");
-				$note		= mysql_result($search_result, $i, "note");
-				$start_date	= date("n/j/Y", strtotime(mysql_result($search_result, $i, "start_date")));
-				$end_date	= date("n/j/Y", strtotime(mysql_result($search_result, $i, "end_date")));	
-				//$session	= str_replace("Academic ", "", mysql_result($search_result,$i,"session"));
-				$session2	= mysql_result($search_result, $i, "session");
-				$location	= mysql_result($search_result, $i, "location");	
-				$status		= mysql_result($search_result, $i, "enrl_stat");
-				//$term_id	= mysql_result($search_result, $i, "term");
-				$term_id	= mysql_result($search_result, $i, "strm");
+				$semester	= explode(" ", mysqli_result($search_result, $i, "term"));
+				$campus		= mysqli_result($search_result, $i, "campus");
+				//$academic_subject	= mysqli_result($search_result, $i, "academic_subject");
+				$units		= mysqli_result($search_result, $i, "units");	
+				$section	= mysqli_result($search_result, $i, "section");
+				$subject	= mysqli_result($search_result, $i, "subject");
+				$catalog	= mysqli_result($search_result, $i, "catalog");
+				$title		= mysqli_result($search_result, $i, "title");
+				$class_nbr	= mysqli_result($search_result, $i, "class_nbr");
+				$pre_note	= mysqli_result($search_result, $i, "pre_note");
+				$note		= mysqli_result($search_result, $i, "note");
+				$start_date	= date("n/j/Y", strtotime(mysqli_result($search_result, $i, "start_date")));
+				$end_date	= date("n/j/Y", strtotime(mysqli_result($search_result, $i, "end_date")));	
+				//$session	= str_replace("Academic ", "", mysqli_result($search_result,$i,"session"));
+				$session2	= mysqli_result($search_result, $i, "session");
+				$location	= mysqli_result($search_result, $i, "location");	
+				$status		= mysqli_result($search_result, $i, "enrl_stat");
+				//$term_id	= mysqli_result($search_result, $i, "term");
+				$term_id	= mysqli_result($search_result, $i, "strm");
 				
 				$termbkstr  = $semester[1] . '+' . $semester[0];
 				$campusbkstr      = str_replace(" Campus", "", $campus);
@@ -236,7 +236,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				} elseif ($status == 'C') {
 					$status = 'Closed';
 				} 
-				$last_enrl_date = date("m/d/Y", strtotime(mysql_result($search_result, $i, "last_enrl_date")));
+				$last_enrl_date = date("m/d/Y", strtotime(mysqli_result($search_result, $i, "last_enrl_date")));
 				if ($last_enrl_date != '12/31/1969') {
 					if (strtotime($today) > strtotime($last_enrl_date)) {
 						$status = 'Closed';
@@ -247,18 +247,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				if (trim($session2) == 'Dynamic Session') {
 					$last_enrl_date = 'N/A';
 				}
-				$dt_drop_without_penalty = date("n/j/Y", strtotime(mysql_result($search_result, $i, "dt_drop_without_penalty")));
+				$dt_drop_without_penalty = date("n/j/Y", strtotime(mysqli_result($search_result, $i, "dt_drop_without_penalty")));
 				if ($dt_drop_without_penalty == '12/31/1969' OR $dt_drop_without_penalty == '11/30/-0001') {
 					$dt_drop_without_penalty = 'N/A';
 				}
-				$dt_drop_with_penalty = date("n/j/Y", strtotime(mysql_result($search_result, $i, "dt_drop_with_penalty")));	
+				$dt_drop_with_penalty = date("n/j/Y", strtotime(mysqli_result($search_result, $i, "dt_drop_with_penalty")));	
 				if ($dt_drop_with_penalty == '12/31/1969' OR $dt_drop_with_penalty == '11/30/-0001') {
 					$dt_drop_with_penalty = 'N/A';
 				}	
 		
 				$query2 = "SELECT location, pat, days, start, end, room, name FROM " . $term . " WHERE class_nbr =" . $class_nbr . " ORDER BY pat";
-				$query2_result = mysql_query($query2) or die("Unable to process search query.");
-				$query2_num = mysql_numrows($query2_result);
+				$query2_result = mysqli_query($query2) or die("Unable to process search query.");
+				$query2_num = mysqli_numrows($query2_result);
 	
 				echo '<ul data-role="listview" data-inset="true">';
 					echo '<li><h2>' . $subject . ' ' . $catalog . ' ' . $section . ' (' . $class_nbr . ')</h2>';
@@ -268,13 +268,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					$j = 0;
 					while ($j < $query2_num) {	
-						$pat		= mysql_result($query2_result, $j, "pat");
-						//$location	= mysql_result($query2_result, $j, "location");
-						$days		= mysql_result($query2_result, $j, "days");
-						$start		= trim(mysql_result($query2_result, $j,"start"));	
-						$end		= trim(mysql_result($query2_result, $j,"end"));
-						$room		= mysql_result($query2_result, $j, "room");
-						$instructor	= mysql_result($query2_result, $j, "name");
+						$pat		= mysqli_result($query2_result, $j, "pat");
+						//$location	= mysqli_result($query2_result, $j, "location");
+						$days		= mysqli_result($query2_result, $j, "days");
+						$start		= trim(mysqli_result($query2_result, $j,"start"));	
+						$end		= trim(mysqli_result($query2_result, $j,"end"));
+						$room		= mysqli_result($query2_result, $j, "room");
+						$instructor	= mysqli_result($query2_result, $j, "name");
 				
 						/*if ((strpos($pat, "VIRT") !== FALSE) || (strpos($location, "VIRTUAL") !== FALSE)) {
 							$pat = "VIRT";

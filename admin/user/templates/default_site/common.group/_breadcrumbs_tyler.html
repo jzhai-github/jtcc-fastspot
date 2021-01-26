@@ -1,63 +1,73 @@
-								<div class="breadcrumb">
-											<div class="breadcrumb_inner">
-											
-
-
-<nav class="breadcrumb_nav" aria-labelledby="breadcrumb_nav_title">
-    <div class="breadcrumb_nav_header">
-        <h2 class="breadcrumb_nav_title" id="breadcrumb_nav_title">You are here:</h2>
-    </div>
-    <ol class="breadcrumb_list" aria-labelledby="breadcrumb_nav_title">
-        <li class="breadcrumb_item breadcrumb_item_home">
-            <a class="breadcrumb_pill breadcrumb_pill_link" href="/">
-                <span class="breadcrumb_pill_inner">
-                    <span class="breadcrumb_pill_label">Home</span>
-                    <span class="breadcrumb_pill_icon">
-                        <svg class="icon icon_caret_right">
-                            <use href="/images/icons.svg#caret_right" />
-                        </svg>
-                    </span>
-                </span>
-            </a>
-        </li>
-        
-                    {if segment_1 != 'news' && segment_2 != ''}
-					<li class="breadcrumb_item">
-				<a class="breadcrumb_pill breadcrumb_pill_link" href="#">
-					<span class="breadcrumb_pill_inner">
-						<span class="breadcrumb_pill_label"><a href="/{structure:top:slug}">{structure:parent:title}</a></span>
-						<span class="breadcrumb_pill_icon">
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		</span>
-					</span>
-				</a>
-							</li>{/if}
-        {if segment_1 == 'news' && segment_2 != ''}
-                                 <li class="breadcrumb_item">
-                                    <a class="breadcrumb_pill breadcrumb_pill_link" href="/news">
-                                        <span class="breadcrumb_pill_inner">
-                                            <span class="breadcrumb_pill_label"><a href="/news">News</a></span>
-                                            <span class="breadcrumb_pill_icon">
-                                                <svg class="icon icon_caret_right">
-                                                    <use href="/images/icons.svg#caret_right"></use>
-                                                </svg>
-                                            </span>
-                                        </span>
-                                    </a>
-                                </li>
-                                 {/if}
-                                 {if segment_1 != 'news' && layout:title != ''}
-                                <li class="breadcrumb_item">
-                                    <span class="breadcrumb_pill">
-                                        <span class="breadcrumb_pill_inner">
-                                            <span class="breadcrumb_pill_label">{layout:title}</span>
-                                        </span>
+<div class="breadcrumb">
+	<div class="breadcrumb_inner">
+		<nav class="breadcrumb_nav" aria-labelledby="breadcrumb_nav_title">
+            <div class="breadcrumb_nav_header">
+                <h2 class="breadcrumb_nav_title" id="breadcrumb_nav_title">You are here:</h2>
+            </div>
+            <ol class="breadcrumb_list" aria-labelledby="breadcrumb_nav_title">
+                <li class="breadcrumb_item breadcrumb_item_home">
+                    <a class="breadcrumb_pill breadcrumb_pill_link" href="/">
+                        <span class="breadcrumb_pill_inner">
+                            <span class="breadcrumb_pill_label">Home</span>
+                            <span class="breadcrumb_pill_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_right" />
+                                </svg>
+                            </span>
+                        </span>
+                    </a>
+                </li>    
+            {if segment_1 == 'news' && segment_2 != ''}
+                         <li class="breadcrumb_item">
+                            <a class="breadcrumb_pill breadcrumb_pill_link" href="/news">
+                                <span class="breadcrumb_pill_inner">
+                                    <span class="breadcrumb_pill_label">News</span>
+                                    <span class="breadcrumb_pill_icon">
+                                        <svg class="icon icon_caret_right">
+                                            <use href="/images/icons.svg#caret_right"></use>
+                                        </svg>
                                     </span>
-                                </li>
-                                {/if}             
-    </ol>
-</nav>
-											</div>
-										</div>
+                                </span>
+                            </a>
+                        </li>
+                        {/if}
+                        {if segment_3 != ''}
+                        <li class="breadcrumb_item">
+                            <a class="breadcrumb_pill breadcrumb_pill_link" href="{structure:top:url}">
+                                <span class="breadcrumb_pill_inner">
+                                    <span class="breadcrumb_pill_label">{structure:top:title}</span>
+                                    <span class="breadcrumb_pill_icon">
+                                        <svg class="icon icon_caret_right">
+                                            <use href="/images/icons.svg#caret_right" />
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        {/if}
+
+                        {if segment_2 != ''}
+                        <li class="breadcrumb_item">
+                            <a class="breadcrumb_pill breadcrumb_pill_link" href="{structure:parent:url}">
+                                <span class="breadcrumb_pill_inner">
+                                    <span class="breadcrumb_pill_label">{structure:parent:title}</span>
+                                    <span class="breadcrumb_pill_icon">
+                                        <svg class="icon icon_caret_right">
+                                            <use href="/images/icons.svg#caret_right" />
+                                        </svg>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        {/if}   
+                        <li class="breadcrumb_item">
+                            <span class="breadcrumb_pill">
+                                <span class="breadcrumb_pill_inner">
+                                    <span class="breadcrumb_pill_label">{structure:title}</span>
+                                </span>
+                            </span>
+                        </li>          
+            </ol>
+        </nav>
+	</div>
+</div>
