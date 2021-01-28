@@ -185,7 +185,7 @@ include("includes/courses_conn.php");
 			<div class="fs-cell">
 				<div class="filter_panels_inner">
 					<div class="filter_tabpanel filter_tabpanel_tools" role="tabpanel">
-	<form class="filter_tools" action="/schedule/results" method="post">
+	<form class="filter_tools" action="/schedule/search" method="post">
 		<div class="filter_tool">
 			<label class="filter_label" for="term">Term</label>
 			<div class="filter_tool_select_wrapper">
@@ -473,7 +473,192 @@ if (isset($_POST['search_sbmt'])) {
 		$search_query.=	" ORDER BY subject, catalog, location, section";				// IMPORTANT keeps all results sorted as desired
 		
 		$search_result = mysqli_query($conn, $search_query);
-		$search_num = mysqli_num_rows($search_result);
+		$total_results = mysqli_num_rows($search_result);
+
+		if ($total_results > 0) {
+			echo '<p>'	. $total_results . ' records found.</p>
+						
+	<a href="/schedule/search" class="filter_results_reset_link" >
+	<span class="filter_results_reset_link_inner">
+		<span class="filter_results_reset_link_label">Reset</span>
+					<span class="filter_results_reset_link_icon" aria-hidden="true">
+				<span class="filter_results_reset_link_icon_inner">
+					<span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+					
+			<svg class="icon icon_reset">
+				<use href="/images/icons.svg#reset" />
+			</svg>
+		
+				</span>
+			</span>
+			</span>
+	</a>';
+
+			while ($row = mysqli_fetch_assoc($search_result)) {
+				$semester	= explode(" ", $row["term"]);
+				$campus		= $row["campus"];
+				$units		= $row["units"];	
+				$section	= $row["section"];
+				$subject	= $row["subject"];
+				$catalog	= $row["catalog"];
+				$title		= $row["title"];
+				$class_nbr	= $row["class_nbr"];
+				$pre_note	= $row["pre_note"];
+				$note		= $row["note"];
+				$start_date	= date("n/j/Y", strtotime($row["start_date"]));
+				$end_date	= date("n/j/Y", strtotime($row["end_date"]));	
+				//$session	= str_replace("Academic ", "", mysqli_result($search_result,$i,"session"));
+				$session2	= $row["session"];
+				$location	= $row["location"];	
+				$status		= $row["enrl_stat"];
+				//$term_id	= mysqli_result($search_result, $i, "term");
+				$term_id	= $row["strm"];
+				
+				$termbkstr  = $semester[1] . '+' . $semester[0];
+				$campusbkstr      = str_replace(" Campus", "", $campus);
+				if ($campusbkstr == 'Midlothian') {
+					$bookstore_id = '1400';
+				} else {
+					$bookstore_id = '1399';
+				}
+				
+				if ($start_date != '12/31/1969') {
+					$session = $start_date.' - '.$end_date;										// display actual dates for non-regular sessions
+				} else {
+					$session = 'N/A';
+				}
+
+				switch($location) {
+					case "CHESTECH": $location = "Chesterfield Technical Center"; break;
+					case "CHESTER": $location = "Chester Campus"; break;
+					case "CHESTERFLD": $location = "Chesterfield Off Campus "; break;
+					case "JTCJW": $location = "Nursing Education Center"; break;
+					case "MIDLO  004": $location = "Midlothian Campus"; break;
+					case "MIDLO/OC 0": $location = "Midlothian Off Campus"; break;
+					case "VIRTUAL": $location = "Virtual"; break;
+				}	
+
+				if ($status == 'O') {
+					$status = 'Open';
+				} elseif ($status == 'C') {
+					$status = 'Closed';
+				} 
+
+				$last_enrl_date = date("m/d/Y", strtotime($row["last_enrl_date"]));
+				if ($last_enrl_date != '12/31/1969') {
+					if (strtotime($today) > strtotime($last_enrl_date)) {
+						$status = 'Closed';
+					}
+				} else {
+					$last_enrl_date = 'N/A';
+				}
+
+				if (trim($session2) == 'Dynamic Session') {
+					$last_enrl_date = 'N/A';
+				}
+
+				$dt_drop_without_penalty = date("n/j/Y", strtotime($row["dt_drop_without_penalty"]));
+				if ($dt_drop_without_penalty == '12/31/1969' OR $dt_drop_without_penalty == '11/30/-0001') {
+					$dt_drop_without_penalty = 'N/A';
+				}
+
+				$dt_drop_with_penalty = date("n/j/Y", strtotime($row["dt_drop_with_penalty"]));	
+				if ($dt_drop_with_penalty == '12/31/1969' OR $dt_drop_with_penalty == '11/30/-0001') {
+					$dt_drop_with_penalty = 'N/A';
+				}
+
+				$get_description = "SELECT DISTINCT * FROM courses 
+								WHERE TRIM(subject) = '$subject' AND TRIM(catalog) = '$catalog'";
+				$desc_result = mysqli_query($conn, $get_description);
+				$desc_row = mysqli_fetch_assoc($desc_result);
+				$description = $desc_row["description"];
+
+				$query2 = "SELECT location, pat, days, start, end, room, name FROM " . $term . " WHERE class_nbr =" . $class_nbr . " ORDER BY pat";
+				$query2_result = mysqli_query($conn, $query2);
+				$query2_num = mysqli_num_rows($query2_result);
+
+				echo '<h4>' . $subject . ' ' . $catalog . ' - ' . $title . '</h4>';
+				echo '<p><strong>Section: ' . $section . ' (' . $class_nbr . ')</strong><br />';
+				//echo '<a href="/mobile/course_description/' . trim($subject) . trim($catalog) . '">Course description</a><br />';
+				echo 'Course Description: ';
+				if ($subject == 'SDV' && $catalog == '101') {
+					echo 'Introduces students to the skills which are necessary to achieve their academic goals, to services offered at the college and to the discipline in which they are enrolled. Covers topics such as services at the college including the learning resources center; counseling, and advising; listening, test taking, and study skills; and topical areas which are applicable to their particular discipline. Lecture 1 hour per week.<br />';
+				} else {
+					/*echo preg_replace('/[\n\r]+/', '', (mysql_result($result, 0, "description")));*/
+					//echo str_replace('\r', '', $description) . '<br />';
+					echo $description . '<br />';
+				}
+				echo 'Credits: ' . $units . '<br />';
+				echo 'Session: ' . $session2 . '<br />';
+
+				while ($row2 = mysqli_fetch_assoc($query2_result)) { 
+					$pat		= $row2["pat"];
+					//$location	= mysqli_result($query2_result, $j, "location");
+					$days		= $row2["days"];
+					$start		= trim($row2["start"]);	
+					$end		= trim($row2["end"]);
+					$room		= $row2["room"];
+					$instructor	= $row2["name"];
+
+					/*if ($room = 'Online Scheduled Time') {
+						$location = 'Zoom';
+					}*/
+				
+						/*if ((strpos($pat, "VIRT") !== FALSE) || (strpos($location, "VIRTUAL") !== FALSE)) {
+							$pat = "VIRT";
+							$days = "Virtual";
+							$times = "N/A";
+						}
+						else {
+							$times = $start." - ".$end;
+						}*/
+
+					if ($pat == "VIRT") {
+						//$location = "Virtual";
+						$days = "Virtual";
+						$times = "";
+						//$room = "Online";
+					}
+					else {
+							/*switch($location) {
+								case "CHESTECH": $location = "Chesterfield Technical Center"; break;
+								case "CHESTER": $location = "Chester Campus"; break;
+								case "CHESTERFLD": $location = "Chesterfield Off Campus "; break;
+								case "JTCJW": $location = "Nursing Education Center"; break;
+								case "MIDLO  004": $location = "Midlothian Campus"; break;
+								case "MIDLO/OC 0": $location = "Midlothian Off Campus"; break;
+								//case "VIRTUAL": $location = "Online"; break;
+							}*/
+						$times = $start." - ".$end;
+					}
+
+					if ($term == 'courses_summer' && strlen($start)) {					
+						$times = $times . ', Zoom';
+					}
+				
+						echo 'Days/Times: ' . $days . ' ' . $times . '<br />';	
+						echo 'Room/Location: ' .$room . '/' . $location . '<br />';
+						echo 'Instructor: '	. $instructor . '<br />';
+					}
+					
+					echo 'Dates: ' . $session . '<br />';
+					//echo 'Location: ' . $location . '<br />';
+					echo 'Last day to add: ' . $last_enrl_date . '<br />';
+					echo 'Last day to drop w/refund: ' . $dt_drop_without_penalty . '<br />';
+					echo 'Last day to withdraw: ' . $dt_drop_with_penalty . '<br />';
+					echo 'Class Status: ' . $status . '<br />';
+					echo 'Class Note: ' . $pre_note . $note . '<br />';
+					
+					/*echo '<p><a target="_blank" href="http://www.jtccbooks.com/chester/textbook_express/get_txtexpress.asp?remote=1&amp;ref=2394&amp;student=&amp;term=' . trim($termbkstr) . '&amp;dept=' . trim($subject) . '&amp;course=' . trim($catalog) . '&amp;section='. trim($section) . '&amp;getbooks=Display+books">Textbooks</a></p>';*/
+					echo '<a href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=' . $bookstore_id . '&amp;term_id-1=' . trim($term_id) . '&amp;div-1=&amp;dept-1=' . trim($subject) . '&amp;course-1=' . trim($catalog) . '&amp;section-1=' . trim($section) . '">Textbooks</a></p>';
+					/*echo '<p><a href="http://www.bkstr.com/webapp/wcs/stores/servlet/booklookServlet?bookstore_id-1=' . $bookstore_id . '&amp;term_id-1=2154&amp;div-1=&amp;dept-1=' . trim($subject) . '&amp;course-1=' . trim($catalog) . '&amp;section-1=' . trim($section) . '">Textbooks</a></p>';*/
+					//echo '</p>';	
+				//}
+			}
+			mysqli_close($conn);
+		} else {
+			echo '<p>No record was found for this search.</p>';
+		}
 }
 
 ?>

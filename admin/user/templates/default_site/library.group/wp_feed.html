@@ -1,0 +1,54 @@
+<?php 
+global $PHP_SELF;
+$libSpace_db = $this->EE->load->database('library_space', TRUE); 
+  
+$blog_url = 'https://jtcc.edu/library-blog/'; //base folder for the blog. Make SURE there is a slash at the end  
+  
+//connect to the database  
+  
+//get data from database -- !IMPORTANT, the "LIMIT 5" means how many posts will appear. Change the 5 to any whole number.  
+$lib_posts = "Select * FROM wp_posts WHERE post_type='post' AND post_status='publish' ORDER BY post_date_gmt DESC, id DESC LIMIT 2";   
+  
+$query_result = $libSpace_db->query($lib_posts) ;
+ 
+  
+//start a loop that starts $i at 0, and make increase until it's at the number of rows  
+foreach($query_result->result() as $libspace_row) {
+  
+//assign data to variables, $i is the row number, which increases with each run of the loop  
+$blog_date = $libspace_row->post_date;  
+$blog_title = $libspace_row->post_title;  
+$blog_content = $libspace_row->post_content; 
+
+//Limit words 
+$blog_content = preg_replace("/<img[^>]+\>/i", "", $blog_content);
+$blog_content = preg_replace("/&#?[a-z0-9]+;/i","", $blog_content);
+$blog_content = strip_tags($blog_content);
+
+ 
+$blog_permalink = $blog_url . $libspace_row->post_name; //combine blog url, with permalink title. Use this for title format  
+  
+  
+if (strlen($blog_content) > 500) {
+
+    // truncate string
+    $stringCut = substr($blog_content, 0, 500);
+
+    // make sure it ends in a word so assassinate doesn't become ass...
+    $blog_content = substr($stringCut, 0, strrpos($stringCut, ' ')).'... <a href="'. $blog_permalink.'">Read More</a>'; 
+}
+
+//format date  
+$blog_date = strtotime($blog_date);  
+$blog_date = strftime("%B %e", $blog_date);  
+  
+//the following HTML content will be generated on the page as many times as the loop runs. In this case 5.  
+?>    
+  
+       <h3><a href="<?php echo $blog_permalink; ?>"><?php echo $blog_title; ?></a><span><?php echo $blog_date; ?></span></h3>
+  
+       <p><?php echo $blog_content; ?> </p> 
+
+        <?php  
+} //end the for loop  
+?>  

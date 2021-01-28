@@ -257,8 +257,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				}	
 		
 				$query2 = "SELECT location, pat, days, start, end, room, name FROM " . $term . " WHERE class_nbr =" . $class_nbr . " ORDER BY pat";
-				$query2_result = mysqli_query($query2) or die("Unable to process search query.");
-				$query2_num = mysqli_numrows($query2_result);
+				$query2_result = mysqli_query($conn, $query2);
+				$query2_num = mysqli_num_rows($query2_result);
 	
 				echo '<ul data-role="listview" data-inset="true">';
 					echo '<li><h2>' . $subject . ' ' . $catalog . ' ' . $section . ' (' . $class_nbr . ')</h2>';

@@ -33,7 +33,7 @@
                             </a>
                         </li>
                         {/if}
-                        {if segment_3 != ''}
+                        {if segment_2 != 'tag' && segment_3 != ''}
                         <li class="breadcrumb_item">
                             <a class="breadcrumb_pill breadcrumb_pill_link" href="{structure:top:url}">
                                 <span class="breadcrumb_pill_inner">
@@ -48,7 +48,7 @@
                         </li>
                         {/if}
 
-                        {if segment_2 != ''}
+                        {if segment_2 != 'tag' && segment_2 != ''}
                         <li class="breadcrumb_item">
                             <a class="breadcrumb_pill breadcrumb_pill_link" href="{structure:parent:url}">
                                 <span class="breadcrumb_pill_inner">

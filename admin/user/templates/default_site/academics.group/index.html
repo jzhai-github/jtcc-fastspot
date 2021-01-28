@@ -10,24 +10,22 @@
 {/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='Library'}
-{preload_replace:p_description='John Tyler Community College Library'}
-{preload_replace:p_url='library'}
+{preload_replace:p_title='academics'}
+{preload_replace:p_description='academics section'}
+{preload_replace:p_url='academics'}
 {!-- channel vars (prefix ch_) --}
-{preload_replace:ch='library'}
-{preload_replace:ch_title='Library'}
+{preload_replace:ch='academics'}
 {preload_replace:ch_status='Open|Default Page'}
 {preload_replace:ch_disable='member_data|pagination'}
 {!-- layout vars, channel/page related --}
 {layout:set name='ch' value='{ch}'}
-{layout:set name='ch_title' value='{ch_title}'}
 {layout:set name='p_url' value='{p_url}'}
 {layout:set name='p_title' value='{p_title}'}
 {layout:set name='ch_disable' value='{ch_disable}'}
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
-{!-- channel entries tag --}
+		{!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
@@ -549,7 +547,6 @@
 
 {/main_content}
 
-{!--{embed="library/wp_feed"}--}
 
 {snp_contact}
 
@@ -562,5 +559,3 @@
 				{redirect='404'}
 			{/if}
 		{/exp:channel:entries}			
-		
-		
