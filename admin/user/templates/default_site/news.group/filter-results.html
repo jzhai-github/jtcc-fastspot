@@ -1,0 +1,13 @@
+<?php
+
+    if (isset($_POST['filter_sbmt'])) {
+        $selected_tag = $_POST['selected_tag'];
+        //echo "";
+        // header( "Location: news/tag/" );
+		// exit;
+    }
+
+	
+?>
+
+{redirect='news/tag/<?php echo $selected_tag; ?>'}
