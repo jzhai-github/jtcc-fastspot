@@ -28,6 +28,7 @@
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
 
+
 <?php
 
     if (isset($_POST['filter_sbmt'])) {
@@ -35,7 +36,6 @@
     }
 
 ?>
-
 
 
 
@@ -107,25 +107,20 @@
                                             <option value="" selected>Please select</option>
                              {exp:channel:entries
                             channel='{ch}' 
-                            order_by="date"
                             disable='categories|member_data' 
                             dynamic="no"
                             category="39"
-                            paginate="bottom"
-                            sort="desc"
-                            status="open"
-                            sticky="no"
+                            limit="1"
                         }
-                            {exp:tag:tags
+                            {exp:tag:cloud
                                 entry_id="{entry_id}"
                                 orderby="tag_name"
                                 sort="asc"
-                                limit="10"
                                 case="upper"
                                 tag_group_id="2"
                             }
                                             <option value="{websafe_tag}">{tag}</option>
-                                        {/exp:tag:tags}
+                                        {/exp:tag:cloud}
                             {/exp:channel:entries}  
                                     
                                         </select>
@@ -154,7 +149,7 @@
                         <div class="filter_tabpanel filter_tabpanel_search" role="tabpanel">
 
 
-                        {exp:search:simple_form channel="news" status="open" search_in="everywhere" where="any" result_page="/news/results" no_result_page="/news/noresults"}
+                        {exp:search:simple_form channel="news_stories" status="open" search_in="everywhere" where="any" result_page="/news/search-results" no_result_page="/news/noresults"}
                             <label class="filter_label" for="filter_search_input">Search News</label>
                             <div class="filter_search_form">
                                 <div class="filter_search_input_wrapper">
@@ -210,12 +205,13 @@
             <div class="fs-row">
                 <div class="fs-cell">
                     <div class="filter_results_inner">
+                        {if {exp:search:total_results}}
                         <p class="filter_results_description">
-                            <span class="filter_results_label">12
-                                Results for:</span>
-                            <span class="filter_results_category">Information Technology</span>
+                            <span class="filter_results_label">{exp:search:total_results}
+                                Results</span>
+                            {!-- <span class="filter_results_category">Information Technology</span> --}
                         </p>
-
+                        {/if}
                         <a href="/news" class="filter_results_reset_link">
                             <span class="filter_results_reset_link_inner">
                                 <span class="filter_results_reset_link_label">Reset</span>

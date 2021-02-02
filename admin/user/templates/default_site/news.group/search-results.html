@@ -1,10 +1,9 @@
 {layout='layouts/_news-layout'}
 
 	
-{if segment_2 == 'results'}
-	
+
 	{exp:search:search_results}
-	{if {count} == "1"}
+    {if {count} == "1"}
 		<div class="filter_results">
 			<div class="fs-row">
 				<div class="fs-cell">
@@ -12,6 +11,7 @@
 						<p class="filter_results_description">
 							<span class="filter_results_label">{exp:search:total_results} 
 								Results for:</span>
+                                {layout:set name="search-keywords"}{exp:search:keywords}{/layout:set}
 							<span class="filter_results_category">{exp:search:keywords}</span>
 						</p>
 
@@ -37,8 +37,114 @@
 			</div>
 		</div>
 	</div>
-	{/if}
+    {/if}
 	{/exp:search:search_results}
 	
 	
+    <div class="news_list">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="news_list_inner">
+                    <ul class="news_list_items" id="item_list" aria-label="">
+
+                    {exp:search:search_results results="20"}
+                        <li class="news_list_item">
+                            <div class="news_item">
+                                {if story_image}
+                                {story_image} 
+                                <figure class="news_item_figure">
+                                    <a class="news_item_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
+                                        <span class="lazy_image_wrapper news_item_image_wrapper">
+                                            <img class="js-lazy js-lazyload news_item_image" data-sizes="auto" src="/images/placeholder.png" data-src='{img:url:resize width="300" height="200"}' data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
+                                        </span>
+                                        <noscript>
+                                            <img class="news_item_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, {img:url:resize width="740" height="494"} 740w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="300" height="200"} 300w' sizes="100vw" alt="">
+                                        </noscript>
+                                    </a>
+                                </figure>
+                                {/story_image}
+                                {/if}
+                                <div class="news_item_wrapper">
+                                    <div class="news_item_header">
+                                        <h2 class="news_item_title">
+                                            <a href="{url_title_path=news}" class="news_item_title_link">
+                                                <span class="news_item_title_link_inner">
+                                                    <span class="news_item_title_link_label">{title}</span>
+                                                    <span class="news_item_title_link_icon" aria-hidden="true">
+                                                        <span class="news_item_title_link_icon_inner">
+                                                            <span class="news_item_title_link_icon_space">&#xfeff;</span>
+
+                                                            <svg class="icon icon_caret_right">
+                                                                <use href="/images/icons.svg#caret_right" />
+                                                            </svg>
+
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </h2>
+                                        <div class="news_item_categories">
+                                            {exp:tag:tags
+                                                entry_id="{entry_id}"
+                                                orderby="tag_name" sort="asc"
+                                                limit="6"
+                                                backspace="2"
+                                            }
+                                                {if tag_count == "1"}
+                                                    <div class="news_item_category_hint">Categories</div>
+                                                {/if}
+                                            
+                                            <ul class="news_item_category_list" aria-label="Categories">
+                                                <li class="news_item_category">
+                                                    <a href="/news/tag/{websafe_tag}" class="news_item_category_link">
+                                                        {tag}
+                                                    </a>
+                                                </li>
+                                                {if tag_count == tag_total_results}
+                                                </ul>                                       
+                                                {/if}
+                                            {/exp:tag:tags}
+                                                                  
+                                        </div>
+                                    </div>
+                                    <div class="news_item_body">
+                                        <div class="news_item_details">
+                                            <div class="news_item_detail news_item_date">
+                                                <span class="news_item_detail_hint">Published:
+                                                </span>
+                                                <time class="news_item_detail_label" datetime='%Y-%m-%d'>{entry_date format="%F %d, %Y"}</time>
+                                            </div>
+                                            {if news_author}
+                                            <div class="news_item_detail news_item_author">
+                                                <span class="news_item_detail_hint">by
+                                                </span>
+                                                <span class="news_item_detail_label">{news_author}</span>
+                                            </div>
+                                            {/if}
+                                        </div>
+                                        <div class="news_item_description">
+                                            <p>{story_description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END: News Item -->
+                        </li>
+
+
+
+
+{snp_pagination}
+ 
+
+
+
+                        {/exp:search:search_results}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> 
+
 

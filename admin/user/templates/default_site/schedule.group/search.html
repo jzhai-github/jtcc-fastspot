@@ -163,7 +163,7 @@ include("includes/courses_conn.php");
 	$spring_session_result = mysqli_query($conn, $spring_session_query);
 	$summer_session_result = mysqli_query($conn, $summer_session_query);
 
-	mysqli_close($conn);
+	//mysqli_close($conn);
 
 	$show = 'style="display:block"';
 	$hide = 'style="display:none"';
@@ -358,7 +358,7 @@ include("includes/courses_conn.php");
 
 <?php 
 if (isset($_POST['search_sbmt'])) {
-	include("includes/courses_conn.php");
+	//include("includes/courses_conn.php");
 
 	date_default_timezone_set('America/New_York');
 
@@ -367,7 +367,7 @@ if (isset($_POST['search_sbmt'])) {
 	if (isset($_POST['term'])) {
     	$term = $_POST['term'];
 	} else { 
-		header('Location: https://dev.jtcc.edu/schedule/search');	
+		header('Location: /schedule');	
 		die(); 
 	}	
 	$campus = '';
@@ -471,16 +471,15 @@ if (isset($_POST['search_sbmt'])) {
 	if ($total_results > 0) {
 			//echo '<p>'	. $total_results . ' records found.</p>
 		echo '<div class="filter_results">
-			<div class="fs-row">
-				<div class="fs-cell">
-					<div class="filter_results_inner">
-						<p class="filter_results_description">'
-							. $total_results . ' records found.
-						</p>
-						
-						
-	<a href="/schedule/search" class="filter_results_reset_link" >
-	<span class="filter_results_reset_link_inner">
+				<div class="fs-row">
+					<div class="fs-cell">
+						<div class="filter_results_inner">
+							<p class="filter_results_description">'
+								. $total_results . ' records found.
+							</p>
+										
+		<a href="/schedule/search" class="filter_results_reset_link" >
+		<span class="filter_results_reset_link_inner">
 		<span class="filter_results_reset_link_label">Reset</span>
 					<span class="filter_results_reset_link_icon" aria-hidden="true">
 				<span class="filter_results_reset_link_icon_inner">
@@ -493,15 +492,15 @@ if (isset($_POST['search_sbmt'])) {
 				</span>
 			</span>
 			</span>
-	</a>
-	</div></div></div></div></div>';
+		</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>'; // end filter
 
 
-//echo '<div class="full_width_callouts">
-    echo '<!--<div class="wysiwyg_block">
-        <div class="fs-row">
-            <div class="fs-cell">-->
-            	<div class="wysiwyg_block_inner typography">';
+    echo '<div class="wysiwyg_block_inner typography">';
 
 			while ($row = mysqli_fetch_assoc($search_result)) {
 				$semester	= explode(" ", $row["term"]);
@@ -669,18 +668,148 @@ if (isset($_POST['search_sbmt'])) {
 					//echo '</p>';	
 				//}
 			}
+			mysqli_free_result($description_result);
+			mysqli_free_result($query2_result);
 			mysqli_free_result($search_result);
-			mysqli_close($conn);
-		} else {
-			echo '<p>No record was found for this search.</p>';
-		}
-	}
-?>
-            	
-        	<!--</div>-->
-    	<!--</div>
-     </div>-->
-   </div>
+
+			echo '</div>';  //end wysiwyg_block_inner typography
+
+			//Reset button at the end of the data
+			echo '<div class="filter_results">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="filter_results_inner">
+								<p class="filter_results_description">
+							 		&nbsp;
+								</p>
+										
+				<a href="/schedule/search" class="filter_results_reset_link" >
+				<span class="filter_results_reset_link_inner">
+					<span class="filter_results_reset_link_label">Reset</span>
+					<span class="filter_results_reset_link_icon" aria-hidden="true">
+						<span class="filter_results_reset_link_icon_inner">
+						<span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+					
+							<svg class="icon icon_reset">
+								<use href="/images/icons.svg#reset" />
+							</svg>
+		
+						</span>
+					</span>
+				</span>
+				</a>
+							</div>
+						</div>
+					</div>
+				</div>';
+
+		} else { 
+			echo '<div class="filter_results">
+				<div class="fs-row">
+					<div class="fs-cell">
+						<div class="filter_results_inner">
+							<p class="filter_results_description">
+							 	No records found.
+							</p>
+										
+			<a href="/schedule/search" class="filter_results_reset_link" >
+			<span class="filter_results_reset_link_inner">
+				<span class="filter_results_reset_link_label">Reset</span>
+				<span class="filter_results_reset_link_icon" aria-hidden="true">
+					<span class="filter_results_reset_link_icon_inner">
+					<span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+					
+				<svg class="icon icon_reset">
+					<use href="/images/icons.svg#reset" />
+				</svg>
+		
+					</span>
+				</span>
+			</span>
+			</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>'; //end filter
+	} //end query results
+} else {
+	//text on the landing
+	echo '<div class="wysiwyg_block">
+        	<div class="fs-row">
+            	<div class="fs-cell">
+            		<div class="wysiwyg_block_inner typography"> 
+						<h4>Spring 2021 Course Schedule</h4>
+						<p>We plan to offer fully online classes, classes that combine in-person and online instruction, and a limited number of in-person classes. The course section numbers and course notes listed with each course on the schedule provide information on how the course will be taught.</p>
+ 	<p>Options include:</p>
+ 	<ul>
+ 	<!--
+ 	<li><strong>Course Section ID begins with Z.</strong> This is class that will meet on Zoom (video) on specific days and times. Students can attend this class from anywhere using a computer or mobile device.</li>
+	<li><strong>Course Section ID begins with R.</strong> This is a hybrid format where a portion of the classwork is done in Canvas, and the other portion occurs either on campus or in Zoom (video). If the section number ends with "S", the class is delivered via Zoom.</li> 
+	<li><strong>Course Section ID begins with N.</strong> This class is taught fully in Canvas with no required Zoom or in-person meetings.</li>
+ 	<li><strong>Course Section ID that begins with a number.</strong> This is a class that will meet on the Chester campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to enroll separately.</li>
+ 	<li><strong>Course Section ID that begins with M.</strong> This is a class that will meet on the Midlothian campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to enroll separately.</li>
+ 	-->
+<li><strong>Virtual</strong><br />
+Look for Course Section IDs that begin with N.<br />
+Classes are taught fully in Canvas and include self-paced, online assignments. There are no required Zoom or on-campus meetings at set times.<br />
+Example: ACC 211 N01A</li>
+<li><strong>Zoom Classes</strong><br />
+Look for Course Section IDs that begin with Z<br />
+Meet face-to-face over Zoom video conferencing with your instructor and classmates on specific days and times. Attend this class from anywhere using a computer or mobile device.<br />
+Example: ENG 111 Z51S</li>
+<li><strong>Hybrid: Virtual and Zoom</strong><br />
+Look for Course Section IDs that begin with R and end in S<br />
+Classes combine online, self-paced classwork in Canvas with face-to-face meetings over Zoom video conferencing with your instructor and classmates on specific days and times. Attend this class from anywhere using a computer or mobile device.<br />
+Example: ART 101 R01S</li>
+<li><strong>Hybrid: Virtual and Zoom/On-Campus</strong><br />
+Look for Course Section IDs that begin with R<br />
+Classes combine online, self-paced classwork in Canvas and face-to-face meetings that rotate from being at set days and times on-campus or face-to-face through Zoom videoconferencing.<br />
+Example: CHM 112 R11B</li>
+<li><strong>On Campus: Chester</strong><br />
+Look for Course Section IDs that begin with numbers<br />
+Classes meet on the Chester campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.<br />
+Example: MTH 161 62A</li>
+<li><strong>On Campus: Midlothian</strong><br />
+Look for Course Section IDs that begin with M<br />
+Classes meet on the Midlothian campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.</li>
+ 	</ul>
+ 	<p>Learn more about class types through <a href="https://www.youtube.com/playlist?list=PLK6wZ5EAzyGOTrmreJ50x30ExtzwPK6G0">our video series</a>.</p>
+ 	<p>Questions about course options and placement testing should be directed to the <a href="/services/advising-center">Advising Center</a>.</p>
+
+						<h4>More information:</h4>
+		<ul class="disc">
+			<li><a href="/academics/academic-calendar/">Academic calendar and registration dates</a></li>
+			<li><a href="/admissions/get-started-at-tyler/">Applying to the College</a></li>
+			<!--<li><a href="http://www.jtccbooks.com" target="_blank">Bookstore</a></li>-->
+			<li><a href="/services/bookstore" target="_blank">Bookstore</a></li>  
+			<li><a href="/college-catalog/">College Catalog and Student Handbook</a></li> 
+			<li><a href="/academics/drops-and-withdraws/">Drops, Withdraws, and Request Repeat</a></li> 
+			<li><a href="/academics/exam-schedule/">Exam Schedule</a></li> 
+			<li><a href="/majors/">Majors</a></li> 
+			<li><a href="/pay-for-tyler/tuition-and-fees/">Tuition and fees</a></li> 
+			<li><a href="/mytyler/">Using myTyler to register for classes, pay tuition and fees, or verify enrollment</a></li>
+		</ul>
+					</div>
+    			</div>
+     		</div>
+   		</div>';
+} //end submit
+mysqli_free_result($fall_term_result);
+mysqli_free_result($spring_term_result);
+mysqli_free_result($summer_term_result);
+
+mysqli_free_result($fall_subject_result);
+mysqli_free_result($spring_subject_result);
+mysqli_free_result($summer_subject_result);
+
+mysqli_free_result($fall_session_result);
+mysqli_free_result($spring_session_result);
+mysqli_free_result($summer_session_result);
+
+mysqli_close($conn);
+?>          	
+
    <div class="wysiwyg_block">
         <div class="fs-row">
             <div class="fs-cell">

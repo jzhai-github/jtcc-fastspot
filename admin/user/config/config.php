@@ -42,7 +42,7 @@ $config['cp_theme']             = "default";
 #$config['show_profiler']        = 'n'; # y/n
 $config['template_debugging']   = 'y'; # y/n
 $config['save_tmpl_files']      = "y";  # y/n
-$config['debug']                = "2"; # 0: no errors shown. 1: Errors shown to Super Admins. 2: Errors shown to everyone.
+$config['debug']                = "1"; # 0: no errors shown. 1: Errors shown to Super Admins. 2: Errors shown to everyone.
 $config['enable_sql_caching']   = 'n'; # Cache Dynamic Channel Queries?
 $config['email_debug']          = 'n'; # y/n
 
