@@ -205,7 +205,7 @@
             <div class="fs-row">
                 <div class="fs-cell">
                     <div class="filter_results_inner">
-                        {if {exp:search:total_results}}
+                        {if segment_2 == 'search-results'}
                         <p class="filter_results_description">
                             <span class="filter_results_label">{exp:search:total_results}
                                 Results</span>
@@ -370,7 +370,7 @@
     {layout:tag_title}
     {layout:tag_title}
 </h1>
-
+{if segment_3}
 {exp:tag:entries
     tag="{segment_3}"
     inclusive="yes"
@@ -486,6 +486,7 @@
     {/tag_paginate}
 
 {/exp:tag:entries}
+
             </ul>
             </div>
         </div>
