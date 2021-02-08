@@ -29,8 +29,12 @@ ul.pager {
 }
 .news_meta_categories{
 	display: flex;
+	a{
+		display: inline;
+	}
 	li::after{
-		content: ",&nbsp;";
+		content: ",";
+		margin-right: 5px;
 	}
 }
 .typography #week_calendar ul li::before {
