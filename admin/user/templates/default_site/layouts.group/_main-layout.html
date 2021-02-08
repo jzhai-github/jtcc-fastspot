@@ -33,9 +33,9 @@
 										{embed="common/_breadcrumbs_tyler"}
 									{/if}
 										<h1 class="page_title" itemprop="name">{layout:title}</h1>
-										{if layout:page_description}
+										{!--{if layout:page_description}--}
 										<p class="page_description" itemprop="description">{layout:page_description}</p>
-										{/if}
+										{!--{/if}--}
 								</div>
 							</div>{!-- /fs-cell --}
 						</div>{!-- /fs-row --}
@@ -156,5 +156,5 @@
 <div class="full_width_callouts">
 	{layout:contents}
 	{snp_alert}
-</div>
+{if segment_1 != 'admissions' && segment_2 == ''}</div>{/if}
 <!-- END: Full Width Callouts -->
