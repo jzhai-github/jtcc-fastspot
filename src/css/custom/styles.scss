@@ -27,6 +27,12 @@ ul.pager {
 		text-align: right;
 	}
 }
+.news_meta_categories{
+	display: flex;
+	li::after{
+		content: ",&nbsp;";
+	}
+}
 .typography #week_calendar ul li::before {
 	height: 0;
 	width: 0;
