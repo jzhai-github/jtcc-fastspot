@@ -36,6 +36,10 @@ ul.pager {
 		content: ",";
 		margin-right: 5px;
 	}
+	li:last-child::after{
+		content: "";
+		margin-right: 0;
+	}
 }
 .typography #week_calendar ul li::before {
 	height: 0;
