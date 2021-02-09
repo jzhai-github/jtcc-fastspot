@@ -359,6 +359,10 @@ span.time{
 	border:0.0625rem solid rgba(98,98,98,0.25);
 	padding:0.3125rem 0.625rem;
 }
+.card_group.white{
+	background:white;
+	padding:0 0 5.25rem;
+}
 // =============================================================================
 // Media Queries
 // =============================================================================
@@ -367,12 +371,14 @@ span.time{
 	.mobile-only{
 		display: none;
 	}
-
+	.news_meta_categories{
+		flex-direction: row;
+	}
 }
 
 @media #{$min_lg} {
-	.news_meta_categories{
-		flex-direction: row;
+	.card_group_items.card_count_3 .card_group_item{
+		width:28%;
 	}
 }
 
