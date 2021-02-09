@@ -29,6 +29,7 @@ ul.pager {
 }
 .news_meta_categories{
 	display: flex;
+	flex-direction: column;
 	a{
 		display: inline;
 	}
@@ -366,10 +367,13 @@ span.time{
 	.mobile-only{
 		display: none;
 	}
+
 }
 
 @media #{$min_lg} {
-
+	.news_meta_categories{
+		flex-direction: row;
+	}
 }
 
 @media #{$min_xl} {
