@@ -43,7 +43,7 @@
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no"}
     {!-- layout vars, dynamic, not output --}
-    {layout:set name='title' value='{p_title}'}
+    {layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
     
     {layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
 
@@ -109,7 +109,7 @@
                             channel='{ch}' 
                             disable='categories|member_data' 
                             dynamic="no"
-                            category="39"
+                            category="39|40"
                             limit="1"
                         }
                             {exp:tag:cloud
@@ -245,7 +245,7 @@
                             order_by="date"
                             disable='categories|member_data' 
                             dynamic="no"
-                            category="39"
+                            category="39|40"
                             offset="3"
                             paginate="bottom"
                             limit="10"

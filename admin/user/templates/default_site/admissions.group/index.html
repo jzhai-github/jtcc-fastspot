@@ -547,108 +547,146 @@
 
 {/main_content}
 
-{if segment_2 == ''}
-</div><!-- /closes full width div on main_layout -->
-<div class="js-view-test spotlight">
-	{exp:channel:entries channel="home_page" dynamic="no"}
-		<div class="js-background spotlight_background" data-background-options='{"source": { 
-		"1220px": "{home_top_banner_background_image}{img:url:resize width="1080" height="1440"}{/home_top_banner_background_image}", 
-		"740px": "{home_top_banner_background_image}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/home_top_banner_background_image}", 
-		"500px": "{home_top_banner_background_image}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/home_top_banner_background_image}", "0px": "{home_top_banner_background_image}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/home_top_banner_background_image}", "980px": "{home_top_banner_background_image}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/home_top_banner_background_image}"}, "lazy": true, "alt": ""}' aria-hidden="true">
-			<div class="spotlight_background_fallback" style="background-image: url(`{home_top_banner_background_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner_background_image}`);"></div>
-		</div>
-		<div class="fs-row">
-			<div class="fs-cell">
-				<div class="spotlight_inner">
-					<div class="spotlight_header">
-						<div class="spotlight_header_inner">
-							
-								
-									
-	{/exp:channel:entries}
-									
-								
-							
-						</div><!-- /spotlight_header_inner -->
-					</div><!-- /spotlight_header -->
-					<div class="stories">
-						<div class="js-carousel stories_carousel" data-carousel-options='{
-							"controls": false,
-							"contained": false,
-							"maxWidth": "980px",
-							"show": {
-								"600px": 2
-							}
-						}'>
-						{exp:channel:entries
-		                            channel='news_stories' 
-		                            disable='member_data' 
-		                            dynamic="no" 
-		                            limit="3"
-		                            category="52"
-		                        }
-							<div class="stories_item">
-								<div class="story {if count == '1'}theme_turquoise{/if}{if count == '2'}theme_mustard{/if}{if count == '3'}theme_blush{/if}">
-									{story_image}                                         
-										<figure class="story_figure has_classic_image">
-											<a class="story_figure_link" href="/news/{url_title}" aria-label="Read more about {title}" tabindex="-1">
-												<span class="lazy_image_wrapper story_image_wrapper">
-													<img class="js-lazy js-lazyload story_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='{img:url:resize width="740" height="494"}'  data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w'  alt="links to {title}">
-												</span>
-												<noscript>
-													<img class="story_image" src='{img:url:resize width="980" height="654"}'  srcset='{img:url:resize width="980" height="654"} 980w, {img:url:resize width="740" height="494"} 740w' sizes="100vw"  alt="" >
-												</noscript>
-											</a>
-										</figure>
-									{/story_image}
-									<div class="story_wrapper">
-										<h2 class="story_title">
-											<a href="/news/{url_title}" class="story_title_link" >
-												<span class="story_title_link_inner">
-													<span class="story_title_link_label">{title}</span>
-												</span>
-											</a>
-										</h2>
-										<div class="story_description">
-											{story_description}
-										</div>
-										<a href="/news/{url_title}" class="story_discovery_link" >
-											<span class="story_discovery_link_inner">
-												<span class="story_discovery_link_label">Read Their Story</span>
-												<span class="story_discovery_link_icon" aria-hidden="true">
-													<span class="story_discovery_link_icon_inner">
-														<span class="story_discovery_link_icon_space">&#xfeff;</span>					
-														<svg class="icon icon_caret_right">
-															<use href="/images/icons.svg#caret_right" />
-														</svg>
-													</span>
+<div class="card_group">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="wysiwyg_block_inner">
+				<div class="card_group_body">
+					<ul class="card_group_items card_count_3" aria-label="Related News">
+						<li class="card_group_item">
+							<figure class="card_group_item_figure">
+								<span class="lazy_image_wrapper card_group_item_image_wrapper">
+									<img class="js-lazy card_group_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src="https://images.fastspot.com/jtcc/300x200/2" data-src="https://images.fastspot.com/jtcc/300x200/2" data-srcset="//images.fastspot.com/jtcc/300x200/2 300w, //images.fastspot.com/jtcc/500x334/2 500w, //images.fastspot.com/jtcc/740x494/2 740w" alt="" sizes="253px" srcset="//images.fastspot.com/jtcc/300x200/2 300w, //images.fastspot.com/jtcc/500x334/2 500w, //images.fastspot.com/jtcc/740x494/2 740w">
+								</span>
+								<noscript>
+									<img class="card_group_item_image" src="https://images.fastspot.com/jtcc/740x494/2"  srcset="//images.fastspot.com/jtcc/740x494/2 740w, //images.fastspot.com/jtcc/500x334/2 500w, //images.fastspot.com/jtcc/300x200/2 300w" sizes="100vw"  alt="" >
+								</noscript>
+							</figure>
+							<div class="card_group_item_header">
+								<h2 class="card_group_item_title">
+									<a href="#" class="card_group_item_title_link">
+										<span class="card_group_item_title_link_inner">
+											<span class="card_group_item_title_link_label">Tyler Announces New Student Success Webinars</span>
+											<span class="card_group_item_title_link_icon" aria-hidden="true">
+												<span class="card_group_item_title_link_icon_inner">
+													<span class="card_group_item_title_link_icon_space">﻿</span>	
+													<svg class="icon icon_caret_right">
+														<use href="/images/icons.svg#caret_right"></use>
+													</svg>
 												</span>
 											</span>
-										</a>
-									</div><!-- /story_wrapper -->
-								</div><!-- /story -->
-							</div><!-- /stories_item -->
-							{/exp:channel:entries}						
-						</div><!-- /js-carousel stories_carousel -->
-						<a href="#" class="stories_discovery_link" >
-							<span class="stories_discovery_link_inner">
-								<span class="stories_discovery_link_label">View all Next Up Stories</span>
-								<span class="stories_discovery_link_icon" aria-hidden="true">
-									<span class="stories_discovery_link_icon_inner">
-										<span class="stories_discovery_link_icon_space">&#xfeff;</span>					
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
+										</span>
+									</a>
+								</h2>
+								<div class="card_group_item_categories">
+									<div class="card_group_item_category_hint">Categories</div>
+									<ul class="card_group_item_category_list" aria-label="Categories">	  <li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Academics</a>
+										</li>
+										<li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Announcement</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card_group_item_body">
+								<div class="card_group_item_description">
+									<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas faucibus mollis.</p>
+								</div>
+							</div>
+						</li>
+						<li class="card_group_item">
+							<figure class="card_group_item_figure">
+								<span class="lazy_image_wrapper card_group_item_image_wrapper">
+									<img class="js-lazy card_group_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src="https://images.fastspot.com/jtcc/300x200/3" data-src="https://images.fastspot.com/jtcc/300x200/3" data-srcset="//images.fastspot.com/jtcc/300x200/3 300w, //images.fastspot.com/jtcc/500x334/3 500w, //images.fastspot.com/jtcc/740x494/3 740w" alt="" sizes="253px" srcset="//images.fastspot.com/jtcc/300x200/3 300w, //images.fastspot.com/jtcc/500x334/3 500w, //images.fastspot.com/jtcc/740x494/3 740w">
 								</span>
-							</span>
-						</a>
-					</div><!-- /stories -->
+								<noscript>
+									<img class="card_group_item_image" src="https://images.fastspot.com/jtcc/740x494/3"  srcset="//images.fastspot.com/jtcc/740x494/3 740w, //images.fastspot.com/jtcc/500x334/3 500w, //images.fastspot.com/jtcc/300x200/3 300w" sizes="100vw"  alt="" >
+								</noscript>
+							</figure>
+							<div class="card_group_item_header">
+								<h2 class="card_group_item_title">
+									<a href="#" class="card_group_item_title_link">
+										<span class="card_group_item_title_link_inner">
+											<span class="card_group_item_title_link_label">Tyler Grad Designs Logo Supporting Frontline COVID Workers</span>
+											<span class="card_group_item_title_link_icon" aria-hidden="true">
+												<span class="card_group_item_title_link_icon_inner">
+													<span class="card_group_item_title_link_icon_space">﻿</span>	
+													<svg class="icon icon_caret_right">
+														<use href="/images/icons.svg#caret_right"></use>
+													</svg>
+												</span>
+											</span>
+										</span>
+									</a>
+								</h2>
+								<div class="card_group_item_categories">
+									<div class="card_group_item_category_hint">Categories</div>
+									<ul class="card_group_item_category_list" aria-label="Categories">
+										<li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Graphic Design</a>
+										</li>
+										<li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Noteworthy Stories</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card_group_item_body">
+								<div class="card_group_item_description">
+									<p>Mark Van Der Hyde is part of a family devoted to public service. His wife is a critical care nurse at Lowell General Hospital near Boston, while his Dad and brother are nurses, his sister works in a medical office, and his mom works in food service.</p>
+								</div>
+							</div>
+						</li>
+						<li class="card_group_item">
+							<figure class="card_group_item_figure">
+								<span class="lazy_image_wrapper card_group_item_image_wrapper">
+									<img class="js-lazy card_group_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src="https://images.fastspot.com/jtcc/300x200/4" data-src="https://images.fastspot.com/jtcc/300x200/4" data-srcset="//images.fastspot.com/jtcc/300x200/4 300w, //images.fastspot.com/jtcc/500x334/4 500w, //images.fastspot.com/jtcc/740x494/4 740w" alt="" sizes="253px" srcset="//images.fastspot.com/jtcc/300x200/4 300w, //images.fastspot.com/jtcc/500x334/4 500w, //images.fastspot.com/jtcc/740x494/4 740w">
+								</span>
+								<noscript>
+									<img class="card_group_item_image" src="https://images.fastspot.com/jtcc/740x494/4"  srcset="//images.fastspot.com/jtcc/740x494/4 740w, //images.fastspot.com/jtcc/500x334/4 500w, //images.fastspot.com/jtcc/300x200/4 300w" sizes="100vw"  alt="" >
+								</noscript>
+							</figure>
+							<div class="card_group_item_header">
+								<h2 class="card_group_item_title">
+									<a href="#" class="card_group_item_title_link">
+										<span class="card_group_item_title_link_inner">
+											<span class="card_group_item_title_link_label">John Tyler Community College Announces its Annual Student Award Winners</span>
+											<span class="card_group_item_title_link_icon" aria-hidden="true">
+												<span class="card_group_item_title_link_icon_inner">
+													<span class="card_group_item_title_link_icon_space">﻿</span>					
+													<svg class="icon icon_caret_right">
+														<use href="/images/icons.svg#caret_right"></use>
+													</svg>
+												</span>
+											</span>
+										</span>
+									</a>
+								</h2>
+								<div class="card_group_item_categories">
+									<div class="card_group_item_category_hint">Categories</div>
+									<ul class="card_group_item_category_list" aria-label="Categories">
+										<li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Academics</a>
+										</li>
+										<li class="card_group_item_category">
+											<a class="card_group_item_category_link" href="page-news-category.html">Announcement</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="card_group_item_body">
+								<div class="card_group_item_description">
+									<p>Each year, JTCC honors its students for their academic excellence, leadership, school pride, community service and more through its Student Awards Celebration. This year’s ceremony could not be held in person due to the pandemic, so the college announced award winners during a virtual ceremony, shared on social media.</p>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-{/if}
+</div><!-- /card_group -->
  
 
 
