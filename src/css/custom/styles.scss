@@ -361,7 +361,7 @@ span.time{
 }
 .card_group.white{
 	background:white;
-	padding:0 0 5.25rem;
+	padding:0;
 }
 // =============================================================================
 // Media Queries
@@ -378,7 +378,8 @@ span.time{
 
 @media #{$min_lg} {
 	.card_group_items.card_count_3 .card_group_item{
-		width:28%;
+		margin-right: 3.45rem;
+		width:29%;
 	}
 }
 
