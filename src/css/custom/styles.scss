@@ -35,11 +35,21 @@ ul.pager {
     text-transform: uppercase;
     a {
 	    color: #ffffff;
-	    text-decoration: underline;
+	    border-bottom:0.75rem solid #FFFFFF;
+	    &:hover{
+	    	border-bottom:0.75rem solid #FFFFFF;
+	    }
 	}
 	p {
 	    font-size: 2.6rem;
 	    line-height: 1.3;
+	    margin: 1.8rem 1.6rem;
+	}
+	.left{
+		margin:0 2.045% 0 0;
+	}
+	.right{
+		margin:0 0 0 2.045%;
 	}
 }
 .blocklabel {
@@ -48,23 +58,14 @@ ul.pager {
     font-weight: 500;
     padding: .3rem .8rem .3rem;
 }
-.tealblock2{
+.tealblock2,
+.tealblock3{
 	background:#00a88f;
-	.left{
-		margin:0 2.045% 0 0;
-	}
-	.right{
-		margin:0 0 0 2.045%;
-	}
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
+	padding-top:1rem;
 }
 .tealblock3{
 	background:#173a45;
-	.left{
-		margin:0 2.045% 0 0;
-	}
-	.right{
-		margin:0 0 0 2.045%;
-	}
 }
 .news_meta_categories{
 	display: flex;
