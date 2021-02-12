@@ -36,19 +36,23 @@ ul.pager {
     a {
 	    color: #ffffff;
 	    border-bottom:0.2rem solid #FFFFFF;
+	    transition: opacity .2s;
 	    &:hover{
 	    	border-bottom:0.2rem solid #FFFFFF;
+	    	color: #FFFFFF;
+	    	opacity: .9;
 	    }
 	}
 	p {
-	    font-size: 2.9rem;
+	    font-size: 3.2rem;
+	    font-weight: 100;
 	    line-height: 1.3;
 	    margin: 1.8rem 1.6rem;
 	}
-	.left{
+	&.left{
 		margin:0 2.045% 0 0;
 	}
-	.right{
+	&.right{
 		margin:0 0 0 2.045%;
 	}
 }
@@ -403,6 +407,9 @@ span.time{
 	background:white;
 	padding:0;
 }
+.mb-3{
+	margin-bottom: 3rem;
+}
 // =============================================================================
 // Media Queries
 // =============================================================================
@@ -415,7 +422,7 @@ span.time{
 		flex-direction: row;
 	}
 	.tealblock2, .tealblock3 {
-	    height: 360px;
+	    height: 415px;
 	}
 }
 
