@@ -31,6 +31,11 @@
 
 {if segment_3 == '' && segment_2 != ''}
 
+{exp:channel:entries channel="blog"  dynamic="no" disable='{ch_disable}' limit='1'}
+ {layout:set name="blog" value='Layout variable: {blog_content}'}
+{/exp:channel:entries}
+
+
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' dynamic="yes" disable='{ch_disable}' limit='1'}
 	{!-- layout vars, dynamic, not output --}
@@ -56,7 +61,7 @@
                                             
 {/layout:set}
 
-	{layout:set name='page_description' value='{if story_description}{story_description}{/if}'}
+	{layout:set name='page_description'}{if story_description}{story_description}{/if}{/layout:set}
 
 	{layout:set name='page_header_bg_image' value='{if story_image}{story_image}{img:url}{/story_image}{/if}'}
 

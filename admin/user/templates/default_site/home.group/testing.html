@@ -1,0 +1,11 @@
+{layout="layouts/testing-lay"}
+
+
+{exp:channel:entries channel="ztest" status="closed"}
+{layout:set name="myztests"}{ztest}{/layout:set}
+{layout:set name='myztest' value='{ztest}'}
+{layout:set name="myztestdouble" value="{ztest}"}
+
+I am the stuff that will be in the content.  Do da!
+
+{/exp:channel:entries}

@@ -33,7 +33,11 @@
 	</section>
 	<section class="w-8">
 		<div class="entries">
+		{!--{exp:channel:entries channel='news_stories' disable='{ch_disable}' limit='4'}
+		
+		{/exp:channe:entries}--}
 			{exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='4'}
+			{blog_content} 
 				{!-- listing as a snippet, as it's used through more than one template --}
 				{snp_blog_list}
 				{!-- no results --}
