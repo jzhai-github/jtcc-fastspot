@@ -1,3 +1,7 @@
+.fs-row.content-width{
+	width: auto;
+}
+
 // =============================================================================
 // Calendar
 // =============================================================================
@@ -26,6 +30,15 @@ ul.pager {
 	li{
 		text-align: right;
 	}
+}
+.block {
+    text-transform: uppercase;
+}
+.tealblock2{
+	background:#00a88f;
+}
+.tealblock3{
+	background:#173a45;
 }
 .news_meta_categories{
 	display: flex;
@@ -373,6 +386,9 @@ span.time{
 	}
 	.news_meta_categories{
 		flex-direction: row;
+	}
+	.tealblock2, .tealblock3 {
+	    height: 360px;
 	}
 }
 
