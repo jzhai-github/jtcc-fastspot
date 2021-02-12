@@ -35,13 +35,13 @@ ul.pager {
     text-transform: uppercase;
     a {
 	    color: #ffffff;
-	    border-bottom:0.75rem solid #FFFFFF;
+	    border-bottom:0.2rem solid #FFFFFF;
 	    &:hover{
-	    	border-bottom:0.75rem solid #FFFFFF;
+	    	border-bottom:0.2rem solid #FFFFFF;
 	    }
 	}
 	p {
-	    font-size: 2.6rem;
+	    font-size: 2.9rem;
 	    line-height: 1.3;
 	    margin: 1.8rem 1.6rem;
 	}
@@ -55,7 +55,7 @@ ul.pager {
 .blocklabel {
     background: #ffffff;
     color: #008375;
-    font-weight: 500;
+    font-weight: 300;
     padding: .3rem .8rem .3rem;
 }
 .tealblock2,
