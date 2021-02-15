@@ -442,6 +442,7 @@ span.time{
     background: #e53e51;
     text-align: center;
     padding: 1rem 0.9375rem 2rem;
+    width:100%;
 }
 .nextup a {
     border: 1px solid;
@@ -519,7 +520,8 @@ span.time{
 		}
 	}
 	.fs-grid .fs-row .fs-cell.fs-lg-12.fivethingsheader,
-	.fs-grid .fs-row .fs-cell.fs-lg-12.fivething {
+	.fs-grid .fs-row .fs-cell.fs-lg-12.fivethings,
+	.fs-grid .fs-row .fs-cell.fs-lg-12.fullwidth {
 	    margin: 0;
 	    max-width: 100%;
 	    width: 100%
