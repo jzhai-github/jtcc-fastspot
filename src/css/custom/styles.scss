@@ -406,6 +406,7 @@ span.time{
     width: 100%
 }
 .fs-grid .fs-row .fs-cell.fs-lg-12.fivethings{
+	margin:0;
 	max-width: 100%;
 	width: 100%;
 }
@@ -533,7 +534,7 @@ span.time{
 	    margin-bottom: 2rem;
 	}
 	.fivethings ol > li::before {
-	    font: normal 3.3rem;
+	    font-size: 3.3rem;
 	    margin-top: -2rem;
 	    padding: 2rem 2rem 3rem 2rem;
 	}
