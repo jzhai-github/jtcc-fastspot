@@ -391,12 +391,14 @@ span.time{
 	float: left;
 	font-family: 'Knockout', Arial, Helvetica, sans-serif;
 	padding-top:1rem;
+	width: 100%;
 }
 .tealblock3{
 	background:#173a45;
 }
 .fs-grid .fs-row .fs-cell.fs-lg-12.fivethingsheader {
     background: #660033;
+    margin: 0;
     max-width: 100%;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -435,9 +437,8 @@ span.time{
     counter-increment: jtcc-counter;
     position: absolute;
     left: 0;
-    font: normal 2rem Oswald;
     margin-top: -1rem;
-    margin-left: 0;
+    margin-left: 10px;
     padding: 1rem 1rem 2rem 1rem;
 }
 .tylerataglance, .nextup {
@@ -451,6 +452,10 @@ span.time{
     font-size: 1.2rem;
     margin-top: .5rem;
     padding: .5rem 0;
+}
+.tylerataglance h2, .tylerataglance p, .tylerataglance a, .nextup h2, .nextup p, .nextup a {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .news_meta_categories{
@@ -519,7 +524,7 @@ span.time{
 	    margin-bottom: 2rem;
 	}
 	.fivethings ol > li::before {
-	    font: normal 3.3rem Oswald;
+	    font: normal 3.3rem;
 	    margin-top: -2rem;
 	    padding: 2rem 2rem 3rem 2rem;
 	}
