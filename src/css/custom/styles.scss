@@ -398,6 +398,7 @@ span.time{
 }
 .fs-grid .fs-row .fs-cell.fs-lg-12.fivethingsheader {
     background: #660033;
+    flex: 0 0 100%;
     margin: 0;
     max-width: 100%;
     padding-top: 2rem;
@@ -409,7 +410,6 @@ span.time{
 	width: 100%;
 }
 .fivethingsheader h3 {
-    font-size: 2rem;
     font-weight: 500;
     color: #e53e51;
     text-align: center;
@@ -435,6 +435,7 @@ span.time{
     color: #e53e51;
     content: counter(jtcc-counter);
     counter-increment: jtcc-counter;
+    font-size: 2rem;
     position: absolute;
     left: 0;
     margin-top: -1rem;
@@ -457,7 +458,12 @@ span.time{
     color: #ffffff;
     text-decoration: none;
 }
-
+.nextup a:hover {
+    background: #ffffff;
+    color: #e53e51;
+    transition: background .3s;
+    transition: color .2s;
+}
 .news_meta_categories{
 	display: flex;
 	flex-direction: column;
