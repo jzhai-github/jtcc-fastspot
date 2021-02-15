@@ -458,6 +458,9 @@ span.time{
     color: #ffffff;
     text-decoration: none;
 }
+.nextup a{
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
+}
 .nextup a:hover {
     background: #ffffff;
     color: #e53e51;
@@ -538,6 +541,9 @@ span.time{
 	    font-size: 2rem;
 	    margin-top: 1rem;
 	    padding: 0;
+	}
+	.flex-l{
+		display: flex;
 	}
 }
 
