@@ -536,7 +536,7 @@ span.time{
 	.fivethings ol > li {
 	    margin-bottom: 2rem;
 	}
-	.fivethings ol > li::before {
+	.fs-row .fivethings ol > li::before {
 	    font-size: 3.3rem;
 	    margin-top: -2rem;
 	    padding: 2rem 2rem 3rem 2rem;
