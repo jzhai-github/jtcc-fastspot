@@ -33,10 +33,10 @@
 							<?=lang('all_tags');?><span class="small">(<?=$total_tags;?>)</span>
 						</a>
 					</div>
-			<?php foreach($tags_by_alpha as $letter => $count) : ?>
+			<?php foreach ($tags_by_alpha as $letter => $count) : ?>
 					<div class="alpha-tag-box">
 							<a href='<?=$base_alpha_url;?>&alpha=<?=$letter;?>'
-								title="<?=lang('browse_tags_by').' '.$letter;?>">
+								title="<?=lang('browse_tags_by') . ' ' . $letter;?>">
 							<?php echo strtoupper($letter);?><span class="small">(<?=$count?>)</span>
 						</a>
 					</div>

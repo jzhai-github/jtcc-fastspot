@@ -144,7 +144,6 @@ class CodePack
      *
      * @access  public
      */
-
     public function __construct($init = true)
     {
         $this->detectInternalCodePack();
@@ -156,7 +155,6 @@ class CodePack
         }
     }
     //END __construct
-
 
     // --------------------------------------------------------------------
 
@@ -184,7 +182,6 @@ class CodePack
     }
     //END detectInternalCodePack
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -193,7 +190,6 @@ class CodePack
      * @access  public
      * @return  void
      */
-
     public function detectSystem()
     {
         //allow someone to set these before firing __construct
@@ -207,7 +203,6 @@ class CodePack
     }
     //END detectSystem
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -216,7 +211,6 @@ class CodePack
      * @access  public
      * @return  array   array of tech that is or is not supported for platform
      */
-
     public function detectSupport()
     {
         $supported = array(
@@ -227,7 +221,6 @@ class CodePack
         return $this->supported = $supported;
     }
     //ENd detectSupport
-
 
     // --------------------------------------------------------------------
 
@@ -256,7 +249,6 @@ class CodePack
     }
     //END setAddonsFolder
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -266,14 +258,13 @@ class CodePack
      * @param   string $line    language key to find
      * @return  string          lang line or line itself if not found
      */
-
     public function lang($line = '')
     {
         $line = (string) $line;
+
         return (isset($this->langItems[$line]) ? $this->langItems[$line] : $line);
     }
     //END lang
-
 
     // --------------------------------------------------------------------
 
@@ -284,7 +275,6 @@ class CodePack
      * @param   mixed       $function   array with class, function or anon function
      * @param   string      $prefix     key prefix if any
      */
-
     public function setLangItems($function, $prefix = '')
     {
         if (! is_callable($function)) {
@@ -294,20 +284,19 @@ class CodePack
         // is this an `array($object, 'method')` setup?
         if (is_array($function)) {
             foreach ($this->langItems as $key => $value) {
-                $this->langItems[$key] = $function[0]->$function[1]($prefix.$key);
+                $this->langItems[$key] = $function[0]->$function[1]($prefix . $key);
             }
         }
         //must be a string name for a global method
         else {
             foreach ($this->langItems as $key => $value) {
-                $this->langItems[$key] = $function($prefix.$key);
+                $this->langItems[$key] = $function($prefix . $key);
             }
         }
 
         return true;
     }
     //END setLangItems
-
 
     // --------------------------------------------------------------------
 
@@ -317,7 +306,6 @@ class CodePack
      * @access public
      * @return array    array of codepacks found for addons
      */
-
     public function getAddonCodePacks()
     {
         $packs = array();
@@ -344,7 +332,6 @@ class CodePack
     }
     //END getCodePacks
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -354,7 +341,6 @@ class CodePack
      * @param   string  $codePackFolder path to codepack folder
      * @return  mixed                   boolen false if not available else array
      */
-
     public function getCodePackDetails($codePackFolder = '', $name = '')
     {
         $codePackFolder = rtrim((string) $codePackFolder, '/') . '/';
@@ -396,7 +382,6 @@ class CodePack
     }
     //END getCodePackDetails
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -410,7 +395,6 @@ class CodePack
      * @param   string  $path   path to attempt to gather name from
      * @return  string          detected name or blank string
      */
-
     public function detectNameFromPath($path = '')
     {
         $segs   = preg_split("/\//", $path, -1, PREG_SPLIT_NO_EMPTY);
@@ -431,7 +415,6 @@ class CodePack
         return $return;
     }
     //END detectNameFromPath
-
 
     // --------------------------------------------------------------------
 
@@ -456,10 +439,10 @@ class CodePack
     public function installCodePack($variables = array())
     {
         $func = $this->system . 'InstallCodePack';
+
         return $this->$func($variables);
     }
     //END installCodePack
-
 
     // --------------------------------------------------------------------
 
@@ -481,7 +464,6 @@ class CodePack
      * @param   boolean $variables['legacy']
      * @return  string
      */
-
     public function eeInstallCodePack($variables = array())
     {
         if (! $this->system == 'ee') {
@@ -571,7 +553,7 @@ class CodePack
         $return['prefixed_template_groups'] = array();
 
         foreach ($return['template_groups'] as $key => $val) {
-            $return['prefixed_template_groups'][]   = $variables['prefix'].$val;
+            $return['prefixed_template_groups'][]   = $variables['prefix'] . $val;
         }
 
         // -------------------------------------
@@ -581,9 +563,9 @@ class CodePack
         if (count($return['template_groups']) > 0 and
             ! empty($variables['prefix'])) {
             $query = ee()->db->select('group_name')
-                            ->where('site_id', $site_id)
-                            ->where_in('group_name', $return['prefixed_template_groups'])
-                            ->get('template_groups');
+                ->where('site_id', $site_id)
+                ->where_in('group_name', $return['prefixed_template_groups'])
+                ->get('template_groups');
 
             if ($query->num_rows() > 0) {
                 $return['conflicting_groups']   = array();
@@ -612,10 +594,10 @@ class CodePack
 
         if (! empty($global_vars)) {
             $query = ee()->db
-                        ->select('variable_name')
-                        ->where('site_id', $site_id)
-                        ->where_in('variable_name', array_keys($global_vars))
-                        ->get('global_variables');
+                ->select('variable_name')
+                ->where('site_id', $site_id)
+                ->where_in('variable_name', array_keys($global_vars))
+                ->get('global_variables');
 
             if ($query->num_rows() > 0) {
                 foreach ($query->result_array() as $row) {
@@ -660,7 +642,6 @@ class CodePack
             $return = $instance->install($options);
         }
 
-
         // --------------------------------------------
         //  Do we have errors?
         // --------------------------------------------
@@ -703,8 +684,8 @@ class CodePack
             ! empty($return['template_groups'])) {
             //get template group number
             $tg_query = ee()->db
-                            ->select_max('group_order')
-                            ->get('template_groups');
+                ->select_max('group_order')
+                ->get('template_groups');
 
             $group_order = 0;
 
@@ -728,9 +709,9 @@ class CodePack
 
                 //reserved even with group?
                 if (in_array(
-                        $variables['prefix'] . $group,
-                        $return['reserved_names']
-                    )) {
+                    $variables['prefix'] . $group,
+                    $return['reserved_names']
+                )) {
                     continue;
                 }
 
@@ -815,7 +796,7 @@ class CodePack
                         if ($tagpair !== 'ee') {
                             //remove depending on version
                             $contents = preg_replace(
-                                '/%'. $tagpair . '%(.*?)%\/' . $tagpair . '%/s',
+                                '/%' . $tagpair . '%(.*?)%\/' . $tagpair . '%/s',
                                 "",
                                 $contents
                             );
@@ -902,7 +883,6 @@ class CodePack
     }
     //END ee_install_pack
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -913,7 +893,6 @@ class CodePack
      * @param  array    $return     return array to add errors to
      * @return array                array with any errors added to ['error']
      */
-
     public function validateVariables($variables = array(), $return = array())
     {
         // -------------------------------------
@@ -1013,7 +992,6 @@ class CodePack
     }
     //END validateVariables
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1023,7 +1001,6 @@ class CodePack
      * @param   string      $path   Absolute server path to theme directory
      * @return  array               array of folder names to choose
      */
-
     public function getFolders($path)
     {
         $folders = array();
@@ -1058,7 +1035,6 @@ class CodePack
     }
     // END getFolders()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1068,7 +1044,6 @@ class CodePack
      * @param   string      $path   Absolute server path to theme directory
      * @return  array               array of folder names to choose
      */
-
     public function getFiles($path, $filter = array(), $includeHidden = true)
     {
         $files = array();
@@ -1114,7 +1089,6 @@ class CodePack
     }
     // END getFiles
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1124,7 +1098,6 @@ class CodePack
      * @param   string      $path   Absolute server path to theme directory
      * @return  array               array of folder names to choose
      */
-
     public function getTemplateDirectoryArray($path)
     {
         $folders = array();
@@ -1166,7 +1139,6 @@ class CodePack
     }
     //END getTemplateDirectoryArray
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1175,7 +1147,6 @@ class CodePack
      * @access  public
      * @return  array
      */
-
     public function getCodePackFullDescription($path = '')
     {
         $description = '';
@@ -1196,7 +1167,6 @@ class CodePack
     }
     //  End get code pack full description
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1205,7 +1175,6 @@ class CodePack
      * @access  public
      * @return  array
      */
-
     public function getCodePackImage($path = '', $url = '')
     {
         $image  = '';
@@ -1255,7 +1224,6 @@ class CodePack
     }
     //  End get code pack image
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1288,8 +1256,8 @@ class CodePack
             // -------------------------------------
 
             if (ee()->db
-                    ->where_in('module_name', array('Structure', 'Pages'))
-                    ->count_all_results('modules') > 0) {
+                ->where_in('module_name', array('Structure', 'Pages'))
+                ->count_all_results('modules') > 0) {
                 $query = ee()->db->select('site_pages')->get('sites');
 
                 $new_pages = array();
@@ -1315,7 +1283,6 @@ class CodePack
         return $return;
     }
     //END getReservedSystemNames
-
 
     // --------------------------------------------------------------------
 

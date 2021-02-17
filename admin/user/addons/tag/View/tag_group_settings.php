@@ -29,10 +29,10 @@
 </script>
 <div id="<?=$id_wrapper?>">
 	<select class="tag_group_select" name="tag_group">
-		<?php foreach($tag_groups as $group_id => $group_name):?>
+		<?php foreach ($tag_groups as $group_id => $group_name):?>
 		<option <?php if ($group_id == $current_group_id) {
-			echo 'selected="selected"';
-			}?> value="<?=$group_id?>"><?=$group_name?></option>
+    echo 'selected="selected"';
+}?> value="<?=$group_id?>"><?=$group_name?></option>
 		<?php endforeach;?>
 	</select>
 

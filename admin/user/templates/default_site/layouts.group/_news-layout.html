@@ -249,6 +249,7 @@
                             </div>
                             {/if}
                         </div>
+                        {if layout:check_tags}
                         <div class="news_meta_categories_block">
                             <span class="news_meta_categories_icon">
                                 <svg class="icon icon_label">
@@ -257,6 +258,7 @@
                             </span>
                             {layout:categories}
                         </div>
+                        {/if}
                     </div><!-- /news_meta_body -->
                     <div class="js-share-tools share_tools fs-swap-target fs-swap-enabled">
                         <div class="share_tools_header">

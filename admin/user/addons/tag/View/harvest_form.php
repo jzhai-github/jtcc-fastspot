@@ -27,10 +27,10 @@
 							size="8"
 							style="width:50%;"
 							>
-					<?php foreach ( $groups as $group => $group_label):?>
+					<?php foreach ($groups as $group => $group_label):?>
 						<optgroup label="<?=$group_label?>">
-						<?php foreach ( $options[$group] as $p => $label):?>
-							<option value='<?=$group.'_'.$p?>'><?=$label?></option>
+						<?php foreach ($options[$group] as $p => $label):?>
+							<option value='<?=$group . '_' . $p?>'><?=$label?></option>
 						<?php endforeach;?>
 						</optgroup>
 					<?php endforeach;?>
@@ -43,7 +43,7 @@
 				</td>
 				<td valign="top" style="width: 65%;">
 					<select name="tag_group" id="tag_group" class="select">
-						<?php foreach($tag_groups as $group_id => $group_name):?>
+						<?php foreach ($tag_groups as $group_id => $group_name):?>
 							<option value="<?=$group_id?>"><?=$group_name?></option>
 						<?php endforeach;?>
 					</select>
@@ -55,10 +55,10 @@
 				</td>
 				<td valign="top" style="width: 65%;">
 					<select name="per_batch" id="per_batch" class="select">
-						<?php foreach($per_batch_options as $option):?>
+						<?php foreach ($per_batch_options as $option):?>
 							<option value="<?=$option?>" <?php
-								echo (($option == 250) ? 'selected="selected" ' : '' );
-							?>><?=$option?></option>
+                                echo(($option == 250) ? 'selected="selected" ' : '');
+                            ?>><?=$option?></option>
 						<?php endforeach;?>
 					</select>
 				</td>

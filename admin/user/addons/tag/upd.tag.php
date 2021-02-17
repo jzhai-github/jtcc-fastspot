@@ -17,7 +17,6 @@ class Tag_upd extends Upd
      * @access  public
      * @return  null
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -45,7 +44,6 @@ class Tag_upd extends Upd
     }
     // END __construct
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -54,7 +52,6 @@ class Tag_upd extends Upd
      * @access  public
      * @return  bool
      */
-
     public function install()
     {
         // Already installed, let's not install again.
@@ -105,7 +102,6 @@ class Tag_upd extends Upd
     }
     // END install()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -114,7 +110,6 @@ class Tag_upd extends Upd
      * @access  public
      * @return  bool
      */
-
     public function uninstall()
     {
 
@@ -143,7 +138,6 @@ class Tag_upd extends Upd
     }
     // END uninstall
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -155,7 +149,6 @@ class Tag_upd extends Upd
      * @access  public
      * @return  bool
      */
-
     public function update($current = '')
     {
         if ($current == $this->version) {
@@ -201,11 +194,11 @@ class Tag_upd extends Upd
             // --------------------------------------------
 
             $query = ee()->db
-                        ->select('settings')
-                        ->where('class', $this->extension_name)
-                        ->where('settings !=', '')
-                        ->limit(1)
-                        ->get('extensions');
+                ->select('settings')
+                ->where('class', $this->extension_name)
+                ->where('settings !=', '')
+                ->limit(1)
+                ->get('extensions');
 
             if ($query->num_rows() > 0) {
                 ee()->load->helper('string');
@@ -213,15 +206,15 @@ class Tag_upd extends Upd
                 $settings = strip_slashes((unserialize($query->row('settings'))));
 
                 $query = ee()->db
-                            ->select('site_id, channel_id, channel_title')
-                            ->get('channels');
+                    ->select('site_id, channel_id, channel_title')
+                    ->get('channels');
 
                 foreach ($query->result_array() as $row) {
                     if (! empty($settings[$row['channel_id']])) {
                         ee()->db->insert(
                             'tag_preferences',
                             array(
-                                'tag_preference_name'   => $row['channel_id'].'_publish_tab_label',
+                                'tag_preference_name'   => $row['channel_id'] . '_publish_tab_label',
                                 'tag_preference_value'  => $settings[$row['channel_id']],
                                 'site_id'               => $row['site_id']
                             )
@@ -483,7 +476,6 @@ class Tag_upd extends Upd
         //  Version Number Update - LAST!
         // --------------------------------------------
 
-
         ee()->db->update(
             'modules',
             array(
@@ -496,11 +488,9 @@ class Tag_upd extends Upd
             )
         );
 
-
         return true;
     }
     // END update()
-
 
     // --------------------------------------------------------------------
 
@@ -511,13 +501,12 @@ class Tag_upd extends Upd
      *  @access     public
      *  @return     array
      */
-
     private function set_default_tag_group()
     {
         $query = ee()->db
-                    ->select('tag_group_id')
-                    ->where('tag_group_id', '1')
-                    ->get('tag_groups');
+            ->select('tag_group_id')
+            ->where('tag_group_id', '1')
+            ->get('tag_groups');
 
         if ($query->num_rows() > 0) {
             return;
@@ -533,7 +522,6 @@ class Tag_upd extends Upd
         );
     }
     // END tabs()
-
 
     // --------------------------------------------------------------------
 

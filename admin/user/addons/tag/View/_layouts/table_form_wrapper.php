@@ -1,11 +1,11 @@
-<div class="box ">
-	<div class="tbl-ctrls">
+<div class="box panel">
+	<div class="tbl-ctrls panel-body">
 <?php if (isset($form_url)):?>
 	<?=form_open($form_url)?>
-<?php elseif (isset($footer) AND $footer['type'] == 'bulk_action_form'):?>
+<?php elseif (isset($footer) and $footer['type'] == 'bulk_action_form'):?>
 	<form><!-- currently EE's bulk action setup requires a form wrapper no matter what -->
 <?php endif;?>
-	<?php if ( ! empty($form_right_links)):?>
+	<?php if (! empty($form_right_links)):?>
 		<fieldset class="tbl-search right">
 		<?php foreach ($form_right_links as $link_data):?>
 		<a class="btn tn action" href="<?=$link_data['link']?>"><?=$link_data['title']?></a>
@@ -33,7 +33,7 @@
 		<fieldset class="tbl-bulk-act hidden">
 			<select name="bulk_action">
 		<?php if (isset($footer['bulk_actions'])):?>
-			<?php foreach($footer['bulk_actions'] as $value => $label):?>
+			<?php foreach ($footer['bulk_actions'] as $value => $label):?>
 				<option value="<?=$value?>" data-confirm-trigger="selected" rel="modal-confirm-<?=$value?>">
 					<?=$label?>
 				</option>
@@ -51,7 +51,7 @@
 	<?php else:?>
 	<?php endif;?>
 <?php endif;?>
-<?php if (isset($form_url) || (isset($footer) AND $footer['type'] == 'bulk_action_form')):?>
+<?php if (isset($form_url) || (isset($footer) and $footer['type'] == 'bulk_action_form')):?>
 		</form>
 <?php endif;?>
 	</div>

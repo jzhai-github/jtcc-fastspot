@@ -73,7 +73,6 @@ class Preference extends Model
      * @param   array   $required   array of names of required items
      * @return  object              instance of validator result
      */
-
     public function validateDefaultPrefs($inputs = array(), $required = array())
     {
         //not a typo, see get__default_prefs
@@ -93,7 +92,6 @@ class Preference extends Model
     }
     //END validateDefaultPrefs
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -105,7 +103,6 @@ class Preference extends Model
      * @access  public
      * @return  array       key->value array of pref names and defaults
      */
-
     public function get__default_prefs()
     {
         //just in case this gets removed in the future.
@@ -127,7 +124,6 @@ class Preference extends Model
     }
     //END get__default_prefs
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -139,7 +135,6 @@ class Preference extends Model
      * @access  public
      * @return  array       key->value array of delimiter names and real values
      */
-
     public function get__delimiters()
     {
         return $this->_delimiters;

@@ -49,7 +49,6 @@ class Tag extends Mod
     public $basepath = '';
     public $uristr = '';
 
-
     /**
      * contructor
      *
@@ -59,7 +58,6 @@ class Tag extends Mod
      * @param   string      string of tags
      * @return  object      instance of itself of course
      */
-
     public function __construct($channel_id = '', $entry_id = '', $str = '')
     {
         parent::__construct();
@@ -95,7 +93,6 @@ class Tag extends Mod
     }
     //  END constructor
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -106,14 +103,11 @@ class Tag extends Mod
      * @access  public
      * @return  string  theme folder url with ending slash
      */
-
     public function theme_folder_url()
     {
         return $this->theme_url;
     }
     //END theme_folder_url
-
-
 
     // --------------------------------------------------------------------
 
@@ -125,7 +119,6 @@ class Tag extends Mod
      * @access  public
      * @return  string      parsed tagdata
      */
-
     public function tag_name()
     {
         if (ee()->TMPL->tagdata == '') {
@@ -152,8 +145,8 @@ class Tag extends Mod
                 "SELECT t.tag_name
                  FROM   exp_tag_tags t
                  WHERE  t.site_id
-                 IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                 AND    t.tag_id = '".ee()->db->escape_str($this->tag_id)."'"
+                 IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                 AND    t.tag_id = '" . ee()->db->escape_str($this->tag_id) . "'"
             );
 
             if ($query->num_rows() > 0) {
@@ -188,14 +181,17 @@ class Tag extends Mod
             switch (ee()->TMPL->fetch_param('case')) {
                 case 'upper':
                     $tags[$key] = $this->lib('Utils')->strtoupper($tag);
+
                     break;
 
                 case 'lower':
                     $tags[$key] = $this->lib('Utils')->strtolower($tag);
+
                     break;
 
                 case 'sentence':
                     $tags[$key] = ucfirst($tag);
+
                     break;
 
                 case 'none':
@@ -203,6 +199,7 @@ class Tag extends Mod
 
                 default:
                     $tags[$key] = ucwords($tag);
+
                     break;
             }
         }
@@ -215,7 +212,6 @@ class Tag extends Mod
     }
     //  END tag name
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -226,7 +222,6 @@ class Tag extends Mod
      * @param   string  $preview_tags   optional input strings for previews
      * @return  string                  parsed tagdata
      */
-
     public function tags($preview = false, $preview_tags = '')
     {
         //  ----------------------------------------
@@ -292,7 +287,7 @@ class Tag extends Mod
                         ee()->db->escape_str(ee()->TMPL->site_ids)
                     ) . "')
                 AND             e.entry_id
-                IN          ('".implode("','", $entry_ids)."')";
+                IN          ('" . implode("','", $entry_ids) . "')";
 
         //  ----------------------------------------
         //  Exclude?
@@ -304,7 +299,7 @@ class Tag extends Mod
 
             if (is_array($ids)) {
                 $sql .= " AND t.tag_id NOT IN ('" .
-                    implode("','", ee()->db->escape_str($ids))."')";
+                    implode("','", ee()->db->escape_str($ids)) . "')";
             }
         }
 
@@ -314,7 +309,7 @@ class Tag extends Mod
 
         if (count($this->bad()) > 0) {
             $sql .= " AND t.tag_name NOT IN ('" .
-                implode("','", ee()->db->escape_str($this->bad()))."')";
+                implode("','", ee()->db->escape_str($this->bad())) . "')";
         }
 
         //  ----------------------------------------
@@ -322,7 +317,7 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if ($type != 'channel') {
-            $sql .= " ".ee()->functions->sql_andor_string($type, 'e.type');
+            $sql .= " " . ee()->functions->sql_andor_string($type, 'e.type');
         } else {
             $sql .= " AND e.type = 'channel'";
         }
@@ -365,7 +360,7 @@ class Tag extends Mod
 
         if (isset($group_ids) && $group_ids) {
             $sql .= " AND e.tag_group_id IN (" .
-                implode(",", ee()->db->escape_str($group_ids)).")";
+                implode(",", ee()->db->escape_str($group_ids)) . ")";
         }
 
         //--------------------------------------------
@@ -382,12 +377,11 @@ class Tag extends Mod
 
         if (in_array(ee()->TMPL->fetch_param('orderby'), $order_by_options)) {
             $sql .= " ORDER BY t.".ee()->TMPL->fetch_param('orderby');
-            $sql .= (stristr('asc', ee()->TMPL->fetch_param('sort'))) ? " ASC": " DESC";
+            $sql .= (stristr('asc', ee()->TMPL->fetch_param('sort', 'desc'))) ? " ASC": " DESC";
         } else {
             $sql .= " ORDER BY t.tag_name";
-            $sql .= (stristr('desc', ee()->TMPL->fetch_param('sort'))) ? " DESC": " ASC";
+            $sql .= (stristr('desc', ee()->TMPL->fetch_param('sort', 'asc'))) ? " DESC": " ASC";
         }
-
 
         //  ----------------------------------------
         //  Current page/Query offset
@@ -546,26 +540,32 @@ class Tag extends Mod
             switch (ee()->TMPL->fetch_param('case')) {
                 case 'upper':
                     $row['tag'] = $this->lib('Utils')->strtoupper($row['tag']);
+
                     break;
 
                 case 'lower':
                     $row['tag'] = $this->lib('Utils')->strtolower($row['tag']);
+
                     break;
 
                 case 'sentence':
                     $row['tag'] = ucfirst($row['tag']);
+
                     break;
 
                 case 'title':
                     $row['tag'] = ucwords($row['tag']);
+
                     break;
 
                 case 'none':
                     $row['tag'] = $row['tag'];
+
                     break;
 
                 default:
                     $row['tag'] = $row['tag'];
+
                     break;
             }
 
@@ -587,9 +587,9 @@ class Tag extends Mod
             $r .= $tagdata;
         }
 
-        $backspace = (ctype_digit(ee()->TMPL->fetch_param('backspace')) === true) ? ee()->TMPL->fetch_param('backspace'): 0;
+        $backspace = (ctype_digit(ee()->TMPL->fetch_param('backspace')) === true) ? ee()->TMPL->fetch_param('backspace') : 0;
 
-        $r = ($backspace > 0) ? substr($r, 0, - $backspace): $r;
+        $r = ($backspace > 0) ? substr($r, 0, - $backspace) : $r;
 
         // --------------------------------------------
         //  Pagination?
@@ -611,7 +611,6 @@ class Tag extends Mod
     }
     //  END tags
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -624,7 +623,7 @@ class Tag extends Mod
      */
     public function entries()
     {
-        $dynamic = $this->check_no(ee()->TMPL->fetch_param('dynamic', 'yes')) ? 'off': 'on';
+        $dynamic = $this->check_no(ee()->TMPL->fetch_param('dynamic', 'yes')) ? 'off' : 'on';
 
         $qstring = (ee()->uri->page_query_string != '') ? ee()->uri->page_query_string : ee()->uri->query_string;
         $cat_id = '';
@@ -680,7 +679,6 @@ class Tag extends Mod
         //  Inclusive tags?
         //  ----------------------------------------
 
-
         if ($this->check_yes(ee()->TMPL->fetch_param('inclusive')) === false) {
             $this->tag = str_replace($tag_separator, "|", $this->tag);
 
@@ -708,16 +706,16 @@ class Tag extends Mod
                         "SELECT cat_id
                          FROM   exp_categories
                          WHERE  site_id
-                         IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                         AND    cat_url_title = '".
-                                    ee()->db->escape_str(ee()->TMPL->fetch_param('category'))."'"
+                         IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                         AND    cat_url_title = '" .
+                                    ee()->db->escape_str(ee()->TMPL->fetch_param('category')) . "'"
                     );
 
                     if ($cat_q->num_rows() > 0) {
                         $cat_id = '';
 
                         foreach ($cat_q->result_array() as $row) {
-                            $cat_id .= $row['cat_id']."|";
+                            $cat_id .= $row['cat_id'] . "|";
                         }
                     }
                 }
@@ -750,7 +748,7 @@ class Tag extends Mod
 
             $sql .= " WHERE";
 
-            $sql .= " t.site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+            $sql .= " t.site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
 
             if ($this->tag_id != '') {
                 $sql .= ee()->functions->sql_andor_string($this->tag_id, ' t.tag_id');
@@ -766,7 +764,7 @@ class Tag extends Mod
                                 SELECT DISTINCT entry_id
                                 FROM            exp_tag_entries AS e,
                                                 exp_tag_tags AS t
-                                WHERE           e.tag_id = t.tag_id ".
+                                WHERE           e.tag_id = t.tag_id " .
                                 ee()->functions->sql_andor_string(
                                     substr($this->tag, 4),
                                     'BINARY t.tag_name'
@@ -786,9 +784,9 @@ class Tag extends Mod
             if ($cat_id != '') {
                 if (substr($cat_id, 0, 3) == 'not' &&
                     $this->check_no(ee()->TMPL->fetch_param('uncategorized_entries')) === false) {
-                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id', '', true)." ";
+                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id', '', true) . " ";
                 } else {
-                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id')." ";
+                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id') . " ";
                 }
             }
 
@@ -819,7 +817,7 @@ class Tag extends Mod
             }
 
             if (isset($group_ids) && $group_ids) {
-                $sql .= " AND e.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+                $sql .= " AND e.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
             }
 
             //  ----------------------------------------
@@ -827,7 +825,7 @@ class Tag extends Mod
             //  ----------------------------------------
 
             if (isset($tag_rank)) {
-                $sql .= " ORDER BY t.".$tag_rank." DESC";
+                $sql .= " ORDER BY t." . $tag_rank . " DESC";
             }
 
             //  ----------------------------------------
@@ -853,7 +851,7 @@ class Tag extends Mod
             $this->entry_id = implode('|', $ids);
         } else {
             if ($this->tag_id == '') {
-                $tags = preg_split('/[\|\\'.$tag_separator.']/', $this->tag);
+                $tags = preg_split('/[\|\\' . $tag_separator . ']/', $this->tag);
 
                 $tags = array_unique($tags);
             }
@@ -882,15 +880,15 @@ class Tag extends Mod
                         "SELECT cat_id
                          FROM   exp_categories
                          WHERE  site_id
-                         IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                         AND    cat_url_title = '" . ee()->db->escape_str(ee()->TMPL->fetch_param('category'))."'"
+                         IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                         AND    cat_url_title = '" . ee()->db->escape_str(ee()->TMPL->fetch_param('category')) . "'"
                     );
 
                     if ($cat_q->num_rows() > 0) {
                         $cat_id = '';
 
                         foreach ($cat_q->result_array() as $row) {
-                            $cat_id .= $row['cat_id']."|";
+                            $cat_id .= $row['cat_id'] . "|";
                         }
                     }
                 }
@@ -920,10 +918,10 @@ class Tag extends Mod
 
             $sql .= " WHERE";
 
-            $sql .= " t.site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+            $sql .= " t.site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
 
             if ($this->tag_id != '') {
-                $sql .= " AND t.tag_id IN ('".implode("','", ee()->db->escape_str(explode('|', $this->tag_id)))."')";
+                $sql .= " AND t.tag_id IN ('" . implode("','", ee()->db->escape_str(explode('|', $this->tag_id))) . "')";
             } elseif ($this->tag != '') {
                 if ($this->model('Data')->preference('convert_case') != 'n') {
                     array_walk($tags, function ($value) {
@@ -932,16 +930,16 @@ class Tag extends Mod
                 }
 
                 if (count($tags) == 1) {
-                    $sql .= " AND BINARY t.tag_name IN ('".implode("','", ee()->db->escape_str($tags))."')";
+                    $sql .= " AND BINARY t.tag_name IN ('" . implode("','", ee()->db->escape_str($tags)) . "')";
                 } else {
                     $tsql = "SELECT     te.entry_id, t.tag_name
                              FROM       exp_tag_entries AS te
                              LEFT JOIN  exp_tag_tags AS t
                              ON         t.tag_id = te.tag_id
                              WHERE      BINARY t.tag_name
-                             IN         ('".implode("','", ee()->db->escape_str($tags))."')
+                             IN         ('" . implode("','", ee()->db->escape_str($tags)) . "')
                              AND        te.site_id
-                             IN         ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                             IN         ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                              AND        te.type = 'channel'";
 
                     //--------------------------------------------
@@ -971,7 +969,7 @@ class Tag extends Mod
                     }
 
                     if (isset($group_ids) && $group_ids) {
-                        $tsql .= " AND te.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+                        $tsql .= " AND te.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
                     }
                     $tquery = ee()->db->query($tsql);
 
@@ -995,7 +993,7 @@ class Tag extends Mod
                         return $this->no_results('tag');
                     }
 
-                    $sql .= "AND e.entry_id IN ('".implode("','", $chosen)."') ";
+                    $sql .= "AND e.entry_id IN ('" . implode("','", $chosen) . "') ";
                 }
             }
 
@@ -1007,9 +1005,9 @@ class Tag extends Mod
 
             if ($cat_id != '') {
                 if (substr($cat_id, 0, 3) == 'not' && $this->check_no(ee()->TMPL->fetch_param('uncategorized_entries')) === false) {
-                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id', '', true)." ";
+                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id', '', true) . " ";
                 } else {
-                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id')." ";
+                    $sql .= ee()->functions->sql_andor_string($cat_id, 'cp.cat_id') . " ";
                 }
             }
 
@@ -1040,7 +1038,7 @@ class Tag extends Mod
             }
 
             if (isset($group_ids) && $group_ids) {
-                $sql .= " AND e.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+                $sql .= " AND e.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
             }
 
             /*else
@@ -1053,7 +1051,7 @@ class Tag extends Mod
             //  ----------------------------------------
 
             if (isset($tag_rank)) {
-                $sql .= " ORDER BY t.".$tag_rank." DESC";
+                $sql .= " ORDER BY t." . $tag_rank . " DESC";
             }
 
             $query = ee()->db->query($sql);
@@ -1065,7 +1063,7 @@ class Tag extends Mod
             $arr = array();
 
             foreach ($query->result_array() as $row) {
-                $arr[ $row['tag_id'] ][] = $row['entry_id'];
+                $arr[$row['tag_id']][] = $row['entry_id'];
             }
 
             if (count($arr) < 2) {
@@ -1114,7 +1112,6 @@ class Tag extends Mod
     }
     //  END entries
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1124,7 +1121,6 @@ class Tag extends Mod
      *  @param      array - Additional parameters
      *  @return     string
      */
-
     protected function _entries($params = array())
     {
         //  ----------------------------------------
@@ -1140,10 +1136,10 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if (! class_exists('Channel')) {
-            require PATH_MOD.'/channel/mod.channel.php';
+            require PATH_MOD . '/channel/mod.channel.php';
         }
 
-        $channel = new Channel;
+        $channel = new Channel();
 
         $channel_class_vars = get_class_vars('Channel');
         $pager_sql_support = isset($channel_class_vars['pager_sql']);
@@ -1158,19 +1154,19 @@ class Tag extends Mod
         //  Pass params
         //  ----------------------------------------
 
-        if (ee()->TMPL->fetch_param('channel'.'_entry_id') !== false &&
-            ee()->TMPL->fetch_param('channel'.'_entry_id') != ''
+        if (ee()->TMPL->fetch_param('channel' . '_entry_id') !== false &&
+            ee()->TMPL->fetch_param('channel' . '_entry_id') != ''
             && ctype_digit(str_replace(
                 array("not ", "|"),
                 '',
-                ee()->TMPL->fetch_param('channel'.'_entry_id')
+                ee()->TMPL->fetch_param('channel' . '_entry_id')
             )) === true
            ) {
-            if (substr(ee()->TMPL->fetch_param('channel'.'_entry_id'), 0, 4) == 'not ') {
+            if (substr(ee()->TMPL->fetch_param('channel' . '_entry_id'), 0, 4) == 'not ') {
                 // Only those Entry IDs not in the parameter.
-                $this->entry_id = implode('|', array_diff(explode('|', $this->entry_id), explode('|', substr(ee()->TMPL->fetch_param('channel'.'_entry_id'), 4))));
+                $this->entry_id = implode('|', array_diff(explode('|', $this->entry_id), explode('|', substr(ee()->TMPL->fetch_param('channel' . '_entry_id'), 4))));
             } else {
-                $this->entry_id = implode('|', array_intersect(explode('|', $this->entry_id), explode('|', ee()->TMPL->fetch_param('channel'.'_entry_id'))));
+                $this->entry_id = implode('|', array_intersect(explode('|', $this->entry_id), explode('|', ee()->TMPL->fetch_param('channel' . '_entry_id'))));
             }
         }
 
@@ -1288,18 +1284,18 @@ class Tag extends Mod
             if ($channel->paginate == true && ! empty($channel->pager_sql)) {
                 if (preg_match("/ORDER BY(.*?)(LIMIT|$)/s", $channel->sql, $matches) &&
                     ! stristr($channel->pager_sql, 'ORDER BY')) {
-                    $channel->pager_sql .= 'ORDER BY'.$matches[1];
+                    $channel->pager_sql .= 'ORDER BY' . $matches[1];
                 }
 
                 // Create our ORDER BY clauses
 
                 $orderby_clause = ' ORDER BY FIELD(t.entry_id, ' .
-                             str_replace('|', ',', $this->entry_id). ') ';
+                             str_replace('|', ',', $this->entry_id) . ') ';
 
                 if (stristr($channel->pager_sql, 'ORDER BY')) {
                     $channel->pager_sql = preg_replace(
                         "/ORDER BY(.*?)(,|LIMIT|$)/s",
-                        $orderby_clause.',\1\2',
+                        $orderby_clause . ',\1\2',
                         $channel->pager_sql
                     );
                 } else {
@@ -1327,13 +1323,13 @@ class Tag extends Mod
 
                 $channel->sql = preg_replace(
                     "/t\.entry_id\s+IN\s+\([^\)]+\)/is",
-                    "t.entry_id IN (".implode(',', $entries).")",
+                    "t.entry_id IN (" . implode(',', $entries) . ")",
                     $channel->sql
                 );
 
                 $channel->sql = preg_replace(
                     "/ORDER BY(.*?)(,|LIMIT|$)/s",
-                    $orderby_clause.',\1\2',
+                    $orderby_clause . ',\1\2',
                     $channel->sql
                 );
 
@@ -1503,7 +1499,6 @@ class Tag extends Mod
     }
     //  END sub entries
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1512,7 +1507,6 @@ class Tag extends Mod
      * @access  public
      * @return  string      parsed html
      */
-
     public function related_entries()
     {
         //  ----------------------------------------
@@ -1579,12 +1573,12 @@ class Tag extends Mod
                       ON            te1.tag_id = te2.tag_id
                       WHERE         te1.type = 'channel'
                       AND           te2.type = 'channel'
-                      AND           te2.entry_id = '".ee()->db->escape_str($this->entry_id)."'
-                      AND           te1.entry_id != '".ee()->db->escape_str($this->entry_id)."'
+                      AND           te2.entry_id = '" . ee()->db->escape_str($this->entry_id) . "'
+                      AND           te1.entry_id != '" . ee()->db->escape_str($this->entry_id) . "'
                       AND           te1.site_id
-                      IN            ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                      IN            ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                       AND           te2.site_id
-                      IN            ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+                      IN            ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
         } else {
             // So much work, just to get it to work across multiple Sites.
 
@@ -1597,12 +1591,12 @@ class Tag extends Mod
                       ON            te1.tag_id = tt1.tag_id
                       WHERE         te1.type = 'channel'
                       AND           te2.type = 'channel'
-                      AND           te2.entry_id = '".ee()->db->escape_str($this->entry_id)."'
-                      AND           te1.entry_id != '".ee()->db->escape_str($this->entry_id)."'
+                      AND           te2.entry_id = '" . ee()->db->escape_str($this->entry_id) . "'
+                      AND           te1.entry_id != '" . ee()->db->escape_str($this->entry_id) . "'
                       AND           te1.site_id
-                      IN            ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                      IN            ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                       AND           te2.site_id
-                      IN            ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+                      IN            ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
         }
 
         //--------------------------------------------
@@ -1610,8 +1604,8 @@ class Tag extends Mod
         //--------------------------------------------
 
         if (isset($group_ids) && $group_ids) {
-            $sql .= " AND te1.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
-            $sql .= " AND te2.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+            $sql .= " AND te1.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
+            $sql .= " AND te2.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
         }
 
         //  ----------------------------------------
@@ -1622,7 +1616,7 @@ class Tag extends Mod
             $ids = $this->exclude(ee()->TMPL->fetch_param('exclude'));
 
             if (is_array($ids)) {
-                $sql .= " AND te1.tag_id NOT IN ('".implode("','", ee()->db->escape_str($ids))."')";
+                $sql .= " AND te1.tag_id NOT IN ('" . implode("','", ee()->db->escape_str($ids)) . "')";
             }
         }
 
@@ -1643,9 +1637,9 @@ class Tag extends Mod
                                 INNER JOIN  exp_tag_tags tt1
                                 ON          tt1.tag_id = te2.tag_id
                                 WHERE       tt1.site_id
-                                IN          ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                                IN          ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                                 AND         te2.type = 'channel'
-                                AND         te2.entry_id != '".ee()->db->escape_str($this->entry_id)."'";
+                                AND         te2.entry_id != '" . ee()->db->escape_str($this->entry_id) . "'";
             } else {
                 $sql_rank = " SELECT      tt1.tag_id, ( tt1.total_entries + tt1.clicks ) AS sum
                                 FROM        exp_tag_entries AS te2
@@ -1654,9 +1648,9 @@ class Tag extends Mod
                                 INNER JOIN  exp_tag_tags tt1
                                 ON          tt1.tag_name = tt2.tag_name
                                 WHERE       tt1.site_id
-                                IN          ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                                IN          ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                                 AND         te2.type = 'channel'
-                                AND         te2.entry_id != '".ee()->db->escape_str($this->entry_id)."'";
+                                AND         te2.entry_id != '" . ee()->db->escape_str($this->entry_id) . "'";
             }
 
             //--------------------------------------------
@@ -1664,7 +1658,7 @@ class Tag extends Mod
             //--------------------------------------------
 
             if (isset($group_ids) && $group_ids) {
-                $sql_rank .= " AND te2.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+                $sql_rank .= " AND te2.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
             }
 
             //  ----------------------------------------
@@ -1672,7 +1666,7 @@ class Tag extends Mod
             //  ----------------------------------------
 
             if (ee()->TMPL->fetch_param('orderby') == 'relevance') {
-                $query = ee()->db->query($sql." GROUP BY te1.entry_id ORDER BY tag_relevance");
+                $query = ee()->db->query($sql . " GROUP BY te1.entry_id ORDER BY tag_relevance");
             } else {
                 $query = ee()->db->query($sql);
             }
@@ -1688,7 +1682,7 @@ class Tag extends Mod
                     $data[] = $row['tag_id'];
                 }
 
-                $sql_rank .= "AND tt1.tag_id IN (".implode(',', $data).")";
+                $sql_rank .= "AND tt1.tag_id IN (" . implode(',', $data) . ")";
             }
 
             //  ----------------------------------------
@@ -1697,9 +1691,9 @@ class Tag extends Mod
 
             $sql_rank .= " GROUP BY tt1.tag_id";
 
-            $rank_method = (ee()->TMPL->fetch_param('rank_method')) ? ee()->TMPL->fetch_param('rank_method'): '';
+            $rank_method = (ee()->TMPL->fetch_param('rank_method')) ? ee()->TMPL->fetch_param('rank_method') : '';
 
-            $allowed_ranks = array( 'total_entries', 'clicks' );
+            $allowed_ranks = array('total_entries', 'clicks');
 
             //  ----------------------------------------
             //  Rank by both entries and clicks?
@@ -1726,7 +1720,7 @@ class Tag extends Mod
 
             unset($r);
 
-            $sql .= " AND te1.tag_id IN ('".implode("','", ee()->db->escape_str($rank))."')";
+            $sql .= " AND te1.tag_id IN ('" . implode("','", ee()->db->escape_str($rank)) . "')";
         }
 
         if (ee()->TMPL->fetch_param('orderby') == 'relevance') {
@@ -1737,14 +1731,17 @@ class Tag extends Mod
             switch ($sort) {
                 case 'asc':
                     $sql .= " asc";
+
                     break;
 
                 case 'desc':
                     $sql .= " desc";
+
                     break;
 
                 default:
                     $sql .= " desc";
+
                     break;
             }
         }
@@ -1755,7 +1752,7 @@ class Tag extends Mod
 
         $query = ee()->db->query($sql);
 
-        ee()->TMPL->log_item("Tag sql:".$sql);
+        ee()->TMPL->log_item("Tag sql:" . $sql);
 
         if ($query->num_rows() == 0) {
             return $this->no_results('tag');
@@ -1772,7 +1769,7 @@ class Tag extends Mod
                      AND    entry_id = " . ee()->db->escape_str($this->entry_id);
 
             if (isset($group_ids) && $group_ids) {
-                $msql .= " AND tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+                $msql .= " AND tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
             }
 
             $mquery = ee()->db->query($msql);
@@ -1802,14 +1799,13 @@ class Tag extends Mod
         //  Parse entries
         //  ----------------------------------------
 
-        if (! $tagdata = $this->_entries(array( 'dynamic' => 'off' ))) {
+        if (! $tagdata = $this->_entries(array('dynamic' => 'off'))) {
             return $this->no_results('tag');
         }
 
         return $tagdata;
     }
     //  END related entries
-
 
     //  ----------------------------------------
     //  Cloud
@@ -1823,7 +1819,6 @@ class Tag extends Mod
      * @access  public
      * @return  string      parsed html
      */
-
     public function cloud()
     {
         $max = 1;  // Must be 1, cannot divide by zero!
@@ -1848,7 +1843,6 @@ class Tag extends Mod
         $stop_before = ee()->TMPL->fetch_param('stop_before', '');
         $day_limit = ee()->TMPL->fetch_param('day_limit', '');
         $websafe_separator = ee()->TMPL->fetch_param('websafe_separator', '+');
-
 
         // --------------------------------------------
         //  Fixed Order - Override of tag_id="" parameter
@@ -1934,15 +1928,15 @@ class Tag extends Mod
                     "SELECT cat_id
                      FROM   exp_categories
                      WHERE  site_id
-                     IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                     AND    cat_url_title = '".ee()->db->escape_str(ee()->TMPL->fetch_param('category'))."'"
+                     IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                     AND    cat_url_title = '" . ee()->db->escape_str(ee()->TMPL->fetch_param('category')) . "'"
                 );
 
                 if ($cat_q->num_rows() > 0) {
                     $cat_id = '';
 
                     foreach ($cat_q->result_array() as $row) {
-                        $cat_id .= $row['cat_id']."|";
+                        $cat_id .= $row['cat_id'] . "|";
                     }
                 }
             }
@@ -1956,7 +1950,7 @@ class Tag extends Mod
             }
         }
 
-        $sql .= " WHERE t.site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+        $sql .= " WHERE t.site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                   AND t.tag_id != '' AND e.type = 'channel'";
 
         //  ----------------------------------------
@@ -1964,7 +1958,7 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if (count($this->bad()) > 0) {
-            $sql .= " AND t.tag_name NOT IN ('".implode("','", ee()->db->escape_str($this->bad()))."')";
+            $sql .= " AND t.tag_name NOT IN ('" . implode("','", ee()->db->escape_str($this->bad())) . "')";
         }
 
         //--------------------------------------------
@@ -1994,7 +1988,7 @@ class Tag extends Mod
         }
 
         if (isset($group_ids) && $group_ids) {
-            $sql .= " AND e.tag_group_id IN (".implode(",", ee()->db->escape_str($group_ids)).")";
+            $sql .= " AND e.tag_group_id IN (" . implode(",", ee()->db->escape_str($group_ids)) . ")";
         }
 
         //  ----------------------------------------
@@ -2006,13 +2000,13 @@ class Tag extends Mod
                 $ids = $this->exclude(substr(ee()->TMPL->fetch_param('tag_name'), 4));
 
                 if (is_array($ids)) {
-                    $sql .= " AND t.tag_id NOT IN ('".implode("','", ee()->db->escape_str($ids))."')";
+                    $sql .= " AND t.tag_id NOT IN ('" . implode("','", ee()->db->escape_str($ids)) . "')";
                 }
             } else {
                 $ids = $this->exclude(ee()->TMPL->fetch_param('tag_name'));
 
                 if (is_array($ids)) {
-                    $sql .= " AND t.tag_id IN ('".implode("','", ee()->db->escape_str($ids))."')";
+                    $sql .= " AND t.tag_id IN ('" . implode("','", ee()->db->escape_str($ids)) . "')";
                 }
             }
         }
@@ -2033,7 +2027,7 @@ class Tag extends Mod
             $ids = $this->exclude(ee()->TMPL->fetch_param('exclude'));
 
             if (is_array($ids)) {
-                $sql .= " AND t.tag_id NOT IN ('".implode("','", ee()->db->escape_str($ids))."')";
+                $sql .= " AND t.tag_id NOT IN ('" . implode("','", ee()->db->escape_str($ids)) . "')";
             }
         }
 
@@ -2042,7 +2036,7 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if (isset($cat_id)) {
-            $sql .= " ".ee()->functions->sql_andor_string($cat_id, "cp.cat_id");
+            $sql .= " " . ee()->functions->sql_andor_string($cat_id, "cp.cat_id");
         }
 
         //  ----------------------------------------
@@ -2051,7 +2045,7 @@ class Tag extends Mod
 
         if ($channel = ee()->TMPL->fetch_param('channel')) {
             $xql = "SELECT channel_id FROM exp_channels
-                    WHERE site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+                    WHERE site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
 
             $xql .= ee()->functions->sql_andor_string($channel, 'channel_name');
 
@@ -2066,7 +2060,7 @@ class Tag extends Mod
                     $zchannels[] = $row['channel_id'];
                 }
 
-                $sql .= " AND e.channel_id IN ('".implode("','", ee()->db->escape_str($zchannels))."')";
+                $sql .= " AND e.channel_id IN ('" . implode("','", ee()->db->escape_str($zchannels)) . "')";
             }
         }
 
@@ -2077,11 +2071,11 @@ class Tag extends Mod
         $timestamp = (ee()->TMPL->cache_timestamp != '') ? ee()->TMPL->cache_timestamp : ee()->localize->now;
 
         if ($show_future_entries != 'yes') {
-            $sql .= " AND wt.entry_date < ".$timestamp." ";
+            $sql .= " AND wt.entry_date < " . $timestamp . " ";
         }
 
         if ($show_expired != 'yes') {
-            $sql .= " AND (wt.expiration_date = 0 || wt.expiration_date > ".$timestamp.") ";
+            $sql .= " AND (wt.expiration_date = 0 || wt.expiration_date > " . $timestamp . ") ";
         }
 
         //  -----------------------------------------
@@ -2089,7 +2083,7 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if ($status != '') {
-            $sql .= " ".ee()->functions->sql_andor_string($status, $entries_prefix.".status");
+            $sql .= " " . ee()->functions->sql_andor_string($status, $entries_prefix . ".status");
         }
 
         //  -----------------------------------------
@@ -2097,18 +2091,18 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if (ctype_digit($author_id) === true) {
-            $sql .= " AND e.author_id = '".ee()->db->escape_str($author_id)."'";
+            $sql .= " AND e.author_id = '" . ee()->db->escape_str($author_id) . "'";
         } elseif ($username == 'CURRENT_USER') {
-            $sql .= " AND e.author_id = '".ee()->db->escape_str(ee()->session->userdata('member_id'))."'";
+            $sql .= " AND e.author_id = '" . ee()->db->escape_str(ee()->session->userdata('member_id')) . "'";
         } elseif ($username != '') {
             $m_id = ee()->db->query(
                 "SELECT member_id
                  FROM   exp_members
-                 WHERE  username='".ee()->db->escape_str($username)."'"
+                 WHERE  username='" . ee()->db->escape_str($username) . "'"
             );
 
             if ($m_id->num_rows() > 0) {
-                $sql .= " AND e.author_id = '".$m_id->row('member_id')."'";
+                $sql .= " AND e.author_id = '" . $m_id->row('member_id') . "'";
             }
         }
 
@@ -2119,18 +2113,18 @@ class Tag extends Mod
         if ($day_limit != '') {
             $time = ee()->localize->now - ($day_limit * 60 * 60 * 24);
 
-            $sql .= " AND ".$entries_prefix.".entry_date >= '".$time."'";
+            $sql .= " AND " . $entries_prefix . ".entry_date >= '" . $time . "'";
         } else { // OR
             //  ----------------------------------------
             //  Limit query by date range given in tag parameters
             //  ----------------------------------------
 
             if ($start_on != '') {
-                $sql .= " AND ".$entries_prefix.".entry_date >= '".ee()->localize->convert_human_date_to_gmt($start_on)."'";
+                $sql .= " AND " . $entries_prefix . ".entry_date >= '" . ee()->localize->convert_human_date_to_gmt($start_on) . "'";
             }
 
             if ($stop_before != '') {
-                $sql .= " AND ".$entries_prefix.".entry_date < '".ee()->localize->convert_human_date_to_gmt($stop_before)."'";
+                $sql .= " AND " . $entries_prefix . ".entry_date < '" . ee()->localize->convert_human_date_to_gmt($stop_before) . "'";
             }
         }
 
@@ -2141,9 +2135,9 @@ class Tag extends Mod
         if (ee()->TMPL->fetch_param('most_popular') !== false &&
             is_numeric(ee()->TMPL->fetch_param('most_popular'))) {
             if ($rank_by == 'clicks') {
-                $query = ee()->db->query(preg_replace("/SELECT(.*?)\s+FROM\s+/is", 'SELECT DISTINCT t.tag_id FROM ', $sql)." ORDER BY t.clicks DESC LIMIT 0, ".ceil(ee()->TMPL->fetch_param('most_popular')));
+                $query = ee()->db->query(preg_replace("/SELECT(.*?)\s+FROM\s+/is", 'SELECT DISTINCT t.tag_id FROM ', $sql) . " ORDER BY t.clicks DESC LIMIT 0, " . ceil(ee()->TMPL->fetch_param('most_popular')));
             } else {
-                $query = ee()->db->query(preg_replace("/SELECT(.*?)\s+FROM\s+/is", 'SELECT DISTINCT t.tag_id, t.total_entries FROM ', $sql)." ORDER BY t.total_entries DESC LIMIT 0, ".ceil(ee()->TMPL->fetch_param('most_popular')));
+                $query = ee()->db->query(preg_replace("/SELECT(.*?)\s+FROM\s+/is", 'SELECT DISTINCT t.tag_id, t.total_entries FROM ', $sql) . " ORDER BY t.total_entries DESC LIMIT 0, " . ceil(ee()->TMPL->fetch_param('most_popular')));
             }
 
             if ($query->num_rows() == 0) {
@@ -2156,9 +2150,8 @@ class Tag extends Mod
                 $tag_ids[] = $row['tag_id'];
             }
 
-            $sql .= " AND t.tag_id IN (".implode(',', $tag_ids).")";
+            $sql .= " AND t.tag_id IN (" . implode(',', $tag_ids) . ")";
         }
-
 
         // --------------------------------------
         //  Pagination checkeroo! - Do Before GROUP BY!
@@ -2176,7 +2169,7 @@ class Tag extends Mod
             return $this->return_data = $this->no_results('tag');
         }
 
-        $this->p_limit = (! ee()->TMPL->fetch_param('limit'))  ? 20 : ee()->TMPL->fetch_param('limit');
+        $this->p_limit = (! ee()->TMPL->fetch_param('limit')) ? 20 : ee()->TMPL->fetch_param('limit');
         $this->total_rows = $query->row('count');
         $this->p_page = ($this->p_page == '' || ($this->p_limit > 1 && $this->p_page == 1)) ? 0 : $this->p_page;
 
@@ -2219,9 +2212,9 @@ class Tag extends Mod
 
         if ($this->paginate === true) {
             if ($rank_by == 'clicks') {
-                $query = ee()->db->query($sql." ORDER BY clicks DESC LIMIT 0, 1");
+                $query = ee()->db->query($sql . " ORDER BY clicks DESC LIMIT 0, 1");
             } else {
-                $query = ee()->db->query($sql." ORDER BY count DESC LIMIT 0, 1");
+                $query = ee()->db->query($sql . " ORDER BY count DESC LIMIT 0, 1");
             }
 
             if ($query->num_rows() > 0) {
@@ -2236,19 +2229,19 @@ class Tag extends Mod
         $ord = " ORDER BY t.tag_name";
 
         if ($fixed_order !== false) {
-            $ord = ' ORDER BY FIELD(e.tag_id, '.implode(',', $fixed_order).') ';
+            $ord = ' ORDER BY FIELD(e.tag_id, ' . implode(',', $fixed_order) . ') ';
         } elseif (ee()->TMPL->fetch_param('orderby') !== false &&
                  ee()->TMPL->fetch_param('orderby') != '') {
             foreach (array(
-                    'random'            => "rand()",
-                    'clicks'            => "t.clicks",
-                    'count'             => 'count',
-                    'total_entries'     => 't.total_entries',
-                    'channel_entries'   => 't.channel_entries',
-                    'tag_name'          => 't.tag_name'
-                ) as $key => $val) {
+                'random'            => "rand()",
+                'clicks'            => "t.clicks",
+                'count'             => 'count',
+                'total_entries'     => 't.total_entries',
+                'channel_entries'   => 't.channel_entries',
+                'tag_name'          => 't.tag_name'
+            ) as $key => $val) {
                 if ($key == ee()->TMPL->fetch_param('orderby')) {
-                    $ord = " ORDER BY ".$val;
+                    $ord = " ORDER BY " . $val;
                 }
             }
         }
@@ -2275,10 +2268,10 @@ class Tag extends Mod
         //  ----------------------------------------
 
         if ($this->paginate === true && $this->total_rows > $this->p_limit) {
-            $sql .= " LIMIT ".$this->p_page.', '.$this->p_limit;
+            $sql .= " LIMIT " . $this->p_page . ', ' . $this->p_limit;
         } else {
             $sql .= (ctype_digit(ee()->TMPL->fetch_param('limit')) === true) ?
-                    ' LIMIT '.ee()->TMPL->fetch_param('limit') : ' LIMIT 20';
+                    ' LIMIT ' . ee()->TMPL->fetch_param('limit') : ' LIMIT 20';
         }
 
         //  ----------------------------------------
@@ -2305,9 +2298,9 @@ class Tag extends Mod
         if ($this->paginate !== true) {
             foreach ($query->result_array() as $row) {
                 if ($rank_by == 'clicks') {
-                    $max = ($row['clicks'] > $max) ? $row['clicks']: $max;
+                    $max = ($row['clicks'] > $max) ? $row['clicks'] : $max;
                 } else {
-                    $max = ($row['count'] > $max) ? $row['count']: $max;
+                    $max = ($row['count'] > $max) ? $row['count'] : $max;
                 }
             }
         }
@@ -2339,15 +2332,15 @@ class Tag extends Mod
 
             $tags[$row['tag_name']]['channel_id'] = (
                 isset($row['channel_id']) === true
-            ) ? $row['channel_id']: '';
+            ) ? $row['channel_id'] : '';
 
             $tags[$row['tag_name']]['channel_url'] = (
                 isset($row['channel_url']) === true
-            ) ? rtrim($row['channel_url'], "\/")."/": '';
+            ) ? rtrim($row['channel_url'], "\/") . "/" : '';
 
             $tags[$row['tag_name']]['comment_url'] = (
                 isset($row['channel_url']) === true
-            ) ? rtrim($row['comment_url'], "\/") ."/" : '';
+            ) ? rtrim($row['comment_url'], "\/") . "/" : '';
 
             $tags[$row['tag_name']]['size'] = ceil((($rank_by == 'clicks') ?
                                                             $row['clicks'] :
@@ -2392,7 +2385,7 @@ class Tag extends Mod
             //  Parse Switch
             //  ----------------------------------------
 
-            if (preg_match("/".LD."(switch\s*=.+?)".RD."/is", $tagdata, $match) > 0) {
+            if (preg_match("/" . LD . "(switch\s*=.+?)" . RD . "/is", $tagdata, $match) > 0) {
                 $sparam = ee()->functions->assign_parameters($match['1']);
 
                 $sw = '';
@@ -2410,13 +2403,13 @@ class Tag extends Mod
             //  Parse singles
             //  ----------------------------------------
 
-            $tagdata = str_replace(LD.'tag'.RD, $key, $tagdata);
-            $tagdata = str_replace(LD.'tag_name'.RD, $key, $tagdata);
-            $tagdata = str_replace(LD.'tag_id'.RD, $row['tag_id'], $tagdata);
-            $tagdata = str_replace(LD.'websafe_tag'.RD, str_replace(" ", $websafe_separator, $key), $tagdata);
-            $tagdata = str_replace(LD.'count'.RD, $row['count'], $tagdata);
-            $tagdata = str_replace(LD.'clicks'.RD, $row['clicks'], $tagdata);
-            $tagdata = str_replace(LD.'total_entries'.RD, $row['total_entries'], $tagdata);
+            $tagdata = str_replace(LD . 'tag' . RD, $key, $tagdata);
+            $tagdata = str_replace(LD . 'tag_name' . RD, $key, $tagdata);
+            $tagdata = str_replace(LD . 'tag_id' . RD, $row['tag_id'], $tagdata);
+            $tagdata = str_replace(LD . 'websafe_tag' . RD, str_replace(" ", $websafe_separator, $key), $tagdata);
+            $tagdata = str_replace(LD . 'count' . RD, $row['count'], $tagdata);
+            $tagdata = str_replace(LD . 'clicks' . RD, $row['clicks'], $tagdata);
+            $tagdata = str_replace(LD . 'total_entries' . RD, $row['total_entries'], $tagdata);
 
             // -------------------------------------
             //  tag group total entries?
@@ -2426,28 +2419,27 @@ class Tag extends Mod
 
             foreach ($tag_groups as $id => $short_name) {
                 $tagdata = str_replace(
-                    LD.'total_entries_' . $id.RD,
+                    LD . 'total_entries_' . $id . RD,
                     $row['total_entries_' . $id],
                     $tagdata
                 );
 
                 $tagdata = str_replace(
-                    LD.'total_entries_' . $short_name.RD,
+                    LD . 'total_entries_' . $short_name . RD,
                     $row['total_entries_' . $id],
                     $tagdata
                 );
             }
 
-
-            $tagdata = str_replace(LD.'channel_entries'.RD, $row['channel_entries'], $tagdata);
-            $tagdata = str_replace(LD.'size'.RD, $row['size'], $tagdata);
-            $tagdata = str_replace(LD.'step'.RD, $row['step'], $tagdata);
-            $tagdata = str_replace(LD.'position'.RD, $position, $tagdata);
-            $tagdata = str_replace(LD.'channel'.'_id'.RD, $row['channel_id'], $tagdata);
-            $tagdata = str_replace(LD.'channel_id'.RD, $row['channel_id'], $tagdata);
-            $tagdata = str_replace(LD.'channel_url'.RD, $row['channel_url'], $tagdata);
-            $tagdata = str_replace(LD.'comment_url'.RD, $row['comment_url'], $tagdata);
-            $tagdata = str_replace(LD.'total_results'.RD, $row['total_results'], $tagdata);
+            $tagdata = str_replace(LD . 'channel_entries' . RD, $row['channel_entries'], $tagdata);
+            $tagdata = str_replace(LD . 'size' . RD, $row['size'], $tagdata);
+            $tagdata = str_replace(LD . 'step' . RD, $row['step'], $tagdata);
+            $tagdata = str_replace(LD . 'position' . RD, $position, $tagdata);
+            $tagdata = str_replace(LD . 'channel' . '_id' . RD, $row['channel_id'], $tagdata);
+            $tagdata = str_replace(LD . 'channel_id' . RD, $row['channel_id'], $tagdata);
+            $tagdata = str_replace(LD . 'channel_url' . RD, $row['channel_url'], $tagdata);
+            $tagdata = str_replace(LD . 'comment_url' . RD, $row['comment_url'], $tagdata);
+            $tagdata = str_replace(LD . 'total_results' . RD, $row['total_results'], $tagdata);
 
             //  ----------------------------------------
             //  Concat
@@ -2460,9 +2452,9 @@ class Tag extends Mod
         //  Backspace
         //  ----------------------------------------
 
-        $backspace = (ctype_digit(ee()->TMPL->fetch_param('backspace')) === true) ? ee()->TMPL->fetch_param('backspace'): 0;
+        $backspace = (ctype_digit(ee()->TMPL->fetch_param('backspace')) === true) ? ee()->TMPL->fetch_param('backspace') : 0;
 
-        $this->return_data = ($backspace > 0) ? substr($r, 0, - $backspace): $r;
+        $this->return_data = ($backspace > 0) ? substr($r, 0, - $backspace) : $r;
 
         // --------------------------------------------
         //  Pagination?
@@ -2480,12 +2472,9 @@ class Tag extends Mod
             ));
         }
 
-
-
         return $this->return_data;
     }
     //  END cloud
-
 
     // --------------------------------------------------------------------
 
@@ -2497,7 +2486,6 @@ class Tag extends Mod
      * @access  public
      * @return  boolean         success
      */
-
     public function parse()
     {
         if ($this->entry_id == '') {
@@ -2587,13 +2575,13 @@ class Tag extends Mod
         $tag_ids = array();
 
         $query= ee()->db
-                    ->select('tag_id, remote')
-                    ->where(array(
-                        'type'          => $this->type,
-                        'entry_id'      => $this->entry_id,
-                        'tag_group_id'  => $this->tag_group_id,
-                    ))
-                    ->get('tag_entries');
+            ->select('tag_id, remote')
+            ->where(array(
+                'type'          => $this->type,
+                'entry_id'      => $this->entry_id,
+                'tag_group_id'  => $this->tag_group_id,
+            ))
+            ->get('tag_entries');
 
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -2608,12 +2596,12 @@ class Tag extends Mod
 
         if ($this->channel_id == '') {
             $query = ee()->db
-                        ->select('channel_id, site_id')
-                        ->where(array(
-                            'site_id'   => $this->site_id,
-                            'entry_id'  => $this->entry_id
-                        ))
-                        ->get('channel_titles');
+                ->select('channel_id, site_id')
+                ->where(array(
+                    'site_id'   => $this->site_id,
+                    'entry_id'  => $this->entry_id
+                ))
+                ->get('channel_titles');
 
             if ($query->num_rows() > 0) {
                 $this->channel_id = $query->row('channel_id');
@@ -2647,9 +2635,9 @@ class Tag extends Mod
 
         $sql = "SELECT   t.tag_id, t.tag_name
                    FROM     exp_tag_tags AS t
-                   WHERE    t.site_id = '".ee()->db->escape_str($this->site_id)."'
+                   WHERE    t.site_id = '" . ee()->db->escape_str($this->site_id) . "'
                    AND      BINARY t.tag_name
-                   IN       ('".$str."')
+                   IN       ('" . $str . "')
                    GROUP BY t.tag_name, t.tag_id";
 
         $query = ee()->db->query($sql);
@@ -2673,8 +2661,8 @@ class Tag extends Mod
 
             ee()->db->update(
                 'exp_tag_tags',
-                array('edit_date'   => ee()->localize->now ),
-                array('tag_id'      => $row['tag_id'] )
+                array('edit_date'   => ee()->localize->now),
+                array('tag_id'      => $row['tag_id'])
             );
 
             //  ----------------------------------------
@@ -2690,7 +2678,7 @@ class Tag extends Mod
                                     ee()->session->userdata['member_id'] :
                                     $this->author_id,
                 'ip_address'    => ee()->input->ip_address(),
-                'remote'        => ($this->remote) ? 'y': 'n',
+                'remote'        => ($this->remote) ? 'y' : 'n',
                 'type'          => $this->type,
                 'tag_group_id'  => $this->tag_group_id
             );
@@ -2764,7 +2752,6 @@ class Tag extends Mod
                 $n = ($this->model('Data')->preference('convert_case') != 'n') ?
                         $this->lib('Utils')->strtolower($n) : $n;
 
-
                 ee()->db->insert(
                     'exp_tag_tags',
                     array(
@@ -2785,7 +2772,7 @@ class Tag extends Mod
                                         ee()->session->userdata['member_id'] :
                                         $this->author_id,
                     'ip_address'    => ee()->input->ip_address(),
-                    'remote'        => ($this->remote) ? 'y': 'n',
+                    'remote'        => ($this->remote) ? 'y' : 'n',
                     'type'          => $this->type,
                     'tag_group_id'  => $this->tag_group_id
                 );
@@ -2818,9 +2805,9 @@ class Tag extends Mod
             if (! empty($final_tag_names)) {
                 $tag_names_string = implode("\n", $final_tag_names);
 
-                if (ee()->db->table_exists('channel_data_field_'.$this->field_id)) {
+                if (ee()->db->table_exists('channel_data_field_' . $this->field_id)) {
                     ee()->db->where('entry_id', $this->entry_id);
-                    ee()->db->update('channel_data_field_'.$this->field_id, array('field_id_'.$this->field_id => $tag_names_string));
+                    ee()->db->update('channel_data_field_' . $this->field_id, array('field_id_' . $this->field_id => $tag_names_string));
                 }
 
                 if (ee()->db->field_exists('field_id_' . $this->field_id, 'exp_channel_data')) {
@@ -2855,11 +2842,9 @@ class Tag extends Mod
         //  Return
         //  ----------------------------------------
 
-
         return true;
     }
     //  END parse
-
 
     // --------------------------------------------------------------------
 
@@ -2871,7 +2856,6 @@ class Tag extends Mod
      * @param   string  $type       what type of item to delete
      * @return  void
      */
-
     public function delete($entry_ids, $type = 'channel')
     {
         if (! is_array($entry_ids) || count($entry_ids) == 0) {
@@ -2883,9 +2867,9 @@ class Tag extends Mod
         //  ----------------------------------------
 
         $sql = "SELECT DISTINCT entry_id FROM exp_tag_entries
-                WHERE site_id = '".ee()->db->escape_str(ee()->config->item('site_id'))."'
-                AND type = '".ee()->db->escape_str($type)."' AND
-                entry_id IN ('".implode("','", ee()->db->escape_str($entry_ids))."')";
+                WHERE site_id = '" . ee()->db->escape_str(ee()->config->item('site_id')) . "'
+                AND type = '" . ee()->db->escape_str($type) . "' AND
+                entry_id IN ('" . implode("','", ee()->db->escape_str($entry_ids)) . "')";
 
         $query = ee()->db->query($sql);
 
@@ -2903,7 +2887,7 @@ class Tag extends Mod
             $ids[] = $row['entry_id'];
         }
 
-        ee()->db->query("DELETE FROM exp_tag_entries WHERE entry_id IN ('".implode("','", ee()->db->escape_str($ids))."')");
+        ee()->db->query("DELETE FROM exp_tag_entries WHERE entry_id IN ('" . implode("','", ee()->db->escape_str($ids)) . "')");
 
         //  ----------------------------------------
         //  Clean-up dead tags
@@ -2919,7 +2903,6 @@ class Tag extends Mod
     }
     //  END delete
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2928,7 +2911,6 @@ class Tag extends Mod
      * @access  protected
      * @return void
      */
-
     protected function clean_dead_tags()
     {
         //  ----------------------------------------
@@ -2936,11 +2918,11 @@ class Tag extends Mod
         //  ----------------------------------------
 
         $query = ee()->db
-                    ->select('e.tag_id, COUNT(e.tag_id) AS count')
-                    ->from('exp_tag_tags t')
-                    ->join('exp_tag_entries e', 'e.tag_id = t.tag_id', 'left')
-                    ->group_by('e.tag_id', 'DESC')
-                    ->get();
+            ->select('e.tag_id, COUNT(e.tag_id) AS count')
+            ->from('exp_tag_tags t')
+            ->join('exp_tag_entries e', 'e.tag_id = t.tag_id', 'left')
+            ->group_by('e.tag_id', 'DESC')
+            ->get();
 
         foreach ($query->result_array() as $row) {
             if ($row['count'] == '0') {
@@ -2949,7 +2931,6 @@ class Tag extends Mod
         }
     }
     //  END clean up
-
 
     // --------------------------------------------------------------------
 
@@ -2960,7 +2941,6 @@ class Tag extends Mod
      * @param   integer $page   current... page?
      * @return  boolean         success
      */
-
     protected function count_tag($page = 1)
     {
         if ($this->tag == '' || $page > 1) {
@@ -2985,14 +2965,13 @@ class Tag extends Mod
             });
         }
 
-        $sql .= " BINARY tag_name IN ('".implode("','", ee()->db->escape_str($tags))."')";
+        $sql .= " BINARY tag_name IN ('" . implode("','", ee()->db->escape_str($tags)) . "')";
 
         $query = ee()->db->query($sql);
 
         return true;
     }
     //  END count tag
-
 
     // --------------------------------------------------------------------
 
@@ -3003,7 +2982,6 @@ class Tag extends Mod
      * @param   string  $str    incoming string to remove of ids
      * @return  mixed           array of ids with items removed
      */
-
     protected function exclude($str = '')
     {
         //  ----------------------------------------
@@ -3023,7 +3001,7 @@ class Tag extends Mod
         // --------------------------------------------
 
         $sql = "SELECT tag_id FROM exp_tag_tags
-                WHERE site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."') ";
+                WHERE site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "') ";
 
         // --------------------------------------------
         //  Check for token so we know what kind of
@@ -3032,7 +3010,7 @@ class Tag extends Mod
 
         foreach ($excludes as $key => $value) {
             if (strpos($value, '%') !== false) {
-                $like[] = "tag_name LIKE '".ee()->db->escape_str($value)."'";
+                $like[] = "tag_name LIKE '" . ee()->db->escape_str($value) . "'";
                 unset($excludes[$key]);
             }
         }
@@ -3042,7 +3020,7 @@ class Tag extends Mod
         // --------------------------------------------
 
         if (count($excludes) > 0) {
-            $like[] = "tag_name IN ('".implode("','", ee()->db->escape_str($excludes))."')";
+            $like[] = "tag_name IN ('" . implode("','", ee()->db->escape_str($excludes)) . "')";
         }
 
         // --------------------------------------------
@@ -3050,7 +3028,7 @@ class Tag extends Mod
         // --------------------------------------------
 
         if (count($like) > 0) {
-            $sql .= "AND (".implode(' OR ', $like).")";
+            $sql .= "AND (" . implode(' OR ', $like) . ")";
         }
 
         // --------------------------------------------
@@ -3067,7 +3045,6 @@ class Tag extends Mod
     }
     //  END exclude
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3076,7 +3053,6 @@ class Tag extends Mod
      * @access  protected
      * @return  array       array of bad tags
      */
-
     protected function bad()
     {
         //  ----------------------------------------
@@ -3096,9 +3072,9 @@ class Tag extends Mod
         $sql = "SELECT tag_name FROM exp_tag_bad_tags";
 
         if (isset($TMPL)) {
-            $sql .= " WHERE site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')";
+            $sql .= " WHERE site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')";
         } else {
-            $sql .= " WHERE site_id = '".ee()->db->escape_str(ee()->config->item('site_id'))."'";
+            $sql .= " WHERE site_id = '" . ee()->db->escape_str(ee()->config->item('site_id')) . "'";
         }
 
         $query = ee()->db->query($sql);
@@ -3116,7 +3092,6 @@ class Tag extends Mod
     }
     //  END get bad tags
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3126,7 +3101,6 @@ class Tag extends Mod
      * @param   boolean $remove_slashes     remove slashes from string
      * @return  array                       string split on separator
      */
-
     protected function str_arr($remove_slashes = false)
     {
         return $this->lib('Utils')->str_arr(
@@ -3138,7 +3112,6 @@ class Tag extends Mod
     }
     //  END string to array
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3148,7 +3121,6 @@ class Tag extends Mod
      * @param   string  $type   type of id
      * @return  boolean         entry_id found and $this->entry_id set
      */
-
     protected function entry_id($type = 'channel')
     {
         ee()->load->helper('string');
@@ -3157,7 +3129,7 @@ class Tag extends Mod
         //  Prep type
         //  ----------------------------------------
 
-        $types = array( 'channel'   => 'exp_channel_titles');
+        $types = array('channel'   => 'exp_channel_titles');
 
         $type = (isset($types[$type])) ? $types[$type] : 'exp_channel_titles';
 
@@ -3171,7 +3143,7 @@ class Tag extends Mod
         //  Begin matching
         //  ----------------------------------------
 
-        $psql = "SELECT entry_id FROM `".$type."` WHERE entry_id = '%eid'";
+        $psql = "SELECT entry_id FROM `" . $type . "` WHERE entry_id = '%eid'";
 
         if (ctype_digit(ee()->TMPL->fetch_param('entry_id')) === true) {
             $sql = str_replace("%eid", ee()->db->escape_str(ee()->TMPL->fetch_param('entry_id')), $psql);
@@ -3185,9 +3157,9 @@ class Tag extends Mod
             }
         } elseif (ee()->TMPL->fetch_param('url_title') != "") {
             $query = ee()->db
-                        ->select('entry_id')
-                        ->where('url_title', ee()->TMPL->fetch_param('url_title'))
-                        ->get($type);
+                ->select('entry_id')
+                ->where('url_title', ee()->TMPL->fetch_param('url_title'))
+                ->get($type);
 
             if ($query->num_rows() > 0) {
                 $this->entry_id = $query->row('entry_id');
@@ -3244,11 +3216,11 @@ class Tag extends Mod
 
                 // Text version of the category
 
-                if (preg_match("#^".$cat_segment."/#", $qstring, $match) && ee()->TMPL->fetch_param('channel')) {
-                    $qstring = str_replace($cat_segment.'/', '', $qstring);
+                if (preg_match("#^" . $cat_segment . "/#", $qstring, $match) && ee()->TMPL->fetch_param('channel')) {
+                    $qstring = str_replace($cat_segment . '/', '', $qstring);
 
                     $sql = "SELECT DISTINCT cat_group FROM exp_channels
-                                   WHERE site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."') ";
+                                   WHERE site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "') ";
 
                     $sql .= ee()->functions->sql_andor_string(ee()->TMPL->fetch_param('channel'), 'channel_name');
 
@@ -3257,11 +3229,11 @@ class Tag extends Mod
                     if ($query->num_rows() == 1) {
                         $result = ee()->db->query("SELECT cat_id
                                               FROM exp_categories
-                                              WHERE site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                                              AND cat_name='".ee()->db->escape_str($qstring)."' AND group_id='".ee()->db->escape_str($query->row('cat_group'))."'");
+                                              WHERE site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                                              AND cat_name='" . ee()->db->escape_str($qstring) . "' AND group_id='" . ee()->db->escape_str($query->row('cat_group')) . "'");
 
                         if ($result->num_rows() == 1) {
-                            $qstring = 'C'.$result->row('cat_id');
+                            $qstring = 'C' . $result->row('cat_id');
                         }
                     }
                 }
@@ -3297,9 +3269,8 @@ class Tag extends Mod
                 $sql = "SELECT wt.entry_id
                             FROM exp_channel_titles AS wt, exp_channels AS w
                             WHERE wt.channel_id = w.channel_id
-                            AND wt.site_id IN ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                            AND wt.url_title = '".ee()->db->escape_str($qstring)."'";
-
+                            AND wt.site_id IN ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                            AND wt.url_title = '" . ee()->db->escape_str($qstring) . "'";
 
                 $query = ee()->db->query($sql);
 
@@ -3315,6 +3286,7 @@ class Tag extends Mod
 
                 if (ctype_digit($qstring)) {
                     $this->entry_id = $qstring;
+
                     return true;
                 }
             }
@@ -3324,7 +3296,6 @@ class Tag extends Mod
     }
     //END entry id
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3333,7 +3304,6 @@ class Tag extends Mod
      * @access  public
      * @return  {string}        tagdata output for stats
      */
-
     public function stats()
     {
         $t_entries = 0;
@@ -3352,29 +3322,29 @@ class Tag extends Mod
             "SELECT COUNT(*) AS count
              FROM   exp_tag_tags
              WHERE  site_id
-             IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')"
+             IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')"
         );
 
-        if (stristr(ee()->TMPL->tagdata, 'channel'.'_entries_tagged'.RD) !== false) {
+        if (stristr(ee()->TMPL->tagdata, 'channel' . '_entries_tagged' . RD) !== false) {
             $t_entries = ee()->db->query(
                 "SELECT     COUNT(DISTINCT tag_id) AS count
                  FROM       exp_tag_entries
                  WHERE      type = 'channel'
                  AND        site_id
-                 IN         ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
+                 IN         ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
                  GROUP BY   entry_id"
             );
 
-            $t_entries = ($t_entries->num_rows() > 0) ? $t_entries->num_rows(): 0;
+            $t_entries = ($t_entries->num_rows() > 0) ? $t_entries->num_rows() : 0;
 
             $entries = ee()->db->query(
                 "SELECT COUNT(*) AS count
                  FROM   exp_channel_titles
                  WHERE  site_id
-                 IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')"
+                 IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')"
             );
 
-            $p_entries = ($entries->row('count') != 0) ? round($t_entries / $entries->row('count') * 100, 2): 0;
+            $p_entries = ($entries->row('count') != 0) ? round($t_entries / $entries->row('count') * 100, 2) : 0;
         }
 
         //  ----------------------------------------
@@ -3384,14 +3354,14 @@ class Tag extends Mod
         $gt_entries = 0;
         $pg_entries = 0;
 
-        if (preg_match_all("/".preg_quote(LD)."top_([0-9]+)_tags".preg_quote(RD)."/", ee()->TMPL->tagdata, $matches) !== false) {
+        if (preg_match_all("/" . preg_quote(LD) . "top_([0-9]+)_tags" . preg_quote(RD) . "/", ee()->TMPL->tagdata, $matches) !== false) {
             foreach ($matches[1] as $number) {
                 $top5 = ee()->db->query(
                     "SELECT t.tag_name
                      FROM   exp_tag_tags t
                      WHERE  site_id
-                     IN     ('".implode("','", ee()->db->escape_str(ee()->TMPL->site_ids))."')
-                     ORDER  BY t.total_entries DESC LIMIT ".ceil($number)
+                     IN     ('" . implode("','", ee()->db->escape_str(ee()->TMPL->site_ids)) . "')
+                     ORDER  BY t.total_entries DESC LIMIT " . ceil($number)
                 );
 
                 $ranked = array();
@@ -3400,7 +3370,7 @@ class Tag extends Mod
                     $ranked[] = $row['tag_name'];
                 }
 
-                $this->return_data = str_replace(LD.'top_'.ceil($number).'_tags'.RD, implode(', ', $ranked), $this->return_data);
+                $this->return_data = str_replace(LD . 'top_' . ceil($number) . '_tags' . RD, implode(', ', $ranked), $this->return_data);
             }
         }
 
@@ -3409,18 +3379,16 @@ class Tag extends Mod
         //  ----------------------------------------
 
         $data = array(
-            LD.'total_tags'.RD                      => $tags->row('count'),
-            LD.'total_channel_entries_tagged'.RD    => $t_entries,
-            LD.'percent_channel_entries_tagged'.RD  => $p_entries,
-            LD.'total_weblog_entries_tagged'.RD     => $t_entries,
-            LD.'percent_weblog_entries_tagged'.RD   => $p_entries,
+            LD . 'total_tags' . RD                      => $tags->row('count'),
+            LD . 'total_channel_entries_tagged' . RD    => $t_entries,
+            LD . 'percent_channel_entries_tagged' . RD  => $p_entries,
+            LD . 'total_weblog_entries_tagged' . RD     => $t_entries,
+            LD . 'percent_weblog_entries_tagged' . RD   => $p_entries,
         );
 
         return str_replace(array_keys($data), array_values($data), $this->return_data);
     }
     //  END stats
-
-
 
     // --------------------------------------------------------------------
 
@@ -3430,7 +3398,6 @@ class Tag extends Mod
      *  @access     public
      *  @return     string  tag js for the front end
      */
-
     public function field_js()
     {
         if (isset(ee()->sessions->cache['solspace']['scripts']['tag']['field'])) {
@@ -3443,7 +3410,6 @@ class Tag extends Mod
     }
     //END field_js
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3452,7 +3418,6 @@ class Tag extends Mod
      *  @access     public
      *  @return     string  tag auto completejs for the front end
      */
-
     public function field_autocomplete_js()
     {
         if (isset(ee()->sessions->cache['solspace']['scripts']['jquery']['tag_autocomplete'])) {
@@ -3465,7 +3430,6 @@ class Tag extends Mod
     }
     //END field_js
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3474,7 +3438,6 @@ class Tag extends Mod
      *  @access     public
      *  @return     string  tag css for the front end
      */
-
     public function field_css()
     {
         if (isset(ee()->sessions->cache['solspace']['css']['tag']['field'])) {
@@ -3488,7 +3451,6 @@ class Tag extends Mod
     }
     //END field_css
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3498,7 +3460,6 @@ class Tag extends Mod
      *  @param      array   data for item inputs from the field type or elsewhere
      *  @return     string
      */
-
     public function field_type_widget($data)
     {
         //--------------------------------------------
@@ -3641,7 +3602,6 @@ class Tag extends Mod
                          WHERE      site_id = " .
                             ee()->db->escape_str(ee()->config->item('site_id'));
 
-
             $top_orderby = "t.total_entries";
 
             // -------------------------------------
@@ -3665,7 +3625,6 @@ class Tag extends Mod
                                 WHERE   tag_group_id = " .
                                     $tgid_clean . ")";
             }
-
 
             $top_sql .= " ORDER BY  {$top_orderby} DESC
                          LIMIT      " . ee()->db->escape_str($data['top_tag_limit']);
@@ -3742,11 +3701,10 @@ class Tag extends Mod
 
             //tab name for publish tabs
             'tab_name'                  => $this->either_or(
-                $this->model('Data')->preference($data['channel_id'].'_publish_tab_label'),
+                $this->model('Data')->preference($data['channel_id'] . '_publish_tab_label'),
                 ''
             ),
         ));
-
 
         //--------------------------------------------
         //  urls
@@ -3778,7 +3736,6 @@ class Tag extends Mod
     }
     //  END field_type_widget
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3788,7 +3745,6 @@ class Tag extends Mod
      *  @access     public
      *  @return     mixed
      */
-
     public function ajax()
     {
         $method = ee()->input->get_post('method');
@@ -3805,7 +3761,6 @@ class Tag extends Mod
     }
     //ENd ajax
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3816,7 +3771,6 @@ class Tag extends Mod
      *  @access     protected
      *  @return     int
      */
-
     protected function get_tag_group_id()
     {
         $tag_group_id = false;
@@ -3853,7 +3807,6 @@ class Tag extends Mod
     }
     //END get_tag_group_id
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3862,7 +3815,6 @@ class Tag extends Mod
      *  @access     public
      *  @return     string
      */
-
     public function separator()
     {
         return lang($this->model('Data')->preference('separator'));

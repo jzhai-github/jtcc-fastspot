@@ -59,7 +59,7 @@
 					<?php endforeach;?>
 					<div class="tag_clear"></div>
 				</div>
-			<?php if ( ! $input_only):?>
+			<?php if (! $input_only):?>
 				<div class="suggest_tags white_grad">
 					<span class="glass"></span>
 					<span class="tag_button_label"><?=lang('suggest_tags');?></span>
@@ -74,7 +74,7 @@
 		</div>
 		<div class="tag_clear"></div>
 	</div>
-<?php if ( ! $input_only):?>
+<?php if (! $input_only):?>
 	<div class="addon_tag_suggest_tags">
 		<span class="tag_section_closer ex"></span>
 		<div class="tag_section_name">
@@ -143,15 +143,15 @@
 		//current tags
 		data['currentTags']						= data['currentTags'] || {};
 		data['currentTags']['<?=$field_id?>'] 	= [<?php
-			if(count($current_tags_escaped)):
-				?>'<?=implode("','", $current_tags_escaped)?>'<?php
-			endif;?>];
+            if (count($current_tags_escaped)):
+                ?>'<?=implode("','", $current_tags_escaped)?>'<?php
+            endif;?>];
 		//top tags
 		data['topTags']							= data['topTags'] || {};
 		data['topTags']['<?=$field_id?>'] 		= [<?php
-			if(count($top_tags_escaped)):
-				?>'<?=implode("','", $top_tags_escaped)?>'<?php
-			endif;?>];
+            if (count($top_tags_escaped)):
+                ?>'<?=implode("','", $top_tags_escaped)?>'<?php
+            endif;?>];
 		//all open
 		data['allOpen']							= data['allOpen'] || {};
 		data['allOpen']['<?=$field_id?>']		= '<?=$all_open?>';
@@ -167,14 +167,14 @@
 		//suggest fields
 		data['suggestFields']					= data['suggestFields'] || {};
 		data['suggestFields']['<?=$field_id?>'] = [<?php
-			if(count($suggest_fields)):
-				?>'<?=implode("','", $suggest_fields)?>'<?php
-			endif;?>];
+            if (count($suggest_fields)):
+                ?>'<?=implode("','", $suggest_fields)?>'<?php
+            endif;?>];
 		//EXPLOOOOOOODDDEE!
 		data['explodeSeparator']				= data['explodeSeparator'] || {};
 		data['explodeSeparator']['<?=$field_id?>'] = <?=(
-			$explode_separator ? 'true' : 'false'
-		)?>;
+                    $explode_separator ? 'true' : 'false'
+                )?>;
 		//separator
 		data['separator']						= data['separator'] || {};
 		data['separator']['<?=$field_id?>']		= '<?=(($tag_separator == "\n") ? '\n' : $tag_separator)?>';

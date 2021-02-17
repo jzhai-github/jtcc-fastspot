@@ -23,7 +23,6 @@ class Tag_mcp extends Mcp
      * @access  public
      * @return  null
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -134,7 +133,6 @@ class Tag_mcp extends Mcp
      *  @param      string      $message - That little message display thingy
      *  @return     string
      */
-
     public function index($message = '')
     {
         //--------------------------------------------
@@ -163,8 +161,8 @@ class Tag_mcp extends Mcp
             if ($tags_in_group) {
                 $tqn_query = $this->model('Group')
                                 //->fields('tag_group_name')
-                                ->filter('tag_group_id', $tag_group_id)
-                                ->first();
+                    ->filter('tag_group_id', $tag_group_id)
+                    ->first();
 
                 if ($tqn_query) {
                     $tag_group_name = $tqn_query->tag_group_name;
@@ -188,7 +186,7 @@ class Tag_mcp extends Mcp
         //--------------------------------------------
 
         $q = $this->fetch('TagTag')
-                ->filter('site_id', ee()->config->item('site_id'));
+            ->filter('site_id', ee()->config->item('site_id'));
 
         if ($tags_in_group) {
             $q->filter('tag_id', 'IN', $tags_in_group);
@@ -200,12 +198,11 @@ class Tag_mcp extends Mcp
         //  total entries tagged
         //--------------------------------------------
 
-
         //@TODO: change this out for a model
         //@NOTE: at the moment EE 3.x models don't support distinct
         ee()->db->select('COUNT(DISTINCT entry_id) AS count')
-                ->where('type', 'channel')
-                ->where('site_id', ee()->config->item('site_id'));
+            ->where('type', 'channel')
+            ->where('site_id', ee()->config->item('site_id'));
 
         if ($tags_in_group) {
             ee()->db->where('tag_group_id', $tag_group_id);
@@ -222,9 +219,9 @@ class Tag_mcp extends Mcp
         //--------------------------------------------
 
         $entry_count = ee('Model')
-                        ->get('ChannelEntry')
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->count();
+            ->get('ChannelEntry')
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->count();
 
         if ($entry_count > 0) {
             $this->cached_vars['percent_channel_entries_tagged'] = round(
@@ -239,9 +236,9 @@ class Tag_mcp extends Mcp
 
         $tagTags = $this->fetch('TagTag')
                         //->fields('tag_name', 'total_entries')
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->order('total_entries', 'desc')
-                        ->limit(5);
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->order('total_entries', 'desc')
+            ->limit(5);
 
         if ($tags_in_group) {
             $tagTags->filter('tag_id', 'IN', $tags_in_group);
@@ -302,9 +299,9 @@ class Tag_mcp extends Mcp
 
         $bad_tags = $this->fetch('BadTag')
                         //->fields('tag_name') //this is causing a limit(1) bug in ee 3.1
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->all()
-                        ->getDictionary('tag_name', 'tag_name');
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->all()
+            ->getDictionary('tag_name', 'tag_name');
 
         $this->cached_vars['bad_tags'] = array_values($bad_tags);
 
@@ -313,9 +310,8 @@ class Tag_mcp extends Mcp
         // --------------------------------------------
 
         $tagTags = $this->fetch('TagTag')
-                        ->filter('tag_name', '!=', '')
-                        ->filter('site_id', ee()->config->item('site_id'));
-
+            ->filter('tag_name', '!=', '')
+            ->filter('site_id', ee()->config->item('site_id'));
 
         $alpha = ee()->input->get_post('alpha');
         $keywords = ee()->input->get_post('tag_search_keywords');
@@ -414,9 +410,9 @@ class Tag_mcp extends Mcp
             }
 
             $this->cached_vars['pagination'] = ee('CP/Pagination', $total_count)
-                                ->perPage($this->row_limit)
-                                ->currentPage($page)
-                                ->render($this->mcp_link($mcp_link_array, false));
+                ->perPage($this->row_limit)
+                ->currentPage($page)
+                ->render($this->mcp_link($mcp_link_array, false));
 
             $tagTags->limit($this->row_limit)->offset(($page - 1) * $this->row_limit);
         }
@@ -476,9 +472,9 @@ class Tag_mcp extends Mcp
         if (! empty($tag_names)) {
             $bad_tags = $this->fetch('BadTag')
                             //->fields('tag_name')
-                            ->filter('tag_name', 'IN', $tag_names)
-                            ->all()
-                            ->getDictionary('tag_name', 'tag_name');
+                ->filter('tag_name', 'IN', $tag_names)
+                ->all()
+                ->getDictionary('tag_name', 'tag_name');
         }
 
         foreach ($this->cached_vars['tags'] as $data) {
@@ -606,7 +602,6 @@ class Tag_mcp extends Mcp
     }
     // END index()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -616,7 +611,6 @@ class Tag_mcp extends Mcp
      * @param   message flashdata message for CP
      * @return  string  output html
      */
-
     public function tag_groups($message = '')
     {
         $this->prep_message($message);
@@ -627,11 +621,10 @@ class Tag_mcp extends Mcp
 
         $ug_query = ee('Model')->get('ChannelField')
                         //->fields('field_id', 'field_settings')
-                        ->filter('field_type', $this->lower_name)
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->all()
-                        ->getDictionary('field_id', 'field_settings');
-
+            ->filter('field_type', $this->lower_name)
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->all()
+            ->getDictionary('field_id', 'field_settings');
 
         //1 is always locked as its default
         $used_groups = array('1' => true);
@@ -689,10 +682,10 @@ class Tag_mcp extends Mcp
                 //support distinct and count_all_results ignores
                 //select and distinct
                 $count_tags = ee()->db
-                            ->distinct()
-                            ->select('tag_id')
-                            ->where('tag_group_id', $row['tag_group_id'])
-                            ->get('tag_entries');
+                    ->distinct()
+                    ->select('tag_id')
+                    ->where('tag_group_id', $row['tag_group_id'])
+                    ->get('tag_entries');
 
                 //total tags in group
                 $row['tag_count'] = $count_tags->num_rows();
@@ -846,7 +839,6 @@ class Tag_mcp extends Mcp
     }
     //END tag_groups
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -857,7 +849,6 @@ class Tag_mcp extends Mcp
      * @param   message flashdata message for CP
      * @return  string  output html
      */
-
     public function edit_tag_group_form($message = '')
     {
         $this->prep_message($message, true, true);
@@ -885,8 +876,8 @@ class Tag_mcp extends Mcp
 
         if ($mode == 'edit') {
             $query = $this->fetch('Group')
-                        ->filter('tag_group_id', $tag_group_id)
-                        ->first();
+                ->filter('tag_group_id', $tag_group_id)
+                ->first();
 
             if (! empty($query)) {
                 $row = $query->asArray();
@@ -942,8 +933,6 @@ class Tag_mcp extends Mcp
             );
         }
 
-
-
         $sections[] = $main_section;
 
         $this->cached_vars['sections'] = $sections;
@@ -989,7 +978,6 @@ class Tag_mcp extends Mcp
     }
     //END edit_tag_group_form
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -998,7 +986,6 @@ class Tag_mcp extends Mcp
      * @access  public
      * @return  void        return
      */
-
     public function edit_tag_group()
     {
         //edit
@@ -1015,7 +1002,6 @@ class Tag_mcp extends Mcp
             $short_name = strtolower(ee()->input->get_post('tag_group_short_name'));
 
             $tag_group_short_name   = ($group_name == $short_name) ? $group_name : $short_name;
-
 
             ee()->db->update(
                 'exp_tag_groups',
@@ -1047,7 +1033,6 @@ class Tag_mcp extends Mcp
     }
     //END edit_tag_group
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1056,7 +1041,6 @@ class Tag_mcp extends Mcp
      * @access  public
      * @return  void    redirect
      */
-
     public function delete_tag_groups()
     {
         $sql    = array();
@@ -1072,9 +1056,9 @@ class Tag_mcp extends Mcp
         //--------------------------------------------
 
         $ug_query = ee()->db
-                        ->select('field_settings')
-                        ->where('field_type', 'tag')
-                        ->get('channel_fields');
+            ->select('field_settings')
+            ->where('field_type', 'tag')
+            ->get('channel_fields');
 
         $used_groups = array();
 
@@ -1121,7 +1105,6 @@ class Tag_mcp extends Mcp
     }
     // END delete_tag_groups()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1132,7 +1115,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function manage_tags_process()
     {
         $mcp_link_array = array(
@@ -1155,7 +1137,6 @@ class Tag_mcp extends Mcp
     }
     // END manage_tags_proces()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1165,7 +1146,6 @@ class Tag_mcp extends Mcp
      * @param   string $message     incoming message
      * @return  array               mcp output array
      */
-
     public function channel_entries_by_tag($message = '')
     {
         //  ----------------------------------------
@@ -1180,9 +1160,9 @@ class Tag_mcp extends Mcp
 
         $query = $this->fetch('TagTag')
                     //->fields('tag_name')
-                    ->filter('site_id', ee()->config->item('site_id'))
-                    ->filter('tag_id', $tag_id)
-                    ->first();
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->filter('tag_id', $tag_id)
+            ->first();
 
         if (empty($query)) {
             return $this->show_error(lang('invalid_request'));
@@ -1197,9 +1177,9 @@ class Tag_mcp extends Mcp
 
         $tag_entries = $this->fetch('Entry')
                         //->fields('entry_id')
-                        ->filter('tag_id', $tag_id)
-                        ->all()
-                        ->getDictionary('entry_id', 'entry_id');
+            ->filter('tag_id', $tag_id)
+            ->all()
+            ->getDictionary('entry_id', 'entry_id');
 
         $tableData = array();
 
@@ -1210,8 +1190,8 @@ class Tag_mcp extends Mcp
                             'entry_date',
                             'entry_id'
                         )*/
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->filter('entry_id', 'IN', array_values($tag_entries));
+                ->filter('site_id', ee()->config->item('site_id'))
+                ->filter('entry_id', 'IN', array_values($tag_entries));
 
             // -------------------------------------
             //  sort
@@ -1253,9 +1233,9 @@ class Tag_mcp extends Mcp
                 }
 
                 $this->cached_vars['pagination'] = ee('CP/Pagination', $total_count)
-                                    ->perPage($this->row_limit)
-                                    ->currentPage($page)
-                                    ->render($this->mcp_link($mcp_link_array, false));
+                    ->perPage($this->row_limit)
+                    ->currentPage($page)
+                    ->render($this->mcp_link($mcp_link_array, false));
 
                 $entries->limit($this->row_limit)->offset(($page - 1) * $this->row_limit);
             }
@@ -1327,7 +1307,6 @@ class Tag_mcp extends Mcp
     }
     // END channel_entries_by_tag()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1336,7 +1315,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function edit_tag_form()
     {
         $tag_id = $this->get_post_or_zero('tag_id');
@@ -1350,16 +1328,15 @@ class Tag_mcp extends Mcp
         //  ----------------------------------------
 
         $query = $this->fetch('TagTag')
-                        ->filter('tag_id', $tag_id)
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->first();
+            ->filter('tag_id', $tag_id)
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->first();
 
         if (! $query) {
             return ee()->functions->redirect($this->mcp_link());
         }
 
         $row = $query->asArray();
-
 
         $sections = array();
 
@@ -1426,7 +1403,6 @@ class Tag_mcp extends Mcp
     }
     // END edit tag form
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1435,7 +1411,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function edit_tag()
     {
         if (ee()->input->get_post('tag_id') === false or
@@ -1456,10 +1431,10 @@ class Tag_mcp extends Mcp
         }
 
         $query = ee()->db
-                    ->select('tag_name')
-                    ->where('tag_id', $this->tag_id)
-                    ->limit(1)
-                    ->get('tag_tags');
+            ->select('tag_name')
+            ->where('tag_id', $this->tag_id)
+            ->limit(1)
+            ->get('tag_tags');
 
         if ($query->num_rows() == 0) {
             return ee()->functions->redirect($this->mcp_link());
@@ -1481,7 +1456,7 @@ class Tag_mcp extends Mcp
 
         $sql    = "SELECT   tag_id, tag_name
                    FROM     exp_tag_tags
-                   WHERE    site_id = " . ee()->db->escape_str(ee()->config->item('site_id')) ."
+                   WHERE    site_id = " . ee()->db->escape_str(ee()->config->item('site_id')) . "
                    AND      tag_name = '" . ee()->db->escape_str($tag_name) . "'";
 
         if ($this->tag_id != '') {
@@ -1524,7 +1499,7 @@ class Tag_mcp extends Mcp
                     $previous_entries[] = $row['entry_id'];
                 }
 
-                $extra_sql .= " AND entry_id NOT IN (".implode(',', $previous_entries).")";
+                $extra_sql .= " AND entry_id NOT IN (" . implode(',', $previous_entries) . ")";
             }
 
             // --------------------------------------------
@@ -1552,8 +1527,8 @@ class Tag_mcp extends Mcp
             $this->lib('Utils')->recount_tags($query->row('tag_id'));
 
             $message    = str_replace(
-                array( '%old_tag_name%', '%new_tag_name%' ),
-                array( $old_tag_name, $tag_name ),
+                array('%old_tag_name%', '%new_tag_name%'),
+                array($old_tag_name, $tag_name),
                 lang('tags_combined')
             );
         }
@@ -1588,7 +1563,6 @@ class Tag_mcp extends Mcp
     }
     // END edit tag
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1597,7 +1571,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function delete_tag()
     {
         $sql    = array();
@@ -1617,7 +1590,7 @@ class Tag_mcp extends Mcp
             "SELECT tag_id
              FROM   exp_tag_tags
              WHERE  tag_id
-             IN     ('".implode("','", ee()->db->escape_str($ids))."')"
+             IN     ('" . implode("','", ee()->db->escape_str($ids)) . "')"
         );
 
         //  ----------------------------------------
@@ -1633,13 +1606,13 @@ class Tag_mcp extends Mcp
         ee()->db->query(
             "DELETE FROM    exp_tag_tags
              WHERE          tag_id
-             IN             ('".implode("','", ee()->db->escape_str($ids))."')"
+             IN             ('" . implode("','", ee()->db->escape_str($ids)) . "')"
         );
 
         ee()->db->query(
             "DELETE FROM    exp_tag_entries
              WHERE          tag_id
-             IN             ('".implode("','", ee()->db->escape_str($ids))."')"
+             IN             ('" . implode("','", ee()->db->escape_str($ids)) . "')"
         );
 
         foreach ($sql as $q) {
@@ -1665,7 +1638,6 @@ class Tag_mcp extends Mcp
     }
     // END delete_tag()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1674,7 +1646,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function bad_tag()
     {
         //  ----------------------------------------
@@ -1706,8 +1677,8 @@ class Tag_mcp extends Mcp
             $query  = ee()->db->query(
                 "SELECT tag_name
                  FROM   exp_tag_bad_tags
-                 WHERE  site_id = '".ee()->db->escape_str(ee()->config->item('site_id'))."'
-                 AND    BINARY tag_name = '".ee()->db->escape_str($tag_name)."'"
+                 WHERE  site_id = '" . ee()->db->escape_str(ee()->config->item('site_id')) . "'
+                 AND    BINARY tag_name = '" . ee()->db->escape_str($tag_name) . "'"
             );
 
             if ($query->num_rows() > 0) {
@@ -1756,8 +1727,8 @@ class Tag_mcp extends Mcp
         $query  = ee()->db->query(
             "SELECT tag_name
              FROM   exp_tag_bad_tags
-             WHERE  site_id = '".ee()->db->escape_str(ee()->config->item('site_id'))."'
-             AND    BINARY tag_name = '".ee()->db->escape_str($tag_name)."'"
+             WHERE  site_id = '" . ee()->db->escape_str(ee()->config->item('site_id')) . "'
+             AND    BINARY tag_name = '" . ee()->db->escape_str($tag_name) . "'"
         );
 
         if ($query->num_rows() > 0) {
@@ -1799,7 +1770,6 @@ class Tag_mcp extends Mcp
     }
     // END bad tag quick submit
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1811,7 +1781,6 @@ class Tag_mcp extends Mcp
      *  @param      string  message to send to user
      *  @return     string
      */
-
     public function manage_bad_tags($message = '')
     {
         $this->prep_message($message, true, true);
@@ -1822,7 +1791,7 @@ class Tag_mcp extends Mcp
 
         $badTags = $this->fetch('BadTag')
                     //->fields('tag_id', 'tag_name', 'edit_date')
-                    ->filter('site_id', ee()->config->item('site_id'));
+            ->filter('site_id', ee()->config->item('site_id'));
 
         // -------------------------------------
         //  sorting
@@ -1872,9 +1841,9 @@ class Tag_mcp extends Mcp
                 }
 
                 $this->cached_vars['pagination'] = ee('CP/Pagination', $total_count)
-                                    ->perPage($this->row_limit)
-                                    ->currentPage($page)
-                                    ->render($this->mcp_link($mcp_link_array, false));
+                    ->perPage($this->row_limit)
+                    ->currentPage($page)
+                    ->render($this->mcp_link($mcp_link_array, false));
 
                 $badTags->limit($this->row_limit)->offset(($page - 1) * $this->row_limit);
             }
@@ -1963,7 +1932,6 @@ class Tag_mcp extends Mcp
     }
     // END manage_bad_tags()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1974,7 +1942,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function delete_bad_tag()
     {
         $sql    = array();
@@ -1993,9 +1960,9 @@ class Tag_mcp extends Mcp
         }
 
         $query = ee()->db
-                    ->select('tag_id')
-                    ->where_in('tag_id', $ids)
-                    ->get('tag_bad_tags');
+            ->select('tag_id')
+            ->where_in('tag_id', $ids)
+            ->get('tag_bad_tags');
 
         //  ----------------------------------------
         //  Delete Bad Tags!
@@ -2011,8 +1978,8 @@ class Tag_mcp extends Mcp
 
         if (! empty($ids)) {
             $query = ee()->db
-                        ->where_in('tag_id', $ids)
-                        ->delete('tag_bad_tags');
+                ->where_in('tag_id', $ids)
+                ->delete('tag_bad_tags');
         }
 
         return ee()->functions->redirect($this->mcp_link(array(
@@ -2022,7 +1989,6 @@ class Tag_mcp extends Mcp
     }
     // END delete_bad_tag()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2031,7 +1997,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function add_bad_tags_form()
     {
         $sections = array();
@@ -2090,7 +2055,6 @@ class Tag_mcp extends Mcp
     }
     // END add_bad_tags_form()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2099,7 +2063,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function add_bad_tags()
     {
         //  ----------------------------------------
@@ -2133,10 +2096,10 @@ class Tag_mcp extends Mcp
 
         $existing = $this->fetch('BadTag')
                         //->fields('tag_name')
-                        ->filter('site_id', ee()->config->item('site_id'))
-                        ->filter('tag_name', 'IN', $tag_array)
-                        ->all()
-                        ->getDictionary('tag_name', 'tag_name');
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->filter('tag_name', 'IN', $tag_array)
+            ->all()
+            ->getDictionary('tag_name', 'tag_name');
 
         $inserts = array_diff($tag_array, array_values($existing));
 
@@ -2160,7 +2123,6 @@ class Tag_mcp extends Mcp
     }
     // END add_bad_tags()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2170,7 +2132,6 @@ class Tag_mcp extends Mcp
      *  @param      string  message to send to user
      *  @return     string
      */
-
     public function preferences($message = '')
     {
         $this->prep_message($message, true, true);
@@ -2184,11 +2145,11 @@ class Tag_mcp extends Mcp
         $defaultPrefs = $prefModel->default_prefs;
 
         $prefs = $this->fetch('Preference')
-                    ->filter('site_id', ee()->config->item('site_id'))
-                    ->all()->getDictionary(
-                        'tag_preference_name',
-                        'tag_preference_value'
-                    );
+            ->filter('site_id', ee()->config->item('site_id'))
+            ->all()->getDictionary(
+                'tag_preference_name',
+                'tag_preference_value'
+            );
 
         $sections = array();
 
@@ -2266,7 +2227,6 @@ class Tag_mcp extends Mcp
     }
     // END preferences()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2275,7 +2235,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function update_preferences()
     {
         $prefs = $this->make('Preference');
@@ -2321,10 +2280,9 @@ class Tag_mcp extends Mcp
         $site_id = ee()->config->item('site_id');
 
         $currentPrefs = $this->fetch('Preference')
-                            ->filter('site_id', $site_id)
-                            ->all()
-                            ->indexBy('tag_preference_name');
-
+            ->filter('site_id', $site_id)
+            ->all()
+            ->indexBy('tag_preference_name');
 
         foreach ($inputs as $name => $value) {
             //update
@@ -2349,7 +2307,6 @@ class Tag_mcp extends Mcp
     }
     // END update_preferences()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2362,7 +2319,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function tag_field_sync()
     {
         // --------------------------------------------
@@ -2469,7 +2425,6 @@ class Tag_mcp extends Mcp
     }
     // END tag_field_sync()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2482,7 +2437,6 @@ class Tag_mcp extends Mcp
      *  @access public
      *  @return string  JSON response if ajax request, otherwise text
      */
-
     public function sync_tag_fields()
     {
         // -------------------------------------
@@ -2535,7 +2489,7 @@ class Tag_mcp extends Mcp
                                     FROM    exp_channels AS c,
                                             exp_channel_titles AS ct,
                                             exp_channel_fields AS cf
-                                    WHERE   ct.entry_id = '".ee()->db->escape_str($entry_id)."'
+                                    WHERE   ct.entry_id = '" . ee()->db->escape_str($entry_id) . "'
                                     AND     ct.channel_id = c.channel_id
                                     AND     c.field_group = cf.group_id
                                     AND     cf.field_type = 'tag'");
@@ -2589,7 +2543,7 @@ class Tag_mcp extends Mcp
                 } else {
                     ee()->db->update(
                         'exp_channel_data',
-                        array('field_id_'.$field_id => implode("\n", $tags)),
+                        array('field_id_' . $field_id => implode("\n", $tags)),
                         array('entry_id'            => $entry_id)
                     );
                 }
@@ -2626,7 +2580,6 @@ class Tag_mcp extends Mcp
      *  @param      bool    show 4.1 update to user
      *  @return     string
      */
-
     public function update_tag_counts($message = '', $show_update_msg = false)
     {
         $this->prep_message($message);
@@ -2686,7 +2639,6 @@ class Tag_mcp extends Mcp
     }
     //END update_tag_counts
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2695,7 +2647,6 @@ class Tag_mcp extends Mcp
      * @access  public
      * @return  string  JSON response if ajax request, otherwise text
      */
-
     public function update_tag_count()
     {
         // -------------------------------------
@@ -2740,8 +2691,6 @@ class Tag_mcp extends Mcp
     }
     //END update_tag_count
 
-
-
     // --------------------------------------------------------------------
 
     /**
@@ -2751,7 +2700,6 @@ class Tag_mcp extends Mcp
      *  @param      string  message to send to user
      *  @return     string
      */
-
     public function harvest($message = '')
     {
         $this->prep_message($message);
@@ -2801,7 +2749,7 @@ class Tag_mcp extends Mcp
                         if ($row['channel_id'] == $x[0]) {
                             $options[$group][$row['channel_id']] = $row['site_label'] .
                                                             ' - ' . $row['channel_title'] .
-                                                            ' > ' .$q_row['field_label'];
+                                                            ' > ' . $q_row['field_label'];
                         }
                     }
                 }
@@ -2849,7 +2797,6 @@ class Tag_mcp extends Mcp
     }
     // END harvest()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2858,7 +2805,6 @@ class Tag_mcp extends Mcp
      *  @access     public
      *  @return     string
      */
-
     public function process_harvest()
     {
         // --------------------------------------------
@@ -2939,7 +2885,6 @@ class Tag_mcp extends Mcp
     }
     // END process_harvest()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2951,7 +2896,6 @@ class Tag_mcp extends Mcp
      *  @access     private
      *  @return     array
      */
-
     private function _harvest()
     {
         // --------------------------------------------
@@ -2992,7 +2936,7 @@ class Tag_mcp extends Mcp
         foreach ($harvest_sources as $harvest_source) {
             foreach (array('channel_categories', 'tag_fields') as $type) {
                 if (stristr($harvest_source, $type)) {
-                    $harvest_types[$type][] = str_replace($type.'_', '', $harvest_source);
+                    $harvest_types[$type][] = str_replace($type . '_', '', $harvest_source);
                 }
             }
         }
@@ -3000,8 +2944,6 @@ class Tag_mcp extends Mcp
         // --------------------------------------------
         //  Switch to the DB's Character Set from the Tag Character Set
         // --------------------------------------------
-
-
 
         // --------------------------------------------
         //  Let's Prepare for Some Parsing!
@@ -3026,7 +2968,7 @@ class Tag_mcp extends Mcp
                            LEFT JOIN    exp_categories c
                            ON           c.cat_id = cp.cat_id
                            WHERE        wt.channel_id
-                           IN           ('".implode("','", ee()->db->escape_str($harvest_items))."')";
+                           IN           ('" . implode("','", ee()->db->escape_str($harvest_items)) . "')";
 
                 //  ----------------------------------------
                 //   Check Total
@@ -3037,6 +2979,7 @@ class Tag_mcp extends Mcp
 
                 if ($query_row['count'] == 0) {
                     $done[$harvest_type] = true;
+
                     continue;
                 }
 
@@ -3048,7 +2991,7 @@ class Tag_mcp extends Mcp
                 //  Get data
                 //  ----------------------------------------
 
-                $sql    .= " ORDER BY entry_id ASC LIMIT " . (($batch - 1) * $per_batch).",".$per_batch;
+                $sql    .= " ORDER BY entry_id ASC LIMIT " . (($batch - 1) * $per_batch) . "," . $per_batch;
 
                 $query  = ee()->db->query(
                     str_replace(
@@ -3060,6 +3003,7 @@ class Tag_mcp extends Mcp
 
                 if ($query->num_rows() == 0) {
                     $done[$harvest_type] = true;
+
                     continue;
                 } elseif ($query->num_rows() < $per_batch or $query_row['count'] == ($batch * $per_batch)) {
                     $done[$harvest_type] = true;
@@ -3075,9 +3019,9 @@ class Tag_mcp extends Mcp
                     if (trim($row['cat_name']) == '') {
                         continue;
                     }
-                    $entries[ $row['entry_id'] ][ 'channel_id' ]    = $row['channel_id'];
-                    $entries[ $row['entry_id'] ][ 'site_id' ]   = $row['site_id'];
-                    $entries[ $row['entry_id'] ][ 'str' ][]     = stripslashes($row['cat_name']);
+                    $entries[$row['entry_id']]['channel_id']    = $row['channel_id'];
+                    $entries[$row['entry_id']]['site_id']   = $row['site_id'];
+                    $entries[$row['entry_id']]['str'][]     = stripslashes($row['cat_name']);
                 }
 
                 $data[$harvest_type] = $entries;
@@ -3096,10 +3040,9 @@ class Tag_mcp extends Mcp
                      AND    tag_preference_value != '0'"
                 );
 
-
                 foreach ($query->result_array() as $row) {
                     foreach ($harvest_items as $channel_id) {
-                        if ($row['tag_preference_name'] == $channel_id.'_tag_field') {
+                        if ($row['tag_preference_name'] == $channel_id . '_tag_field') {
                             $fields[$channel_id] = $row['tag_preference_value'];
                         }
                     }
@@ -3129,7 +3072,7 @@ class Tag_mcp extends Mcp
                            LEFT JOIN    exp_channel_data AS wd
                            ON           wt.entry_id = wd.entry_id
                            WHERE        wt.channel_id
-                           IN           ('".implode("','", ee()->db->escape_str(array_keys($fields)))."')";
+                           IN           ('" . implode("','", ee()->db->escape_str(array_keys($fields))) . "')";
 
                 //  ----------------------------------------
                 //   Check Total
@@ -3140,6 +3083,7 @@ class Tag_mcp extends Mcp
 
                 if ($query_row['count'] == 0) {
                     $done[$harvest_type] = true;
+
                     continue;
                 }
 
@@ -3151,7 +3095,7 @@ class Tag_mcp extends Mcp
                 //  Get data
                 //  ----------------------------------------
 
-                $sql    .= " ORDER BY entry_id ASC LIMIT ".(($batch - 1) * $per_batch).",".$per_batch;
+                $sql    .= " ORDER BY entry_id ASC LIMIT " . (($batch - 1) * $per_batch) . "," . $per_batch;
 
                 $query  = ee()->db->query(
                     str_replace(
@@ -3165,6 +3109,7 @@ class Tag_mcp extends Mcp
                 // There is nothing to harvest, so we are done!
                 if ($query->num_rows() == 0) {
                     $done[$harvest_type] = true;
+
                     continue;
                 }
                 // The number left is less than or equal to the number per batch, so this is the last batch!
@@ -3179,19 +3124,19 @@ class Tag_mcp extends Mcp
                 $entries    = array();
 
                 foreach ($query->result_array() as $row) {
-                    if (! isset($fields[ $row['channel_id'] ])) {
+                    if (! isset($fields[$row['channel_id']])) {
                         continue;
                     }
 
-                    $id = 'field_id_'.$fields[ $row['channel_id'] ];
+                    $id = 'field_id_' . $fields[$row['channel_id']];
 
-                    if ($row[ $id ] == '') {
+                    if ($row[$id] == '') {
                         continue;
                     }
 
-                    $entries[ $row['entry_id'] ][ 'channel_id' ]    = $row['channel_id'];
-                    $entries[ $row['entry_id'] ][ 'site_id' ]                   = $row['site_id'];
-                    $entries[ $row['entry_id'] ][ 'str' ]                       = $row[$id];
+                    $entries[$row['entry_id']]['channel_id']    = $row['channel_id'];
+                    $entries[$row['entry_id']]['site_id']                   = $row['site_id'];
+                    $entries[$row['entry_id']]['str']                       = $row[$id];
                 }
 
                 $data[$harvest_type] = $entries;
@@ -3203,7 +3148,7 @@ class Tag_mcp extends Mcp
         // --------------------------------------------
 
         if (! class_exists('Tag')) {
-            require $this->addon_path.'mod.tag.php';
+            require $this->addon_path . 'mod.tag.php';
         }
 
         foreach ($data as $harvest_type => $entries) {
@@ -3251,7 +3196,6 @@ class Tag_mcp extends Mcp
     }
     // END _harvest()
 
-
     //  ----------------------------------------
     //  Recount Tag Statistics
     //  ---------------------------------------
@@ -3259,20 +3203,19 @@ class Tag_mcp extends Mcp
     public function recount($return = true)
     {
 
-
         // --------------------------------------------
         //  Set num per batch and start
         // --------------------------------------------
 
-        $num    = (ee()->input->get_post('num') !== false and is_numeric(ee()->input->get_post('num')) === true) ? ee()->input->get_post('num'): 1000;
-        $start  = (ee()->input->get_post('start') !== false and is_numeric(ee()->input->get_post('start')) === true) ? ee()->input->get_post('start'): 0;
+        $num    = (ee()->input->get_post('num') !== false and is_numeric(ee()->input->get_post('num')) === true) ? ee()->input->get_post('num') : 1000;
+        $start  = (ee()->input->get_post('start') !== false and is_numeric(ee()->input->get_post('start')) === true) ? ee()->input->get_post('start') : 0;
 
         //  ----------------------------------------
         //   Check Totals
         //  ----------------------------------------
 
         $countq     = ee()->db->query("SELECT COUNT(*) AS count FROM exp_tag_tags");
-        $remainingq = ee()->db->query("SELECT site_id FROM exp_tag_tags LIMIT ".ee()->db->escape_str($start).",".ee()->db->escape_str($num));
+        $remainingq = ee()->db->query("SELECT site_id FROM exp_tag_tags LIMIT " . ee()->db->escape_str($start) . "," . ee()->db->escape_str($num));
 
         //  ----------------------------------------
         //  Any tags at all?
@@ -3335,7 +3278,7 @@ class Tag_mcp extends Mcp
         //  Recount stats for all existing tags
         //  ----------------------------------------
 
-        $query  = ee()->db->query("SELECT tag_id FROM exp_tag_tags LIMIT ".ee()->db->escape_str($start).",".ee()->db->escape_str($num));
+        $query  = ee()->db->query("SELECT tag_id FROM exp_tag_tags LIMIT " . ee()->db->escape_str($start) . "," . ee()->db->escape_str($num));
 
         $tags   = array();
 
@@ -3351,21 +3294,20 @@ class Tag_mcp extends Mcp
 
         $start  +=  $num;
 
-        $url    = $this->base.'P='.'recount'.AMP.'num='.$num.AMP.'start='.$start;
+        $url    = $this->base . 'P=' . 'recount' . AMP . 'num=' . $num . AMP . 'start=' . $start;
 
         $data   = array(
-                        'title'     => lang('recount'),
-                        'heading'   => lang('recount'),
-                        'content'   => str_replace(array( '%num', '%start', '%total' ), array( $num, $start, $countq->row('count') ), lang('tag_recount_running')),
-                        'rate'      => 2,
-                        'link'      => array( $url, 'click here to get there' ),
-                        'redirect'  => $url
-                        );
+            'title'     => lang('recount'),
+            'heading'   => lang('recount'),
+            'content'   => str_replace(array('%num', '%start', '%total'), array($num, $start, $countq->row('count')), lang('tag_recount_running')),
+            'rate'      => 2,
+            'link'      => array($url, 'click here to get there'),
+            'redirect'  => $url
+        );
 
         ee()->output->show_message($data);
     }
     // END recount()
-
 
     // -----------------------------------------------------------------
 
@@ -3376,7 +3318,6 @@ class Tag_mcp extends Mcp
      * @param   string  $message    lang line for update message
      * @return  string              html output
      */
-
     public function code_pack($message = '')
     {
         $this->prep_message($message, true, true);
@@ -3473,10 +3414,10 @@ class Tag_mcp extends Mcp
         );
 
         ee('CP/Alert')->makeInline('shared-form')
-        ->asIssue()
-        ->addToBody(lang('prefix_error'))
-        ->cannotClose()
-        ->now();
+            ->asIssue()
+            ->addToBody(lang('prefix_error'))
+            ->cannotClose()
+            ->now();
 
         return $this->mcp_view(array(
             'file'      => 'code_pack_form',
@@ -3490,7 +3431,6 @@ class Tag_mcp extends Mcp
     }
     //END code_pack
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3500,7 +3440,6 @@ class Tag_mcp extends Mcp
      * @param   string  $message    lang line for update message
      * @return  string              html output
      */
-
     public function code_pack_install()
     {
         $prefix = trim((string) ee()->input->get_post('prefix'));
@@ -3648,7 +3587,6 @@ class Tag_mcp extends Mcp
     }
     //END code_pack_install
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3657,7 +3595,6 @@ class Tag_mcp extends Mcp
      * @access public
      * @return  void
      */
-
     public function tag_browse()
     {
         ee()->lang->loadfile('tag');
@@ -3676,18 +3613,16 @@ class Tag_mcp extends Mcp
         //  Query and construct
         //  ----------------------------------------
 
-
-
         $extra = '';
 
         if (ee()->input->get_post('msm_tag_search') !== 'y') {
-            $extra = " AND site_id = '".ee()->db->escape_str(ee()->config->item('site_id'))."'";
+            $extra = " AND site_id = '" . ee()->db->escape_str(ee()->config->item('site_id')) . "'";
         }
 
         if (ee()->input->get_post('str') == '*') {
             $query  = ee()->db->query("SELECT DISTINCT tag_name AS name
                                        FROM exp_tag_tags
-                                       WHERE tag_name NOT IN ('".implode("','", ee()->db->escape_str($existing))."')
+                                       WHERE tag_name NOT IN ('" . implode("','", ee()->db->escape_str($existing)) . "')
                                        {$extra}
                                        ORDER BY tag_name");
         } else {
@@ -3695,22 +3630,20 @@ class Tag_mcp extends Mcp
 
             $query  = ee()->db->query("SELECT DISTINCT tag_name AS name
                                        FROM exp_tag_tags
-                                       WHERE tag_alpha = '".ee()->db->escape_str($this->lib('Utils')->first_character($str))."'
-                                       AND tag_name LIKE '".ee()->db->escape_str($str)."%'
-                                       AND tag_name NOT IN ('".implode("','", ee()->db->escape_str($existing))."')
+                                       WHERE tag_alpha = '" . ee()->db->escape_str($this->lib('Utils')->first_character($str)) . "'
+                                       AND tag_name LIKE '" . ee()->db->escape_str($str) . "%'
+                                       AND tag_name NOT IN ('" . implode("','", ee()->db->escape_str($existing)) . "')
                                        {$extra}
                                        ORDER BY tag_name");
         }
 
-
-
         if ($query->num_rows() == 0) {
-            $select = '<div class="message"><p>'.lang('no_matching_tags').'</p></div>';
+            $select = '<div class="message"><p>' . lang('no_matching_tags') . '</p></div>';
         } else {
             $select = '<ul>';
 
             foreach ($query->result_array() as $row) {
-                $select .= '<li><a href="#">'.$row['name']."</a></li>";
+                $select .= '<li><a href="#">' . $row['name'] . "</a></li>";
             }
 
             $select .= '</ul>';
@@ -3723,7 +3656,6 @@ class Tag_mcp extends Mcp
     }
     // END AJAX browse
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3732,13 +3664,11 @@ class Tag_mcp extends Mcp
      * @access  public
      * @return  null
      */
-
     public function tag_autocomplete()
     {
         return $this->lib('Utils')->tag_autocomplete(array('tag_name'));
     }
     //END tag_autocomplete()
-
 
     // --------------------------------------------------------------------
 
@@ -3749,7 +3679,6 @@ class Tag_mcp extends Mcp
      * @param   bool    return json?
      * @return  null
      */
-
     public function tag_suggest($json = false)
     {
         //does a system exit

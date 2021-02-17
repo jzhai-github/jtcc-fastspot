@@ -94,3 +94,9 @@ onto the element.*/
 		font-weight: normal;
 		font-family: 'solspace-fa'
 	}
+
+
+/* EE6 */
+body[data-ee-version^="6."] #browse_tags th input[type=text] {
+	display: inline;
+}

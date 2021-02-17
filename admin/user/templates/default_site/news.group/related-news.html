@@ -1,0 +1,108 @@
+<!-- Card Group -->
+	    <div class="card_group">
+	        <div class="fs-row">
+	            <div class="fs-cell">
+	                <div class="card_group_header">
+	                    <div class="card_group_header_inner">
+	                        <h2 class="card_group_title">Related News</h2>
+
+	                        <a href="/news" class="card_group_header_link">
+	                            <span class="card_group_header_link_inner">
+	                                <span class="card_group_header_link_label">View All News</span>
+	                                <span class="card_group_header_link_icon" aria-hidden="true">
+	                                    <span class="card_group_header_link_icon_inner">
+	                                        <span class="card_group_header_link_icon_space">&#xfeff;</span>
+
+	                                        <svg class="icon icon_caret_right">
+	                                            <use href="/images/icons.svg#caret_right" />
+	                                        </svg>
+
+	                                    </span>
+	                                </span>
+	                            </span>
+	                        </a>
+	                    </div>
+	                </div>
+	                <div class="card_group_body">
+	                    <ul class="card_group_items card_count_4" aria-label="Related News">
+	                    	{exp:tag:related_entries
+								channel="news_stories"
+								entry_id="{embed:entry_id}"
+	                    		limit="4"
+	                    		orderby="relevance"
+	                    	}
+	                        <li class="card_group_item">
+	                            {story_image}
+								<figure class="card_group_item_figure">
+									<span class="lazy_image_wrapper card_group_item_image_wrapper">
+										<img class="js-lazy card_group_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="300" height="200"}' data-src='{img:url:resize width="300" height="200"}' data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w' alt="" sizes="253px" srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w'>
+									</span>
+									<noscript>
+										<img class="card_group_item_image" src='{img:url:resize width="740" height="494"}'  srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="300" height="200"} 300w' sizes="100vw"  alt="" >
+									</noscript>
+								</figure>
+								{/story_image}
+	                            <div class="card_group_item_header">
+	                                <h2 class="card_group_item_title">
+
+	                                    <a href="{url_title_path='news'}" class="card_group_item_title_link">
+	                                        <span class="card_group_item_title_link_inner">
+	                                            <span class="card_group_item_title_link_label">{title}</span>
+	                                            <span class="card_group_item_title_link_icon" aria-hidden="true">
+	                                                <span class="card_group_item_title_link_icon_inner">
+	                                                    <span class="card_group_item_title_link_icon_space">&#xfeff;</span>
+
+	                                                    <svg class="icon icon_caret_right">
+	                                                        <use href="/images/icons.svg#caret_right" />
+	                                                    </svg>
+
+	                                                </span>
+	                                            </span>
+	                                        </span>
+	                                    </a>
+	                                </h2>
+	                                <div class="card_group_item_categories">
+	                                    <div class="card_group_item_category_hint">Categories</div>
+	                                    <ul class="card_group_item_category_list" aria-label="Categories">
+	                                    	{exp:tag:tags
+													entry_id="{entry_id}"
+	                                                orderby="tag_name" sort="asc"
+	                                                limit="3"
+	                                                backspace="2"
+	                                    	}
+	                                        <li class="card_group_item_category">
+	                                            <a class="card_group_item_category_link" href="/news/tag/{websafe_tag}">{tag}</a>
+	                                        </li>
+	                                        {/exp:tag:tags}
+	                                    </ul>
+	                                </div>
+	                            </div>
+	                            <div class="card_group_item_body">
+	                                <div class="card_group_item_description">
+	                                    <p>{story_description}</p>
+	                                </div>
+	                            </div>
+	                        </li>
+	                      {/exp:tag:related_entries}
+	                    </ul>
+	                </div>
+
+	                <a href="/" class="card_group_discovery_link">
+	                    <span class="card_group_discovery_link_inner">
+	                        <span class="card_group_discovery_link_label">View all News</span>
+	                        <span class="card_group_discovery_link_icon" aria-hidden="true">
+	                            <span class="card_group_discovery_link_icon_inner">
+	                                <span class="card_group_discovery_link_icon_space">&#xfeff;</span>
+
+	                                <svg class="icon icon_caret_right">
+	                                    <use href="/images/icons.svg#caret_right" />
+	                                </svg>
+
+	                            </span>
+	                        </span>
+	                    </span>
+	                </a>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- END: Card Group -->

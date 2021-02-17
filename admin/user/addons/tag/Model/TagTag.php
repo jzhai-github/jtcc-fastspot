@@ -32,7 +32,6 @@ class TagTag extends BaseModel
      * @access  public
      * @return  array   array of columns for this table
      */
-
     public function getFields()
     {
         if (! isset($this->_field_list_cache)) {

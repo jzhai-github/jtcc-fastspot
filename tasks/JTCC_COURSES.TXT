@@ -1,0 +1,1937 @@
+"ACC","211","Principles of Accounting I","Presents accounting principles/application to various businesses. Covers the accounting cycle, income determination, and financial reporting. 
+
+
+
+Lecture 3 hours per week."
+"ACC","212","Principles of Accounting II","Emphasizes partnerships, corporations and the study of financial analysis. Includes and introduces cost/managerial accounting concepts.  Prerequisite: ACC 211. 
+
+
+
+Lecture 3 hours per week."
+"ACC","215","Computerized Accounting","Introduces the computer in solving accounting problems. Focuses on operation of computers. Presents the accounting cycle and financial statement preparation in a computerized system and other applications for financial and managerial accounting. Prerequisite or corequisite ACC 211 or equivalent. 
+
+
+
+Lecture 3-4 hours per week."
+"ACC","221","Intermediate Accounting I","Covers accounting principles and theory, including a review of the accounting cycle and accounting for current assets, current liabilities and investments. Introduces various accounting approaches and demonstrates the effect of these approaches on the financial statement users. Prerequisite ACC 212 or equivalent. 
+
+
+
+Lecture 3-4 hours per week"
+"ACC","222","Intermediate Accounting II","Continues accounting principles and theory with emphasis on accounting for fixed assets, intangibles, corporate capital structure, long-term liabilities, and investments. Prerequisite ACC 212 or equivalent. 
+
+
+
+Lecture 3-4 hours per week."
+"ACC","261","Principles of Federal Taxation I","Presents the study of federal taxation as it relates to individuals and related entities. Includes tax planning, compliance, and reporting. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","100","Survey of Criminal Justice","Presents an overview of the United States criminal justice system; introduces the major system components--law enforcement, judiciary, and corrections. 
+
+Lecture 3 hours per week."
+"ADJ","105","The Juvenile Justice System","Presents the evolution, philosophy, structures and processes of the American juvenile delinquency system; surveys the right of juveniles, dispositional alternatives, rehabilitation methods and current trends. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","111","Law Enforcement Organization/Administration I","Teaches the principles of organization and administration of law enforcement agencies. Studies the management of line operations, staff and auxiliary services, investigative and juvenile units. Introduces the concept of data processing; examines policies, procedures, rules, and regulations pertaining to crime prevention. Surveys concepts of protection of life and property, detection of offenses, and apprehension of offenders. Prerequisite for ADJ 112, divisional approval or ADJ 111. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","133","Ethics and the Criminal Justice Professional","Examines ethical dilemmas pertaining to the criminal justice system, including those in policing, courts and corrections. Focuses on some of the specific ethical choices that must be made by the criminal justice professional.  Lecture 3 hours per week. 3 credits"
+"ADJ","140","Introduction to Corrections","Focuses on societal responses to the offender. Traces the evolution of practices based on philosophies of retribution, deterrence, and rehabilitation. Reviews contemporary correctional activities and their relationships to other aspects of the criminal justice system.
+Lecture 3 hours per week.
+3 credits"
+"ADJ","160","Police Response to Critical Incidents","Provides a basic introduction to incident command and emerging trends. Addresses bomb threats; hostage/barricade situations; attacks on institutions such as schools and hospitals; criminal hazmat; terrorist, militia/paramilitary, and extended crime scene evidence collection scenarios; and other long term or large scale events. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","170","Street Gangs and Law Enforcement","Teaches the philosophy and history of gangs in America through the eyes of law enforcement, courts, corrections and the citizenry. Examines methods by which law enforcement defines the gang problem and intervenes in gang membership. Explores gang globalization; differentiates street gangs and terrorist cells. 
+
+Lecture 3 hours per week.
+
+3 credits"
+"ADJ","201","Criminology","Studies current and historical data pertaining to criminal and other deviant behavior. Examines theories that explain crime and criminal behavior in human society.
+Lecture 3 hours per week.
+3 credits"
+"ADJ","211","Criminal Law, Evidence and Procedures I","Teaches the elements of proof for major and common crimes and the legal classification of offenses. Studies the kinds, degrees and admissibility of evidence and its presentation in criminal proceedings with emphasis on legal guidelines for methods and techniques of evidence acquisition. Surveys the procedural requirements from arrest to final disposition in the various American court systems with focus on the Virginia jurisdiction. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","227","Constitutional Law for Justice Personnel","Surveys the basic guarantees of liberty described in the U. S. Constitution and the historical development of these restrictions on government power, primarily through U. S. Supreme Court decisions. Reviews rights of free speech, press, assembly, as well as criminal procedure guarantees (to counsel, jury trial, habeas corpus, etc.) as they apply to the activities of those in the criminal justice system. 
+
+Lecture 3 hours per week."
+"ADJ","228","Narcotics and Dangerous Drugs","Surveys the historical and current usage of narcotics and dangerous drugs. Teaches the identification and classification of such drugs and emphasizes the symptoms and effects on their users. Examines investigative methods and procedures utilized in law enforcement efforts against illicit drug usage. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","229","Law Enforcement and the Community","Considers current efforts by law enforcement personnel to achieve an effective working relationship with the community. Surveys and analyzes various interactive approaches of law enforcement agencies and the citizenry they serve. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","236","Principles of Criminal Investigation","Surveys the fundamentals of criminal investigation procedures and techniques. Examines crime scene search, collecting, handling and preserving of evidence. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","241","Correctional Law","Correctional Law"
+"ADJ","245","Management of Correctional Facilities","Describes management options and operational implications for staffing, security, safety, and treatment. Considers impact of changes in public policy on corrections.
+
+Lecture 3 hours per week.
+
+3 credits"
+"ADJ","247","Criminal Behavior","Introduces and evaluates the concepts of normal and abnormal behavior. Focuses on the psychological and sociological aspects of criminal and other deviant behavior patterns. 
+
+
+
+Lecture 3 hours per week."
+"ADJ","295","Topics","ADJ 295"
+"AIR","121","Air Conditioning and Refrigeration I","Studies refrigeration theory, characteristics of refrigerants, temperature, and pressure, tools and equipment, soldering, brazing, refrigeration systems, system components, compressors, evaporators, metering devices. Presents charging and evaluation of systems and leak detection. Explores servicing the basic system. Explains use and care of oils and additives and troubleshooting of small commercial systems. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"AIR","122","Air Conditioning and Refrigeration II","Studies refrigeration theory, characteristics of refrigerants, temperature, and pressure, tools and equipment, soldering, brazing, refrigeration systems, system components, compressors, evaporators, metering devices. Presents charging and evaluation of systems and leak detection. Explores servicing the basic system. Explains use and care of oils and additives and troubleshooting of small commercial systems. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"AIR","134","Circuits and Controls I","Presents circuit diagrams for air conditioning units, reading and drawing of circuit diagrams, types of electrical controls. Includes analysis of air conditioning circuits, components, analysis and characteristics of circuits and controls, testing and servicing. Introduces electricity for air conditioning which includes circuit elements, direct current circuits and motors, single and three-phase circuits and motors, power distribution systems, and protective devices. Studies the electron and its behavior in passive and active circuits and components. Demonstrates electronic components and circuits as applied to air conditioning system. Part I of II.
+
+Lecture 2-3 hours. Laboratory 2-6 hours. Total 4-9 hours per week.
+
+3-4 credits"
+"AIR","154","Heating Systems I","Introduces types of fuels and their characteristics of combustion; types, components and characteristics of burners, and burner efficiency analyzers. Studies forced air heating systems including troubleshooting, preventive maintenance and servicing. Part I of II.
+
+Lecture 2-3 hours. Laboratory 2-6 hours. Total 4-8 hours per week.
+
+3-4 credits"
+"ARC","121","Architectural Drafting I","Introduces techniques of architectural drafting, including lettering, dimensioning, and symbols. Requires production of plans, sections, and elevations of a simple building. Studies use of common reference material and the organization of architectural working drawings. Requires development of a limited set of working drawings, including a site plan, related details, and pictorial drawings. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"ARC","122","Architectural Drafting II","Introduces techniques of architectural drafting, including lettering, dimensioning, and symbols. Requires production of plans, sections, and elevations of a simple building. Studies use of common reference material and the organization of architectural working drawings. Requires development of a limited set of working drawings, including a site plan, related details, and pictorial drawings. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"ARC","221","Architectural CAD Applications Software I","Teaches the principles and techniques of architectural drawing practices through the use of architecture specific CAD software. Utilizes the commands and features of the software to generate drawings that emphasize architectural design and structural systems. Use local prerequisites. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"ARC","222","Architectural CAD Applications Software II","Uses advanced features of architectural CAD software to teach students to develop working drawings and details that adhere to the practices and techniques of architectural drawing principles. Use local prerequisites. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"ARC","231","Advanced Architectural Design & Graphics I","Provides fundamental knowledge of the principles and techniques of architectural drawing procedures. Familiarizes student with design process. Provides a better understanding of the relation between architectural design and structural systems. Prerequisite ARC 122 or equivalent. 
+
+Lecture 2 hours. Laboratory 6 hours. Total 8 hours per week. 
+
+4 credits"
+"ARC","232","Advanced Architectural Design & Graphics II","Requires development of complete set of working drawings and details according to principles and techniques of architectural drawings and procedures used in professional firms. Prerequisite ARC 231 or equivalent. 
+
+Lecture 2 hours. Laboratory 6 hours. Total 8 hours per week. 
+
+4 credits"
+"ARC","243","Environmental Systems","Studies energy sources and strategies for use in buildings; heat loss and heat gain; heating and cooling equipment and system; water supply, distribution and waste systems and equipment; principles of electricity, electrical systems and equipment. 
+
+
+
+Lecture 4 hours per week."
+"ARC","246","Materials and Methods of Construction","Introduces the characteristics of building materials and the methods of construction in which these materials are used in the erection of structures. Introduces the physical properties of steel, concrete, timber, glass, and related materials as well as methods used in testing materials. All sixteen CSI divisions are discussed. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"ARC","258","Building Codes, Contract Documents","Covers professional role of the architectural technician with regard to the construction industry. Includes building codes and their effect on specifications and drawings. Teaches purpose and writing of specifications with their legal and practical application to working drawings. Analyzes contract documents for client-architect-contractor responsibilities and duties. 
+
+
+
+Lecture 3 hours per week."
+"ART","101","History and Appreciation of Art I","Presents the history and interpretation of architecture, sculpture, and painting. Begins with prehistoric art and follows the development of western civilization to the present. 
+
+
+
+Lecture 3 hours per week."
+"ART","102","History and Appreciation of Art II","Presents the history and interpretation of architecture, sculpture, and painting. Begins with prehistoric art and follows the development of western civilization to the present. 
+
+
+
+Lecture 3 hours per week."
+"ART","116","Design for the Web I","Introduces the basic elements of web page design: typography, imagery, and color, and examines how they are combined to create effective layouts. Teaches organization of materials, sketching and concept development, site planning and various methods of construction.
+Credits - 3. Lecture 2 hours. Studio Instruction - 2 hours. Total Contact - 4 hours per week.
+3 credits"
+"ART","121","Drawing I","Develops basic drawing skills and understanding of visual language through studio instruction/lecture. Introduces concepts such as proportion, space, perspective, tone and composition as applied to still life, landscape and the figure. Uses drawing media such as pencil, charcoal, ink wash and color media. Includes field trips and gallery assignments as appropriate. 
+
+Lecture 1 hour. Studio instruction 4 hours. Total 5 hours per week."
+"ART","122","Drawing II","Develops basic drawing skills and understanding of visual language through studio instruction/lecture. Introduces concepts such as proportion, space, perspective, tone and composition as applied to still life, landscape and the figure. Uses drawing media such as pencil, charcoal, ink wash and color media. Includes field trips and gallery assignments as appropriate. 
+
+Lecture 1 hour. Studio instruction 4 hours. Total 5 hours per week."
+"ART","130","Introduction to Multimedia","Introduces the student to the basic components of multimedia: text, graphics, animation, sound, and video, and explores how they combine to create a multimedia product. Emphasizes the design aspects of multimedia projects and teaches the techniques required to develop a presentation.
+Lecture 2 hours. Laboratory 2-4 hours. Total 4-6 hours per week.
+Computer literacy is suggested. 3-4 credits"
+"ART","131","Fundamentals of Design I","Explores the concepts of two- and three-dimensional design and color. May include field trips as required. 
+
+
+
+Lecture 1-2 hours. Studio instruction 4 hours. Total 5-6 hours per week."
+"ART","132","Fundamentals of Design II","Explores the concepts of two- and three-dimensional design and color. May include field trips as required. 
+
+
+
+Lecture 1-2 hours. Studio instruction 4 hours. Total 5-6 hours per week."
+"ART","141","Typography I","Studies the history of letterforms and typefaces and examines their uses in contemporary communications media. Emphasizes applications to specific design problems. Includes identification and specification of type and uses current technologies for copy fitting and hands-on typesetting problems. Part I of II. 
+
+(3-4 Cr.) Lecture 2 hours, Lab 2-4 hours, Total 4-6 hours per week. Prerequisite is ART 140 Introduction to Graphic Skills.
+
+3-4 credits"
+"ART","150","History of Film and Animation","Exposes the student to the rich history of temporal imagery from the invention of the zoetrope and kinetoscope through the rise of the moving picture industry and the development of the first animated films to present day television. Chronicles the impact of the moving image in the Twentieth century. Discusses the design and concept of influential works as well as the relationship between these earlier forms of moving graphics and today's innovative video technology. 
+
+Lecture 3 hours per week."
+"ART","153","Ceramics I","Presents problems in the design and production of functional and non-functional ceramic works. Includes handbuilding the potter's wheel and clays and glazes. Part I of II
+Lecture 0-2 hours. Studio instruction 4-6 hours. Total 5-8 hours per week.
+3-4 credits"
+"ART","154","Ceramics II","Presents problems in the design and production of functional and non-functional ceramic works. Includes handbuilding the potter's wheel and clays and glazes. Part II of II
+Lecture 0-2 hours. Studio instruction 4-6 hours. Total 5-8 hours per week.
+3-4 credits"
+"ART","180","Introduction to Computer Graphics","Provides a working introduction to computer-based electronic technology used by visual artists and designers. Presents the basics of operating platforms and standard industry software. Introduces problems in which students can explore creative potential of the new electronic media environment. Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"ART","184","Survey of Museum Practice","Explores the role of the museum in society and traces the foundations upon which these public, cultural and educational institutions are built. Emphasizes the management and interpretation of historic properties and collections. This course is cross-listed with HIS 183. Credit will not be awarded for both. Lecture 3 hours per week."
+"ART","185","Introduction to Museum Education","Explores the basic elements of museum education, the different programming techniques museums use to reach all types of audiences, and the ways museums identify audiences. This course is cross-listed with HIS 185. Credit will not be awarded for both. Lecture 3 hours per week. 3 credits."
+"ART","186","Collections Management","Discusses the fundamentals of collections policy, deaccessioning, appraisal, and curatorial management. This course is cross-listed with HIS 186. Credit will not be awarded for both. Lecture 3 hours per week. 3 credits."
+"ART","195","Topics","Provides an opportunity to explore topical areas of interest to or needed by students.  May be used also for special honors courses.  May be repeated for credit.
+
+
+
+Variable hours."
+"ART","203","Animation I","Introduces the student to the basic techniques of animation, both traditional and computer-generated. Teaches theoretical elements of the aesthetics of sequential imagery. Provides practical experience in animation. Exposes the student to a variety of animation techniques through lectures, presentations, classroom work, and outside assignments. 
+Lecture 2 hours. Laboratory 4 hours. Total 6 hours per week.
+4 credits"
+"ART","204","Animation II","Continues to build on the student's skills in the techniques of animation developed in ART 203. Emphasizes computer-generated, high quality animations.Teaches the advanced techniques of two- and three- dimensional computer animation. 
+
+Lecture 2 hours. Laboratory 4 hours. Total 6 hours per week. 
+
+4 credits"
+"ART","208","Video Techniques","Addresses the fundamentals of video technology and non-linear video editing. Focuses on the aesthetics of time-code editing using current industry software. Teaches a student to shoot and capture video and record and edit sound, and combine artwork, animation, video, and sound in the creation of professional-quality original video projects. Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"ART","217","Graphic Design I","Focuses on creative concepts and skills necessary for graphic design problem solving using current technology. Includes techniques specific to computer applications for the production of print design using text and image. Part I of II.
+
+Lecture 2 hours. Laboratory 4 hours. Total 6 hours per week.
+
+6 credits"
+"ART","218","Graphic Design II","Builds on the studies completed in Graphic Design I. Teaches advanced problem solving skills, concept development and project management. Applies intermediate level production techniques to 2D and 3D graphic design using current technologies and principles of pre-press production. Part II of II.
+
+
+
+Lecture 2 hours. Laboratory 4 hours. Total 6 hours per week.
+
+4 credits."
+"ART","231","Sculpture I","Introduces sculptural concepts and methods of production in traditional and contemporary media. Includes clay, plaster, wood, stone, metal, plastics and terra cotta. May include field trips. Prerequisite ART 131. Part I of II.
+
+Lecture 1-2 hours. Studio instruction 4 hours. Total 5-6 hours per week. 3-4 credits"
+"ART","241","Painting I","Introduces abstract and representational painting in acrylic and/or oil with emphasis on color composition and value. Prerequisites ART 122 or divisional approval. 
+
+
+
+Lecture 1-2 hours. Studio instruction 4 hours. Total 5-6 hours per week."
+"ART","242","Painting II","Introduces abstract and representational painting in acrylic and/or oil with emphasis on color composition and value. Prerequisites ART 122 or divisional approval. 
+
+
+
+Lecture 1-2 hours. Studio instruction 4 hours. Total 5-6 hours per week."
+"ART","243","Watercolor I","Presents abstract and representational painting in watercolor with emphasis on design, color, composition, technique and value. Prerequisite ART 131, or divisional approval. 
+
+
+
+Lecture 1-2 hours. Studio instruction 2-4 hours. Total 4-6 hours per week."
+"ART","244","Watercolor II","Presents abstract and representational painting in watercolor with emphasis on design, color, composition, technique and value. Prerequisite ART 131, or divisional approval. Part II of II.
+
+Lecture 1-2 hours. Studio instruction 2-4 hours. Total 4-6 hours per week. 
+
+3-4 credits"
+"ART","248","Painting III","Introduces advanced concepts and techniques of representational and abstract painting as applied to the head/figure, still-life, landscape and other subject matter including non-objective painting. Gives additional instruction in color, composition, modeling, space and perspective. Encourages individual approaches to painting. Prerequisite: ART 242.. 
+
+
+
+Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week."
+"ART","249","Painting IV","Introduces advanced concepts and techniques of representational and abstract painting as applied to the head/figure, still-life, landscape and other subject matter including non-objective painting. Gives additional instruction in color, composition, modeling, space and perspective. Encourages individual approaches to painting. Prerequisite: ART 242 to ART 248. 
+
+
+
+Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week."
+"ART","250","History of Design","Surveys the development of graphic design and illustration with emphasis on the 19th and 20th centuries. Analyzes the work of outstanding designers and illustrators. 
+
+
+
+Lecture 3 hours per week."
+"ART","287","Portfolio and Resume Preparation","Focuses on portfolio preparation, resume writing, and job interviewing for students. Recommended for final semester program students. Requires instructor's approval. 
+Lecture 1-2 hours. Studio instruction 0-4 hours. Total 1-6 hours per week.
+1-4 credits"
+"ART","291","Computerized Graphic Design I","Introduces students to using the computer as a publishing system. Examines stages of a publication from typesetting, laying out, creating and digitizing of illustrations and photographs, to the final printing. Requires students to write, design, illustrate and print pamphlets on the computer, including one full-color publication. 
+
+
+
+Lecture 2 hours. Studio Instruction 4 hours. Total 6 hours per week."
+"ART","295","Topics","Provides an opportunity to explore topical areas of interest to or needed by students.  May be used also for special honors courses.  May be repeated for credit.
+
+
+
+Variable hours."
+"ART","296","Museum Internship","Internship without pay with an approved museum, collection, or historic site, supervised and coordinated by the college. Credit/work ratio not to exceed 1:5 hours. May be repeated for credit. 3 credits"
+"ART","298","Museum Studies: Seminar & Project","Requires completion of a project or research report related to the student's occupational objectives and a study of approaches to the selection and pursuit of career opportunities in the field. May be repeated for credit. Variable hours.
+1-5 credits. 3 lecture hours. 3 credits."
+"ASL","101","American Sign Language I","Introduces the fundamentals of American Sign Language (ASL) used by the Deaf Community, including basic vocabulary, syntax, fingerspelling, and grammatical non-manual signals. Focuses on communicative competence. Introduces cultural knowledge and increases understanding of the Deaf Community. Part I of II.
+Lecture 3-4 hours. Total 3-4 hours per week.
+3-4 credits"
+"ASL","102","American Sign Language II","Introduces the fundamentals of American Sign Language (ASL) used by the Deaf Community, including basic vocabulary, syntax, fingerspelling, and grammatical non-manual signals. Focuses on communicative competence. Develops gestural skills as a foundation for ASL enhancement. Introduces cultural knowledge and increases understanding of the Deaf Community. 
+
+
+
+Lecture 3-4 hours. Laboratory 0-2 hours. Total 3-5 hours per week."
+"ASL","201","American Sign Language III","Develops vocabulary, conversational competence, and grammatical knowledge with a total immersion approach. Introduces increasingly complex grammatical aspects including those unique to ASL. Discusses culture and literature. Contact with the Deaf Community is encouraged to enhance linguistic and cultural knowledge. Part I of II.
+Lecture 3-4 hours. Laboratory 1-2 hours. Total 3-5 hours per week.
+3-4 credits"
+"BIO","101","General Biology I","Focuses on foundations in cellular structure, metabolism, and genetics in an evolutionary context. Explores the core concepts of evolution; structure and function; information flow, storage and exchange; pathways and transformations of energy and matter; and systems biology. Emphasizes process of science, interdisciplinary approach, and relevance of biology to society. Part I of a two-course sequence. Readiness to enroll in ENG 111 plus completion of developmental math unit 3 required or placement in unit 4 or above. Lecture 3 hours. Recitation and laboratory 3 hours. Total 6 hours per week."
+"BIO","102","General Biology II","Focuses on diversity of life, anatomy and physiology of organisms, and ecosystem organization and processes in an evolutionary context. Explores the core concepts of evolution; structure and function; information flow, storage and exchange; pathways and transformations of energy and matter; and systems biology. Emphasizes process of science, interdisciplinary approach, and relevance of biology to society.  Part II of a two-course sequence. Prerequisite: BIO 101. Lecture 3 hours. Recitation and laboratory 3 hours. Total 6 hours per week."
+"BIO","141","Human Anatomy and Physiology I","Integrates anatomy and physiology of cells, tissues, organs, and systems of the human body. Integrates concepts of chemistry, physics, and pathology. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"BIO","142","Human Anatomy and Physiology II","Integrates anatomy and physiology of cells, tissues, organs, and systems of the human body. Integrates concepts of chemistry, physics, and pathology. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"BIO","145","Basic Human Anatomy and Physiology","Introduces human anatomy and physiology. Covers basic chemical concepts, cellular physiology, anatomy, and physiology of human organ systems.
+Lecture 3-4 hours. Laboratory 3 hours. Total 6-7 hours per week.
+4-5 credits"
+"BIO","150","Introductory Microbiology","Studies the general characteristics of microorganisms. Emphasizes their relationships to individual and community health. Lecture 3 hours. Recitation and laboratory 3 hours. Total 6 hours per week."
+"BSK","1","Whole Numbers","Covers whole number principles and computations. Credits not applicable toward graduation. Lecture 1 hours. Total 1 hour per week. 1 credit"
+"BUS","100","Introduction to Business","Presents a broad introduction to the functioning of business enterprise within the U.S. economic framework. Introduces economic systems, essential elements of business organization, production, human resource management, marketing, finance, and risk management. Develops business vocabulary. 
+
+
+
+Lecture 3 hours per week."
+"BUS","111","Principles of Supervision I","Teaches the fundamentals of supervision, including the primary responsibilities of the supervisor. Introduces factors relating to the work of supervisor and subordinates. Covers aspects of leadership, job management, work improvement, training and orientation, performance evaluation, and effective employee/ supervisor relationships. 
+
+
+
+Lecture 3 hours per week."
+"BUS","116","Entrepreneurship","Presents the various steps considered necessary when going into business. Includes areas such as product-service analysis, market research evaluation, setting up books, ways to finance startup, operations of the business, development of business plans, buyouts versus starting from scratch, and franchising. Uses problems and cases to demonstrate implementation of these techniques. Lecture 3 hours per week."
+"BUS","117","Leadership Development","Covers interpersonal relations in hierarchical structures. Examines the dynamics of teamwork, motivation, handling change and conflict and how to achieve positive results through others.
+Lecture 3 hours per week.
+3 credits"
+"BUS","200","Principles of Management","Teaches management and the management functions of planning, organizing, leading, and controlling. Focuses on application of management principles to realistic situations managers encounter as they attempt to achieve organizational objectives. 
+
+
+
+Lecture 3 hours per week."
+"BUS","201","Organizational Behavior","Presents a behaviorally oriented course combining the functions of management with the psychology of leading and managing people. Focuses on the effective use of human resources through understanding human motivation and behavior patterns, conflict management and resolution, group functioning and process, the psychology of decision-making, and the importance of recognizing and managing change. 
+
+
+
+Lecture 3 hours per week."
+"BUS","205","Human Resources Management","Introduces employment, selection, and placement of personnel, forecasting, job analysis, job descriptions, training methods and programs, employee evaluation systems, compensation, benefits, and labor relations. 
+
+
+
+Lecture 3 hours per week."
+"BUS","220","Introduction to Business Statistics","Introduces statistics as a tool in decision-making. Emphasizes ability to collect, present, and analyze data. Employs measures of central tendency and dispersion, statistical inference, index numbers, probability theory, and time series analysis. 
+
+
+
+Lecture 3 hours per week."
+"BUS","241","Business Law I","Develops a basic understanding of the US business legal environment. Introduces property and contract law, agency and partnership liability, and government regulatory law. Students will be able to apply these legal principles to landlord/tenant disputes, consumer rights issues, employment relationships, and other business transactions. 
+
+
+
+Lecture 3 hours per week."
+"BUS","266","Production and Operations Management","Examines the process by which both goods and services- producing businesses, many not-for-profit institutions, and governmental agencies transform resources into an end product to meet the demands of customers or clients. Includes a survey of some of the quantitative methods involved in the process. 
+
+
+
+Lecture 3 hours per week."
+"BUS","280","Introduction To International Business","Studies the problems, challenges, and opportunities which arise when business operations or organizations transcend national boundaries. Examines the functions of international business in the economy, international and transnational marketing, production, and financial operations. 3 hours per week."
+"BUS","298","Seminar and Project","Requires completion of a project or research report related to the student's occupational objectives and a study of approaches to the selection and pursuit of career opportunities in the field. 
+
+May be repeated for credit. Variable hours. 
+
+1-5 credits"
+"CAD","151","Engineering Drawing Fundamentals I","CAD 151 - Introduces technical drafting from the fundamentals through advanced drafting practices. Includes lettering, geometric construction, technical sketching, orthographic projection, sections, intersections, development, fasteners. Teaches theory and application of dimensioning and tolerances, pictorial drawing, and preparation of drawings. Part I of II. (Credit will not be awarded for both CAD 151 and DRF 151.) 
+
+Lecture 1 hour. Laboratory 4-6 hours. Total 5-7 hours per week.
+
+3 credits"
+"CAD","201","Computer Aided Drafting and Design I","Teaches computer-aided drafting concepts and equipment designed to develop a general understanding of components of a typical CAD system and its operation. (Credit will not be awarded for both CAD 201 and DRF 201.) 
+
+Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week.
+
+3-4 credits"
+"CAD","202","Computer Aided Drafting and Design II","Teaches production drawings and advanced operations in computer aided drafting. (Credit will not be awarded for both CAD 202 and DRF 202.) 
+
+Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week.
+
+3-4 credits"
+"CAD","231","Computer Aided Drafting I","Teaches computer aided drafting concepts and equipment designed to develop a general understanding of components and operate a typical CAD system. (Credit will not be awarded for both CAD 231 and DRF 231.)
+
+Lecture 1-2 hours. Laboratory 2-3 hours. Total 3-5 hours per week.
+
+    2-3 credits"
+"CAD","241","Parametric Solid Modeling I","Focuses on teaching students the design of parts by parametric solid modeling. Topics covered will include, but not limited to, sketch profiles; geometric and dimensional constraints; 3-D features; model generation by extrusion, revolution and sweep; and the creation of 2-D drawing views that include sections, details and auxiliary. Part I of II. (Credit will not be awarded for both CAD 241 and DRF 241.)
+
+Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week.
+
+3-4 credits"
+"CAD","242","Parametric Solid Modeling II","Focuses on teaching students the design of parts by parametric solid modeling. Topics covered will include, but not limited to, sketch profiles; geometric and dimensional constraints; 3-D features; model generation by extrusion, revolution and sweep; and the creation of 2-D drawing views that include sections, details and auxiliary. Part II of II. (Credit will not be awarded for both CAD 242 and DRF 242.)
+3-4 credits"
+"CHD","118","Language Arts for Young Children","Presents techniques and methods for encouraging the development of language and perceptual skills in young children. Stresses improvement of vocabulary, speech and methods to stimulate discussion. Surveys children's literature, examines elements of quality story telling and story reading, and stresses the use of audio-visual materials. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"CHD","120","Introduction to Early Childhood Education","Introduces early childhood development through activities and experiences in nursery, pre-kindergarten, kindergarten, and primary programs. Investigates classroom organization and procedures, and use of classroom time and materials, approaches to education for young children, professionalism, and curricular procedures. 
+
+
+
+Lecture 3 hours per week."
+"CHD","145","Teaching Art, Music, Movement to Children","Provides experiences in developing the content, methods, and materials for directing children in art, music, and movement activities. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"CHD","146","Math, Science, and Social Studies for Children","Provides experiences in developing the content, methods, and materials for directing children in math, science, and social studies activities. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"CHD","165","Observation/Participation in Early Childhood/Primary Settings","Observes and participates in early childhood settings such as child care centers, pre-schools, Montessori schools or public schools in Kindergarten through 3rd grade levels. Students spend one hour each week in a seminar session in addition to 60 clock hours in the field. May be taken again for credit. 
+
+
+
+Lecture 1 hour. Laboratory 4 hours. Total 5 hours per week."
+"CHD","166","Infant and Toddler Programs","Examines the fundamentals of infant and toddler development, including planning and implementing programs in group care. Emphasizes meeting physical, social, emotional, and cognitive needs: scheduling, preparing age-appropriate activities, health and safety policies, record keeping, and reporting to parents. 
+
+
+
+Lecture 3 hours per week."
+"CHD","205","Guiding the Behavior of Young Children","Explores positive ways to build self-esteem in children and help them develop self-control. Presents practical ideas for encouraging pro-social behavior in children and emphasizes basic skills and techniques in classroom management. 
+
+
+
+Lecture 3 hours per week."
+"CHD","210","Introduction to Exceptional Children","Reviews the history of education for exceptional children. Studies the characteristics associated with exceptional children. Explores positive techniques for managing behavior and adapting materials for classroom use. 
+
+
+
+Lecture 3 hours per week."
+"CHD","216","Early Childhood Programs, School and Social Change","Explores methods of developing positive, effective relations between staff and parents to enhance the developmental goals of home and school.  Reviews current trends and issues in education, describes symptoms of homes in need of support, investigates non-traditional family and cultural patterns, and lists community resources.
+
+
+
+Lecture 3 hours per week."
+"CHD","265","Advanced Observation/Participation in Early Childhood Settings","Observes and participates in early childhood settings such as child care centers, preschool, Montessori schools, or public school settings (kindergarten through third grade). Emphasizes planning and implementation of appropriate activities and materials for children. Students will spend one hour each week in a seminar session in addition to 60 clock hours in the field. May be taken again for credit. 
+
+
+
+Lecture 1 hour. Laboratory 4 hours. Total 5 hours per week."
+"CHD","270","Administration of Early Childhood Programs","Examines the skills needed for establishing and managing early childhood programs. Emphasizes professionalism and interpersonal skills, program planning, staff selection and development, creating policies, budgeting, and developing forms for record keeping. Lecture 3 hours per week."
+"CHD","298","Seminar Portfolio Development","Seminar Portfolio Development"
+"CHM","101","Introductory Chemistry I","Emphasizes experimental and theoretical aspects of inorganic, organic, and biological chemistry. Discusses general chemistry concepts as they apply to issues within our society and environment. Designed for the non-science major. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"CHM","110","Survey of Chemistry","Introduces the basic concepts of general, organic, and biochemistry with emphasis on their applications to other disciplines. No previous chemistry background required. 
+
+
+
+Lecture 3 hours per week."
+"CHM","111","General Chemistry I","Explores the fundamental laws, theories, and mathematical concepts of chemistry. Designed primarily for science and engineering majors. Requires a strong background in mathematics. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"CHM","112","General Chemistry II","Explores the fundamental laws, theories, and mathematical concepts of chemistry. Designed primarily for science and engineering majors. Requires a strong background in mathematics. 
+
+
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"CHM","241","Organic Chemistry I","Introduces fundamental chemistry of carbon compounds, including structures, physical properties, syntheses, and typical reactions. Emphasizes reaction mechanisms. Part I of II. Prerequisite CHM 112 or equivalent.
+Lecture 3 hours per week.
+3 credits"
+"CHM","242","Organic Chemistry II","Introduces fundamental chemistry of carbon compounds, including structures, physical properties, syntheses, and typical reactions. Emphasizes reaction mechanisms. Part II of II. Prerequisite: CHM 241. 
+Lecture 3 hours per week.
+3 credit hours"
+"CHM","245","Organic Chemistry Laboratory I","Includes qualitative organic analysis. Part I of II.
+Prerequisite or corequisite: CHM 112.
+Lecture 1 hour per week; laboratory 3 hours per week. Total 4 hours per week.
+2 Credits"
+"CHM","246","Organic Chemistry Laboratory II","Organic Chemistry Laboratory II"
+"CIV","171","Surveying I","Introduces surveying equipment, procedures and computations including adjustment of instruments, distance measurement, leveling, angle measurement, traversing, traverse adjustments, area computations and introduction to topography. Prerequisite: Engineering Technical Math or divisional approval. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"CIV","172","Surveying II","Introduces surveys for transportation systems including the preparation and analysis of topographic maps, horizontal and vertical curves, earthwork and other topics related to transportation construction. Prerequisite: CIV 171 or equivalent. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hour per week."
+"CSC","200","Introduction To Computer Science","Provides broad introduction to computer science. Discusses architecture and function of computer hardware, including networks and operating systems, data and instruction representation and data organization. Covers software, algorithms, programming languages and software engineering. Discusses artificial intelligence and theory of computation. Includes a hand-on component. Prerequisite: MTH 163. 
+
+
+
+Lecture 3 hours per week."
+"CSC","201","Computer Science I","Introduces algorithm and problem solving methods. Emphasizes structured programming concepts, elementary data structures and the study and use of a high level programming language. Corequisite MTH 173 or equivalent or divisional approval. 
+
+
+
+Lecture 4 hours per week."
+"CSC","202","Computer Science II","Examines data structures and algorithm analysis. Covers data structures (including sets, strings, stacks, queues, arrays, records, files, linked lists, and trees), abstract data types, algorithm analysis (including searching and sorting methods), and file structures. Prerequisite CSC 201. Corequisite MTH 264. 
+
+Lecture 4 hours per week."
+"CSC","205","Computer Organization","Examines the hierarchical structure of computer architecture. Focuses on multi-level machine organization. Uses a simple assembler language to complete programming projects. Includes processors, instruction, execution, addressing techniques, data representation and digital logic.
+
+Lecture 3-4 hours per week.
+
+
+
+3-4 credits"
+"CSC","208","Introduction to Discrete Structures","Covers Boolean algebra, combinatorial and sequential circuits, algorithms and algorithm analysis, recursion, recurrence relations, graphs, and trees.
+(3 Cr.) Lecture 3 hours. Total 3 hours per week.
+Prerequisite(s): CSC 201
+3 credits"
+"CST","100","Principles of Public Speaking","Applies theory and principles of public address with emphasis on preparation and delivery. 
+
+
+
+Lecture 3 hour per week."
+"CST","110","Introduction to Communication","Examines the elements affecting speech communication at the individual, small group, and public communication levels with emphasis on practice of communication at each level. 
+
+
+
+Lecture 2-3 hours per week."
+"CST","111","Voice and Diction I","Enables students to improve pronunciation, articulation, and voice quality. Includes applied phonetics. Part I of II. 
+
+Lecture 3 hours per week.
+
+3 credits"
+"CST","112","Voice and Diction II","Continued improvement of pronunciation, articulation, and voice quality with a focus towards applying these skills to text. Includes applied phonetics and dialect work. Part II of II.
+Lecture 3 hours per week.  Prerequisite: CST 111
+3 credits"
+"CST","114","Survey of Mass Media","Examines the history and current understanding of mass communication. Covers print media (newspapers, magazines, and books), electronic media (radio, television, film, the Internet), advertising, public relations, and mass media theory, research, and ethics. Lecture 3 hours. 3 credits."
+"CST","130","Introduction to the Theatre","Surveys the principles of drama, the development of theatre production, and selected plays to acquaint the student with various types of theatrical presentations. 
+
+Lecture 3 hours per week.
+
+3 credits"
+"CST","131","Acting I","Develops personal resources and explores performance skills through such activities as theatre games, role playing, improvisation, work on basic script units, and performance of scenes. 
+
+
+
+Lecture 2 hours. Laboratory 3 hour. Total 5 hours per week"
+"CST","132","Acting II","Develops personal resources and explores performance skills through such activities as theatre games, role playing, improvisation, work on basic script units, and performance of scenes. 
+
+
+
+Lecture 2 hours. Laboratory 3 hour. Total 5 hours per week"
+"CST","136","Theatre Workshop","Enables students to work in various activities of play production. The student participates in performance, set design, stage carpentry, sound, costuming, lighting, stage managing, props, promotion, or stage crew. May be repeated for credit. Laboratory 6 hours."
+"CST","140","Acting for the Camera","Explores the practical and artistic elements involved in acting for the camera through such activities as: performance of commercial, film and television scripts, developing knowledge of the technical side of camera work and the study of the business of acting.
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+
+3 credits"
+"CST","145","Stagecraft","Acquaints the student with fundamental methods, materials, and techniques of set construction for the stage. 
+
+Lecture 2 hours.Laboratory 2 hour. Total 4 hours per week.
+
+3 credits"
+"CST","147","Costume Construction","Introduces students to the basic techniques, materials and methods of theatrical costume construction. Covers hand sewing, machine sewing, familiarity with different types of materials and their uses, the use of patterns, shop safety, distressing techniques and wardrobe duties.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"CST","149","Introduction to Makeup for the Theatre","Introduces students to the basic anatomy of the human face, and the methods, materials and techniques used to alter the appearance of themselves and others through the use of the fundamentals of stage makeup and prosthetics used to create different characters and looks for different styles and types of theatrical productions.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"CST","151","Film Appreciation I","Provides students with a critical understanding of film through the discussion and viewing of motion pictures with emphasis upon the study of film history and the forms and functions of film. Students will develop skills to analyze the shared social, cultural and historical influences of films and their contexts. Part I of II. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"CST","160","Improvisation I","Explores the basic techniques of improvisation through short and long form exercises and the study of the history of improvisation and improvisation theory and practices.
+
+Lecture 3 hours per week.
+
+3 credits"
+"CST","161","Improvisation II","Explores the basic techniques of improvisation throug short and long form exercises and the study of the history of improvisation and improvisation theory and practices. Includes more extensive study of long form and in-deptyh character development.
+
+Lecture 3 hours per week.
+
+3 credits"
+"CST","210","Theatre Aesthetics","Introduces the study of theatre aesthetics through exploration into the theatrical theories, styles, dramaturgical structures, and types of dramatic literature, which have influenced playwriting and theatrical practice from the ancient Greek to Modern periods.
+
+Lecture 3 hours per week.
+
+3 credits"
+"CST","211","Acting III","Continues the development of performance skills through theatre exercises, scene and monologue work, and exploration of personalized character work as it applies to modern acting. Part III of IV. 3 credits. Lecture 2 hours; Lab 3 hours; 5 hours per week."
+"CST","212","Acting IV","Continues the development of performance skills through theatre exercises, scene and monologue work, and exploration of personalized character work as it applies to modern acting. Emphasizes the study of classical texts and acting styles such as Greek, Elizabethan, Realism, and Anti-Realism movements. Part IV of IV. 3 credits. Lecture 2 hours; Lab 3 hours; 5 hours per week."
+"CST","221","Public Relations","Introduces public relations as a marketing activity and focuses on media relations, publicity, strategic planning, public relations research, communication with multiple audiences, and the elements of an effective public relations campaign to influence public opinion. Equips students with the basic skills for writing publicity materials and coordinating public relations campaigns and media kits. This course is cross-listed with MKT 221. Credit will not be awarded for both.
+Lecture 3 credits. Total 3 hours per week.
+3 credits"
+"CST","228","Writing Across Media","Provides instruction in writing and reporting techniques within various professional media fields, to include researching and gathering information to develop appropriate and accurate stories. Emphasis on journalistic storytelling, grammar, Associated Press Style, and knowledge of current affairs. Prerequisite: ENG 112. Lecture 3 hours per week. 3 credits"
+"CST","245","Basic Lighting","Studies basic techniques and methods of lighting design for the stage.  Lecture 3 hours per week.  3 credits"
+"CST","258","Scenic Design","Introduces students to the basics of theatrical scene design including script analysis, theory, research, visual creation and presentation, construction techniques, difficulty and budgeting, collaboration and the importance of historical periods in art and architecture.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"ECO","120","Survey of Economics","Presents a broad overview of economic theory, history, development, and application. Introduces terms, definitions, policies, and philosophies of market economies. Provides some comparison with other economic systems. Includes some degree of exposure to microeconomic and macroeconomic concepts. 
+
+
+
+Lecture 3 hours."
+"ECO","201","Principles of Macroeconomics","Introduces macroeconomics including the study of Keynesian, classical, monetarist principles and theories, the study of national economic growth, inflation, recession, unemployment, financial markets, money and banking, the role of government spending and taxation, along with international trade and investments. 
+
+
+
+Lecture 3 hours per week."
+"ECO","202","Principles of Microeconomics","Introduces the basic concepts of microeconomics. Explores the free market concepts with coverage of economic models and graphs, scarcity and choices, supply and demand, elasticity's, marginal benefits and costs, profits, and production and distribution. 
+
+
+
+Lecture 3 hours per week."
+"EDU","114","Driver Task Analysis","Introduces the "driver task" as related to the highway transportation system and factors that influences performance ability. Prepares students so they may be eligible to take certification exams for driving school instructors in both public and private schools. Prerequisite: Must be eligible for ENF 3 or ESL 13.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"EDU","200","Introduction to Teaching as a Profession","Provides an orientation to the teaching profession in Virginia, including historical perspectives, current issues, and future trends in education on the national and state levels. Emphasizes information about teacher licensure examinations, steps to certification, teacher preparation and induction programs, and attention to critical shortage areas in Virginia. Includes supervised field placement (recommended: 40 clock hours) in a K-12 school. Prerequisite: Successful completion of 24 credits of transfer courses. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"EDU","214","Instructional Principles of Driver Education","Analyzes rules and regulations that govern the conduct of Driver Education programs with special emphasis on organization and administration. Includes uses in the classroom, driving range and on the street. Prepares students so they may be eligible to take the state certification exam in driver education. Prerequisite: EDU 114.
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+
+3 credits"
+"EDU","235","Health, Safety and Nutrition Education","Focuses on the health and developmental needs of children and the methods by which these needs are met. Emphasizes positive health, hygiene, nutrition and feeding routines, childhood diseases, and safety issues. Emphasizes supporting the mental and physical well being of children, as well as procedures for reporting child abuse.
+Lecture 3 hours. Total 3 hours per week.
+3 credits"
+"EDU","270","Introduction to Autism Spectrum Disorders","Explores the nature of autism and related developmental disorders. Details and discusses current evaluation and assessment measures in ASD. Discusses current intervention strategies and their implementation in the school setting. Part I of III.
+Lecture 3 hours per week.
+3 credits"
+"EDU","271","Methodologies and Curriculum Development for Students with Autism Spectrum Disorders","Details current methodologies used when treating and teaching students with ASD. Emphasizes evidence based intervention strategies such as Assessment of Basic Learning and Language Skills (ABLLS), Verbal Behavior, Picture Exchange Communication System (PECS), and the use of visual schedules. Part II of III. Prerequisite: EDU 270. Lecture 3 hours per week. 3 credits"
+"EDU","280","Technology Standards for Teachers","Provides K-12 classroom teachers with the knowledge and skills needed to fulfill the Commonwealth of Virginia's Technology Standards for Instructional Personnel. Certification is dependent on the supervisor's or employer's approval. Pre-requisite of ITE 115 or instructor approval. Lecture 3 hours per week. 
+3 credits"
+"EGR","120","Introduction to Engineering","Introduces the engineering profession, professional concepts, ethics, and responsibility. Reviews hand calculators, number systems, and unit conversions. Introduces the personal computer and operating systems. Includes engineering problem solving techniques using computer software. 
+
+
+
+Lecture 2 hours. Total 2 hours per week."
+"EGR","121","Foundations of Engineering","Introduces the engineering profession and its impact on society and the environment, including engineering problem solving, the engineering design process, and professional practices. Covers fundamental engineering calculations, descriptive statistics, basic spreadsheet and mathematical scripting language applications, professional ethics, teamwork, and communication. Lecture 2 hours per week. 2 credits. Prerequisite: ENG 111 eligible, MTH 162/167 or equivalent; or departmental approval."
+"EGR","122","Engineering Design","Applies engineering methods to a semester-long team design project with an emphasis on engineering software involving 2D and 3D computer aided design; data modeling and analysis; and interactive programing solutions. Covers design drawings and dimensioning; spreadsheet software usage; mathematical scripting language; and professional practices. 3 credits. Lecture 2 hours per week; lab 2 hours per week. Total 4 hours per week. Prerequisite: EGR 121 or departmental approval."
+"EGR","124","Introduction To Engineering and Engineering Methods","Introduces the engineering profession, professionalism, and ethics. Covers problem presentation, engineering calculations, digital computer applications, word processing, worksheets, programming, and elementary numerical methods. Design project also includes using presentation software, database searching, and prototyping.
+Lecture 3 hours per week.
+3 credits"
+"EGR","126","Computer Programming for Engineers","Introduces computers, their architecture and software. Teaches program development using flowcharts. Solves engineering problems involving programming in languages such as FORTRAN, PASCAL, or C++. 
+
+Lecture 2-3 hours. Laboratory 0-2 hours. Total 3-4 hours per week. 
+
+3 credits"
+"EGR","140","Engineering Mechanics - Statics","Introduces mechanics of vector forces and space, scalar mass and time, including S.I. and U.S. customary units. Teaches equilibrium, free-body diagrams, moments, couples, distributed forces, centroids, moments of inertia analysis of two- force and multi-force members. 
+
+
+
+Lecture 3 hours per week."
+"EGR","206","Engineering Economics","Presents economic analysis of engineering alternatives. Studies economic and cost concepts, calculation of economic equivalence, comparison of alternatives, replacement economy, economic optimization in design and operation, depreciation, and after tax analysis.
+Lecture 3 hours per week.
+3 credits"
+"EGR","245","Engineering Mechanics - Dynamics","Presents approach to kinematics of particles in linear and curvilinear motion. Includes kinematics of rigid bodies in plane motion. Teaches Newton's second law, work-energy and power, impulse and momentum, and problem solving using computers. 
+
+
+
+Lecture 3 hours per week."
+"EGR","246","Mechanics of Materials","Teaches concepts of stress, strain, deformation, internal equilibrium, and basic properties of engineering materials. Analyzes axial loads, torsion, bending, shear and combined loading. Studies stress transformation and principle stresses, column analysis and energy principles. 
+
+
+
+Lecture 3 hours per week."
+"EGR","248","Thermodynamics for Engineers","Studies formulation of the first and second law of thermodynamics. Presents energy conversion, concepts of energy, temperature, entropy, and enthalpy, equations of state of fluids. Covers reversibility and irreversibility in processes, closed and open systems, cyclical processes and problem solving using computers. 
+
+
+
+Lecture 3 hours per week."
+"EGR","251","Basic Electric Circuits I","Teaches fundamentals of electric circuits. Includes circuit quantities of charge, current, potential, power and energy. Teaches resistive circuit analysis; Ohm's and Kirchoff's laws; nodal and mesh analysis; network theorems; RC, RL and RLC circuit transient response with constant forcing functions. Teaches AC steady-state analysis, power, three- phase circuits. Presents frequency domain analysis, resonance, Fourier series, inductively coupled circuits, Laplace transform applications, and circuit transfer functions. Introduces problem solving using computers. Part I of II. Prerequisites: EGR 120, PHY 241. Corequisite: MTH 267, EGR 255.
+
+Lecture 3 hours per week."
+"EGR","255","Electric Circuits Laboratory","Teaches principles and operation of laboratory instruments such as VOM, electronic voltmeters, digital multimeters, oscilloscopes, counters, wave generators and power supplies. Presents application to circuit measurements, including transient and steady-state response of simple networks with laboratory applications of laws and theories of circuits plus measurement of AC quantities.
+
+Laboratory 3 hours per week.
+
+1 credit"
+"EGR","261","Signals and Systems","Covers topics including Laplace transforms and Laplace transform analysis of circuits, time and frequency domain representation of linear systems, methods of linear systems analysis including convolution and Laplace transforms, frequency domain representation of signals including frequency response, filters, Fourier series, and Fourier transforms. Prerequisites may be applied locally.
+Lecture 3 hours per week.
+3 credits"
+"EGR","263","Signals and Systems Laboratory","Applies analysis techniques for signals and systems using software modeling and circuit analysis, comparing measurements to time- and frequency-domain analytic results; Fourier and Laplace transforms; systems properties such as linearity, time invariance and stability; convolution, transfer functions and frequency response to determine system response.
+Laboratory 3 hours, Total 3 hours
+Prerequisites EGR 251, MTH 279; Corequisite EGR 261
+1 credits"
+"EGR","270","Fundamentals of Computer Engineering","Covers the design and organization of digital systems, including number systems, Boolean algebra, logic gates, Karnaugh maps, combinational and sequential logic circuits, timing diagrams, and synchronous and asynchronous controllers. Introduces hardware description language (HDL) and assembly language programming.
+
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week. 4 credits"
+"ELE","110","Home Electric Power","Covers the fundamentals of residential power distribution, circuits, panels, fuse boxes, breakers, transformers. Includes study of the national electrical code, purpose and interpretation. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"ELE","124","Electrical Applications II","Provides laboratory and shop assignments/jobs as applied to fundamental principles of electricity with emphasis on measurements and evaluation of electrical components, devices and circuits. Part II of II.
+Lecture 0-1 hours. Laboratory 2-4 hours. Total 2-4 hours per week.
+1-2 credits"
+"ELE","127","Residential Wiring Methods","Studies wiring methods and standards used for residential dwellings. Provides practical experience in design, layout, construction, and testing of residential wiring systems by use of scaled mock-ups. 
+
+Lecture 1-2 hour. Laboratory 2-3 hours. Total 4-5 hours per week."
+"ELE","131","National Electrical Code I","Provides comprehensive study of the purpose and interpretations of the National Electric Code as well as familiarization and implementation of various charts, code rulings and wiring methods including state and local regulations. 
+
+
+
+Lecture 3-4 hours per week."
+"ELE","133","Practical Electricity I","Teaches the fundamentals of electricity, terminology, symbols, and diagrams. Includes the principles essential to the understanding of general practices, safety and the practical aspects of residential and non-residential wiring and electrical installation, including fundamentals of motors and controls. Pre/Corequisite MTH 02 or equivalent. Part I of II. Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 3 credits"
+"ELE","137","National Electrical Code - Industrial","Provides comprehensive study of the purposes and interpretations of the National Electrical Code that deal primarily with industrial wiring methods, including state and local regulations. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"ELE","138","National Electrical Code Review I","Covers purpose and interpretation of the National Electrical Code as well as various charts, code rulings and wiring methods. Prepares the student to take the journeyman- level exam. 
+
+
+
+Lecture 3 hours per week."
+"ELE","150","A.C. and D.C. Circuit Fundamentals","Provides an intensive study of the fundamentals of direct and alternating current, resistance, magnetism, inductance and capacitance, with emphasis on practical applications. Focuses on electrical/machines applications. 
+
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week."
+"ELE","151","Electrical Troubleshooting","Teaches troubleshooting as applied to residential wiring and/or electrical appliances. 
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week. 
+
+3 credits"
+"ELE","156","Electrical Control Systems","Includes troubleshooting and servicing electrical controls, electric motors, motor controls, motor starters, relays, overloads, instruments and control circuits. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"ELE","159","Electric Motors","Teaches practical applications and fundamentals of A.C. and D.C. machines. Includes the concepts of magnetism and generators used in electrical motor applications. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"ELE","239","Programmable Controllers","Examines installation, programming, interfacing, and concepts of troubleshooting programmable controllers. 
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"ELE","240","Advanced Programmable Logic Controllers","Advances further study of Programmable Logic Controllers that was initiated in ELE 239. Students will learn to use more advanced program instructions, including data manipulation, sequences and program control, and advanced PLC features, including timers, counters. Covers connectivity and use of a variety of real world I/O devices. Prerequisite: ELE 239. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"EMS","111","Emergency Medical Technician - Basic","Prepares student for certification as a Virginia and National Registry EMT-Basic.  Includes all aspects of pre-hospital basic life support as defined by the Virginia Office of Emergency medical Services curriculum for Emergency Medicine Technician Basic.  Prerequisite:  CPR certification at the Healthcare Provider level.  Co-requisite:  EMS 120
+
+Lecture 5 hours per week.  Laboratory 4 hours per week.  Total 9 hours per week. 
+
+7 credits."
+"EMS","120","Emergency Medical Technician - Basic Clinical","Observes in a program approved clinical/field setting.  Includes topics for both EMS 111 and EMS 113, dependent upon the program in which the student is participating and is a co-requisite to both EMS 111 and EMS 113.
+
+Laboratory: 2 hours per week.
+
+1 credit."
+"EMS","121","Preparatory Foundations","Introduces fundamental concepts established by the National Emergency Medical Service Education Standards (NEMSES) for Advanced EMT and Paramedic curricula. Includes EMS systems, introduction to research, workforce safety and wellness, EMS system communications, introduction to public health, legal and ethical issues.
+Lecture 2 hours. Total 2 hours per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS
+2 credits"
+"EMS","123","EMS Clinical Preparation","Introduces the student to local clinical agencies and prepares the student for clinical activities above the level of EMT. Includes prerequisites required by clinical affiliates, therapeutic communication, primary assessment, history taking, secondary assessment, reassessment, monitoring devices and documentation.
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS
+1 credit"
+"EMS","125","Basic Pharmacology","Prepares students to demonstrate competency concerning basic principles of pharmacology, drug dosage calculations and medication administration. Introduces medications listed in the Advanced EMT (AEMT) scope of practice.
+Lecture 1 hour. Total 1 hour per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS Corequisite: EMS 126
+1 credit"
+"EMS","126","Basic Pharmacology Lab","Focuses on the safe administration of medications in the emergency setting. Includes drug dose calculation and covers multiple routes of administration including oral, intramuscular, subcutaneous, intravenous, and intraosseous and other methods within the scope of practice for the emergency care provider.
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS Corequisite: EMS 125
+1 credit"
+"EMS","127","Airway, Shock and Resuscitation","Introduces concepts associated with pre-hospital emergency care of the individual experiencing airway difficulty or in need of resuscitation or shock management.
+Lecture 1 hour. Total 1 hour per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS 
+Corequisite: EMS 128
+1 credit"
+"EMS","128","Airway, Shock and Resuscitation Lab","Focuses on specific skills related to airway, resuscitation and shock management.
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisite: Current Virginia EMT and CPR certification as approved by the Virginia Office of EMS 
+Corequisite: EMS 127
+1 credit"
+"EMS","135","Emergency Medical Care","Prepares the student to assess and manage patients with common medical emergencies.
+Lecture 2 hours. Total 2 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 136
+2 credits"
+"EMS","136","Emergency Medical Care Lab","Focuses on specific skills related to the assessment and management of common medical emergencies.
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 135
+1 credit"
+"EMS","137","Trauma Care","Prepares the student to assess and manage injured patients, developing his/her problem-solving ability in the treatment of trauma involving various body systems.
+Lecture 1 hour. Total 1 hour per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 138
+1 credit"
+"EMS","138","Trauma Care Lab","Focuses on the skills required for the assessment and management of patients with traumatic injury.
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 137
+1 credit"
+"EMS","139","Special Populations","Focuses on the pre-hospital assessment and management of patients in a specific population including pediatrics, geriatrics, obstetrics/gynecology (OB/GYN), bariatric, abuse, sexual assault and special needs.
+Lecture 1 hour. Total 1 hour per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 140
+1 credit"
+"EMS","140","Special Populations Lab","Develops skills related to the assessment and management of patients in a specific population including pediatrics, geriatrics, obstetrics/gynecology (OB/GYN), bariatric, abuse, sexual assault and special needs.
+Laboratory 2 hour. Total 2 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 139
+1 credit"
+"EMS","141","Cardiovascular Care","Focuses on assessment and management of cardiac-related emergencies. Covers basic dysrhythmia recognition and relates it to overall cardiac patient care.
+Lecture 2 hours. Total 2 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite: EMS 142
+2 credits"
+"EMS","142","Cardiovascular Care Lab","Focuses on skills involved in the assessment and management of cardiac-related
+Laboratory 2 hours. Total 2 hour per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128 Corequisite EMS 141
+1 credit"
+"EMS","150","Advanced Emergency Medical Technician (AEMT)","Prepares students to build upon content in the Emergency Medical Technician (EMT) curriculum and demonstrate competency in specific advanced skills and knowledge. Lecture 5 hours. Laboratory 4 hours. Total 9 hours per week. Prerequisite: EMS 170   7 credits"
+"EMS","159","ALS - Special Populations","Continues the Virginia office of Emergency Medical Services Intermediate and/or Paramedic curricula. Focuses on the assessment and management of specialty patients including obstetrical, neonates, pediatric, and geriatrics. Prerequisites: EMS 151 and EMS 153. Pre or co-requisite: EMS 155. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"EMS","163","Prehospital Trauma Life Support","Prepares for certification as a Prehospital Trauma Life Support provider as defined by the American College of Surgeons. Prerequisites: EMS 111 or equivalent.
+
+Lecture 1 hour per week.1 credits"
+"EMS","164","Advanced Medical Life Support","Covers current topics of care for adult patients suffering extensive medical conditions and emergencies, and offers certification as an Advanced Medical Life Support (AMLS) as defined by the National Association of Emergency Medical Technicians (NAEMT).
+Lecture 1 hour. Total 1 hour per week.
+1 credit"
+"EMS","165","Advanced Cardiac Life Support","Prepares for certification as an Advanced Cardiac Life provider. Follows course as defined by the American Heart Association. Prerequisites: EMS 100, 153 or equivalent.Lecture 1 hour per week.
+
+1 credits"
+"EMS","169","Pediatric Advance Life Support","Prepares the student for certification as a pediatric advanced life support provider as defined by the American Heart Association. Covers primary assessment and emergency care of infants and children. Lecture 1 hour per week.
+
+1 credits"
+"EMS","170","ALS - Internship","Begins the first in a series of clinical experiences providing supervised direct patient contact in appropriate patient care facilities in and out of hospitals. Includes but not limited to patient care units such as the Emergency Department, Critical Care units, Pediatric, Labor and Delivery, Operating Room, Trauma centers and various advanced life support units. 
+
+
+
+Laboratory 3-6 hours per week."
+"EMS","175","Paramedic Clinical Experience I","Introduces students to live patient assessment and management in the clinical setting. Begins a continuum of learning involving live patients that leads to entry-level competence at the paramedic level.
+Laboratory 6 hours. Total 6 hours per week.
+Prerequisites: EMS 121, EMS 123, EMS 125, EMS 126, EMS 127, EMS 128
+2 credits"
+"EMS","201","EMS Professional Development","The purpose of this course is to prepare the EMS student to use community resources to facilitate personal and community wellness and fulfills the wellness and resource objectives of the Virginia Office of Emergency Medical Services Intermediate curriculum.
+
+Lecture 3 hours. Total 3 hours per week.
+
+Prerequisite: EMT/B Certification
+
+3 credits"
+"EMS","202","Paramedic Pharmacology","Focuses on advanced pharmacological interventions, medications and their effects.
+Lecture 2 hours. Total 2 hours per week.
+Prerequisites: EMS 125, EMS 126, EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142
+2 credits"
+"EMS","203","Advanced Patient Care","Focuses on the comprehensive assessment and management of patients in out-of-hospital and inter-facility scenarios. Content is centered on problem-solving through integration of didactic, psychomotor and affective curricula.
+Lecture 2 hours. Total 2 hours per week.
+Prerequisites: EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142 
+Corequisite: EMS 204
+2 credits"
+"EMS","204","Advanced Patient Care Lab","Focuses on the comprehensive assessment and management of out-of-hospital and inter-facility patients using scenario-based learning.
+Laboratory 4 hours. Total 4 hours per week.
+Prerequisites: EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142 
+Corequisite: EMS 203
+2 credits"
+"EMS","205","EMS Advanced Pathophysiology","Focuses on the pathological processes of disease with emphasis on the anatomical and physiological alterations of the human body by systems. Includes diagnosis and management appropriate to the advanced health care provider in and out of the hospital environment.
+
+Lecture 4 hours. Total 4 hours per week.  Prerequisite: EMT/B Certification
+
+4 credits"
+"EMS","206","Pathophysiology for the Health Professions","Focuses on the pathological processes of disease with emphasis on the anatomical and physiological alterations of the human body systems. Includes diagnosis and management appropriate to the advanced health care provider in and out of the hospital environment.
+Lecture 3 hours. Total 3 hours per week.
+Prerequisites: BIO 145 or BIO 141-142 combination
+3 credits"
+"EMS","207","Advanced Patient Assessment","Focuses on the principles of normal and abnormal physical exam. Emphasizes the analysis and interpretation of physiological data to assist in patient assessment and management. Applies principles during the assessment and management of trauma, medical, and specialty patients in laboratory environment.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 3 credits"
+"EMS","209","Advanced Pharmacology","Focuses on the principles of pharmacokinetics, pharmacodynamics and drug administration. Includes drug legislation, techniques of medication administration, and principles of math calculations. Emphasizes drugs used to manage respiratory, cardiac, neurological, gastrointestinal, fluid and electrolyte and endocrine disorders and includes classification, mechanism of action, indications, contraindications, precautions, and patient education. Incorporates principles related to substance abuse and hazardous materials. Applies principles during the assessment and management of trauma, medical, and specialty patients in a laboratory environment.
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week.
+4 credits"
+"EMS","210","EMS Operations","Focuses on matters related to Emergency Medical Services (EMS) operations, incident and scene safety and awareness, triage, multiple and mass casualty incident operations and medical incident management (command and control of EMS incidents).
+Laboratory 2 hours. Total 2 hours per week.
+Prerequisites: EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142
+1 credit"
+"EMS","211","Operations","Prepares the student in the theory and application of the following: medical incident command, rescue awareness and operations, hazardous materials incidents, and crime scene awareness. (Conforms to the current Virginia Office of Emergency Medical Services curriculum for EMT-Paramedics.)
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week.
+2 credits"
+"EMS","242","ALS Clinical Internship III","Continues with the third in a series of clinical experiences providing supervised direct patient contact in appropriate patient care facilities in-and-out of hospitals. Includes, but not limited to patient care units such as the Emergency Department, Critical Care units, Pediatric, Labor and Delivery, Operating Room, Trauma Centers and various advanced life support units.
+
+Laboratory 3-6 hours per week
+
+1-2 credits"
+"EMS","243","ALS Field Internship III","Continues with the third in a series of field experiences providing supervised direct patient care in out-of-hospital advanced life support units.
+
+Laboratory 3-6 hours per week.
+
+1-2 credits"
+"EMS","244","ALS Clinical Internship IV","The fourth in a series of clinical experiences providing direct patient contact in appropriate patient care facilities in-and-out of hospitals. Includes, but not limited to patient care units such as the Emergency Department, Critical Care units, Pediatric, Labor and Delivery, Operating Room and Trauma Centers. May be repeated as necessary.
+
+Laboratory 3-6 hours per week.
+
+1-2 credits"
+"EMS","245","ALS Clinical Internship V","Continues with the fourth in a series of field experiences providing supervised direct patient care in out-of-hospital advanced life support units. May be repeated as necessary.  Laboratory 3-6 hours per week.
+
+1-2 credits"
+"EMS","247","Paramedic Clinical Experience II","Continues the student experience with live patient assessment and management in the clinical setting. It is the second step in a continuum of learning involving live patients that leads to entry-level competence at the paramedic level.
+Laboratory 3 hours. Total 3 hours per week.
+Prerequisites: EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142, EMS 175
+1 credit"
+"EMS","248","Paramedic Comprehensive Field Experience","Expands the student experience with live patient assessment and management into the field setting. It is the third step in a continuum of learning involving live patients that leads to entry-level competence at the paramedic level.
+Laboratory 6 hours. Total 6 hours per week.
+Prerequisites: EMS 135, EMS 136, EMS 137, EMS 138, EMS 139, EMS 140, EMS 141, EMS 142, EMS 175
+2 credits"
+"ENF","1","Preparing for College English I","Provides integrated reading and writing instruction for students who require extensive preparation to succeed in college-level English courses.  Students will place into this course based on placement test scores.  Upon successful completion and faculty recommendation, students will move into Preparing for College English III (if they require additional preparation) or into college-level English (if they require no additional preparation).  Credit is not applicable toward graduation.  Lecture 8 hours per week."
+"ENF","2","Preparing for College English II","Provides integrated reading and writing instruction for students who require intermediate preparation to succeed in college-level English courses.  Students will place into this course based on placement test scores.  Upon successful completion and faculty recommendation, students will move into Preparing for College English III (if they require additional preparation) or into college-level English (if they require no additional preparation).  Credit is not applicable toward graduation."
+"ENF","3","Preparing for College English III","Provides integrated reading and writing instruction for students who require minimal preparation for college-level English but still need some preparation to succeed.  Students in this course will be co-enrolled in college-level English.  Students will place into this course based on placement test scores.  Credit is not applicable toward graduation."
+"ENG","111","College Composition I","Introduces students to critical thinking and the fundamentals of academic writing. Through the writing process, students refine topics: develop and support ideas; investigate, evaluate, and incorporate appropriate resources; edit for effective style and usage; and determine appropriate approaches for a variety of contexts, audiences, and purposes. Writing activities will include exposition and argumentation with at least one researched essay. 
+
+
+
+Lecture 3 hours per week."
+"ENG","112","College Composition II","Continues to develop college writing with increased emphasis on critical essays, argumentation, and research, developing these competencies through the examination of a range of texts about the human experience. Requires students to locate, evaluate, integrate, and document sources and effectively edit for style and usage. Prerequisite: Students must successfully complete ENG 111 or its equivalent, and must be able to use word processing software.
+
+Lecture 3 hours per week. 
+
+3 credits"
+"ENG","115","Technical Writing","Develops ability in technical writing through extensive practice in composing technical reports and other documents. Guides students in achieving voice, tone, style, and content in formatting, editing, and graphics. Introduces students to technical discourse through selected reading. 
+
+
+
+Lecture 3 hours per week."
+"ENG","210","Advanced Composition","Helps students refine skills in writing non-fiction prose. Guides development of individual voice and style. Introduces procedures for publication. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week.  
+
+3 credits"
+"ENG","211","Creative Writing I","Introduces the student to the fundamentals of writing imaginatively. Students write in forms to be selected from poetry, fiction, drama, and essays. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENG","241","Survey of American Literature I","Examines American literary works from colonial times to the present, emphasizing the ideas and characteristics of our national literature. Involves critical reading and writing. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENG","242","Survey of American Literature II","Examines American literary works from colonial times to the present, emphasizing the ideas and characteristics of our national literature. Involves critical reading and writing. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENG","243","Survey of English Literature I","Studies major English works from the Anglo-Saxon period to the present, emphasizing ideas and characteristics of the British literary tradition. Involves critical reading and writing. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENG","250","Children's Literature","Provides students with an historically and culturally-based understanding of all genres of children's literature, placed within one or more theoretical frameworks, through critical reading and writing. Prerequisite: ENG 112 or ENG 124 or divisional approval.
+
+
+
+Lecture 3 hours per week.
+
+3 credits"
+"ENG","251","Survey of World Literature I","Examines major works of world literature. Involves critical reading and writing. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENG","252","Survey of World Literature II","Examines major works of world literature. Involves critical reading and writing. Prerequisite ENG 112 or divisional approval. 
+
+
+
+Lecture 3 hours per week."
+"ENV","121","General Environmental Science I","Explores fundamental components and interactions that make up the natural systems of the earth. Introduces the basic science concepts in the discipline of biological, chemical, and earth sciences that are necessary to understand and address environmental issues. Lecture 3 hours. Recitation and Laboratory 3 hours. Total 6 hours per week. Part I of II. 
+
+4 credits"
+"ESL","1","English As A Second Language I","Provides intensive instruction at the beginning level. Includes listening comprehension, pronunciation and oral production of basic grammatical structure; reading and vocabulary development; and introduction to the writing process.
+Variable hours per week.
+9-20 credits"
+"ESL","2","English as a Second Language II","Provides intensive instruction and practice at the low intermediate level.  Provides an introduction to the sound system, stress, intonation and rhythmic patterns of English through listening and speaking exercises.  Includes individualized instruction to improve basic reading comprehension.  Requires practice in writing with emphasis on building basic sentence structures, grammar and sentence-level writing.  
+
+Lecture:  9 hours per week.  9 credits"
+"ESL","41","Composition II","Provides further instruction and practice in the writing process and introduces advanced language patterns. Includes practice in developing and improving writing strategies. Credits are not applicable: Requires a sense of paragraph structure and development, appropriate use of verb forms, and command of basic sentence structures with some coordination and subordination, as indicated by a placement test and writing sample, or teacher recommendation from a previous level. Credits are not applicable toward graduation.
+Lecture 3-6 hours per week.
+3-6 credits"
+"ESL","42","Reading II","Improves students' reading proficiency to a level that would allow students to function adequately in the ESL 52 reading class and other college courses. Credits are not applicable toward graduation. Prerequisite: Requires competency in reading as indicated by the placement test or by teacher recommendation from a previous level. Helps students improve their reading comprehension and vocabulary development.
+Lecture 3-6 hours per week.
+3-6 credits"
+"ESL","51","Composition III","Prepares for college-level writing by practice in the writing process, emphasizing development of thought in essays of greater length and complexity and use of appropriate syntax and diction. Credits are not applicable toward graduation. Prerequisite: Requires competency in the English language and ability to write short essays in understandable English, as indicated by a placement test and writing sample, or by teacher recommendation from a previous level. 
+Lecture 3-6 hours per week. 3-6 credits"
+"ESL","52","Reading III","Emphasizes applying and synthesizing ideas. Includes ways to detect organization, summarize, make inferences, draw conclusions, evaluate generalizations, recognize differences between facts and opinions, and introduces other advanced comprehension strategies. May also include comprehensive library skills. Credits are not applicable toward graduation. Prerequisite: Requires competency in reading as indicated by the placement test or by teacher recommendation from a previous level. Helps students improve their reading comprehension and vocabulary development. Improves students reading proficiency to a level that would allow students to succeed in certificate and degree programs.
+Lecture 3-6 hours per week.
+3-6 credits"
+"FIN","215","Financial Management","Introduces basic financial management topics including statement analysis, working capital; capital budgeting, and long-term financing. Focuses on Net Present Value and Internal Rate of Return techniques, lease vs. buy analysis, and Cost of Capital computations. Uses problems and cases to enhance skills in financial planning and decision making. 
+
+
+
+Lecture 3 hours per week."
+"FNS","110","Introduction to Funeral Service","Presents a comprehensive study of the history of funeral service, commencing with the practices of the Egyptians, early Christians, Romans, and Hebrews. Traces funeral practice from its early pagan origins to the modern practices of today. May include the study of the sociology of funeral service.
+Lecture 2-3 hours per week.
+2-3 credits"
+"FNS","111","Theory of Embalming I","Introduces the purpose and historical background of embalming. Teaches the ethics and sanitary consideration in the handling of human remains, signs and tests of deaths, and postmortem changes in the body. Corequisite: FNS 113. 
+
+Lecture 3 hours per week."
+"FNS","112","Theory of Embalming II","Presents pre-embalming diagnosis, positioning the body and posing the features, linear and anatomical guides for selected blood vessels, and factors that influence fluid distribution and blood drainage. Prerequisites: FNS 111, FNS 113. Co-requisite: FNS 114. 
+
+
+
+Lecture 3 hours per week."
+"FNS","113","Theory of Embalming Laboratory I","Teaches the basic procedures of embalming. Presents instruments, equipment, and the types of preservatives and disinfectant chemicals used in embalming. Co-requisite: FNS 111. 
+
+
+
+Laboratory 3 hours per week."
+"FNS","114","Theory of Embalming Laboratory II","Teaches through practice and demonstration of various embalming techniques. May include clinical experiences in area funeral homes. Prerequisites: FNS 111, FNS 113. Co-requisite: FNS 112. 
+
+
+
+Laboratory 3 hours per week."
+"FNS","125","Microbiology for Funeral Service","Focuses on microscopic forms of life from a morphological, cultural, and staining viewpoint. Studies in detail causative agents of disease and their importance to a scientific approach to sanitation. Stresses the need for scientific knowledge concerning disease and its cause. 
+
+
+
+Lecture 3 hours per week."
+"FNS","126","Pathology for Funeral Service","Introduces the general processes of disease, stressing their importance to the scientific embalmer and funeral director as health guardians. Studies diseases of specific organs and organ systems with emphasis on the significant structural changes involved and the embalming problems they present. 
+
+
+
+Lecture 3 hours per week."
+"FNS","213","Restorative Art","Presents surface contour, the influence of the bone structure on facial form and the effect of facial muscles on the wrinkles, grooves and folds of the face.  Studies color principles and their applications.  Teaches wax and nonwax treatments for restorations.  Studies lip-waxing techniques and the modeling of various forms of the mouth and eyes.  Focuses on problem cases which require illusory corrections, matching wax color to skin and masking of discolorations.  
+
+
+
+Lecture: 3 hours per week."
+"FNS","214","Restorative Art Technical Applications","Presents the technical application of restorative art theory with special attention to minor and major restorative techniques, wax treatments, cosmetic applications, and the presentation of remains.  Prerequisite: FNS 213.  Laboratory: 3 hours per week.  1 credit."
+"FNS","231","Principles of Funeral Management I","Introduces the basic social, religious, ethical, and psychological factors that influence funeral service. Teaches telephone techniques and etiquette and acceptable funeral terminology. Studies the various types of religious, fraternal, and military funeral services. Prerequisite sophomore standing. 
+
+
+
+Lecture 4 hours per week."
+"FNS","232","Principles of Funeral Management II","Teaches merchandising, the principles of buying and selling and the techniques of making funeral arrangements. Studies the construction and proper selection of casket, room arrangement, and Social Security and veterans' benefits. Focuses on modern funeral establishment management techniques and procedures. Prerequisite FNS 231. 
+
+
+
+Lecture 4 hours per week."
+"FNS","236","Funeral Service Law","Focuses on the duties, rights, responsibilities, and liabilities of the funeral director and embalmer. Teaches building and zoning ordinances relating to the funeral establishment, tort liability, cemetery law, wills, and the administration of estates. May include the study of state laws as they pertain to funeral services. 
+
+
+
+Lecture 3 hours per week."
+"FNS","270","Funeral Service Review","Prepares the student for national and state licensing examination in funeral service. Reviews all materials that will be covered by funeral service licensing examinations. Teaches modern test-taking techniques. Requires the writing of a detailed outline of one funeral service subject which determines the final grade. Prerequisite sophomore standing. 
+
+
+
+Lecture 3 hours per week."
+"FNS","290","Coordinated Internship","Supervises on-the-job training in selected business, industrial or service firms coordinated by the college.
+Credit/practice ratio not to exceed 1:5 hours. May be repeated for credit. Variable hours.
+1-5 credits"
+"FRE","101","Beginning French I","Introduces understanding, speaking, reading, and writing skills and emphasizes basic French sentence structure. 
+
+
+
+Lecture 4 hours per week. May include one additional hour of oral practice per week."
+"FRE","102","Beginning French II","Introduces understanding, speaking, reading, and writing skills and emphasizes basic French sentence structure. 
+
+
+
+Lecture 4 hours per week. May include one additional hour of oral practice per week."
+"FRE","201","Intermediate French I","Continues to develop understanding, speaking, reading, and writing skills. French is used in the classroom. Prerequisite French 102 or equivalent. Part I of II.
+
+Lecture 3-4 hours per week. May include one additional hour of oral practice per week.
+
+    3-4 credits"
+"GEO","200","Introduction to Physical Geography","Studies major elements of the natural environment including earth sun relationship, land forms, weather and climate, natural vegetation and soils. Introduces the student to types and uses of maps.
+Lecture 3 hours per week.
+3 credits"
+"GEO","210","People and the Land: Intro to Cultural Geography","Focuses on the relationship between culture and geography. Presents a survey of modern demographics, landscape modification, material and non-material culture, language, race and ethnicity, religion, politics, and economic activities. Introduces the student to types and uses of maps. 
+
+
+
+Lecture 3 hours per week."
+"GEO","220","World Regional Geography","Studies physical and cultural characteristics of selected geographical regions of the world. Focuses upon significant problems within each of the regions, and examines the geographical background of those problems. Introduces the student to types and uses of maps. Lecture 3 hours per week. 3 credits"
+"GER","102","Beginning German II","Introduces understanding, speaking, reading, and writing skills and emphasizes basic German sentence structures. Part II of II. Lecture 4-5 hours per week. May include one additional hour oral practice per week.
+
+4-5 credits"
+"GER","201","Intermediate German I","Continues to develop understanding, speaking, reading, and writing skills. German is used in the classroom. Prerequisite GER 102 or equivalent. Part I of II.
+
+Lecture 3-4 hours per week. May include one additional hour oral practice per week.
+
+3-4 credits"
+"GIS","101","Introduction to Geospatial Technology I","Provides an introduction to the concepts of Geographic Information Systems (GIS), Global Positioning Systems, (GPS) and remote sensing components of Geospatial Technology. Teaches the introductory concepts of geographic location and problem solving by using GIS and GPS units in demonstrating solutions to cross-curricular applications of the technology. Part I of II. Prerequisite: Basic Computer Literacy.
+Lecture 3 hours per week.
+3 credits"
+"GIS","102","Introduction to Geospatial Technology II","Continues with the concepts of Geographic Information Systems (GIS), Global Positioning Systems (GPS) and remote sensing components of Geospatial Technology. Covers additional concepts of geographic location and problem solving by using GIS and GPS units in demonstrating solutions to cross-curricular applications of the technology. Part II of II. Prerequisite: Basic Computer Literacy.
+
+Lecture 3 hours per week.
+
+3 credits"
+"HCT","101","Health Care Technician I","Teaches basic care skills with emphasis on physical, social, emotional, and spiritual needs of patients. Covers procedures, communications and interpersonal relations; observation, charting and reporting; care planning, safety and infection control; anatomy and physiology, nutrition and patient feeding; ethics, death and dying. Prepares multi-skilled health care workers to care for patients of various ages with special emphasis on geriatric nursing, home health, long and short term care facilities.
+Lecture 3-4 hours per week.
+3-4 credits"
+"HCT","102","Health Care Technician II","Applies theory through laboratory experience for health care technicians to work in home health, long and short term facilities. Prerequisite: HCT 101.
+Lecture 1-2 hours. Laboratory 2-6 hours. Total 3-8 hours per week.
+3-4 credits"
+"HIS","101","History of Western Civilization I","Examines the development of western civilization from ancient times to the present. 
+
+
+
+Lecture 3 hours per week."
+"HIS","111","History of World Civilization I","Surveys Asian, African, Latin American, and European civilizations from the ancient period to the present. 
+
+
+
+Lecture 3 hours per week."
+"HIS","112","History of World Civilization II","Surveys Asian, African, Latin American, and European civilizations from the ancient period to the present. 
+
+
+
+Lecture 3 hours per week."
+"HIS","121","United States History I","Surveys United States history from its beginning to the present. 
+
+
+
+Lecture 3 hours per week."
+"HIS","122","United States History II","Surveys United States history from its beginning to the present. 
+
+
+
+Lecture 3 hours per week."
+"HIS","183","Survey of Museum Practice","Explores the role of the museum in society and traces the foundations upon which these public, cultural and educational institutions are built. Emphasizes the management and interpretation of historic properties and collections. This course is cross-listed with ART 183. Credit will not be awarded for both. Lecture 3 hours per week. 3 credits"
+"HIS","185","Introduction to Museum Education","Explores the basic elements of museum education, the different programming techniques museums use to reach all types of audiences, and the ways museums identify audiences. This course is cross-listed with ART 185. Credit will not be awarded for both. Lecture 3 hours per week. 3 credits."
+"HIS","186","Collections Management","Discusses the fundamentals of collections policy, deaccessioning, appraisal, and curatorial management. This course is cross-listed with ART 186. Credit will not be awarded for both. Lecture 3 hours per week. 3 credits"
+"HLT","143","Medical Terminology I","Provides an understanding of medical abbreviations and terms. Includes the study of prefixes, suffixes, word stems, and technical terms with emphasis on proper spelling, pronunciation, and usage. Emphasizes more complex skills and techniques in understanding medical terminology. 
+
+
+
+Lecture 3 hours per week."
+"HLT","160","Personal Health and Fitness","Studies the relationships between health and fitness. Topics include nutrition, disease prevention, weight control, smoking and health, medical care, aerobic and anaerobic conditioning, and the relationship between physical and mental health. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"HLT","170","Introduction to Massage","Introduces the student to the field of massage therapy. Student practices basic Swedish massage strokes, aromatherapy, effleurage, petrissage and friction, as well as indications and contra-indication for massage.
+Lecture 1 hour per week. 1 credit"
+"HLT","180","Therapeutic Massage I","Introduces the student to the history and requirements for massage therapy. Covers the terms and practice of massage with introduction to equipment, safety, and ethics as well as massage movements and techniques. Includes information about the benefits of massage, contraindications, client interview, client-therapist relationship, draping, good body mechanics, and anatomical landmarks. Basic massage techniques are blended into a relaxing, health enhancing full-body session preparing the student for their student clinical experience.
+Lecture 1 hour. Laboratory 6 hours. Total 7 hours per week. 3 credits"
+"HLT","190","Coordinated Practice","HLT 190"
+"HLT","195","Topics","HLT 195"
+"HLT","230","Principles of Nutrition and Human Development","Teaches the relationship between nutrition and human development. Emphasizes nutrients, balanced diet, weight control, and the nutritional needs of an individual. 
+
+
+
+Lecture 3 hours per week."
+"HLT","280","Therapeutic Massage II","Introduces the student to the history and requirements for massage therapy. Covers the terms and practice of massage with introduction to equipment, safety, and ethics as well as massage movements and techniques. Includes information about the benefits of massage, contraindications, client interview, client- therapist relationship, draping, good body mechanics, and anatomical landmarks. Basic massage techniques are blended into a relaxing, health enhancing full-body session preparing the student for their student clinical experience.
+Prerequisite PTH 151.
+Lecture 1 hour. Laboratory 6 hours. Total 7 hours per week.
+3 credits"
+"HLT","281","Therapeutic Massage III","Introduces the concept of consultation, client management, session design, and integration of specific therapeutic approaches into a full-body session. Students learn to give specific therapeutic attention to the regions of the back, neck and torso. Using knowledge of muscle anatomy, students perform more advanced massage techniques to address hypertonicity, chronic ischemia, trigger points, fibrotic tissue, adhesions and scar tissue. Includes common clinical applications in the body regions covered and the integration of specific techniques into a full-body session. Prerequisite: HLT 280, PTH 151. Lecture 1 hour. Laboratory 6 hours. Total 7 hours per week. 3 credits"
+"HMS","100","Introduction to Human Services","Introduces human service agencies, roles and careers. Presents an historical perspective of the field as it relates to human services today. Additional topics include values clarification and needs of target populations. 
+
+
+
+Lecture 3 hours per week."
+"HMS","106","Working with Death and Dying","Studies the hospice concept emphasizing the management of providing services associated with terminal illness, while providing human services for the family as well as the patient. Explores the unique role of each member of the hospice care team as to how each assists the patient and family in coping with the effects of the illness. Emphasizes understanding grief and loss. Focuses on the dying person and emphasizes the social and moral aspects of death and dying. 
+
+
+
+Lecture 3 hours per week."
+"HMS","225","Functional Family Intervention","Provides an understanding of functions and dysfunctions within the family. Emphasizes the development of effective skills through an interpersonal/interactional approach to family intervention. 
+
+
+
+Lecture 3 hours per week."
+"HMS","251","Substance Abuse I","Provides knowledge, skills, and insight for working in drug and alcohol abuse programs. Emphasizes personal growth and client growth measures in helping relationships. Stresses various methods of individual and group techniques for helping the substance abuser. 
+
+
+
+Lecture 3 hours per week."
+"HMS","252","Substance Abuse II","Expands knowledge and skill in working with the substance abuser. Focuses on assisting substance abusers in individual and group settings and explores client treatment modalities. May provide opportunities for field experience in treatment centers. Prerequisite HMS 151. 
+
+
+
+Lecture 3 hours per week."
+"HMS","258","Case Management and Substance Abuse","Focuses on the process for interviewing substance abuse clients. Includes intake, assessment, handling denial, and ending the interview. Teaches skills for writing short-term goals and treatment plans with emphasis on accountability. Examines various reporting devices. 
+
+
+
+Lecture 3 hours per week."
+"IND","101","Quality Assurance Technology I","Studies principles and techniques of quality engineering for the management, design engineering economics, production, and assurance of quality. Emphasizes fundamentals of total quality assurance for product and process control. May include design review, fundamentals of statistics procurement control, sampling and control chart systems, quality reporting, process capability analysis, tool and gauge control, document control, or troubleshooting quality control. 
+
+
+
+Lecture 3 hours per week."
+"IND","116","Applied Technology","Introduces basic information and problem solving techniques in liquids, gases, solids, metrics, mechanics, forces, simple machines, heat, light, sound and nuclear energy as applied in industrial engineering technologies. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"IND","137","Team Concepts & Problem Solving","Studies team concepts and problem solving techniques to assist project teams in improving quality and productivity. Provides knowledge of how to work as a team, plan and conduct good meetings, manage logistics and details, gather useful data, communicate the results and implement changes. 
+
+
+
+Lecture 3 hours per week."
+"IND","197","Co-Op Education","Provides on-the-job training for pay in approved business, industrial and service firms. Applies to all
+
+occupational-technical curricula at the discretion of the college. Credit/work ratio not to exceed 1:5 hours.
+
+Variable hours per week."
+"ITD","110","Web Page Design I","Stresses a working knowledge of web site designs, construction, and management using HTML or XHTML.  Course content includes headings, lists, links, images, image maps, tables, forms, and frames.  Recommended prerequisite is ITE 115.
+
+
+
+Lecture 3 hours per week."
+"ITD","132","Structured Query Language","Incorporates a working introduction to commands, functions and operators used in SQL for extracting data from standard databases.  Recommended prerequisite is ITE 115.
+
+
+
+Lecture 3 hours per week."
+"ITD","136","Database Management Software","Covers an introduction to relational database theory and how to administer and query databases using multiple commercial database systems.
+Lecture 3-4 hours per week.
+3-4 credits"
+"ITD","210","Web Page Design II","Incorporates advanced techniques in web site planning, design, usability, accessibility, advanced site management, and maintenance utilizing web editor software(s).  Recommended prerequisite is ITD 110.
+
+
+
+Lecture 3 hours per week."
+"ITE","115","Introduction to Computer Applications and Concepts","Covers computer concepts and internet skills and use a software suite which includes word processing, spreadsheet, database, and presentation software to demonstrate skills required for computer literacy.  Recommended prerequisite keyboarding skills.
+
+
+
+Lecture 3 hours per week."
+"ITE","119","Information Literacy","Presents the information literacy core competencies focusing on the use of information technology skills. Skills and knowledge will be developed in database searching, computer applications, information security and privacy, and intellectual property issues.
+
+Lecture 3 hours per week.
+
+3 credits"
+"ITE","130","Introduction to Internet Services","Provides instruction to provide students with a working knowledge of Internet terminology and services including email, WWW browsing, search engines, ftp, file compression, and other services using a variety of software packages.  This course provides instruction for basic web page construction.
+
+
+
+Lecture 3 hours per week."
+"ITE","140","Spreadsheet Software","Covers the use of spreadsheet software to create spreadsheets with formatted cells and cell ranges, control pages, multiple sheets, charts, and macros.  Topics will include type text in a cell, enter data on multiple worksheets, work with formulas and functions, create charts, pivot tables, and styles, insert headers and footers, and filter data.  This course covers MOS Excel objectives.
+
+
+
+Lecture 3 hours per week."
+"ITE","215","Advanced Computer Applications and Integration","Incorporates advanced computer concepts including the integration of a software suite. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"ITE","221","PC Hardware and OS Architecture","Covers instruction about processors, internal functions, peripheral devices, computer organization, memory management, architecture, instruction format, and basic OS architecture.
+
+
+
+Lecture 3 hours per week."
+"ITE","290","Coordinated Internship","Supervises on-the-job training in selected business, industrial or service firms coordinated by the college. 
+
+Credit/practice ratio not to exceed 1:5 hours. May be repeated for credit. Variable hours. 
+
+1-5 credits"
+"ITN","101","Introduction to Network Concepts","Provides instruction in networking media, physical and logical topologies, common networking standards and popular networking protocols.  Course content emphasizes the TCP/IP protocol suite and related IP addressing schemes, including CIDR.  Course content also includes selected topics in network implementation, support and LAN/WAN connectivity.
+
+
+
+Lecture 3 hours per week."
+"ITN","111","Server Administration Windows Server 2016","Covers basic instruction in various network protocols, name resolution services, remote access, security, and print installation, configuration, administration, monitoring, and troubleshooting of Server Administration software (Windows 2016) in an Active Directory domain environment.
+    Lecture 3-4 hours per week.
+    3-4 credits"
+"ITN","154","Network Fundamentals, Router Basics, and Configuration (ICND1) - Cisco","Provides instruction in the fundamentals of networking environments, the basics of router operations, and basic router configuration.
+Lecture 4 hours."
+"ITN","155","Switching, Wireless, and WAN Technologies - Cisco","Provides the skills and knowledge to install, operate, and troubleshoot a small-to-medium sized branch office enterprise network, including configuring several switches and routers, configuring wireless devices, configuring VLANS, connecting to a WAN, and implementing network security.
+Lecture 2-3 hours. Laboratory 2 hours. Total 4-5 hours per week.
+3-4 credits"
+"ITN","156","Basic Switching and Routing - Cisco","Centers instruction in LAN segmentation using bridges, routers, and switches. Includes fast Ethernet, access lists, routing protocols, spanning tree protocol, virtual LANS and network management. 
+
+Lecture 3 hours per week. 
+
+4 credits"
+"ITN","157","WAN Technologies - Cisco","Concentrates on an introduction to Wide Area Networking (WANs). Includes WAN design, LAPB, Frame Relay, ISDN, HDLC, and PPP. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"ITN","170","Linux System Administration","Focuses instruction on the installation, configuration and administration of the Linux operating system and emphasizes the use of Linux as a network client and workstation.
+Lecture 3-4 hours per week.
+3-4 credits"
+"ITN","171","UNIX I","Provides an introduction to UNIX operating systems.  Teaches login procedures, file creation, UNIX file structure, input/output control, and the UNIX shell.
+
+
+
+Lecture 3 hours per week."
+"ITN","195","Cisco Cybersecurity Operations","Provides an opportunity to explore topical areas of interest to or needed by students. May be used also for special honors courses. May be repeated for credit. Variable hours. The course focuses on how to monitor, detect and respond to cybersecurity threats. Plus, covers cryptography, host-based security analysis, security monitoring, computer forensics, attack methods and incident reporting and handling. 3 credits"
+"ITN","245","Network Troubleshooting","Focuses on servicing and maintaining local area networks (LANS). Teaches network installation, network troubleshooting, installation of file servers and workstations, configuring of network boards and cables, and diagnosing common network problems.
+
+Lecture 3-4 hours per week.
+
+3-4 credits"
+"ITN","254","Virtual Infrastructure: Installation and Configuration","Explores concepts and capabilities of virtual architecture with a focus on the installation, configuration, and management of a virtual infrastructure, ESX Server, and Virtual Center. Covers fundamentals of virtual network design and implementation, fundamentals of storage area networks, virtual switching, virtual system management, and engineering for high availability.
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week.
+4 credits"
+"ITN","257","Cloud Computing: Infrastructure and Services","Focuses on cloud infrastructure, deployment, security models, and the key considerations in migrating to cloud computing. Covers the technologies and processes required to build traditional, virtualized, and cloud data center environments, including computation, storage, networking, desktop and application virtualization, business continuity, security, and management.
+(3-4 Cr.) Lecture 3-4 hours. Total 3-4 hours per week. None. 3-4 credits"
+"ITN","260","Network Security Basics","Provides instruction in the basics of network security in depth. Includes security objectives, security architecture, security models and security layers; risk management, network security policy, and security training. Includes the give security keys, confidentiality integrity, availability, accountability and auditability. 
+Lecture 3 hours. 3 credits"
+"ITN","261","Network Attacks, Computer Crime and Hacking","Encompasses in-depth exploration of various methods for attacking and defending a network. Explores network security concepts from the viewpoint hackers and their attack methodologies. Includes topics about hackers, attacks, Intrusion Detection Systems (IDS) malicious code, computer crime and industrial espionage. Lecture 3 hours per week. 3 credits"
+"ITN","262","Network Communication, Security and Authentication","Covers an in-depth exploration of various communication protocols with a concentration on TCP/IP. Explores communication protocols from the point of view of the hacker in order to highlight protocol weaknesses. Includes Internet architecture, routing, addressing, topology, fragmentation and protocol analysis, and the use of various utilities to explore TCP/IP. Lecture: 3 hours per week. 3 credits"
+"ITN","263","Internet/Intranet Firewalls and e-Commerce Security","Gives an in-depth exploration of firewall, Web security, and e-commerce security. Explores firewall concepts, types, topology and the firewall's relationship to the TCP/IP protocol. Includes client/server architecture, the Web server, HTML and HTTP in relation to Web Security, and digital certification, D.509, and public key infrastructure (PKI). Lecture: 3 hours per week. 3 credits"
+"ITN","266","Network Security Layers","Provides an in-depth exploration of various security layers needed to protect the network. Explores Network Security from the viewpoint of the environment in which the network operates and the necessity to secure that environment to lower the security risk to the network. Includes physical security, personnel security, operating system security, software security and database security. 
+Lecture: 3 hours per week. 3 credits"
+"ITN","267","Legal Topics in Network Security","Conveys an in-depth exploration of the civil and common law issues that apply to network security. Explores statutes, jurisdictional, and constitutional issues related to computer crimes and privacy. Includes rules of evidence, seizure and evidence handling, court presentation and computer privacy in the digital age.
+Lecture: 3 hours per week. 3 credits"
+"ITN","295","Topics in Information Technology Networking","Provides an opportunity to explore topic areas of an evolving nature or of short-term importance in the discipline.
+
+
+
+Lecture 3 hours per week."
+"ITP","100","Software Design","Introduces principles and practices of software development.  Course content includes instruction in critical thinking, problem solving skills, and essential programming logic in structured and object-oriented design using contemporary tools.  Recommended prerequisite or co-requisite is high school algebra.
+
+
+
+Lecture 3 hours per week."
+"ITP","120","Java Programming I","Entails instruction in fundamentals of object-oriented programming using Java.  This course emphasizes program construction, algorithm development, coding, debugging, and documentation of console and graphical user interface applications.  Recommended prerequisite: ITP 100.
+
+
+
+Lecture 3 hour per week."
+"ITP","136","C# Programming I","Presents instruction in fundamentals of object-oriented programming and design using C#. Emphasizes program construction, algorithm development, coding, debugging, and documentation of applications within the .NET framework.
+
+Lecture 3-4 hours per week.
+
+3-4 credits"
+"ITP","150","Introduction to Python","Provides an opportunity to explore topical areas of interest to or needed by students. May be used also for special honors courses. May be repeated for credit. Variable hours. Entails instruction in fundamentals of object-oriented programming using Python. Emphasizes program construction, algorithm development, coding, debugging, and documentation of Python applications. Lecture 3-4 hours. Total 3-4 hours per week. 3-4 credits"
+"ITP","160","Introduction to Game Design & Development","Introduces object-oriented game design and development. Provides overview of the electronic game design and development process and underlines the historical contest, content creation strategies, game careers, and future trends in the industry. Utilizes a game language environment to introduce game design, object-oriented paradigms, software design, software development and product testing. Teaches skills of writing a game design document and creating a game with several levels and objects. Integrate 2D animations, 3D models, sound effects, and background music as well as graphic backgrounds. 
+
+
+
+Lecture 3 hours per week."
+"ITP","170","Project Management","Introduces the concepts of project management as defined by the Project Management Institute, the accreditation body for project management.
+Lecture 3-4 hours per week.
+3-4 credits"
+"ITP","220","Java Programming II","Imparts instruction in application of advanced object-oriented techniques to application development using Java.  Course content emphasizes database connectivity, inner classes, collection classes, networking, and threads.  Prerequisite: ITP 120."
+"ITP","251","Systems Analysis and Design","Focuses on application of information technologies (IT) to system life cycle methodology, systems analysis, systems design, and system implementation practices.  Methodologies related to identification of information requirements, feasibility in the areas of economic, technical and social requirements, and related issues are included in course content.  Software applications may be used to enhance student skills.
+
+
+
+Lecture 3 hours per week."
+"LGL","110","Introduction to Law and the Legal Assistant","Introduces various areas of law in which a legal assistant may be employed. Includes study of the court system (Virginia and federal) as well as a brief overview of criminal law, torts, domestic relations, evidence, ethics, the role of the legal assistant, and other areas of interest. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"LGL","115","Real Estate Law","Studies law of real property and gives in-depth survey of the more common types of real estate transactions and conveyances such as deeds, contracts, leases, and deeds of trust. Focuses on drafting these various instruments and studies the system of recording and search of public documents. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"LGL","117","Family Law","Studies elements of a valid marriage, grounds for divorce and annulment, separation, defenses, custody, support, adoptions, and applicable tax consequences. Includes property settlement, pre- and ante-nuptial agreements, pleadings, and rules of procedure. May include specific federal and Virginia consumer laws. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"LGL","125","Legal Research","Provides an understanding of various components of a law library, and emphasizes research skills through the use of digests, encyclopedias, reporter systems, codes, Shepards's Citations, ALR, and other research tools. May include overview of computer applications and writing projects. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"LGL","126","Legal Writing","Studies proper preparation of various legal documents, including legal memoranda, letters, and pleadings. Involves practical applications. May include case and appellate briefs. Prerequisite ENG 111 or permission of instructor. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"LGL","235","Legal Aspects of Business Organizations","Studies fundamental principles of agency law and the formation of business organizations. Includes sole proprietorships, partnerships, corporation, limited liability companies, and other business entities. Reviews preparation of the documents necessary for the organization and operation of businesses.
+
+Lecture 3 hours per week.
+
+3 credits"
+"MAC","121","Computer Numerical Control I","Focuses on numerical control techniques in metal forming and machine processes. Includes theory and practice in lathe and milling machine computer numerical control program writing, setup and operation. 
+
+Lecture 1-2 hours. Laboratory 2-3 hours. Total 3-5 hours per week.
+
+2-3 credits"
+"MAC","122","Computer Numerical Control II","Focuses on numerical control techniques in metal forming and machine processes. Includes theory and practice in lathe and milling machine computer numerical control program writing, setup and operation. Part II of II.
+
+Lecture 1-2 hours. Laboratory 2-3 hours. Total 3-5 hours per week.   2-3 credits"
+"MAC","123","Computer Numerical Control III","Focuses on numerical control techniques in metal forming and machine processes. Includes theory and practice in lathe and milling machine computer numerical control program writing, setup and operation. 
+
+Lecture 1-2 hours. Laboratory 2-3 hours. Total 3-5 hours per week. 
+
+2-3 credits"
+"MAC","130","Introduction to Electric Discharge Machining (EDM)","Introduces the equipment, processes, and components of electric discharge machining. Includes basic operation and programming for computer numerical control (CNC) electric discharge machining. (EDM).  Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week. 2 credits."
+"MAC","134","CMM Operation and Programming","Focuses on inspection using a Coordinate Measuring Machine. Includes hands-on demonstration of CMM setup, initialization and operation. Covers the essential aspects of the software and CMM operation, using a sample part for hands-on practice.
+
+Lecture: 1-2 hours. Laboratory: 2-3 hours.
+
+2-3 credits"
+"MAC","150","Intro To Computer Aided Manufacturing","Introduces computer aided manufacturing (CAM) with emphasis on programming of numerical control machinery. Teaches program writing procedures using proper language and logic and a CAM programming system to produce numerical control code for machines. Teaches basic computer usage, 2 1/2D and 3D CAD-CAM integration, and code-to-machine transfer. 
+
+
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"MAC","161","Machine Shop Practices I","Introduces safety procedures, bench work, hand tools, precision measuring instruments, drill presses, cut-off saws, engine lathes, manual surface grinders, and milling machines. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"MAC","162","Machine Shop Practices II","Introduces safety procedures, bench work, hand tools, precision measuring instruments, drill presses, cut-off saws, engine lathes, manual surface grinders, and milling machines. 
+
+
+
+Lecture 2 hours. Laboratory 2-3 hours. Total 4-5 hours per week."
+"MAC","163","Machine Shop Practices III","Offers practice in the operation of the drill press, engine lathe, vertical milling machine, horizontal milling machine, and the surface grinder. Introduces practical heat treatment of directly hardenable steels commonly used in machine shops. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"MAC","164","Machine Shop Practices IV","Offers practice in the operation of the drill press, engine lathe, vertical milling machine, horizontal milling machine, and the surface grinder. Introduces practical heat treatment of directly hardenable steels commonly used in machine shops. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"MAC","181","Machine Blueprint Reading I","Introduces reading and interpreting blueprints and working drawings. Applies visualization of objects, sketching, and machine terminology. 
+
+
+
+Lecture 3 hours per week."
+"MCR","4","Learning Support for Quantitative Reasoning","Provides instruction for students who require minimum preparation for college- level Quantitative Reasoning. Students in this course will be co-enrolled in MTH 154. Credits are not applicable toward graduation and do not replace MTE courses waived. Successful completion of Quantitative Reasoning results in the prerequisite MTE modules being satisfied.
+Lecture 1-2 hours. Total 1-2 hours per week.
+Prerequisite(s): Completion of any three of the MTE modules 1-5 and Corequisite: MTH 154: Quantitative Reasoning
+1-2 credits"
+"MCR","6","Learning Support for Precalculus I","Provides instruction for students who require minimum preparation for college-level Precalculus. Students in this course will be co-enrolled in MTH 161. Credits not applicable toward graduation and do not replace MTE courses waived. Successful completion of Precalculus I results in the prerequisite MTE modules being satisfied.
+Lecture 1-2 hours. Total 1-2 hours per week.
+Prerequisite(s): Completion of any seven of the MTE modules 1-9 and Corequisite: MTH 161: Precalculus I.
+1-2 credits"
+"MEC","101","Introduction To Engineering Technology I","Introduces engineering technology. Provides historical background. Covers such topics as professional ethics; problem solving techniques involving forces, structures, materials, fluids, energy, and electricity and U.S. Customary and S.I. units, and unit conversions. 
+
+
+
+Lecture 2 hours per week."
+"MEC","102","Introduction to Engineering Technology II","Introduces engineering technology. Provides historical background. Covers such topics as professional ethics; problem solving techniques involving forces, structures, materials, fluids, energy, and electricity and U.S. Customary and S.I. units, and unit conversions. 
+
+
+
+Lecture 2 hours per week."
+"MEC","113","Materials and Processes of Industry","Studies engineering materials and accompanying industrial manufacturing processes. Investigates nature of materials structure and properties from a design standpoint. Analyzes the effects of various processes on materials, and the processes themselves. Includes machining, casting, forming, molding, hot/cold working, cipless machining, and welding. Addresses quality assurance and inspection procedures. 
+
+
+
+Lecture 3 hours per week."
+"MEC","131","Mechanics I - Statics for Engineering Technology","Teaches Newton's laws, resultants and equilibrium of force systems, trusses and frames, determination of centroids, and distributed loads and moments of inertia. Introduces dry friction and force systems in space. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"MEC","132","Mechanics II - Strength of Materials for Engineering Technology","Teaches the concepts of stress and strain. Provides an analysis of stresses and deformations in loaded members, connectors, shafts, beams, columns, and combined stress. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"MEC","140","Introduction to Mechatronics","Presents foundational concepts in mechatronics including analog and digital electronics, sensors, actuators, microprocessors, and microprocessor interfacing to electromechanical systems. Surveys components and measurement equipment used in the design, installation, and repair of mechatronic equipment and circuits."
+"MEC","154","Mechanical Maintenance I","Provides an overview of basic maintenance techniques and processes for industrial mechanics and technicians who are installing and maintaining industrial mechanical and power transmission components. 
+
+Lecture 2-3 hours. Laboratory 1-2 hours. Total 3-4 hours per week. 3 credits"
+"MEC","161","Basic Fluid Mechanics - Hydraulics/Pneumatics","Introduces theory, operation and maintenance of hydraulic/ pneumatics devices and systems. Emphasizes the properties of fluids, fluid flow, fluid statics, and the application of Bernoulli's equation. Lecture 2-3 hours. Laboratory 2-3 hours. Total 4-6 hours per week. 3-4 credits"
+"MEC","211","Machine Design I","Introduces analytical design of bearings, clutches, coupling, brakes, springs, gearing systems, and power shafting. Emphasizes methods of construction, machine parts and specifications of materials, and manufacturing processes. Part I of II.
+
+Lecture 3-4 hours. Laboratory 0-3 hours. Total 4-6 hours per week.
+
+4 credits"
+"MEC","230","Mechatronic Process Control","Studies systems integrating mechanical components with electrical components and logic devices used to control manufacturing operations. Surveys electromechanical actuators, sensors, digital to analog conversion, and methods of computer control as related to the managing and monitoring of manufacturing processes. 
+Prerequisite: MEC 140 or divisional approval.
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"MEC","252","Mechanical Systems Maintenance","Covers the application of the principles of mechanical component maintenance as they apply to complete mechanical systems, such as pumps, conveyors, and packaging machines.  3 credits.  Lecture 2 hours. Laboratory 2 hours."
+"MEC","253","Preventative and Predictive Maintenance","Presents the concepts of preventative and predictive maintenance needed to increase machine up-time and reliability, product quality, and plant productivity.
+
+3 credits. 2 Lecture hours. 2 Laboratory hours. 4 hours per week."
+"MEC","254","Mechanical Maintenance II","Covers advanced maintenance techniques and processes for industrial mechanics and technicians who are installing and maintaining industrial mechanical and power transmission components. Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"MEC","270","Computations for  Engineering Technology","Presents the use of spreadsheet and Matlab (or equivalent) software to solve a variety of problems in introductory engineering analysis, such as graphing data, unit conversions, simple statistical analysis, sorting, searching and analyzing data, curve fitting, interpolation, solving algebraic equations, logical decisions, evaluating integrals, comparing economic alternatives, and finding optimum solutions.  The acquisition and processing of data as well as macro programming in Basic are also covered.
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week. 
+
+3 credits"
+"MEN","101","Mental Health Skill Training I","Develops skills necessary to function as a mental health worker, with emphasis on guided practice in counseling skills as well as improved self-awareness. Includes training in problem-solving, goal-setting, and implementation of appropriate strategies and evaluation techniques relating to interaction involving a variety of client needs. Part I of II.
+
+Lecture 3 hours per week. 
+
+3 credits"
+"MEN","102","Mental Health Skill Training II","Develops skills necessary to function as a mental health worker, with emphasis on guided practice in counseling skills as well as improved self-awareness. Includes training in problem-solving, goal-setting, and implementation of appropriate strategies and evaluation techniques relating to interaction involving a variety of client needs. Part II of II.
+
+Lecture 3 hours per week. 
+
+3 credits"
+"MEN","121","Intellectual Disabilities I","Explores current problems and social, cultural and legal issues involved in therapeutic interventions for understanding and programs relating to individuals with intellectual disabilities. Part I of II.
+
+Lecture 3 hours per week.
+
+
+
+3 credits
+
+
+
+
+
+Lecture 3 hours per week."
+"MEN","190","Coordinated Practice","Supervises on-the-job training in selected business, industrial or service firms coordinated by the college."
+"MEN","196","On-Site Training","Offers opportunities for career orientation and training without pay in selected businesses and industry. Supervised and coordinated by the college."
+"MKT","100","Principles of Marketing","Presents principles, methods, and problems involved in marketing to consumers and organizational buyers. Discusses problems and policies connected with distribution and sale of products, pricing, promotion, and buyer motivation. Examines variations of marketing research, legal, social, ethical, e-commerce, and international considerations in marketing. 
+
+
+
+Lecture 3 hours per week."
+"MTE","1","Operations with Positive Fractions","Includes operations and problem solving with proper fractions, improper fractions, and mixed numbers without the use of a calculator. Emphasizes applications and includes U. S. customary units of measure. Credit is not applicable toward graduation. Prerequisite: Qualifying placement score. Lecture: 1 hour per week. 1 credit"
+"MTE","2","Operations with Positive Decimals and Percents","Includes operations and problem solving with positive decimals and percents. Emphasizes applications and includes U. S. customary and metric units of measure. Credit is not applicable toward graduation. Prerequisite: MTE 1 or qualifying placement score.  Lecture: 1 hour per week. 1 credit"
+"MTE","3","Algebra Basics","Includes basic operations with algebraic expressions and solving simple algebraic equations using signed numbers with emphasis on applications. Credit is not applicable toward graduation. Prerequisite: MTE 2 or qualifying placement score. Lecture: 1 hour per week. 1 credit
+1 credits"
+"MTE","4","First Degree Equations and Inequalities in One Variable","Includes solving first degree equations and inequalities containing one variable, and using them to solve application problems. Emphasizes applications and problem solving. Credit is not applicable toward graduation. Prerequisite: MTE 3 or qualifying placement score. Lecture: 1 hour per week. 1 credit"
+"MTE","5","Linear Equations, Inequalities and Systems of Linear Equations in Two Variables","Includes finding the equation of a line, graphing linear equations and inequalities in two variables and solving systems of two linear equations. Emphasizes writing and graphing equations using the slope of the line and points on the line, and applications. Credit is not applicable toward graduation. Prerequisite: MTE 4 or qualifying placement score. Lecture: 1 hour per week. 1 credit"
+"MTE","6","Exponents, Factoring and Polynomial Equations","The student will learn to perform operations on exponential expressions and polynomials. Students will also learn techniques to factor polynomials and use these techniques to solve polynomial equations. Emphasis should be on learning all the different factoring methods, and solving application problems using polynomial equations. Credit is not applicable toward graduation. Prerequisite: MTE 5 or qualifying placement score. Lecture: 1 hour per week. 1 credit."
+"MTE","7","Rational Expressions and Equations","Includes simplifying rational algebraic expressions, solving rational algebraic equations and solving applications that use rational algebraic equations. Credit is not applicable toward graduation. Prerequisite: MTE 6 or qualifying placement score. Lecture: 1 hour per week. 1 credit."
+"MTE","8","Rational Exponents and Radicals","Includes simplifying radical expressions, using rational exponents, solving radical equations and solving applications using radical equations. Credit is not applicable toward graduation. Prerequisite: MTE 7 or qualifying placement score. Lecture: 1 hour per week. 1 credit."
+"MTE","9","Functions, Quadratic Equations and Parabolas","Includes an introduction to functions in ordered pair, graph, and equation form. Also introduces quadratic functions, their properties and their graphs. Credit is not applicable toward graduation. Prerequisite: MTE 8 or qualifying placement score. Lecture: 1 hour per week. 1 Credit."
+"MTH","111","Basic Technical Mathematics","Provides a foundation in mathematics with emphasis in arithmetic, unit conversion, basic algebra, geometry and trigonometry.  This course is intended for CTE programs.  Lecture: 3 hours.  Total 3 hours per week.  
+Prerequisite: MTE 1-3 OR Corequisite: MCR 1.
+3 credits"
+"MTH","130","Fundamentals of Reasoning","Presents elementary concepts of algebra, linear graphing, financial literacy, descriptive statistics, and measurement & geometry.  Based on college programs being supported by this course, colleges may opt to add additional topics such as logic or trigonometry.  This course is intended for occupational/technical programs.
+Lecture: 3 hours.  Total 3 hours per week.
+Prerequisite(s): Competency in MTE 1-3 as demonstrated through placement or unit completion or equivalent OR Corequisite: MCR 2"
+"MTH","154","Quantitative Reasoning","Presents topics in proportional reasoning, modeling, financial literacy and validity studies (logic and set theory).  Focuses on the process of taking a real-world situation, identifying the mathematical foundation need to address the problem, solving the problem and applying what is learned to the original situation.
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite(s): Competency in MTE 1-5 as demonstrated through placement or unit completion or equivalent OR Corequisite: MCR 4
+3 credits"
+"MTH","155","Statistical Reasoning","Presents elementary statistical methods and concepts including visual data presentation, descriptive statistics, probability, estimation, hypothesis testing, correlation and linear regression. Emphasis is placed on the development of statistical thinking, simulation, and the use of statistical software.
+Lecture 3 hours, Total 3 hours per week.
+
+Prerequisite: Competency in MTE 1-5 as demonstrated through placement or unit completion or equivalent. 3 credits"
+"MTH","161","Precalculus I","Presents topics in power, polynomial, rational, exponential, and logarithmic functions, and systems of equations and inequalities.  Credit will not be awarded for both MTH 161: Precalculus and MTH 167: Precalculus with Trigonometry or equivalent. 
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite(s): Competency in MTE 1-9 as demonstrated through placement or unit completion or equivalent OR Corequisite: MCR 6
+3 credits"
+"MTH","162","Precalculus II","Presents trigonometry, trigonometric applications including Law of Sines and Cosines and an introduction of conics.  Credit will not be awarded for both MTH 162: Precalculus II and MTH 167: Precalculus with Trigonometry or equivalent.
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite(s):  Placement or completion of MTH 161 or equivalent with a grade of C or better.  3 credits"
+"MTH","167","Precalculus with Trigonometry","Presents topics in power, polynomial, rational, exponential, and logarithmic functions, systems of equations, trigonometry and trigonomic applications, including Law of Sines and Cosines, and an introduction to conics.  Credit will not be awarded for both MTH 167:  Precalculus with Trigonometry and MTH 161/162: Precalculus I and II or equivalent.
+Lecture 5 hours.  Total 5 hours per week.
+Prerequisite(s):  Competency in MTE 1-9 as demonstrated through placement or unit completion or equivalent OR Corequisite: MCR 7.
+5 credits"
+"MTH","245","Statistics I","Presents and overview of statistics, including descriptive statistics, elementary probability, probablility distributions, estimation, hypothesis testing, correlation, and linear regression.  Credit will not be awarded for both MTH 155:  Statistical Reasoning and MTH 245: Statistics I or equivalent.
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite:  Completion of MTH 154 or MTH 161 or equivalent with a grade of C or better.  3 credits"
+"MTH","261","Applied Calculus I","Introduces limits, continuity, differentiation and integration of algebraic, exponential and logarithmic functions, and techniques of integration with an emphasis on applications in business, social sciences and life sciences.
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite: Completion of MTH 161 or equivalent with a grade of C or better.
+3 credits"
+"MTH","263","Calculus I","Presents concepts of limits, derivatives, differentiation of various types of functions and use of differentiation rules, application of differentiation, antiderivatives, integrals and applications of integration.
+Lecture 4 hours.  Total 4 hours per week.
+Prerequisite:  Completion of MTH 167 or MTH 161/162 or equivalent with a grade of C or better.
+4 credits"
+"MTH","264","Calculus II","Continues the study of calculus of algebraic and transcendental functions including rectangular, polar, and parametric graphing, indefinite and definite integrals, methods of integration, and power series along with applications.  Features instruction for mathematical, physical and engineering science programs.
+Lecture 4 hours.  Total 4 hours per week.
+Prerequisite: Completion of MTH 263 or equivalent with a grade of C or better.
+4 credits"
+"MTH","265","Calculus III","Focuses on extending the concepts of function, limit, continuity, derivative, integral and vector from the plane to the three dimensional space.  Covers topics including vector functions, multivariate functions, partial derivatives, multiple integrals and an introduction to vector calculus.  Features instruction for mathematical, physical and engineering science programs.
+Lecture 4 hours.  Total 4 hours per week.
+Prerequisite:  Completion of MTH 264: Calculus II or equivalent with a grade of C or better."
+"MTH","266","Linear Algebra","Covers matrices, vector spaces, determinants, solutions of systems of linear equations, basis and dimension, eigenvalues, and eigenvectors.  Features instruction for mathematical, physical and engineering science programs.
+Prerequisite: Completion of MTH 263 or equivalent with a grade of B or better OR MTH 264 or equivalent with a grade of C or better.
+3 credits"
+"MTH","267","Differential Equations","Introduces ordinary differential equations.  Includes first order differential equations, second and higher order ordinary differential equations with applications and numerical methods.
+Lecture 3 hours.  Total 3 hours per week.
+Prerequisite:  Completion of MTH 264 or equivalent with a grade of C or better.
+3 credits"
+"MTH","288","Discrete Mathematics","Presents topics in sets, counting, graphs, logic, proofs, functions, relations, mathematical induction, Boolean Algebra, and recurrence relations.
+Lecture 3 credits. Total 3 credits per week. Completion of MTH 263, Calculus I with a grade of C or better or equivalent. 3 credits"
+"MUS","111","Music Theory I","Discusses elements of musical construction of scales, intervals, triads, and chord progressions. Develops ability to sing at sight and write from dictation. Introduces the analysis of the Bach chorale style. Expands facility with harmonic dictation and enables the student to use these techniques at the keyboard. 
+
+
+
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week."
+"MUS","112","Music Theory II","Discusses elements of musical construction of scales, intervals, triads, and chord progressions. Develops ability to sing at sight and write from dictation. Introduces the analysis of the Bach chorale style. Expands facility with harmonic dictation and enables the student to use these techniques at the keyboard. 
+
+
+
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week."
+"MUS","121","Music Appreciation I","Increases the variety and depth of the student's interest, knowledge, and involvement in music and related cultural activities. Acquaints the student with traditional and twentieth century music literature, emphasizing the relationship music has as an art form with man and society. Increases the student's awareness of the composers and performers of all eras through listening and concert experiences. 
+
+
+
+Lecture 3 hours per week."
+"MUS","129","Theatre/Musical Workshop","Enables students to work in various activities of a play production or a musical production including performance, orchestra, set design, stage carpentry, sound, costuming, lighting, stage managing, props, promotion, or stage crew. May be repeated for credit. Variable hours per week. This course is cross-listed with CST 136. Credit will not be awarded for both.
+Variable hours per week.
+1-6 credits"
+"MUS","131","Class Voice I","Introduces the many aspects of singing from the physical act through the aesthetic experience. The course is designed for the beginning singer who desires vocal improvement, and for the voice major as an addition to and extension of skills and knowledge necessary for artistic development. Introduces appropriate repertoire. 
+
+
+
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week.
+
+2.credits."
+"MUS","132","Class Voice II","Introduces the many aspects of singing from the physical act through the aesthetic experience. The course is designed for the beginning singer who desires vocal improvement, and for the voice major as an addition to and extension of skills and knowledge necessary for artistic development. Introduces appropriate repertoire. 
+
+
+
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week.
+
+2 credits."
+"MUS","136","Applied Music - Voice","Teaches singing, proper breath control, diction, and development of tone. Studies the standard vocal repertoire. Private lessons are available for either 1 or 2 hours of credit per semester. The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester. All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor. One or two half-hour lessons per week. Four to eight hours practice required. 
+Laboratory 4-8 hours per week. Total 4-8 hours per week. 1-2 credits."
+"MUS","137","Chorus Ensemble","Ensemble consists of performance from the standard repertoires, including study of ensemble techniques and interpretation. May be repeated for credit. Laboratory 6 hours per week.  2 credits."
+"MUS","141","Class Piano I","Offers the beginning piano student activities in learning musical notation, in accomplishing sight-reading skills, and in mastering techniques of keyboard playing. Presents appropriate literature. Open to all students and may be used to fulfill applied minor instrument requirement for music major. Part I of II.
+
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week.
+
+2 credits"
+"MUS","142","Class Piano II","Offers the beginning piano student activities in learning musical notation, in accomplishing sight-reading skills, and in mastering techniques of keyboard playing. Presents appropriate literature. Open to all students and may be used to fulfill applied minor instrument requirement for music major. Part II of II.
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week.
+2 credits"
+"MUS","145","Applied Music - Keyboard","Teaches piano, organ, harpsichord, or synthesizer. Studies the standard repertoire. Private lessons are available for either 1 or 2 hours of credit per semester. The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester. All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor. 1-2 half-hour lessons per week, 4-8 hours practice (laboratory) required. 
+Laboratory 4-8 hours. Total 4-8 hours per week.
+1-2 credits"
+"MUS","165","Applied Music - Strings","Teaches fundamentals of string instruments, harp, or guitar. Studies the standard repertoire. Private lessons are available for either 1 or 2 hours of credit per semester. The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester. All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor. 1-2 half-hour lessons per week, 4-8 hours practice (laboratory) required.
+Laboratory 4-8 hours per week. Total 4-8 hours per week.
+1-2 credits"
+"MUS","211","Advanced Music Theory I","Increases facility in the analysis and usage of diatonic and chromatic harmonies. Continues harmonic analysis of Bach style. Includes exercises in sight-singing, ear-training, and keyboard harmony. Prerequisite MUS 111-112 or equivalent. Part I of II.
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week.
+4 credits"
+"MUS","212","Advanced Music Theory II","Increases facility in the analysis and usage of diatonic and chromatic harmonies. Continues harmonic analysis of Bach style. Includes exercises in sight-singing, ear-training, and keyboard harmony. Prerequisite MUS 111-112 or equivalent. Part II of II.
+Lecture 3 hours. Laboratory 2 hours. Total 5 hours per week.
+4 credits"
+"MUS","221","History of Music I","Presents the chronology of musical styles from antiquity to the present time. Relates the historical development of music to parallel movements in art, drama, and literature. Develops techniques for listening analytically and critically to music. Part I of II.
+
+Lecture 3 hours per week.
+
+3 credits"
+"MUS","222","History of Music II","Presents the chronology of musical styles from antiquity to the present time. Relates the historical development of music to parallel movements in art, drama, and literature. Develops techniques for listening analytically and critically to music. Part II of II.
+
+Lecture 3 hours per week. 
+
+3 credits"
+"MUS","236","Advanced Applied Music - Voice","Continues MUS 126. Private lessons are available for either 1 or 2 hours of credit per semester. The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester. All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor. Laboratory 1-2 hours per week. & MUS 237 CHORUS (1 CR.) Continues MUS 137. Courses in ensemble consist of performance from the standard repertoires, including study of ensemble techniques and interpretation. Divisional approval required. May be repeated for credit.
+Laboratory 4-8 hours per week.
+1-2 credits"
+"MUS","245","Advanced Applied Music - Keyboard","Continues Applied Music - Keyboard MUS 145. Private lessons are available for either 1 or 2 hours of credit per semester.  The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester.  All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor.
+Laboratory 4-8 hours per week.  1-2 credits"
+"MUS","265","Advanced Applied Music - Strings","Continues Applied Music - Strings MUS 165. Private lessons are available for either 1 or 2 hours of credit per semester. The length of the lessons will be 1/2 hour for 1 hour credit and 1 hour for 2 hours credit per semester. All courses in applied music may be repeated for a total of 8 hours for the major and 4 hours for the minor.
+Laboratory 4-8 hours per week.
+1-2 credits"
+"NSG","100","Introduction to Nursing Concepts","Introduces concepts of nursing practice and conceptual learning. Focuses on basic nursing concepts with an emphasis on safe nursing practice and the development of the nursing process. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments.
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week.
+
+Prerequisite(s): BIO 141 or BIO 231 or NAS 161
+
+4 credits"
+"NSG","106","Competencies for Nursing Practice","Focuses on the application of concepts through clinical skill development. Emphasizes the use of clinical judgment in skill acquisition. Includes principles of safety, evidence-based practice, informatics and math computational skills. Prepares students to demonstrate competency in specific skills and drug dosage calculation including the integration of skills in the care of clients in simulated settings. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments.
+
+Lecture 0-1 hour. Laboratory 3-6 hours. Total 4-6 hours per week.
+
+Prerequisite(s): MTE 1-5 and BIO 141 (or BIO 231 or NAS 161)
+
+2 credits"
+"NSG","130","Professional Nursing Concepts","Introduces the role of the professional nurse and fundamental concepts in professional development. Focuses on professional identity, legal/ethical issues and contemporary trends in professional nursing.
+
+Lecture 1 hour. Total 1 hour per week.
+
+Prerequisite(s): BIO 141 or BIO 231 or NAS 161
+
+1 credit"
+"NSG","152","Health Care Participant","Focuses on the health and wellness of diverse individuals, families, and the community throughout the lifespan. Covers concepts that focus on client attributes and preferences regarding healthcare. Emphasizes population-focused care. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or cooperating agencies, and/or simulated environments.
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+
+Prerequisite(s): BIO 142 (or BIO 232 or NAS 162), NSG 100, NSG 106, NSG 130 and NSG 200 Corequisite(s): BIO 150 or BIO 205
+
+3 credits"
+"NSG","170","Health/Illness Concepts","Focuses on the nursing care of individuals and/or families throughout the lifespan with an emphasis on health and illness concepts. Includes concepts of nursing care for the antepartum client and clients with common and predictable illnesses. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments.
+
+Lecture 4 hours, Laboratory 6 hours. Total 10 hours per week.
+
+Prerequisite(s): BIO 142 (or BIO 232 or NAS 162), NSG 100, NSG 106, NSG 130 and NSG 200 Corequisite(s): BIO 150 or BIO 205
+
+6 credits"
+"NSG","200","Health Promotion and Assessment","Introduces assessment and health promotion for the individual and family. Includes assessment of infants, children, adults, geriatric clients and pregnant females. Emphasizes health history and the acquisition of physical assessment skills with underlying concepts of development, communication, and health promotion. Prepares students to demonstrate competency in the assessment of clients across the lifespan. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments.
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+
+Prerequisite(s): BIO 141 (or BIO 231 or NAS 161)
+
+3 credits"
+"NSG","210","Health Care Concepts I","Focuses on care of clients across the lifespan in multiple settings including concepts related to physiological health alterations and reproduction. Emphasizes the nursing process in the development of clinical judgment for clients with multiple needs. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments. Part I of II.
+
+Lecture 3 hours, Laboratory 6 hours. Total 9 hours per week.
+
+Prerequisite(s): BIO 150 (or BIO 205), NSG 152 and NSG 170
+
+5 credits"
+"NSG","211","Health Care Concepts II","Focuses on care of clients across the lifespan in multiple settings including concepts related to psychological and physiological health alterations. Emphasizes the nursing process in the development of clinical judgment for clients with multiple needs. Provides supervised learning experiences in college nursing laboratories, clinical/community settings, and/or simulated environments. Part II of II.
+
+Lecture 3 hours. Laboratory 6 hours. Total 9 hours per week.
+
+Prerequisite(s): BIO 150 (or BIO 205), NSG 152 and NSG 170
+
+5 credits"
+"NSG","230","Advanced Professional Nursing Concepts","Develops the role of the professional nurse in the healthcare environment in preparation for practice as a registered nurse. Introduces leadership and management concepts and focuses on the integration of professional behaviors in a variety of healthcare settings.
+
+Lecture 2 hours. Total 2 hours per week.
+
+Prerequisite(s): NSG 210 and NSG 211
+
+2 credits"
+"NSG","252","Complex Health Care Concepts","Focuses on nursing care of diverse individuals and families integrating complex health concepts. Emphasizes clinical judgment, patient-centered care and collaboration.
+
+Lecture 4 hours. Total 4 hours per week.
+
+Prerequisite(s): NSG 210 and NSG 211
+
+4 credits"
+"NSG","270","Nursing Capstone","Provides students with the opportunity to comprehensively apply and integrate learned concepts from previous nursing courses into a capstone experience. Emphasizes the mastery of patient- centered care, safety, nursing judgment, professional behaviors, informatics, quality improvement, and collaboration in the achievement of optimal outcomes of care. Provides supervised learning experiences in faculty and/or preceptor-guided college nursing laboratories, clinical/community settings, and/or simulated environments.
+
+Laboratory 12 hours. Total 12 hours per week.
+
+Prerequisite(s): NSG 210 and NSG 211
+
+4 credits"
+"PED","109","Yoga","Focuses on the forms of yoga training emphasizing flexibility. 
+
+Lecture 1 hour. Laboratory 2 hours. Total 3 hours per week. 2 credits"
+"PED","111","Weight Training I","Focuses on muscular strength and endurance training through individualized workout programs. Teaches appropriate use of weight training equipment. 
+
+
+
+Lecture 0-1 hour. Laboratory 2-4 hours. Total 2-4 hours per week."
+"PED","117","Fitness Walking","Teaches content and skills needed to design, implement, and evaluate an individualized program of walking, based upon fitness level. 
+
+Laboratory 2 hours per week. 
+
+1 credits"
+"PHI","101","Introduction to Philosophy I","Introduces a broad spectrum of philosophical problems and perspectives with an emphasis on the systematic questioning of basic assumptions about meaning, knowledge, reality, and values. 
+
+
+
+Lecture 3 hours per week."
+"PHI","111","Logic I","Introduces inductive and deductive reasoning, with an emphasis on common errors and fallacies. 
+
+
+
+Lecture 3 hours per week."
+"PHI","220","Ethics","Provides a systematic study of representative ethical systems. 
+
+
+
+Lecture 3 hours per week."
+"PHT","105","Basic Photography","Studies fundamental techniques of the camera and its expressive possibilities. 
+Lecture 2-4 hours. Laboratory 1-3 hours. Total 3-7 hours per week.
+3-4 credits"
+"PHT","110","History of Photography","Surveys important photographers, processes, and historical influences of the nineteenth and twentieth centuries. 
+
+
+
+Lecture 3 hours per week."
+"PHT","120","Screenwriting","Focuses on the craft of writing for the screen.  Examines film and telvision screenplay structure.  Analyzes dramatic strategies in film and television.  Learn and apply correct script form and creatively engage in the various stages of original scriptwriting.
+
+3 Lecture hours per week
+
+3 Credits"
+"PHT","135","Electronic Darkroom","Teaches students to create and manipulate digital photographs. Covers masking, color corrections, and merging of illustrations with photographs. Examines the ethical and property-rights issues which are raised in the manipulation of images. 
+
+
+
+Lecture 1 hour. Laboratory 4 hours. Total 5 hours per week."
+"PHT","150","Film Production I","Introduces students to the basic techniques and procedures involved in motion picture production. Emphasizes aspects of filmmaking from scripting and preproduction through editing and post production. Includes the exploration of professional film crew roles in grip, lighting, production management, directing, sound and editing. Part I of II. This course is cross-listed with ART 160. Credit will not be awarded for both. 
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"PHT","151","Film Production II","Reinforces techniques covered in Film Production I emphasizing technical and theoretical aspects of the filmmaking process. Requires student collaboration on film assignments from scripting and preproduction through editing and postproduction, and roles in grip, lighting, production management, directing, sound, and editing. Part II of II. This course is cross-listed with ART 161. Credit will not be awarded for both.
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week."
+"PHT","164","Introduction to Digital Photography","Teaches the fundamentals of photography including camera function, composition, and image production as they apply to digital imagery.
+
+    Lecture 1 hour. Laboratory 4 hours. Total 5 hours per week.
+
+    3 credits"
+"PHT","216","Outdoor and Wildlife Photography","Teaches advanced wildlife, outdoor and nature photography. Covers topics such as flash, hyperfocal distance, and maximizing the cameras¿ digital potential.  Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+3 credits"
+"PHT","221","Studio Lighting I","Examines advanced lighting and camera techniques under controlled studio conditions. Includes view camera use, electronic flash, advanced lighting techniques, color temperature and filtration, and lighting ratios. Requires outside shooting. Prerequisite PHT 102 or equivalent. 
+
+
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week."
+"PHT","226","Commercial Photography","Examines advanced topics relating to commercial photography. Emphasizes advertising, portraiture, and commercial and public relations. Prerequisite PHT 206-222.
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+
+3 credits"
+"PHT","247","Alternative Photographic Processes","Explores manipulated imagery including traditional and non- traditional processes such as non-silver and electronic imaging. Uses enlarged film negatives in order to investigate a variety of methods. Prerequisite PHT 102 or equivalent.
+
+Lecture 1 hour. Laboratory 4 hours. Total 5 hours per week.
+
+3 credits"
+"PHT","264","Digital Photography II","Teaches theory and practice of digital photography. Emphasizes use of digital cameras in studio and on location. Teaches advanced techniques of image editing. Provides training in digital image transmission from remote locations. 
+
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+
+3 Credits"
+"PHT","274","Digital Film Editing and Post Production","Introduces students to techniques and procedures involved in digital film editing and post production. Covers aspects of editing to include industry standard software packages. Emphasizes the mechanics and obstacles of working with the moving image in the 21st century including available tools and methods, importance of file types, and how to keep things organized.
+
+Lecture 2 hours. Laboratory 2 hours. Total 4 hours per week.
+
+3 credits"
+"PHT","296","On-Site Training","Specializes in career orientation and training programs without pay in selected businesses and industry, supervised and coordinated by the college.  Credit/work ratio not to exceed 1:5 hours.  May be repeated for credit.  Variable 1-5 credits"
+"PHT","299","Supervised Study","Assigns problems for independent study incorporating previous instruction and supervised by the instructor. May be repeated for credit. Variable hours. 3 lecture hours. 3 credits."
+"PHY","101","Introduction to Physics","Surveys general principles of physics. Includes topics such as force and motion, energy, heat, sound, light, electricity and magnetism, and modern physics. Part I of II.
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week. 
+
+4 credits"
+"PHY","201","General College Physics I","Teaches fundamental principles of physics. Covers mechanics, thermodynamics, wave phenomena, electricity and magnetism, and selected topics in modern physics. Prerequisite MTH 161 or equivalent. 
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"PHY","202","General College Physics II","Teaches fundamental principles of physics. Covers mechanics, thermodynamics, wave phenomena, electricity and magnetism, and selected topics in modern physics. Prerequisite MTH 161 or equivalent. 
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"PHY","241","University Physics I","Teaches principles of classical and modern physics. Includes mechanics, wave phenomena, heat, electricity, magnetism, relativity, and nuclear physics. Prerequisite for PHY 241--MTH 263 or divisional approval. . 
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"PHY","242","University Physics II","Teaches principles of classical and modern physics. Includes mechanics, wave phenomena, heat, electricity, magnetism, relativity, and nuclear physics. Prerequisite for PHY 241--MTH 173 or MTH 273 or divisional approval. Prerequisite for PHY 242--MTH 174 or MTH 274 or divisional approval. 
+
+Lecture 3 hours. Laboratory 3 hours. Total 6 hours per week."
+"PLS","135","American National Politics","Teaches political institutions and processes of the national government of the United States, focuses on the Congress, presidency, and the courts, and on their inter- relationships. Gives attention to public opinion, suffrage, elections, political parties, interest groups, civil rights, domestic policy, and foreign relations. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"PLS","241","International Relations I","Teaches geographic, demographic, economic, ideological, and other factors conditioning the policies of countries and discusses conflicts and their adjustment. 
+
+Lecture 3 hours per week.
+
+3 credits"
+"PSY","116","Psychology of Death and Dying","Focuses on psychological aspects of death and dying. Teaches the meaning of death and ways of handling its personal and social implications. Includes psychological, sociological, cultural, and religious views of death. 
+
+
+
+Lecture 3 hours per week."
+"PSY","200","Principles of Psychology","Surveys the basic concepts of psychology. Covers the scientific study of behavior, behavioral research methods and analysis, and theoretical interpretations. Includes topics that cover physiological mechanisms, sensation/perception, motivation, learning, personality, psychopathology, therapy, and social psychology. Prerequisite: Readiness to enroll in ENG 111.
+Lecture 3 hours per week."
+"PSY","213","Statistics for Behavioral Sciences","Introduces the principles and processes of statistics within behavioral research. Emphasizes understanding and applying statistical tests to behavioral data stresses. Recognition and use of process, based upon knowledge and understanding over mathematical derivation. Focuses on selection of appropriate statistics, their application and correct decisions of interpretation within a behavioral research experience. 
+
+Lecture 3 hours per week."
+"PSY","225","Theories of Personality","Studies the major personality theories and their applications. Includes psychodynamic, behavioral, cognitive, and humanistic perspectives. Prerequisite: PSY 200, PSY 201 or PSY 202. 
+
+Lecture 3 hours per week."
+"PSY","230","Developmental Psychology","Studies the development of the individual from conception to death. Follows a life-span perspective on the development of the person's physical, cognitive, and psychosocial growth. 
+
+
+
+Lecture 3 hours per week."
+"PTH","151","Musculoskeletal Structure and Function","Studies the human musculoskeletal system. Covers terms of position and movement, location and identification of specific bony landmarks, joint structure and design, ligaments, muscle origin, action and innervation, and emphasizes types of contraction. Lecture 2-3 hours. Laboratory 2-6 hours. Total 5-8 hours per week.
+4-5 credits"
+"REL","100","Introduction to the Study of Religion","Explores various religious perspectives and ways of thinking about religious themes and religious experience. 
+
+Lecture 3 hours per week. 
+
+3 credits"
+"REL","230","Religions of the World","Introduces the religions of the world with attention to origin, history, and doctrine. 
+
+
+
+Lecture 3 hours per week."
+"SAF","130","Industrial Safety - OSHA 10","Presents an introduction to occupational health and safety and its application in the workplace. Emphasizes safety standards and the Occupational Safety and Health Act (OSHA), its rules and regulations (OSHA 10).  Lecture 1 hour per week.
+
+1 credits"
+"SDV","100","College Success Skills","Assists students in transition to colleges. Provides overviews of college policies, procedures, curricular offerings. Encourages contacts with other students and staff. Assists students toward college success through information regarding effective study habits, career and academic planning, and other college resources available to students. May include English and math placement testing. Strongly recommended for beginning students. Required for graduation. 
+
+
+
+Lecture 1 hour per week."
+"SDV","101","Orientation for International Student Learners","Introduces students to the skills which are necessary to achieve their academic goals, to services offered at the college and to the discipline in which they are enrolled. Covers topics such as services at the college including the learning resources center; counseling, and advising; listening, test taking, and study skills; and topical areas which are applicable to their particular discipline. Specifically geared to serve the needs of international students. Lecture 1 hour per week.
+1 credit"
+"SOC","200","Principles of Sociology","Introduces fundamentals of social life. Presents significant research and theory in areas such as culture, social structure, socialization, deviance, social stratification, and social institutions. 
+
+
+
+Lecture 3 hours per week."
+"SOC","211","Principles of Anthropology I","Inquires into the origins, development, and diversification of human biology and human cultures. Includes fossil records, physical origins of human development, human population genetics, linguistics, cultures' origins and variation, and historical and contemporary analysis of human societies. Part I of II.
+
+Lecture: 3 hours per week."
+"SOC","268","Social Problems","Applies sociological concepts and methods to analysis of current social problems. Includes delinquency and crime, mental illness, drug addiction, alcoholism, sexual behavior, population crisis, race relations, family and community disorganization, poverty, automation, wars, and disarmament. 
+
+
+
+Lecture 3 hours per week."
+"SPA","101","Beginning Spanish I","Introduces understanding, speaking, reading, and writing skills and emphasizes basic Spanish sentence structure. May include an additional hour of oral drill and practice per week. 
+
+
+
+Lecture 4 hours per week. May include one additional hour of oral practice per week."
+"SPA","102","Beginning Spanish II","Introduces understanding, speaking, reading, and writing skills and emphasizes basic Spanish sentence structure. May include an additional hour of oral drill and practice per week. 
+
+
+
+Lecture 4 hours per week. May include one additional hour of oral practice per week."
+"SPA","201","Intermediate Spanish I","Continues to develop understanding, speaking, reading, and writing skills. Prerequisite SPA 102 or equivalent. May include oral drill and practice. 
+
+
+
+Lecture 3-4 hours per week. May include one additional hour of oral practice per week.  3-4 credits."
+"SPA","202","Intermediate Spanish II","Continues to develop understanding, speaking, reading, and writing skills. Prerequisite SPA 201 or equivalent. May include oral drill and practice. 
+
+
+
+Lecture 3 hours per week. May include one additional hour of oral practice per week."
+"WEL","116","Welding I (Oxyacetylene)","Teaches oxygen/acetylene welding and cutting including safety of equipment, welding, brazing and soldering procedures and cutting procedures.
+Lecture 1 hour. Laboratory 3 hours. Total 4 hours per week.
+2 credits"
+"WEL","120","Introduction to Welding","Introduces history of welding processes. Covers types of equipment, and assembly of units. Stresses welding procedures such as fusion, non-fusion, and cutting oxyacetylene. Introduces arc welding and plasma arc cutting. Emphasizes procedures in the use of tools and equipment.
+Lecture 1-2 hours. Laboratory 2-3 hours. Total 3-5 hours per week.
+2-3 credits"
+"WEL","123","Shielded Metal ARC Welding (Basic)","Teaches operation of AC and DC power sources, welding polarities, heats and electrodes for use in joining various metal alloys by the arc welding process. Deals with running beads, butt, and fillet welds in all positions. Emphasizes safety procedures.
+Lecture 2 hours. Laboratory 3-6 hours. Total 5-8 hours per week. 3-4 credits"
+"WEL","130","Inert Gas Welding","Introduces practical operations in the uses of inert-gas-shield arc welding. Discusses equipment, safety operations, welding practice in the various positions, process applications, and manual and semi-automatic welding. Lecture 2 hours. Laboratory 4 hours. Total 6 hours per week."
+"WEL","141","Welder Qualification Tests I","Studies techniques and practices of testing welded joints through destructive and non-destructive testing. Part II of II.
+
+Lecture 2 hours. Laboratory 3-6 hours. Total 5-8 hours per week. 3-4 credits"
+"WEL","150","Welding Drawing and Interpretation","Teaches fundamentals required for successful drafting as applied to the welding industry. Includes blueprint reading, geometric principles of drafting and freehand sketching, basic principles of orthographic projection, preparation of drawings and interpretation of symbols.
+Lecture 2 hours per week.
+2 credits"
+"WEL","160","Gas Metal ARC Welding","Introduces semi-automatic welding processes with emphasis on practical application. Includes the study of filler wires, fluxes, and gases. Lecture 2 hours. Laboratory 3-6 hours. Total 5-8 hours per week. 3-4 credits"
+"WEL","161","Flux Cored Arc Welding (FCAW)","Introduces flux cored semi-automatic welding processes with emphasis on practical application. Includes the study of filler wires, fluxes, and gases.
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+3 credits"
+"WEL","164","Gas Tungsten Arc Welding (GTAW), Tungsten Inert Gas (TIG)","Introduces practical operations in the use of tungsten arc welding and equipment. Studies equipment operation setup, safety, and practice of Gas Tungsten Arc Welding (GTAW), Tungsten Inert Gas (TIG).
+Lecture 2 hours. Laboratory 3 hours. Total 5 hours per week.
+3 credits"
+"WEL","244","Weld Testing and Codes","Covers non-destructive (NDT) weld testing and how it plays a critical role in assuring that structural components and materials meet specified requirements. Examines how and why these NDT processes are used and will use them to test welds and weldments.
+
+Lecture 1 hour, Laboratory 3 hours, Total 4 hours per week.
+
+2 credits"
+"WEL","247","Welding Layout and Fabrication I","Introduces student to project layout from shop sketches/blueprints, developing templates/patterns and the use of fabrication tools. Covers the safe operation of different types of manual metal fabrication equipment used in the industry. Examines safe and efficient use of the manual metal shear, metal roller, metal break and other fabrication. (Part I of II)
+
+Lecture 1 hour, Laboratory 3 hours, Total 4 hours per week.
+
+ WEL 150  2 credits"
+"WEL","248","Welding Layout and Fabrication II","Applies previously learned skills from Welding and Fabrication I in a job-simulated situation. Focuses on pipe, structural steel and other weldments that will be fabricated using all available equipment and welding processes. Covers job site type blueprints and drawings used in fabrication. Incorporates American Welding Society (AWS) visual inspection, weld measurements and codes. (Part II of II)
+
+Lecture 1 hour, Laboratory 3 hours. Total 4 hours per week.
+
+ WEL 247 2 credits"

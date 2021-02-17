@@ -9,7 +9,6 @@ class BaseModel extends Model
 {
     private $addonName;
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -18,13 +17,11 @@ class BaseModel extends Model
      * @access  protected
      * @return  object      instance of this object via EE make
      */
-
     protected function make(array $data = array())
     {
         return $this->getModelFacade()->make($this->getName(), $data);
     }
     //END make
-
 
     // --------------------------------------------------------------------
 
@@ -34,13 +31,11 @@ class BaseModel extends Model
      * @access  protected
      * @return  object      instance of the query biulder for this object via EE get
      */
-
     protected function fetch($default_ids = null)
     {
         return $this->getModelFacade()->get($this->getName(), $default_ids);
     }
     //END fetch
-
 
     // --------------------------------------------------------------------
 
@@ -50,7 +45,6 @@ class BaseModel extends Model
      * @access  public
      * @return  array   key->value array of not null object var values
      */
-
     public function asArray()
     {
         $fields = $this->getFields();
@@ -64,10 +58,10 @@ class BaseModel extends Model
                 $result[$fieldName] = $this->$fieldName;
             }
         }
+
         return $result;
     }
     //END asArray
-
 
     // --------------------------------------------------------------------
 
@@ -77,7 +71,6 @@ class BaseModel extends Model
      * @access  public
      * @return  string      table name
      */
-
     public function getTableName()
     {
         return static::$_table_name;

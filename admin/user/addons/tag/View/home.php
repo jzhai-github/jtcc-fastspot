@@ -5,10 +5,10 @@
 	<div class='clearfix'>&nbsp;</div>
 <?php endif;?>
 
-<?=$caller->view('statistics', NULL, true)?>
+<?=$caller->view('statistics', null, true)?>
 
 
-<?=$caller->view('browse', NULL, true)?>
+<?=$caller->view('browse', null, true)?>
 
 <!-- using $this and not $caller on purpose here -->
 <?=$this->embed('ee:_shared/table', $tag_table)?>

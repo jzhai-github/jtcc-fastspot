@@ -18,7 +18,6 @@ class Tag_ft extends Ft
      *
      * @access  public
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -34,7 +33,6 @@ class Tag_ft extends Ft
                                 $this->settings['field_name'] :
                                 $this->field_name;
 
-
         $this->field_name = 'field_id_' . $this->field_id;
 
         if (isset(ee()->cp)) {
@@ -45,7 +43,6 @@ class Tag_ft extends Ft
     }
     // END constructor
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -55,7 +52,6 @@ class Tag_ft extends Ft
      * @access  private
      * @return  object  tag object
      */
-
     private function tob()
     {
         if (! is_object($this->tag_ob)) {
@@ -68,7 +64,6 @@ class Tag_ft extends Ft
     }
     //END tob()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -79,7 +74,6 @@ class Tag_ft extends Ft
      * @access  protected
      * @return  string
      */
-
     protected function get_tag_group()
     {
         return (
@@ -89,7 +83,6 @@ class Tag_ft extends Ft
         );
     }
     //END get_tag_group()
-
 
     // --------------------------------------------------------------------
 
@@ -107,7 +100,6 @@ class Tag_ft extends Ft
     }*/
     //END pre_process
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -119,7 +111,6 @@ class Tag_ft extends Ft
      * @param   string  tagdata
      * @return  string  processed tag data
      */
-
     public function replace_tag($data, $params = array(), $tagdata = false)
     {
         if (! isset(ee()->TMPL)) {
@@ -170,7 +161,6 @@ class Tag_ft extends Ft
     }
     //END replace_tag
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -182,7 +172,6 @@ class Tag_ft extends Ft
      * @access  public
      * @param   array   $settings
      */
-
     public function display_settings($settings)
     {
         ee()->cp->load_package_js('tag_group_settings');
@@ -200,7 +189,7 @@ class Tag_ft extends Ft
                                 'type' => 'html',
                                 'content' => $this->tob()->view(
                                     'tag_group_settings',
-                                     array(
+                                    array(
                                         'tag_groups'                => $this->tob()->model('Data')->get_tag_groups(),
                                         'current_group_id'          => isset($settings['tag_group']) ?
                                                                         $settings['tag_group'] :
@@ -286,7 +275,6 @@ class Tag_ft extends Ft
     }
     //END display_settings()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -294,7 +282,6 @@ class Tag_ft extends Ft
      * @access  public
      * @return  string
      */
-
     public function save_settings($data)
     {
         $this->tob();
@@ -336,7 +323,6 @@ class Tag_ft extends Ft
     }
     //END save_settings()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -346,7 +332,6 @@ class Tag_ft extends Ft
      * @param   string  $data   any incoming data from the channel entry
      * @return  string  html output view
      */
-
     public function display_field($data)
     {
         $this->field_name = 'field_id_' . $this->field_id;
@@ -393,7 +378,6 @@ class Tag_ft extends Ft
             $ss_cache['scripts']['tag']['field'] = true;
         }
 
-
         //--------------------------------------------
         //  views widgets, whatever
         //--------------------------------------------
@@ -424,7 +408,6 @@ class Tag_ft extends Ft
     }
     // END display_field()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -434,13 +417,11 @@ class Tag_ft extends Ft
      * @param   array   $ids ids of the entries being deleted
      * @return  null
      */
-
     public function delete($ids)
     {
         $this->tob()->delete($ids);
     }
     //ENd delete
-
 
     // --------------------------------------------------------------------
 
@@ -452,7 +433,6 @@ class Tag_ft extends Ft
      * @param   string  $data   any incoming data from the channel entry
      * @return  null    html output view
      */
-
     public function post_save($data)
     {
         $this->field_name = 'field_id_' . $this->field_id;
@@ -476,7 +456,6 @@ class Tag_ft extends Ft
     }
     //END post_save
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -488,7 +467,6 @@ class Tag_ft extends Ft
      * @param   string $version     current version number coming from EE
      * @return  boolean             should EE update the version number.
      */
-
     public function update($version = '')
     {
         return ($version != $this->info['version']);

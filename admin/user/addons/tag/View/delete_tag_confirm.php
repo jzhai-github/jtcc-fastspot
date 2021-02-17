@@ -1,6 +1,6 @@
-<form action="<?=$base_uri.AMP.'method=delete_tag';?>" method="post">
+<form action="<?=$base_uri . AMP . 'method=delete_tag';?>" method="post">
 	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
-	<?php foreach($tag_ids as $tag_id) : ?>
+	<?php foreach ($tag_ids as $tag_id) : ?>
 		<input type="hidden" name="delete[]" value="<?=$tag_id;?>" />
 	<?php endforeach;?>
 

@@ -10,7 +10,6 @@ class Data
 
     public $pref_cache;
 
-
     public function __construct()
     {
         // instantiate the addonBuilder "construct"
@@ -28,7 +27,6 @@ class Data
      * @param   string  name of seperator
      * @return  string  seperator
      */
-
     public function get_tag_separator($name = '')
     {
         $delim = array_key_exists($name, $this->delimiters) ?
@@ -41,7 +39,6 @@ class Data
     }
     //END get_tag_separator
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -51,16 +48,15 @@ class Data
      * @param   string  name of tag group
      * @return  string  group id
      */
-
     public function get_tag_group_id_by_name($name = '')
     {
         $return = false;
 
         $query = ee()->db
-                    ->select('tag_group_id')
-                    ->where('tag_group_short_name', $name)
-                    ->or_where('tag_group_name', $name)
-                    ->get('tag_groups');
+            ->select('tag_group_id')
+            ->where('tag_group_short_name', $name)
+            ->or_where('tag_group_name', $name)
+            ->get('tag_groups');
 
         if ($query->num_rows() > 0) {
             $return = $query->row('tag_group_id');
@@ -69,7 +65,6 @@ class Data
         return $return;
     }
     //END get_tag_group_id_by_name
-
 
     // --------------------------------------------------------------------
 
@@ -81,7 +76,6 @@ class Data
      * @param   string  $tag_group_short_name   short name of tag
      * @return  int                             id of new tag group
      */
-
     public function insert_new_tag_group($tag_group_name, $tag_group_short_name = '')
     {
         if ($tag_group_short_name == '') {
@@ -96,6 +90,7 @@ class Data
 
         if ($query->num_rows() > 0) {
             $resultArray = $query->result_array();
+
             return $resultArray[0]['tag_group_id'];
         }
 
@@ -126,7 +121,6 @@ class Data
     }
     //END insert_new_tag_group
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -137,7 +131,6 @@ class Data
      * @param   bool    use cache
      * @return  array   id => short_name
      */
-
     public function get_tag_groups($use_cache = true)
     {
         // --------------------------------------------
@@ -158,8 +151,8 @@ class Data
         // --------------------------------------------
 
         $query = ee()->db
-                    ->select('tag_group_id, tag_group_name')
-                    ->get('tag_groups');
+            ->select('tag_group_id, tag_group_name')
+            ->get('tag_groups');
 
         if ($query->num_rows() > 0) {
             foreach ($query->result_array() as $row) {
@@ -175,7 +168,6 @@ class Data
     }
     //eND get_tag_groups
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -186,7 +178,6 @@ class Data
      * @param   bool    use cache
      * @return  string  inserts
      */
-
     public function tag_total_entries_sql_insert($prefix = '', $ending_comma = true, $use_cache = true)
     {
         // --------------------------------------------
@@ -207,8 +198,8 @@ class Data
         $prefix     = ($prefix and is_string($prefix)) ? trim($prefix) : '';
 
         $query = ee()->db
-                    ->select('tag_group_id, tag_group_short_name')
-                    ->get('tag_groups');
+            ->select('tag_group_id, tag_group_short_name')
+            ->get('tag_groups');
 
         $insert     = '';
 
@@ -241,7 +232,6 @@ class Data
     }
     //end tag_total_entries_sql_insert
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -251,7 +241,6 @@ class Data
      * @param   array   Array of tags
      * @return  array
      */
-
     public function get_entry_tags_by_tag_name($tags = array())
     {
         // --------------------------------------------
@@ -272,9 +261,9 @@ class Data
         // --------------------------------------------
 
         $query = ee()->db
-                    ->select('tag_id, tag_name')
-                    ->where_in('tag_name', $tags)
-                    ->get('tag_tags');
+            ->select('tag_id, tag_name')
+            ->where_in('tag_name', $tags)
+            ->get('tag_tags');
 
         if ($query->num_rows() > 0) {
             $this->cached[$cache_name][$cache_hash] = $query->result_array();
@@ -288,7 +277,6 @@ class Data
     }
     // END get_module_preferences()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -298,7 +286,6 @@ class Data
      * @param   array   Array of Channel/Weblog IDs
      * @return  array
      */
-
     public function get_entry_tags_by_id($entry_id, $options = array(), $cache = true)
     {
         // --------------------------------------------
@@ -333,12 +320,12 @@ class Data
         // --------------------------------------------
 
         ee()->db->select('te.entry_id, t.tag_name, t.tag_id')
-                ->from('exp_tag_tags t')
-                ->join('exp_tag_entries te', 't.tag_id = te.tag_id', 'left')
-                ->where('te.entry_id', $entry_id)
-                ->where('te.type', $options['entry_type'])
-                ->group_by('tag_id')
-                ->order_by('t.tag_name');
+            ->from('exp_tag_tags t')
+            ->join('exp_tag_entries te', 't.tag_id = te.tag_id', 'left')
+            ->where('te.entry_id', $entry_id)
+            ->where('te.type', $options['entry_type'])
+            ->group_by('tag_id')
+            ->order_by('t.tag_name');
 
         if ($options['tag_group_id'] !== '') {
             ee()->db->where_in(
@@ -366,7 +353,6 @@ class Data
     }
     // END get_module_preferences()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -377,7 +363,6 @@ class Data
      * @param   bool    use the cache?
      * @return  mixed   array if items found, false if none found in group
      */
-
     public function get_tag_ids_by_group_id($group_id = 0, $cache = true)
     {
         // --------------------------------------------
@@ -394,11 +379,11 @@ class Data
         $this->cached[$cache_name][$cache_hash] = false;
 
         $group_query = ee()->db
-                            ->distinct()
-                            ->select('tag_id')
-                            ->where('tag_group_id', $group_id)
-                            ->order_by('tag_id')
-                            ->get('tag_entries');
+            ->distinct()
+            ->select('tag_id')
+            ->where('tag_group_id', $group_id)
+            ->order_by('tag_id')
+            ->get('tag_entries');
 
         if ($group_query->num_rows() > 0) {
             $this->cached[$cache_name][$cache_hash] = array_keys(
@@ -410,7 +395,6 @@ class Data
     }
     //END get_tag_ids_by_group_id
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -420,7 +404,6 @@ class Data
      * @param   array   Array of Channel/Weblog IDs
      * @return  array
      */
-
     public function get_module_preferences()
     {
         // --------------------------------------------
@@ -445,8 +428,8 @@ class Data
         $possible_params = array('where', 'order_by', 'limit');
 
         $query = ee()->db
-                    ->where('site_id', ee()->config->item('site_id'))
-                    ->get('tag_preferences');
+            ->where('site_id', ee()->config->item('site_id'))
+            ->get('tag_preferences');
 
         foreach ($query->result_array() as $row) {
             $this->cached[$cache_name][$cache_hash][
@@ -462,7 +445,6 @@ class Data
     }
     // END get_module_preferences()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -472,7 +454,6 @@ class Data
      * @param   bool    use cache or no (helpful when making changes in the middle of a document)
      * @return  array   Array of Channel/Weblog IDs
      */
-
     public function get_tab_channel_ids($use_cache = true)
     {
         // --------------------------------------------
@@ -509,7 +490,6 @@ class Data
     }
     //END get_tab_channel_ids
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -518,7 +498,6 @@ class Data
      * @access  public
      * @return  string
      */
-
     public function tag_field_autocomplete_js()
     {
         return '<script type="text/javascript" src="' .
@@ -526,7 +505,6 @@ class Data
                     'js/jquery.tag_autocomplete.min.js"></script>';
     }
     //END tag_field_autocomplete_js
-
 
     // --------------------------------------------------------------------
 
@@ -536,7 +514,6 @@ class Data
      * @access  public
      * @return  string
      */
-
     public function tag_field_js()
     {
         return '<script type="text/javascript" src="' .
@@ -544,7 +521,6 @@ class Data
                     'js/tag.js"></script>';
     }
     //END tag_field_js
-
 
     // --------------------------------------------------------------------
 
@@ -554,7 +530,6 @@ class Data
      * @access  public
      * @return  string
      */
-
     public function tag_field_css()
     {
         return '<link rel="stylesheet" type="text/css" ' .
@@ -564,7 +539,6 @@ class Data
     }
     //END tag_field_css
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -573,7 +547,6 @@ class Data
      * @access  public
      * @return  string
      */
-
     public function tag_front_css()
     {
         return '<link rel="stylesheet" type="text/css" ' .
@@ -582,7 +555,6 @@ class Data
                         'css/front_base.css" />';
     }
     //END tag_front_css
-
 
     // --------------------------------------------------------------------
 
@@ -596,7 +568,6 @@ class Data
      * @param   string          Preference to retrieve
      * @return  null|string     If preference does not exist, NULL is returned, else the value
      */
-
     public function preference()
     {
         $s = func_num_args();

@@ -36,7 +36,6 @@ class Tag_ext extends Ext
      *  @param      array
      *  @return     null
      */
-
     public function __construct($settings = '')
     {
         parent::__construct();
@@ -90,7 +89,6 @@ class Tag_ext extends Ext
      * @param   array   $args   method ards
      * @return  mixed           last call, or FALSE, or null if method not removed
      */
-
     public function __call($method = '', $args = array())
     {
         if (in_array($method, $this->removed_functions)) {

@@ -1,5 +1,8 @@
 <?php
 
+// icon.svg licensed under CC BY Font Awesome and has been modified
+// https://fontawesome.com/license/free
+
 include_once 'autoload.php';
 $addonJson = json_decode(file_get_contents(__DIR__ . '/addon.json'));
 

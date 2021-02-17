@@ -1,6 +1,6 @@
 <form action="<?=$form_url?>" method="post">
 	<input type="hidden" name="<?=$csrf_hidden_name?>"	value="<?=$CSRF_TOKEN?>" />
-	<?php foreach($tag_group_ids as $group_id) : ?>
+	<?php foreach ($tag_group_ids as $group_id) : ?>
 		<input type="hidden" name="delete[]" value="<?=$group_id?>" />
 	<?php endforeach;?>
 

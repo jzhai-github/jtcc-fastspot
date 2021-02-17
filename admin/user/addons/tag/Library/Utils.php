@@ -15,7 +15,6 @@ class Utils
      * @access  public
      * @return  null
      */
-
     public function __construct()
     {
         // instantiate the addonBuilder "construct"
@@ -29,7 +28,6 @@ class Utils
     }
     // END constructor
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -40,7 +38,6 @@ class Utils
      * @param   (int)    site_id in case we need to loop this for everything
      * @return  (bool)   success?
      */
-
     public function merge_tags($to_tag = '', $from_tag = '', $site_id = 0)
     {
         //cant work with blanks
@@ -100,7 +97,7 @@ class Utils
             "SELECT entry_id, type
              FROM   exp_tag_entries
              WHERE  site_id = $site_id
-             AND    tag_id  = '" .  ee()->db->escape_str($from_id) . "'"
+             AND    tag_id  = '" . ee()->db->escape_str($from_id) . "'"
         );
 
         //if there are any entries, lets convert them
@@ -116,7 +113,7 @@ class Utils
             $sql = "SELECT  entry_id, type
                     FROM    exp_tag_entries
                     WHERE   site_id = $site_id
-                    AND     tag_id  = '" .  ee()->db->escape_str($to_id) . "'";
+                    AND     tag_id  = '" . ee()->db->escape_str($to_id) . "'";
 
             //need to check entry_id AND type because there is no primary key
             $first = true;
@@ -200,7 +197,6 @@ class Utils
     }
     //end merge tags
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -209,7 +205,6 @@ class Utils
      * @param   (array/string) array of tag ids or a singular tag id
      * @return  (null)
      */
-
     public function recount_tags($tag_ids = array())
     {
         //array?
@@ -275,11 +270,11 @@ class Utils
         $counts = array();
 
         foreach ($query->result_array() as $row) {
-            $counts[ $row['tag_id'] ][ $row['type'] ][] = 1;
+            $counts[$row['tag_id']][$row['type']][] = 1;
 
             //tag group counts?
 
-            $counts[ $row['tag_id'] ][ 'total_entries_' . $row['tag_group_id'] ][]  = 1;
+            $counts[$row['tag_id']]['total_entries_' . $row['tag_group_id']][]  = 1;
         }
 
         //  ----------------------------------------
@@ -294,10 +289,9 @@ class Utils
 
             //tag group counts?
             foreach ($tag_groups as $id => $name) {
-                $data[ 'total_entries_' . $id ] = (isset($val['total_entries_' . $id ])) ?
-                                                    count($val['total_entries_' . $id ]) : 0;
+                $data['total_entries_' . $id] = (isset($val['total_entries_' . $id])) ?
+                                                    count($val['total_entries_' . $id]) : 0;
             }
-
 
             ee()->db->update(
                 'exp_tag_tags',
@@ -310,7 +304,6 @@ class Utils
     }
     //END recount_tags
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -321,7 +314,6 @@ class Utils
      *  @access     public
      *  @return     array  - Of tag_ids
      */
-
     public function tag_autocomplete($fields = array('tag_name'), $headers = true)
     {
         $output         = '';
@@ -375,8 +367,6 @@ class Utils
         $fields[]   = 'tag_name';
         $fields     = array_intersect(ee()->db->list_fields('exp_tag_tags'), $fields);
 
-
-
         $sql = "SELECT  " . implode(", ", $fields) . "
                 FROM    exp_tag_tags
                 WHERE   site_id = {$this->clean_site_id} ";
@@ -387,13 +377,13 @@ class Utils
                         SELECT DISTINCT tag_id
                         FROM    exp_tag_entries
                         WHERE   tag_group_id = " . ee()->db->escape_str(
-                            ee()->input->get_post('tag_group_id')
+                ee()->input->get_post('tag_group_id')
             ) . ")";
         }
 
         if (count($existing) > 0) {
             $sql .= "AND tag_name
-                     NOT IN ('".implode("','", ee()->db->escape_str($existing))."') ";
+                     NOT IN ('" . implode("','", ee()->db->escape_str($existing)) . "') ";
         }
 
         // jQuery Autocomplete plugin forces the use of 'q', but we want our own name too
@@ -404,14 +394,12 @@ class Utils
         );
 
         if ($search_term != '*') {
-            $sql .= "AND tag_name LIKE '".ee()->db->escape_like_str($search_term)."%' ";
+            $sql .= "AND tag_name LIKE '" . ee()->db->escape_like_str($search_term) . "%' ";
         }
 
         $sql .= "ORDER BY tag_name DESC LIMIT 100";
 
         $query = ee()->db->query($sql);
-
-
 
         $return_tags = array();
 
@@ -442,9 +430,9 @@ class Utils
 
             ee()->output->set_status_header(200);
             @header("Cache-Control: max-age=5184000, must-revalidate");
-            @header('Last-Modified: '.gmdate('D, d M Y H:i:s', gmmktime()).' GMT');
-            @header('Expires: '.gmdate('D, d M Y H:i:s', gmmktime() + 1).' GMT');
-            @header('Content-Length: '.strlen($output));
+            @header('Last-Modified: ' . gmdate('D, d M Y H:i:s', gmmktime()) . ' GMT');
+            @header('Expires: ' . gmdate('D, d M Y H:i:s', gmmktime() + 1) . ' GMT');
+            @header('Content-Length: ' . strlen($output));
 
             if ($return_type == 'json') {
                 @header("Content-type: application/json");
@@ -459,7 +447,6 @@ class Utils
     }
     // END tag_autocomplete()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -469,7 +456,6 @@ class Utils
      * @param   bool    return json?
      * @return  null
      */
-
     public function tag_suggest($json = false)
     {
         //  ----------------------------------------
@@ -511,12 +497,10 @@ class Utils
         //  Query DB
         //  ----------------------------------------
 
-
-
         $sql = "SELECT DISTINCT tag_name AS name, total_entries
                 FROM            exp_tag_tags
                 WHERE           tag_name NOT
-                IN              ('".implode("','", ee()->db->escape_str($existing))."')";
+                IN              ('" . implode("','", ee()->db->escape_str($existing)) . "')";
 
         if (ee()->input->get_post('tag_group_id') and
             is_numeric(ee()->input->get_post('tag_group_id'))) {
@@ -524,19 +508,17 @@ class Utils
                         SELECT DISTINCT tag_id
                         FROM    exp_tag_entries
                         WHERE   tag_group_id = " . ee()->db->escape_str(
-                            ee()->input->get_post('tag_group_id')
+                ee()->input->get_post('tag_group_id')
             ) . ")";
         }
 
         if (ee()->input->get_post('msm_tag_search') !== 'y') {
-            $sql .= " AND site_id = '".$this->clean_site_id."'";
+            $sql .= " AND site_id = '" . $this->clean_site_id . "'";
         }
 
         $sql .= " ORDER BY total_entries DESC LIMIT 500";
 
         $query = ee()->db->query($sql);
-
-
 
         $return_tags = array();
 
@@ -568,9 +550,9 @@ class Utils
 
             ee()->output->set_status_header(200);
             @header("Cache-Control: max-age=5184000, must-revalidate");
-            @header('Last-Modified: '.gmdate('D, d M Y H:i:s', gmmktime()).' GMT');
-            @header('Expires: '.gmdate('D, d M Y H:i:s', gmmktime() + 1).' GMT');
-            @header('Content-Length: '.strlen($output));
+            @header('Last-Modified: ' . gmdate('D, d M Y H:i:s', gmmktime()) . ' GMT');
+            @header('Expires: ' . gmdate('D, d M Y H:i:s', gmmktime() + 1) . ' GMT');
+            @header('Content-Length: ' . strlen($output));
             @header("Content-type: application/json");
 
             exit($output);
@@ -579,7 +561,7 @@ class Utils
         //string output
 
         if (count($return_tags) == 0) {
-            $return = '<div class="message"><p>'.lang('no_matching_tags').'</p></div>';
+            $return = '<div class="message"><p>' . lang('no_matching_tags') . '</p></div>';
         } else {
             $return = "<ul>";
 
@@ -588,7 +570,7 @@ class Utils
                     $row['name'] = '"' . $row['name'] . '"';
                 }
 
-                $return .= '<li><a href="#">'.$row['name'].'</a></li>';
+                $return .= '<li><a href="#">' . $row['name'] . '</a></li>';
             }
 
             $return .= "</ul>";
@@ -601,7 +583,6 @@ class Utils
     }
     //END tag_suggest()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -611,7 +592,6 @@ class Utils
      * @param   str     string to clean
      * @return  str
      */
-
     public function clean_str($str = '')
     {
         ee()->load->helper(array('text', 'security'));
@@ -631,7 +611,6 @@ class Utils
     }
     //END clean_str
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -641,7 +620,6 @@ class Utils
      * @param   str     string to lowerizate
      * @return  str
      */
-
     public function strtolower($str)
     {
         if (function_exists('mb_strtolower')) {
@@ -652,8 +630,6 @@ class Utils
     }
     //END strtolower
 
-
-
     // --------------------------------------------------------------------
 
     /**
@@ -663,7 +639,6 @@ class Utils
      * @param   str     string to uppercase
      * @return  str
      */
-
     public function strtoupper($str)
     {
         if (function_exists('mb_strtoupper')) {
@@ -673,7 +648,6 @@ class Utils
         }
     }
     //END strtoupper
-
 
     // --------------------------------------------------------------------
 
@@ -687,7 +661,6 @@ class Utils
      *  @param      string  string to find the first character of
      *  @return     string  first character of string
      */
-
     public function first_character($str)
     {
         if (function_exists('mb_substr')) {
@@ -700,7 +673,6 @@ class Utils
     }
     // END first_character()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -710,14 +682,13 @@ class Utils
      * @param   string $str string to decode
      * @return  string      decoded string
      */
-
     public function chars_decode($str = '')
     {
         if ($str == '') {
             return;
         }
 
-        $str    = str_replace(array( "'", "\"", "&#47;" ), array( "", "", "/" ), $str);
+        $str    = str_replace(array("'", "\"", "&#47;"), array("", "", "/"), $str);
 
         if (function_exists('html_entity_decode')) {
             $str = $this->html_entity_decode_full($str, ENT_NOQUOTES);
@@ -728,7 +699,6 @@ class Utils
         return $str;
     }
     //END chars_decode
-
 
     // --------------------------------------------------------------------
 
@@ -741,7 +711,6 @@ class Utils
      * @param   string  $charset    character set
      * @return  string              converted string
      */
-
     public function html_entity_decode_full(
         $string,
         $quotes = ENT_COMPAT,
@@ -762,7 +731,6 @@ class Utils
     }
     //END html_entity_decode_full
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -774,7 +742,6 @@ class Utils
      * @param   boolean $destroy    remove or convert?
      * @return  string              empty string or conversion
      */
-
     public function convert_entity($matches, $destroy = true)
     {
         ee()->config->load('tag_entity_conversion_table');
@@ -789,7 +756,6 @@ class Utils
     }
     // End chars convert_entity
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -801,7 +767,6 @@ class Utils
      * @param   boolean $remove_slashes         remove slashes?
      * @return  array                           array of separated tags
      */
-
     public function str_arr($str, $separator_override = null, $remove_slashes = false)
     {
         if ($remove_slashes === true) {
@@ -819,26 +784,32 @@ class Utils
         switch ($separator) {
             case 'comma':
                 $arr = preg_split("/,|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'semicolon':
                 $arr = preg_split("/;|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'colon':
                 $arr = preg_split("/:|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'pipe':
                 $arr = preg_split("/" . preg_quote('|') . "|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'doublepipe':
                 $arr = preg_split("/" . preg_quote('||') . "|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'tilde':
                 $arr = preg_split("/" . preg_quote('~') . "|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
 
             case 'space':
@@ -852,11 +823,13 @@ class Utils
                 $arr        = preg_split("/\s|\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
 
                 $arr        = array_merge($arr, $match['1']);
+
                 break;
 
             //hard return
             default:
                 $arr = preg_split("/\n|\r/", $str, -1, PREG_SPLIT_NO_EMPTY);
+
                 break;
         }
 

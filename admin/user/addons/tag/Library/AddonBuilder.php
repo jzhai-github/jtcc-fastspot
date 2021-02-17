@@ -398,8 +398,6 @@ trait AddonBuilder
      */
     public $default_settings    = array();
 
-
-
     // --------------------------------------------------------------------
 
     /**
@@ -408,7 +406,6 @@ trait AddonBuilder
      * @access  public
      * @return  null
      */
-
     public function addonBuilderConstruct($init_type = '')
     {
         // -------------------------------------
@@ -589,6 +586,7 @@ trait AddonBuilder
                 if (is_dir($path)) {
                     $this->view_path = $path;
                     $this->cache['view_path'] = $path;
+
                     break;
                 }
             }
@@ -619,7 +617,6 @@ trait AddonBuilder
      * @access public
      * @return object   cache instance
      */
-
     public function set_cache()
     {
         //helps clean this ugly ugly code
@@ -679,7 +676,6 @@ trait AddonBuilder
     }
     //END set_cache
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -690,7 +686,6 @@ trait AddonBuilder
      * @access  public
      * @return  mixed   sessions object or boolean false
      */
-
     public function load_session()
     {
         if (! isset(ee()->session) or ! is_object(ee()->session)) {
@@ -708,7 +703,6 @@ trait AddonBuilder
     }
     //END load_session
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -720,7 +714,6 @@ trait AddonBuilder
      * @param   bool    ignore all caches and get version from database
      * @return  string
      */
-
     public function database_version($ignore_cache = false)
     {
         if (! $ignore_cache and
@@ -758,8 +751,8 @@ trait AddonBuilder
             // ----------------------------------------
 
             $query = ee()->db
-                        ->select('module_version, module_name')
-                        ->get('modules');
+                ->select('module_version, module_name')
+                ->get('modules');
 
             foreach ($query->result_array() as $row) {
                 if (isset(ee()->session) and is_object(ee()->session)) {
@@ -781,7 +774,6 @@ trait AddonBuilder
     }
     // END database_version()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -791,13 +783,11 @@ trait AddonBuilder
      * @access  public
      * @return  bool    Whether the extensions are allowed
      */
-
     public function extensions_allowed()
     {
         return $this->check_yes(ee()->config->item('allow_extensions'));
     }
     //END extensions_allowed
-
 
     // --------------------------------------------------------------------
 
@@ -831,7 +821,6 @@ trait AddonBuilder
      * @access  public
      * @param   array   $nav_items  $k=>$v array of items to add to nav
      */
-
     public function set_nav($nav_items = array())
     {
         if (empty($nav_items)) {
@@ -911,7 +900,6 @@ trait AddonBuilder
     }
     //end set_nav
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -921,7 +909,6 @@ trait AddonBuilder
      * @param   array  $options input options for view
      * @return  string          html output
      */
-
     protected function mcp_view($options = array())
     {
         $defaults = array(
@@ -977,7 +964,7 @@ trait AddonBuilder
 
         $header_title = 'EEHarbor ' . $header_name . '
                 <span class="version-number">'
-                    . lang('version') . ': ' . $this->version .'</span>';
+                    . lang('version') . ': ' . $this->version . '</span>';
 
         if (isset($options['highlight'])) {
             //sublist item?
@@ -1043,7 +1030,6 @@ trait AddonBuilder
     }
     //END mcp_view
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1058,7 +1044,6 @@ trait AddonBuilder
      * @param   array   $options     options array
      * @return  void
      */
-
     protected function mcp_modal_confirm($options)
     {
         // -------------------------------------
@@ -1117,7 +1102,6 @@ trait AddonBuilder
     }
     //ENd mcp_modal_confirm
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1132,7 +1116,6 @@ trait AddonBuilder
      * @param       bool    $include_cached     include $this->cached_vars?
      * @return      string                      completed template
      */
-
     public function view($view, $vars = array(), $include_cached = true)
     {
         $outvars = ($include_cached) ? $this->cached_vars : array();
@@ -1145,7 +1128,6 @@ trait AddonBuilder
     }
     // END view()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1155,7 +1137,6 @@ trait AddonBuilder
      * @param   array
      * @return  null
      */
-
     public function add_crumbs($array)
     {
         if (is_array($array)) {
@@ -1170,7 +1151,6 @@ trait AddonBuilder
     }
     // END add_crumbs
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1181,13 +1161,11 @@ trait AddonBuilder
      * @param   string      Link, if any for breadcrumb
      * @return  null
      */
-
     public function add_crumb($text, $link = '__heading__')
     {
         $this->crumbs[(string) $link] = $text;
     }
     // END add_crumb
-
 
     // --------------------------------------------------------------------
 
@@ -1200,7 +1178,6 @@ trait AddonBuilder
      * @param   boolean $shared_form    is this going to a shared form?
      * @return  void
      */
-
     public function prep_message($message = '', $success = true, $shared_form = false)
     {
         if ($message == '' and isset($_GET['msg'])) {
@@ -1225,7 +1202,6 @@ trait AddonBuilder
     }
     // End prep message
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1236,7 +1212,6 @@ trait AddonBuilder
      * @param   string|array    The item that needs to be prepped for output
      * @return  string|array
      */
-
     public function output($item)
     {
         if (is_array($item)) {
@@ -1255,7 +1230,6 @@ trait AddonBuilder
     }
     // END output
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1267,7 +1241,6 @@ trait AddonBuilder
      * @param   string|array    The items that need to be cycled through
      * @return  string|array
      */
-
     public function cycle($items)
     {
         if (! is_array($items)) {
@@ -1286,7 +1259,6 @@ trait AddonBuilder
         return $items[$this->switches[$hash]];
     }
     // END cycle
-
 
     // --------------------------------------------------------------------
 
@@ -1307,7 +1279,7 @@ trait AddonBuilder
         $user_agent = ini_get('user_agent');
 
         if (empty($user_agent)) {
-            $user_agent = $this->class_name.'/1.0';
+            $user_agent = $this->class_name . '/1.0';
         }
 
         // --------------------------------------------
@@ -1317,8 +1289,8 @@ trait AddonBuilder
         if ((bool) @ini_get('allow_url_fopen') !== false &&
             empty($post) && $username == false) {
             $opts = array(
-                'http'  => array('header' => "User-Agent:".$user_agent."\r\n"),
-                'https' => array('header' => "User-Agent:".$user_agent."\r\n")
+                'http'  => array('header' => "User-Agent:" . $user_agent . "\r\n"),
+                'https' => array('header' => "User-Agent:" . $user_agent . "\r\n")
             );
 
             $context = stream_context_create($opts);
@@ -1390,18 +1362,18 @@ trait AddonBuilder
         $ssl    = ($parts['scheme'] == "https") ? 'ssl://' : '';
 
         if (isset($parts['query']) and $parts['query'] != '') {
-            $path .= '?'.$parts['query'];
+            $path .= '?' . $parts['query'];
         }
 
         $data = '';
 
-        $fp = @fsockopen($ssl.$host, $port, $error_num, $error_str, 7);
+        $fp = @fsockopen($ssl . $host, $port, $error_num, $error_str, 7);
 
         if (is_resource($fp)) {
-            $getpost    = (! empty($post)) ? 'POST ': 'GET ';
+            $getpost    = (! empty($post)) ? 'POST ' : 'GET ';
 
-            fputs($fp, $getpost.$path." HTTP/1.0\r\n");
-            fputs($fp, "Host: ".$host . "\r\n");
+            fputs($fp, $getpost . $path . " HTTP/1.0\r\n");
+            fputs($fp, "Host: " . $host . "\r\n");
 
             if (! empty($post)) {
                 $str    = '';
@@ -1416,10 +1388,10 @@ trait AddonBuilder
                 fputs($fp, "Content-length: " . strlen($str) . "\r\n");
             }
 
-            fputs($fp, "User-Agent: ".$user_agent."r\n");
+            fputs($fp, "User-Agent: " . $user_agent . "r\n");
 
             if ($username != false) {
-                fputs($fp, "Authorization: Basic ".base64_encode($username.':'.$password)."\r\n");
+                fputs($fp, "Authorization: Basic " . base64_encode($username . ':' . $password) . "\r\n");
             }
 
             fputs($fp, "Connection: close\r\n\r\n");
@@ -1460,7 +1432,6 @@ trait AddonBuilder
     }
     // END fetch_url
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1471,10 +1442,9 @@ trait AddonBuilder
      * @param   $data   Data to put into file
      * @return  bool
      */
-
     public function write_file($file, $data)
     {
-        $temp_file = $file.'.tmp';
+        $temp_file = $file . '.tmp';
 
         if (! file_exists($temp_file)) {
             // Remove old cache file, prevents rename problem on Windows
@@ -1483,17 +1453,20 @@ trait AddonBuilder
             @unlink($file);
 
             if (file_exists($file)) {
-                $this->errors[] = "Unable to Delete Old Cache File: ".$file;
+                $this->errors[] = "Unable to Delete Old Cache File: " . $file;
+
                 return false;
             }
 
             if (! $fp = @fopen($temp_file, 'wb')) {
-                $this->errors[] = "Unable to Write Temporary Cache File: ".$temp_file;
+                $this->errors[] = "Unable to Write Temporary Cache File: " . $temp_file;
+
                 return false;
             }
 
             if (! flock($fp, LOCK_EX | LOCK_NB)) {
                 $this->errors[] = "Locking Error when Writing Cache File";
+
                 return false;
             }
 
@@ -1515,7 +1488,6 @@ trait AddonBuilder
     }
     // END write_file()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1531,7 +1503,6 @@ trait AddonBuilder
      * @param   bool        $remove - If writing a file, remove it after testing?
      * @return  bool
      */
-
     public static function is_really_writable($file, $remove = false)
     {
         // is_writable() returns true on Windows servers
@@ -1540,7 +1511,7 @@ trait AddonBuilder
         // read-only attribute is marked.  Ugh?
 
         if (substr($file, -1) == '/' or is_dir($file)) {
-            return self::is_really_writable(rtrim($file, '/').'/'.uniqid(mt_rand()), true);
+            return self::is_really_writable(rtrim($file, '/') . '/' . uniqid(mt_rand()), true);
         }
 
         if (($fp = @fopen($file, 'ab')) === false) {
@@ -1551,11 +1522,11 @@ trait AddonBuilder
             }
 
             fclose($fp);
+
             return true;
         }
     }
     // END is_really_writable()
-
 
     // --------------------------------------------------------------------
 
@@ -1567,7 +1538,6 @@ trait AddonBuilder
      *  @access     public
      *  @return     bool
      */
-
     public function check_captcha()
     {
         if (ee()->config->item('captcha_require_members') == 'y'  or
@@ -1596,7 +1566,6 @@ trait AddonBuilder
     }
     // END check_captcha()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1607,7 +1576,6 @@ trait AddonBuilder
      * @param   bool    $restore    optional restore XID on error
      * @return  mixed               void if not unit test
      */
-
     public function show_error($message = '', $restore = true)
     {
         if ($this->unit_test_mode) {
@@ -1629,7 +1597,6 @@ trait AddonBuilder
     }
     // END show_error()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -1641,7 +1608,6 @@ trait AddonBuilder
      *  @param      string
      *  @return     bool
      */
-
     public function check_yes($which)
     {
         if (is_string($which)) {
@@ -1651,7 +1617,6 @@ trait AddonBuilder
         return in_array($which, array('yes', 'y', 'true', 'on'), true);
     }
     // END check_yes()
-
 
     // --------------------------------------------------------------------
 
@@ -1664,7 +1629,6 @@ trait AddonBuilder
      *  @param      string
      *  @return     bool
      */
-
     public function check_no($which)
     {
         if (is_string($which)) {
@@ -1674,7 +1638,6 @@ trait AddonBuilder
         return in_array($which, array('no', 'n', 'false', 'off'), true);
     }
     // END check_no()
-
 
     // --------------------------------------------------------------------
 
@@ -1699,7 +1662,6 @@ trait AddonBuilder
      *  @param      array
      *  @return     array
      */
-
     public function universal_pagination($input_data)
     {
         // -------------------------------------
@@ -1857,14 +1819,14 @@ trait AddonBuilder
             // -------------------------------------
 
             if ($input_data['paginate_prefix'] != '' and preg_match(
-                    "/" . LD . $input_data['paginate_prefix'] . "paginate" . RD .
+                "/" . LD . $input_data['paginate_prefix'] . "paginate" . RD .
                         "(.+?)" .
                     LD . preg_quote('/', '/') .
                         $input_data['paginate_prefix'] . "paginate" .
                     RD . "/s",
-                    $return_data['tagdata'],
-                    $match
-                )) {
+                $return_data['tagdata'],
+                $match
+            )) {
                 $return_data['paginate_tagpair_data']   = $match[1];
                 $return_data['tagdata']                 = str_replace(
                     $match[0],
@@ -1874,12 +1836,12 @@ trait AddonBuilder
             }
             //else lets check for normal pagination tags
             elseif (preg_match(
-                    "/" . LD . "paginate" . RD .
+                "/" . LD . "paginate" . RD .
                         "(.+?)" .
                     LD . preg_quote('/', '/') . "paginate" . RD . "/s",
-                    $return_data['tagdata'],
-                    $match
-                )) {
+                $return_data['tagdata'],
+                $match
+            )) {
                 $return_data['paginate_tagpair_data']   = $match[1];
                 $return_data['tagdata']                 = str_replace(
                     $match[0],
@@ -1901,9 +1863,9 @@ trait AddonBuilder
                 ($input_data['total_results'] - $input_data['offset']) / $input_data['limit']
             );
 
-            $return_data['page_count']      = lang('page')      . ' ' .
-                                              $return_data['current_page']  . ' ' .
-                                              lang('of')        . ' ' .
+            $return_data['page_count']      = lang('page') . ' ' .
+                                              $return_data['current_page'] . ' ' .
+                                              lang('of') . ' ' .
                                               $return_data['total_pages'];
 
             // ----------------------------------------
@@ -1988,7 +1950,6 @@ trait AddonBuilder
     }
     //  End universal_pagination
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2000,7 +1961,6 @@ trait AddonBuilder
      * @param   array
      * @return  tagdata
      */
-
     public function parse_pagination($options = array())
     {
         // -------------------------------------
@@ -2143,12 +2103,12 @@ trait AddonBuilder
             // Check to see if pagination_links is being used as a single
             // variable or as a variable pair
             if (preg_match_all(
-                    "/" . LD . $tag_pagination_links . RD .
+                "/" . LD . $tag_pagination_links . RD .
                         "(.+?)" .
                     LD . '\/' . $tag_pagination_links . RD . "/s",
-                    $paginate_data,
-                    $matches
-                )) {
+                $paginate_data,
+                $matches
+            )) {
                 // Parse current_page and total_pages
                 $paginate_data = ee()->TMPL->parse_variables(
                     $paginate_data,
@@ -2182,7 +2142,6 @@ trait AddonBuilder
             );
         }
 
-
         // -------------------------------------
         //  parse everything left
         // -------------------------------------
@@ -2210,12 +2169,12 @@ trait AddonBuilder
         // ----------------------------------------
 
         if (preg_match(
-                "/" . LD . "if " . $tag_previous_page . RD .
+            "/" . LD . "if " . $tag_previous_page . RD .
                     "(.+?)" .
                  LD . preg_quote('/', '/') . "if" . RD . "/s",
-                 $paginate_data,
-                 $match
-            )) {
+            $paginate_data,
+            $match
+        )) {
             if ($page_previous == '') {
                 $paginate_data = preg_replace(
                     "/" . LD . "if " . $tag_previous_page . RD .
@@ -2250,12 +2209,12 @@ trait AddonBuilder
         // ----------------------------------------
 
         if (preg_match(
-                "/" . LD . "if " . $tag_next_page . RD .
+            "/" . LD . "if " . $tag_next_page . RD .
                     "(.+?)" .
                 LD . preg_quote('/', '/') . "if" . RD . "/s",
-                $paginate_data,
-                $match
-            )) {
+            $paginate_data,
+            $match
+        )) {
             if ($page_next == '') {
                 $paginate_data = preg_replace(
                     "/" . LD . "if " . $tag_next_page . RD .
@@ -2305,7 +2264,6 @@ trait AddonBuilder
     }
     //END parse_pagination
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2319,7 +2277,6 @@ trait AddonBuilder
      * @param   bool    reverse, are we removing the preixes we did before?
      * @return  string  tag data with prefix changed out
      */
-
     public function pagination_prefix_replace($prefix = '', $tagdata = '', $reverse = false)
     {
         if ($prefix == '') {
@@ -2333,7 +2290,7 @@ trait AddonBuilder
 
         //if there is nothing prefixed, we don't want to do anything datastardly
         if (! $reverse and
-            strpos($tagdata, LD.$prefix . 'paginate'.RD) === false) {
+            strpos($tagdata, LD . $prefix . 'paginate' . RD) === false) {
             return $tagdata;
         }
 
@@ -2345,12 +2302,12 @@ trait AddonBuilder
         $tpl = $prefix . 'pagination_links';
 
         if (preg_match(
-                "/" . LD . $tpl . RD .
+            "/" . LD . $tpl . RD .
                     "(.*)?" .
                 LD . preg_quote('/', '/') . $tpl . RD . "/ims",
-                $tagdata,
-                $matches
-            )
+            $tagdata,
+            $matches
+        )
         ) {
             $fix_pp_np = preg_replace(
                 array(
@@ -2397,11 +2354,11 @@ trait AddonBuilder
             //this is terse, but it ensures that we
             //find any an all tag pairs if they occur
             $find[$key]             = LD . $item . RD;
-            $find[$nkey]            = LD . '/' .  $item . RD;
+            $find[$nkey]            = LD . '/' . $item . RD;
             $hash_replace[$key]     = LD . $hash . $item . RD;
-            $hash_replace[$nkey]    = LD . '/' .  $hash . $item . RD;
+            $hash_replace[$nkey]    = LD . '/' . $hash . $item . RD;
             $prefix_replace[$key]   = LD . $prefix . $item . RD;
-            $prefix_replace[$nkey]  = LD . '/' .  $prefix . $item . RD;
+            $prefix_replace[$nkey]  = LD . '/' . $prefix . $item . RD;
         }
 
         //prefix standard and replace prefixs
@@ -2418,7 +2375,6 @@ trait AddonBuilder
     }
     //END pagination_prefix_replace
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2427,7 +2383,6 @@ trait AddonBuilder
      * @access  public
      * @return  string  40 char CSRF hash token
      */
-
     public function get_csrf_token()
     {
         if (defined('CSRF_TOKEN')) {
@@ -2438,6 +2393,7 @@ trait AddonBuilder
         //or m=Javascript
         elseif ($this->session_obj_set()) {
             ee()->load->library('csrf');
+
             return ee()->csrf->get_user_token();
         }
         //this means we are in sessions_start or _end so hopefully
@@ -2449,7 +2405,6 @@ trait AddonBuilder
     }
     //END get_csrf_token
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2458,13 +2413,11 @@ trait AddonBuilder
      * @access  public
      * @return  string
      */
-
     public function _imploder($arguments)
     {
         return md5(serialize($arguments));
     }
     // END
-
 
     // --------------------------------------------------------------------
 
@@ -2481,7 +2434,6 @@ trait AddonBuilder
      * @access  public
      * @return  mixed
      */
-
     public function prepare_keyed_result($query, $key = '', $val = '')
     {
         if (! is_object($query)  or $key == '') {
@@ -2499,13 +2451,12 @@ trait AddonBuilder
                 continue;
             }
 
-            $data[ $row[$key] ] = ($val != '' and isset($row[$val])) ? $row[$val]: $row;
+            $data[$row[$key]] = ($val != '' and isset($row[$val])) ? $row[$val] : $row;
         }
 
         return (empty($data)) ? false : $data;
     }
     // END prepare_keyed_result
-
 
     // --------------------------------------------------------------------
 
@@ -2545,7 +2496,6 @@ trait AddonBuilder
     }
     //END either_or_base
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2555,7 +2505,6 @@ trait AddonBuilder
      * @param   mixed   any number of arguments consisting of variables to be returned false
      * @return  mixed
      */
-
     public function either_or()
     {
         $args = func_get_args();
@@ -2563,7 +2512,6 @@ trait AddonBuilder
         return $this->either_or_base($args);
     }
     //END either_or
-
 
     // --------------------------------------------------------------------
 
@@ -2574,7 +2522,6 @@ trait AddonBuilder
      * @param   mixed   any number of arguments consisting of variables to be returned false
      * @return  mixed
      */
-
     public function either_or_strict()
     {
         $args = func_get_args();
@@ -2582,7 +2529,6 @@ trait AddonBuilder
         return $this->either_or_base($args, true);
     }
     // END either_or_strict
-
 
     //---------------------------------------------------------------------
 
@@ -2593,7 +2539,6 @@ trait AddonBuilder
      * @param   string  $link   html link for right link
      * @return  void
      */
-
     public function add_right_link($text, $link)
     {
         //no funny business
@@ -2605,7 +2550,6 @@ trait AddonBuilder
     }
     //end add_right_link
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2615,7 +2559,6 @@ trait AddonBuilder
      * @access  public
      * @return  bool    Whether the extensions are allowed
      */
-
     public function has_hooks()
     {
         //is it there? is it array? is it empty?
@@ -2634,7 +2577,6 @@ trait AddonBuilder
     }
     //end has hooks
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2644,7 +2586,6 @@ trait AddonBuilder
      * @access  public
      * @return  obj     updater object for module
      */
-
     public function updater()
     {
         if (! is_object($this->updater)) {
@@ -2668,7 +2609,6 @@ trait AddonBuilder
     }
     //end updater
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2679,7 +2619,6 @@ trait AddonBuilder
      * @param   bool    match exact number of hooks
      * @return  bool    Whether the extensions are enabled if need be
      */
-
     public function extensions_enabled($check_all_enabled = false)
     {
         if (! $this->has_hooks()) {
@@ -2710,7 +2649,6 @@ trait AddonBuilder
     }
     //END extensions_enabled
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2726,7 +2664,6 @@ trait AddonBuilder
      * @access public
      * @return boolean
      */
-
     public function is_ajax_request()
     {
         // --------------------------------------------
@@ -2774,7 +2711,6 @@ trait AddonBuilder
     }
     // END is_ajax_request()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2790,7 +2726,6 @@ trait AddonBuilder
      * @param   bool            bust cache for JSON?
      * @return  void
      */
-
     public function send_ajax_response($msg, $error = false, $cache_bust = true)
     {
         ee()->output->enable_profiler(false);
@@ -2818,7 +2753,6 @@ trait AddonBuilder
         exit(json_encode($msg));
     }
     //END send_ajax_response()
-
 
     // --------------------------------------------------------------------
 
@@ -2858,6 +2792,7 @@ trait AddonBuilder
 
             if ((bool) filter_var($addr, FILTER_VALIDATE_EMAIL) === false) {
                 $vars['bad'][] = $addr;
+
                 continue;
             }
 
@@ -2867,7 +2802,6 @@ trait AddonBuilder
         return $vars;
     }
     // END validate_emails();
-
 
     // --------------------------------------------------------------------
 
@@ -2880,7 +2814,6 @@ trait AddonBuilder
      *  @param      string method name
      *  @return     string url for action
      */
-
     public function get_action_url($method_name)
     {
         $action_q   = ee()->db->where(array(
@@ -2897,11 +2830,15 @@ trait AddonBuilder
         //fix for things like transcribe
         ee()->functions->cached_index = array();
 
-        return ee()->functions->fetch_site_index(0, 0) .
+        $action_url = ee()->functions->fetch_site_index(0, 0) .
                     QUERY_MARKER . 'ACT=' . $action_id;
+        if (ee()->config->item('website_session_type') != 'c') {
+            $action_url .= '&S=' . ee()->session->userdata('session_id');
+        }
+
+        return $action_url;
     }
     //END get_action_url
-
 
     // --------------------------------------------------------------------
 
@@ -2917,7 +2854,6 @@ trait AddonBuilder
      * @param   int     threshold   lowest number acceptable (default 1)
      * @return  bool
      */
-
     public function is_positive_intlike($num, $threshold = 1)
     {
         //without is_numeric, bools return positive
@@ -2930,7 +2866,6 @@ trait AddonBuilder
     }
     //END is_positive_intlike
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -2940,14 +2875,13 @@ trait AddonBuilder
      * @param   string  name of GET/POST var to check
      * @return  int     returns 0 if the get/post is not present or numeric or above 0
      */
-
     public function get_post_or_zero($name)
     {
         $name = ee()->input->get_post($name);
+
         return ($this->is_positive_intlike($name) ? $name : 0);
     }
     //END get_post_or_zero
-
 
     // --------------------------------------------------------------------
 
@@ -2960,7 +2894,6 @@ trait AddonBuilder
      * @access  public
      * @return  null
      */
-
     public function update_extension_hooks()
     {
         // --------------------------------------------
@@ -2970,8 +2903,8 @@ trait AddonBuilder
         $exists = array();
 
         $query = ee('Model')->get('Extension')
-                    ->filter('class', $this->extension_name)
-                    ->all();
+            ->filter('class', $this->extension_name)
+            ->all();
 
         foreach ($query as $row) {
             $exists[] = $row->method;
@@ -2982,9 +2915,9 @@ trait AddonBuilder
         }
 
         if ((
-                ! is_array($this->hooks) or
+            ! is_array($this->hooks) or
                 count($this->hooks) == 0
-            ) &&
+        ) &&
             empty($exists)
         ) {
             return true;
@@ -3040,9 +2973,9 @@ trait AddonBuilder
                 unset($data['settings']);
 
                 $e = ee('Model')->get('Extension')
-                        ->filter('class', $data['class'])
-                        ->filter('method', $data['method'])
-                        ->first();
+                    ->filter('class', $data['class'])
+                    ->filter('method', $data['method'])
+                    ->first();
             }
 
             if (! empty($e)) {
@@ -3071,7 +3004,6 @@ trait AddonBuilder
     }
     // END update_extension_hooks()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3082,7 +3014,6 @@ trait AddonBuilder
      * @access  public
      * @return  null
      */
-
     public function remove_extension_hooks()
     {
         ee()->db
@@ -3109,7 +3040,6 @@ trait AddonBuilder
     }
     // END remove_extension_hooks
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3132,7 +3062,6 @@ trait AddonBuilder
      * @param   boolean $add_to_ee_lang session object
      * @return  null
      */
-
     public function fetch_language_file($which = '', $object = false, $add_to_ee_lang = true)
     {
         if ($which == '') {
@@ -3163,10 +3092,10 @@ trait AddonBuilder
 
         if (! in_array($which, $this->is_loaded)) {
             $options = array(
-                $this->addon_path . 'language/'.$user_lang.'/lang.'.$which.'.php',
-                $this->addon_path . 'language/'.$user_lang.'/'.$which.'_lang.php',
-                $this->addon_path . 'language/english/lang.'.$which.'.php',
-                $this->addon_path . 'language/english/'.$which.'_lang.php'
+                $this->addon_path . 'language/' . $user_lang . '/lang.' . $which . '.php',
+                $this->addon_path . 'language/' . $user_lang . '/' . $which . '_lang.php',
+                $this->addon_path . 'language/english/lang.' . $which . '.php',
+                $this->addon_path . 'language/english/' . $which . '_lang.php'
             );
 
             $success = false;
@@ -3174,6 +3103,7 @@ trait AddonBuilder
             foreach ($options as $path) {
                 if (file_exists($path) and include $path) {
                     $success = true;
+
                     break;
                 }
             }
@@ -3205,7 +3135,6 @@ trait AddonBuilder
     }
     // END fetch_language_file
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3220,7 +3149,6 @@ trait AddonBuilder
      * @param   string  $label  name of item this is a label for
      * @return  string          lang line
      */
-
     public function line($which = '', $label = '')
     {
         if ($which != '') {
@@ -3235,7 +3163,7 @@ trait AddonBuilder
             }
 
             if ($label != '') {
-                $line = '<label for="'.$label.'">'.$line."</label>";
+                $line = '<label for="' . $label . '">' . $line . "</label>";
             }
 
             return stripslashes($line);
@@ -3244,7 +3172,6 @@ trait AddonBuilder
         }
     }
     // END Line
-
 
     // --------------------------------------------------------------------
 
@@ -3255,7 +3182,6 @@ trait AddonBuilder
      * @param   mixed   $test_mock  mock object to send functions to
      * @return  void
      */
-
     public function setup_unit_test_mode($test_mock = false, $do_actions = true)
     {
         $this->unit_test_mode = true;
@@ -3268,7 +3194,6 @@ trait AddonBuilder
     }
     //END setup_unit_test_mode
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3278,7 +3203,6 @@ trait AddonBuilder
      * @access  protected
      * @return  object      test_object instance
      */
-
     protected function test_object()
     {
         if (! isset($this->test_mock) ||
@@ -3306,7 +3230,6 @@ trait AddonBuilder
     }
     //END test_object
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3330,7 +3253,6 @@ trait AddonBuilder
     }
     //END test_method
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3345,7 +3267,6 @@ trait AddonBuilder
         return ee()->localize->human_time($time);
     }
     //END human_time
-
 
     // --------------------------------------------------------------------
 
@@ -3371,7 +3292,6 @@ trait AddonBuilder
     }
     //END fetch_date_params
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3382,7 +3302,6 @@ trait AddonBuilder
      * @param   mixed   $time   timestamp to convert
      * @return  string          converted timestamp
      */
-
     public function convert_timestamp($format = '', $time = '', $localize = true)
     {
         $return_str = false;
@@ -3400,7 +3319,6 @@ trait AddonBuilder
     }
     //END convert_timestamp
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3409,7 +3327,6 @@ trait AddonBuilder
      * @access  public
      * @return  array   site data
      */
-
     public function get_sites()
     {
         if (! empty($this->sites)) {
@@ -3423,6 +3340,7 @@ trait AddonBuilder
             isset(ee()->session->userdata['assigned_sites']) and
             is_array(ee()->session->userdata['assigned_sites'])) {
             $this->sites = ee()->session->userdata['assigned_sites'];
+
             return $this->sites;
         }
 
@@ -3454,7 +3372,6 @@ trait AddonBuilder
     }
     //END get_sites
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3477,7 +3394,6 @@ trait AddonBuilder
      * @param   boolean $refresh    refresh cache?
      * @return  object          model instance from EE instance
      */
-
     public function lib($name, $refresh = false)
     {
         return $this->_lib_mod_loader(
@@ -3489,7 +3405,6 @@ trait AddonBuilder
         );
     }
     //END lib
-
 
     // --------------------------------------------------------------------
 
@@ -3504,13 +3419,11 @@ trait AddonBuilder
      * @param   string  $name   singular table name from full model name
      * @return  object          model instance from EE instance
      */
-
     public function model($name = '')
     {
         return $this->_lib_mod_loader($name, array('type' => 'model'));
     }
     //END model
-
 
     // --------------------------------------------------------------------
 
@@ -3522,7 +3435,6 @@ trait AddonBuilder
      * @param   string  $name   singular table name from full model name
      * @return  object          model instance from EE instance
      */
-
     public function make($name = '', array $data = array())
     {
         return $this->_lib_mod_loader(
@@ -3537,7 +3449,6 @@ trait AddonBuilder
     }
     //END make
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3547,7 +3458,6 @@ trait AddonBuilder
      * @param   string  $name   singular table name from full model name
      * @return  object          model instance from EE instance
      */
-
     public function fetch($name = '', $default_ids = null)
     {
         return $this->_lib_mod_loader(
@@ -3562,7 +3472,6 @@ trait AddonBuilder
     }
     //END fetch
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3575,7 +3484,6 @@ trait AddonBuilder
      * @param   boolean $make       return an instance rather than query builder
      * @return  object              model instance from EE instance
      */
-
     protected function _lib_mod_loader($object_name, $options = array())
     {
         // -------------------------------------
@@ -3646,7 +3554,8 @@ trait AddonBuilder
             //lib
             else {
                 //lib gets cached
-                $this->cache['lib_mod'][$type][$object_name] = new $ns_class;
+                $this->cache['lib_mod'][$type][$object_name] = new $ns_class();
+
                 return $this->cache['lib_mod'][$type][$object_name];
             }
         }
@@ -3671,7 +3580,6 @@ trait AddonBuilder
     }
     //END _lib_mod_loader
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3680,7 +3588,6 @@ trait AddonBuilder
      * @access  public
      * @return  int     session id, fingerprint, or 0 if not findable
      */
-
     public function get_session_id()
     {
         if (! $this->session_obj_set()) {
@@ -3695,7 +3602,6 @@ trait AddonBuilder
     }
     //END get_session_id
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3706,7 +3612,6 @@ trait AddonBuilder
      * @return  object  $obj    returns object sent due to deprecation of
      *                          arguments passed by reference.
      */
-
     public function add_pag_to_channel($obj)
     {
         ee()->load->library('pagination');
@@ -3720,7 +3625,6 @@ trait AddonBuilder
     }
     //END add_pag_to_channel
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -3731,7 +3635,6 @@ trait AddonBuilder
      * @return  object  $obj    returns object sent due to deprecation of
      *                          arguments passed by reference.
      */
-
     public function fetch_pagination_data($ojb)
     {
         ee()->TMPL->tagdata = $ojb->pagination->prepare(ee()->TMPL->tagdata);
@@ -3739,7 +3642,6 @@ trait AddonBuilder
         return $ojb;
     }
     //END fetch_pagination_data
-
 
     // --------------------------------------------------------------------
 
@@ -3751,7 +3653,6 @@ trait AddonBuilder
      * @return  object  $obj    returns object sent due to deprecation of
      *                          arguments passed by reference.
      */
-
     public function add_pagination_data($obj)
     {
         //this has remained the same since EE 2.4 thusfar
@@ -3760,7 +3661,6 @@ trait AddonBuilder
         return $obj;
     }
     //END add_pagination_data
-
 
     // --------------------------------------------------------------------
 
@@ -3773,13 +3673,11 @@ trait AddonBuilder
      * @param   string  expire time
      * @return  void
      */
-
     public function set_cookie($name = '', $value = '', $expire = '')
     {
         return ee()->input->set_cookie($name, $value, $expire);
     }
     //END set_cookie
-
 
     // --------------------------------------------------------------------
 
@@ -3790,13 +3688,11 @@ trait AddonBuilder
      * @param   string  cookie name
      * @return  void
      */
-
     public function delete_cookie($name = '')
     {
         return ee()->input->delete_cookie($name);
     }
     //END delete_cookie
-
 
     // --------------------------------------------------------------------
 
@@ -3806,14 +3702,12 @@ trait AddonBuilder
      * @access  public
      * @return  boolean
      */
-
     public function csrf_enabled()
     {
         //default is n
         return ! $this->check_yes(ee()->config->item('disable_csrf_protection'));
     }
     //END csrf_enabled
-
 
     // --------------------------------------------------------------------
 
@@ -3823,7 +3717,6 @@ trait AddonBuilder
      * @access  public
      * @return  boolean     is the dang thing set correctly? >_<
      */
-
     public function session_obj_set()
     {
         return (
@@ -3848,7 +3741,6 @@ trait AddonBuilder
      * @access  public
      * @return  void
      */
-
     public function init_module_builder()
     {
         // --------------------------------------------
@@ -3869,7 +3761,7 @@ trait AddonBuilder
 
             if (function_exists('lang')) {
                 $this->add_crumb(
-                    lang($this->lower_name.'_module_name'),
+                    lang($this->lower_name . '_module_name'),
                     $this->base
                 );
             }
@@ -3877,7 +3769,6 @@ trait AddonBuilder
         //END if (REQ == 'CP')
     }
     //END init module
-
 
     // --------------------------------------------------------------------
 
@@ -3888,7 +3779,6 @@ trait AddonBuilder
      *  @param      string
      *  @return     string
      */
-
     public function dd($q)
     {
         print_r($q);
@@ -3896,7 +3786,6 @@ trait AddonBuilder
     }
 
     //  End dd()
-
 
     // --------------------------------------------------------------------
 
@@ -3906,7 +3795,6 @@ trait AddonBuilder
      * @access  public
      * @return  bool
      */
-
     public function default_module_install()
     {
         $this->install_module_sql();
@@ -3916,7 +3804,6 @@ trait AddonBuilder
         return true;
     }
     // END default_module_install()
-
 
     // --------------------------------------------------------------------
 
@@ -3929,18 +3816,17 @@ trait AddonBuilder
      * @access  public
      * @return  bool
      */
-
     public function default_module_uninstall()
     {
         //get module id
         $query = ee()->db
-                    ->select('module_id')
-                    ->where('module_name', $this->class_name)
-                    ->get('modules');
+            ->select('module_id')
+            ->where('module_name', $this->class_name)
+            ->get('modules');
 
         $files = array(
-            $this->addon_path . $this->lower_name.'.sql',
-            $this->addon_path . 'db.'.$this->lower_name.'.sql'
+            $this->addon_path . $this->lower_name . '.sql',
+            $this->addon_path . 'db.' . $this->lower_name . '.sql'
         );
 
         ee()->load->dbforge();
@@ -3968,24 +3854,24 @@ trait AddonBuilder
             }
         }
 
+        $module_member_groups_table = version_compare(APP_VER, '6.0', '>=') ? 'module_member_roles' : 'module_member_groups';
         ee()->db
-                ->where('module_id', $query->row('module_id'))
-                ->delete('module_member_groups');
+            ->where('module_id', $query->row('module_id'))
+            ->delete($module_member_groups_table);
 
         ee()->db
-                ->where('module_name', $this->class_name)
-                ->delete('modules');
+            ->where('module_name', $this->class_name)
+            ->delete('modules');
 
         ee()->db
-                ->where('class', $this->class_name)
-                ->delete('actions');
+            ->where('class', $this->class_name)
+            ->delete('actions');
 
         $this->remove_extension_hooks();
 
         return true;
     }
     // END default_module_uninstall()
-
 
     // --------------------------------------------------------------------
 
@@ -3995,7 +3881,6 @@ trait AddonBuilder
      * @access  public
      * @return  bool
      */
-
     public function default_module_update()
     {
         $this->update_module_actions();
@@ -4006,7 +3891,6 @@ trait AddonBuilder
         return true;
     }
     // END default_module_update()
-
 
     // --------------------------------------------------------------------
 
@@ -4019,7 +3903,6 @@ trait AddonBuilder
      * @access  public
      * @return  null
      */
-
     public function install_module_sql()
     {
         $sql = array();
@@ -4029,8 +3912,8 @@ trait AddonBuilder
         // --------------------------------------------
 
         $files = array(
-            $this->addon_path . $this->lower_name.'.sql',
-            $this->addon_path . 'db.'.$this->lower_name.'.sql'
+            $this->addon_path . $this->lower_name . '.sql',
+            $this->addon_path . 'db.' . $this->lower_name . '.sql'
         );
 
         foreach ($files as $file) {
@@ -4060,7 +3943,6 @@ trait AddonBuilder
     }
     //END install_module_sql()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -4072,7 +3954,6 @@ trait AddonBuilder
      * @access  public
      * @return  array
      */
-
     public function update_module_actions()
     {
         // -------------------------------------
@@ -4130,7 +4011,6 @@ trait AddonBuilder
     }
     // END update_module_actions()
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -4142,17 +4022,16 @@ trait AddonBuilder
      *  @access     public
      *  @return     string
      */
-
     public function no_results($custom_condition = '')
     {
-        $custom_condition   = (empty($custom_condition)) ? $this->lower_name: $custom_condition;
+        $custom_condition   = (empty($custom_condition)) ? $this->lower_name : $custom_condition;
 
         if (preg_match(
-                "/".LD."if " .preg_quote($custom_condition)."_no_results" .
-                    RD."(.*?)".LD.preg_quote('/', '/')."if".RD."/s",
-                ee()->TMPL->tagdata,
-                $match
-            )
+            "/" . LD . "if " . preg_quote($custom_condition) . "_no_results" .
+                    RD . "(.*?)" . LD . preg_quote('/', '/') . "if" . RD . "/s",
+            ee()->TMPL->tagdata,
+            $match
+        )
         ) {
             return $match[1];
         } else {
@@ -4160,7 +4039,6 @@ trait AddonBuilder
         }
     }
     // END no_results()
-
 
     // ------------------------------------------------------------------------
 
@@ -4173,14 +4051,13 @@ trait AddonBuilder
      * @param   string
      * @return  string
      */
-
     public function sanitize_search_terms($str)
     {
         ee()->load->helper('search');
+
         return sanitize_search_terms($str);
     }
     // END sanitize_search_terms()
-
 
     // --------------------------------------------------------------------
 
@@ -4194,7 +4071,6 @@ trait AddonBuilder
      * @param   bool    $compile    return the compiled version of the CP/URL class?
      * @return  string
      */
-
     public function mcp_link($vars = '', $compile = true)
     {
         $method = '';
@@ -4224,7 +4100,6 @@ trait AddonBuilder
     }
     //END mcp_link
 
-
     // --------------------------------------------------------------------
     // Extension Builder Methods
     // --------------------------------------------------------------------
@@ -4237,7 +4112,6 @@ trait AddonBuilder
      * @access  public
      * @return void
      */
-
     public function init_extension_builder()
     {
         // --------------------------------------------
@@ -4277,7 +4151,7 @@ trait AddonBuilder
             //install wizard doesn't load lang shortcut
             if (function_exists('lang')) {
                 $this->add_crumb(
-                    lang($this->lower_name.'_label'),
+                    lang($this->lower_name . '_label'),
                     $this->cached_vars['base_uri']
                 );
             }
@@ -4285,7 +4159,6 @@ trait AddonBuilder
         //END if (REQ == 'CP')
     }
     //END init_extension_builder
-
 
     // --------------------------------------------------------------------
 
@@ -4296,7 +4169,6 @@ trait AddonBuilder
      * @access  public
      * @return  boolean     success
      */
-
     public function activate_extension()
     {
         if (isset($this->required_by) &&
@@ -4310,7 +4182,6 @@ trait AddonBuilder
     }
     // END activate_extension
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -4320,7 +4191,6 @@ trait AddonBuilder
      * @access  public
      * @return  boolean     success
      */
-
     public function disable_extension()
     {
         if (isset($this->required_by) &&
@@ -4332,7 +4202,6 @@ trait AddonBuilder
     }
     // END disable_extension
 
-
     // --------------------------------------------------------------------
 
     /**
@@ -4342,13 +4211,11 @@ trait AddonBuilder
      * @access  public
      * @return  boolean     success
      */
-
     public function update_extension($current = false)
     {
         return $this->activate_extension();
     }
     //END update_extension
-
 
     // --------------------------------------------------------------------
 
@@ -4373,7 +4240,6 @@ trait AddonBuilder
      *  @param      mixed   $default    other default
      *  @return     mixed
      */
-
     public function get_last_call($argument, $default = null)
     {
         if (ee()->extensions->last_call !== false) {

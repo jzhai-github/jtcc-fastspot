@@ -108,9 +108,9 @@ include("includes/courses_conn.php");
 				document.getElementById("fall2").style.display = "block";	
 				document.getElementById("spring2").style.display = "none";
 				document.getElementById("summer2").style.display = "none";
-				document.getElementById("location").style.display = "none";
-				document.getElementById("online").style.display = "none";
-				document.getElementById("fall20spring21").style.display = "block";
+				//document.getElementById("location").style.display = "none";
+				//document.getElementById("online").style.display = "none";
+				//document.getElementById("fall20spring21").style.display = "block";
 				document.getElementById("searchByDays").style.display = "block";
 			}
 			if (document.getElementById("term_spring").selected == true){		
@@ -120,9 +120,9 @@ include("includes/courses_conn.php");
 				document.getElementById("fall2").style.display = "none";	
 				document.getElementById("spring2").style.display = "block";
 				document.getElementById("summer2").style.display = "none";
-				document.getElementById("location").style.display = "none";
-				document.getElementById("online").style.display = "none";
-				document.getElementById("fall20spring21").style.display = "block";
+				//document.getElementById("location").style.display = "none";
+				//document.getElementById("online").style.display = "none";
+				//document.getElementById("fall20spring21").style.display = "block";
 				document.getElementById("searchByDays").style.display = "block";
 			} 
 			if (document.getElementById("term_summer").selected == true){ 
@@ -132,9 +132,9 @@ include("includes/courses_conn.php");
 				document.getElementById("fall2").style.display = "none";	
 				document.getElementById("spring2").style.display = "none";
 				document.getElementById("summer2").style.display = "block";
-				document.getElementById("location").style.display = "none";
-				document.getElementById("online").style.display = "block";
-				document.getElementById("fall20spring21").style.display = "none";
+				//document.getElementById("location").style.display = "none";
+				//document.getElementById("online").style.display = "block";
+				//document.getElementById("fall20spring21").style.display = "none";
 				document.getElementById("searchByDays").style.display = "none";
 			}
 		}
@@ -252,7 +252,7 @@ include("includes/courses_conn.php");
 			<label class="filter_label" for="class_format">Class Format</label>
 			<div class="filter_tool_select_wrapper">
 			<?php 
-				echo '<div name="location" id="location" ';  if ($default_term != 'courses_summer' && $default_term != 'courses_fall' && $default_term != 'courses_spring') {echo $show; } else {echo $hide; } echo '>';	
+				/*echo '<div name="location" id="location" ';  if ($default_term != 'courses_summer' && $default_term != 'courses_fall' && $default_term != 'courses_spring') {echo $show; } else {echo $hide; } echo '>';	
 				echo '<select class="filter_tool_select" name="campus">
 						<option value="" selected>All Locations</option>
 						<option value="Chester Campus">Chester Campus</option>
@@ -277,7 +277,16 @@ include("includes/courses_conn.php");
 						<option value="Chester">On Campus: Chester</option>
 						<option value="Midlothian">On Campus: Midlothian</option>
 					</select>
-				</div>';
+				</div>';*/
+				echo '<select class="filter_tool_select" name="class-format">
+						<option value="">All Class Formats</option>
+						<option value="Virtual">Virtual</option>
+						<option value="Zoom">Zoom Classes</option>
+						<option value="Hybrid_zoom">Hybrid: Virtual and Zoom</option>
+						<option value="Hybrid_campus">Hybrid: Virtual and On-Campus</option>
+						<option value="Chester">On Campus: Chester</option>
+						<option value="Midlothian">On Campus: Midlothian</option>	
+					</select>';
 			?>
 				<span class="filter_tool_select_icon">
 					<svg class="icon icon_caret_down">
@@ -382,13 +391,9 @@ if (isset($_POST['search_sbmt'])) {
 		header('Location: /schedule');	
 		die(); 
 	}	
-	$campus = '';
+	/*$campus = '';
 	if (isset($_POST['campus'])) { 	
 		$campus = $_POST['campus'];
-	}
-	$select_days ='';
-	if (isset($_POST['select_days'])) { 
-		$select_days = $_POST['select_days'];
 	}
 	$online = '';
 	if (isset($_POST['online-format'])) {
@@ -397,6 +402,14 @@ if (isset($_POST['search_sbmt'])) {
 	$fall20spring21 = '';
 	if (isset($_POST['class-format'])) {
 		$fall20spring21 = $_POST['class-format'];
+	}*/
+	$classFormat = '';
+	if (isset($_POST['class-format'])) {
+		$classFormat = $_POST['class-format'];
+	}
+	$select_days ='';
+	if (isset($_POST['select_days'])) { 
+		$select_days = $_POST['select_days'];
 	}	
 		
 	if (substr($term,8,4) == 'fall') {
@@ -421,7 +434,7 @@ if (isset($_POST['search_sbmt'])) {
 			$search_query.= " AND academic_subject = '$subject'";
 		}
 
-		if ($campus == "Virtual") {
+		/*if ($campus == "Virtual") {
 			$search_query.=	" AND location LIKE \"%VIRTUAL%\"";
 		} else {
 			if ($campus != "") {
@@ -457,7 +470,28 @@ if (isset($_POST['search_sbmt'])) {
 				case 'Zoom':
 					$search_query.=	" AND (section like 'Z%' OR (pat != 'VIRT' and (section like 'NV%' OR section like 'JT%')))";
 			}
-		}
+		}*/
+		if ($classFormat != "") { 
+			switch ($classFormat) {
+				case 'Chester':
+					$search_query.=	" AND section not like 'N%' and section not like 'R%' and section not like 'Z%' and section not like 'M%' and section not like 'SW%' and section not like 'NV%' and section not like 'JT%' and section not like 'ME%'";
+					break;
+				case 'Midlothian':
+					$search_query.=	" AND section like 'M%'";
+					break;
+				case 'Hybrid_campus':
+					$search_query.=	" AND section like 'R%' AND section not like '%S'";
+					break;
+				case 'Hybrid_zoom':
+					$search_query.=	" AND section like 'R%S'";
+					break;
+				case 'Virtual':
+					$search_query.=	" AND (section like 'N%' OR (location != 'VIRTUAL-RT' and (section like 'SW%' OR section like 'NV%' OR section like 'JT%' OR section like 'ME%')))";
+					break;
+				case 'Zoom':
+					$search_query.=	" AND (section like 'Z%' OR (pat != 'VIRT' and (section like 'NV%' OR section like 'JT%')))";
+			}
+		}		
 
 		if ($session != "") {
 			if ($session == "maymester") {

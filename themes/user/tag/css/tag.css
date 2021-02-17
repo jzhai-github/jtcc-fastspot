@@ -53,7 +53,7 @@
 	float					: left;
 	font-size				: 13px;
 	font-weight				: 400;
-	height					: 16px;
+	min-height				: 16px;
 	margin					: 0 5px 5px 0;
 	padding					: 3px 7px 1px 7px;
 	zoom					: 1;
@@ -155,7 +155,7 @@
 
 .addon_tag_group .suggest_tags,
 .addon_tag_group .top_tags {
-	height:	16px;
+	line-height:	120%;
 }
 
 .addon_tag_group .refresh_suggest_tags {

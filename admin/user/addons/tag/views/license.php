@@ -89,13 +89,18 @@
 .license_status_disabled .license_status ol {
     margin: 0 0 0 35px !important;
     }
+.ee6 .license_status {
+    background-color: var(--ee-bg-5);
+}
 </style>
 <!-- <div class="tbl-ctrls"> -->
 
-<div class="box ee<?=$ee_ver?> addon-license">
+<div class="box ee<?=$ee_ver?> addon-license panel">
+  <div class="panel-heading">
     <h1>License</h1>
+  </div>
 
-    <?php echo form_open($action_url, array('class'=>'settings')); ?>
+    <?php echo form_open($action_url, array('class'=>'settings panel-body')); ?>
 
 <?php if ($ee_ver > 2) { ?>
     <div class="app-notice-wrap"><?php echo ee('CP/Alert')->getAllInlines(); ?></div>

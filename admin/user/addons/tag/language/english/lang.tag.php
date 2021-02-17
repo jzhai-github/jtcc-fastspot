@@ -2,1014 +2,1010 @@
 
 $lang = $L = array(
 
-//----------------------------------------
-//	Required for MODULES page
-//----------------------------------------
+    //----------------------------------------
+    //	Required for MODULES page
+    //----------------------------------------
 
-"tag_module_name" =>
-"Tag",
+    "tag_module_name" =>
+    "Tag",
 
-"tag_module_description" =>
-"Tag your content with keywords and intuitively display relationships between entries.",
+    "tag_module_description" =>
+    "Tag your content with keywords and intuitively display relationships between entries.",
 
-"tag_module_version" =>
-"Tag",
+    "tag_module_version" =>
+    "Tag",
 
-'tag_resources' =>
-'Resources',
+    'tag_resources' =>
+    'Resources',
 
-'tag_product_info' =>
-'Product Info',
+    'tag_product_info' =>
+    'Product Info',
 
-'tag_documentation'  =>
-'Documentation',
+    'tag_documentation'  =>
+    'Documentation',
 
-'tag_official_support' =>
-'Official Support',
+    'tag_official_support' =>
+    'Official Support',
 
+    //----------------------------------------
+    //	Language for Content Wrapper
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for Content Wrapper
-//----------------------------------------
+    "tag" =>
+    "Tag",
 
-"tag" =>
-"Tag",
+    "documentation"	 =>
+    "Documentation",
 
-"documentation"	 =>
-"Documentation",
+    'demo_templates' =>
+    'Demo Templates',
 
-'demo_templates' =>
-'Demo Templates',
+    //----------------------------------------
+    //	Language for home
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for home
-//----------------------------------------
+    "homepage" =>
+    "Homepage",
 
-"homepage" =>
-"Homepage",
+    'utilities' =>
+    "Utilities",
 
-'utilities' =>
-"Utilities",
+    //----------------------------------------
+    //	Language for urls
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for urls
-//----------------------------------------
+    "js_urls" =>
+    "Javascript URLs",
 
-"js_urls" =>
-"Javascript URLs",
+    "js_details" =>
+    "Use this snippet of code to embed helpful Tag module Javascript functions into your Stand-Alone Entry Forms.",
 
-"js_details" =>
-"Use this snippet of code to embed helpful Tag module Javascript functions into your Stand-Alone Entry Forms.",
+    //----------------------------------------
+    //	Language for Statistics
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for Statistics
-//----------------------------------------
+    "statistics" =>
+    "Statistics",
 
-"statistics" =>
-"Statistics",
+    "tags" =>
+    "Tags",
 
-"tags" =>
-"Tags",
+    "top_tags" =>
+    "Top Tags",
 
-"top_tags" =>
-"Top Tags",
+    "add_tags" =>
+    "Add Tags",
 
-"add_tags" =>
-"Add Tags",
+    "total_channel_entries_tagged" =>
+    "Entries Tagged",
 
-"total_channel_entries_tagged" =>
-"Entries Tagged",
+    "percent_channel_entries_tagged" =>
+    "Percent Tagged",
 
-"percent_channel_entries_tagged" =>
-"Percent Tagged",
+    "top_five_tags" =>
+    "Top 5 Tags",
 
-"top_five_tags" =>
-"Top 5 Tags",
+    "search_tags" =>
+    "Search Tags...",
 
-"search_tags" =>
-"Search Tags...",
+    "all_tags" =>
+    "All Tags",
 
-"all_tags" =>
-"All Tags",
+    "harvest_description" =>
+    "This harvest tool will help you automatically pull tags from a channel field that was previously used for tagging or keywords. This will separate on spaces and create tags out of each word. It is inadvisable to use this on fields that contain full sentences, such as body, summary, or title fields as it will make a tag out of each word.",
 
-"harvest_description" =>
-"This harvest tool will help you automatically pull tags from a channel field that was previously used for tagging or keywords. This will separate on spaces and create tags out of each word. It is inadvisable to use this on fields that contain full sentences, such as body, summary, or title fields as it will make a tag out of each word.",
+    'harvest_sources_desc' =>
+    "To harvest tag fields in channels you must first set them per channel in preferences.",
 
-'harvest_sources_desc' =>
-"To harvest tag fields in channels you must first set them per channel in preferences.",
+    //----------------------------------------
+    //	Language for tag list
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for tag list
-//----------------------------------------
+    'tag_id'						=>
+    "Tag ID",
 
-'tag_id'						=>
-"Tag ID",
+    "no_tags" =>
+    "There are currently no Tags.",
 
-"no_tags" =>
-"There are currently no Tags.",
+    "tag" =>
+    "Tag",
 
-"tag" =>
-"Tag",
+    "count" =>
+    "Count",
 
-"count" =>
-"Count",
+    "tag_count" =>
+    "Count",
 
-"tag_count" =>
-"Count",
+    "author" =>
+    "Author",
 
-"author" =>
-"Author",
+    "screen_name" =>
+    "Screen Name",
 
-"screen_name" =>
-"Screen Name",
+    "entered_date" =>
+    "Entered Date",
 
-"entered_date" =>
-"Entered Date",
+    "entry_date" =>
+    "Entry Date",
 
-"entry_date" =>
-"Entry Date",
+    "edit_date" =>
+    "Last Edited",
 
-"edit_date" =>
-"Last Edited",
+    'tag_added_by' =>
+    "Added By",
 
-'tag_added_by' =>
-"Added By",
+    "delete" =>
+    "Delete",
 
-"delete" =>
-"Delete",
+    "tag_type" =>
+    "Type",
 
-"tag_type" =>
-"Type",
+    'make_bad' =>
+    'Make Bad',
 
-'make_bad' =>
-'Make Bad',
+    'created_date' =>
+    'Created on',
 
-'created_date' =>
-'Created on',
+    //----------------------------------------
+    //	Language for manage tags
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for manage tags
-//----------------------------------------
+    "manage_tags" =>
+    "Manage Tags",
 
-"manage_tags" =>
-"Manage Tags",
+    //----------------------------------------
+    //	Language for entries by tag
+    //----------------------------------------
 
-//----------------------------------------
-//	Language for entries by tag
-//----------------------------------------
+    'entry_title' =>
+    "Entry Title",
 
-'entry_title' =>
-"Entry Title",
+    'entry_id' =>
+    "Entry ID",
 
-'entry_id' =>
-"Entry ID",
+    "edit_entries_for_" =>
+    "Edit entries for ",
 
+    "channel_entries_by_tag" =>
+    "Channel Entries by Tag",
 
-"edit_entries_for_" =>
-"Edit entries for ",
+    "channel_entries_by_tag_name" =>
+    "Channel Entries for \"%tag_name%\"",
 
-"channel_entries_by_tag" =>
-"Channel Entries by Tag",
+    "view_channel_entries_for_tag" =>
+    "View Channel Entries for this Tag.",
 
-"channel_entries_by_tag_name" =>
-"Channel Entries for \"%tag_name%\"",
+    "title" =>
+    "Title",
 
-"view_channel_entries_for_tag" =>
-"View Channel Entries for this Tag.",
+    "no_entries_found" =>
+    "There are currently no entries for this Tag.",
 
-"title" =>
-"Title",
+    //----------------------------------------
+    //	Language for browse tags
+    //----------------------------------------
 
-"no_entries_found" =>
-"There are currently no entries for this Tag.",
+    "browse_tags" =>
+    "Browse Tags",
 
-//----------------------------------------
-//	Language for browse tags
-//----------------------------------------
+    'browse_tags_by' =>
+    "Browse Tags by",
 
-"browse_tags" =>
-"Browse Tags",
+    "browse_instructions" =>
+    "Type in the field below to browse for Tags.",
 
-'browse_tags_by' =>
-"Browse Tags by",
+    'no_tags_found' =>
+    "No Tags Found",
 
-"browse_instructions" =>
-"Type in the field below to browse for Tags.",
+    'no_bad_tags_found' =>
+    "No Bad Tags Found",
 
-'no_tags_found' =>
-"No Tags Found",
+    //----------------------------------------
+    //	Language for edit tags
+    //----------------------------------------
 
-'no_bad_tags_found' =>
-"No Bad Tags Found",
+    "edit_tag" =>
+    "Edit Tag",
 
-//----------------------------------------
-//	Language for edit tags
-//----------------------------------------
+    "update_tag" =>
+    "Update Tag",
 
-"edit_tag" =>
-"Edit Tag",
+    'tag_entries' =>
+    "Entries",
 
-"update_tag" =>
-"Update Tag",
+    'tag_view_entries' =>
+    "View Entries",
 
-'tag_entries' =>
-"Entries",
+    "tag_exists" =>
+    "The tag, %tag_name%, has already been added.",
 
-'tag_view_entries' =>
-"View Entries",
+    "tags_combined" =>
+    "Any entries having the Tag of '%old_tag_name%' have been successfully re-tagged with '%new_tag_name%'.",
 
-"tag_exists" =>
-"The tag, %tag_name%, has already been added.",
+    "tag_updated" =>
+    "Your tag has been updated.",
 
-"tags_combined" =>
-"Any entries having the Tag of '%old_tag_name%' have been successfully re-tagged with '%new_tag_name%'.",
+    //----------------------------------------
+    //	Language for manage bad tags
+    //----------------------------------------
 
-"tag_updated" =>
-"Your tag has been updated.",
+    "bad_tag" =>
+    "Bad Tag",
 
-//----------------------------------------
-//	Language for manage bad tags
-//----------------------------------------
+    "bad_tags" =>
+    "Bad Tags",
 
-"bad_tag" =>
-"Bad Tag",
+    "tag_mark_as_bad_" =>
+    "Mark tag as bad ",
 
-"bad_tags" =>
-"Bad Tags",
+    "bad_tag_explanation_long" =>
+    "Bad Tags are blacklisted words that you do not want submitted into the system.",
 
-"tag_mark_as_bad_" =>
-"Mark tag as bad ",
+    "manage_bad_tags" =>
+    "Manage Bad Tags",
 
-"bad_tag_explanation_long" =>
-"Bad Tags are blacklisted words that you do not want submitted into the system.",
+    "no_bad_tags" =>
+    "There are currently no bad Tags.",
 
-"manage_bad_tags" =>
-"Manage Bad Tags",
+    //----------------------------------------
+    //	Language for edit bad tags
+    //----------------------------------------
 
-"no_bad_tags" =>
-"There are currently no bad Tags.",
+    "add_bad_tag" =>
+    "Add as Bad Tag",
 
-//----------------------------------------
-//	Language for edit bad tags
-//----------------------------------------
+    "add_bad_tags" =>
+    "Add Bad Tags",
 
-"add_bad_tag" =>
-"Add as Bad Tag",
+    "add_bad_tags_instructions" =>
+    "Enter each bag tag on a new line.",
 
-"add_bad_tags" =>
-"Add Bad Tags",
+    "tag_name" =>
+    "Tag",
 
-"add_bad_tags_instructions" =>
-"Enter each bag tag on a new line.",
+    "tag_name_required" =>
+    "A Tag name is required.",
 
-"tag_name" =>
-"Tag",
+    "bad_tag_exists" =>
+    "The bad Tag, %tag_name%, has already been added.",
 
-"tag_name_required" =>
-"A Tag name is required.",
+    "bad_tags_added" =>
+    "Bad Tag(s) added.",
 
-"bad_tag_exists" =>
-"The bad Tag, %tag_name%, has already been added.",
+    //----------------------------------------
+    //	Language for delete tags
+    //----------------------------------------
 
-"bad_tags_added" =>
-"Bad Tag(s) added.",
+    "tag_delete_confirm" =>
+    "Delete Tag Confirmation",
 
-//----------------------------------------
-//	Language for delete tags
-//----------------------------------------
+    "tag_delete_question" =>
+    "Are you sure you want to delete %i% %tags%?",
 
-"tag_delete_confirm" =>
-"Delete Tag Confirmation",
+    "action_can_not_be_undone" =>
+    "This action cannot be undone.",
 
-"tag_delete_question" =>
-"Are you sure you want to delete %i% %tags%?",
+    "tag_deleted" =>
+    "%i% Tag successfully deleted.",
 
-"action_can_not_be_undone" =>
-"This action cannot be undone.",
+    "tags_deleted" =>
+    "%i% Tags successfully deleted.",
 
-"tag_deleted" =>
-"%i% Tag successfully deleted.",
+    //----------------------------------------
+    //	Language for delete bad tags
+    //----------------------------------------
 
-"tags_deleted" =>
-"%i% Tags successfully deleted.",
+    'tag_remove' =>
+    "Remove",
 
-//----------------------------------------
-//	Language for delete bad tags
-//----------------------------------------
+    'remove_bad_tags' =>
+    "Remove from Bad Tags",
 
-'tag_remove' =>
-"Remove",
+    "bad_tag_delete_confirm" =>
+    "Remove from Bad Tags list Confirmation",
 
-'remove_bad_tags' =>
-"Remove from Bad Tags",
+    "bad_tag_delete_question" =>
+    "Are you sure you want to remove %i% %tags% from Bad Tags list?",
 
-"bad_tag_delete_confirm" =>
-"Remove from Bad Tags list Confirmation",
+    "action_can_not_be_undone" =>
+    "This action cannot be undone.",
 
-"bad_tag_delete_question" =>
-"Are you sure you want to remove %i% %tags% from Bad Tags list?",
+    "bad_tags_deleted" =>
+    "Tag(s) successfully removed from Bad Tags list.",
 
-"action_can_not_be_undone" =>
-"This action cannot be undone.",
+    // -------------------------------------
+    //	tag field sync
+    // -------------------------------------
 
-"bad_tags_deleted" =>
-"Tag(s) successfully removed from Bad Tags list.",
+    'sync_tags_fields' =>
+    "Sync Tag Fields",
 
-// -------------------------------------
-//	tag field sync
-// -------------------------------------
+    'update_tag_field' =>
+    "Update Tag Field",
 
-'sync_tags_fields' =>
-"Sync Tag Fields",
+    'update_all_tag_counts' =>
+    "Update All Tag Counts",
 
-'update_tag_field' =>
-"Update Tag Field",
+    "updating_tag_fields_for_entry_" =>
+    "Updating tag fields for entry: ",
 
-'update_all_tag_counts' =>
-"Update All Tag Counts",
+    'number_of_entries_updated' =>
+    "Number of entries updated",
 
-"updating_tag_fields_for_entry_" =>
-"Updating tag fields for entry: ",
+    'tag_fields_complete' =>
+    "All Tag fields have been completed.",
 
-'number_of_entries_updated' =>
-"Number of entries updated",
+    'no_tag_custom_field_type' =>
+    "You have no Tag Custom Field Type to sync.",
 
-'tag_fields_complete' =>
-"All Tag fields have been completed.",
+    'no_tag_fields_needed_updating' =>
+    "No Tag Fields needed updating.",
 
-'no_tag_custom_field_type' =>
-"You have no Tag Custom Field Type to sync.",
+    'tag_field_updated' =>
+    "Tag Field Updated",
 
-'no_tag_fields_needed_updating' =>
-"No Tag Fields needed updating.",
+    'press_enter_after_each_tags' =>
+    "Press [Enter] after each tag",
 
-'tag_field_updated' =>
-"Tag Field Updated",
+    // -------------------------------------
+    //	tag counts
+    // -------------------------------------
 
-'press_enter_after_each_tags' =>
-"Press [Enter] after each tag",
+    'update_tag_counts' =>
+    "Update Tag Counts",
 
-// -------------------------------------
-//	tag counts
-// -------------------------------------
+    'update_tag_count_from_upgrade_notice' =>
+    "The Tag 4.1.0 update adds support for tag group counts and needs to update each individual tag's total entries count to accommodate.",
 
-'update_tag_counts' =>
-"Update Tag Counts",
+    'update_tag_count_purpose' =>
+    "This will update Tag counts one by one via AJAX and will notify when all tags have been recounted.",
 
-'update_tag_count_from_upgrade_notice' =>
-"The Tag 4.1.0 update adds support for tag group counts and needs to update each individual tag's total entries count to accommodate.",
+    'update_all_tag_counts' =>
+    "Update All Tag Counts",
 
-'update_tag_count_purpose' =>
-"This will update Tag counts one by one via AJAX and will notify when all tags have been recounted.",
+    "updating_counts_for_tag_" =>
+    "Updating counts for Tag: ",
 
-'update_all_tag_counts' =>
-"Update All Tag Counts",
+    'percent_completed' =>
+    "Percent Completed",
 
-"updating_counts_for_tag_" =>
-"Updating counts for Tag: ",
+    'number_of_tags_updated' =>
+    "Number Of Tags Updated",
 
-'percent_completed' =>
-"Percent Completed",
+    'wrong_value' =>
+    "You have submitted an incorrect value type",
 
-'number_of_tags_updated' =>
-"Number Of Tags Updated",
+    'pause' =>
+    "Pause",
 
-'wrong_value' =>
-"You have submitted an incorrect value type",
+    'resume' =>
+    "Resume",
 
-'pause' =>
-"Pause",
+    'return_to_tag_mcp' =>
+    "You may now return to the Tag Control Panel.",
 
-'resume' =>
-"Resume",
+    'tag_recounts_complete' =>
+    "All Tag recounts have been completed.",
 
-'return_to_tag_mcp' =>
-"You may now return to the Tag Control Panel.",
+    //----------------------------------------
+    //	Language for manage prefs
+    //----------------------------------------
 
-'tag_recounts_complete' =>
-"All Tag recounts have been completed.",
+    "preferences" =>
+    "Preferences",
 
-//----------------------------------------
-//	Language for manage prefs
-//----------------------------------------
+    'site_switcher' =>
+    "Site Switcher",
 
-"preferences" =>
-"Preferences",
+    'channel_switcher' =>
+    "Channel Switcher",
 
-'site_switcher' =>
-"Site Switcher",
+    "site_preferences" =>
+    "Site Preferences",
 
-'channel_switcher' =>
-"Channel Switcher",
+    "site_preferences_for_" =>
+    "Site Preferences For",
 
-"site_preferences" =>
-"Site Preferences",
+    'channel_preferences' =>
+    "Channel Preferences",
 
-"site_preferences_for_" =>
-"Site Preferences For",
+    'channel_preferences_for_' =>
+    "Channel Preferences For",
 
-'channel_preferences' =>
-"Channel Preferences",
+    'no_channels_for_site' =>
+    "No Channels for Site",
 
-'channel_preferences_for_' =>
-"Channel Preferences For",
+    'preferences_updated' =>
+    "Preferences Updated",
 
-'no_channels_for_site' =>
-"No Channels for Site",
+    "tag_module_separator" =>
+    "Tag Separator",
 
-'preferences_updated' =>
-"Preferences Updated",
+    'tag_module_separator_desc' =>
+    "This is only used when allowing multiple tags to be entered into the Tag field (see preference below) or doing advanced things with the Tag field on the front end templates (without using default Tag inferface).",
 
-"tag_module_separator" =>
-"Tag Separator",
+    "tag_module_convert_case" =>
+    "Convert all Tags to lowercase",
 
-'tag_module_separator_desc' =>
-"This is only used when allowing multiple tags to be entered into the Tag field (see preference below) or doing advanced things with the Tag field on the front end templates (without using default Tag inferface).",
+    'tag_module_convert_case_desc' =>
+    "Automatically convert all tag names to be lowercase.",
 
-"tag_module_convert_case" =>
-"Convert all Tags to lowercase",
+    "tag_module_allow_tag_creation_publish" =>
+    "Allow new Tags to be created",
 
-'tag_module_convert_case_desc' =>
-"Automatically convert all tag names to be lowercase.",
+    "tag_module_allow_tag_creation_publish_desc" =>
+    "When set to <strong>No</strong>, only existing tags can be submitted for an entry (new ones cannot be created).",
 
-"tag_module_allow_tag_creation_publish" =>
-"Allow new Tags to be created",
+    "tag_module_publish_entry_tag_limit" =>
+    "Maximum number of Tags allowed per entry",
 
-"tag_module_allow_tag_creation_publish_desc" =>
-"When set to <strong>No</strong>, only existing tags can be submitted for an entry (new ones cannot be created).",
+    "tag_module_publish_entry_tag_limit_desc" =>
+    "A value of <strong>0</strong> means there is no limit.",
 
-"tag_module_publish_entry_tag_limit" =>
-"Maximum number of Tags allowed per entry",
+    'tag_preference_maximum_tags_allowed' =>
+    "Maximum %n% Tags Allowed",
 
-"tag_module_publish_entry_tag_limit_desc" =>
-"A value of <strong>0</strong> means there is no limit.",
+    "tag_module_enable_tag_form" =>
+    "Enable Tag form for site visitors",
 
-'tag_preference_maximum_tags_allowed' =>
-"Maximum %n% Tags Allowed",
+    "y" =>
+    "Yes",
 
-"tag_module_enable_tag_form" =>
-"Enable Tag form for site visitors",
+    "n" =>
+    "No",
 
-"y" =>
-"Yes",
+    "tag_field" =>
+    "Tags",
 
-"n" =>
-"No",
+    "tag_harvest_field" =>
+    "Tag Harvesting Custom Field",
 
-"tag_field" =>
-"Tags",
+    "tag_harvest_field_for_" =>
+    "Tag Harvesting Custom Field For",
 
-"tag_harvest_field" =>
-"Tag Harvesting Custom Field",
+    "tag_harvest_field_desc" =>
+    "If you wish to use the Tag Harvest Tool at any point: any text values in this custom field will be converted into proper Tag module tags upon submission of the Harvest Tool. This respects the Tag Separator preference.",
 
-"tag_harvest_field_for_" =>
-"Tag Harvesting Custom Field For",
+    "preferences_for_site" =>
+    "Preferences For Site",
 
-"tag_harvest_field_desc" =>
-"If you wish to use the Tag Harvest Tool at any point: any text values in this custom field will be converted into proper Tag module tags upon submission of the Harvest Tool. This respects the Tag Separator preference.",
+    "preferences_for_" =>
+    "Preferences For",
 
-"preferences_for_site" =>
-"Preferences For Site",
+    "publish_tab_label_removed" =>
+    "Tag's publish tab has been removed. Please use a Tag Fieldtype to include tagging in your channel. No tags have been deleted and channel entry tags will still be associated, once a fieldtype is added to replace the publish tab.",
 
-"preferences_for_" =>
-"Preferences For",
+    'choose_custom_field' =>
+    "Choose Custom Field",
 
-"publish_tab_label_removed" =>
-"Tag's publish tab has been removed. Please use a Tag Fieldtype to include tagging in your channel. No tags have been deleted and channel entry tags will still be associated, once a fieldtype is added to replace the publish tab.",
+    'explode_input_on_separator' =>
+    'Multiple Tags Input',
 
-'choose_custom_field' =>
-"Choose Custom Field",
+    'tag_module_explode_input_on_separator' =>
+    "Allow Multiple Tags to be entered at same time",
 
-'explode_input_on_separator' =>
-'Multiple Tags Input',
+    'tag_module_explode_input_on_separator_desc' =>
+    "This option lets you input multiple tags into the Tag field at the same time, separated by the chosen tag separator (see preference above). For example, rather than entering each tag one at a time (hitting <strong>Enter</strong> each time), you can enter 'cheese, apple pie, pants' then <strong>Enter</strong> and it wil add three tags: 'cheese', 'apple pie', and 'pants'.",
 
-'tag_module_explode_input_on_separator' =>
-"Allow Multiple Tags to be entered at same time",
+    "explode_input_on_separator_note" =>
+    "Text separated with a <span class=\"tag_sep\">%sep%</span> will be split into multiple tags.",
 
-'tag_module_explode_input_on_separator_desc' =>
-"This option lets you input multiple tags into the Tag field at the same time, separated by the chosen tag separator (see preference above). For example, rather than entering each tag one at a time (hitting <strong>Enter</strong> each time), you can enter 'cheese, apple pie, pants' then <strong>Enter</strong> and it wil add three tags: 'cheese', 'apple pie', and 'pants'.",
+    "select_delimiter" =>
+    "Select Delimiter: ",
 
-"explode_input_on_separator_note" =>
-"Text separated with a <span class=\"tag_sep\">%sep%</span> will be split into multiple tags.",
+    "tag_module_enable_explode_controls" =>
+    "Enable Multiple Tags user controls",
 
-"select_delimiter" =>
-"Select Delimiter: ",
+    "tag_module_enable_explode_controls_desc" =>
+    "For the Multiple Tags preference above, this allows users to have extra controls such as allowing this setting and choosing the text separator.",
 
-"tag_module_enable_explode_controls" =>
-"Enable Multiple Tags user controls",
+    //--------------------------------------------
+    //	tag groups
+    //--------------------------------------------
 
-"tag_module_enable_explode_controls_desc" =>
-"For the Multiple Tags preference above, this allows users to have extra controls such as allowing this setting and choosing the text separator.",
+    'viewing_tags_for_group' =>
+    "Viewing Tags for Group",
 
+    'view_tags_in_all_groups' =>
+    "View Tags In All Groups",
 
-//--------------------------------------------
-//	tag groups
-//--------------------------------------------
+    'undefined_tag_group' =>
+    "Undefined Tag Group",
 
-'viewing_tags_for_group' =>
-"Viewing Tags for Group",
+    'tag_groups' =>
+    "Tag Groups",
 
-'view_tags_in_all_groups' =>
-"View Tags In All Groups",
+    'tag_group' =>
+    "Tag Group",
 
-'undefined_tag_group' =>
-"Undefined Tag Group",
+    'group_id' =>
+    "ID",
 
-'tag_groups' =>
-"Tag Groups",
+    'group_name' =>
+    "Name",
 
-'tag_group' =>
-"Tag Group",
+    'group_short_name' =>
+    "Short Name",
 
-'group_id' =>
-"ID",
+    'delete_tag_groups' =>
+    "Delete Tag Groups",
 
-'group_name' =>
-"Name",
+    'insert_new_tag_group' =>
+    "Insert New Tag Group",
 
-'group_short_name' =>
-"Short Name",
+    'cancel' =>
+    "Cancel",
 
-'delete_tag_groups' =>
-"Delete Tag Groups",
+    'error' =>
+    "Error",
 
-'insert_new_tag_group' =>
-"Insert New Tag Group",
+    'tag_limit_reached' =>
+    "Tag Limit of %num% reached.",
 
-'cancel' =>
-"Cancel",
+    'new_group_name' =>
+    "Group Name",
 
-'error' =>
-"Error",
+    'short_name' =>
+    "Short Name",
 
-'tag_limit_reached' =>
-"Tag Limit of %num% reached.",
+    'tag_group_desc' =>
+    "Tag groups allow the usage of more than one tag field per Channel. New tag group names can only have letters, numbers and underscores",
 
-'new_group_name' =>
-"Group Name",
+    "tag_group_name_taken" =>
+    "The tag group name you have entered has the same short name as another tag group that already exists. Please choose another tag group name.",
 
-'short_name' =>
-"Short Name",
+    'all_open' =>
+    "All Open",
 
-'tag_group_desc' =>
-"Tag groups allow the usage of more than one tag field per Channel. New tag group names can only have letters, numbers and underscores",
+    'all_open_desc' =>
+    "This dictates whether or not the Suggest Tags and Top Tags fields in the publish are open by default.",
 
-"tag_group_name_taken" =>
-"The tag group name you have entered has the same short name as another tag group that already exists. Please choose another tag group name.",
+    'delete_tag_groups' =>
+    "Delete Tag Groups",
 
-'all_open' =>
-"All Open",
+    'tag_groups' =>
+    "Tag Groups",
 
-'all_open_desc' =>
-"This dictates whether or not the Suggest Tags and Top Tags fields in the publish are open by default.",
+    'tag_group_id' =>
+    "Group ID",
 
-'delete_tag_groups' =>
-"Delete Tag Groups",
+    'tag_group_name' =>
+    "Group Name",
 
-'tag_groups' =>
-"Tag Groups",
+    'tag_group_short_name' =>
+    "Group Short Name",
 
-'tag_group_id' =>
-"Group ID",
+    'locked' =>
+    "Locked",
 
-'tag_group_name' =>
-"Group Name",
+    'total_tags_in_group' =>
+    "Total Tags",
 
-'tag_group_short_name' =>
-"Group Short Name",
+    'view_group_tags' =>
+    "View Tags",
 
-'locked' =>
-"Locked",
+    'view_tags_in_group' =>
+    "View Tags In Group",
 
-'total_tags_in_group' =>
-"Total Tags",
+    "tag_group_delete_confirm" =>
+    "Delete Tag Group Confirmation",
 
-'view_group_tags' =>
-"View Tags",
+    "tag_group_delete_question" =>
+    "Are you sure you want to delete %i% Tag Group(s)?",
 
-'view_tags_in_group' =>
-"View Tags In Group",
+    "tag_group_deleted" =>
+    "Tag Group(s) successfully deleted.",
 
-"tag_group_delete_confirm" =>
-"Delete Tag Group Confirmation",
+    'create_tag_group' =>
+    "Create Tag Group",
 
-"tag_group_delete_question" =>
-"Are you sure you want to delete %i% Tag Group(s)?",
+    'update_tag_group' =>
+    "Update Tag Group",
 
-"tag_group_deleted" =>
-"Tag Group(s) successfully deleted.",
+    'edit_tag_group' =>
+    "Edit Tag Group",
 
-'create_tag_group' =>
-"Create Tag Group",
+    'tag_group_updated' =>
+    "Tag Group Updated",
 
-'update_tag_group' =>
-"Update Tag Group",
+    'tag_group_created' =>
+    "Tag Group Created",
 
-'edit_tag_group' =>
-"Edit Tag Group",
+    'locked_tag_group_description' =>
+    "Tag Groups that are currently being used in custom fields are locked until that field is removed from its group.",
 
-'tag_group_updated' =>
-"Tag Group Updated",
+    'suggest_from' =>
+    "Autocomplete, Suggest and Top Tags from",
 
-'tag_group_created' =>
-"Tag Group Created",
+    'suggest_from_desc' =>
+    "Normally, Tag custom fields will only display autocomplete results, as well as suggest and show top tags from its own group. You can use this setting to display autocomplete results, as well as suggest and show top tags from all Tag groups.",
 
-'locked_tag_group_description' =>
-"Tag Groups that are currently being used in custom fields are locked until that field is removed from its group.",
+    'this_group' =>
+    "This Group",
 
-'suggest_from' =>
-"Autocomplete, Suggest and Top Tags from",
+    'all_groups' =>
+    "All Groups",
 
-'suggest_from_desc' =>
-"Normally, Tag custom fields will only display autocomplete results, as well as suggest and show top tags from its own group. You can use this setting to display autocomplete results, as well as suggest and show top tags from all Tag groups.",
+    'top_tag_limit' =>
+    "Top Tags Limit",
 
-'this_group' =>
-"This Group",
+    'top_tag_limit_desc' =>
+    "Limit the amount of Top Tags shown.",
 
-'all_groups' =>
-"All Groups",
+    'field_settings_new_tag_group_desc' =>
+    "Submitting the field settings will create the new tag group.",
 
-'top_tag_limit' =>
-"Top Tags Limit",
+    //----------------------------------------
+    //	Language for harvest
+    //----------------------------------------
 
-'top_tag_limit_desc' =>
-"Limit the amount of Top Tags shown.",
+    'tag_harvest' =>
+    "Harvest",
 
-'field_settings_new_tag_group_desc' =>
-"Submitting the field settings will create the new tag group.",
+    'harvest_tags' =>
+    "Harvest tags from pre-existing fields.",
 
-//----------------------------------------
-//	Language for harvest
-//----------------------------------------
-
-'tag_harvest' =>
-"Harvest",
-
-'harvest_tags' =>
-"Harvest tags from pre-existing fields.",
-
-"tag_harvest_instructions" =>
-"You can harvest data from your site either by mapping categories into tags or by turning the
+    "tag_harvest_instructions" =>
+    "You can harvest data from your site either by mapping categories into tags or by turning the
 contents of a custom channel field into Tags. In either case, entries will be assigned to the Tags
 harvested as appropriate.",
 
-"categories" =>
-"Categories",
+    "categories" =>
+    "Categories",
 
-"galleries" =>
-"Galleries",
+    "galleries" =>
+    "Galleries",
 
-'harvest_sources' =>
-"Harvest Sources",
+    'harvest_sources' =>
+    "Harvest Sources",
 
-'per_batch' =>
-"Batch Size",
+    'per_batch' =>
+    "Batch Size",
 
-"harvest_from_channel_categories" =>
-"Channel Categories",
+    "harvest_from_channel_categories" =>
+    "Channel Categories",
 
-"harvest_from_channel_tag_field" =>
-"Tag Fields for Channels",
+    "harvest_from_channel_tag_field" =>
+    "Tag Fields for Channels",
 
-"tag_harvest_batch_process" =>
-"Harvest Batch Process",
+    "tag_harvest_batch_process" =>
+    "Harvest Batch Process",
 
-"tag_process_batch_of" =>
-"Process %batch% of %total%",
+    "tag_process_batch_of" =>
+    "Process %batch% of %total%",
 
-"start" =>
-"Start",
+    "start" =>
+    "Start",
 
-"continue" =>
-"Continue",
+    "continue" =>
+    "Continue",
 
-"done" =>
-"Done",
+    "done" =>
+    "Done",
 
-'error_invalid_custom_fields_for_channels' =>
-"Error: One of the Custom Channel Fields is Invalid in your Tag Preferences",
+    'error_invalid_custom_fields_for_channels' =>
+    "Error: One of the Custom Channel Fields is Invalid in your Tag Preferences",
 
-'success_harvest_processing_is_complete' =>
-"Success!  Harvest Processing is Complete!",
+    'success_harvest_processing_is_complete' =>
+    "Success!  Harvest Processing is Complete!",
 
-//----------------------------------------
-//	Language for edit CP
-//----------------------------------------
+    //----------------------------------------
+    //	Language for edit CP
+    //----------------------------------------
 
-"tag_field_instructions_" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a line break.",
+    "tag_field_instructions_" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a line break.",
 
-"tag_field_instructions_linebreak" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a line break.",
+    "tag_field_instructions_linebreak" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a line break.",
 
-"tag_field_instructions_comma" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a comma.",
+    "tag_field_instructions_comma" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a comma.",
 
-"tag_field_instructions_colon" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a colon.",
+    "tag_field_instructions_colon" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a colon.",
 
-"tag_field_instructions_semicolon" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a semicolon.",
+    "tag_field_instructions_semicolon" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a semicolon.",
 
-"tag_field_instructions_space" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a space.",
+    "tag_field_instructions_space" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a space.",
 
-"tag_field_instructions_doublepipe" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a double pipe.",
+    "tag_field_instructions_doublepipe" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a double pipe.",
 
-"tag_field_instructions_pipe" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a pipe.",
+    "tag_field_instructions_pipe" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a pipe.",
 
-"tag_field_instructions_newline" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a hard return.",
+    "tag_field_instructions_newline" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a hard return.",
 
-"tag_field_instructions_tilde" =>
-"Use this field to freely enter Tags for your entry. Separate each Tag with a tilde.",
+    "tag_field_instructions_tilde" =>
+    "Use this field to freely enter Tags for your entry. Separate each Tag with a tilde.",
 
-"tag_browser" =>
-"Tag Browser",
+    "tag_browser" =>
+    "Tag Browser",
 
-"tag_browser_instructions" =>
-"Type in the field below to search for Tags. Click to add tag to the entry. List ALL Tags with an asterisk (*).",
+    "tag_browser_instructions" =>
+    "Type in the field below to search for Tags. Click to add tag to the entry. List ALL Tags with an asterisk (*).",
 
-"tag_browser_results" =>
-"Tag browse results",
+    "tag_browser_results" =>
+    "Tag browse results",
 
-"tag_collector" =>
-"Tag collector",
+    "tag_collector" =>
+    "Tag collector",
 
-"searching" =>
-"Searching...",
+    "searching" =>
+    "Searching...",
 
-"or" =>
-"OR",
+    "or" =>
+    "OR",
 
-"suggest_tags" =>
-"Suggest Tags",
+    "suggest_tags" =>
+    "Suggest Tags",
 
-'search_all_sites'	=>
-"Search All Sites",
+    'search_all_sites'	=>
+    "Search All Sites",
 
-"type_above" =>
-"Please type in the field above.",
+    "type_above" =>
+    "Please type in the field above.",
 
-"no_matching_tags" =>
-"Couldn't find any matching Tags.",
+    "no_matching_tags" =>
+    "Couldn't find any matching Tags.",
 
-'popular_tags' =>
-"Most Popular Tags",
+    'popular_tags' =>
+    "Most Popular Tags",
 
-'popular_tags_instructions' =>
-"Click to add tag to the entry.",
+    'popular_tags_instructions' =>
+    "Click to add tag to the entry.",
 
-// -------------------------------------
-//	separators
-// -------------------------------------
+    // -------------------------------------
+    //	separators
+    // -------------------------------------
 
-'separator_colon'		=>
-'Colon \':\'',
+    'separator_colon'		=>
+    'Colon \':\'',
 
-'separator_comma'		=>
-'Comma \',\'',
+    'separator_comma'		=>
+    'Comma \',\'',
 
-'separator_doublepipe'	=>
-'Doublepipe \'||\'',
+    'separator_doublepipe'	=>
+    'Doublepipe \'||\'',
 
-'separator_newline'		=>
-'Newline \'\\\n\'',
+    'separator_newline'		=>
+    'Newline \'\\\n\'',
 
-'separator_pipe'		=>
-'Pipe \'|\'',
+    'separator_pipe'		=>
+    'Pipe \'|\'',
 
-'separator_semicolon'	=>
-'Semicolon \';\'',
+    'separator_semicolon'	=>
+    'Semicolon \';\'',
 
-'separator_space'		=>
-'Space \' \'',
+    'separator_space'		=>
+    'Space \' \'',
 
-'separator_tab'			=>
-'Tab \'\\\t\'',
+    'separator_tab'			=>
+    'Tab \'\\\t\'',
 
-'separator_tilde'		=>
-'Tilde \'~\'',
+    'separator_tilde'		=>
+    'Tilde \'~\'',
 
-//----------------------------------------
-//	Language for insert tags
-//----------------------------------------
+    //----------------------------------------
+    //	Language for insert tags
+    //----------------------------------------
 
-"missing_entry_id" =>
-"Entry ID is missing.",
+    "missing_entry_id" =>
+    "Entry ID is missing.",
 
-"no_tags_submitted" =>
-"No Tags were submitted.",
+    "no_tags_submitted" =>
+    "No Tags were submitted.",
 
-"not_authorized" =>
-"You are not authorized to submit this form.",
+    "not_authorized" =>
+    "You are not authorized to submit this form.",
 
-//----------------------------------------
-//	Tag Recount Tab
-//----------------------------------------
+    //----------------------------------------
+    //	Tag Recount Tab
+    //----------------------------------------
 
-'recount' =>
-"Recount Stats",
+    'recount' =>
+    "Recount Stats",
 
-'tag_recount' =>
-"Recount Tag Group Stats",
+    'tag_recount' =>
+    "Recount Tag Group Stats",
 
-'no_tags_to_recount'			=>
-"There were no tags to recount.",
+    'no_tags_to_recount'			=>
+    "There were no tags to recount.",
 
-'tags_successfully_recounted' 	=>
-"Tags Successfully Recounted",
+    'tags_successfully_recounted' 	=>
+    "Tags Successfully Recounted",
 
-'tag_recount_running'			=>
-"Counting %num tags starting from %start. Total tags: %total.",
+    'tag_recount_running'			=>
+    "Counting %num tags starting from %start. Total tags: %total.",
 
-//----------------------------------------
-// Backport Tags from Tab
-//----------------------------------------
+    //----------------------------------------
+    // Backport Tags from Tab
+    //----------------------------------------
 
-'tag_sync' =>
-"Sync",
+    'tag_sync' =>
+    "Sync",
 
-'tag_field_sync' =>
-"Tag Field Sync",
+    'tag_field_sync' =>
+    "Tag Field Sync",
 
-'tag_field_sync_empty' =>
-"There are currently no Tag fields eligible for syncing.",
+    'tag_field_sync_empty' =>
+    "There are currently no Tag fields eligible for syncing.",
 
-'tag_field_sync_desc' =>
-"Synchronize tags with the tag custom field to make your tags searchable by Search add-ons.
+    'tag_field_sync_desc' =>
+    "Synchronize tags with the tag custom field to make your tags searchable by Search add-ons.
 <strong>Only necessary if you previously used the Tag Publish tab.</strong>
 This will update Tags for each entry via AJAX and will notify you when all entries have been finished.",
 
-//----------------------------------------
-//----------------------------------------
-//	General
-//----------------------------------------
+    //----------------------------------------
+    //----------------------------------------
+    //	General
+    //----------------------------------------
 
-"submit" =>
-"Submit",
+    "submit" =>
+    "Submit",
 
-"member" =>
-"Member",
+    "member" =>
+    "Member",
 
-"search" =>
-"Search",
+    "search" =>
+    "Search",
 
-"edit" =>
-"Edit",
+    "edit" =>
+    "Edit",
 
-"action_can_not_be_undone" =>
-"This action cannot be undone.",
+    "action_can_not_be_undone" =>
+    "This action cannot be undone.",
 
-// --------------------------------------------
-//  Errors
-// --------------------------------------------
+    // --------------------------------------------
+    //  Errors
+    // --------------------------------------------
 
-"error_tag_parsing" =>
-"There was a tag parsing error.",
+    "error_tag_parsing" =>
+    "There was a tag parsing error.",
 
-'tag_module_disabled' =>
-"The Tag module is currently disabled.  Please insure it is installed and up to date by going
+    'tag_module_disabled' =>
+    "The Tag module is currently disabled.  Please insure it is installed and up to date by going
 to the module's control panel in the ExpressionEngine Control Panel",
 
-'disable_module_to_disable_extension' =>
-"To disable this extension, you must disable its corresponding <a href='%url%'>module</a>.",
+    'disable_module_to_disable_extension' =>
+    "To disable this extension, you must disable its corresponding <a href='%url%'>module</a>.",
 
-'enable_module_to_enable_extension' =>
-"To enable this extension, you must install its corresponding <a href='%url%'>module</a>.",
+    'enable_module_to_enable_extension' =>
+    "To enable this extension, you must install its corresponding <a href='%url%'>module</a>.",
 
-'cp_jquery_requred' =>
-"The 'jQuery for the Control Panel' extension must be <a href='%extensions_url%'>enabled</a> to use this module.",
+    'cp_jquery_requred' =>
+    "The 'jQuery for the Control Panel' extension must be <a href='%extensions_url%'>enabled</a> to use this module.",
 
-// --------------------------------------------
-//  Update Routine
-// --------------------------------------------
+    // --------------------------------------------
+    //  Update Routine
+    // --------------------------------------------
 
-'update_tag_module' =>
-"Update Tag Module",
+    'update_tag_module' =>
+    "Update Tag Module",
 
-'tag_update_message' =>
-"You have recently uploaded a new version of Tag, please click here to run the update script.",
+    'tag_update_message' =>
+    "You have recently uploaded a new version of Tag, please click here to run the update script.",
 
-'update_successful' =>
-"Update Successful!",
+    'update_successful' =>
+    "Update Successful!",
 
-"upgrade_message" =>
-"It looks like you have installed a new version of Tag. We recommend that you run the upgrade script",
+    "upgrade_message" =>
+    "It looks like you have installed a new version of Tag. We recommend that you run the upgrade script",
 
-"update_successful" =>
-"The module was successfully updated.",
+    "update_successful" =>
+    "The module was successfully updated.",
 
-"update_failure" =>
-"There was an error while trying to update your module to the latest version.",
+    "update_failure" =>
+    "There was an error while trying to update your module to the latest version.",
 
-// -------------------------------------
-//	demo install (code pack)
-// -------------------------------------
+    // -------------------------------------
+    //	demo install (code pack)
+    // -------------------------------------
 
-'demo_description' =>
-'Install these templates to help you better understand how this add-on works.',
+    'demo_description' =>
+    'Install these templates to help you better understand how this add-on works.',
 
-'template_group_prefix' =>
-'Template Group Prefix',
+    'template_group_prefix' =>
+    'Template Group Prefix',
 
-'template_group_prefix_desc' =>
-'Each template group installed will be prefixed with this variable in order to prevent a naming collision.',
+    'template_group_prefix_desc' =>
+    'Each template group installed will be prefixed with this variable in order to prevent a naming collision.',
 
-'groups_and_templates' =>
-"Template Groups and Templates to be Installed",
+    'groups_and_templates' =>
+    "Template Groups and Templates to be Installed",
 
-'groups_and_templates_desc' =>
-"These template groups and their accompanying templates will be installed into your ExpressionEngine site.",
+    'groups_and_templates_desc' =>
+    "These template groups and their accompanying templates will be installed into your ExpressionEngine site.",
 
-'screenshot' =>
-'Screenshot',
+    'screenshot' =>
+    'Screenshot',
 
-'install_demo_templates' =>
-'Install Demo Templates',
+    'install_demo_templates' =>
+    'Install Demo Templates',
 
-'prefix_error' =>
-'Prefixes, which are used for template groups, may only contain alpha-numeric characters, underscores, and dashes.',
+    'prefix_error' =>
+    'Prefixes, which are used for template groups, may only contain alpha-numeric characters, underscores, and dashes.',
 
-'demo_templates' =>
-'Demo Templates',
+    'demo_templates' =>
+    'Demo Templates',
 
-//errors
-'ee_not_running'				=>
-'ExpressionEngine 2.x does not appear to be running.',
+    //errors
+    'ee_not_running'				=>
+    'ExpressionEngine 2.x does not appear to be running.',
 
-'invalid_code_pack_path'		=>
-'Invalid Demo Templates path',
+    'invalid_code_pack_path'		=>
+    'Invalid Demo Templates path',
 
-'invalid_code_pack_path_exp'	=>
-'No valid Demo Templates found at \'%path%\'.',
+    'invalid_code_pack_path_exp'	=>
+    'No valid Demo Templates found at \'%path%\'.',
 
-'missing_code_pack'				=>
-'Demo Templates missing',
+    'missing_code_pack'				=>
+    'Demo Templates missing',
 
-'missing_code_pack_exp'			=>
-'You have chosen no Demo Templates to install.',
+    'missing_code_pack_exp'			=>
+    'You have chosen no Demo Templates to install.',
 
-'missing_prefix'				=>
-'Prefix needed',
+    'missing_prefix'				=>
+    'Prefix needed',
 
-'missing_prefix_exp'			=>
-'Please provide a prefix for the sample templates and data that will be created.',
+    'missing_prefix_exp'			=>
+    'Please provide a prefix for the sample templates and data that will be created.',
 
-'invalid_prefix'				=>
-'Invalid prefix',
+    'invalid_prefix'				=>
+    'Invalid prefix',
 
-'invalid_prefix_exp'			=>
-'The prefix you provided was not valid.',
+    'invalid_prefix_exp'			=>
+    'The prefix you provided was not valid.',
 
-'missing_theme_html'			=>
-'Missing folder',
+    'missing_theme_html'			=>
+    'Missing folder',
 
-'missing_theme_html_exp'		=>
-'There should be a folder called \'html\' inside your site\'s \'/themes/solspace_themes/code_pack/%code_pack_name%\' folder. Make sure that it is in place and that it contains additional folders that represent the template groups that will be created by this code pack.',
+    'missing_theme_html_exp'		=>
+    'There should be a folder called \'html\' inside your site\'s \'/themes/solspace_themes/code_pack/%code_pack_name%\' folder. Make sure that it is in place and that it contains additional folders that represent the template groups that will be created by this code pack.',
 
-'missing_codepack_legacy'		=>
-'Missing the CodePack Legacy library needed to install this legacy codepack.',
+    'missing_codepack_legacy'		=>
+    'Missing the CodePack Legacy library needed to install this legacy codepack.',
 
-//@deprecated
-'missing_code_pack_theme'		=>
-'Demo Templates themes missing',
+    //@deprecated
+    'missing_code_pack_theme'		=>
+    'Demo Templates themes missing',
 
-'missing_code_pack_theme_exp'	=>
-'There should be at least one theme folder inside the folder \'%code_pack_name%\' located inside \'/themes/code_pack/\'. A theme is required to proceed.',
+    'missing_code_pack_theme_exp'	=>
+    'There should be at least one theme folder inside the folder \'%code_pack_name%\' located inside \'/themes/code_pack/\'. A theme is required to proceed.',
 
-//conflicts
-'conflicting_group_names'		=>
-'Conflicting template group names',
+    //conflicts
+    'conflicting_group_names'		=>
+    'Conflicting template group names',
 
-'conflicting_group_names_exp'	=>
-'The following template group names already exist. Please choose a different prefix in order to avoid conflicts. %conflicting_groups%',
+    'conflicting_group_names_exp'	=>
+    'The following template group names already exist. Please choose a different prefix in order to avoid conflicts. %conflicting_groups%',
 
-'conflicting_global_var_names'	=>
-'Conflicting global variable names.',
+    'conflicting_global_var_names'	=>
+    'Conflicting global variable names.',
 
-'conflicting_global_var_names_exp' =>
-'There were conflicts between global variables on your site and global variables in this code pack. Consider changing your prefix to resolve the following conflicts. %conflicting_global_vars%',
+    'conflicting_global_var_names_exp' =>
+    'There were conflicts between global variables on your site and global variables in this code pack. Consider changing your prefix to resolve the following conflicts. %conflicting_global_vars%',
 
-//success messages
-'global_vars_added'				=>
-'Global variables added',
+    //success messages
+    'global_vars_added'				=>
+    'Global variables added',
 
-'global_vars_added_exp'			=>
-'The following global template variables were successfully added. %global_vars%',
+    'global_vars_added_exp'			=>
+    'The following global template variables were successfully added. %global_vars%',
 
-'templates_added'				=>
-'Templates were added',
+    'templates_added'				=>
+    'Templates were added',
 
-'templates_added_exp'			=>
-'%template_count% templates were successfully added to your site as part of these Demo Templates.',
+    'templates_added_exp'			=>
+    '%template_count% templates were successfully added to your site as part of these Demo Templates.',
 
-"home_page"						=>"Home Page",
-"home_page_exp"					=> "View the home page for these Demo Templates.",
+    "home_page"						=>"Home Page",
+    "home_page_exp"					=> "View the home page for these Demo Templates.",
 
-
-// END
-''=>''
+    // END
+    ''=>''
 );

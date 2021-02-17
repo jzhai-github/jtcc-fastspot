@@ -1,8 +1,8 @@
 {
     "name": "Tag",
     "shortname": "tag",
-    "version": "6.1.4",
-    "foundation_version": "4.6.0",
+    "version": "6.2.0",
+    "foundation_version": "4.6.1",
     "description": "Tag your content with keywords and intuitively display relationships between entries.",
     "license": "EEHarbor",
     "namespace": "EEHarbor\\Tag",
