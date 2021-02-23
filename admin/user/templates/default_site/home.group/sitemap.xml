@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+{exp:channel:entries
+   channel="about|academics|admissions|employment_opportunities
+   |foundation|inauguration|majors|modernmakers|mytyler
+   |news_release|not_what_you_expect|noteworthy|pages"
+   status="open"
+   limit="1000"
+}
+<url>
+  <loc>{if channel == 'News Release' OR channel == 'Noteworthy'}{permalink=about/news}{if:elseif channel == 'Not What You Expect'}https://jtcc.edu/success-stories/profile/{url_title}{if:elseif channel == 'Employment Opportunities'}https://jtcc.edu/about/employment-opportunities/{entry_id}{if:elseif channel == 'Majors'}https://jtcc.edu/majors/{url_title}{if:else}https://jtcc.edu{page_uri}{/if}</loc>
+  <lastmod>{edit_date format="%Y-%m-%dT06:00:00+00:00"}</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+{/exp:channel:entries}
+{exp:channel:entries
+   channel="pay_for_college|services|theatre_events|tyler2021|veterans|workforce"
+   status="open"
+   limit="1000"
+}
+<url>
+  <loc>{if channel == 'News Release' OR channel == 'Noteworthy'}{permalink=about/news}{if:elseif channel == 'Not What You Expect'}https://jtcc.edu/success-stories/profile/{url_title}{if:elseif channel == 'Employment Opportunities'}https://jtcc.edu/about/employment-opportunities/{entry_id}{if:elseif channel == 'Majors'}https://jtcc.edu/majors/{url_title}{if:else}https://jtcc.edu{page_uri}{/if}</loc>
+  <lastmod>{edit_date format="%Y-%m-%dT06:00:00+00:00"}</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+{/exp:channel:entries}
+<url><loc>http://jtcc.edu/thankyou</loc><lastmod>2016-08-15T06:00:00+00:00</lastmod><changefreq>weekly</changefreq></url>
+</urlset>

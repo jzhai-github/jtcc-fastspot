@@ -128,17 +128,125 @@
 					</li>
 					{/exp:channel:entries}--}
 					{!--{exp:structure:nav start_from="{segment_1}" status="open|Default Page" show_depth="999"}--}
-					
-					{exp:structure:nav_basic start_from="{segment_1}" status="open|Default Page" show_depth="4"}
-      <li class="sub_nav_item{if root:active} active{/if}">
-        <a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
-							<span class="sub_nav_link_icon">
-							<svg class="icon icon_caret_right">
-								<use href="/images/icons.svg#caret_right" />
-							</svg>
-						</span></a>
-      </li>
+
+
+
+
+
+{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="open|Default Page" add_level_classes="yes|no"}
+
+{!-- 			{if segment_2 != ''}
+
+				{if:else}
+				<a href="{root:page_url}" class="{if root:active}current{if:else} not-current{/if}{if root:has_active_child} child-active{/if}">{root:title}</a>
+			{/if} --}
+
+			
+	        {if root:has_children}
+
+
+
+
+	        <a class="sub_nav_link" href="#">
+								<span class="sub_nav_link_label">Chester Campus</span>
+								<span class="sub_nav_link_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right"></use>
+			</svg>
+		</span>
+							</a>
+	       
+		        <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 	        	
+		          <span class="children">
+		            {root:children}
+		             <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{child:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{child:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 	      
+
+		              {!-- {if child:has_active_children}
+		              <span class="grand-children">
+		                {child:children}
+		                  <a class="{if grandchild:active}current{/if}{if grandchild:has_active_child} child-active{/if}"href="{grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /> {grandchild:title}</a>
+		                 {if grandchild:has_children}
+		                  <span class="great-grand-children">
+		                    {grandchild:children}
+		                      <a {if great_grandchild:active} class="current"{/if} href="{great_grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /> {great_grandchild:title}</a>
+		                    {/grandchild:children}
+		                  </span> <!-- end of great-grand-children -->
+		                  {/if}
+		                {/child:children}
+		              </span> <!-- end of grand-children -->
+		             {/if}  --}
+
+		            {/root:children}
+		          </span> {!-- end of children --}
+		          {if:else}
+
+		         
+				<li class="sub_nav_item">
+						<a class="sub_nav_link{if root:active} current{if:else} not-current{/if}{if root:has_active_child} child-active{/if}" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 	      
+				
+		    {/if}
     {/exp:structure:nav_basic}
+
+
+
+
+
+
+					
+					{!-- {if segment_1 != '' && segment_2 == ''}
+					{exp:structure:nav_basic start_from="{segment_1}" status="open|Default Page" show_depth="1"}
+				      <li class="sub_nav_item{if root:active} active{/if}">
+				        <a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
+											<span class="sub_nav_link_icon">
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right" />
+											</svg>
+										</span></a>
+				      </li>
+				    {/exp:structure:nav_basic}
+					{if:elseif segment_2 != '' && segment_3 == ''}
+							    {exp:structure:siblings}
+					{exp:structure:nav_basic start_from="/{segment_1}/{segment_2}" status="open|Default Page" show_depth="1"}
+					
+				      <li class="sub_nav_item{if root:active} active{/if}">
+				        <a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
+											<span class="sub_nav_link_icon">
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right" />
+											</svg>
+										</span></a>
+				      </li>
+				    {/exp:structure:nav_basic}
+				    {if:elseif segment_2 != '' && segment_3 != ''}
+
+					    {exp:structure:nav_basic start_from="{segment_3}" status="open" show_depth="1"}
+					      <li class="sub_nav_item{if root:active} active{/if}">
+					        <a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
+												<span class="sub_nav_link_icon">
+												<svg class="icon icon_caret_right">
+													<use href="/images/icons.svg#caret_right" />
+												</svg>
+											</span></a>
+					      </li>
+					    {/exp:structure:nav_basic}
+				    {/if} --}
 									</ul>
 			</div>
 		</div>

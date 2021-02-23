@@ -35,20 +35,15 @@ if (file_exists($file_fall)) {
 	$sql1 = "delete from courses_fall";
 	mysqli_query($conn, $sql1);
 	
-	$sql2 = "LOAD DATA INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '\\\\' LINES TERMINATED BY '\\r\\n'"; 
+	$sql2 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '' LINES TERMINATED BY '\r\n'"; 
+	//$sql2 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n'"; 	  
 		 
 	mysqli_query($conn, $sql2);
 
+	if (!mysqli_query($conn, $sql2)) {
+  		echo("Error description: " . mysqli_error($conn));
+  	}
 
-	/*if (!mysqli_query($conn,"INSERT INTO Persons (FirstName) VALUES ('Glenn')")) {
-  		echo("Error description: " . mysqli_error($con));
-	}
-	
-			
-			if(mysql_error()) {
-	
-			 echo mysql_error() ."<br>\n";
-			} */
 }
 
 // Summer table	
@@ -59,6 +54,7 @@ if (file_exists($file_sum)) {
 	$sql4 = "LOAD DATA INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SUMMER.CSV' INTO TABLE `courses_summer` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '\\\\' LINES TERMINATED BY '\\r\\n'"; 
 		 
 	mysqli_query($conn, $sql4);
+
 	
 			/*if(mysql_error()) {
 	
@@ -68,6 +64,19 @@ if (file_exists($file_sum)) {
 
 // Spring table	
 if (file_exists($file_spr)) {
+	$sql5 = "delete from courses_spring";
+	mysqli_query($conn, $sql5);
+	
+	$sql6 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SPRING.CSV' INTO TABLE `courses_spring` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n'"; 	  
+		 
+	mysqli_query($conn, $sql6);
+
+	if (!mysqli_query($conn, $sql6)) {
+  		echo("Error description: " . mysqli_error($conn));
+  	}
+
+}
+/*if (file_exists($file_spr)) {
 	$mysqli = new mysqli("localhost", "jtcc-dev", "VdleL7N_krUS", "courses");
 	$sql5 = "delete from courses_spring;";
 	$query = $sql5;
@@ -103,13 +112,8 @@ if (file_exists($file_spr)) {
 	if (!mysqli_query($conn, $sql6)) {
   		echo("Error description: " . mysqli_error($conn));
   	}
-	
-			
-			/*if(mysql_error()) {
-	
-			 echo mysql_error() ."<br>\n";
-			} */	
-}
+		
+}*/
 
 
 // append files to one table

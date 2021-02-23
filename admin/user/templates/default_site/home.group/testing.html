@@ -1,11 +1,19 @@
-{layout="layouts/testing-lay"}
+{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="open|Default Page" add_level_classes="yes|no"}
+			
+			<!-- If a page has children, display the children -->
+	        {if root:has_children}
+	       
+		        <a href="{root:page_url}" class="{if root:active}current{/if}{if root:has_active_child} child-active{/if}">{root:title}</a> 	        	
+		          <span class="children">
+		            {root:children}
+		             <a class="{if child:active}current{/if}{if child:has_active_child} child-active{/if}" href="{child:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /> {child:title}</a>
 
-
-{exp:channel:entries channel="ztest" status="closed"}
-{layout:set name="myztests"}{ztest}{/layout:set}
-{layout:set name='myztest' value='{ztest}'}
-{layout:set name="myztestdouble" value="{ztest}"}
-
-I am the stuff that will be in the content.  Do da!
-
-{/exp:channel:entries}
+		            {/root:children}
+		          </span> <!-- end of children -->
+		     {if:else}
+			<!-- If a page does not have children, display the siblings of the current page -->
+		         <span class="no-children">
+				<a href="{root:page_url}" class="{if root:active}current{if:else} not-current{/if}{if root:has_active_child} child-active{/if}">{root:title}</a>
+				</span>
+		    {/if}
+    {/exp:structure:nav_basic}
