@@ -479,7 +479,7 @@ span.time{
 		margin-right: 0;
 	}
 }
-.children + .siblings{
+.children ~ .siblings{
 	display: none;
 }
 // =============================================================================
