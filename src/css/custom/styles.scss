@@ -479,7 +479,8 @@ span.time{
 		margin-right: 0;
 	}
 }
-.children ~ .siblings{
+.children ~ .siblings,
+.grand-children ~ .children{
 	display: none;
 }
 // =============================================================================
