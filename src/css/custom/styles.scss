@@ -480,7 +480,8 @@ span.time{
 	}
 }
 .children ~ .siblings,
-.grand-children ~ .children{
+.grand-children ~ .children,
+.great-grand-children ~ .grand-children{
 	display: none;
 }
 // =============================================================================
