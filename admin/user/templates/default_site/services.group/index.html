@@ -32,7 +32,7 @@
 	{!-- layout vars, dynamic, not output --}
 	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
 
-	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
+	{layout:set name='page_description'}{if page_description}{page_description}{/if}{/layout:set}
 
 	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
 

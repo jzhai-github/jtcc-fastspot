@@ -14,6 +14,8 @@ class Wygwam_ft extends Ft
 {
     public $has_array_data = true;
 
+    public $entry_manager_compatible = true;
+
     /**
      * Construct the fieldtype and populate Wygwam_ft::$info.
      */
@@ -24,6 +26,19 @@ class Wygwam_ft extends Ft
         $info = ee('App')->get('wygwam');
         $this->info['name'] = $info->getName();
         $this->info['version'] = $info->getVersion();
+    }
+
+
+    /**
+     * Implements EntryManager\ColumnInterface
+     */
+    public function renderTableCell($data, $field_id, $entry)
+    {
+        $out = strip_tags(str_replace('&nbsp;', ' ', $this->replace_excerpt($data, [])));
+        if (strlen($out) > 255) {
+            $out = substr($out, 0, min(255, strpos($out, " ", 240))) . '&hellip;';
+        }
+        return html_entity_decode($out);
     }
 
     // --------------------------------------------------------------------
@@ -133,6 +148,52 @@ class Wygwam_ft extends Ft
         return $settings;
     }
 
+    /**
+     * Modify DB column
+     *
+     * @param Array $data
+     * @return Array
+     */
+    public function settings_modify_column($data)
+    {
+        return $this->get_column_type($data);
+    }
+
+    /**
+     * Modify DB grid column
+     *
+     * @param array $data The field data
+     * @return array  [column => column_definition]
+     */
+    public function grid_settings_modify_column($data)
+    {
+        return $this->get_column_type($data, TRUE);
+    }
+
+    /**
+     * Helper method for column definitions
+     *
+     * @param array $data The field data
+     * @param bool  $grid Is grid field?
+     * @return array  [column => column_definition]
+     */
+    protected function get_column_type($data, $grid = FALSE)
+    {
+        $column = ($grid) ? 'col' : 'field';
+
+        $settings = ($grid) ? $data : $data[$column . '_settings'];
+        $field_content_type = isset($settings['db_column_type']) ? $settings['db_column_type'] : 'text';
+
+        $fields = [
+            $column . '_id_' . $data[$column . '_id'] => [
+                'type'		=> $field_content_type,
+                'null'		=> TRUE
+            ]
+        ];
+
+        return $fields;
+    }
+
     // --------------------------------------------------------------------
 
     /**
@@ -172,7 +233,7 @@ class Wygwam_ft extends Ft
             $data = ee()->extensions->call('wygwam_before_display', $this, $data);
         }
 
-        return '<div class="wygwam"><textarea id="'.$id.'" name="'.$this->field_name.'" rows="10" data-config="'.$configHandle.'" class="wygwam-textarea" data-defer="'.(!empty($this->settings['defer']) && $this->settings['defer'] == 'y' ? 'y' : 'n').'">'.$data.'</textarea></div>'.$this->_generateAssetInputsString($assetInfo);
+        return '<div class="wygwam"><textarea id="'.$id.'" name="'.$this->field_name.'" rows="10" data-config="'.$configHandle.'" class="wygwam-textarea" data-defer="'.(isset($this->settings['defer']) && !empty($this->settings['defer']) && $this->settings['defer'] == 'y' ? 'y' : 'n').'">'.$data.'</textarea></div>'.$this->_generateAssetInputsString($assetInfo);
     }
 
     /**
@@ -582,7 +643,21 @@ class Wygwam_ft extends Ft
                 'fields' => array(
                     'wygwam[defer]' => array(
                         'type' => 'yes_no',
-                        'value' => $settings['defer']
+                        'value' => (isset($settings['defer']) && $settings['defer'] == 'y') ? 'y' : 'n'
+                    )
+                )
+            ),
+            array(
+                'title' => 'db_column_type',
+                'desc' => 'db_column_type_desc',
+                'fields' => array(
+                    'wygwam[db_column_type]' => array(
+                        'type' => 'radio',
+                        'choices' => [
+                            'text' => lang('TEXT'),
+                            'mediumtext' => lang('MEDIUMTEXT')
+                        ],
+                        'value' => isset($settings['db_column_type']) ? $settings['db_column_type'] : 'text'
                     )
                 )
             )

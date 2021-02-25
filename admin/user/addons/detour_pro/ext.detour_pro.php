@@ -122,7 +122,7 @@ class Detour_pro_ext extends Ext
                 } else {
                     header('Location: ' . $site_index . ltrim($newUrl, '/'), true, $detour['detour_method']);
                 }
-                $this->extensions->end_script;
+                ee()->extensions->end_script = true;
                 exit;
             }
         }
