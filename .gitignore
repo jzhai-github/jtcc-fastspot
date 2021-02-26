@@ -13,6 +13,7 @@ package-lock.json
 pnpm-debug.log
 site/files/
 .idea/
+admin/user/addons/dashboard_analytics/
 
 # compiled files
 # /dist/axe.json
