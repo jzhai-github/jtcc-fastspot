@@ -89,18 +89,13 @@
 .license_status_disabled .license_status ol {
     margin: 0 0 0 35px !important;
     }
-.ee6 .license_status {
-    background-color: var(--ee-bg-5);
-}
 </style>
 <!-- <div class="tbl-ctrls"> -->
 
-<div class="box ee<?=$ee_ver?> addon-license panel">
-  <div class="panel-heading">
+<div class="box ee<?=$ee_ver?> addon-license">
     <h1>License</h1>
-  </div>
 
-    <?php echo form_open($action_url, array('class'=>'settings panel-body')); ?>
+    <?php echo form_open($action_url, array('class'=>'settings')); ?>
 
 <?php if ($ee_ver > 2) { ?>
     <div class="app-notice-wrap"><?php echo ee('CP/Alert')->getAllInlines(); ?></div>
@@ -108,7 +103,7 @@
     <fieldset class="col-group required">
         <div class="setting-txt col w-8">
             <h3>License Key</h3>
-            <p><em>You can retrieve your license key from <b><a target="_blank" href="https://eeharbor.com/members">your Account page on EEHarbor.com</a></b>.</em></p>
+            <em>You can retrieve your license key from <b><a href="https://eeharbor.com/members">your Account page on EEHarbor.com</a></b>.</em>
         </div>
         <div class="setting-field col w-8 last">
             <?php echo form_input('license_key', $license_key); ?>
@@ -128,10 +123,10 @@
                 </div>
                 <div class="license_status">
                     <h4>Invalid</h4>
-                    <p>We were unable to find a match for your License Key in our system. You can use the add-on while performing
+                    We were unable to find a match for your License Key in our system. You can use the add-on while performing
                     <strong>local development</strong> but you <strong>must</strong> enter a valid license before making your
                     site live. To purchase a license or look up an existing license, please visit
-                    <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    <a href="https://eeharbor.com/">EEHarbor.com</a>.
                 </div>
             </div>
             <div class="license_status_u" style="display:none;">
@@ -140,22 +135,22 @@
                 </div>
                 <div class="license_status">
                     <h4>Unlicensed</h4>
-                    <p>You have not entered a license key. You can use the add-on while performing <strong>local development</strong>
+                    You have not entered a license key. You can use the add-on while performing <strong>local development</strong>
                     but you <strong>must</strong> enter a valid license before making your site live. To purchase a license or look
                     up an existing license, please visit
-                    <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    <a href="https://eeharbor.com/">EEHarbor.com</a>.
                 </div>
             </div>
             <div class="license_status license_status_e" style="display:none;">
                 <h4>Expired</h4>
-                <p>Your license is valid but has expired. You can continue to use you add-on while it is expired but if you wish to update
+                Your license is valid but has expired. You can continue to use you add-on while it is expired but if you wish to update
                 to the latest version, you will need to purchase an upgrade. To upgrade, please login to your account on
-                <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>, find your license and click the "Renew" button.</p>
+                <a href="https://eeharbor.com/">EEHarbor.com</a>, find your license and click the "Renew" button.
             </div>
             <div class="license_status license_status_d" style="display:none;">
                 <h4>Duplicate</h4>
-                <p>Your license key is currently registered on another website. For more information, please login to your account on
-                <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                Your license key is currently registered on another website. For more information, please login to your account on
+                <a href="https://eeharbor.com/">EEHarbor.com</a>.
             </div>
             <div class="license_status_w" style="display:none;">
                 <div class="license_status_warning">
@@ -163,8 +158,8 @@
                 </div>
                 <div class="license_status">
                     <h4>License Mismatch</h4>
-                    <p>The license key you entered is registered to a different add-on. For more information, please login to your account
-                    on <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    The license key you entered is registered to a different add-on. For more information, please login to your account
+                    on <a href="https://eeharbor.com/">EEHarbor.com</a>.
                 </div>
             </div>
             <div class="license_status_p" style="display:none;">
@@ -175,14 +170,14 @@
                     <h4>License Missing Production Domain</h4>
                     <p>You must enter your production domain in your Account page on EEHarbor.com.</p>
                     <p>This would be the final domain the add-on is going to run on (i.e. http://www.clientsite.com).</p>
-                    <p>For more information, please login to your account on <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    <p>For more information, please login to your account on <a href="https://eeharbor.com/">EEHarbor.com</a>.</p>
                 </div>
             </div>
             <div class="license_status_m" style="display:none;">
                 <div class="license_status">
                     <h4>Maintenance Mode</h4>
-                    <p>The licensing server is undergoing maintenance. Your add-on will not be affected by this.
-                    If you need assistance, please contact us on <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    The licensing server is undergoing maintenance. Your add-on will not be affected by this.
+                    If you need assistance, please contact us on <a href="https://eeharbor.com/">EEHarbor.com</a>.
                 </div>
             </div>
             <div class="license_status_disabled" style="display:none;">
@@ -198,7 +193,7 @@
                         </ol>
                     </p>
 
-                    <p>If you need assistance, please contact us on <a target="_blank" href="https://eeharbor.com/">EEHarbor.com</a>.</p>
+                    <p>If you need assistance, please contact us on <a href="https://eeharbor.com/">EEHarbor.com</a>.</p>
                 </div>
             </div>
         </div>
@@ -209,7 +204,7 @@
             <h3>License Agreement</h3>
         </div>
         <div class="setting-txt col w-8 last">
-            <em>By using this software, you agree to the <b><a target="_blank" href="https://eeharbor.com/license">Add-on License Agreement</a></b>.</em>
+            <em>By using this software, you agree to the <b><a href="https://eeharbor.com/license">Add-on License Agreement</a></b>.</em>
         </div>
     </fieldset>
 

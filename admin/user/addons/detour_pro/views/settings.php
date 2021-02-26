@@ -11,10 +11,10 @@ $redirects = array(
     '302' => '302 (Temporary)',
 );
 ?>
-<div class="panel box ee<?=$ee_ver?>">
-    <h1 class="panel-heading">Settings</h1>
+<div class="box ee<?=$ee_ver?>">
+    <h1>Settings</h1>
 
-    <?php echo form_open($action_url, array('class' => 'panel-body settings')); ?>
+    <?php echo form_open($action_url, array('class' => 'settings')); ?>
 
     <fieldset class="col-group">
         <div class="setting-txt col w-8">

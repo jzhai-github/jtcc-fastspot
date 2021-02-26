@@ -5,14 +5,14 @@ $categories = array(
     'cat_2' => 'Category 2',
 );
 ?>
-<div class="panel box ee<?=$ee_ver?>">
-    <h1 class="panel-heading"><?php echo ee()->lang->line('label_' . (!empty($id) ? 'edit' : 'add') . '_detour'); ?></h1>
+<div class="box ee<?=$ee_ver?>">
+    <h1><?php echo ee()->lang->line('label_' . (!empty($id) ? 'edit' : 'add') . '_detour'); ?></h1>
 
 <?php if ($ee_ver >= 3) { ?>
     <div class="app-notice-wrap"><?php echo ee('CP/Alert')->getAllInlines(); ?></div>
 <?php } ?>
 
-    <?php echo form_open($action_url, array('class'=>'settings panel-body', 'id'=>'addUpdateForm', 'data-checkurl'=>$check_url, 'data-existing'=>(!empty($original_url) ? $original_url : ''))); ?>
+    <?php echo form_open($action_url, array('class'=>'settings', 'id'=>'addUpdateForm', 'data-checkurl'=>$check_url, 'data-existing'=>(!empty($original_url) ? $original_url : ''))); ?>
 
 <?php
 if ($id) {
