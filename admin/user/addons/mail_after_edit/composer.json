@@ -1,0 +1,11 @@
+{
+    "require": {
+        "php": "^7.1",
+        "nesbot/carbon": "^1.25"
+    },
+    "autoload": {
+    	"psr-4": {
+    		"TNS\\MailAfterEdit\\": "services/"
+    	}
+    }
+}
