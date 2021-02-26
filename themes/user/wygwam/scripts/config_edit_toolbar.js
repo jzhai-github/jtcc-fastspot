@@ -111,6 +111,7 @@ $.fn.ptDropPanes = function(settings){
 
 		var dragOptions = {
 			opacity: .5,
+			distance: 5,
 			start: function(event, ui){
 
 				$(document.body).addClass('tb-dragging');

@@ -1,15 +1,17 @@
-<div class="box ee<?=$ee_ver?>">
+<div class="panel box ee<?=$ee_ver?>">
     <div class="tbl-ctrls">
+    <div class="panel-heading">
         <?php echo form_open($search_url); ?>
             <fieldset class="tbl-search right">
-                <input placeholder="type phrase..." type="text" name="search" value="">
+                <input placeholder="type phrase..." type="text" name="search" value="" style="float: left; margin-right: 5px;">
                 <button type="submit" class="btn action submit">search</button>
             </fieldset>
         </form>
         <h1>Dashboard</h1>
+    </div>
 
 <?php
-echo form_open($delete_action_url, array('class' => 'settings'));
+echo form_open($delete_action_url, array('class' => 'settings panel-body'));
 
 echo '<div class="tbl-wrap">', "\n";
 
@@ -94,11 +96,15 @@ ee()->table->clear();
 
 echo '</div>', "\n";
 
+echo '<div class="panel-footer">';
+
 if ($hasDetours) {
     echo form_submit(array('name' => 'submit', 'value' => ee()->lang->line('btn_delete_detours'), 'class' => 'btn btn-right submit action'));
 }
 
 echo '<a href="', $add_detour_link, '" class="btn submit">', ee()->lang->line('label_add_detour'), '</a>';
+
+echo '</div>';
 
 echo form_close();
 ?>

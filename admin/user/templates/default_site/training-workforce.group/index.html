@@ -43,8 +43,8 @@
 	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
-	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
-	{layout:set name='description' value='{if seo_description}{seo_description}{if:else}{p_description}{/if}'}
+	{layout:set name='page_description'}{if page_description}{page_description}{/if}{/layout:set}
+	{layout:set name='description'}{if seo_description}{seo_description}{if:else}{p_description}{/if}{/layout:set}
 	{!-- OpenGraph meta output --}
 	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
 	{layout:set name='og_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
@@ -72,6 +72,62 @@
 		</div>
 	</div>
 	{/main_content:wysiwyg_block}
+	
+	{main_content:flex_callout_image}
+	{content}
+	<div class="flex_callout">
+		<div class="js-background flex_callout_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{"source": { "1220px": "{img:url:resize width="1080" height="1440"}", "740px": "{img:url:resize width="1220" height="523" crop="true" scale_up="true"}", 
+		"500px": "{img:url:resize width="980" height="654" crop="true" scale_up="true"}", "0px": "{img:url:resize width="494" height="740" crop="true" scale_up="true"}", "980px": "{img:url:resize width="915" height="1220" crop="true" scale_up="true"}"}, "lazy": true, "alt": "}' aria-hidden="true">
+			<div class="flex_callout_background_fallback" style="background-image: url(' {img:url:resize width='300' height='129' crop='true' scale_up='true'}');"></div>
+			<div class="fs-background-container">
+				<div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}'); opacity: 1;"><img alt="" src="{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}">
+				</div>
+			</div>
+		</div>
+		{/content}
+	{/main_content:flex_callout_image}
+		{main_content:flex_callout}
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="flex_callout_inner">
+					{content}
+					<div class="flex_callout_header">
+						<h2 class="flex_callout_title">{content:banner_text}</h2>
+						<p class="flex_callout_caption">{content:paragraph}</p>
+					</div>
+					{/content}
+		{/main_content:flex_callout}
+					{if main_content:flex_callout_button}
+					{main_content:flex_callout_button}
+					<div class="flex_callout_content">
+						<ul class="flex_callout_links">			
+							{content}
+							<li class="flex_callout_item">
+								<a href="{content:button_link}" class="flex_callout_link" >
+									<span class="flex_callout_link_inner">
+										<span class="flex_callout_link_label">{content:button_text}</span>
+										<span class="flex_callout_link_icon" aria-hidden="true">
+											<span class="flex_callout_link_icon_inner">
+													<span class="flex_callout_link_icon_space">&#xfeff;</span>
+						
+												<svg class="icon icon_caret_right">
+													<use href="/images/icons.svg#caret_right" />
+												</svg>
+			
+											</span>
+										</span>
+									</span>
+								</a>
+							</li>
+							{/content}						
+						</ul>
+					</div> {!-- / flex_callout_content --}
+					{/if}
+				</div>{!-- / flex_callout_inner --}
+			</div><!-- /fs-cell -->
+		</div><!-- /fs-row -->
+	</div><!-- /flex_callout -->
+	{/main_content:flex_callout_button}
 
 {main_content:topics_header}
 {content}

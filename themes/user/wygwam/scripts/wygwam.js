@@ -183,18 +183,29 @@ window.Wygwam;
         }
     }
 
+
+    function makeDelay(ms) {
+        var timer = 0;
+        return function(callback){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    };
+
     // When CKEditor is updated, update the textarea so EE will trigger it's auto-save or remove error messages.
+
+	var delay = makeDelay(700);
     CKEDITOR.on('instanceCreated', function(e) {
-        e.editor.on('change', function (event) {
-            // Update the textarea's content.
-            this.updateElement();
-
-            // Trigger the `onchange` handlers for the textarea so EE will catch the update.
-            $(this.element.$).change();
-
-            // We have to focus and blur the real textarea otherwise EE5 won't pick up the change.
-            $('#' + this.element.$.id).focus().blur();
-        });
+		e.editor.on('change', function (event) {
+            delay(function() {
+                // Update the textarea's content.
+                this.updateElement();
+                // Trigger the `onchange` handlers for the textarea so EE will catch the update.
+                $(this.element.$).change();
+                // We have to focus and blur the real textarea otherwise EE5 won't pick up the change.
+                $('#' + this.element.$.id).focus().blur();
+           }.bind(this));
+		});
     });
 
     if (typeof FluidField !== 'undefined') {
@@ -263,7 +274,7 @@ window.Wygwam;
     /**
      * Load EE File Browser
      */
-    Wygwam.loadEEFileBrowser = function(params, directory, content_type) {
+    Wygwam.loadEEFileBrowser = function(params, directory, content_type, dirURL) {
         // Set up the temporary increase of z-indexes.
         var modalZIndex = $('.modal-file').css('z-index'),
             overlayZindex = $('.overlay').css('z-index');
@@ -282,7 +293,7 @@ window.Wygwam;
             $('body').css({ position:'initial', width:'initial' });
         };
 
-        var $trigger = $('<trigger class="m-link filepicker" rel="modal-file" href="' + Wygwam.fpUrl + '"/>').appendTo('body');
+        var $trigger = $('<trigger class="m-link filepicker" rel="modal-file" href="' + dirURL + '"/>').appendTo('body');
 
         $trigger.FilePicker({
             callback: function(data, references)
