@@ -1,0 +1,90 @@
+{layout='layouts/_main-layout'}
+
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Employment Opportunities'}
+{preload_replace:p_description='About Employement Opportunities'}
+{preload_replace:p_url='about/employment-opportunities'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='employment_opportunities'}
+{preload_replace:ch_title='Employment Opportunities'}
+{preload_replace:ch_status='Open'}
+{preload_replace:ch_disable='member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='ch_disable' value='{ch_disable}'}
+{layout:set name='ch_status' value='{ch_status}'}
+{if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
+
+		
+{if segment_3 != ''}
+	{exp:channel:entries limit="1"}<h1>{title}</h1>{/exp:channel:entries}
+{/if}
+			
+	
+		
+			{!--{exp:channel:entries channel="about" limit="1"}
+			{content}
+			{/exp:channel:entries}--}
+	
+			{!-- Pull in employment opportunities --}
+			{!-- This embed grabs the category ID, and grabs the embed to categorize the jobs --}
+
+			<?php
+  			$entries = array();
+
+  			{exp:channel:entries channel="employment_opportunities" orderby="title" sort="asc" dynamic="no" disable="member_data|pagination|category_fields"}
+    		$entry =<<<EOE
+      		<p><a href="{permalink="about/employment-opportunities"}">{title} {if "{categories}{category_id}{/categories}" != '30'}{if expiration_date}<span class="exp-date"> 
+      		{if job_expiration_statement == 'y'}review of applications begins{if:else}closes on{/if} {expiration_date format="%m/%d/%y"}</span>{if:elseif alt_expiration_date != ''}
+				{alt_expiration_date}{if:else}open until filled{/if}</a>
+      		{!-- <br /><a href="https://jobs.agencies.virginia.gov/applicants/jsp/shared/search/SearchResults_css.jsp" target="_blank"><img style="vertical-align: text-bottom" src="/downloads/about/jobs/applynow-rebrand.png" alt="Apply Now" width="159" height="20" class="icon" />{/if}</a> --}
+		<br /><a href="https://virginiajobs.peopleadmin.com/" target="_blank"><img style="vertical-align: text-bottom" src="/downloads/about/jobs/applynow-rebrand.png" alt="Apply Now" width="159" height="20" class="icon" />{/if}</a>
+EOE;
+    	{categories}
+      	$entries[{category_id}][] = $entry;
+   		{/categories}
+  {/exp:channel:entries}
+?>
+			{if segment_3 == ""}
+			{exp:channel:categories channel="employment_opportunities" style="linear" disable="category_fields"}
+				<div class="job-category">
+				  <h3>{category_name}</h3>
+				  <?php if (isset($entries[{category_id}])): ?>
+				    <?php $item = implode("\n", $entries[{category_id}]);
+				    echo $item . '<br />';
+				    else:  echo "<p>There are no vacancies at this time.</p>";   ?>
+				  <?php endif; ?>
+				</div><!-- /END .job-category -->
+			{/exp:channel:categories}
+			{if:else}
+			{exp:channel:entries channel="employment_opportunities" limit="1" disable="category_fields"}
+			<h4>{title} {if "{categories}{category_id}{/categories}" != '30'} 
+				{if expiration_date}<span class="exp-date"> - {if job_expiration_statement == 'y'}review of applications begins{if:else}closes on{/if} {expiration_date format="%m/%d/%y"}</span>{if:elseif alt_expiration_date != ''}{alt_expiration_date}{if:else}	
+				Open until filled{/if}{/if}</h4>
+			{if "{categories}{category_id}{/categories}" == '30'}{if alt_expiration_date}<p><strong>Closing Date:</strong> {alt_expiration_date}</p>{/if}{/if}
+			<p><strong>Hiring Range:</strong> {hiring_range}</p>
+			{!-- {if "{categories}{category_id}{/categories}" == '30'}
+				<p><strong>General Information:</strong> Adjunct faculty teaching is limited to a maximum of 8 credit hours in the summer semester, 12 credit hours in the fall semester, and 12 credit hours in the spring semester. These limits are for total number of credit hours taught in the Virginia’s Community Colleges (VCCS). Additional restrictions may apply depending upon other positions occupied within VCCS.<br /><br />Please note that there may not currently be an opening in this area and that the division office will contact you should an opening occur.</p>
+			{if:else} --}
+				{if general_information}<p><strong>General Information:</strong> {general_information}</p>{/if}
+			{!-- {/if} --}
+			{if job_responsibilities}<p><strong>Responsibilities:</strong> {job_responsibilities}</p>{/if}
+			<p><strong>Qualifications:</strong> {job_qualifications}</p>
+			<p><strong>Application Instructions:</strong> {job_application_instructions}</p> 
+			<!-- <p><strong>Nondiscrimination Policy:</strong> John Tyler Community College does not discriminate on the basis of race, color, national origin, gender, or disability in its programs or activities. Inquiries related to the college’s nondiscrimination policy should be directed to Susan Grinnan, Director of Human Resources, who can be reached by mail at 13101 Jefferson Davis Highway, Chester, VA 23831, by e-mail at <a href="mailto:sgrinnan@jtcc.edu">sgrinnan@jtcc.edu</a> or by at phone 804-594-1417.</p> -->
+			<div class="top-margin15" id="share">
+					{exp:hj_social_bookmarks sites="Facebook|LinkedIn|Twitter|Email" entry_id="{entry_id}"}
+			</div>
+			{/exp:channel:entries}
+			{/if}
+
+
+
+			
