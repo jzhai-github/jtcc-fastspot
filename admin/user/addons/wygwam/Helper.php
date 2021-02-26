@@ -694,17 +694,15 @@ class Helper
 
                 // load the file browser
                 // pass in the uploadDir to limit the directory to the one choosen
-                $dir_link = ee('CP/FilePicker')->make($uploadDir)->getUrl();
-
-                static::insertJs(NL."\t"."Wygwam.fpUrl = '" .$dir_link ."';".NL);
+                static::insertJs(NL."\t"."Wygwam.fpUrl = '" . ee('CP/FilePicker')->make($uploadDir)->getUrl() ."';".NL);
 
                 // if no upload directory was set, just default to "all"
                 if (! $uploadDir) {
                     $uploadDir = '"all"';
                 }
 
-                $config['filebrowserBrowseFunc']      = 'function(params) { Wygwam.loadEEFileBrowser(params, '.$uploadDir.', "any", "'.$dir_link.'"); }';
-                $config['filebrowserImageBrowseFunc'] = 'function(params) { Wygwam.loadEEFileBrowser(params, '.$uploadDir.', "image", "'.$dir_link.'"); }';
+                $config['filebrowserBrowseFunc']      = 'function(params) { Wygwam.loadEEFileBrowser(params, '.$uploadDir.', "any"); }';
+                $config['filebrowserImageBrowseFunc'] = 'function(params) { Wygwam.loadEEFileBrowser(params, '.$uploadDir.', "image"); }';
         }
 
         // add any site page data to wygwam config

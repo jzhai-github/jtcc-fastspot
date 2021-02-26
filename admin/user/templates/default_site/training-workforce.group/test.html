@@ -1,4 +1,75 @@
- parent title: {structure:parent:title} - {structure:parent:entry_id}<br>
- parent url: {structure:parent:url} <br>
-top slug: {structure:top:slug}  <br>
-top title: {structure:top:title}
+<ul class="js-sub-nav-list sub_nav_list" aria-labelledby="sub_nav_title">
+
+{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="open|Default Page" add_level_classes="yes"}
+			
+			{!-- The 2nd part of the if statement checks to see if the 5th level page is the only page on that level. If it is, only grandchildren are output, not great grandchildren --}
+			{if segment_4 != '' && '/{segment_1}/{segment_2}/{segment_3}/{segment_4}/{segment_5}/' != '{root:children}{child:children}{grandchild:children}{great_grandchild:page_url}{/grandchild:children}{/child:children}{/root:children}'}
+				{root:children}
+		        	{child:children}                  
+                  		{if grandchild:has_children}
+                  			<span class="great-grand-children">
+                    			{grandchild:children}                     			
+			                    <li class="sub_nav_item">
+									<a class="sub_nav_link" href="{great_grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{great_grandchild:title}</span><span class="sub_nav_link_icon">
+											<svg class="icon icon_caret_right">
+												<use href="/images/icons.svg#caret_right"></use>
+											</svg>
+										</span>
+									</a> 	
+								</li> 
+                    			{/grandchild:children}
+                  			</span> {!-- end of great-grand-children --}
+                  		{/if}
+                	{/child:children}
+              	{/root:children}
+			{/if}
+
+			{if segment_3 != ''}
+				{root:children}
+		        {if child:has_children}
+              <span class="grand-children">
+                {child:children}
+                <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{grandchild:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 	
+					  </li>      
+                {/child:children}
+              </span> {!-- end of grand-children --}
+              {/if}
+              {/root:children}
+			{/if}
+
+			
+	        {if root:has_children}    	
+		          <span class="children">
+		            {root:children}
+		             <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{child:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{child:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 	
+					  </li>      
+		            {/root:children}
+		          </span> {!-- end of children --}
+		    {if:else}
+
+		        <span class="siblings"> 
+				<li class="sub_nav_item">
+						<a class="sub_nav_link{if root:active} current{if:else} not-current{/if}{if root:has_active_child} child-active{/if}" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span><span class="sub_nav_link_icon">
+								<svg class="icon icon_caret_right">
+									<use href="/images/icons.svg#caret_right"></use>
+								</svg>
+							</span>
+						</a> 
+				</li>	      
+				</span>
+		    {/if}
+
+    {/exp:structure:nav_basic}
+									</ul>

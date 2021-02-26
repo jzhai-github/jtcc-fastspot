@@ -34,7 +34,8 @@
 		{if layout:seo_description}<meta name="twitter:description" content="{layout:seo_description}">{/if}
 		<meta name="twitter:image" content="http:///social.png">
 
-		<link media="all" rel="stylesheet" href="/static-html/css/site.css">
+		<link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
+		
 		<!--<link media="all" rel="stylesheet" href="/src/css/tinymce.css">-->
 
 		<!-- Google Tag Manager -->
