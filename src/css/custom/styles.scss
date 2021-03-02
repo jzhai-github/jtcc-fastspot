@@ -484,6 +484,19 @@ span.time{
 .great-grand-children ~ .grand-children{
 	display: none;
 }
+.wysiwyg_block{
+	.filter_tab,
+	.filter_tab.fs-swap-active,
+	.filter_panels{
+		background: #ffffff;
+		color: #000000;
+	}
+	.filter_panels{
+		.fs-cell{
+			padding:0 2.045%;
+		}
+	}
+}
 // =============================================================================
 // Media Queries
 // =============================================================================
