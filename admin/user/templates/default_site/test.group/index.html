@@ -1,10 +1,17 @@
 <link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
 {!-- If a page has children, show only the children, not siblings. If a page has no children, show the siblings. --}
-
+<style>
+	ul{
+		margin-left: 15px;
+	}
+	li{
+		margin-left: 15px;
+	}
+</style>
 <div class="page_nav">
 <ul>
 
-{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="open|Default Page" add_level_classes="yes"}
+{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="Open|Default Page" add_level_classes="yes"}
 
 
 			
@@ -65,15 +72,103 @@
 									</ul>
 									</div>
 									
-{exp:channel:entries channel="test" limit="1"}					
+{exp:channel:entries channel="test" limit="1" status="Open|Default Page"}					
 <h2 style="margin:100px 0;">{ztest}</h2>								
 {/exp:channel:entries}
 
-<h3>Links for clicking around:</h3>
-<a href="https://dev.jtcc.edu/testing">Testing Top</a> <br>
-<a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-1">Test Grandparent Sibling 1</a> <br>
-<a href="https://dev.jtcc.edu/testing/grandparent">Testing Grandparent</a> <br>
-<a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-2">Test Grandparent Sibling 2</a> <br>
+<div class="wysiwyg_block tyopgraphy">
+	<h3>Links for clicking around:</h3>
+	<ul>
+		<li><a href="https://dev.jtcc.edu/testing">Testing Top</a></li>
+		<li><a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-1">Test Grandparent Sibling 1</a></li>
+		<li><a href="https://dev.jtcc.edu/testing/grandparent">Testing Grandparent</a>
+			<ul>
+				<li><a href="https://dev.jtcc.edu/testing/grandparent/parent">Testing Parent</a>
+					<ul>
+						<li><a href="https://dev.jtcc.edu/testing/grandparent/parent/current">Testing Current</a></li>
+					</ul>
+				</li>
+				<li><a href="https://dev.jtcc.edu/testing/grandparent/test-parent-sibling">Testing Parent Sibling</a></li>
+			</ul>
+		</li>
+		<li><a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-2">Test Grandparent Sibling 2</a></li>
+	</ul>
+</div>
 
-<a href="https://dev.jtcc.edu/testing/grandparent/parent">Testing Parent</a> <br>
-<a href="https://dev.jtcc.edu/testing">Top Page</a> <br>
+
+
+
+
+<hr>
+
+<h3>Child ids: {structure:child_ids}</h3>
+
+{if structure:child_ids != ''}
+HAS CHILD<br><br>
+ {exp:structure:nav_basic show_depth="2"}
+    {if root:count == 1}
+    <prefixul>
+    {/if}
+      <li{if root:active} class="active"{/if}>
+        <a href="{root:page_url}">{root:title}</a>
+        {if root:has_children}
+        <ul>
+          {root:children}
+          <li{if child:active} class="active"{/if}>
+            <a href="{child:page_url}">{child:title}</a>
+          </li>
+          {/root:children}
+        </ul>
+        {/if}
+      </li>
+    {if root:count == root:total_results}
+    </ul>
+    {/if}
+    {/exp:structure:nav_basic}
+
+</div>
+
+
+{if:else}
+NOPE CHILD<br><br>
+{exp:structure:nav_basic show_depth="1"}
+    {if root:count == 1}
+    <prefixul>
+    {/if}
+      <li{if root:active} class="active"{/if}>
+        <a href="{root:page_url}">{root:title}</a>
+        {if root:has_children}
+        <ul>
+          {root:children}
+          <li{if child:active} class="active"{/if}>
+            <a href="{child:page_url}">{child:title}</a>
+          </li>
+          {/root:children}
+        </ul>
+        {/if}
+      </li>
+    {if root:count == root:total_results}
+    </ul>
+    {/if}
+    {/exp:structure:nav_basic}
+
+
+
+{/if}
+
+<h2 style="margin-top:100px">03/01/21 Test</h2>
+{exp:structure:entries parent_id="297"}
+<p class="test-03">{title}</p>
+<p style="margin-bottom:100px;"><a href="{page_uri}">{page_uri}</a></p>
+{/exp:structure:entries}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function(){
+		$(".grand-children").prevAll(".siblings").css({"display": "none"});
+		$(".children").prevAll(".siblings").css({"display": "none"});
+	});
+</script>

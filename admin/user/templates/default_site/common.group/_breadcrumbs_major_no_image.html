@@ -22,7 +22,8 @@
                 </span>
             </a>
         </li>
-        {if segment_2 != ''}
+        {!--{if segment_2 != ''}--}
+            {if segment_1 == 'major'}
 					<li class="breadcrumb_item">
 				<a class="breadcrumb_pill breadcrumb_pill_link" href="/major">
 					<span class="breadcrumb_pill_inner">
@@ -34,7 +35,22 @@
 		</span>
 					</span>
 				</a>
-							</li>{/if}
+							</li>
+            {if:elseif segment_1 == 'employment-opportunities'}
+                <li class="breadcrumb_item">
+                <a class="breadcrumb_pill breadcrumb_pill_link" href="/about/employment-opportunities">
+                    <span class="breadcrumb_pill_inner">
+                        <span class="breadcrumb_pill_label">Employment Opportunities</span>
+                        <span class="breadcrumb_pill_icon">
+            <svg class="icon icon_caret_right">
+                <use href="/images/icons.svg#caret_right" />
+            </svg>
+        </span>
+                    </span>
+                </a>
+                            </li>
+            {/if}
+        {!--{/if}--}
         <li class="breadcrumb_item">
             <span class="breadcrumb_pill">
                 <span class="breadcrumb_pill_inner">

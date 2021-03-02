@@ -1,3 +1,11 @@
+<!-- START: exp:seeo:xml -->
+{exp:seeo:xml
+    prefer_canonical_urls="y"
+    format_output="y"
+    debug="y"}
+<!-- END: exp:seeo:xml -->
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

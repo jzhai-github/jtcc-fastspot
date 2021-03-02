@@ -1,0 +1,107 @@
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Employment Opportunities'}
+{preload_replace:p_description='About Employement Opportunities'}
+{preload_replace:p_url='about/employment-opportunities'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='employment_opportunities'}
+{preload_replace:ch_title='Employment Opportunities'}
+{preload_replace:ch_status='Open'}
+{preload_replace:ch_disable='member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='ch_disable' value='{ch_disable}'}
+{layout:set name='ch_status' value='{ch_status}'}
+{if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
+
+		
+{!--{if segment_3 != ''}
+	{exp:channel:entries limit="1"}<h1>{title}</h1>{/exp:channel:entries}
+{/if}--}
+			
+		
+			{!--{exp:channel:entries channel="about" limit="1"}
+			{content}
+			{/exp:channel:entries}--}
+	
+{!-- Pull in employment opportunities --}
+{!-- This embed grabs the category ID, and grabs the embed to categorize the jobs --}
+
+
+{if segment_3 == ""}
+	<h2>Current Openings</h2>
+
+	<h3>Classified, Full-Time Faculty, Wage and CCWA Positions</h3>
+
+	<p>John Tyler Community College only accepts online applications submitted through the&#8239;<a href="https://virginiajobs.peopleadmin.com/" target="_blank">Virginia Jobs web site</a>&#8239;for classified, full-time faculty, wage (hourly) and CCWA positions.&nbsp;We are unable to accept applications by any other method of submission. If you need computer access to submit your application, visit the&nbsp;<a href="http://www.vec.virginia.gov/vec-local-offices" target="_blank">Virginia Employment Commission</a>&nbsp;or your local public library.&nbsp;</p>
+
+	<p>All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&#8239;You should periodically check the Virginia Jobs website to review the status of your application.&nbsp;</p>
+	
+	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59'}
+			{categories}
+			  <h4>{category_name}</h4>
+				{!--{entry_titles}--}
+				{exp:channel:entries channel='{ch}' disable='{ch_disable}' sort="asc" category='{category_id}'}
+					<a href="/about/employment-opportunities/{category_url_title}">{title}</a><br />
+					{if no_results}<p>There are no vacancies at this time.</p>{/if}
+				{/exp:channel:entries}	
+				{!--{/entry_titles} --}
+			{/categories}
+			{entry_titles}
+        		<a href="/employment-opportunities/{url_title}">{title} {if {expiration_date} != ''}closes on {expiration_date format="%m/%d/%Y"}{if:else}open until filled{/if}</a><br />
+    		{/entry_titles}
+	{/exp:channel:category_archive}
+
+	<h3>Adjunct Faculty (Part-Time) Positions</h3>
+
+	<p>Adjunct (part-time) faculty positions follow a different application process and must be submitted via email to&#8239;<a href="mailto:adjunctjobs@jtcc.edu" target="_blank">adjunctjobs@jtcc.edu</a>. Please see the individual job announcements listed below for more information on how to apply for positions.&nbsp;All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&nbsp;</p>
+
+	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='59'}
+		{entry_titles}
+        	<a href="/employment-opportunities/{url_title}">{title}</a><br />
+    	{/entry_titles}
+	{/exp:channel:category_archive}
+
+	<p><strong>Diversity Statement</strong>&nbsp;</p>
+
+	<p>John Tyler Community College embraces a culture of diversity and inclusion that empowers anyone from anywhere to be successful in their academic and professional pursuits. We strive to provide an environment that is enriching to all by understanding and appreciating our&nbsp;dimensions of diversity, becoming global citizens, and welcoming new ways of engaging the unique contributions of all people.&#8239;Learn more [<strong>link to 5.10</strong>].&nbsp;</p>
+
+	<p><strong>Non-Discrimination Policy</strong>&nbsp;</p>
+
+	<p>John Tyler Community College does not discriminate on the basis of race, color, national origin, age, gender, or disability in its programs or activities. Women and minorities are encouraged to apply. Reasonable accommodations are provided for applicants with disabilities. Inquiries related to the college&rsquo;s non-discrimination policy should be directed to&#8239;<a href="mailto:sgrinnan@jtcc.edu" target="_blank">Susan F.&nbsp;Grinnan</a>, Vice President of Administration.&nbsp;</p>
+
+	<p>AA/EOE/ADA&nbsp;</p>
+
+
+{if:else}
+	{exp:channel:entries channel="{ch}" limit="1" disable="category_fields"}
+			<h4>{title} {if "{categories}{category_id}{/categories}" != '30'} 
+				{if expiration_date}<span class="exp-date"> - {if job_expiration_statement == 'y'}review of applications begins{if:else}closes on{/if} {expiration_date format="%m/%d/%y"}</span>{if:elseif alt_expiration_date != ''}{alt_expiration_date}{if:else}	
+				Open until filled{/if}{/if}</h4>
+			{if "{categories}{category_id}{/categories}" == '30'}{if alt_expiration_date}<p><strong>Closing Date:</strong> {alt_expiration_date}</p>{/if}{/if}
+			<p><strong>Hiring Range:</strong> {hiring_range}</p>
+			{!-- {if "{categories}{category_id}{/categories}" == '30'}
+				<p><strong>General Information:</strong> Adjunct faculty teaching is limited to a maximum of 8 credit hours in the summer semester, 12 credit hours in the fall semester, and 12 credit hours in the spring semester. These limits are for total number of credit hours taught in the Virginia’s Community Colleges (VCCS). Additional restrictions may apply depending upon other positions occupied within VCCS.<br /><br />Please note that there may not currently be an opening in this area and that the division office will contact you should an opening occur.</p>
+			{if:else} --}
+				{if general_information}<p><strong>General Information:</strong> {general_information}</p>{/if}
+			{!-- {/if} --}
+			{if job_responsibilities}<p><strong>Responsibilities:</strong> {job_responsibilities}</p>{/if}
+			<p><strong>Qualifications:</strong> {job_qualifications}</p>
+			<p><strong>Application Instructions:</strong> {job_application_instructions}</p> 
+			<!-- <p><strong>Nondiscrimination Policy:</strong> John Tyler Community College does not discriminate on the basis of race, color, national origin, gender, or disability in its programs or activities. Inquiries related to the college’s nondiscrimination policy should be directed to Susan Grinnan, Director of Human Resources, who can be reached by mail at 13101 Jefferson Davis Highway, Chester, VA 23831, by e-mail at <a href="mailto:sgrinnan@jtcc.edu">sgrinnan@jtcc.edu</a> or by at phone 804-594-1417.</p> -->
+			<div class="top-margin15" id="share">
+					{exp:hj_social_bookmarks sites="Facebook|LinkedIn|Twitter|Email" entry_id="{entry_id}"}
+			</div>
+	{/exp:channel:entries}
+{/if}
+
+
+
+			
