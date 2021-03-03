@@ -493,14 +493,14 @@ span.time{
 			background: #ffffff;
 			border-bottom: none;
 		}
-		h2{
-			margin-top: 0;
-		}
 	}
 	.filter_tabs,
 	.filter_panels{
 		background: #ffffff;
 		color: #000000;
+		h2{
+			margin-top: 0;
+		}
 	}
 	.filter_panels{
 		border: 0.0625rem solid #dddddd;
