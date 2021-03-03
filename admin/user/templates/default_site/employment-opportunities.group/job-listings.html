@@ -44,18 +44,18 @@
 
 	<p>All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&#8239;You should periodically check the Virginia Jobs website to review the status of your application.&nbsp;</p>
 	
-	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59'}
+	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59' show_empty="no"}
 			{categories}
 			  <h4>{category_name}</h4>
 				{!--{entry_titles}--}
-				{exp:channel:entries channel='{ch}' disable='{ch_disable}' sort="asc" category='{category_id}'}
+				{!--{exp:channel:entries channel='{ch}' disable='{ch_disable}' sort="asc" category='{category_id}'}
 					<a href="/about/employment-opportunities/{category_url_title}">{title}</a><br />
 					{if no_results}<p>There are no vacancies at this time.</p>{/if}
-				{/exp:channel:entries}	
+				{/exp:channel:entries}--}
 				{!--{/entry_titles} --}
 			{/categories}
 			{entry_titles}
-        		<a href="/employment-opportunities/{url_title}">{title} {if {expiration_date} != ''}closes on {expiration_date format="%m/%d/%Y"}{if:else}open until filled{/if}</a><br />
+        		<a href="/employment-opportunities/{url_title}">{title} {if expiration_date}closes on {expiration_date format="%m/%d/%Y"}{if:else}open until filled{/if}</a><br />
     		{/entry_titles}
 	{/exp:channel:category_archive}
 

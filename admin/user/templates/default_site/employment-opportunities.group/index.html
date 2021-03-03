@@ -63,7 +63,11 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="wysiwyg_block_inner typography">
-					{categories show_group="9"}<h4>{category_name}</h4>{/categories}
+					{categories show_group="9"}<h4>{category_name}</h4>
+						{if category_id != "59"}
+							<p><strong>Close Date:</strong> {if expiration_date} {expiration_date format="%m/%d/%Y"} {if:else} Open until filled {/if}</p>
+						{/if}
+					{/categories}
 					{content}					
 				</div>
 			</div>
