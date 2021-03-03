@@ -36,13 +36,13 @@
 
 
 {if segment_3 == ""}
-	<h2>Current Openings</h2>
+	{!--<h2>Current Openings</h2>
 
 	<h3>Classified, Full-Time Faculty, Wage and CCWA Positions</h3>
 
 	<p>John Tyler Community College only accepts online applications submitted through the&#8239;<a href="https://virginiajobs.peopleadmin.com/" target="_blank">Virginia Jobs web site</a>&#8239;for classified, full-time faculty, wage (hourly) and CCWA positions.&nbsp;We are unable to accept applications by any other method of submission. If you need computer access to submit your application, visit the&nbsp;<a href="http://www.vec.virginia.gov/vec-local-offices" target="_blank">Virginia Employment Commission</a>&nbsp;or your local public library.&nbsp;</p>
 
-	<p>All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&#8239;You should periodically check the Virginia Jobs website to review the status of your application.&nbsp;</p>
+	<p>All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&#8239;You should periodically check the Virginia Jobs website to review the status of your application.&nbsp;</p>--}
 	
 	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59' show_empty="no"}
 			{categories}
@@ -55,7 +55,7 @@
 				{!--{/entry_titles} --}
 			{/categories}
 			{entry_titles}
-        		<a href="/employment-opportunities/{url_title}">{title} {if expiration_date}closes on {expiration_date format="%m/%d/%Y"}{if:else}open until filled{/if}</a><br />
+        		<a href="/employment-opportunities/{url_title}">{title} {!--{if expiration_date}closes on {expiration_date format="%m/%d/%Y"}{if:else}open until filled{/if}--}</a><br />
     		{/entry_titles}
 	{/exp:channel:category_archive}
 
