@@ -1,0 +1,295 @@
+.seeo {
+    background-color: #fff;
+    margin: 18px 12px 36px 12px;
+    padding: 0px 0 10px 0;
+}
+
+#ext_settings_seeo .box {
+    margin-bottom: 10px;
+}
+
+.seeo input[type=checkbox],
+.seeo input[type=radio]{
+    margin-right: 2px;
+}
+
+/*
+* SEEO Table Display
+*/
+
+.seeo table {
+    border-radius: 6px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#mainContent .seeo table caption {
+    padding: 12px 0 12px 24px;
+    background: #4F5E66 none;
+}
+
+.seeo table th {
+    background-image: none;
+    border: none;
+    background-color: transparent;
+    vertical-align: top;
+    padding: 2em;
+    color: #5f6c74;
+    text-align: right;
+}
+
+.seeo table tr {
+    background-color: #f8f8f8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 248, 248)), to(rgb(254, 253, 255)));
+    background-image: -webkit-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -moz-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -o-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -ms-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f8f8f8', EndColorStr='#fefdff');
+}
+
+.seeo table tr td,
+.seeo table tr.odd td,
+.seeo table tr.even td{
+    background-color: transparent;
+    border: none !important;
+    padding: 2em;
+    vertical-align: top;
+}
+
+.seeo span.seeo__instructions {
+    display: block;
+    color: #999;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.1rem;
+}
+
+/*
+* A few overrides for the Audit tables
+*/
+
+.seeo table.seeo__audit_table {
+    margin-bottom: 2px !important;
+}
+.seeo table.seeo__audit_table th {
+    text-align: left;
+}
+
+.seeo table.seeo__audit_table tr td,
+.seeo table.seeo__audit_table tr th{
+    padding: 1em;
+}
+
+/*
+* Additional Channel Settings Div
+*/
+
+.seeo__channel-options {
+    padding: 0;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-bottom: 2px solid #eee;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: white;
+    margin: 24px 0 12px;
+}
+
+.seeo__channel-options.first {
+    margin-top: 0;
+}
+
+.seeo__channel-options.last {
+    margin-bottom: 0;
+}
+
+.seeo__channel-options ul {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 18px;
+  list-style-type: none;
+}
+
+.seeo__channel-options ul li {
+    margin-top: 1em;
+}
+
+.seeo__channel-options ul li ul {
+    margin-left: 1.3em;
+}
+
+.seeo__channel-options ul li label {
+    font-weight: normal;
+}
+
+.seeo__large-arrow {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.seeo h4.seeo__additional-channel-options-heading {
+    border-bottom: 1px solid #eee;
+    padding: 12px 0 9px 12px;
+    color: #5f6c74 !important;
+    background-color: #f8f8f8;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(248, 248, 248)), to(rgb(254, 253, 255)));
+    background-image: -webkit-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -moz-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -o-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: -ms-linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    background-image: linear-gradient(top, rgb(248, 248, 248), rgb(254, 253, 255));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, StartColorStr='#f8f8f8', EndColorStr='#fefdff');
+}
+
+.seeo__additional-options {
+    padding: 12px;
+    margin-top: 12px;
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+#mainContent .pageContents p#paginationLinks {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+#default_template {
+    max-height: 350px;
+}
+
+/*
+* Settings file uploader
+*/
+.seeo .publish_file p {
+    margin: 5px 17px 0px 12px;
+}
+
+.js-seeo--hide {
+    display: none;
+}
+
+.seeo__radio-label,
+.seeo__checkbox-label {
+    margin-right: 1em;
+}
+
+.seeo__sitemap-field {
+    /*margin-left: 18px;*/
+    margin-top: 0 !important;
+    padding: 10px;
+    background-color: #f6f6f6;
+}
+
+.seeo__sitemap-field-first {
+    margin-top: 1em !important;
+    padding-top: 14px;
+    /*border-top: 1px solid #eee;*/
+}
+
+/*
+* Template Page meta css
+*/
+.seeo .setting-field textarea {
+    min-height: 0px;
+}
+
+.seeo-table-item-badge {
+    padding: 8px 0px;
+    display: inline-grid;
+    width: 75%;
+}
+.seeo-table-row td {
+    padding-top: 16px;
+    padding-bottom: 18px;
+    text-align: center;
+}
+
+/* Tooltip container */
+.seeo-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.seeo-tooltip .seeo-tooltiptext {
+    visibility: hidden;
+    min-width: 200px;
+    max-width: 620px;
+    text-align: center;
+    padding: 5px 18px;
+    bottom: 122%;
+    left: 20%;
+    margin-left: -60px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+
+    background-color: #fff;
+    border: 1px solid #b3b3b3;
+    display: none;
+
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+    -webkit-box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.1);
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.seeo-tooltip:hover .seeo-tooltiptext {
+    visibility: visible;
+}
+
+.seeo-tooltiptext-inner {
+    line-height: 1.4;
+    margin-bottom: 16px;
+    padding: 16px 16px 0;
+}
+
+.seeo-tooltiptext-inner h3 {
+    color: #333;
+    font-size: 14px;
+}
+
+.seeo-tooltiptext-inner p {
+    color: gray;
+    font-size: 12px;
+    font-style: normal;
+
+    white-space: pre;
+    overflow: auto;
+}
+
+.seeo-tooltip .seeo-tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50px;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #b3b3b3 transparent transparent transparent;
+}
+
+div.settings.seeo {
+    margin-bottom: 18px;
+}
+
+div.settings.seeo fieldset:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+div.settings.seeo fieldset .publish p:last-child {
+    margin-bottom: 10px;
+}
+
+.setting-field.last > div.seeo {
+    margin-bottom: 0px;
+}

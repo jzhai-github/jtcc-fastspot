@@ -1,0 +1,16 @@
+{
+    "name": "Seeo",
+    "shortname": "seeo",
+    "version": "1.5.0",
+    "foundation_version": "4.6.1",
+    "description": "SEEO (sē'ō): Search ExpressionEngine Optimization",
+    "license": "EEHarbor",
+    "namespace": "EEHarbor\\Seeo",
+    "require": {
+        "php": ">=5.3.*",
+        "expressionengine/core": ">=3.5.17"
+    },
+    "resources": {
+        "themes": true
+    }
+}

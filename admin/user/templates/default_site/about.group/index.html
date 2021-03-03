@@ -35,21 +35,13 @@
 	{layout:set name='page_description'}{if page_description}{page_description}{/if}{/layout:set}
 
 	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
-
 	{layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
-
 	{layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
 	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
-	
-	{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
-	{!-- OpenGraph meta output --}
-	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
-	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
-	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
-	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
-	{!-- /layout vars, dynamic, not output --}
+	{layout:set name="entry_id"}{entry_id}{/layout:set}
+
 
 	{!-- content output --}
 	{!--{if logged_in}
@@ -65,12 +57,16 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="wysiwyg_block_inner typography">
-					{content}					
+					{content}
+					{if segment_2 == 'employment-opportunities'}
+						{embed="employment-opportunities/job-listings"}
+					{/if}					
 				</div>
 			</div>
 		</div>
 	</div>
 	{/main_content:wysiwyg_block}
+
 	
 	{main_content:flex_callout_image}
 	{content}
