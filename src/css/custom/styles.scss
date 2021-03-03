@@ -486,10 +486,14 @@ span.time{
 }
 .wysiwyg_block{
 	.filter_tab{
+		background: #f1f1f1;
 		border: 0.0625rem solid #dddddd;
+		color: #000000;
+		&.fs-swap-enabled.fs-swap-active{
+			background: #ffffff;
+			border-bottom: none;
+		}
 	}
-	.filter_tab,
-	.filter_tab.fs-swap-active,
 	.filter_tabs,
 	.filter_panels{
 		background: #ffffff;
