@@ -485,13 +485,18 @@ span.time{
 	display: none;
 }
 .wysiwyg_block{
+	.filter_tab{
+		border: 0.0625rem solid #dddddd;
+	}
 	.filter_tab,
 	.filter_tab.fs-swap-active,
+	.filter_tabs,
 	.filter_panels{
 		background: #ffffff;
 		color: #000000;
 	}
 	.filter_panels{
+		border: 0.0625rem solid #dddddd;
 		.fs-cell{
 			padding:0 2.045%;
 		}
