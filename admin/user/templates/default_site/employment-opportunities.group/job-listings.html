@@ -21,15 +21,6 @@
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
-		
-{!--{if segment_3 != ''}
-	{exp:channel:entries limit="1"}<h1>{title}</h1>{/exp:channel:entries}
-{/if}--}
-			
-		
-			{!--{exp:channel:entries channel="about" limit="1"}
-			{content}
-			{/exp:channel:entries}--}
 	
 {!-- Pull in employment opportunities --}
 {!-- This embed grabs the category ID, and grabs the embed to categorize the jobs --}
@@ -44,7 +35,7 @@
 
 	<p>All applications will be screened according to the position requirements.&#8239;Only individuals selected for an interview will be contacted.&#8239;You should periodically check the Virginia Jobs website to review the status of your application.&nbsp;</p>--}
 	
-	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59' show_empty="no"}
+	{exp:channel:category_archive channel='{ch}' style='linear' category_group='9' show='not 59' show_empty="no" show_expired="no"}
 			{categories}
 			  <h4>{category_name}</h4>
 				{!--{entry_titles}--}
@@ -79,27 +70,6 @@
 
 	<p>AA/EOE/ADA&nbsp;</p>
 
-
-{if:else}
-	{exp:channel:entries channel="{ch}" limit="1" disable="category_fields"}
-			<h4>{title} {if "{categories}{category_id}{/categories}" != '30'} 
-				{if expiration_date}<span class="exp-date"> - {if job_expiration_statement == 'y'}review of applications begins{if:else}closes on{/if} {expiration_date format="%m/%d/%y"}</span>{if:elseif alt_expiration_date != ''}{alt_expiration_date}{if:else}	
-				Open until filled{/if}{/if}</h4>
-			{if "{categories}{category_id}{/categories}" == '30'}{if alt_expiration_date}<p><strong>Closing Date:</strong> {alt_expiration_date}</p>{/if}{/if}
-			<p><strong>Hiring Range:</strong> {hiring_range}</p>
-			{!-- {if "{categories}{category_id}{/categories}" == '30'}
-				<p><strong>General Information:</strong> Adjunct faculty teaching is limited to a maximum of 8 credit hours in the summer semester, 12 credit hours in the fall semester, and 12 credit hours in the spring semester. These limits are for total number of credit hours taught in the Virginia’s Community Colleges (VCCS). Additional restrictions may apply depending upon other positions occupied within VCCS.<br /><br />Please note that there may not currently be an opening in this area and that the division office will contact you should an opening occur.</p>
-			{if:else} --}
-				{if general_information}<p><strong>General Information:</strong> {general_information}</p>{/if}
-			{!-- {/if} --}
-			{if job_responsibilities}<p><strong>Responsibilities:</strong> {job_responsibilities}</p>{/if}
-			<p><strong>Qualifications:</strong> {job_qualifications}</p>
-			<p><strong>Application Instructions:</strong> {job_application_instructions}</p> 
-			<!-- <p><strong>Nondiscrimination Policy:</strong> John Tyler Community College does not discriminate on the basis of race, color, national origin, gender, or disability in its programs or activities. Inquiries related to the college’s nondiscrimination policy should be directed to Susan Grinnan, Director of Human Resources, who can be reached by mail at 13101 Jefferson Davis Highway, Chester, VA 23831, by e-mail at <a href="mailto:sgrinnan@jtcc.edu">sgrinnan@jtcc.edu</a> or by at phone 804-594-1417.</p> -->
-			<div class="top-margin15" id="share">
-					{exp:hj_social_bookmarks sites="Facebook|LinkedIn|Twitter|Email" entry_id="{entry_id}"}
-			</div>
-	{/exp:channel:entries}
 {/if}
 
 

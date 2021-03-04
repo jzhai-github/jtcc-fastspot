@@ -68,7 +68,10 @@
 							<p><strong>Close Date:</strong> {if expiration_date} {expiration_date format="%m/%d/%Y"} {if:else} Open until filled {/if}</p>
 						{/if}
 					{/categories}
-					{content}					
+					{content}
+					{!--<div class="top-margin15" id="share">
+					{exp:hj_social_bookmarks sites="Facebook|LinkedIn|Twitter|Email" entry_id="{entry_id}"}
+					</div>--}					
 				</div>
 			</div>
 		</div>

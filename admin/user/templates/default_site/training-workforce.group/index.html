@@ -73,6 +73,51 @@
 	</div>
 	{/main_content:wysiwyg_block}
 	
+	{main_content:js_accordion}
+		<div class="main-content js-accordion program_list">
+	<div class="program_list_inner">
+		<ul class="program_list_items" id="item_list" aria-label="">
+			{content}
+			<li class="js-accordion-item js-program-item-{content:count} program_item fs-swap-target fs-swap-enabled">
+				<div class="fs-row">
+					<div class="fs-cell">
+						<div class="program_item_inner">
+							<h2 class="program_item_heading">
+								<button class="js-accordion-swap js-swap program_item_button fs-swap-element fs-swap-enabled" data-swap-target=".js-program-item-{content:count}" data-swap-group="program-group-1" aria-expanded="false">
+									<span class="program_item_heading_inner">
+										<span class="program_item_heading_label">
+											<span class="program_item_heading_title">
+												<span class="program_item_heading_title_label">{content:js_accordion_title}</span>
+												<span class="program_item_heading_title_icon">
+													<svg class="icon icon_caret_right">
+														<use href="/images/icons.svg#caret_right"></use>
+													</svg>
+												</span>
+											</span>
+									</span>
+									<span class="program_item_heading_icon"></span>
+								</span>
+								</button>
+							</h2>	
+							<div class="js-accordion-content program_item_content" aria-label="{content:js_accordion_title}" aria-hidden="true">
+								<div class="program_item_content_inner">
+									<div class="program_item_content_group">
+										<div class="program_item_description typography">
+											{content:js_accordion_content}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>	
+	{/content}		
+		</ul>
+	</div>
+</div>
+	{/main_content:js_accordion}
+	
 	{main_content:flex_callout_image}
 	{content}
 	<div class="flex_callout">
