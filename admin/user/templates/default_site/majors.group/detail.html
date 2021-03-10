@@ -10,12 +10,12 @@
 {/if}--}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='Major'}
-{preload_replace:p_description='Major description here...'}
-{preload_replace:p_url='major'}
+{preload_replace:p_title='Majors'}
+{preload_replace:p_description='Majors description here...'}
+{preload_replace:p_url='majors'}
 {!-- channel vars (prefix ch_) --}
-{preload_replace:ch='major'}
-{preload_replace:ch_title='Major'}
+{preload_replace:ch='majors'}
+{preload_replace:ch_title='Majors'}
 {preload_replace:ch_status='Open|Default Page'}
 {preload_replace:ch_disable='member_data|pagination'}
 {!-- layout vars, channel/page related --}
@@ -50,6 +50,7 @@
 	{layout:set name='og_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
 	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
 	{layout:set name='og_description' value='{if seo_description}{seo_description}{if:else}{p_description}{/if}'}
+	{layout:set name="entry_id"}{entry_id}{/layout:set}
 	{!-- /layout vars, dynamic, not output --}
 
 	{!-- content output --}

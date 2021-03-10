@@ -27,8 +27,8 @@
 								<div class="page_intro_inner">
 									
 									{!--{snp_breadcrumbs}--}
-									{if segment_1 == 'major' || segment_1 == 'employment-opportunities'} 
-										{embed="common/_breadcrumbs_major"}
+									{if segment_1 == 'majors' || segment_1 == 'employment-opportunities'} 
+										{embed="common/_breadcrumbs_static"}
 									{if:else}	
 										{embed="common/_breadcrumbs_tyler"}
 									{/if}
@@ -48,8 +48,8 @@
 	<div class="page_header">
 		<div class="page_header_inner">
 			<div class="page_header_body">
-				{if segment_1 == 'major' || segment_1 == 'employment-opportunities'} 
-					{embed="common/_breadcrumbs_major_no_image"}
+				{if segment_1 == 'majors' || segment_1 == 'employment-opportunities'} 
+					{embed="common/_breadcrumbs_static_no_image"}
 				{if:else}
 					{embed="common/_breadcrumbs_tyler_no_image"}
 				{/if}
@@ -70,7 +70,7 @@
 </div>
 	{/if}
 
-{if segment_1 != 'major' && segment_1 != 'employment-opportunities'}
+{if segment_1 != 'majors' && segment_1 != 'employment-opportunities'}
 	<div class="page_nav">
 	<div class="fs-row">
 		<div class="fs-cell">

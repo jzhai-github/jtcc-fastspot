@@ -50,6 +50,7 @@
 	{layout:set name='og_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
 	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
 	{layout:set name='og_description' value='{if seo_description}{seo_description}{if:else}{p_description}{/if}'}
+	{layout:set name="entry_id"}{entry_id}{/layout:set}
 	{!-- /layout vars, dynamic, not output --}
 
 	{!-- content output --}

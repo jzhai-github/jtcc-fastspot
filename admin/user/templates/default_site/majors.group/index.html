@@ -7,7 +7,7 @@
 		<?php $cat_id = '{cat_id}'; ?>
 	{/exp:query}--}
 	
-	{!--{embed="major/cat_id" cat="{cat_id}"}{embed:cat}--} 
+	{!--{embed="majors/cat_id" cat="{cat_id}"}{embed:cat}--} 
 	{!--{layout:set name="cat" value="{embed:cat}"}--}
 	
 	
@@ -29,7 +29,7 @@
 	
 	{!--{snp_cat_id}--}{!--<?php echo $cat_id; ?>--}
 		
-	{exp:channel:entries channel="major" disable="member_data" category="{segment_2}" dynamic="no"} 
+	{exp:channel:entries channel="majors" disable="member_data" category="{segment_2}" dynamic="no"} 
 		{categories}
 		{if category_id == '{segment_2}'}
 		{if {count} == "1"}
@@ -46,7 +46,7 @@
 						
 
 	{!--<a href="page-news-listing.html" class="filter_results_reset_link" >--}
-	<a href="/major" class="filter_results_reset_link" >
+	<a href="/majors" class="filter_results_reset_link" >
 	<span class="filter_results_reset_link_inner">
 		<span class="filter_results_reset_link_label">Reset</span>
 					<span class="filter_results_reset_link_icon" aria-hidden="true">
@@ -72,14 +72,14 @@
 	{/exp:channel:entries}
 
 	{if no_results AND segment_2 !=''} 
-		{redirect="major/noresults"} 
+		{redirect="majors/noresults"} 
 	{/if}
 
 	
 	<div class="js-accordion program_list">
 	<div class="program_list_inner">
 		<ul class="program_list_items" id="item_list" aria-label="">
-		{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="{segment_2}" dynamic="no"}
+		{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc" category="{segment_2}" dynamic="no"}
 				<li class="js-accordion-item js-program-item-2-{count} program_item">
 					<div class="fs-row">
 						<div class="fs-cell">
@@ -143,7 +143,7 @@
 															</svg>
 														</span>
 														</a>--}
-														<br /><br /><h3><a class="program_item_detail_data_link" href="/major/{url_title}">
+														<br /><br /><h3><a class="program_item_detail_data_link" href="/majors/{url_title}">
 															<span class="program_item_detail_data_link_label">Major Details</span>
 													<span class="program_item_detail_data_link_icon">
 															<svg class="icon icon_caret_right">
@@ -190,14 +190,14 @@
 {if:else}
 	{!--</div>--}
 
-{!--{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="20&10" dynamic="no"}
+{!--{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc" category="20&10" dynamic="no"}
 	{title}
 {/exp:channel:entries}--}
 	
 <div class="js-accordion program_list">
 	<div class="program_list_inner">
 		<ul class="program_list_items" id="item_list" aria-label="">
-			{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc"}
+			{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc"}
 				<li class="js-accordion-item js-program-item-1-{count} program_item">
 					<div class="fs-row">
 						<div class="fs-cell">
@@ -262,7 +262,7 @@
 														</span>
 														</a>--}
 														
-														<br /><br /><h3><a class="program_item_detail_data_link" href="/major/{url_title}">
+														<br /><br /><h3><a class="program_item_detail_data_link" href="/majors/{url_title}">
 															<span class="program_item_detail_data_link_label">Major Details</span>
 													<span class="program_item_detail_data_link_icon">
 															<svg class="icon icon_caret_right">

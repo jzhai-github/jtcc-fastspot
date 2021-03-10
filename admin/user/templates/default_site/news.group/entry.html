@@ -73,6 +73,7 @@
 	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
 	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
 	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+	{layout:set name="entry_id"}{entry_id}{/layout:set}
 	{!-- /layout vars, dynamic, not output --}
 
 	{!-- content output --}
