@@ -27,6 +27,19 @@
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
+{!--
+{if segment_2 == 'tyler-a-z'}
+	<div class="wysiwyg_block">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="wysiwyg_block_inner typography">
+{exp:structure:nav start_from="/" show_depth="999"}
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
+--}
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}
@@ -51,6 +64,7 @@
 	{!-- page_content --}
 			
 {layout:contents}
+
 {main_content}
 	{main_content:wysiwyg_block}
 	<div class="wysiwyg_block">
