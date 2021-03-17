@@ -2,6 +2,10 @@
 ## Emailed updates on your channel entries!
 ![Mail After Edit Logo](./assets/mail-after-edit-email.png)
 
+### NEW IN VERSION 2.2
+- **CREATE? EDIT? BOTH?**: Choose whether you want to run a channel when you create an entry, update an entry, or both!
+- **CLEAAAAAN CODE**: We're fixing bugs and cleaning code!
+
 ### NEW IN VERSION 2.1
 - EE6 READY! Just drop it on in to any ExpressionEngine set up from EE3 to EE6!
 - AUTHOR SENDING: Include the author on every one of their updated entries
@@ -51,6 +55,8 @@ This contains your channel information.
 
 + **Email**: If the type is set to email, this is the email addresses you will send notifications to. Email addresses should be separated by pipes (|), i.e. `from@example.com|fromagain@example.com|awesomeemail@example.com`
 
++ **Mail On**: Choose the type of update to run. Can be `create` or `edit` or both. If set to `create`, this will send an email when an entry is created in a channel. If set to `edit`, it will send when an entry is updated.
+
 + **Groups**: If the type is set to member_group, this is the groups that will receive notifications re: this channel.
 
 + **From**: This is the email your email notifications will come from. This will override the MESSAGE_INFO setting
@@ -62,8 +68,8 @@ These fields will be skipped in emails, as they are not used that much and will 
 By default, Mail After Edit will add data to your Developer logs, so you can track your emails. If, for whatever reason, it is unable to access the developer logging, MAE will create a small file in your MAE directory. You can access this file via the MAE settingsdashboard.
 
 ### TROUBLESHOOTING
-1. Check the developer logs/MAE logs. Check to see if any EE mailer errors had occurred in there.
-2. Check your EE Mail settings and send a test email.
+1. Check your EE Mail settings and send a test email.
+2. Check the developer logs/MAE logs. Check to see if any EE mailer errors had occurred in there.
 3. Contact support for any additional assistance.
 
 ### USE

@@ -32,14 +32,10 @@ class SettingsService {
 		];
 
 		return ee()->load->view('settings', $params, true);
-
-		// return ee('View')->make('ee:_shared/form')->render($vars);
-
 	}
 
 	public static function save($data)
 	{
-
 		$settings = self::getSettings();
 
 		$settingsData = [
@@ -47,13 +43,8 @@ class SettingsService {
 			'message_config'	=> $data['message_config'],
 		];
 
-		$settingsData['message_config']['force_bcc'] = $data['message_config']['force_bcc'] == 'true'
-															? true
-															: false;
-
-		$settingsData['message_config']['send_individually'] = $data['message_config']['send_individually'] == 'true'
-															? true
-															: false;
+		$settingsData['message_config']['force_bcc'] = isset($data['message_config']['force_bcc']) && $data['message_config']['force_bcc'] == 'true';
+		$settingsData['message_config']['send_individually'] = isset($data['message_config']['send_individually']) && $data['message_config']['send_individually'] == 'true';
 
 		$newChannelData = [];
 
@@ -63,6 +54,7 @@ class SettingsService {
 				'channel'		=> $channel['channel'],
 				'type'			=> $channel['type'],
 				'from'			=> isset($channel['from']) ? $channel['from'] : '',
+				'mail_on'		=> isset($channel['mail_on']) ? $channel['mail_on'] : [],
 				'skip_fields'	=> isset($channel['skip_fields'])
 									? (is_array($channel['skip_fields'])
 										? $channel['skip_fields']
@@ -83,10 +75,15 @@ class SettingsService {
 			'settings'	=> serialize($settingsData),
 		];
 
-		ee()->db->update('extensions', $data, ['class' => 'Mail_after_edit_ext']);
+		ee()->db->update(
+			'extensions',
+			$data,
+			[
+				'class' => 'Mail_after_edit_ext'
+			]
+		);
 
 		return ee()->output->send_ajax_response($settingsData);
-
 	}
 
 	public static function getChannels()
@@ -108,7 +105,6 @@ class SettingsService {
 		});
 
 		return $results;
-
 	}
 
 	public static function getMemberGroups()
@@ -160,7 +156,6 @@ class SettingsService {
 		$settings = unserialize($configData['settings']);
 
 		return $settings;
-
 	}
 
 }

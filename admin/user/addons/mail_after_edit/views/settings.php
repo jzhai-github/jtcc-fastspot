@@ -101,7 +101,7 @@
 					<th colspan="2">
 						<h2>Channel Information</h2>
 					</th>
-					<th colspan="5" style="text-align: right;">
+					<th colspan="6" style="text-align: right;">
 						<a v-on:click="addChannel" class="btn">Add Channel</a>
 					</th>
 				</tr>
@@ -114,6 +114,9 @@
 					</th>
 					<th>
 						Send To
+					</th>
+					<th>
+						Mail On
 					</th>
 					<th>
 						Notify Author
@@ -153,6 +156,12 @@
 						</select>
 					</td>
 					<td>
+						<select v-model="channel.mail_on" multiple v-on:change="changeChannel($event, channel.channel, 'mail_on')">
+							<option value="create">Entry Created</option>
+							<option value="edit">Entry Changed</option>
+						</select>
+					</td>
+					<td>
 						<input type="checkbox" v-model="channel.author" v-on:change="changeChannel($event, channel.channel, 'author')" />
 					</td>
 					<td>
@@ -163,8 +172,14 @@
 					</td>
 					<td>
 						<ul class="toolbar">
-							<li class="remove">
-								<a v-on:click.prevent="removeRow(idx)" class="m-link"></a>
+							<li v-if="!shouldShowToggle(idx)">
+								<a v-on:click.prevent="toggleShow(idx)" class="button button--secondary button--small mae-btn">&nbsp;&nbsp;Remove&nbsp;&nbsp;</a>
+							</li>
+							<li v-if="shouldShowToggle(idx)">
+								<a v-on:click.prevent="removeRow(idx)" class="button button--danger button--small mae-btn">Are You Sure?</a>
+							</li>
+							<li v-if="shouldShowToggle(idx)">
+								<a v-on:click.prevent="toggleShow" class="button button--secondary button--small mae-btn">Back to Safety</a>
 							</li>
 						</ul>
 					</td>
@@ -208,10 +223,17 @@
 				channels: <?php echo json_encode($channels); ?>,
 				memberGroups: <?php echo json_encode($memberGroups); ?>,
 				memberPlaceholder: "<?php echo $memberPlaceholder; ?>",
-				saveUrl: "<?php echo $save_url; ?>"
+				saveUrl: "<?php echo $save_url; ?>",
+				showConfirm: null
 			}
 		},
 		methods: {
+			toggleShow(idx = null) {
+				this.showConfirm = idx
+			},
+			shouldShowToggle(idx) {
+				return this.showConfirm == idx
+			},
 			changeChannel(event, channel, type) {
 
 				var val = event.target.value,
@@ -256,9 +278,8 @@
 			},
 			removeRow(idx) {
 				var out = [];
-
+				this.showConfirm = null
 				this.channel_config.forEach(function(c, index) {
-
 					if(index !== idx) {
 						out.push(c);
 					}
@@ -268,9 +289,6 @@
 				this.channel_config = out
 			},
 			saveSettings: function () {
-
-				console.log('this.channel_config', this.channel_config);
-
 				var sendData = {
 					message_config: this.message_config,
 					channel_config: this.channel_config,
@@ -291,7 +309,6 @@
 
 			},
 			addChannel: function() {
-
 				var ch = {
 					channel: null,
 					type: 'email',
@@ -300,8 +317,14 @@
 				}
 
 				this.channel_config.push(ch)
-
 			}
 		}
 	});
 </script>
+<style type="text/css" media="screen">
+	.mae-btn:hover {
+		background: #5d63f1 !important;
+		color: white;
+		transition: all 0.2s;
+	}
+</style>

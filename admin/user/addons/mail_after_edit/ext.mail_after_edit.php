@@ -9,7 +9,7 @@ class Mail_after_edit_ext {
 
 	public $settings = [];
 
-	public $version = '2.1.0';
+	public $version = '2.2.0';
 
 	public $entryService;
 
@@ -88,14 +88,11 @@ class Mail_after_edit_ext {
 			];
 
 			foreach ($data as $hook) {
-
 				ee()->db->insert('extensions', $hook);
-
 			}
 
 		} elseif(version_compare($current, '2.0.2', '<')) {
-
-			// Version 2.02
+			// Version 2.02 - add force BCC and send individual emails
 			$settings = SettingsService::getSettings();
 
 			$settings['message_config']['force_bcc'] = false;
@@ -108,8 +105,7 @@ class Mail_after_edit_ext {
 			ee()->db->update('extensions', $data, ['class' => 'Mail_after_edit_ext']);
 
 		} elseif(version_compare($current, '2.1.0', '<')) {
-
-			// Version 2.1.0
+			// Version 2.1.0 - add author check
 			$settings = SettingsService::getSettings();
 
 			foreach ($settings['channel_config'] as $key => $channelConfig) {
@@ -122,6 +118,19 @@ class Mail_after_edit_ext {
 
 			ee()->db->update('extensions', $data, ['class' => 'Mail_after_edit_ext']);
 
+		} elseif(version_compare($current, '2.2.0', '<')) {
+			// Version 2.2.0 - add mail_on setting
+			$settings = SettingsService::getSettings();
+
+			foreach ($settings['channel_config'] as $key => $channelConfig) {
+				$settings['channel_config'][$key]['mail_on'] = ['create' , 'edit'];
+			}
+
+			$data = [
+				'settings'	=> serialize($settings),
+			];
+
+			ee()->db->update('extensions', $data, ['class' => 'Mail_after_edit_ext']);
 		}
 
 		// UPDATE HOOKS
@@ -137,7 +146,6 @@ class Mail_after_edit_ext {
 	public function save_settings()
 	{
 	    if (empty($_POST)) show_error(lang('unauthorized_access'));
-
 	    return SettingsService::save($_POST);
 	}
 
@@ -155,7 +163,6 @@ class Mail_after_edit_ext {
 	// Settings move
 	private function initializeSettings()
 	{
-
 		// Set up app settings
 		$settingData = [
 			'channel_config'	=> [],
@@ -173,7 +180,6 @@ class Mail_after_edit_ext {
 		];
 
 		return serialize($settingData);
-
 	}
 
 	private function getSettingsFromFile()

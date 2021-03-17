@@ -10,31 +10,28 @@ use TNS\MailAfterEdit\SendService;
 
 class EntryService {
 
-	private $settings;
-
 	public $logger;
-
 	public $send;
-
 	public $mae_fields;
-
 	public $skip_fields;
-
 	public $channel;
+
+	private $settings;
 
 	public function __construct()
 	{
-
 		$this->settings = $this->getSettings();
 
-		$query = ee()->db->select('*')
-							->from('channel_fields c')
-							->get();
+		$fields = ee('Model')->get('ChannelField')
+						->all();
 		
-		foreach ($query->result() as $row) {
-
-			$this->mae_fields[$row->field_id] = (array) $row;
-
+		$this->mae_fields = [];
+		foreach ($fields as $field) {
+			$this->mae_fields[$field->field_id] = [
+				'field_name'	=> $field->field_name,
+				'field_label'	=> $field->field_label,
+				'field_type'	=> $field->field_type,
+			];
 		}
 
 	}
@@ -59,7 +56,7 @@ class EntryService {
 		
 		// Check if channel ID is in the config. If not, skip it.
 		if(
-			$this->checkChannel((int) $values['channel_id'])
+			$this->checkChannel((int) $values['channel_id'], 'edit')
 			&& !is_null(
 				$this->getEntryChanges(
 					$values,
@@ -72,29 +69,20 @@ class EntryService {
 
 			// Create Body
 			$bodyText = "<h1>" . $this->settings['message_config']['start'] . "</h1>";
-
 			$bodyText .= "<p>TITLE: " . $values['title'] . "</p>";
-
 			$bodyText .= "<p>ENTRY ID: " . $values['entry_id'] . "</p>";
-
 			$bodyText .= "<p>EDITED ON: " . date(DATE_RFC2822, $values['edit_date']) . "</p>";
-
 			$bodyText .= "<p>EDITED BY: " . $username . " (" . $useremail . ")</p>"; 
-
 			$bodyText .= "<p>LINK: " . $this->settings['message_config']['domain'] . '/admin.php?/cp/publish/edit/entry/' . $values['entry_id'] . "<br /></p>";
-
 			$bodyText .= "<p>CHANGES MADE: </p>" . $this->getEntryChanges($values, $modified) . "<br />";
-
 			$bodyText .= $this->settings['message_config']['end'];
 
 			$outputEmails = $this->getEmails($values['channel_id']);
 			
 			if($this->channel['type'] == 'email') {
-
 				$bodyText .= "<h3>This email has been sent to only you.</h3>";
 
 			} else if($this->channel['type'] == 'member_group') {
-
 				if( version_compare(APP_VER, '5.9.0', '<') ) {
 					$bodyText .= "<h3>This email has been sent to your entire member group.</h3>";
 				} else {
@@ -140,7 +128,6 @@ class EntryService {
 
 	public function insert($entry, $entryData)
 	{
-
 		LogService::log('Initializing insert...');
 
 		$outputEmails = array();
@@ -157,37 +144,27 @@ class EntryService {
 		);
 
 		// Check if channel ID is in the config. If not, skip it.
-		if($this->checkChannel((int) $entryData['channel_id'])) {
+		if($this->checkChannel((int) $entryData['channel_id'], 'create')) {
 
 			LogService::log("TITLE: {$entryData['title']}, ENTRY ID: {$entryData['entry_id']}");
 
 			// Create Body
 			$bodyText = "<h1>" . $this->settings['message_config']['start'] . "</h1>";
-
 			$bodyText .= "<p>TITLE: " . $entryData['title'] . "</p>";
-
 			$bodyText .= "<p>ENTRY ID: " . $entryData['entry_id'] . "</p>";
-
-			$bodyText .= "<p>EDITED ON: " . date(DATE_RFC2822, $entryData['edit_date']) . "</p>";
-
-			$bodyText .= "<p>EDITED BY: " . $username . " (" . $useremail . ")</p>"; 
-
+			$bodyText .= "<p>CREATED ON: " . date(DATE_RFC2822, $entryData['edit_date']) . "</p>";
+			$bodyText .= "<p>CREATED BY: " . $username . " (" . $useremail . ")</p>"; 
 			$bodyText .= "<p>LINK: " . $this->settings['message_config']['domain'] . '/admin.php?/cp/publish/edit/entry/' . $entryData['entry_id'] . "<br /></p>";
-
-			$bodyText .= "<p>CHANGES MADE: </p>" . $this->getEntryInit($entryData['entry_id'], $entryData['channel_id'], $entry) . "<br />";
-
+			$bodyText .= "<p>CHANGES MADE: </p>" . $this->getEntryInit($entryData) . "<br />";
 			$bodyText .= $this->settings['message_config']['end'];
 
 			$outputEmails = $this->getEmails($entryData['channel_id']);
 
 			if($this->channel['type'] == 'email') {
-
 				$bodyText .= "\n\nThis email has been sent to only you.";
-
 			}
 
 			if($this->channel['type'] == 'member_group') {
-
 				if( version_compare(APP_VER, '5.9.0', '<') ) {
 					$bodyText .= "\n\nThis email has been sent to your entire member group.";
 				} else {
@@ -214,31 +191,21 @@ class EntryService {
 			$sendIndividually = $this->settings['message_config']['send_individually'];
 
 			if($sendIndividually) {
-
 				foreach ($outputEmails as $$outputEmail) {
-
 					SendService::send($outputEmail, $bodyText, $subject, $from, $forceBCC);	
-
 				}
-
 			} else {
-
 				SendService::send(implode(',', $outputEmails), $bodyText, $subject, $from, $forceBCC);
-
 			}
-
 		}
-
 	}
 
 	// Private functions
 	private function getEmails($channel)
 	{
-
 		$outputEmails = [];
 
 		if($this->channel['type'] == 'email') {
-
 			$outputEmails = explode('|', $this->channel['data']);
 
 		} else if($this->channel['type'] == 'member_group') {
@@ -267,12 +234,10 @@ class EntryService {
 		}
 
 		return $outputEmails;
-
 	}
 
 	private function getEntryChanges($entry, $modified)
 	{
-
 		$entryId = $entry['entry_id'];
 
 		$channelId = $entry['channel_id'];
@@ -295,33 +260,25 @@ class EntryService {
 						->first();
 
 		if(!empty($oldEntry->version_data)) {
-
 			foreach ($oldEntry->version_data as $key => $value) {
-
 				if(!in_array($key, $this->skip_fields)) $inData[$key] = $value;
-
 			}
-
 		} else {
-
 			foreach ($modified as $modkey => $modvalue) {
-
 				if(!in_array($modkey, $this->skip_fields)) {
-
 					$inData[$modkey] = $modvalue;
-
 				}
-				
 			}
-
 			LogService::log('No versioning found');
-
 		}
 
 		foreach ($inData as $startFieldKey => $startFieldValue) {
-			
+			$fieldId = (int) str_replace('field_id_', '', $startFieldKey);
+			if(!$fieldId) continue;
+			$outputDataFieldNameKey = $this->mae_fields[$fieldId]['field_label'];
+
 			// Check for relationships first
-			if (strpos($startFieldKey, 'field_id_') !== false && $this->mae_fields[str_replace('field_id_', '', $startFieldKey)]->field_type == 'relationship') {
+			if (strpos($startFieldKey, 'field_id_') !== false && $this->mae_fields[$fieldId]['field_type'] == 'relationship') {
 
 				$query = ee()->db->select('*')
 								->from('relationships r')
@@ -370,7 +327,7 @@ class EntryService {
 						}
 					}
 
-					$outputData[$this->mae_fields[str_replace('field_id_', '', $startFieldKey)]->field_label] = array(
+					$outputData[$outputDataFieldNameKey] = array(
 						'old' => (!empty($oldTitles) ? 'REMOVED: ' . implode(', ', $oldTitles) . "\n": 'Nothing removed' . "\n"),
 						'new' => (!empty($newTitles) ? 'ADDED: ' . implode(', ', $newTitles) . "\n" : 'Nothing added' . "\n")
 					);
@@ -388,7 +345,7 @@ class EntryService {
 
 					$relationshipTitles = ee('Model')->get('ChannelEntry')->filter('entry_id', 'IN', $newRelationships)->fields('entry_id', 'title')->all();
 
-					$outputData[$this->mae_fields[str_replace('field_id_', '', $startFieldKey)]->field_label] = array(
+					$outputData[$outputDataFieldNameKey] = array(
 						'old' => 'Nothing removed' . "\n",
 						'new' => 'ADDED: ' . implode(', ', $relationshipTitles) . "\n"
 					);
@@ -404,7 +361,6 @@ class EntryService {
 
 						case 'edit_date':
 							$startFieldValue = $startFieldValue->format(DATE_RFC2822);
-							
 							break;
 
 						case 'sticky':
@@ -423,12 +379,12 @@ class EntryService {
 
 						$field = $this->mae_fields[$fieldId];
 
-						$fieldName[$startFieldKey] = $field->field_label;
+						$fieldName[$startFieldKey] = $field['field_label'];
 
-						if ($field->field_type == 'grid') {
+						if ($field['field_type'] == 'grid') {
 
 							$entryQuery = ee()->db->select('*')
-												->from('channel_grid_field_' . $field->field_id . ' c')
+												->from('channel_grid_field_' . $field['field_id'] . ' c')
 												->where(
 													array(
 														'entry_id' => $entryId
@@ -451,35 +407,26 @@ class EntryService {
 
 						}
 
-						if ($field->field_type == 'date' && $startFieldValue != (int) 0) {
+						if ($field['field_type'] == 'date' && $startFieldValue != (int) 0) {
 
 							// OLD VALUE
 							try {
-
 								$startFieldValue = Carbon::createFromFormat('n/j/Y g:i A', $startFieldValue)->format(DATE_RFC2822);
-
 							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
-
 								$startFieldValue = Carbon::parse($startFieldValue)->format(DATE_RFC2822);
-
 							}
 
 							// NEW VALUE
 							try {
-
 								$entryChannelData[$startFieldKey] = Carbon::createFromFormat('U', $entry[$startFieldKey])->format(DATE_RFC2822);
-
 							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
-
 								$entryChannelData[$startFieldKey] = Carbon::parse($entry[$startFieldKey])->format(DATE_RFC2822);
-
 							}
 
 						}
 
 						// Multiselect
-						if($field->field_type == 'multi_select' || $field->field_type == 'checkboxes') {
-
+						if($field['field_type'] == 'multi_select' || $field['field_type'] == 'checkboxes') {
 							$startFieldValue = implode('|', $startFieldValue);
 						}
 
@@ -487,7 +434,7 @@ class EntryService {
 
 					if((!(array_key_exists($startFieldKey, $entryChannelData)) && $entry[$startFieldKey] != $startFieldValue) || (array_key_exists($startFieldKey, $entryChannelData) && !(json_encode($startFieldValue) == json_encode($entryChannelData[$startFieldKey])))) {
 
-						$outputData[$startFieldKey] = array(
+						$outputData[$outputDataFieldNameKey] = array(
 							'old' => $startFieldValue,
 							'new' => array_key_exists($startFieldKey, $entryChannelData)
 									? $entryChannelData[$startFieldKey]
@@ -500,26 +447,18 @@ class EntryService {
 
 		}
 		
-		if(!empty($outputData)) {
-
-			$outputBody = '';
-
-			foreach ($outputData as $key => $value) {
-
-				$outputBody .= array_key_exists($key, $fieldName) ? "<p><strong>$fieldName[$key]</strong>" : "<strong>$key</strong></p>";
-				
-				$outputBody .= "<p><strong>old:</strong> " . ((is_array($value['old']) || is_object($value['old']) ? json_encode($value['old']) : $value['old'])) . "</p>";
-				
-				$outputBody .= "<p><strong>new:</strong> " . (is_array($value['new']) || is_object($value['new']) ? json_encode($value['new']) : $value['new']) . "</p>";
-			}
-
+		$outputBody = '';
+		if(empty($outputData)) {
+			$outputBody .= "No changes were made, but the entry was saved.";
 		} else {
-
-			return null;
+			foreach ($outputData as $key => $value) {
+				$outputBody .= "<p><strong>{$key}</strong>";
+				$outputBody .= "<p><strong>old: </strong> " . ((is_array($value['old']) || is_object($value['old']) ? json_encode($value['old']) : $value['old'])) . "</p>";
+				$outputBody .= "<p><strong>new: </strong> " . (is_array($value['new']) || is_object($value['new']) ? json_encode($value['new']) : $value['new']) . "</p>";
+			}
 		}
 
 		return $outputBody;
-
 	}
 
 	private function getEntryFieldName($entry, $field)
@@ -541,228 +480,76 @@ class EntryService {
 
 	}
 
-	private function getEntryInit($entryId, $channelId, $entry)
+	private function getEntryInit($entryData)
 	{
+		$outputData = [];
 
-		// Initalize vars
-		$outputData = $inData = $fieldName = $customFields = $entryChannelData = [];
+		foreach ($entryData as $startFieldKey => $startFieldValue) {
+			if(strpos($startFieldKey, 'field_id_') === false) continue;
 
-		foreach ($this->mae_fields as $fieldId => $field) {
-			$fieldType = $field['field_type'];
-
-			// Set the field data
-			$fieldName = $this->getEntryFieldName($entry, $field);
-
-			switch ($fieldType) {
-				case 'relationship':
-					$query = ee()->db->select('*')
-									->from('relationships r')
-									->where(
-										[
-											'r.parent_id' => $entry->entry_id,
-											'r.grid_field_id' => ''
-										]
-									)
-									->get();
-
-					$newRelationships = $oldIDs = $newIDs = $oldTitles = $newTitles = [];
-
-					foreach ($query->result() as $row) {
-
-						$newRelationships[] = $row->child_id;
-
-					}
-
-					$relationshipQuery = ee('Model')->get('ChannelEntry');
-
-					if( ! empty($newRelationships) ) {
-						$relationshipQuery->filter('entry_id', 'IN', $newRelationships);
-					}
-
-					$relationshipTitles = $relationshipQuery
-												->fields('entry_id', 'title')
-												->all();
-
-					$outputData[$fieldName] = [
-						'old' => 'Nothing removed' . "\n",
-						'new' => 'ADDED: ' . implode(', ', $relationshipTitles) . "\n"
-					];
-					break;
-				
-				default:
-					# code...
-					break;
-			}
-
-		}
-
-		foreach ($newEntry as $startFieldKey => $startFieldValue) {
+			$fieldId = (int) str_replace('field_id_', '', $startFieldKey);
+			$outputDataFieldNameKey = $this->mae_fields[$fieldId]['field_label'];
 
 			// Check for relationships first
-			if (
-				strpos($startFieldKey, 'field_id_') !== false
-				&& $this->mae_fields[str_replace('field_id_', '', $startFieldKey)]->field_type == 'relationship')
-			{
+			if (strpos($startFieldKey, 'field_id_') !== false && $this->mae_fields[$fieldId]['field_type'] == 'relationship') {
 
 				$query = ee()->db->select('*')
 								->from('relationships r')
 								->where(
 									array(
-										'r.parent_id' => $entry->entry_id,
+										'r.parent_id' => $entryData['entry_id'],
 										'r.grid_field_id' => ''
 									)
 								)
 								->get();
 
-
-				$newRelationships = $oldIDs = $newIDs = $oldTitles = $newTitles = [];
+				$oldRelationships = $startFieldValue['data'];
+				
+				$newRelationships = $newIDs = $newTitles = [];
 
 				foreach ($query->result() as $row) {
-
 					$newRelationships[] = $row->child_id;
-
 				}
 
 				$relationshipTitles = ee('Model')->get('ChannelEntry')->filter('entry_id', 'IN', $newRelationships)->fields('entry_id', 'title')->all();
 
-				$outputData[$this->mae_fields[str_replace('field_id_', '', $startFieldKey)]->field_label] = array(
-					'old' => 'Nothing removed' . "\n",
-					'new' => 'ADDED: ' . implode(', ', $relationshipTitles) . "\n"
-				);
+				$outputData[$outputDataFieldNameKey] = 'ADDED: ' . implode(', ', $relationshipTitles) . "\n";
 
 			} else {
 
-				if(isset($entry->{$startFieldKey})) {
+				$field = $this->mae_fields[$fieldId];
 
-					// There are special cases we need to change
-					switch ($startFieldKey) {
+				if ($field->field_type == 'grid') {
+					$outputData[$outputDataFieldNameKey] = 'Grid data added';
 
-						case 'edit_date':
-							if((bool) strtotime($startFieldValue)) {
-								
-								$startFieldValue = Carbon::createFromFormat('U', $startFieldValue)->format(DATE_RFC2822);
-								// $startFieldValue = date(DATE_RFC2822, $startFieldValue);
-								
-							}
-							break;
-
-						case 'sticky':
-							$startFieldValue = ($startFieldValue == 'y' ? TRUE : FALSE);
-							break;
-						
-						default:
-							// Do nothing.
-							break;
-					}
-
-					// Now we need to get Grid and Relationship data
-					if (strpos($startFieldKey, 'field_id_') !== false) { 
-
-						$fieldId = str_replace('field_id_', '', $startFieldKey);
-
-						$field = $this->mae_fields[$fieldId];
-
-						$fieldName[$startFieldKey] = $field->field_label;
-
-						if ($field->field_type == 'grid') {
-
-							$entryQuery = ee()->db->select('*')
-												->from('channel_grid_field_' . $field->field_id . ' c')
-												->where(
-													array(
-														'entry_id' => $entryId
-													)
-												)
-												->order_by('c.row_id')
-												->order_by('c.row_order')
-												->get();
-
-							$entryChannelData[$startFieldKey]['rows'] = new stdClass();
-
-							$counter = 1;
-
-							foreach ($entryQuery->result() as $row) {
-								unset($row->row_id, $row->entry_id, $row->row_order, $row->fluid_field_data_id);
-								$objname = 'new_row_' . $counter;
-								$entryChannelData[$startFieldKey]['rows']->$objname = $row;
-								$counter++;
-							}
-
-						}
-
-						if ($field->field_type == 'date' && $startFieldValue != (int) 0) {
-
-							// OLD VALUE
-							try {
-
-								$startFieldValue = Carbon::createFromFormat('n/j/Y g:i A', $startFieldValue)->format(DATE_RFC2822);
-
-							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
-
-								$startFieldValue = Carbon::parse($startFieldValue)->format(DATE_RFC2822);
-
-							}
-
-							// NEW VALUE
-							try {
-
-								$entryChannelData[$startFieldKey] = Carbon::createFromFormat('U', $entry->{$startFieldKey})->format(DATE_RFC2822);
-
-							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
-
-								$entryChannelData[$startFieldKey] = Carbon::parse($entry->{$startFieldKey})->format(DATE_RFC2822);
-
-							}
-
-						}
-
-						// Multiselect
-						if($field->field_type == 'multi_select' || $field->field_type == 'checkboxes') {
-
-							$startFieldValue = implode('|', $startFieldValue);
-						}
-
-					}
-
-					if((!(array_key_exists($startFieldKey, $entryChannelData)) && $entry->{$startFieldKey} != $startFieldValue) || (array_key_exists($startFieldKey, $entryChannelData) && !(json_encode($startFieldValue) == json_encode($entryChannelData[$startFieldKey])))) {
-
-						$outputData[$startFieldKey] = array(
-							'new' => array_key_exists($startFieldKey, $entryChannelData)
-									? $entryChannelData[$startFieldKey]
-									: $entry->{$startFieldKey}
-						);
-					}
-				}
-
+				// DATE
+				} elseif ($field->field_type == 'date' && $startFieldValue != (int) 0) {
+					// NEW VALUE
+					$outputData[$outputDataFieldNameKey] = Carbon::parse($entry[$startFieldKey])->format(DATE_RFC2822);
+				// Multiselect
+				} elseif($field->field_type == 'multi_select' || $field->field_type == 'checkboxes') {
+					$outputData[$outputDataFieldNameKey] = implode('|', $startFieldValue);
+				} else {
+					$outputData[$outputDataFieldNameKey] = $startFieldValue;
+				}			
 			}
-
-		}
-		
-		
-		if(!empty($outputData)) {
-
-			$outputBody = '';
-
-			foreach ($outputData as $key => $value) {
-
-				$outputBody .= array_key_exists($key, $fieldName) ? "<p><strong>$fieldName[$key]</strong>" : "<p><strong>$key</strong>";
-				
-				$outputBody .= "<p><strong>new:</strong> " . (is_array($value['new']) || is_object($value['new']) ? json_encode($value['new']) : $value['new']) . "</p>";
-			}
-
-		} else {
-
-			return null;
 		}
 
-		return $outputBody;
+		// Parse the text
+		$outputText = '';
 
+		foreach ($outputData as $outputDataKey => $outputDataValue) {
+			// We'll try and output anything we can here:
+			$outputResult = json_encode($outputDataValue);
+			$outputText .= "<p><strong>{$outputDataKey}:</strong> {$outputResult}";
+		}
+
+		return $outputText;
 	}
 
 	// Private functions
 	private function getSettings()
 	{
-
 		$query = ee()->db
 					->select('settings')
 					->from('extensions')
@@ -777,28 +564,20 @@ class EntryService {
 					->result_array();
 
 		$configData = empty($query) ? '' : $query[0];
-
 		$settings = unserialize($configData['settings']);
-
 		return $settings;
-
 	}
 
 	private function getFrom($channel)
 	{
-
 		// First, check if the from address is set on the channel
 		if(isset($this->channel['from'])) {
-
 			return $this->channel['from'];
-
 		}
 
 		// Default to main from address
 		if(isset($this->settings['message_config']['from'])) {
-
 			return $this->settings['message_config']['from'];
-
 		}
 
 		// Well, we need something.
@@ -806,25 +585,26 @@ class EntryService {
 
 	}
 
-	private function checkChannel($channelId)
+	private function checkChannel($channelId, $type = null)
 	{
-
 		$result = false;
-
 		foreach ($this->settings['channel_config'] as $ch) {
-
-			if((int) $ch['channel'] == (int) $channelId) {
-
+			if(
+				((int) $ch['channel'] == (int) $channelId)
+				&& (
+					!$type
+					|| (
+						$type
+						&& isset($ch['mail_on'])
+						&& in_array($type, $ch['mail_on'])
+					)
+				)
+			) {
 				$result = true;
-
 				$this->channel = $ch;
-
 			}
-
 		}
-
 		return $result;
-
 	}
 
 }
