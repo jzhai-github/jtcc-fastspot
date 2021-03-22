@@ -27,6 +27,48 @@
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
+{if segment_3 == 'library-activities-and-workshops'}
+<div class="wysiwyg_block">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="wysiwyg_block_inner typography">
+		
+			{exp:calendar:events
+				calendar_id="{embed:calendar_id}"
+				category="61"
+				date_range_start="today"
+				date_range_end="6 months"
+				limit="15"
+			}
+				<h2><a href="{path='calendar/event'}/{calendar:entry_id}/">{calendar:title}</a></h2>
+				<h3>Date:</h3>
+					<p>{calendar:event_start_date format="%l, %F %j, %Y"}
+						{if calendar:event_all_day}
+							(all day)
+						{if:else}
+							at {calendar:event_start_date format="%g:%i%a"} -
+							{if calendar:event_multi_day}
+								<br />{calendar:event_end_date format="%l, %F %j, %Y at %g:%i%a"}
+							{if:else}
+								{calendar:event_end_date format="%g:%i%a"}
+							{/if}
+						{/if}</p>
+					<h3>Location:</h3>
+					<p>{calendar:location} </p>
+					<h3>Event Information:</h3>
+					{calendar:event_summary} 
+				<hr style="margin-top: 3rem;" />
+				{if calendar:no_results}
+					<p>No events could be found within the specified time range (today until 6 months from today) for this Calendar.</p>
+				{/if}
+			{/exp:calendar:events}
+
+			</div>{!-- /wysiwyg_block_inner typography --}
+		</div>{!-- /fs-cell --}
+	</div>{!-- /fs-row --}
+</div>{!-- /wysiwyg_block --}
+{/if}
+
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 	{!-- layout vars, dynamic, not output --}

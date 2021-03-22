@@ -74,52 +74,7 @@
 																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it's all/multi-day --}
 																	style="background-color: {calendar:calendar_color_light} !important; border-color: {calendar:calendar_color} !important;"
 																{/if}
-																data-toggle="popover"
-																data-placement="bottom"
-																title="
-																	{calendar:title} &nbsp; 
-																	<span class='event_time'>
-																		<span class='glyphicon glyphicon-time'></span>
-																	{if calendar:event_all_day}
-																		All Day
-																		{if calendar:event_duration_days > '1'}
-																			({calendar:event_duration_days} days)
-																		{/if}
-																	{if:else}
-																		{if calendar:event_multi_day} {!-- Special handling for Multi-day events --}
-																			{if calendar:event_first_day}
-																				Starts {calendar:event_start_date format='%g:%i%a'}
-																			{if:elseif calendar:event_last_day}
-																				Ends {calendar:event_end_date format='%g:%i%a'}
-																			{if:else}
-																				All Day
-																			{/if}
-																			({calendar:event_duration_days} days)
-																		{if:else}
-																			{calendar:event_start_date format='%g:%i%a'} - {calendar:event_end_date format='%g:%i%a'}
-																			&nbsp;({if calendar:event_duration_hours}{calendar:event_duration_hours}h{/if}{if calendar:event_duration_hours AND calendar:event_duration_minutes} {/if}{if calendar:event_duration_minutes}{calendar:event_duration_minutes}m{/if})
-																		{/if}
-																	{/if}
-																	</span>
-																"
-																data-content="
-																	<span class='glyphicon glyphicon-calendar' style='color: {calendar:calendar_color};'></span>
-																	<span class='event'>{calendar:event_summary}</span><hr />
-																	{if calendar:event_all_day} {!-- Is this an All Day event? --}
-																		{if calendar:event_multi_day} {!-- Is this a Multi-Day event also? --}
-																			<strong>Starts</strong> {calendar:event_start_date format="%F %j, %Y"}<br />
-																			<strong>Ends</strong> {calendar:event_end_date format="%F %j, %Y"}
-																		{if:else}
-																			{calendar:event_start_date format="%F %j, %Y"} (All Day)
-																		{/if}
-																	{if:else} {!-- Or is this just a regular event? --}
-																		{!-- <strong>Starts</strong> {calendar:event_start_date format="%F %j, %Y at %g:%i%a"}<br />
-																		<strong>Ends</strong> {calendar:event_end_date format="%F %j, %Y at %g:%i%a"} --}
-																	{/if}
-																	{if calendar:event_recurs}
-																		<hr /><span class='glyphicon glyphicon-repeat'></span>&nbsp; Repeats {calendar:event_recurrence_rule}
-																	{/if}
-																">
+																>
 																{if calendar:event_multi_day} 
 
 																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" style="color: {calendar:calendar_text_color} !important;">

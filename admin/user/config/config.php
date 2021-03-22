@@ -81,7 +81,7 @@ $config['database'] = array (
   'expressionengine' => $dbConnection
 );
 
-$config['enable_devlog_alerts']      = 'y';
+$config['enable_devlog_alerts']      = 'n';
 $config['app_version'] = '5.4.0';
 $config['encryption_key'] = '78e307bb286224bd336e71417c800997eb9612a5';
 $config['session_crypt_key'] = 'f4b860726dbfee5bb8dddda232142261abbb8550';

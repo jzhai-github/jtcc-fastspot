@@ -97,7 +97,7 @@
 <?php
 include("includes/courses_conn.php");
 
-	$default_term = "courses_spring";
+	$default_term = "courses_summer";
 
 	echo '<script type="text/javascript">
 		function termSelected(){
@@ -321,7 +321,7 @@ include("includes/courses_conn.php");
 				while ($session_row = mysqli_fetch_array($summer_session_result)) { 
 					echo '<option value="' . $session_row[0] . '">' . $session_row[0] . '</option>';
 				}
-				echo ' <option value="maymester">Maymester: May 17 – June 7</option>';
+				echo ' <option value="maymester">Maymester: May 17 – June 6</option>';
 				echo '</select>';	
 				echo '</div>';
 			?>
@@ -546,7 +546,10 @@ if (isset($_POST['search_sbmt'])) {
 	</div>'; // end filter
 
 
-    echo '<div class="wysiwyg_block_inner typography">';
+    echo '<div class="wysiwyg_block">
+            <div class="fs-row">
+                <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">';
 
 			while ($row = mysqli_fetch_assoc($search_result)) {
 				$semester	= explode(" ", $row["term"]);
@@ -563,7 +566,7 @@ if (isset($_POST['search_sbmt'])) {
 				$end_date	= date("n/j/Y", strtotime($row["end_date"]));	
 				//$session	= str_replace("Academic ", "", mysqli_result($search_result,$i,"session"));
 				$session2	= $row["session"];
-				$location	= $row["location"];	
+				//$location	= $row["location"];	
 				$status		= $row["enrl_stat"];
 				//$term_id	= mysqli_result($search_result, $i, "term");
 				$term_id	= $row["strm"];
@@ -582,7 +585,7 @@ if (isset($_POST['search_sbmt'])) {
 					$session = 'N/A';
 				}
 
-				switch($location) {
+				/*switch($location) {
 					case "CHESTECH": $location = "Chesterfield Technical Center"; break;
 					case "CHESTER": $location = "Chester Campus"; break;
 					case "CHESTERFLD": $location = "Chesterfield Off Campus "; break;
@@ -590,7 +593,7 @@ if (isset($_POST['search_sbmt'])) {
 					case "MIDLO  004": $location = "Midlothian Campus"; break;
 					case "MIDLO/OC 0": $location = "Midlothian Off Campus"; break;
 					case "VIRTUAL": $location = "Virtual"; break;
-				}	
+				}*/	
 
 				if ($status == 'O') {
 					$status = 'Open';
@@ -651,8 +654,8 @@ if (isset($_POST['search_sbmt'])) {
 				echo 'Session: ' . $session2 . '<br />';
 
 				while ($row2 = mysqli_fetch_assoc($query2_result)) { 
+					$location	= $row2["location"];
 					$pat		= $row2["pat"];
-					//$location	= mysqli_result($query2_result, $j, "location");
 					$days		= $row2["days"];
 					$start		= trim($row2["start"]);	
 					$end		= trim($row2["end"]);
@@ -673,29 +676,42 @@ if (isset($_POST['search_sbmt'])) {
 						}*/
 
 					if ($pat == "VIRT") {
-						//$location = "Virtual";
 						$days = "Virtual";
 						$times = "";
 						//$room = "Online";
+						$location = "Virtual";
 					}
 					else {
-							/*switch($location) {
-								case "CHESTECH": $location = "Chesterfield Technical Center"; break;
-								case "CHESTER": $location = "Chester Campus"; break;
-								case "CHESTERFLD": $location = "Chesterfield Off Campus "; break;
-								case "JTCJW": $location = "Nursing Education Center"; break;
-								case "MIDLO  004": $location = "Midlothian Campus"; break;
-								case "MIDLO/OC 0": $location = "Midlothian Off Campus"; break;
-								//case "VIRTUAL": $location = "Online"; break;
-							}*/
+						switch($location) {
+						case "CHESTECH": $location = "Chesterfield Technical Center"; break;
+						case "CHESTER": $location = "Chester Campus"; break;
+						case "CHESTERFLD": $location = "Chesterfield Off Campus "; break;
+						case "JTCJW": $location = "Nursing Education Center"; break;
+						case "MIDLO  004": $location = "Midlothian Campus"; break;
+						case "MIDLO/OC 0": $location = "Midlothian Off Campus"; break;
+						case "VIRTUAL": $location = "Virtual"; break;
+						}
 						$times = $start." - ".$end;
+						if (substr($section, 0, 1) == 'R') {
+							if (substr($section, 3, 1) == 'S') {
+								$location = 'Zoom';
+							} else {
+								if ($room == 'Online Scheduled Time'){
+									$location = 'Zoom';
+								} 
+							}
+						}
 					}
 
-					if ($term == 'courses_summer' && strlen($start)) {					
-						$times = $times . ', Zoom';
+					if (substr($section,0,1) == 'Z') {
+						$location = 'Zoom';
 					}
+
+					/*if ($term == 'courses_summer' && strlen($start)) {					
+						$times = $times . ', Zoom';
+					}*/
 				
-						echo 'Days/Times: ' . $days . ' ' . $times . '<br />';	
+						echo 'Days and Times: ' . $days . ' ' . $times . '<br />';	
 						echo 'Room/Location: ' .$room . '/' . $location . '<br />';
 						echo 'Instructor: '	. $instructor . '<br />';
 					}
@@ -705,7 +721,12 @@ if (isset($_POST['search_sbmt'])) {
 					echo 'Last day to add: ' . $last_enrl_date . '<br />';
 					echo 'Last day to drop w/refund: ' . $dt_drop_without_penalty . '<br />';
 					echo 'Last day to withdraw: ' . $dt_drop_with_penalty . '<br />';
-					echo 'Class Status: ' . $status . '<br />';
+					//echo 'Class Status: ' . $status . '<br />';
+					if ($status == "Closed") {
+						echo 'Class Status: <span style="color:red">Closed</span><br />';
+					} else {
+						echo 'Class Status: ' . $status . '<br />';
+					}
 					echo 'Class Note: ' . $pre_note . $note . '<br />';
 					
 					/*echo '<p><a target="_blank" href="http://www.jtccbooks.com/chester/textbook_express/get_txtexpress.asp?remote=1&amp;ref=2394&amp;student=&amp;term=' . trim($termbkstr) . '&amp;dept=' . trim($subject) . '&amp;course=' . trim($catalog) . '&amp;section='. trim($section) . '&amp;getbooks=Display+books">Textbooks</a></p>';*/
@@ -718,7 +739,7 @@ if (isset($_POST['search_sbmt'])) {
 			mysqli_free_result($query2_result);
 			mysqli_free_result($search_result);
 
-			echo '</div>';  //end wysiwyg_block_inner typography
+			echo '</div></div></div></div>';  //end wysiwyg_block_inner typography
 
 			//Reset button at the end of the data
 			echo '<div class="filter_results">
@@ -785,7 +806,9 @@ if (isset($_POST['search_sbmt'])) {
         	<div class="fs-row">
             	<div class="fs-cell">
             		<div class="wysiwyg_block_inner typography"> 
-						<h4>Spring 2021 Course Schedule</h4>
+            			<h4>Maymester: May 17 – June 6</h4>
+						<p>Complete a 3-credit course in 3 weeks. Select Maymester from the session drop-down to see your options.</p>
+						<h4>Summer 2021 Course Schedule</h4>
 						<p>We plan to offer fully online classes, classes that combine in-person and online instruction, and a limited number of in-person classes. The course section numbers and course notes listed with each course on the schedule provide information on how the course will be taught.</p>
  	<p>Options include:</p>
  	<ul>

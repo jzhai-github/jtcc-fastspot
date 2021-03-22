@@ -35,7 +35,7 @@ if (file_exists($file_fall)) {
 	$sql1 = "delete from courses_fall";
 	mysqli_query($conn, $sql1);
 	
-	$sql2 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '' LINES TERMINATED BY '\r\n'"; 
+	$sql2 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n'"; 
 	//$sql2 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_FALL.CSV' INTO TABLE `courses_fall` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n'"; 	  
 		 
 	mysqli_query($conn, $sql2);

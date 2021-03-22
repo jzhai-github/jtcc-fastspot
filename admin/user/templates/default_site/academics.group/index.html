@@ -25,8 +25,9 @@
 {layout:set name='ch_status' value='{ch_status}'}
 {if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
 
-
-
+{if segment_2 == 'academic-calendar'}
+{snp_academic_calendar}
+{/if}
 
 
 		{!-- channel entries tag --}
@@ -51,7 +52,7 @@
 	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
 	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
 	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
-	
+	{!-- SEEO relies on the Entry ID --}
 	{layout:set name="entry_id"}{entry_id}{/layout:set}
 	{!-- /layout vars, dynamic, not output --}
 
@@ -654,7 +655,9 @@
 
 {/main_content}
 
-
+{if segment_2 == 'exam-schedule'}
+{snp_exam_schedule}
+{/if}
 {snp_contact}
 
 {!--
