@@ -174,12 +174,14 @@ function clean() {
 	]);
 }
 
-function watch() {
+function watch(cb) {
 	gulp.watch([`${srcPath}/css/**/*.scss`], styles);
 	gulp.watch([`${srcPath}/js/**/*.js`], scripts);
 	gulp.watch([`${srcPath}/icons/*.svg`], icons);
 	gulp.watch([`${srcPath}/images/*`], images);
 	gulp.watch(['package.json'], gulp.parallel(styles, scripts));
+
+	cb();
 }
 
 function fractalSync() {
