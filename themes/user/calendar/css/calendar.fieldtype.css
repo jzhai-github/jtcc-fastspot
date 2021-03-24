@@ -1,0 +1,339 @@
+.cal-row:after, .calendarSection:after,
+.calendarDateTime:after,
+.calendarRecurrenceContainer:after,
+.clearfix:after, .calendarRecurrence > li:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.cal-row:after, .calendarSection:after,
+.calendarDateTime:after,
+.calendarRecurrenceContainer:after,
+.clearfix:after, .calendarRecurrence > li:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.cal-row {
+  margin: 0 -15px; }
+  .cal-row *[class^=cal-col-] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    float: left;
+    padding: 6px 15px; }
+  .cal-row .cal-col-1 {
+    width: 8.3333333333%; }
+    .cal-row .cal-col-1-5 {
+      width: 12.5%; }
+  .cal-row .cal-col-2 {
+    width: 16.6666666667%; }
+    .cal-row .cal-col-2-5 {
+      width: 20.8333333333%; }
+  .cal-row .cal-col-3 {
+    width: 25%; }
+    .cal-row .cal-col-3-5 {
+      width: 29.1666666667%; }
+  .cal-row .cal-col-4 {
+    width: 33.3333333333%; }
+    .cal-row .cal-col-4-5 {
+      width: 37.5%; }
+  .cal-row .cal-col-5 {
+    width: 41.6666666667%; }
+    .cal-row .cal-col-5-5 {
+      width: 45.8333333333%; }
+  .cal-row .cal-col-6 {
+    width: 50%; }
+    .cal-row .cal-col-6-5 {
+      width: 54.1666666667%; }
+  .cal-row .cal-col-7 {
+    width: 58.3333333333%; }
+    .cal-row .cal-col-7-5 {
+      width: 62.5%; }
+  .cal-row .cal-col-8 {
+    width: 66.6666666667%; }
+    .cal-row .cal-col-8-5 {
+      width: 70.8333333333%; }
+  .cal-row .cal-col-9 {
+    width: 75%; }
+    .cal-row .cal-col-9-5 {
+      width: 79.1666666667%; }
+  .cal-row .cal-col-10 {
+    width: 83.3333333333%; }
+    .cal-row .cal-col-10-5 {
+      width: 87.5%; }
+  .cal-row .cal-col-11 {
+    width: 91.6666666667%; }
+    .cal-row .cal-col-11-5 {
+      width: 95.8333333333%; }
+  .cal-row .cal-col-12 {
+    width: 100%; }
+    .cal-row .cal-col-12-5 {
+      width: 104.1666666667%; }
+
+.target-date-wrapper {
+  width: 245px;
+  height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: width 0.2s ease-out;
+  -moz-transition: width 0.2s ease-out;
+  -ms-transition: width 0.2s ease-out;
+  -o-transition: width 0.2s ease-out;
+  transition: width 0.2s ease-out; }
+  .target-date-wrapper input.calendarTime {
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -ms-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out; }
+  .target-date-wrapper.no-time {
+    width: 156px; }
+    .target-date-wrapper.no-time input.calendarTime {
+      opacity: 0;
+      filter: alpha(opacity=0); }
+
+.calendarDateTime:not(:last-child) {
+  margin-bottom: 10px; }
+
+.calendarRecurrenceContainer {
+  display: none; }
+  .calendarRecurrenceContainer > div {
+    margin-bottom: 10px; }
+
+.calendarSection {
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+  .calendarSection:not(.borderless) {
+    border-bottom: 1px solid #e8e8e8; }
+  .calendarSection.borderless {
+    margin-bottom: 0;
+    padding-bottom: 0; }
+
+label.calendarLabel {
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: bold; }
+
+.toggle-btn + .calendarLabel {
+  margin-left: 10px; }
+
+.calendarCalendarSelect {
+  margin-top: 4px; }
+
+.calendarDate {
+  width: 140px !important;
+  background: url("../images/mini-calendar.png") 95% 7px no-repeat; }
+
+.calendarTime {
+  width: 70px !important; }
+
+.recurrence-intervals {
+  display: none; }
+
+.calendarRecurrence {
+  background: #f3f3f3;
+  list-style: none;
+  margin: 0 0 0 15%; }
+  .calendarRecurrence > li {
+    display: none;
+    padding: 10px 10px 0;
+    font-size: 12px;
+    color: #6a696d; }
+    .calendarRecurrence > li label.calendar-checkbox-list {
+      display: inline-block;
+      box-sizing: content-box;
+      width: 30px;
+      height: 20px;
+      border: 1px solid transparent;
+      text-align: center;
+      padding: 5px 0 0;
+      margin: 0 5px 10px 0;
+      font-weight: normal !important;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      -ms-transition: all 0.2s ease-out;
+      -o-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out; }
+      .calendarRecurrence > li label.calendar-checkbox-list:hover {
+        border-color: #93d5f3 !important;
+        background-color: #e9f7fd !important; }
+        .calendarRecurrence > li label.calendar-checkbox-list:hover.chosen {
+          border-color: #93d5f3 !important;
+          background-color: #e9f7fd !important; }
+    .calendarRecurrence > li.calendarVisible {
+      display: block; }
+  .calendarRecurrence label.choice {
+    background: #FFF !important; }
+    .calendarRecurrence label.choice.chosen {
+      border-color: #93d5f3;
+      background: #e9f7fd !important; }
+
+.choice-list {
+  margin-bottom: 10px; }
+
+.calendarIntervalWrapper {
+  float: left;
+  margin-bottom: 10px; }
+  .calendarIntervalWrapper > input {
+    width: 40px;
+    margin: 0 10px; }
+
+.calendarDropdown {
+  margin-top: 4px; }
+
+.calendarRepeatDropdown {
+  float: left; }
+
+.calendarExceptSection ul.exclusion-list {
+  margin: 15px 0 0;
+  display: block; }
+  .calendarExceptSection ul.exclusion-list li {
+    position: relative;
+    display: block;
+    background: #f3f3f3;
+    padding: 8px 35px;
+    font-size: 12px; }
+    .calendarExceptSection ul.exclusion-list li a.close-button {
+      position: absolute;
+      left: 9px;
+      top: 4.5px;
+      display: block;
+      padding: 2px 4px;
+      cursor: pointer;
+      color: #bc4848;
+      background-color: #fff;
+      border: 1px solid #cdcdcd;
+      border-bottom: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      font-family: 'solspace-fa'; }
+      .calendarExceptSection ul.exclusion-list li a.close-button:before {
+        content: '\e809'; }
+      .calendarExceptSection ul.exclusion-list li a.close-button.disabled {
+        color: #CCC; }
+
+.selectDatesCalendar {
+  background-color: white; }
+
+.calendarDatesSection ul.dates-list {
+  margin: 15px 0 0;
+  display: block; }
+  .calendarDatesSection ul.dates-list li {
+    position: relative;
+    display: block;
+    background: #f3f3f3;
+    padding: 8px 35px;
+    font-size: 12px; }
+    .calendarDatesSection ul.dates-list li a.close-button {
+      position: absolute;
+      left: 9px;
+      top: 4.5px;
+      display: block;
+      padding: 2px 4px;
+      cursor: pointer;
+      color: #bc4848;
+      background-color: #fff;
+      border: 1px solid #cdcdcd;
+      border-bottom: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      -moz-box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.5);
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      font-family: 'solspace-fa'; }
+      .calendarDatesSection ul.dates-list li a.close-button:before {
+        content: '\e809'; }
+      .calendarDatesSection ul.dates-list li a.close-button.disabled {
+        color: #CCC; }
+
+label.choice.calendar-checkbox-list {
+  cursor: pointer; }
+  label.choice.calendar-checkbox-list > input {
+    display: none; }
+
+.calendarAlternateButtonSet > label, .calendarMonthButtons > label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 8px 0 0 !important;
+  margin: 0 5px 5px 0 !important;
+  text-align: center; }
+
+.calendarMonthButtons > label {
+  width: 95px !important; }
+
+.ui-widget-content {
+  background: white;
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  font-size: 12px; }
+  .ui-widget-content .ui-datepicker-header {
+    position: relative; }
+    .ui-widget-content .ui-datepicker-header .ui-datepicker-prev,
+    .ui-widget-content .ui-datepicker-header .ui-datepicker-next {
+      position: absolute;
+      top: 5px;
+      cursor: pointer; }
+    .ui-widget-content .ui-datepicker-header .ui-datepicker-prev {
+      left: 0; }
+    .ui-widget-content .ui-datepicker-header .ui-datepicker-next {
+      right: 0; }
+  .ui-widget-content .ui-datepicker-title {
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center; }
+  .ui-widget-content .ui-datepicker-today {
+    background-color: rgba(255, 253, 0, 0.2); }
+  .ui-widget-content .ui-datepicker-current-day {
+    background-color: #1f80bd; }
+    .ui-widget-content .ui-datepicker-current-day > a {
+      color: #FFFFFF; }
+  .ui-widget-content .ui-datepicker-calendar > tbody > tr > td {
+    padding: 6px;
+    border-right: 1px solid #e8e8e8;
+    text-align: center; }
+    .ui-widget-content .ui-datepicker-calendar > tbody > tr > td:last-child {
+      border-right: none; }
+    .ui-widget-content .ui-datepicker-calendar > tbody > tr > td.ui-state-disabled {
+      background: #f3f3f3; }
+
+#ui-datepicker-div {
+  display: none; }
+
+.calendarErrors {
+  margin: 0 0 20px 15%; }
+  .calendarErrors ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .calendarErrors ul li {
+      display: block;
+      color: #bc4848;
+      font-style: italic;
+      font-size: 12px; }
+
+.error-message {
+  color: #bc4848; }
+
+.toggle-btn {
+  margin-bottom: 0; }

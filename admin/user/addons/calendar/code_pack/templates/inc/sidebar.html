@@ -1,0 +1,22 @@
+<div id="mini-cal-wrapper">
+	{embed="%prefix%inc/mini_cal"}
+</div>
+
+<h3>
+{if segment_2 == "month" OR segment_2 == "week" OR segment_2 == "day"}
+	Filter by Calendar
+{if:else}
+	Calendars
+{/if}
+</h3>
+<div class="list-group">
+{exp:calendar:calendars
+	orderby="calendar_name" sort="asc"
+	limit="10"
+}
+	<a href="{path='%prefix%main'}/{if segment_2 == 'month' OR segment_2 == 'week' OR segment_2 == 'day'}{segment_2}/by_calendar{if:else}calendars{/if}/{calendar:short_name}/" class="list-group-item" style="{if segment_3 == calendar:short_name OR segment_4 == calendar:short_name}background-color: {calendar:color_light}; border-left: 5px solid {calendar:color}; color: {calendar:text_color};{if:else}color: {calendar:color};{/if}">
+		<span class="glyphicon glyphicon-calendar" style="color: {calendar:color};" aria-hidden="true"></span>&nbsp;
+		{calendar:name}
+	</a>
+{/exp:calendar:calendars}
+</div>
