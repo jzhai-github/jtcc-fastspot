@@ -1,54 +1,41 @@
 name: Fastspot Sync Action
+
 on:
   push:
     branches:
       - dev
     paths:
       - '.github/**'
-      - 'src/**'
+      - 'docroot/themes/custom/ccga/frontend/**'
   pull_request:
     branches:
       - dev
+
 jobs:
   sync:
     name: Build & Sync Assets
     runs-on: ubuntu-latest
+    env:
+      theme-directory: ./
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Cache yarn
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
       - name: Cache local node modules
         uses: actions/cache@v2
         id: local-node-modules-cache
         with:
-          path: node_modules
-          key: ${{ runner.os }}-local-node-modules-${{ hashFiles('yarn.lock') }}
+          path: ${{ env.theme-directory }}/node_modules
+          key: ${{ runner.os }}-local-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-local-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
         if: steps.local-node-modules-cache.outputs.cache-hit != 'true'
-        run: yarn install --silent
+        run: npm install
+        working-directory: ${{ env.theme-directory }}
       - name: Build
-        run: yarn github:build --silent
+        run: npm run github:build
+        working-directory: ${{ env.theme-directory }}
       - name: Git Commit
         run: sh .github/scripts/git.sh
-      # - name: Sync
-      #   if env variable is set
-      #   not working right now
-      #   if: ${{ secrets.DEV_DEPLOY_PATH }}
-      #   env:
-      #     destination: 'fastspot_dev@dev.fastspot.com:${{ secrets.DEV_DEPLOY_PATH }}'
-      #   run: |
-      #     echo "${{ secrets.DEV_DEPLOY_KEY }}" > deploy_key
-      #     chmod 600 ./deploy_key
-      #     ssh fastspot_dev@dev.fastspot.com "ls -al ${{ secrets.DEV_DEPLOY_PATH }}"
