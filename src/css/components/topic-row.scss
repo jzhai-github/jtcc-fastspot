@@ -44,7 +44,7 @@
 ============================================================================= */
 
 .topic {
-	border-bottom: 1px solid rgba(#000, .15);
+	border-bottom: 1px solid rgba(#000, 0.15);
 	padding-bottom: 20px;
 
 	@media #{$min_lg} {
@@ -114,6 +114,9 @@
 }
 
 .topic_wrapper {
+	@media #{$min_md} {
+		flex: 1;
+	}
 }
 
 .topic_header {
