@@ -9,7 +9,6 @@ custom/environment.php
 .DS_store
 node_cache/
 node_modules/
-package-lock.json
 pnpm-debug.log
 site/files/
 .idea/
