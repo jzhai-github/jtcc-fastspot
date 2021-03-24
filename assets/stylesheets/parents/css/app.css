@@ -1,0 +1,686 @@
+body, h1, h2, h3, h4, h5, p, a, .campaign .nextup a, .row a.whiteborderbutton{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 300;
+}
+.center{
+	text-align: center;
+}
+label{
+	font-size: 1.3rem;
+	margin-bottom: 5px;
+}
+select{
+	background-position: 99% center;
+	background-size: 18px 9px;
+	font-size: 1.2rem;
+	height: auto;
+	min-height: 1.3rem;
+}
+button,
+.button{
+	background-color: #660033;
+	border-color: #660033;
+}
+button:hover, button:focus, .button:hover, .button:focus{
+	background-color: #7d0742;
+}
+input:not([type]), input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea{
+	font-size: 1.2rem;
+	height: auto;
+}
+.impactreport h1{
+	color: #424242;
+	font-weight: 400;
+}
+.impactreportfix h3{
+	font-weight: 400;
+}
+.impactreportfix hr{
+	border-color: #cbbcb8;
+	border-width: 5px;
+}
+.impactreportfix .button{
+	float: left;
+	font-size: 1rem;
+	margin-bottom: 0;
+	margin-top: 1rem;
+}
+.impactreportfix p{
+	margin-bottom: 0;
+}
+.impactreportfix{
+	padding-bottom: 2rem;
+}
+a{
+	color: #008375;
+	text-decoration: underline;
+}
+p, ul, li{
+	font-size: 1.25rem;
+}
+.reveal-modal a{
+	text-decoration: none;
+}
+.ei-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+}
+.ei-video iframe, .ei-video object, .ei-video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.videos .large-4{
+	margin:20px 0;
+}
+ul.orbit-slider{
+	margin-left: 0;
+}
+.orbit-timer{
+	display: none;
+}
+.headerimg{
+	padding:0;
+}
+.headerimg img{
+	margin-top:20px;
+}
+.margin-bottom20{
+	margin-bottom: 20px;
+}
+.margin-bottom40{
+	margin-bottom: 40px;
+}
+.margin-top40{
+	margin-top: 40px;
+}
+.impactreportimg{
+	box-sizing: border-box;
+	margin-bottom: 1rem;
+}
+.headertext{
+	background: #006068;
+	color: #ffffff;
+	float: right;
+	padding: 1rem 1rem 0 1rem;
+	position: relative;
+}
+.headertext h2{
+	color:#ffffff;
+}
+.nextup-2019 .headertext{
+	opacity: 1;
+	width:100%;
+}
+.indent{
+	padding-left: 1.25rem;
+}
+.block{
+	background: #008375;
+	padding:0;
+	text-transform: uppercase;
+}
+.impactreport .block{
+	text-transform: none;
+}
+.block.middle{
+	background: #00a88f;
+}
+.block.last{
+	background: #006068;
+}
+.block p{
+	font-size: 2rem;
+	line-height: 1.2;
+	margin:1.2rem 1.4rem;
+}
+.block a{
+	color: #ffffff;
+	text-decoration: underline;
+}
+.blocklabel{
+	background: #ffffff;
+	color: #008375;
+	float: left;
+	font-weight: 500;
+	margin-top: 1rem;
+	padding: .3rem .8rem .3rem;
+}
+.clear{
+	clear: both;
+}
+.whiteblock1,
+.whiteblock2,
+.whiteblock3{
+	box-sizing: border-box;
+	padding: 1rem;
+	text-align: center;
+}
+.burgundyblock{
+	background: #660033;
+}
+.tealblock1{
+	background: #008375;
+}
+.tealblock2{
+	background: #00a88f;
+}
+.tealblock3{
+	background: #006068;
+}
+.singleline{
+	background:#E53E51;
+}
+.singleline p{
+	text-align: center;
+}
+.singleline a{
+	color:#ffffff;
+	display: block;
+	margin-top: 1rem;
+}
+.fafsacompletion{
+	background: #f8e8e3;	
+}
+.whitebg{
+	background: #ffffff;
+	max-width: 100%;
+	margin: 2rem 1rem;
+	float: left;
+	position: relative;
+}
+.tylerataglance,
+.nextup{
+	background: #e53e51; /* pink */
+	text-align: center;
+	padding: 1rem 0.9375rem 2rem;
+}
+.tylerataglance{
+	background: #003a49; /*dark blue*/
+}
+.tylerataglance h2,
+.tylerataglance p,
+.tylerataglance a,
+.nextup h2,
+.nextup p,
+.nextup a{
+	color: #ffffff;
+	text-decoration: none;
+}
+.fafsacompletion h2,
+.tylerataglance h2,
+.nextup h2{
+	font-size: 2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.fafsacompletion.impactreportfix h2{
+	text-transform: none;
+}
+.tylerataglance span{
+	color: #660033; /* burgundy */
+	font-size: 3.2rem;
+	font-weight: 300;
+	margin-top: .2rem;
+}
+.tylerataglance span{
+	color: #00a88f; /* light teal */
+}
+.nextup a{
+	border: 1px solid;
+	display: block;
+	font-size: 1.2rem;
+	margin-top: .5rem;
+	padding: .5rem 0;
+}
+.nextup a:hover{
+	background: #ffffff;
+	color: #e53e51;
+	transition: background .3s;
+	transition: color .2s;
+}
+.fivethingsheader{
+	background: #660033;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.fivethingsheader h3{
+	font-size: 2rem;
+	font-weight: 500;
+	color: #e53e51;
+	text-align: center;
+}
+.fivethings{
+	padding: 0;
+}
+.fivethings ol{
+	counter-reset: jtcc-counter;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.fivethings ol > li{
+	list-style: none;
+	margin-bottom: .5rem;
+}
+.fivethings ol > li:last-child{
+	margin-bottom: 0;
+}
+.fivethings ol > li::before {
+	background: #f8e8e3;
+	color: #e53e51;
+    content: counter(jtcc-counter);
+    counter-increment: jtcc-counter;
+    position: absolute;
+    left: 0;
+    font: normal 2rem Oswald;
+    margin-top: -1rem;
+    padding:1rem 1rem 2rem 1rem;
+}
+.fivethings ol li{
+	background: #f8e8e3;
+	color: #000000;
+	font-size: 1.2rem;
+	padding:1rem 0.9375rem 2rem 4rem;
+	position: relative;
+}
+.row.footer{
+	background: #660033;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	padding-right: 2rem;
+}
+.row.footer.impactreportfooter{
+	padding-right: 0;
+}
+.row.footer.impactreportfooter-darkteal{
+	background: #003A49;
+	margin-bottom: 2.5rem;
+	padding:1rem 0;
+}
+ul.social-icons-news{
+	margin-left: 0;
+	margin-top:2rem;
+}
+.social-icons-news li {
+	float: left;
+	list-style: none;
+    margin-right: 10px;
+}
+
+.footerlogo{
+	float:right;
+	margin-bottom: 1rem;
+	width:17rem;
+}
+#backtotop{
+	bottom:2rem;
+	display: none;
+	position: fixed;
+	right: 3%;
+	z-index: 1000;
+}
+#backtotop img{
+	height: 8rem;
+	width: 4rem;
+}
+img.left{
+	float: left !important;
+}
+img.right {
+    float: right;
+}
+.nextupstoryleft img,
+.nextupstoryright img{
+	z-index: 800;
+}
+/*.nextupstoryright img{
+	margin-bottom: 20px;
+}*/
+.nextupstoryleft a,
+.nextupstoryright a,
+.nextupstorybig a{
+	background: #E53E51;
+	color:#ffffff;
+	display: block;
+	font-size: 1.2rem;
+/*	margin: -5rem 0 0 1rem;*/
+/*	max-width: 12rem;*/
+/*	margin: -3rem 2rem 0 0;*/
+	padding: .5rem 1rem .5rem .5rem;
+	position: relative;
+	text-align: right;
+	text-decoration: none;
+	z-index: 900;
+}
+a.button{
+	background: #E53E51;
+	color:#ffffff;
+	display: block;
+	font-size: 1.2rem;
+	margin:0 0 1rem 0;
+	padding: .5rem 1rem;
+}
+a.button:hover{
+	background: #E53E51;
+}
+a.tealbutton{
+	background: #006068;
+	color: #ffffff;
+	text-decoration: none;
+	margin:0 0 1rem 0;
+	padding: .5rem 1rem;
+}
+.aligncenter{
+	bottom:2.5rem;
+	left:-.1%;
+	position: absolute;
+	text-align: center;
+	width:100%;
+}
+.whiteblock1,
+.whiteblock2,
+.whiteblock3{
+	background: #ffffff;
+	border:1px solid #dadada;
+	color: #111111;
+	min-height: 390px;
+	padding-bottom: 4rem;
+}
+.whiteblock1 p,
+.whiteblock2 p,
+.whiteblock3 p{
+	color: #111111;
+}
+.footer a,
+.footer p{
+	color: #ffffff;
+}
+.footer h3{
+	color: #F1C400;
+	font-size:1.3rem;
+	font-weight: bold;
+	margin-top: 0;
+}
+.footer p{
+	margin-bottom: 0;
+}
+.impactreportfooter .footerlogo{
+	margin-top: 2rem;
+}
+.whiteborderbutton{
+	border: 1px solid #ffffff;
+	text-decoration: none;
+	max-width: 25rem;
+}
+.lightpink{
+	background: #f8e8e3;
+}
+/* For tablets Screens */
+@media only screen and (min-width: 40em) {
+	.headertext{
+		opacity: .9;
+		margin: -15rem 1.5rem 0 0;
+		width:29rem;
+	}
+	.nextup-2019 .headertext{
+		margin: 0;
+		opacity: 1;
+	}
+	.nextupstorybig a{
+		float: right;
+		margin: -4rem 4rem 0 1rem;
+	}
+	img.left{
+		margin: 0 15px 15px 0;
+	}
+	img.right {
+	    margin: 0 0 15px 15px;
+	}
+
+}
+/* For larger/desktop Screens */
+@media only screen and (min-width: 64.0625em) {
+	.large-6.columns.nextupstoryleft{
+		padding: 0 0.9375rem 20px 0;
+	}
+	.large-6.columns.nextupstoryright{
+		padding: 0 0 20px 0.9375rem;
+	}
+	.nextupstoryleft a,
+	.nextupstoryright a,
+	.nextupstorybig a{
+		max-width: 13rem;
+	}
+	.nextupstoryleft a,
+	.nextupstoryright a{
+		float: left;
+		margin: -4rem 0 0 1rem;
+	}
+	.nextupstorybig a{
+		margin: -6rem 4rem 0 1rem;
+	}
+	.nextupstoryright img{
+		margin-bottom: 0;
+	}
+	.tealblock1,
+	.tealblock2,
+	.tealblock3{
+		height: 360px;
+	}
+	.whiteblock1,
+	.whiteblock2,
+	.whiteblock3{
+		height: 400px;
+	}
+	.tealblock1,
+	.whiteblock1{
+		margin:0 14px 0 0;
+	}
+	.tealblock2,
+	.whiteblock2{
+		margin:0 7px 0 0;
+	}
+	.block{
+		background: none;
+		padding:1rem 0;
+	}
+	.block.notoppad{
+		padding-top:0;
+	}
+	.block.middle{
+		background: none;
+	}
+	.block.last{
+		background: none;
+	}
+	.block p{
+		font-size: 2.6rem;
+		line-height: 1.3;
+		margin:1.8rem 1.6rem;
+	}
+	.impactreport .block p{
+		font-size: 2rem;
+		margin: 0;
+	}
+	.tealblock3{
+		background: #006068;
+		margin:0 0 0 7px;
+	}
+	.fafsacompletion h2,
+	.tylerataglance h2,
+	.nextup h2{
+		font-size: 2.8rem;
+	}
+	.tylerataglance span{
+		font-size: 3.8rem;
+		margin-top: 1rem;
+	}
+	.fivethingsheader h3{
+		font-size: 3.8rem;
+	}
+	.fivethings ol > li::before {
+	    font: normal 3.3rem Oswald;
+	    margin-top: -2rem;
+	    padding:2rem 2rem 3rem 2rem;
+	}
+	.fivethings ol li{
+		font-size: 1.4rem;
+		padding:2rem 0.9375rem 4rem 7rem;
+	}
+	.fivethings ol > li{
+		margin-bottom: 2rem;
+	}
+	.nextup a{
+		font-size: 2rem;
+		margin-top: 1rem;
+		padding: 0;
+	}
+	.videos .large-4:first-child{
+		padding-left: 0;
+		padding-right: 2rem;
+	}
+	.videos .large-4:last-child{
+		padding-left: 2rem;
+		padding-right: 0;
+	}
+}
+/**************** Campaign CSS ************/
+.campaign,
+.campaign h2, 
+.campaign p,
+.lightpink h3,
+.lightpink p{
+	color: #003A49;
+}
+.campaign a,
+.campaign p,
+.campaign ul,
+.campaign ul li, ol li{
+	font-family: 'Noto Sans', sans-serif;
+	line-height: 1.3;
+}
+.campaign .headerimg{
+	margin-bottom: 10px;
+	margin-top:-7px;
+	text-align: center;
+}
+.campaign .headerimg img.logo{
+	box-shadow: 0 1px 7px #747474;
+	margin-top:0;
+	max-width: 12rem;
+}
+.campaignheader{
+	padding: 0;
+}
+.campaign h2.allcaps{
+	font-size: 2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+.campaign .burgundyblock{
+	background: #ffffff;
+	border-bottom:10px solid #660033;
+	border-top:25px solid #660033;
+}
+/*.campaign .burgundyblock h2,
+.campaign .burgundyblock p{
+	color:#2B2B2B;
+}*/
+.campaign .burgundyblock a,
+.campaign .nextup h2,
+.campaign .nextup p,
+.campaign .tealblock2,
+.campaign .tealblock2 h2,
+.campaign .tealblock2 h3,
+.campaign .tealblock2 p,
+.campaign .tealblock2 a,
+.campaign .tealblock3,
+.campaign .tealblock3 h2,
+.campaign .tealblock3 h3,
+.campaign .tealblock3 p,
+.campaign .tealblock3 a,
+.campaign .tylerataglance h2,
+.campaign .tylerataglance p{
+	color: #ffffff;
+	height: auto;
+}
+.campaign .burgundyblock,
+.campaign .tealblock3{
+	padding-bottom: 2rem;
+}
+.campaign .tealblock3{
+	margin-left: 0;
+}
+.campaign .lightpink p,
+.campaign .lightpink li{
+	font-size: 1.2rem;
+}
+.campaign .footer.impactreportfooter-darkteal p{
+	color:#ffffff;
+	font-size:1.2rem;
+	line-height: 1.3;
+	margin-bottom: 1rem;
+}
+.campaign .whiteborderbutton{
+	background: #660033;
+	display:block;
+	font-size: 2rem;
+}
+.campaign .burgundyblock .whiteborderbutton:hover{
+	background: #ffffff;
+	border: 1px solid #660033;
+	color:#660033;
+}
+.campaign .tealblock3 .whiteborderbutton:hover{
+	background: #ffffff;
+	color:#006068;
+}
+.campaign .tylerataglance{
+	background: #006068;
+}
+.campaign .tylerataglance span{
+	color: #D7A14A; 
+}
+.nextup-2019 .nextup .small-4.columns{
+	padding:0 .2rem;
+}
+#stickyfooter{
+	padding:0.2rem 0.3rem 0.5rem;
+}
+/* For medium/large/desktop Screens */
+@media only screen and (min-width: 40.0625em) {
+	.nextup-2019 .nextup .small-4.columns{
+		padding:0 0.9375rem;
+	}
+	#stickyfooter{
+		padding:0.5rem 0.9375rem 1rem;
+	}
+}
+
+/* For larger/desktop Screens */
+@media only screen and (min-width: 64.0625em) {
+	.campaign .footerlogo{
+		margin: 10rem 1rem 0 0;
+	}
+	.campaign .tylerataglance .large-1{
+		width:4%;
+	}
+	.campaign .tylerataglance .large-2{
+		width:18.4%;
+	}
+	.campaign h2.allcaps{
+		font-size: 2.8rem;
+	}
+	.campaign .lightpink .large-4{
+		width:31.333%
+	}
+	.campaign .lightpink .large-4.middle{
+		padding: 0 1rem 0 3.2rem;
+		width:33.333%;
+	}
+}

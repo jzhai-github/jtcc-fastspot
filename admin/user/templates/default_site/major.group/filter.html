@@ -1,0 +1,192 @@
+{snp_major_top}
+
+<?php
+//if (isset($_GET['filter_sbmt'])) {
+	$degree_type = $_GET['degree_type'];
+	$career_cluster = $_GET['career_cluster'];
+	$study_mode = $_GET['study_mode'];
+	
+	$cat = '';
+	$category = '';
+	if (strlen($degree_type)) {
+		$cat = $cat . $degree_type . '&';
+	}
+	if (strlen($career_cluster)) {
+		$cat = $cat . $career_cluster . '&';
+	}
+	if (strlen($study_mode)) {
+		$cat = $cat . $study_mode . '&';
+	}
+	if ($cat != '') {
+		$category = substr($cat,0,-1);
+	}
+	echo $category;
+?>
+	
+		
+	{exp:channel:entries channel="major" disable="member_data" category="<?php echo $category; ?>" dynamic="no"} 
+		{categories}
+		{!--{if category_id == '{segment_2}'}--}
+		{if {count} == "1"}
+		<div class="filter_results">
+			<div class="fs-row">
+				<div class="fs-cell">
+					<div class="filter_results_inner">
+						<p class="filter_results_description">
+							<span class="filter_results_label">{total_results}
+								Results for:</span>
+							<span class="filter_results_category">{category_name}</span>
+						</p>
+<?php echo '<p>' . $category . '</p>'; ?>
+						
+
+	{!--<a href="page-news-listing.html" class="filter_results_reset_link" >--}
+	<a href="/major" class="filter_results_reset_link" >
+	<span class="filter_results_reset_link_inner">
+		<span class="filter_results_reset_link_label">Reset</span>
+					<span class="filter_results_reset_link_icon" aria-hidden="true">
+				<span class="filter_results_reset_link_icon_inner">
+					<span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+					
+			<svg class="icon icon_reset">
+				<use href="/images/icons.svg#reset" />
+			</svg>
+		
+				</span>
+			</span>
+			</span>
+	</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{/if}
+	{!--{/if}--}
+	{/categories}
+	{/exp:channel:entries}
+
+	{if no_results AND segment_2 !=''} 
+		{redirect="major/noresults"} 
+	{/if}
+
+	
+	<div class="js-accordion program_list">
+	<div class="program_list_inner">
+		<ul class="program_list_items" id="item_list" aria-label="">
+		{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="<?php echo $category; ?>" dynamic="no"}
+				<li class="js-accordion-item js-program-item-2-{count} program_item">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="program_item_inner">
+								<h2 class="program_item_heading">
+									<button class="js-accordion-swap js-swap program_item_button" data-swap-target=".js-program-item-2-{count}" data-swap-group="program-group-2">
+										<span class="program_item_heading_inner">
+											<span class="program_item_heading_label">
+												<span class="program_item_heading_title">
+													<span class="program_item_heading_title_label">{title}</span>
+													<span class="program_item_heading_title_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+													</span>
+												</span>
+												<span class="program_item_heading_mode">
+													<span class="program_item_heading_mode_label">Learning Mode<span class="program_item_heading_mode_label_hint">:													</span>
+												</span>	
+												<span class="program_item_heading_mode_data_wrapper">
+												{categories show_group="7|8"}
+													{if category_group == "7"}
+														<span class="program_item_heading_mode_data theme_mustard">
+                                                            {category_name}
+                                                        </span>
+													{if:else}
+														<span class="program_item_heading_mode_data theme_green_blue">
+															{category_name}
+														</span>
+													{/if}
+												{/categories}
+												</span>
+											</span>
+											
+										</span>
+										<span class="program_item_heading_icon"></span>
+									</span>
+									</button>
+								</h2>
+								<div class="js-accordion-content program_item_content" aria-label="{title}">
+									<div class="program_item_content_inner">
+										<div class="program_item_content_group">
+											<div class="program_item_description typography">
+												<p>{page_description}</p>
+												{!--<p><a href="{link}">More Information about {title} in Catalog</a></p>--}
+												{!--<h4><a href="{link}">More Information about {title} in Catalog</a></h4>--}
+											</div>
+										</div>
+										<div class="program_item_details">
+											<div class="program_item_detail">
+												<span class="program_item_detail_label">Degree & Certificate Type<span class="program_item_detail_label_hint">:</span>
+													</span>
+													<span class="program_item_detail_data">
+														{!--<a class="program_item_detail_data_link" href="{url_title}">--}
+															{categories show_group="5"}
+																<span class="program_item_detail_data_link_label">{category_name}</span>
+															{/categories}
+													{!--<span class="program_item_detail_data_link_icon">
+															<svg class="icon icon_caret_right">
+																<use href="/images/icons.svg#caret_right" />
+															</svg>
+														</span>
+														</a>--}
+														<br /><br /><h3><a class="program_item_detail_data_link" href="/major/{url_title}">
+															<span class="program_item_detail_data_link_label">Major Details</span>
+													<span class="program_item_detail_data_link_icon">
+															<svg class="icon icon_caret_right">
+																<use href="/images/icons.svg#caret_right" />
+															</svg>
+														</span>
+														</a></h3>
+													</span>
+												</div>
+												<div class="program_item_detail">
+													<span class="program_item_detail_label">Career Cluster<span class="program_item_detail_label_hint">:</span>
+													</span>
+													{categories show_group="4"}
+													<span class="program_item_detail_data">{category_name}<br /></span>
+													{/categories}
+												</div>
+												<!--<div class="program_item_detail">
+													<span class="program_item_detail_label">Mode of Study<span class="program_item_detail_label_hint">:</span>
+													</span>
+													<span class="program_item_detail_data">
+														Transfer Program																																				</span>
+												</div>-->
+											</div>
+											<!-- I added the catalog link here, not Fastspot original code -->
+											{if link != ''}
+											<div class="program_item_content_group">
+											<div class="program_item_description typography">
+												<h4><a href="{link}">More Information about {title} in Catalog</a></h4>
+											</div>
+											</div>
+											{/if} <!-- end catalog link -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+		{/exp:channel:entries}
+		</ul>
+	</div>
+</div>
+
+{!--{exp:channel:entries channel="major" disable="member_data" orderby="title" sort="asc" category="20&10" dynamic="no"}
+	{title}
+{/exp:channel:entries}--}
+	
+<!--</div>-->
+
+<?php
+//}	
+?>

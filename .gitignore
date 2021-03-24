@@ -1,4 +1,10 @@
 cache/
+Cache/
+git/
+images/
+themes/user/site/default/asset/img/
+backups/
+*.sql
 custom/environment.php
 .DS_store
 node_cache/

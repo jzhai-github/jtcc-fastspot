@@ -1,0 +1,265 @@
+{layout='layouts/_main-wrapper'}
+
+
+<!-- Page Feature -->
+<div class="page_feature">
+	<div class="page_header">
+		<div class="page_header_inner">
+			<div class="page_header_body">
+				<div class="breadcrumb">
+					<div class="fs-row">
+						<div class="fs-cell">
+							<div class="breadcrumb_inner">
+								
+
+<nav class="breadcrumb_nav" aria-labelledby="breadcrumb_nav_title">
+	<div class="breadcrumb_nav_header">
+		<h2 class="breadcrumb_nav_title" id="breadcrumb_nav_title">You are here:</h2>
+	</div>
+	<ol class="breadcrumb_list" aria-labelledby="breadcrumb_nav_title">
+		<li class="breadcrumb_item breadcrumb_item_home">
+			<a class="breadcrumb_pill breadcrumb_pill_link" href="/">
+				<span class="breadcrumb_pill_inner">
+										<span class="breadcrumb_pill_label">Home</span>
+					<span class="breadcrumb_pill_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+				</span>
+			</a>
+					</li>
+					
+					{!--<li class="breadcrumb_item">
+				<a class="breadcrumb_pill breadcrumb_pill_link" href="/major">
+					<span class="breadcrumb_pill_inner">
+						<span class="breadcrumb_pill_label">Major</span>
+						<span class="breadcrumb_pill_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+					</span>
+				</a>
+							</li>
+					<li class="breadcrumb_item">
+				<a class="breadcrumb_pill breadcrumb_pill_link" href="#">
+					<span class="breadcrumb_pill_inner">
+						<span class="breadcrumb_pill_label">Parent Level</span>
+						<span class="breadcrumb_pill_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+					</span>
+				</a>
+							</li>--}
+				<li class="breadcrumb_item">
+			<span class="breadcrumb_pill">
+				<span class="breadcrumb_pill_inner">
+					<span class="breadcrumb_pill_label">Page Title</span>
+				</span>
+			</span>
+					</li>
+	</ol>
+</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page_intro">
+					<div class="fs-row">
+						<div class="fs-cell fs-lg-10 fs-xl-9">
+							<div class="page_intro_inner">
+								<h1 class="page_title" itemprop="name">Directory</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Page Feature -->
+
+<?php
+//$host = "10.70.200.12"; //database location internal
+//$host = "apps.jtcc.edu"; //database location
+//$user = "diruser"; //database username
+//$pass = "J20tcc17#"; //database password
+//$db_name = "jtccdirdb"; //database name
+
+//database connection
+//$con = new mysqli($host, $user, $pass, $db_name);
+/*if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+$getDepts = "SELECT dept 
+	FROM jtccdirdb.tbllkdept
+	WHERE DeptAbbr is NULL OR DeptAbbr = ''
+	UNION
+	SELECT adept 
+	FROM  jtccdirdb.tblacaddeptdiv
+	ORDER BY 1";*/
+                                
+//$dept_result = mysqli_query($con, $getDepts);
+
+//mysqli_close($con);
+
+$host = "164.106.55.222"; //database location external
+//$host = "10.70.200.12"; //database location internal
+//$host = "apps.jtcc.edu"; //database location
+$user = "diruser"; //database username
+$pass = "J20tcc17#"; //database password
+$db_name = "jtccdirdb"; //database name
+
+//database connection
+$con = mysqli_connect($host, $user, $pass, $db_name);
+if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+//object oriented - db connection
+$mysqli = new mysqli($host, $user, $pass, $db_name);
+if (mysqli_connect_errno()){
+	echo "Failed to connect to database.";
+}
+
+$getDepts = "SELECT dept 
+            FROM jtccdirdb.tbllkdept
+            WHERE DeptAbbr is NULL OR DeptAbbr = ''
+            UNION
+            SELECT adept 
+            FROM  jtccdirdb.tblacaddeptdiv
+            ORDER BY 1";
+                                
+//$dept_result = $dir_db->query($getDepts);
+
+$dept_result = mysqli_query($con, $getDepts);
+
+	mysqli_close($con);
+	
+	echo '<h1>Data is from the DWA server</h1>';
+	
+	if (mysqli_num_rows($dept_result) > 0) {
+		echo '<p>';
+		while ($row = mysqli_fetch_assoc($dept_result)) {
+			echo $row['dept'] . '<br />';
+		}
+		echo '</p>';
+	}
+?>
+
+<div class="full_width_callouts">
+	<div class="filter">
+	<div class="filter_tabs" role="tablist" aria-label="Directory Filtering">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_tabs_inner">
+					<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_tools" data-swap-group="filter_tabs"  data-swap-options='{"collapse": false}'>Search</button>
+					<!--<button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs"  data-swap-active="true"  data-swap-options='{"collapse": false}'>Search</button>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="filter_panels">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="filter_panels_inner">
+					<div class="filter_tabpanel filter_tabpanel_tools" role="tabpanel">
+						<form class="filter_tools" action="/major" method="get">
+							<div class="filter_tool">
+								<label class="filter_label" for="filter_tool_label_1">First Name</label>
+									<div class="filter_search_input_wrapper">
+										<input class="filter_search_input" type="text" id="first_name" name="fname" value="">
+		<!--<span class="filter_tool_select_icon">
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		</span>-->
+		<span class="filter_search_input_icon">
+			<svg class="icon icon_search">
+				<use href="/images/icons.svg#search" />
+			</svg>
+		</span>
+
+									</div>
+								</div>
+								<div class="filter_tool">
+									<label class="filter_label" for="filter_tool_label_2">Last Name</label>
+									<div class="filter_search_input_wrapper">
+										<input class="filter_search_input" type="text" id="last_name" name="lname" value="">
+		<!--<span class="filter_tool_select_icon">
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		</span>-->
+		<span class="filter_search_input_icon">
+			<svg class="icon icon_search">
+				<use href="/images/icons.svg#search" />
+			</svg>
+		</span>
+									</div>
+								</div>
+								<div class="filter_tool">
+									<label class="filter_label" for="filter_tool_label_3">Department</label>
+									<div class="filter_tool_select_wrapper">
+										<select class="filter_tool_select" id="filter_tool_label_3">
+											<option value=""  selected >All Departments</option>
+											<?php 
+											/*if (mysqli_num_rows($dept_result) > 0) {	
+												while ($dept_row = mysqli_fetch_assoc($dept_result)) {
+													echo '<option value="' . $dept_row['dept'] . '" label="' . $dept_row['dept'] . '">' . $dept_row['dept'] . '</option>';
+												}
+											}*/	
+											?>
+											<option value="">Office of the Dean of Arts, Humanities, Mathematics, and Social Sciences</option>
+										</select>
+		<span class="filter_tool_select_icon">
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		</span>
+									</div>
+								</div>
+								<div class="filter_tool">
+								<button class="filter_tools_submit filter_tools_submit_tools" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+		<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+								</button>
+							</div>
+						</form>
+					</div>
+					<div class="filter_tabpanel filter_tabpanel_search" role="tabpanel">
+						<form class="filter_search" action="#" method="get">
+							<label class="filter_label" for="filter_search_input">Search our Majors & Programs</label>
+							<div class="filter_search_form">
+								<div class="filter_search_input_wrapper">
+									{!--<input class="filter_search_input" id="filter_search_input" type="search" placeholder="Search by keyword">--} 
+									<input class="filter_search_input" name="keywords" id="filter_search_input" type="text" placeholder="Search by keyword">
+		<span class="filter_search_input_icon">
+			<svg class="icon icon_search">
+				<use href="/images/icons.svg#search" />
+			</svg>
+		</span>
+								</div>
+								<button class="filter_tools_submit filter_tools_submit_search" type="submit">
+									<span class="filter_tools_submit_label">Submit</span>
+									<span class="filter_tools_submit_icon">
+			<svg class="icon icon_caret_right">
+				<use href="/images/icons.svg#caret_right" />
+			</svg>
+		</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

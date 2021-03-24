@@ -1,0 +1,73 @@
+<h3>Mini Calendar</h3>
+{exp:calendar:month
+    {!-- RELEASE THE KRAKEN!! A lot of URI values are possible here --}
+    {if segment_2 == "" OR segment_2 == "calendars" OR segment_2 == "edit" OR segment_2 == "create" OR segment_2 == "event"}
+        date_range_start="today"
+    {if:elseif segment_2 == "month" OR segment_2 == "week" OR segment_2 == "day" OR segment_2 == "mini_cal"} {!-- Is this a Month/Week/Day View page? --}
+        {if segment_3 == "by_calendar"} {!-- Are we filtering by Calendar name too? --}
+            {if segment_5 == ''} {!-- Is there no date segments in URI yet? --}
+                date_range_start="today"
+            {if:else} {!-- Oh, there is date segments in URI? --}
+                date_range_start="{segment_5}-{segment_6}-01"
+            {/if}
+        {if:else} {!-- No Calendar name filtering? Phew! --}
+            {if segment_3 == ''} {!-- Is there no date segments in URI yet? --}
+                date_range_start="today"
+            {if:else} {!-- Oh, there is date segments in URI? --}
+                date_range_start="{segment_3}-{segment_4}-01"
+            {/if}
+        {/if}
+    {/if}
+}
+<div id="mini_calendar">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th colspan="1">
+                {if segment_2 != "calendars"}
+                <a id="mini_calendar_prev_month" href="{path='%prefix%main/month'}/{calendar:previous_month format='%Y/%m'}/">&larr;</a>
+                {/if}
+            </th>
+            <th colspan="5">
+                <a href="{path='%prefix%main/month'}/{calendar:month_date format='%Y/%m'}/">{calendar:month_date format="%F %Y"}</a>
+            </th>
+            <th colspan="1">
+                {if segment_2 != "calendars"}
+                <a id="mini_calendar_next_month" href="{path='%prefix%main/month'}/{calendar:next_month format='%Y/%m'}/"> &rarr;</a>
+                {/if}
+            </th>
+        </tr>
+        <tr class="mini_calendar_days">
+            {calendar:days_of_week}
+            <th>{calendar:day_of_week_1_letter}</th>
+            {/calendar:days_of_week}
+        </tr>
+        </thead>
+        <tbody>
+        {calendar:weeks}
+        <tr>
+            {calendar:days}
+            <td class="
+                {if calendar:day_in_current_month == ''}mini_calendar_pad{/if}
+                {if calendar:day_total_events > 0}has_events{/if}
+                {if calendar:current_day}today{/if}
+            ">
+                <div class="mini_calendar_date">
+                    {if calendar:day_in_current_month}
+                    {if calendar:day_total_events != ""}
+                    <a href="{path='%prefix%main/day'}/{calendar:day_date format='%Y/%m/%d'}/">
+                        {/if}
+                        {calendar:day_date format="%j"}
+                        {if calendar:day_total_events != ""}</a>{/if}
+                    {if:else}
+                    <strong class="middot">&middot;</strong>
+                    {/if}
+                </div>
+            </td>
+            {/calendar:days}
+        </tr>
+        {/calendar:weeks}
+        </tbody>
+    </table>
+</div>
+{/exp:calendar:month}

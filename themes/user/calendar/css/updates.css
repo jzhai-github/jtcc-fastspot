@@ -1,0 +1,9 @@
+/*!
+ * Calendar for Expression Engine
+ *
+ * @package       Solspace:Freeform
+ * @author        Solspace, Inc.
+ * @copyright     Copyright (c) 2008-2017, Solspace, Inc.
+ * @link          https://solspace.com/expressionengine/calendar
+ * @license       https://solspace.com/software/license-agreement
+ */.update-list{list-style:none;margin:0;padding:0}.update-list>li{margin:0;padding:2px 0}.update-list>li:before{font-family:FontAwesome, sans-serif;margin-right:5px}.update-list>li.feature:before{content:'\f005';color:#54A261}.update-list>li.note:before{content:'\f1fc';color:#4486C1}.update-list>li.bugfix:before{content:'\f0ad';color:#CB3131}

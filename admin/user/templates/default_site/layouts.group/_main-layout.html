@@ -1,0 +1,160 @@
+{layout='layouts/_main-wrapper'}
+
+			<!-- Page Feature -->
+			
+<div class="page_feature">
+	{!-- Check if field has images --}
+	{if layout:page_header_bg_image != ''}
+	<div class="page_header_bg">
+		<div class="page_header_bg_inner">
+			<div class="page_header_bg_group">
+				<div class="page_header_bg_media">
+					<div class="page_header_bg_media_inner">
+						<figure class="page_header_bg_figure">
+							<span class="lazy_image_wrapper page_header_bg_image_wrapper">
+								<img class="js-lazy js-lazyload page_header_bg_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='{layout:page_header_bg_image_500x214}' data-srcset='{layout:page_header_bg_image_500x214} 500w, {layout:page_header_bg_image_740x317} 740w, {layout:page_header_bg_image_980x420} 980w, {layout:page_header_bg_image_1220x523} 1220w, {layout:page_header_bg_image_1440x617} 1440w'  alt="">
+							</span>
+							<noscript>
+								<img class="page_header_bg_image" src='{layout:page_header_bg_image_1440x617}'  srcset='{layout:page_header_bg_image_1440x617} 1440w, {layout:page_header_bg_image_1220x523} 1220w, {layout:page_header_bg_image_980x420} 980w, {layout:page_header_bg_image_740x317} 740w, {layout:page_header_bg_image_500x214} 500w' sizes="100vw"  alt=""  itemprop="primaryImageOfPage" >
+							</noscript>
+						</figure>
+					</div>
+				</div>
+				<div class="page_header_bg_content">
+					<div class="page_intro">
+						<div class="fs-row">
+							<div class="fs-cell fs-lg-10 fs-xl-9">
+								<div class="page_intro_inner">
+									
+									{!--{snp_breadcrumbs}--}
+									{if segment_1 == 'major'}
+										{embed="common/_breadcrumbs_major"}
+									{if:else}	
+										{embed="common/_breadcrumbs_tyler"}
+									{/if}
+										<h1 class="page_title" itemprop="name">{layout:title}</h1>
+										{if layout:page_description}
+										<p class="page_description" itemprop="description">{layout:page_description}</p>
+										{/if}
+								</div>
+							</div>{!-- /fs-cell --}
+						</div>{!-- /fs-row --}
+					</div>{!-- /page_intro --}
+				</div>{!-- /page_header_bg_content --}
+			</div>{!-- /page_header_bg_group --}
+		</div>{!-- /page_header_bg_inner --}
+	</div>{!-- /page_header_bg --}
+	{if:else}
+	<div class="page_header">
+		<div class="page_header_inner">
+			<div class="page_header_body">
+				{if segment_1 == 'major'}
+					{embed="common/_breadcrumbs_major_no_image"}
+				{if:else}
+					{embed="common/_breadcrumbs_tyler_no_image"}
+				{/if}
+				<div class="page_intro">
+					<div class="fs-row">
+						<div class="fs-cell fs-lg-10 fs-xl-9">
+							<div class="page_intro_inner">
+								<h1 class="page_title" itemprop="name">{layout:title}</h1>
+								{if layout:page_description}
+										<p class="page_description" itemprop="description">{layout:page_description}</p>
+								{/if}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+	{/if}
+
+{if segment_1 != 'major'}
+	<div class="page_nav">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="page_nav_inner">
+				
+
+<div class="js-sub-nav-group sub_nav_group">
+	<button class="js-sub-nav-toggle js-swap sub_nav_toggle "   data-swap-target=".js-sub-nav-group"  >
+	<span class="sub_nav_toggle_inner_default sub_nav_toggle_inner">
+		<span class="sub_nav_toggle_label_default sub_nav_toggle_label">Explore This Section</span>
+					<span class="sub_nav_toggle_icon_default sub_nav_toggle_icon" aria-hidden="true">
+				<span class="sub_nav_toggle_icon_inner_default sub_nav_toggle_icon_inner">
+					<span class="sub_nav_toggle_icon_space">&#xfeff;</span>
+					
+			<svg class="icon icon_caret_down">
+				<use href="/images/icons.svg#caret_down" />
+			</svg>
+		
+				</span>
+			</span>
+			</span>
+			<span class="sub_nav_toggle_inner_active sub_nav_toggle_inner">
+			<span class="sub_nav_toggle_label_active sub_nav_toggle_label">Close</span>
+							<span class="sub_nav_toggle_icon_active sub_nav_toggle_icon" aria-hidden="true">
+					<span class="sub_nav_toggle_icon_inner_active sub_nav_toggle_icon_inner">
+						<span class="sub_nav_toggle_icon_space">&#xfeff;</span>
+						
+			<svg class="icon icon_caret_up">
+				<use href="/images/icons.svg#caret_up" />
+			</svg>
+		
+					</span>
+				</span>
+					</span>
+	</button>
+
+	<nav class="js-sub-nav sub_nav" aria-labelledby="sub_nav_title">
+		<div class="sub_nav_header">
+			<h2 class="sub_nav_title" id="sub_nav_title">Sub Nav Title</h2>
+		</div>
+		<div class="js-sub-nav-body sub_nav_body">
+			<div class="js-sub-nav-body-inner sub_nav_body_inner">
+				<ul class="js-sub-nav-list sub_nav_list" aria-labelledby="sub_nav_title">
+				
+					{!--{exp:channel:entries channel="{layout:ch}" dynamic="no"}
+					<li class="sub_nav_item">
+						<a class="sub_nav_link" href="{page_uri}">
+							<span class="sub_nav_link_label">{title}</span>
+							<span class="sub_nav_link_icon">
+							<svg class="icon icon_caret_right">
+								<use href="/images/icons.svg#caret_right" />
+							</svg>
+						</span>
+						</a>
+					</li>
+					{/exp:channel:entries}--}
+					{!--{exp:structure:nav start_from="{segment_1}" status="open|Default Page" show_depth="999"}--}
+					
+					{exp:structure:nav_basic start_from="{segment_1}" status="open|Default Page" show_depth="4"}
+      <li class="sub_nav_item{if root:active} active{/if}">
+        <a class="sub_nav_link" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
+							<span class="sub_nav_link_icon">
+							<svg class="icon icon_caret_right">
+								<use href="/images/icons.svg#caret_right" />
+							</svg>
+						</span></a>
+      </li>
+    {/exp:structure:nav_basic}
+									</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+{/if}
+</div>
+<!-- END: Page Feature -->
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+	{layout:contents}
+	{snp_alert}
+</div>
+<!-- END: Full Width Callouts -->

@@ -1,0 +1,397 @@
+@import "framework/colors";
+@import "framework/mixins";
+@import "framework/grid";
+
+$sectionDistance: 10px;
+
+$left-column-width: 15%;
+$right-column-width: 100% - $left-column-width;
+$color-dark-red: #bc4848;
+
+.calendarSection,
+.calendarDateTime,
+.calendarRecurrenceContainer,
+.clearfix {
+  @extend %clearfix;
+}
+
+.target-date-wrapper {
+  width: 245px;
+  height: 40px;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  @include transition(width .2s ease-out);
+
+  input.calendarTime {
+    @include transition(opacity .2s ease-out);
+  }
+
+  &.no-time {
+    width: 156px;
+
+    input.calendarTime {
+      @include opacity(0);
+    }
+  }
+}
+
+.calendarDateTime:not(:last-child) {
+  margin-bottom: $sectionDistance;
+}
+
+.calendarRecurrenceContainer {
+  display: none;
+
+  > div {
+    margin-bottom: $sectionDistance;
+  }
+}
+
+.calendarSection {
+  margin-bottom: $sectionDistance;
+  padding-bottom: $sectionDistance;
+
+  &:not(.borderless) {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &.borderless {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+label.calendarLabel {
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.toggle-btn + .calendarLabel {
+  margin-left: 10px;
+}
+
+.calendarCalendarSelect {
+  margin-top: 4px;
+}
+
+.calendarDate {
+  width: 140px !important;
+  background: url("../images/mini-calendar.png") 95% 7px no-repeat;
+}
+
+.calendarTime {
+  width: 70px !important;
+}
+
+.recurrence-intervals {
+  display: none;
+}
+
+.calendarRecurrence {
+  background: $recurrence-background;
+  list-style: none;
+
+  margin: 0 0 0 $left-column-width;
+
+  > li {
+    $gutter: 10px;
+
+    @extend %clearfix;
+    display: none;
+    padding: $gutter $gutter 0;
+
+    font-size: 12px;
+    color: #6a696d;
+
+    label.calendar-checkbox-list {
+      display: inline-block;
+      box-sizing: content-box;
+
+      width: 30px;
+      height: 20px;
+
+      border: 1px solid transparent;
+      text-align: center;
+
+      padding: 5px 0 0;
+      margin: 0 5px $gutter 0;
+      font-weight: normal !important;
+      @include transition(all .2s ease-out);
+
+      &:hover {
+        border-color: #93d5f3 !important;
+        background-color: #e9f7fd !important;
+
+        &.chosen {
+          border-color: #93d5f3 !important;
+          background-color: #e9f7fd !important;
+        }
+      }
+    }
+
+    &.calendarVisible {
+      display: block;
+    }
+  }
+
+  label.choice {
+    background: $month-button-background !important;
+
+    &.chosen {
+      border-color: #93d5f3;
+      background: $month-button-selected-background !important;
+    }
+  }
+}
+
+.choice-list {
+  margin-bottom: 10px;
+}
+
+.calendarIntervalWrapper {
+  float: left;
+  margin-bottom: $sectionDistance;
+
+  > input {
+    width: 40px;
+    margin: 0 10px;
+  }
+}
+
+.calendarDropdown {
+  margin-top: 4px;
+}
+
+.calendarRepeatDropdown {
+  float: left;
+}
+
+.calendarExceptSection {
+  ul.exclusion-list {
+    margin: 15px 0 0;
+    display: block;
+
+    li {
+      position: relative;
+      display: block;
+
+      background: $recurrence-background;
+      padding: 8px 35px;
+
+      font-size: 12px;
+
+      a.close-button {
+        position: absolute;
+        left: 9px;
+        top: 4.5px;
+
+        display: block;
+        padding: 2px 4px;
+        cursor: pointer;
+
+        color: $color-dark-red;
+        background-color: #fff;
+        border: 1px solid #cdcdcd;
+        border-bottom: none;
+        @include border-radius;
+        @include box-shadow(0 1px 0 0 rgba(0, 0, 0, 0.5));
+
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+        font-family: 'solspace-fa';
+
+        &:before {
+          content: '\e809';
+        }
+
+        &.disabled {
+          color: #CCC;
+        }
+      }
+    }
+  }
+}
+
+.selectDatesCalendar {
+  background-color: white;
+}
+
+.calendarDatesSection {
+  ul.dates-list {
+    margin: 15px 0 0;
+    display: block;
+
+    li {
+      position: relative;
+      display: block;
+
+      background: $recurrence-background;
+      padding: 8px 35px;
+
+      font-size: 12px;
+
+      a.close-button {
+        position: absolute;
+        left: 9px;
+        top: 4.5px;
+
+        display: block;
+        padding: 2px 4px;
+        cursor: pointer;
+
+        color: $color-dark-red;
+        background-color: #fff;
+        border: 1px solid #cdcdcd;
+        border-bottom: none;
+        @include border-radius;
+        @include box-shadow(0 1px 0 0 rgba(0, 0, 0, 0.5));
+
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+        font-family: 'solspace-fa';
+
+        &:before {
+          content: '\e809';
+        }
+
+        &.disabled {
+          color: #CCC;
+        }
+      }
+    }
+  }
+}
+
+label.choice.calendar-checkbox-list {
+  cursor: pointer;
+
+  > input {
+    display: none;
+  }
+}
+
+.calendarAlternateButtonSet, .calendarMonthButtons {
+  > label {
+    @include box-sizing;
+    width: 32px;
+    height: 32px;
+    padding: 8px 0 0 !important;
+    margin: 0 5px 5px 0 !important;
+
+    text-align: center;
+  }
+}
+
+.calendarMonthButtons {
+  > label {
+    width: 95px !important;
+  }
+}
+
+// jquery-ui
+// ===============
+
+.ui-widget-content {
+  background: white;
+  border: 1px solid $border-color;
+  padding: $sectionDistance;
+
+  font-size: 12px;
+
+  .ui-datepicker-header {
+    position: relative;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      position: absolute;
+      top: 5px;
+
+      cursor: pointer;
+    }
+
+    .ui-datepicker-prev {
+      left: 0;
+    }
+
+    .ui-datepicker-next {
+      right: 0;
+    }
+  }
+
+  .ui-datepicker-title {
+    padding: 5px 0;
+
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .ui-datepicker-today {
+    background-color: rgba(#fffd00, .2);
+  }
+
+  .ui-datepicker-current-day {
+    background-color: #1f80bd;
+
+    > a {
+      color: #FFFFFF;
+    }
+  }
+
+  .ui-datepicker-calendar {
+    > tbody {
+      > tr {
+        > td {
+          padding: 6px;
+          border-right: 1px solid $border-color;
+
+          text-align: center;
+
+          &:last-child {
+            border-right: none;
+          }
+
+          &.ui-state-disabled {
+            background: #f3f3f3;
+          }
+        }
+      }
+    }
+  }
+}
+
+#ui-datepicker-div {
+  display: none;
+}
+
+.calendarErrors {
+  margin: 0 0 20px $left-column-width;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+
+      color: $color-dark-red;
+
+      font-style: italic;
+      font-size: 12px;
+    }
+  }
+}
+
+.error-message {
+  color: $color-dark-red;
+}
+
+.toggle-btn {
+  margin-bottom: 0;
+}

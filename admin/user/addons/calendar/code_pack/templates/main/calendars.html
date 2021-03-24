@@ -1,0 +1,136 @@
+{embed="%prefix%inc/index" page_title="Calendars"}
+	</head>
+
+	<body role="document">
+
+{embed="%prefix%inc/header" page="calendars"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Calendars</h1>
+				<p class="lead">Below is an overview over your site's calendars and events.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-4 col-md-3">
+
+					<h3>Events by Month</h3>
+					<div class="list-group">
+					{exp:calendar:month_list
+						date_range_start="6 months ago"
+						date_range_end="6 months"
+						limit="12"
+					}
+						<a href="{path='%prefix%main/month'}/{calendar:date format='%Y/%m'}/"
+						   class="list-group-item{if calendar:current_month} list-group-item-warning{/if}">
+							{calendar:date format="%M %Y"}
+						</a>
+					{/exp:calendar:month_list}
+					</div>
+
+				</div>
+
+				<div class="col-sm-8 col-md-6">
+
+					<h3>Events by Calendar</h3>
+
+					{exp:calendar:calendars
+						{if segment_3} {!-- Are we loading more details for a particular calendar? --}
+							calendar_short_name="{segment_3}"
+						{/if}
+						orderby="calendar_name" sort="asc"
+					}
+					<div class="panel" style="border-color: {calendar:color};">
+						<div class="panel-heading" style="background-color: {calendar:color_light};">
+							<h3 class="panel-title" style="color: {calendar:text_color} !important;">
+								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
+								<a href="{path='%prefix%main/calendars'}/{calendar:short_name}/">{calendar:name}</a>
+							</h3>
+						</div>
+						<div class="panel-body">
+							{if calendar:ics_hash}
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-addon">ICS Subscribe</div>
+										<input type="text" class="form-control" value="{path='%prefix%main/ics_subscription'}/{calendar:ics_hash}" onclick="this.select();">
+									</div>
+								</div>
+							{/if}
+							<a href="{path='%prefix%main/export/calendar'}/{calendar:id}/" class="btn btn-default btn-sm pull-right" role="button">
+								<span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;
+								Export Events
+							</a>
+							<h5>Description:</h5>
+							{calendar:description}
+							<h5>
+								View events for this calendar by: &nbsp;
+								<a href="{path='%prefix%main/month/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Month</a>
+								<a href="{path='%prefix%main/week/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Week</a>
+								<a href="{path='%prefix%main/day/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Day</a>
+							</h5>
+							<h5>Upcoming Events:</h5>
+							<ul>
+								{embed="%prefix%inc/calendar_events" calendar_id="{calendar:id}" {if segment_3}limit="20"{if:else}limit="5"{/if}}
+							</ul>
+						</div>
+					</div>
+					{if no_results}
+						<div class="alert alert-danger" role="alert">
+							<p class="lead">
+                        		Sorry, no calendars were found.
+							</p>
+						</div>
+					{/if}
+					{/exp:calendar:calendars}
+
+					{if segment_3}
+						<div class="list-group">
+							<h3 class="list-group-item">Other Calendars</h3>
+							{exp:calendar:calendars
+								calendar_short_name="not {segment_3}"
+								orderby="calendar_name" sort="asc"
+							}
+								<span class="list-group-item">
+									<a href="{path='%prefix%main/calendars'}/{calendar:short_name}/" style="color: {calendar:color};">
+										<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
+										<b>{calendar:name}</b>
+									</a> &nbsp; &nbsp;
+									View events for this calendar by: &nbsp;
+									<a href="{path='%prefix%main/month/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Month</a>
+									<a href="{path='%prefix%main/week/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Week</a>
+									<a href="{path='%prefix%main/day/by_calendar'}/{calendar:short_name}/" class="label" style="background-color: {calendar:color};">Day</a>
+								</span>
+							{if calendar:no_results}
+								No other Calendars found for this site.
+							{/if}
+							{/exp:calendar:calendars}
+						</div>
+					{/if}
+
+				</div>
+
+				<div class="col-sm-12 col-md-3">
+{embed="%prefix%inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Home" page is meant to display a simple overview of Calendars, along with links that filter the other pages down to events for specific calendars and/or timeframes.</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/events.html">Calendar:Events</a> to display a list of recent upcoming events for available Calendars.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+					<li>a link to a page with <a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/ics-export.html">Calendar:ICS_Export</a> tag to allow users to export event data for a particular Calendar.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month-list.html">Calendar:Month_List</a> to display a list of months.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="%prefix%inc/footer"}

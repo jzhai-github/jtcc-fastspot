@@ -1,0 +1,563 @@
+{layout='layouts/_main-layout'}
+
+{!--
+	404 redirect
+	============
+	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
+--}
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+{!-- page vars (prefix p_) --}
+{preload_replace:p_title='Services'}
+{preload_replace:p_description='Services at John Tyler Community College'}
+{preload_replace:p_url='services'}
+{!-- channel vars (prefix ch_) --}
+{preload_replace:ch='services'}
+{preload_replace:ch_title='Services'}
+{preload_replace:ch_status='Open|Default Page'}
+{preload_replace:ch_disable='member_data|pagination'}
+{!-- layout vars, channel/page related --}
+{layout:set name='ch' value='{ch}'}
+{layout:set name='ch_title' value='{ch_title}'}
+{layout:set name='p_url' value='{p_url}'}
+{layout:set name='p_title' value='{p_title}'}
+{layout:set name='ch_disable' value='{ch_disable}'}
+{layout:set name='ch_status' value='{ch_status}'}
+{if segment_2}{layout:set name='entry_ch' value='{ch}'}{/if}
+
+{!-- channel entries tag --}
+{exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
+	{!-- layout vars, dynamic, not output --}
+	{layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
+
+	{layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
+
+	{layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
+
+	{layout:set name="page_header_bg_image_500x214" value='{page_header_bg_image}{img:url:resize width="500" height="214"}{/page_header_bg_image}'}
+
+	{layout:set name="page_header_bg_image_740x317" value='{page_header_bg_image}{img:url:resize width="740" height="317"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_980x420" value='{page_header_bg_image}{img:url:resize width="980" height="420"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_1220x523" value='{page_header_bg_image}{img:url:resize width="1220" height="523"}{/page_header_bg_image}'}
+	{layout:set name="page_header_bg_image_1440x617" value='{page_header_bg_image}{img:url:resize width="1440" height="617"}{/page_header_bg_image}'}
+	
+	{layout:set name='description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+	{!-- OpenGraph meta output --}
+	{layout:set name='og_title' value='{if seo_title}{seo_title}{if:elseif title}{title}{if:else}{p_title}{/if}'}
+	{layout:set name='og_image'}{if page_image}<meta property="og:image" content="{page_image}{page_image:image}{/page_image}">{/if}{/layout:set}
+	{layout:set name='og_url'}{path='{p_url}'}{/layout:set}
+	{layout:set name='og_description' value='{if seo_desc}{seo_desc}{if:else}{p_description}{/if}'}
+	{!-- /layout vars, dynamic, not output --}
+
+	{!-- content output --}
+	{!--{if logged_in}
+	<a href="{cp_edit_entry_url}" class="edit-entry">Edit Entry</a>
+  {/if}--}
+	
+	{!-- page_content --}
+			
+{layout:contents}
+{main_content}
+	{main_content:wysiwyg_block}
+	<div class="wysiwyg_block">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="wysiwyg_block_inner typography">
+					{content}					
+				</div>
+			</div>
+		</div>
+	</div>
+	{/main_content:wysiwyg_block}
+
+{main_content:topics_header}
+{content}
+{if content:topics_title != ''}
+<!-- Topic Row -->
+<div class="topics">
+		<div class="fs-row">
+			<div class="fs-cell ">
+				<div class="topics_inner">					
+					<div class="topics_header">
+						<h2 class="topics_title">
+								<span class="topics_title_label">{content:topics_title}</span>
+						</h2>
+						<div class="topics_description">
+							<p>{content:topics_description}</p>
+						</div>
+					</div>
+					<!-- topics_header -->
+					<div class="topics_body">
+					{if:else}
+					
+					<!-- Topic Row -->
+					<div class="topics">
+						<div class="fs-row">
+							<div class="fs-cell ">
+								<div class="topics_inner">	
+					<!-- no topics_header -->
+					<div class="topics_body">
+					{/if}
+					{/content}
+					{/main_content:topics_header}
+
+						{main_content:topic_row}
+						{content}
+						<div class="topic">
+							<div class="topic_inner">
+								{content:topic_image}
+								<figure class="topic_figure" aria-hidden="true">
+									<span class="lazy_image_wrapper topic_image_wrapper">
+										<img class="js-lazy js-lazyload topic_image"  data-sizes="auto"  src='/images/placeholder.png' data-src='
+										{img:url:resize width="300" height="200"}'  data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w'  alt="{img:title}">
+									</span>
+									<noscript>
+										<img class="topic_image" src='{img:url:resize width="740" height="494"}'  srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="300" height="200"} 300w' sizes="100vw"  alt="{img:title}"  itemprop="image" >
+									</noscript>
+								</figure>
+								{/content:topic_image}
+								<div class="topic_wrapper">
+									<div class="topic_header">
+										<h3 class="topic_title">{content:topic_title}</h3>
+									</div>
+									<div class="topic_body">
+										<div class="topic_description">
+											{content:topic_description}
+										</div>
+									</div>
+									<div class="topic_links">
+										<a href="{content:topic_link_1}" class="topic_link" >
+											<span class="topic_link_inner">
+												<span class="topic_link_label">{content:topic_link_text_1}</span>
+												<span class="topic_link_icon" aria-hidden="true">
+													<span class="topic_link_icon_inner">
+														<span class="topic_link_icon_space">&#xfeff;</span>									
+														<svg class="icon icon_caret_right">
+															<use href="/images/icons.svg#caret_right" />
+														</svg>
+													</span> {!-- /topic_link_icon_inner --}
+												</span>{!-- /topic_link_icon --}
+											</span>{!-- /topic_link_label --}
+										</a>
+
+										{if content:topic_link_text_2}
+										<a href="{content:topic_link_text_2}" class="topic_link" >
+											<span class="topic_link_inner">
+												<span class="topic_link_label">{content:topic_link_text_2}</span>
+												<span class="topic_link_icon" aria-hidden="true">
+													<span class="topic_link_icon_inner">
+														<span class="topic_link_icon_space">&#xfeff;</span>		
+														<svg class="icon icon_caret_right">
+															<use href="/images/icons.svg#caret_right" />
+														</svg>
+													</span> {!-- /topic_link_icon_inner --}
+												</span>{!-- /topic_link_icon --}
+											</span>{!-- /topic_link_label --}
+										</a>
+										{/if}
+									</div><!-- /topic_links -->
+								</div><!-- /topics_wrapper -->
+							</div><!-- /topic_inner -->
+						</div><!-- /topic -->
+						{/content}
+				{/main_content:topic_row}
+{main_content:topic_row}
+{content}
+{if content:count == 1}
+					</div><!-- /topics_body -->
+				</div><!-- /topics_inner -->
+			</div><!-- /fs-cell -->
+		</div><!-- /fs-row -->
+	</div><!-- /topics -->
+
+<!-- END: Topic Row -->
+{/if}
+{/content}
+{/main_content:topic_row}
+
+	
+
+{main_content:link_group_theme_and_title}
+	{content}
+	<!-- Link Group -->
+	<div class='link_group {if content:link_group_theme == "burgundy"}theme_bergundy{/if}'>
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="link_group_inner">
+					<div class="link_group_header">
+						<h2 class="link_group_title">{content:link_group_title}</h2>
+					</div>
+					<ul class="link_group_list">
+	{/content}
+{/main_content:link_group_theme_and_title}
+{main_content:link_group}
+{content}
+						<li class="link_group_item">
+							<a class="link_group_link" href="{content:link}"  target="_blank"  itemprop="relatedLink">
+								<span class="link_group_link_inner">
+									<span class="link_group_link_label">{content:link_label}</span>
+									<span class="link_group_link_icon">
+										{if content:link_icon == "file_link"}
+										<svg class="icon icon_file">
+											<use href="/images/icons.svg#file" />
+										</svg>
+										{if:elseif content:link_icon == "external_link"}
+											<svg class="icon icon_external">
+											<use href="/images/icons.svg#external" />
+										</svg>
+										{if:else}
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+										{/if}
+									</span>
+								</span>
+							</a>
+						</li>
+						{/content}
+						{/main_content:link_group}
+	{main_content:link_group}
+		{content}
+		{if content:count == 1}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END: Link Group -->
+	{/if}
+	{/content}
+	{/main_content:link_group}
+	
+	{main_content:testimonial}
+		{content}
+			<div class="testimonial theme-{content:theme}">
+				<div class="testimonial_inner">
+					<div class="testimonial_content">
+						<div class="testimonial_icon_wrap">
+							<div class="testimonial_icon">
+								
+						<svg class="icon icon_quote">
+							<use href="/images/icons.svg#quote"></use>
+						</svg>
+					
+							</div>
+						</div>
+						<blockquote class="testimonial_quote">
+							<p>{content:testimonial_quote}</p>
+						</blockquote>
+						<div class="testimonial_info">
+							<div class="testimonial_quote_name">{content:testimonial_quote_name}</div>
+							{if content:testimonial_quote_title}
+								<a class="testimonial_quote_title" href="{content:testimonial_quote_title_url}">{content:testimonial_quote_title}</a>
+							{/if}
+						</div>
+					</div>
+					{content:testimonial_background_image}
+					<div class="testimonial_media">
+						<span class="lazy_image_wrapper testimonial_image_wrapper">
+							<img class="js-lazy testimonial_image lazyautosizes js-lazyloaded" data-sizes="auto" src='
+							{img:url:resize width="740" height="555"}' data-src='{img:url:resize width="740" height="555"}' data-srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w' alt="{img:title}" sizes="478px" srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w'>
+						</span>
+						<noscript>
+							<img class="testimonial_image" src='{img:url:resize width="980" height="735"}'  srcset='{img:url:resize width="980" height="735"} 980w, {img:url:resize width="740" height="555"} 740w' sizes="100vw"  alt="{img:title}" >
+						</noscript>
+						<div class="js-background testimonial_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{&quot;source&quot;: { &quot;1220px&quot;: &quot;{img:url:resize width="1080" height="1440"}&quot;, &quot;740px&quot;: &quot;{img:url:resize width="735" height="980"}&quot;, &quot;500px&quot;: &quot;{img:url:resize width="980" height="654"}&quot;, &quot;0px&quot;: &quot;{img:url:resize width="494" height="740"}&quot;, &quot;980px&quot;: &quot;{img:url:resize width="915" height="1220"}&quot;}, &quot;lazy&quot;: true, &quot;alt&quot;: &quot;&quot;}' aria-hidden="true">
+							<div class="testimonial_background_fallback" style=&quot;background-image: url(' {img:url:resize width="300" height="129"}');&quot;></div>
+							<div class="fs-background-container">
+								<div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{img:url:resize width="1080" height="1440"}'); opacity: 1;"><img alt="{img:title}" src='{img:url:resize width="1080" height="1440"}'>
+								</div>
+							</div>
+						</div>{!-- /js-background --}
+					</div>{!-- /testimonial_media --}
+					{/content:testimonial_background_image}
+				</div>{!-- /testimonial_inner --}
+			</div>{!-- /testimonial --}
+		{/content}
+	{/main_content:testimonial}
+
+	{main_content:media_grid}
+		{content}
+		<div class="collage {if content:layout == 'layout_flipped'}layout_unbalanced{/if} {content:layout}">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="collage_inner">
+				<div class="collage_header">
+					<h2 class="collage_title">{content:title}</h2>
+				</div>
+				
+
+					{if content:layout == "layout_equal"}
+					<div class="collage_rows">
+						<div class="collage_items">
+							<div class="collage_item">
+								{content:image1}
+								<figure class="collage_item_figure">
+									<span class="collage_item_media">
+										<span class="lazy_image_wrapper collage_item_image_wrapper">
+											<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="632px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+										</span>
+										<noscript>
+											<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+										</noscript>
+									</span>
+									{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+								</figure>
+								{/content:image1}
+							</div>
+							<div class="collage_item">
+								{content:image2}
+								<figure class="collage_item_figure">
+									<span class="collage_item_media">
+										<span class="lazy_image_wrapper collage_item_image_wrapper">
+											<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="632px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+										</span>
+										<noscript>
+											<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+										</noscript>
+									</span>
+									{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+								</figure>
+								{/content:image2}
+							</div>
+						</div>
+						<div class="collage_items">
+							<div class="collage_item">
+								{content:image4}
+								<figure class="collage_item_figure">
+									<span class="collage_item_media">
+										<span class="lazy_image_wrapper collage_item_image_wrapper">
+											<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="632px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+										</span>
+										<noscript>
+											<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+										</noscript>
+									</span>
+									{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+								</figure>
+								{/content:image4}
+							</div>
+							<div class="collage_item">
+								{content:image3}
+								<figure class="collage_item_figure">
+									<span class="collage_item_media">
+										<span class="lazy_image_wrapper collage_item_image_wrapper">
+											<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="632px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+										</span>
+										<noscript>
+											<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+										</noscript>
+									</span>
+									{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+								</figure>
+								{/content:image3}
+							</div>
+						</div>
+					</div>
+					{if:elseif content:layout == "layout_flipped"}
+						<div class="collage_rows">
+	<div class="collage_items">
+		<div class="collage_item">
+			{content:image1}
+			<figure class="collage_item_figure">
+				<span class="collage_item_media">				
+					<span class="lazy_image_wrapper collage_item_image_wrapper">
+						<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="921px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+					</span>
+					<noscript>
+					<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+											</noscript>														
+										</span>
+										{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+									</figure>
+									{/content:image1}
+								</div>
+								<div class="collage_item">
+									{content:image2}
+									<figure class="collage_item_figure">
+										<span class="collage_item_media">											<span class="lazy_image_wrapper collage_item_image_wrapper">
+												<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="334" height="500"}' data-src='{img:url:resize width="334" height="500"}' data-srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w' alt="{img:title}" sizes="343px" srcset='{img:url:resize width="334" height="500"}, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w'>
+											</span>
+											<noscript>
+												<img class="collage_item_image" src='{img:url:resize width="654" height="980"}'  srcset='{img:url:resize width="654" height="980"} 654w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="334" height="500"}' sizes="100vw"  alt="{img:title}" >
+											</noscript>													
+										</span>
+										{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+									</figure>
+									{/content:image2}
+								</div>
+							</div>
+							<div class="collage_items">
+								<div class="collage_item">
+									{content:image4}
+									<figure class="collage_item_figure">
+										<span class="collage_item_media">
+											<span class="lazy_image_wrapper collage_item_image_wrapper">
+												<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="921px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+											</span>
+											<noscript>
+												<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+											</noscript>															
+										</span>
+										{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+									</figure>
+									{/content:image4}
+								</div>
+								<div class="collage_item">
+									{content:image3}
+									<figure class="collage_item_figure">
+										<span class="collage_item_media">				<span class="lazy_image_wrapper collage_item_image_wrapper">
+												<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="334" height="500"}' data-src='{img:url:resize width="334" height="500"}' data-srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w' alt="{img:title}" sizes="343px" srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w'>
+											</span>
+											<noscript>
+												<img class="collage_item_image" src='{img:url:resize width="654" height="980"}'  srcset='{img:url:resize width="654" height="980"} 654w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="334" height="500"} 334w' sizes="100vw"  alt="{img:title}" >
+											</noscript>														
+										</span>
+										{if img:caption}
+											<figcaption class="collage_item_figcaption">
+											<span class="collage_item_figcaption_inner">{img:caption}</span>
+										</figcaption>
+										{/if}
+									</figure>
+									{/content:image3}
+								</div>
+							</div>
+						</div>
+					{if:else}
+					<div class="collage_rows">
+					<div class="collage_items">
+						<div class="collage_item">
+							{content:image1}
+							<figure class="collage_item_figure">
+								<span class="collage_item_media">
+									<span class="lazy_image_wrapper collage_item_image_wrapper">
+										<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="921px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+									</span>
+									<noscript>
+										<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+									</noscript>
+								</span>
+								{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+							</figure>
+							{/content:image1}
+						</div>
+						<div class="collage_item">
+							{content:image2}
+							<figure class="collage_item_figure">
+								<span class="collage_item_media">
+									<span class="lazy_image_wrapper collage_item_image_wrapper">
+										<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="334" height="500"}' data-src='{img:url:resize width="334" height="500"}' data-srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w' alt="{img:title}" sizes="343px" srcset='{img:url:resize width="334" height="500"}, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w'>
+									</span>
+									<noscript>
+										<img class="collage_item_image" src='{img:url:resize width="654" height="980"}'  srcset='{img:url:resize width="654" height="980"} 654w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="334" height="500"}' sizes="100vw"  alt="{img:title}" >
+									</noscript>
+								</span>
+								{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+							</figure>
+							{/content:image2}
+						</div>
+					</div>
+					<div class="collage_items">
+						<div class="collage_item">
+							{content:image4}
+							<figure class="collage_item_figure">
+								<span class="collage_item_media">
+									<span class="lazy_image_wrapper collage_item_image_wrapper">
+										<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="500" height="282"}' data-src='{img:url:resize width="500" height="282"}' data-srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w' alt="{img:title}" sizes="921px" srcset='{img:url:resize width="500" height="282"} 500w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="980" height="552"} 980w'>
+									</span>
+									<noscript>
+										<img class="collage_item_image" src='{img:url:resize width="980" height="552"}'  srcset='{img:url:resize width="980" height="552"} 980w, {img:url:resize width="740" height="416"} 740w, {img:url:resize width="500" height="282"} 500w' sizes="100vw"  alt="{img:title}" >
+									</noscript>
+								</span>
+								{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+							</figure>
+							{/content:image4}
+						</div>
+						<div class="collage_item">
+							{content:image3}
+							<figure class="collage_item_figure">
+								<span class="collage_item_media">
+									<span class="lazy_image_wrapper collage_item_image_wrapper">
+										<img class="js-lazy collage_item_image lazyautosizes js-lazyloaded" data-sizes="auto" src='{img:url:resize width="334" height="500"}' data-src='{img:url:resize width="334" height="500"}' data-srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w' alt="{img:title}" sizes="343px" srcset='{img:url:resize width="334" height="500"} 334w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="654" height="980"} 654w'>
+									</span>
+									<noscript>
+										<img class="collage_item_image" src='{img:url:resize width="654" height="980"}'  srcset='{img:url:resize width="654" height="980"} 654w, {img:url:resize width="494" height="740"} 494w, {img:url:resize width="334" height="500"} 334w' sizes="100vw"  alt="{img:title}" >
+									</noscript>
+								</span>
+								{if img:caption}
+									<figcaption class="collage_item_figcaption">
+									<span class="collage_item_figcaption_inner">{img:caption}</span>
+								</figcaption>
+								{/if}
+							</figure>
+							{/content:image3}
+						</div><!-- /collage_item -->
+					</div><!-- /collage_items -->
+					</div><!-- /collage_rows -->
+					{/if}
+
+					
+				
+			</div><!-- /collage_inner -->
+		</div><!-- /fs-cell -->
+	</div><!-- /fs-row --> 
+</div><!-- /collage layout_unbalanced -->
+{/content}
+	{/main_content:media_grid}
+
+{/main_content}
+
+
+{snp_contact}
+
+{!--
+				no results redirect
+				===================
+				If the entry doesn't exist, we redirect to 404. This works in tandem with the require_entry='yes' parameter on the channel entries tag.
+			--}
+			{if no_results}
+				{redirect='404'}
+			{/if}
+		{/exp:channel:entries}			

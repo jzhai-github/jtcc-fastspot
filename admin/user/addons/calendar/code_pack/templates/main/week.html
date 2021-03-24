@@ -1,0 +1,141 @@
+{embed="%prefix%inc/index" page_title="Week View"}
+	</head>
+
+	<body role="document">
+
+{embed="%prefix%inc/header" page="week"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Week View</h1>
+				<p class="lead">Below is full week calendar view, which allows you to see all your event occurrences in a daily view.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+			{if segment_3 == "by_calendar"}
+				{exp:calendar:calendars
+					calendar_short_name="{segment_4}"
+				}
+					<div class="alert" role="alert" style="background-color: {calendar:color_light}; border-color: {calendar:color};">
+						<p class="lead" style="color: {calendar:text_color} !important;">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>&nbsp;
+							Events for <strong>{calendar:name}</strong> calendar
+						</p>
+					</div>
+				{/exp:calendar:calendars}
+			{/if}
+
+					<div id="week_calendar">
+					{exp:calendar:week
+						{if segment_3 == "by_calendar"} {!-- Are we filtering by Calendar? --}
+							calendar_short_name="{segment_4}"
+							{if segment_5} {!-- Are we in a week other than current? --}
+								date_range_start="{segment_5}-{segment_6}-{segment_7}"
+							{if:else} {!-- Or is this current week? --}
+								date_range_start="today"
+							{/if}
+						{if:elseif segment_3 == ""} {!-- Is this a regular view in current week? --}
+							date_range_start="today"
+						{if:else} {!-- Or is this a regular view in a week other than current? --}
+							date_range_start="{segment_3}-{segment_4}-{segment_5}"
+						{/if}
+					}
+						<div class="header clearfix">
+							<div class="left">
+								<ul class="pager">
+									<li><a href="{path='%prefix%main/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:previous_week format='%Y/%m/%d'}/">&larr; Last Week</a></li>
+								</ul>
+							</div>
+							<div class="center">
+								<h3>
+									Week of {calendar:week_date format="%F %j, %Y"} &nbsp;
+									<span class="label {if calendar:week_total_events == '0'}label-default{if:else}label-warning{/if}">
+										{calendar:week_total_events} event{if calendar:week_total_events > "1" OR calendar:week_total_events == "0"}s{/if}
+									</span>
+								</h3>
+							</div>
+							<div class="right">
+								<ul class="pager">
+									<li><a href="{path='%prefix%main/week'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:next_week format='%Y/%m/%d'}/">Next Week &rarr;</a></li>
+								</ul>
+							</div>
+						</div>
+						{calendar:days}
+						<div class="panel {if calendar:current_day}panel-warning{if:else}panel-default{/if}">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<a href="{path='%prefix%main/day'}/{if segment_3 == 'by_calendar'}by_calendar/{segment_4}/{/if}{calendar:day_date format='%Y/%m/%d'}/">
+										{if calendar:current_day}
+											TODAY
+										{if:else}
+											{calendar:day_date format="%l, %F %j, %Y"}
+										{/if}
+									</a> &nbsp;
+								{if calendar:day_total_events}
+									<span class="label label-warning">
+										{calendar:day_total_events} event{if calendar:day_total_events > "1" OR calendar:day_total_events == "0"}s{/if}
+									</span>
+								{/if}
+								</h3>
+							</div>
+							<div class="panel-body">
+							{if calendar:day_total_events == "0"}
+								<p>No events for this day.</p>
+							{/if}
+							{calendar:events}
+								{if calendar:event_count == "1"}<ul class="list-group">{/if}
+									<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
+										<a href="{path='%prefix%main/calendars'}/{calendar:calendar_short_name}/" class="badge" style="background-color: {calendar:calendar_color};">{calendar:calendar_name}</a>
+										<span class="glyphicon glyphicon-time"></span>
+										{if calendar:event_all_day}
+											All Day
+										{if:else}
+											{if calendar:event_multi_day} {!-- Special handling for non all-day multi-day events --}
+												{if calendar:event_first_day}
+													Starts {calendar:event_start_date format="%g:%i%a"}
+												{if:elseif calendar:event_last_day}
+													Ends {calendar:event_end_date format="%g:%i%a"}
+												{if:else}
+													All Day
+												{/if} 
+											{if:else}
+												{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+											{/if}
+										{/if} &nbsp;
+										<b><a href="{path='%prefix%main/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" class="calendar_event_title">{calendar:title}</a></b>
+										{if calendar:event_location}&nbsp; <i>{calendar:event_location}</i>{/if}
+									</li>
+								{if calendar:event_count == calendar:event_total_results}</ul>{/if}
+							{/calendar:events}
+							</div>
+						</div>
+						{/calendar:days}
+					{/exp:calendar:week}
+					</div>
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="%prefix%inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Week" page is meant to show events for a particular week. Additionally, this page can be filtered down to display events for a specific calendar (if you've come from the Calendars page).</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/week.html">Calendar:Week</a> to display a week view of events.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="%prefix%inc/footer"}

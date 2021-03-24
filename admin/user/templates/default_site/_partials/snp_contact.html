@@ -1,0 +1,204 @@
+{if has_categories}
+{if category_group == "3"}
+{categories}
+<div class="entity_meta theme_navy" id="meta" data-type="entity" data-category="">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="entity_meta_inner">
+				<div class="contact_header">
+					<div class="contact_header_group">
+						<h2 class="contact_header_title">{category_name}</h2>
+						<p class="contact_header_caption">{contact_header_caption}</p>
+					</div>
+					{if category_image}
+					<div class="contact_header_group">
+						<figure class="contact_header_figure" aria-hidden="true">
+							<span class="lazy_image_wrapper contact_header_image_wrapper">
+								<img class="js-lazy js-lazyload contact_header_image"  data-sizes="auto"  src="/images/placeholder.png" data-src="{category_image}"  data-srcset="{category_image} 300w, {category_image} 500w, {category_image} 740w"  alt="">
+							</span>
+							<noscript>
+								<img class="contact_header_image" src="{category_image}"  srcset="{category_image} 740w, {category_image} 500w, {category_image} 300w" sizes="100vw"  alt=""  itemprop="image" >
+							</noscript>
+						</figure>
+					</div>
+					{/if}
+				</div>
+				{if chester_phone || chester_email || chester_location}
+				<!-- Contact Details -->
+				<div class="contact_details_wrapper">
+					<h3 class="contact_details_title">Chester Campus</h3>
+					<div class="contact_details">
+						<div class="contact_detail">
+							{if chester_phone || chester_email}
+							<div class="contact_detail_label">Contact</div>
+							{/if}
+							{if chester_phone}
+							<div class="contact_detail_item">
+								<a class="contact_detail_info" itemprop="telephone" href="tel:+{chester_phone}">
+									<span class="contact_detail_info_icon">
+										<svg class="icon icon_phone">
+											<use href="/images/icons.svg#phone" />
+										</svg>
+									</span>
+									<span class="contact_detail_info_label">{chester_phone}</span>
+								</a>
+							</div>
+							{/if}
+							{if chester_email}
+							<div class="contact_detail_item">
+								<a class="contact_detail_info" href="mailto:{chester_email}" itemprop="email">
+									<span class="contact_detail_info_icon">
+										<svg class="icon icon_mail">
+											<use href="/images/icons.svg#mail" />
+										</svg>
+									</span>
+									<span class="contact_detail_info_label">{chester_email}</span>
+								</a>
+							</div>
+							{/if}
+						</div>
+						{if chester_location}
+						<div class="contact_detail">
+							<div class="contact_detail_label">Location</div>
+							<div class="contact_detail_item">
+								<div class="contact_detail_info" itemprop="address">{chester_location}</div>
+							</div>
+						</div>
+						{/if}
+						{if chester_hours}
+						<div class="contact_detail">
+							<div class="contact_detail_label">Hours</div>
+							<div class="contact_detail_item">
+								<div class="contact_detail_hint">{chester_hours}</div>
+							</div>
+						</div>
+						{/if}
+						{if chester_facebook_url || chester_instagram_url}
+						<div class="contact_detail">			
+							<div class="contact_detail_label">Social Media</div>
+							<ul class="contact_socials" aria-label="Social Links for ">
+							{/if}
+							{if chester_facebook_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{chester_facebook_url}" aria-label=" Facebook" itemprop="sameAs">
+									<span class="contact_social_link_label">Facebook</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+							{if chester_instagram_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{chester_instagram_url}" aria-label="Instagram" itemprop="sameAs">
+									<span class="contact_social_link_label">Instagram</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+						{if chester_facebook_url || chester_instagram_url}</ul>
+						</div>{!-- /contact_detail --}
+						{/if}
+					</div>{!-- /contact_details --}
+					<!-- END: Contact Details -->
+				</div>{!-- /contact_details_wrapper --}
+				{/if}
+			{if midlothian_phone || midlothian_email || midlothian_location}
+				<!-- Contact Details -->
+				<div class="contact_details_wrapper">
+					<h3 class="contact_details_title">Midlothian Campus</h3>
+						<div class="contact_details">
+							{if midlothian_phone || midlothian_email}
+							<div class="contact_detail">
+								<div class="contact_detail_label">Contact</div>
+							{/if}
+								{if midlothian_phone}
+								<div class="contact_detail_item">
+									<a class="contact_detail_info" itemprop="telephone" href="tel:+{midlothian_phone}">
+										<span class="contact_detail_info_icon">
+											<svg class="icon icon_phone">
+												<use href="/images/icons.svg#phone" />
+											</svg>
+										</span>
+										<span class="contact_detail_info_label">{midlothian_phone}</span>
+									</a>
+								</div>
+								{/if}
+								{if midlothian_email}
+								<div class="contact_detail_item">
+									<a class="contact_detail_info" href="mailto:{midlothian_email}" itemprop="email">
+										<span class="contact_detail_info_icon">
+											<svg class="icon icon_mail">
+												<use href="/images/icons.svg#mail" />
+											</svg>
+										</span>
+										<span class="contact_detail_info_label">{midlothian_email}</span>
+									</a>
+								</div>
+								{/if}
+							</div>
+							{if midlothian_location}
+							<div class="contact_detail">
+								<div class="contact_detail_label">Location</div>
+								<div class="contact_detail_item">
+									<div class="contact_detail_info" itemprop="address">{midlothian_location}</div>
+								</div>
+							</div>
+							{/if}
+							{if midlothian_hours}
+							<div class="contact_detail">
+								<div class="contact_detail_label">Hours</div>
+									<div class="contact_detail_item">
+										<div class="contact_detail_hint">{midlothian_hours}</div>
+									</div>
+							</div>{!-- /contact_detail --}
+							{/if}
+							{if midlothian_facebook_url || midlothian_instagram_url}
+						<div class="contact_detail">			
+							<div class="contact_detail_label">Social Media</div>
+							<ul class="contact_socials" aria-label="Social Links for ">
+							{/if}
+							{if midlothian_facebook_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{midlothian_facebook_url}" aria-label=" Facebook" itemprop="sameAs">
+									<span class="contact_social_link_label">Facebook</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+							{if midlothian_instagram_url}
+							<li class="contact_social">
+								<a class="contact_social_link" href="{midlothian_instagram_url}" aria-label="Instagram" itemprop="sameAs">
+									<span class="contact_social_link_label">Instagram</span>
+									<span class="contact_social_link_icon">
+										<svg class="icon icon_caret_right">
+											<use href="/images/icons.svg#caret_right" />
+										</svg>
+									</span>
+								</a>
+							</li>
+							{/if}
+						{if midlothian_facebook_url || midlothian_instagram_url}</ul>
+						</div>{!-- /contact_details --}
+						{/if}
+					</div>{!-- /contact_details --}
+					<!-- END: Contact Details -->
+					</div>{!-- /contact_details_wrapper --}
+				{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+	{/categories}
+{/if}
+{/if}

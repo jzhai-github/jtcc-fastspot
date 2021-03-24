@@ -1,0 +1,195 @@
+{embed="calendar_inc/index" page_title="Event View"}
+	</head>
+
+	<body role="document">
+
+{embed="calendar_inc/header"}
+
+		<div class="container">
+
+			<div class="page-header">
+				<h1>Event View</h1>
+				<p class="lead">Below is an individual event view, which allows you to see full details and occurrences for the given event.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-9">
+
+				{if segment_4 == "created" OR segment_4 == "updated"}
+					<div class="alert alert-success" role="alert">
+						<p class="lead">
+							{if segment_4 == "created"}
+                        		Event has been successfully created!
+							{/if}
+							{if segment_4 == "updated"}
+								Event has been successfully updated!
+							{/if}
+						</p>
+					</div>
+				{/if}
+
+					<div id="events_calendar">
+						{exp:channel:entries
+							require_entry="yes"
+							entry_id="{segment_3}"
+							dynamic="no"
+						}
+							{if no_results}
+								<div class="alert alert-danger" role="alert">
+									<p class="lead">
+                        				Sorry, no event was found.
+									</p>
+								</div>
+							{/if}
+							<a href="{path='calendar_main/export/event'}/{segment_3}/" class="btn btn-default btn-sm pull-right" role="button">
+								<span class="glyphicon glyphicon-export" aria-hidden="true"></span>&nbsp;
+								Export Event
+							</a>
+							{if logged_in_group_id == "1"}
+								<a href="{path='calendar_main/edit'}/{segment_3}/" class="btn btn-warning btn-sm pull-right" style="margin-right:10px;" role="button">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>&nbsp;
+									Update Event
+								</a>
+							{/if}
+							<h3>{title}</h3>
+							{YOUR_CALENDAR_FIELD_NAME} {!-- Where the magic begins... change to the short name of your Calendar custom channel field --}
+								<table class="table table-striped" style="margin-top: 20px;">
+									<tr>
+										<th style="width: 20%;">Calendar</th>
+										<td>
+											<span class="glyphicon glyphicon-calendar" style="color: {calendar:calendar_color};"></span>&nbsp;
+											<a href="{path='calendar_main/calendars'}/{calendar:calendar_short_name}/" style="color: {calendar:calendar_color};">
+												{calendar:calendar_name}
+											</a>
+										</td>
+									</tr>
+									<tr>
+										<th>Location</th>
+										<td>{event_location}</td>
+									</tr>
+									<tr>
+										<th>Date</th>
+										<td>
+										{if segment_4 AND segment_5 AND segment_6} {!-- Handle occurrence date if this is a repeating event, and linked to from another template with date segments --}
+											{if calendar:event_recurs} {!-- Call glorious Date tag to parse this --}
+												{exp:calendar:date
+													base_date="{segment_4}-{segment_5}-{segment_6}"
+													output_date="today"
+													output_format="%l, %F %j, %Y"
+												}
+											{if:else} {!-- If not repeating, but just a multi-day event that spanned this day, show this --}
+												{calendar:event_start_date format="%l, %F %j, %Y"}
+											{/if}
+										{if:else}
+											{calendar:event_start_date format="%l, %F %j, %Y"}
+										{/if}
+										{if calendar:event_all_day}
+											(all day)
+										{if:else}
+											at {calendar:event_start_date format="%g:%i%a"} -
+											{if calendar:event_multi_day}
+												<br />{calendar:event_end_date format="%l, %F %j, %Y at %g:%i%a"}
+											{if:else}
+												{calendar:event_end_date format="%g:%i%a"}
+											{/if}
+										{/if}
+										</td>
+									</tr>
+									<tr>
+										<th>Duration</th>
+										<td>
+											<span class="glyphicon glyphicon-time"></span>&nbsp;
+											{if calendar:event_duration_days}
+												{calendar:event_duration_days} days{if calendar:event_duration_days AND calendar:event_duration_hours}, {/if}
+											{/if}
+											{if calendar:event_duration_hours}
+												{calendar:event_duration_hours} hours{if calendar:event_duration_hours AND calendar:event_duration_minutes}, {/if}
+											{/if}
+											{if calendar:event_duration_minutes}
+												{calendar:event_duration_minutes} minutes
+											{/if}
+										</td>
+									</tr>
+									<tr>
+										<th>Details</th>
+										<td>{event_description}</td>
+									</tr>
+									<tr>
+										<th>Repeats?</th>
+										<td>
+										{if calendar:event_recurs}
+											<span class="glyphicon glyphicon-repeat"></span>&nbsp;
+											Repeats {calendar:event_recurrence_rule}
+										{if:else}
+											No
+										{/if}
+										</td>
+									</tr>
+								{if calendar:event_recurs}
+									<tr>
+										<th>Upcoming Recurrences</th>
+										<td>
+
+									{calendar:recurrences
+										date_range_start="today"
+										date_range_end="6 months"
+										limit="10"
+									}
+										{if calendar:recurrence_count == "1"}<ul class="list-group">{/if}
+											<li class="list-group-item" style="border-left: 5px solid {calendar:calendar_color};">
+												<a href="{path='calendar_main/event'}/{entry_id}/{calendar:recurrence_start_date format='%Y/%m/%d'}/" class="badge" style="background-color: {calendar:calendar_color};">View Recurrence</a>
+												<a href="{path='calendar_main/day'}/{calendar:recurrence_start_date format='%Y/%m/%d'}/" class="badge">View Day in Calendar</a>
+												<span class="glyphicon glyphicon-time"></span>&nbsp;
+												{calendar:recurrence_start_date format="%l, %F %j, %Y"}
+											{!-- Time details for recurrences
+												{if calendar:event_all_day}
+													(all day)
+												{if:else}
+													at {calendar:recurrence_start_date format="%g:%i%a"} -
+													{if calendar:event_multi_day}
+														<br />{calendar:recurrence_end_date format="%l, %F %j, %Y at %g:%i%a"}
+													{if:else}
+														{calendar:recurrence_end_date format="%g:%i%a"}
+													{/if}
+												{/if}
+											--}
+											</li>
+										{if calendar:recurrence_count == calendar:recurrence_total_results}</ul>{/if}
+									{/calendar:recurrences}
+									{if calendar:recurrences:no_results}
+										<p>No results found for this timeframe (next 6 months from today).</p>
+									{/if}
+										</td>
+									</tr>
+								{/if}
+								</table>
+							{/YOUR_CALENDAR_FIELD_NAME} {!-- Change to the short name of your Calendar custom channel field --}
+						{/exp:channel:entries}
+					</div>
+
+				</div>
+
+				<div class="col-md-3">				
+{embed="calendar_inc/sidebar"}
+				</div>
+
+      		</div>
+
+			<div class="well ss-pageinfo">
+				<h2>About This Page</h2>
+				<p>The "Event Detail" page is meant to display more detailed information about the event. All event occurrences that show up throughout these templates point back to this page to display the events details.</p>
+				<p>It makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.expressionengine.com/v3/channel/channel_entries.html">EE Channel:Entries</a> to display the entry data.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/channel-entries.html">Calendar Fieldtype</a> to display event information for the channel entry.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/date.html">Calendar:Date</a> tag, used to read date segments and display the occurrence date if the event recurs, and someone is visiting from another page on the site such as the full month calendar.</li>
+					<li>a link to a page with <a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/ics-export.html">Calendar:ICS_Export</a> tag to allow users to export the selected event.</li>
+				</ul>
+				<p>The global sidebar on the right makes use of the following tags:</p>
+				<ul>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/month.html">Calendar:Month</a> to display a Mini Calendar that links to days that have events.</li>
+					<li><a href="https://docs.solspace.com/expressionengine/calendar/v3/templating/calendars.html">Calendar:Calendars</a> to display a list of all available Calendars.</li>
+				</ul>
+			</div>
+
+{embed="calendar_inc/footer"}
