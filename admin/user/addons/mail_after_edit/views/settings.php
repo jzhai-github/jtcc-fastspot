@@ -156,10 +156,14 @@
 						</select>
 					</td>
 					<td>
-						<select v-model="channel.mail_on" multiple v-on:change="changeChannel($event, channel.channel, 'mail_on')">
-							<option value="create">Entry Created</option>
-							<option value="edit">Entry Changed</option>
-						</select>
+						<label for="mail_on">
+							Entry Created
+							<input type="checkbox" v-model="channel.mail_on" name="mail_on" v-on:change="changeChannel($event, channel.channel, 'mail_on')" value="create">
+						</label><br />
+						<label for="mail_on-create">
+							Entry Changed
+							<input type="checkbox" id="mail_on-create" v-model="channel.mail_on" name="mail_on" v-on:change="changeChannel($event, channel.channel, 'mail_on')" value="edit">
+						</label>
 					</td>
 					<td>
 						<input type="checkbox" v-model="channel.author" v-on:change="changeChannel($event, channel.channel, 'author')" />
@@ -262,6 +266,20 @@
 								break;
 							case 'from':
 								c.from = val
+								break;
+							case 'mail_on':
+								console.log('TYPE', c.mail_on, typeof c.mail_on)
+								if(typeof c.mail_on !== 'object') {
+									c.mail_on = [val]
+								} else {
+									const index = c.mail_on.indexOf(val);
+									if (index > -1) {
+										delete c.mail_on[val]
+									} else {
+										console.log(val, 'not found', c.mail_on)
+										c.mail_on[val] = val
+									}
+								}
 								break;
 							case 'delete':
 								deleteC = true;

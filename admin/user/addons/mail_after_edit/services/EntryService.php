@@ -43,9 +43,12 @@ class EntryService {
 
 		$this->checkChannel((int) $values['channel_id']);
 
+		$settings_skip_fields = isset($this->settings['skip_fields']) ? $this->settings['skip_fields'] : [];
+		$channel_skip_fields = isset($this->channel['skip_fields']) ? $this->channel['skip_fields'] : [];
+
 		$this->skip_fields = array_merge(
-			$this->settings['skip_fields'],
-			$this->channel['skip_fields']
+			$settings_skip_fields,
+			$channel_skip_fields
 		);
 
 		$outputEmails = array();
@@ -411,16 +414,36 @@ class EntryService {
 
 							// OLD VALUE
 							try {
-								$startFieldValue = Carbon::createFromFormat('n/j/Y g:i A', $startFieldValue)->format(DATE_RFC2822);
-							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
 								$startFieldValue = Carbon::parse($startFieldValue)->format(DATE_RFC2822);
+							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+								try {
+									$startFieldValue = Carbon::createFromFormat('U', $startFieldValue)->format(DATE_RFC2822);
+								} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+									$startFieldValue = $startFieldValue;
+								}
+							} catch (\Exception $exp) {
+								try {
+									$startFieldValue = Carbon::createFromFormat('U', $startFieldValue)->format(DATE_RFC2822);
+								} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+									$startFieldValue = $startFieldValue;
+								}
 							}
 
 							// NEW VALUE
 							try {
-								$entryChannelData[$startFieldKey] = Carbon::createFromFormat('U', $entry[$startFieldKey])->format(DATE_RFC2822);
-							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
 								$entryChannelData[$startFieldKey] = Carbon::parse($entry[$startFieldKey])->format(DATE_RFC2822);
+							} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+								try {
+									$entryChannelData[$startFieldKey] = Carbon::createFromFormat('U', $entry[$startFieldKey])->format(DATE_RFC2822);
+								} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+									$entryChannelData[$startFieldKey] = $entry[$startFieldKey];
+								}
+							} catch (\Exception $exp) {
+								try {
+									$entryChannelData[$startFieldKey] = Carbon::createFromFormat('U', $entry[$startFieldKey])->format(DATE_RFC2822);
+								} catch (\Carbon\Exceptions\InvalidDateException $exp) {
+									$entryChannelData[$startFieldKey] = $entry[$startFieldKey];
+								}
 							}
 
 						}

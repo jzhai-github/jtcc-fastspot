@@ -9,7 +9,7 @@ class Mail_after_edit_ext {
 
 	public $settings = [];
 
-	public $version = '2.2.0';
+	public $version = '2.2.1';
 
 	public $entryService;
 

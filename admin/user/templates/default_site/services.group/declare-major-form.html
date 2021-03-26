@@ -42,7 +42,79 @@
                 </ul>';
 
 if (isset($_POST['sbmt'])) {
-    echo 'Form is submitted.';
+    $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $emp_id = $_POST['emp_id'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $campus = '';
+            if (isset($_POST['campus'])){
+                $campus = $_POST['campus'];
+            }
+            $best_time = $_POST['best_time'];
+            $major = $_POST['major'];
+            $nursing = '';
+            if (isset($_POST['nursing'])){
+                $nursing = $_POST['nursing'];
+            }
+            $semester = '';
+            if (isset($_POST['semester'])){
+                $semester = $_POST['semester'];
+            }
+            $term = $semester . ' ' . $_POST['year'];
+            //$term = $_POST['term'];
+            $other = $_POST['other'];
+            $be_advised = '';
+            if (isset($_POST['be_advised'])){
+                $be_advised = $_POST['be_advised'];
+            }
+            $transfer = '';
+            if (isset($_POST['transfer'])){
+                $transfer = $_POST['transfer'];
+            }
+            $responsibilities = '';
+            if (isset($_POST['responsibilities'])){
+                $responsibilities = $_POST['responsibilities'];
+            }
+            
+    //$to = 'advising@jtcc.edu, ' . $email;
+            $to = 'jzhai@jtcc.edu, ' . $email;
+            //$to = 'jhorning@jtcc.edu, ' . $email;
+            $subject = "Declaring a Major Request Form";
+            $body = '<html>
+                <head><title>Declaring a Major Request Form</title></head>
+                <body>
+                <table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+                <tr>
+                <td>
+                    <p><strong>First Name: </strong>' . $first_name . '</p>
+                    <p><strong>Last Name: </strong>' . $last_name . '</p>
+                    <p><strong>Student EmplID: </strong>' . $emp_id . '</p>
+                    <p><strong>VCCS E-mail: </strong>' . $email . '</p>
+                    <p><strong>Phone: </strong>' . $phone . '</p>
+                    <p><strong>Desired major: </strong>' . $major . '</p>
+                    <p><strong>Apply to Nursing: </strong>' . $nursing . '</p>
+                    <p><strong>Term/Semester Year: </strong>' . $term . '</p>
+                    <p><strong>Campus: </strong>' . $campus . '</p>  
+                    <p><strong>Best time to contact: </strong>' . $best_time . '</p>
+                    <p><strong>Additional Information: </strong>' . $other . '</p>
+                    <p><strong>Do you want to be advised? </strong>' . $be_advised . '</p>
+                    <p><strong>Do you plan to transfer after attending John Tyler Community College? </strong>' . $transfer . '</p>
+                    <p><strong>I read the Student Responsibilities and agree to do the following: </strong>' . $responsibilities . '</p>' . $studentRes . 
+                    '<p></p>                        
+                </td>
+                </tr>   
+                </table>
+                </body>
+                </html>';
+                      
+              $headers = "From: do-not-reply@jtcc.edu \r\n";
+              $headers.= "BCC: webmaster@jtcc.edu \r\n";
+              $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+              $headers.= "MIME-Version: 1.0 ";
+              
+              mail($to, $subject, $body, $headers);
+
 }
 ?>
 

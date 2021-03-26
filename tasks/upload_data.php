@@ -51,7 +51,7 @@ if (file_exists($file_sum)) {
 	$sql3 = "delete from courses_summer";
 	mysqli_query($conn, $sql3);
 	
-	$sql4 = "LOAD DATA INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SUMMER.CSV' INTO TABLE `courses_summer` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' ESCAPED BY '\\\\' LINES TERMINATED BY '\\r\\n'"; 
+	$sql4 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SUMMER.CSV' INTO TABLE `courses_summer` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n'"; 
 		 
 	mysqli_query($conn, $sql4);
 
@@ -67,7 +67,7 @@ if (file_exists($file_spr)) {
 	$sql5 = "delete from courses_spring";
 	mysqli_query($conn, $sql5);
 	
-	$sql6 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SPRING.CSV' INTO TABLE `courses_spring` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n'"; 	  
+	$sql6 = "LOAD DATA LOCAL INFILE '/srv/sites/dev.jtcc.edu/web/tasks/JTWEBCRSECAT_SPRING.CSV' INTO TABLE `courses_spring` FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n'"; 	  
 		 
 	mysqli_query($conn, $sql6);
 

@@ -70,11 +70,29 @@ switch($_SERVER['HTTP_HOST']) {
     case 'dev.jtcc.edu':
         $dbConnection = array (
             'hostname' => 'localhost',
-            'username' => 'jtcc_dev',
-            'password' => 'VdleL7N_krUS',
+            'username' => 'jtccsql',
+            'password' => '$=Q3eBXBTJ9+',
             'database' => 'jtcc_dev',
                 );
     break;
+
+    // case 'dev.jtcc.edu':
+    //     $dbConnection = array (
+    //         'hostname' => 'localhost',
+    //         'username' => 'jtcc-dev',
+    //         'password' => '-oQ+9QoA9LFT',
+    //         'database' => 'jtcc_dev',
+    //             );
+    // break;
+
+     /*case 'dev.jtcc.edu':
+         $dbConnection = array (
+             'hostname' => 'localhost',
+             'username' => 'jtcc_dev',
+             'password' => 'VdleL7N_krUS',
+             'database' => 'jtcc_dev',
+                 );
+     break;*/
 }
 
 $config['database'] = array (
