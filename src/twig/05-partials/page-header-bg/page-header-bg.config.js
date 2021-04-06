@@ -10,6 +10,13 @@ module.exports = {
 			label: 'Default'
 		},
 		{
+			name: 'long-title',
+			context: {
+				title:
+					'Business, Management, Finance, Hospitality Management and Marketing'
+			}
+		},
+		{
 			name: 'description',
 			context: {
 				description:
