@@ -1,0 +1,102 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Transfer Credit Request Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+
+<?php
+include("includes/transfer_credit_variables.php");
+
+if (isset($_POST['sbmt'])) {
+	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        //your site secret key
+        $secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	$responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+
+        	$sname = $_POST['sname'];
+			$emp_id = $_POST['emp_id'];
+			$institution = $_POST['institution'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$courses = $_POST['courses'];
+			$iaccept = '';
+			if (isset($_POST['iaccept'])){
+				$iaccept = $_POST['iaccept'];
+			}
+		
+			$to = 'admissionsandrecords@jtcc.edu';
+			//$to = 'jzhai@jtcc.edu';
+			$to2 = $email;
+
+		  	$subject = "Transfer Credit Request Form from " . $sname;
+		  	$data = $topText . '<p><strong>Name: </strong>' . $sname . '<br />
+                    <strong>Student ID#: </strong>' . $emp_id . '<br />
+                    <strong>Transfer Institution: </strong>' . $institution . '<br />
+					<strong>VCCS E-mail: </strong>' . $email . '<br />
+                    <strong>Phone: </strong>' . $phone . '<br />
+                    <strong>If you wish only certain courses to transfer, list them below.</strong><br />' . $courses . '</p>' . $note . 
+                    '<p><strong>I acknowledge that I have read and understand the stated instructions and policies regarding transfer credits.</strong> ' . $iaccept . '<br />
+                    <strong>Date: </strong>' . $today . '</p>
+					<p></p>';
+
+		  	$body = '<html>
+				<head><title>Transfer Credit Request Form</title></head>
+				<body>
+				<table border="0" cellpadding="2" cellspacing="0" width="98%" align="center">
+				<tr>
+				<td>' . $data . $officeUse . 							
+				'</td>
+				</tr>	
+				</table>
+				</body>
+				</html>';
+
+			$body2 = '<html>
+				<head><title>Transfer Credit Request Form</title></head>
+				<body>
+				<table border="0" cellpadding="2" cellspacing="0" width="98%" align="center">
+				<tr>
+				<td>' . $data . 							
+				'</td>
+				</tr>	
+				</table>
+				</body>
+				</html>';
+					  
+			  $headers = "From: do-not-reply@jtcc.edu \r\n";
+			  $headers.= "BCC: webmaster@jtcc.edu \r\n";
+			  $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+			  $headers.= "MIME-Version: 1.0 ";
+			  
+			  mail($to, $subject, $body, $headers);
+			  mail($to2, $subject, $body2, $headers);
+
+				
+			echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+						<!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+						<p>Your request has been successfully submitted. Please email <a href="mailto:admissionsandrecords@jtcc.edu">admissionsandrecords@jtcc.edu</a> if you have any questions.</p>
+					</div></div></div></div>';
+			
+		} else {
+			echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                    	<p style="color:#C8102E;">Error occurs. Your request has NOT been submitted. Please try it again.</p>
+                    </div></div></div></div>';
+		}
+	}
+}
+?>
+
+</div>
+<!-- END: Full Width Callouts -->

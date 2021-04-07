@@ -1,0 +1,280 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Proctored Test Reservation Form{/layout:set}
+
+{layout:set name='page_description'}{/layout:set}
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+
+<?php	
+	include("includes/customapps_conn.php");
+
+    $getTime = "SELECT * FROM time_picker 
+                WHERE id BETWEEN 3 AND 18";
+    $getTime_result = mysqli_query($conn, $getTime);
+
+    $getTime2 = "SELECT * FROM time_picker 
+                WHERE id BETWEEN 3 AND 22";
+    $getTime2_result = mysqli_query($conn, $getTime2);
+
+    $getSubjects = "SELECT * FROM vw_dss_subjects ORDER BY subject";
+    $getSubjects_result = mysqli_query($conn, $getSubjects);
+
+    $getInstructors = "SELECT DISTINCT name, email, disciplines FROM instructors WHERE length(disciplines) > 0 ORDER BY name";
+    $getInstructors_result = mysqli_query($conn, $getInstructors);
+
+    mysqli_close($conn);
+?>
+
+	<script type="text/javascript">    
+        function createInstructors(){
+            $('#instructor').val("");
+            $('#insEmail').val("");
+
+            if ($(this).data('options') === undefined){
+                $(this).data('options', $('#instructor option').clone());
+            }
+            var subject = $('#class_name option:selected').attr('subject');
+            var options = $(this).data('options').filter('[data-subject*=' + subject + ']');
+            $('#instructor').html(options);
+            $('#instructor').prepend('<option value="" selected>Select: </option>');
+        }
+
+        function updateSubject(){
+            //createInstructors();
+            subject = $('#class_name option:selected').attr('subject');
+            createInstructors();
+        }
+
+        function updateInstructor(){
+            $('#insEmail').val($('#instructor option:selected').attr('data-email'));
+        }
+
+        $(document).ready(function() {
+            updateSubject();
+            updateInstructor();
+        });
+
+        function timeToggle(){
+            var f = document.proctored_test;
+            var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            var date = new Date(f.test_date.value);
+            var n = date.getDay();
+            if ((f.campus[0].checked == true && weekday[n] == 'Monday') || (f.campus[1].checked == true && weekday[n] == 'Thursday')) {
+                f.time_requested.value = '';
+                document.getElementById('special').style.display = 'block';
+                document.getElementById('normal').style.display = 'none';
+            } else {
+                f.time_requested2.value = '';
+                document.getElementById('special').style.display = 'none';
+                document.getElementById('normal').style.display = 'block';
+            }
+            if (n == 0 || n == 6) {
+                alert ('The Disabilities Support Services close at weekends.');
+                f.test_date.value = '';
+                f.time_requested.value = '';
+                f.time_requested2.value = '';
+                f.test_date.focus();
+            }
+        }
+
+        function validateForm(){
+            var f = document.proctored_test;
+            if (f.student.value.length == 0) { 
+                alert("Please enter your name.");
+                f.student.focus();
+                return false;
+            } 
+            if (f.emp_id.value.length == 0) { 
+                alert("Please enter your student ID.");
+                f.emp_id.focus();
+                return false;
+            } 
+            if (f.phone.value.length == 0) {
+                alert("Please enter your daytime phone number.");
+                f.phone.focus();
+                return false;
+            } 
+            if (isNaN(f.phone.value)) {
+                alert("Phone number must be numeric.");
+                f.phone.focus();
+                return false;
+            }  
+            if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+                alert("Please enter your VCCS e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^.+@email.vccs.edu$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }
+            if (f.class_name.value.length == 0) { 
+                alert("Please select the class name.");
+                f.class_name.focus();
+                return false;
+            } 
+            if (f.class_number.value.length == 0) { 
+                alert("Please enter the class number.");
+                f.class_number.focus();
+                return false;
+            } 
+            if (f.section.value.length == 0) {
+                alert("Please enter the section number.");
+                f.section.focus();
+                return false;
+            } 
+
+            if (f.instructor.value.length == 0) { 
+                alert("Please select the instructor's name.");
+                f.instructor.focus();
+                return false;
+            }
+            if (f.insEmail.value.length == 0) { 
+                alert("Please enter the instructor's e-mail.");
+                f.insEmail.focus();
+                return false;
+            }
+            if (f.class_test_date.value.length == 0) {
+                alert("Please enter the date the class is testing.");
+                f.class_test_date.focus();
+                return false;
+            }
+            if (f.test_date.value.length == 0) {
+                alert("Please enter the date you would like to test.");
+                f.test_date.focus();
+                return false;
+            } 
+            if (f.campus[0].checked == false && f.campus[1].checked == false) {
+                alert("Which campus are you going to take the test?");
+                f.campus[0].focus();
+                return false;
+            }
+            if (f.time_requested.value.length == 0 && f.time_requested2.value.length == 0) {
+                alert("Please select your test time.");
+                //f.time_requested.focus();
+                return false;
+            }
+            if (f.canvas.options[f.canvas.selectedIndex].value == "") {
+                alert("Is this a Canvas exam?");
+                f.canvas.focus();
+                return false;
+            } 
+            /*if (f.tech.options[f.tech.selectedIndex].value == "Other" && f.tech_other.value.length == 0) {
+                    alert("Please enter the information since you checked Other.");
+                    f.tech_other.focus();
+                    return false;
+            } */
+
+            if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+                alert ("Please check on the reCAPTCHA box.");
+                return false;
+            }   
+            return true;
+        }
+    </script>  
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/services/proctored-test-form-action" accept-charset="utf-8" class="form_builder typography" name="proctored_test" method="post" onsubmit="return validateForm();">
+
+    <div class="form_builder_required_message">
+        <p>
+            <span class="form_builder_required_star">*</span> = required field
+        </p>
+    </div>
+    <div class="form_builder_section_header">
+        <!--<h2>Section Break</h2>-->
+        <p>If you are a student who has an Instructional Accommodation Plan (IAP) which provides an accommodation for tests and exams, you may schedule a proctored time and space by completing this form. <strong>Please schedule a minimum of three business days before the test or exam.</strong> In times of high volume of tests and exams, Disabilities Support Services (DSS) may have to schedule alternate days and times from your request. We recommend that you schedule as early as possible.</p>
+    </div>
+
+    <fieldset id="student_name">
+        <label for="student">
+            Student Name
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="student" id="student" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_id">
+        <label for="emp_id">
+            Student ID Number
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="7" name="emp_id" id="emp_id" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_phone">
+        <label for="phone">Daytime Phone Number
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="10" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_email">
+        <label for="email">VCCS E-mail (@email.vccs.edu)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="@email.vccs.edu" />
+    </fieldset>
+
+    <fieldset id="name_number">
+        <legend for="name_number">
+            Class Name and Number (Example: ENG 111)<span class="form_builder_required_star">*</span>
+        </legend>
+        <div class="form_builder_wrap">
+            <div class="form_builder_split form_builder_select">
+                <select class="form_builder_required" name="class_name" id="class_name" onchange="updateSubject();">
+                    <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getSubjects_result) > 0) {
+                    while ($row = mysqli_fetch_array($getSubjects_result)) { 
+                        echo '<option value="' . $row['subject'] . '" subject="'.$row['subject'].'" label="' . $row['subject'] . '">' . $row['subject'] . '</option>';
+                    }
+                }
+                ?>                
+                </select>
+                <!--
+                <input type="text" maxlength="50" name="email" id="email" class="form_builder_text form_builder_required" value="" />-->
+                <label for="email" class="form_builder_sublabel">Class Name</label>
+            </div>
+
+            <div class="form_builder_split">
+                <input type="text" maxlength="3" name="class_number" id="class_number" class="form_builder_text form_builder_required" value="" />
+                <label for="phone" class="form_builder_sublabel">Class Number</label>
+            </div>
+        </div>
+    </fieldset>
+
+    
+
+    <fieldset id="additional_info">
+        <label for="other">Please provide any additional information you believe DSS and your instructor need to know prior to the Exam.</label>
+        <textarea nmaxlength="500" name="other" id="other"></textarea>
+    </fieldset>
+
+    
+
+	<div class="row">
+        <label for="captcha">reCAPTCHA below is required: </label>
+        <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+    </div>
+
+    <div class="form_builder_submit_wrapper">
+        <div class="form_builder_submit_pill">
+            <input type="hidden" name="XID" value="{XID_HASH}" /> 
+            <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+            <span class="form_builder_submit_icon">
+            	<svg class="icon icon_caret_right">
+                	<use href="/images/icons.svg#caret_right" />
+            	</svg>
+            </span>
+        </div>
+    </div>
+</form>
+</div>
+<!-- END: Full Width Callouts -->

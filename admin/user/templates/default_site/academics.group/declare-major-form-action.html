@@ -1,0 +1,150 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Declaring a Major Request Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<?php
+if (isset($_POST['sbmt'])) {
+    if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        //your site secret key
+        $secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+        $responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+
+            include("includes/declare_major_variables.php");
+            include("includes/customapps_conn.php");
+
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $emp_id = $_POST['emp_id'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $campus = '';
+            if (isset($_POST['campus'])){
+                $campus = $_POST['campus'];
+            }
+            $best_time = $_POST['best_time'];
+            $major = $_POST['major'];
+            $nursing = '';
+            if (isset($_POST['nursing'])){
+                $nursing = $_POST['nursing'];
+            }
+            $semester = '';
+            if (isset($_POST['semester'])){
+                $semester = $_POST['semester'];
+            }
+            $term = $semester . ' ' . $_POST['year'];
+            $other = $_POST['other'];
+            $be_advised = '';
+            if (isset($_POST['be_advised'])){
+                $be_advised = $_POST['be_advised'];
+            }
+            $transfer = '';
+            if (isset($_POST['transfer'])){
+                $transfer = $_POST['transfer'];
+            }
+            $responsibilities = '';
+            if (isset($_POST['responsibilities'])){
+                $responsibilities = $_POST['responsibilities'];
+            }
+
+            if ($stmt = mysqli_prepare($conn, "INSERT INTO declare_major (
+                    fname,
+                    lname,
+                    emplID,
+                    email,
+                    phone,
+                    campus,
+                    best_time,
+                    major,
+                    nursing,
+                    term,
+                    other,
+                    be_advised,
+                    transfer,
+                    responsibilities
+                    )
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+
+                mysqli_stmt_bind_param($stmt, "ssssssssssssss",
+                    $first_name,
+                    $last_name,
+                    $emp_id,
+                    $email,
+                    $phone,
+                    $campus,
+                    $best_time,
+                    $major,
+                    $nursing,
+                    $term,
+                    $other,
+                    $be_advised,
+                    $transfer,
+                    $responsibilities
+                    );
+                    
+                //mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+            } 
+            mysqli_close($conn); 
+                       
+            //$to = 'advising@jtcc.edu, ' . $email;
+            $to = 'jzhai@jtcc.edu, ' . $email;
+            //$to = 'jhorning@jtcc.edu, ' . $email;
+            $subject = "Declaring a Major Request Form";
+            $body = '<html>
+                <head><title>Declaring a Major Request Form</title></head>
+                <body>
+                <table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+                <tr>
+                <td>
+                    <p><strong>First Name: </strong>' . $first_name . '</p>
+                    <p><strong>Last Name: </strong>' . $last_name . '</p>
+                    <p><strong>Student EmplID: </strong>' . $emp_id . '</p>
+                    <p><strong>VCCS E-mail: </strong>' . $email . '</p>
+                    <p><strong>Phone: </strong>' . $phone . '</p>
+                    <p><strong>Desired major: </strong>' . $major . '</p>
+                    <p><strong>Apply to Nursing: </strong>' . $nursing . '</p>
+                    <p><strong>Term/Semester Year: </strong>' . $term . '</p>
+                    <p><strong>Campus: </strong>' . $campus . '</p>  
+                    <p><strong>Best time to contact: </strong>' . $best_time . '</p>
+                    <p><strong>Additional Information: </strong>' . $other . '</p>
+                    <p><strong>Do you want to be advised? </strong>' . $be_advised . '</p>
+                    <p><strong>Do you plan to transfer after attending John Tyler Community College? </strong>' . $transfer . '</p>
+                    <p><strong>I read the Student Responsibilities and agree to do the following: </strong>' . $responsibilities . '</p>' . $studentRes . 
+                    '<p></p>                        
+                </td>
+                </tr>   
+                </table>
+                </body>
+                </html>';
+                      
+              $headers = "From: do-not-reply@jtcc.edu \r\n";
+              $headers.= "BCC: webmaster@jtcc.edu \r\n";
+              $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+              $headers.= "MIME-Version: 1.0 ";
+              
+              mail($to, $subject, $body, $headers);
+
+              echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+                        <p>Your request has been successfully submitted. Please email <a href="mailto:advising@jtcc.edu">advising@jtcc.edu</a> if you have any questions.</p>
+                    </div></div></div></div>';
+            
+        } else {
+            echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your request has NOT been submitted. Please try it again.</p>
+                    </div></div></div></div>';
+        }
+    }
+}
+?>

@@ -48,7 +48,7 @@
 	<div class="page_header">
 		<div class="page_header_inner">
 			<div class="page_header_body">
-				{if segment_1 == 'majors' || segment_1 == 'employment-opportunities'} 
+				{if segment_1 == 'majors' || segment_1 == 'employment-opportunities' || segment_2 == 'declare-major-form' || segment_2 == 'declare-major-form-action' || segment_2 == 'transfer-credit-form-action' || segment_2 == 'enrollment-certification-request-action'} 
 					{embed="common/_breadcrumbs_static_no_image"}
 				{if:else}
 					{embed="common/_breadcrumbs_tyler_no_image"}
@@ -144,7 +144,7 @@
                   			<span class="great-grand-children">
                     			{grandchild:children}                     			
 			                    <li class="sub_nav_item">
-									<a class="sub_nav_link" href="{great_grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{great_grandchild:title}</span><span class="sub_nav_link_icon">
+									<a class="sub_nav_link" href="{great_grandchild:page_url}"><span class="sub_nav_link_label">{great_grandchild:title}</span><span class="sub_nav_link_icon">
 											<svg class="icon icon_caret_right">
 												<use href="/images/icons.svg#caret_right"></use>
 											</svg>
@@ -164,7 +164,7 @@
               <span class="grand-children">
                 {child:children}
                 <li class="sub_nav_item">
-						<a class="sub_nav_link" href="{grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{grandchild:title}</span><span class="sub_nav_link_icon">
+						<a class="sub_nav_link" href="{grandchild:page_url}"><span class="sub_nav_link_label">{grandchild:title}</span><span class="sub_nav_link_icon">
 								<svg class="icon icon_caret_right">
 									<use href="/images/icons.svg#caret_right"></use>
 								</svg>
@@ -182,7 +182,7 @@
 		          <span class="children">
 		            {root:children}
 		             <li class="sub_nav_item">
-						<a class="sub_nav_link" href="{child:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{child:title}</span><span class="sub_nav_link_icon">
+						<a class="sub_nav_link" href="{child:page_url}"><span class="sub_nav_link_label">{child:title}</span><span class="sub_nav_link_icon">
 								<svg class="icon icon_caret_right">
 									<use href="/images/icons.svg#caret_right"></use>
 								</svg>

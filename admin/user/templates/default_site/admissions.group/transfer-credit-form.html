@@ -1,0 +1,166 @@
+{!--{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Transfer Credit Request Form{/layout:set}
+
+{layout:set name='page_description'}{/layout:set}--}
+
+<!-- Full Width Callouts -->
+<!--<div class="full_width_callouts">-->
+
+<?php	
+	include("includes/transfer_credit_variables.php");
+?>
+
+	<script type="text/javascript">	
+		function validateForm(){
+			var f = document.transferCredit;
+			
+			if (f.sname.value.length == 0) { 
+				alert("please enter your name.");
+				f.sname.focus();
+				return false;
+			} 
+			if (f.emp_id.value.length == 0) { 
+				alert("please enter your student ID number.");
+				f.emp_id.focus();
+				return false;
+			} 
+			if (f.institution.value.length == 0) { 
+				alert("please enter the institution name.");
+				f.institution.focus();
+				return false;
+			} 
+			/*if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+				alert("please enter your VCCS e-mail address.");
+				f.email.focus();
+				return false;
+			} else {
+				var emailFilter = /^.+@email.vccs.edu$/;
+				if (!emailFilter.test(f.email.value)) {
+					alert("Invalid e-mail address.");
+					f.email.focus();
+					return false;
+				}
+			}*/
+			if (f.email.value.length == 0) { 
+				alert("please enter your e-mail address.");
+				f.email.focus();
+				return false;
+			} else {
+				var emailFilter = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailFilter.test(f.email.value)) {
+					alert("Invalid e-mail address.");
+					f.email.focus();
+					return false;
+				}
+			}
+			if (f.phone.value.length == 0) {
+				alert("Please enter your phone number.");
+				f.phone.focus();
+				return false;
+			} 
+			if(!f.iaccept.checked)
+			{
+			    alert('Please read the conditions and check "I accept".');
+				f.iaccept.focus();
+			    return false;
+			}	
+			if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+				alert ("Please check on the reCAPTCHA box.");
+				return false;
+			}	
+			return true;
+		}
+	</script>  
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/admissions/transfer-credit-form-action" accept-charset="utf-8" class="form_builder typography" name="transferCredit" method="post" onsubmit="return validateForm();">
+
+    <div class="form_builder_required_message">
+        <p>
+            <span class="form_builder_required_star">*</span> = required field
+        </p>
+    </div>
+    <div class="form_builder_section_header">
+        <!--<h2>Section Break</h2>-->
+        <p>
+         	<?php echo $topText; ?>
+        </p>
+    </div>
+
+    <fieldset id="student">
+        <label for="sname">
+            Name
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="" name="sname" id="sname" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_id">
+        <label for="emp_id">
+            Student ID Number
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="7" name="emp_id" id="emp_id" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_institution">
+        <label for="institution">Transfer Institution: (one form for each institution)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="" name="institution" id="institution" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_email">
+        <label for="email">JTCC E-mail
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_phone">
+        <label for="phone">Primary Phone
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="20" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="additional_info">
+        <label for="courses">If you wish only certain courses to transfer, list them: </label>
+        <textarea name="courses" id="courses"></textarea>
+    </fieldset>
+
+    <?php echo $note; ?>
+
+    <fieldset id="instructions">
+    	<legend>
+            I acknowledge that I have read and understand the stated instructions and policies regarding transfer credits.
+            <span class="form_builder_required_star">*</span>                
+        </legend>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="iaccept" id="iaccept" value="I accept" /> 
+            <span class="form_builder_checkbox_indicator"></span>
+            <label class="form_builder_for_checkbox" for="iaccept">I accept</label>
+        </div>
+	</fieldset>
+
+	<div class="row">
+        <label for="captcha">reCAPTCHA below is required: </label>
+        <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+    </div>
+
+    <div class="form_builder_submit_wrapper">
+        <div class="form_builder_submit_pill">
+            <input type="hidden" name="XID" value="{XID_HASH}" /> 
+            <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+            <span class="form_builder_submit_icon">
+            	<svg class="icon icon_caret_right">
+                	<use href="/images/icons.svg#caret_right" />
+            	</svg>
+            </span>
+        </div>
+    </div>
+</form>
+<!--</div>-->
+<!-- END: Full Width Callouts -->

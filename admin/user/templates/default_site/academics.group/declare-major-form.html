@@ -1,0 +1,338 @@
+{layout='layouts/_main-layout'}
+
+{!--
+	404 redirect
+	============
+	This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
+--}
+{if segment_6}
+	{redirect='404'}
+{/if}
+
+
+{layout:set name='title'}Declaring a Major Request Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+
+<?php 
+    include("includes/declare_major_variables.php");
+    include("includes/customapps_conn.php");
+
+    $getMajor = "SELECT * FROM curriculum 
+                WHERE curriculumID NOT IN (4,28,36,37,38,40,41,42,43,44,45,46,48,56,57,58,59,66,67,73,76,78,79,80,81,82,83,84,85,92,93,94,95,96,102,103,110,111,113,114,115,116,117,120,121,122)
+                ORDER BY curriculum";
+    $getMajor_result = mysqli_query($conn, $getMajor);
+    mysqli_close($conn);
+?>
+    
+    <script type="text/javascript"> 
+        function validateForm(){
+            var f = document.declare_major;
+            
+            if (f.first_name.value.length == 0) { 
+                alert("please enter your first name.");
+                f.first_name.focus();
+                return false;
+            } 
+            if (f.last_name.value.length == 0) { 
+                alert("please enter your last name.");
+                f.last_name.focus();
+                return false;
+            }
+            if (f.emp_id.value.length == 0) { 
+                alert("please enter your student emplID.");
+                f.emp_id.focus();
+                return false;
+            } 
+            /*if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+                alert("please enter your VCCS e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^.+@email.vccs.edu$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }*/
+            if (f.email.value.length == 0) { 
+                alert("please enter your e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }
+            if (f.phone.value.length == 0) {
+                alert("Please enter your phone number.");
+                f.phone.focus();
+                return false;
+            } 
+            if (f.major.value.length == 0) {
+                alert("Please select your desired major.");
+                f.major.focus();
+                return false;
+            }
+            if (f.semester.options[f.semester.selectedIndex].value == "") {
+                alert("Please select the semester.");
+                f.semester.focus();
+                return false;
+            } 
+            if (f.year.value.length == 0) {
+                alert("Please enter the term year.");
+                f.year.focus();
+                return false;
+            }
+            if (f.campus.options[f.campus.selectedIndex].value == "") {
+                alert("Please select your campus.");
+                f.campus.focus();
+                return false;
+            } 
+            if (f.best_time.value.length == 0) {
+                alert("Please enter your best time to contact.");
+                f.best_time.focus();
+                return false;
+            }
+            if (f.be_advised1.checked == false && f.be_advised2.checked == false) {
+                alert("Do you want to be advised?");
+                f.be_advised1.focus();
+                return false;
+            }   
+            if (f.transfer1.checked == false && f.transfer2.checked == false) {
+                alert("Do you plan to transfer after attending John Tyler Community College?");
+                f.transfer1.focus();
+                return false;
+            }
+            if(!f.responsibilities.checked)
+            {
+                alert('Please read the student responsibilities and check "I agree".');
+                f.responsibilities.focus();
+                return false;
+            }   
+            if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+                alert ("Please check on the reCAPTCHA box.");
+                return false;
+            }  
+            return true;
+        }
+    </script>  
+
+    <!--<form method="post" action="/services/declare-major-form" enctype="multipart/form-data" class="form_builder">-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <form action="/academics/declare-major-form-action" accept-charset="utf-8" class="form_builder typography" name="declare_major" method="post" onsubmit="return validateForm();">
+        <!--<div class="fs-row">
+            <div class="fs-cell">-->
+                <div class="form_builder_required_message">
+                    <p>
+                        <span class="form_builder_required_star">*</span> = required field
+                    </p>
+                </div>
+                <div class="form_builder_section_header">
+                    <!--<h2>Section Break</h2>-->
+                    <p>
+                        Form cannot be submitted if it is incomplete.  All fields (except additional information) must be completed.  Students will receive a response from an advisor within 3 business days.
+                    </p>
+                </div>
+
+                <fieldset id="student_name">
+                    <legend for="student_name">
+                        Student Name <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_wrap">
+                        <div class="form_builder_firstname">
+                            <input type="text" maxlength="30" name="first_name" id="first_name" class="form_builder_text form_builder_required" value="" />
+                            <label for="first_name" class="form_builder_sublabel">First</label>
+                        </div>
+
+                        <div class="form_builder_lastname">
+                            <input type="text" maxlength="30" name="last_name" id="last_name" class="form_builder_text form_builder_required" value="" />
+                            <label for="last_name" class="form_builder_sublabel">Last</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="student_id">
+                    <label for="student_id">
+                        Student ID Number
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="7" name="emp_id" id="student_id" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                <fieldset id="student_contact">
+                    <legend for="student_contact">
+                        Student Contact <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_wrap">
+                        <div class="form_builder_split">
+                            <input type="text" maxlength="50" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+                            <label for="email" class="form_builder_sublabel">E-mail</label>
+                        </div>
+
+                        <div class="form_builder_split">
+                            <input type="text" maxlength="20" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+                            <label for="phone" class="form_builder_sublabel">Phone</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="desired_major">
+                    <label for="major"> Desired major 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select">
+                        <select id="major" class="form_builder_required" name="major" >
+                            <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getMajor_result) > 0) {
+                    while ($row = mysqli_fetch_array($getMajor_result)) { 
+                        $curriculum = $row['curriculum'];
+                        if (strlen($row['note'])) {
+                            $curriculum = $curriculum . ' (' . $row['note'] . ')';
+                        }
+                        echo '<option value="' . $row['curriculum'] . '" label="' . $curriculum . '" data-price="0">' . $curriculum . '</option>';
+                    }
+                }
+                ?>                
+                        </select>
+                    </div>
+                </fieldset> 
+
+                <p><strong>Nursing Students: </strong>Students who wish to apply to the Nursing Program at John Tyler Community College should indicate they wish to be placed in the Health Sciences major to complete the prerequisites required for the Nursing Application.</p>
+
+                <fieldset id="jtcc_nursing">
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="nursing" id="nursing" value="Yes" /> 
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="nursing">Check here if you plan to apply to John Tyler Community College’s Nursing program.</label>
+                    </div>
+                </fieldset>
+                    
+                <fieldset id="term_semester">
+                    <label for="semester">
+                        Term Semester: 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select form_builder_required">
+                        <select name="semester" id="semester">
+                            <option value="">Please select: </option>
+                            <option value="Spring">Spring</option>
+                            <option value="Summer">Summer</option>
+                            <option value="Fall">Fall</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <fieldset id="semester_year">
+                    <label for="year">
+                        Term Year
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="4" name="year" id="year" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+                
+                <fieldset id="select_campus">
+                    <label for="campus"> Campus 
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <div class="form_builder_select form_builder_required">
+                        <select name="campus" id="campus">
+                            <option value="">Please select: </option>
+                            <option value="Chester">Chester</option>
+                            <option value="Midlothian">Midlothian</option>
+                            <option value="Online">Online</option>
+                        </select>
+                    </div>
+                </fieldset> 
+
+                <fieldset id="best_time_to_contact">
+                    <label for="best_time">
+                        Best time to contact
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="100" name="best_time" id="best_time" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                 <fieldset id="additional_info">
+                    <label for="other">
+                        Additional information 
+                    </label>
+                    <textarea id="other" name="other"></textarea>
+                </fieldset>
+
+                <fieldset id="be_advised">
+                    <legend>
+                        Do you want to be advised?
+                        <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="be_advised" id="be_advised1" value="Yes"  />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="be_advised1">Yes</label>
+                    </div>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="be_advised" id="be_advised2" value="No" />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="be_advised2">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="transfer">
+                    <legend>
+                        Do you plan to transfer after attending John Tyler Community College?
+                        <span class="form_builder_required_star">*</span>
+                    </legend>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="transfer" id="transfer1" value="Yes"  />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="transfer1">Yes</label>
+                    </div>
+                    <div class="form_builder_radio">
+                        <input type="radio" name="transfer" id="transfer2" value="No" />
+                        <span class="form_builder_radio_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="transfer2">No</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="i_agree">
+                    <legend>
+                        Read the Student Responsibilities and agree to do the following: 
+                        <span class="form_builder_required_star">*</span>
+                        <?php echo $studentRes; ?>
+                    </legend>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="responsibilities" id="responsibilities" value="I agree" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="responsibilities">I agree</label>
+                    </div>
+                </fieldset>
+
+                <div class="row">
+                    <label for="captcha">reCAPTCHA below is required: </label>
+                    <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+                </div>
+
+                <div class="form_builder_submit_wrapper">
+                    <div class="form_builder_submit_pill">
+                        <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                        <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                        <span class="form_builder_submit_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            <!--</div>
+        </div>-->
+    </form>
+</div>
+<!-- END: Full Width Callouts -->

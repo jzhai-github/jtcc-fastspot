@@ -1,0 +1,196 @@
+{!--{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Enrollment Certification Request Form{/layout:set}
+
+{layout:set name='page_description'}{/layout:set}--}
+
+<!-- Full Width Callouts -->
+<!--<div class="full_width_callouts">-->
+
+<?php	
+	include("includes/enrollment_certification_variables.php");
+?>
+
+	<script type="text/javascript">    
+        function validateForm(){
+            
+            var f = document.certification;
+            
+            if (f.req_date.value.length == 0) { 
+                alert("please your date of request.");
+                    f.req_date.focus();
+                return false;
+            } 
+
+            if (f.enrollment_term.value.length == 0) { 
+                alert("please enter the semester.");
+                    f.enrollment_term.focus();
+                return false;
+            } 
+
+            if (f.first_name.value.length == 0) { 
+                alert("please enter your first name.");
+                    f.first_name.focus();
+                return false;
+            }
+
+            if (f.last_name.value.length == 0) { 
+                alert("please enter your last name.");
+                    f.last_name.focus();
+                return false;
+            } 
+            
+            if (f.studentID.value.length == 0) {
+                alert("Please enter your student ID number.");
+                f.studentID.focus();
+                return false;
+            }
+                
+            if (f.chapter.value.length == 0) {
+                alert("Please enter your chapter number.");
+                f.chapter.focus();
+                return false;
+            } 
+            
+            if (f.total_credits.value.length == 0) {
+                alert("Please enter your total credits registered.");
+                f.total_credits.focus();
+                return false;
+            } 
+            
+            if (f.phone.value.length == 0) {
+                alert("Please enter your phone number.");
+                f.phone.focus();
+                return false;
+            }
+            
+            if (f.email.value.length == 0) {
+                alert("Please enter your collge e-mail address.");
+                f.email.focus();
+                return false;
+            } else {
+                var emailFilter = /^.+@.+\..{2,3}$/;
+                if (!emailFilter.test(f.email.value)) {
+                    alert("Invalid e-mail address.");
+                    f.email.focus();
+                    return false;
+                }
+            }
+                 
+			if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+				alert ("Please check on the reCAPTCHA box.");
+				return false;
+			}	
+			return true;
+		}
+	</script>  
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/paying-for-tyler/enrollment-certification-request-action" accept-charset="utf-8" class="form_builder typography" name="certification" method="post" onsubmit="return validateForm();">
+
+    <div class="form_builder_required_message">
+        <p>
+            <span class="form_builder_required_star">*</span> = required field
+        </p>
+    </div>
+    <!--<div class="form_builder_section_header">
+        <h2>Section Break</h2>
+        <p>
+        </p>
+    </div>-->
+
+    <fieldset id="date">
+        <label for="req_date">
+            Date of Request:
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" class="form_builder_text form_builder_required" name="req_date" id="req_date" value="<?php print(Date('m/d/Y')); ?>"/>
+    </fieldset>
+
+    <fieldset id="semester">
+        <label for="enrollment_term">
+            Semester (e.g., Spring 2015)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" class="form_builder_text form_builder_required" name="enrollment_term" id="enrollment_term" value="" />
+    </fieldset>
+
+    <fieldset id="student_name">
+        <legend for="student_name">
+            Student Name <span class="form_builder_required_star">*</span>
+        </legend>
+        <div class="form_builder_wrap">
+            <div class="form_builder_firstname">
+                <input type="text" maxlength="30" name="first_name" id="first_name" class="form_builder_text form_builder_required" value="" />
+                <label for="first_name" class="form_builder_sublabel">First</label>
+            </div> 
+            <div class="form_builder_lastname">
+                <input type="text" maxlength="30" name="last_name" id="last_name" class="form_builder_text form_builder_required" value="" />
+                <label for="last_name" class="form_builder_sublabel">Last</label>
+            </div>
+        </div>        
+    </fieldset>
+
+    <fieldset id="student_id">
+        <label for="studentID">
+            Student ID Number
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="7" name="studentID" id="studentID" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="chapter_no">
+        <label for="chapter">Chapter No. (e.g., Ch. 33 Post 9/11)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="" name="chapter" id="chapter" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="credits">
+        <label for="total_credits">Total Credits Registered
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="" name="total_credits" id="total_credits" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_phone">
+        <label for="phone">Phone
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="20" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_email">
+        <label for="email">College E-mail Address (e.g., example@email.vccs.edu)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="special_instructions">
+        <label for="instructions">Special Instructions</label>
+        <textarea name="instructions" id="instructions"></textarea>
+    </fieldset>
+
+    <p><?php echo $note; ?></p>
+
+	<div class="row">
+        <label for="captcha">reCAPTCHA below is required: </label>
+        <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+    </div>
+
+    <div class="form_builder_submit_wrapper">
+        <div class="form_builder_submit_pill">
+            <input type="hidden" name="XID" value="{XID_HASH}" /> 
+            <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+            <span class="form_builder_submit_icon">
+            	<svg class="icon icon_caret_right">
+                	<use href="/images/icons.svg#caret_right" />
+            	</svg>
+            </span>
+        </div>
+    </div>
+</form>
+<!--</div>-->
+<!-- END: Full Width Callouts -->
