@@ -1,4 +1,4 @@
-<div class="collage{% if format == "equal" %} layout_equal{% else %} layout_unbalanced{% endif %}{% if flipped %} layout_flipped{% endif %}">
+<div class="collage layout_{{ format }} {% if flipped %} layout_flipped{% endif %}">
 	<div class="fs-row">
 		<div class="fs-cell">
 			<div class="collage_inner">
@@ -21,6 +21,17 @@
 												img("wide").med,
 												img("wide").sml,
 												img("wide").xsml
+											]
+										} %}
+									{% elseif format == "vertical_only" %}
+										{% render "@partial-image" with {
+											class: "collage_item",
+											alt: "",
+											image: item.image,
+											sources: [
+												img("portraitFull").med,
+												img("portraitFull").sml,
+												img("portraitFull").xsml
 											]
 										} %}
 									{% else %}
