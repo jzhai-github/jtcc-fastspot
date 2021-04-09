@@ -171,7 +171,7 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-5757dcb4d32e03df1521ce6d919ce14f-panel-html">
     <code class="Code Code--lang-html hljs">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage layout_equal&quot;</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage layout_equal &quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage_inner&quot;</span>&gt;</span>
@@ -252,7 +252,7 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-5757dcb4d32e03df1521ce6d919ce14f-panel-view">
     <code class="Code Code--lang-twig hljs">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> format == &quot;equal&quot; %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_equal</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_unbalanced</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> flipped %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_flipped</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage layout_</span></span></span><span class="hljs-template-variable">{{ format }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> </span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">if</span></span> flipped %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string"> layout_flipped</span></span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-keyword">endif</span></span> %}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-row&quot;</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fs-cell&quot;</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;collage_inner&quot;</span>&gt;</span>
@@ -275,6 +275,17 @@
 												img(&quot;wide&quot;).med,
 												img(&quot;wide&quot;).sml,
 												img(&quot;wide&quot;).xsml
+											]
+										} %}</span><span class="xml">
+									</span><span class="hljs-template-tag">{% <span class="hljs-name">elseif</span> format == &quot;vertical_only&quot; %}</span><span class="xml">
+										</span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> &quot;<a href="partial-image.html">@partial-image</a>&quot; with {
+											class: &quot;collage_item&quot;,
+											alt: &quot;&quot;,
+											image: item.image,
+											sources: [
+												img(&quot;portraitFull&quot;).med,
+												img(&quot;portraitFull&quot;).sml,
+												img(&quot;portraitFull&quot;).xsml
 											]
 										} %}</span><span class="xml">
 									</span><span class="hljs-template-tag">{% <span class="hljs-name">else</span> %}</span><span class="xml">
@@ -2754,8 +2765,8 @@
                     <dt class="Tree-asideTerm">Built on:</dt>
                     <dd class="Tree-asideDescription">
                         
-                            <time datetime="2021-04-06T16:59:10.823Z">
-                                4/6/2021
+                            <time datetime="2021-04-09T16:58:06.653Z">
+                                4/9/2021
                             </time>
                         
                     </dd>
@@ -2942,6 +2953,32 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="component-media-grid--flipped.html" data-role="tree-link" data-pjax data-handle="component-media-grid">
                 <span>Flipped</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #38A169;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="component-media-grid--vertical-only.html" data-role="tree-link" data-pjax data-handle="component-media-grid">
+                <span>Vertical Only</span>
                 
 
 <div class="Status Status--unlabelled">
