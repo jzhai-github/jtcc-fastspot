@@ -2,6 +2,7 @@ cache/
 Cache/
 git/
 images/
+!/src/images/
 themes/user/site/default/asset/img/
 backups/
 *.sql
