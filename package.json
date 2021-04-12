@@ -47,10 +47,10 @@
 		"imagemin-pngquant": "^9.0.0",
 		"lodash": "^4.17.20",
 		"normalize.css": "^8.0.1",
-		"postcss": "^8.2.9",
+		"postcss": "^8.2.10",
 		"postcss-pxtorem": "^6.0.0",
 		"vinyl-named": "^1.1.0",
-		"webpack": "^4.46.0",
+		"webpack": "^5.31.2",
 		"webpack-stream": "^6.0.0",
 		"what-input": "^5.2.6"
 	},
