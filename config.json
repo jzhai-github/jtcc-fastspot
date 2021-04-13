@@ -8,7 +8,7 @@
 		"domain": "dev.jtcc.edu",
 		"schema_type": "Organization",
 		"twitter": "TwitterName",
-		"cse_key": "011737558837375720776:mbfrjmyam1g",
+		"cse_key": "006399016623411901974:o4bvhy05nfm",
 		"place_id": "ChIJofvP7nsEyIkRAppsAwqW4SQ",
 		"street": "2980 Falls Road",
 		"city": "Baltimore",
@@ -21,11 +21,7 @@
 	"css": ["src/css/site.scss", "src/css/tinymce.scss"],
 	"js": ["src/js/site.js"],
 	"navigation": {
-		"actions": [
-			"MyTyler",
-			"Apply Now",
-			"Give to Tyler"
-		],
+		"actions": ["MyTyler", "Apply Now", "Give to Tyler"],
 		"audience": [
 			"Faculty",
 			"Staff",
@@ -35,11 +31,7 @@
 			"Parents & Families",
 			"Visitors"
 		],
-		"auxilary": [
-			"FOIA",
-			"Employment at Tyler",
-			"VCCS"
-		],
+		"auxilary": ["FOIA", "Employment at Tyler", "VCCS"],
 		"main": [
 			{
 				"title": "Admissions",
@@ -102,11 +94,7 @@
 			"Financial Aid",
 			"Public Records"
 		],
-		"secondary": [
-			"About",
-			"Locations & Tours",
-			"Tyler A-Z"
-		],
+		"secondary": ["About", "Locations & Tours", "Tyler A-Z"],
 		"social": [
 			{ "title": "Twitter", "url": "//www.twitter.com" },
 			{ "title": "Facebook", "url": "//www.facebook.com" },

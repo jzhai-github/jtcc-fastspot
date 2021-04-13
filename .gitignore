@@ -3,6 +3,7 @@ cache/
 Cache/
 git/
 images/
+!/src/images/
 themes/user/site/default/asset/img/
 backups/
 *.sql
@@ -10,7 +11,6 @@ custom/environment.php
 .DS_store
 node_cache/
 node_modules/
-package-lock.json
 pnpm-debug.log
 site/files/
 .idea/
