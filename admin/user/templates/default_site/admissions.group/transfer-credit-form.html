@@ -77,6 +77,9 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <form action="/admissions/transfer-credit-form-action" accept-charset="utf-8" class="form_builder typography" name="transferCredit" method="post" onsubmit="return validateForm();">
 
+<div class="fs-row">
+<div class="fs-cell">
+
     <div class="form_builder_required_message">
         <p>
             <span class="form_builder_required_star">*</span> = required field
@@ -139,7 +142,7 @@
             <span class="form_builder_required_star">*</span>                
         </legend>
         <div class="form_builder_checkbox">
-            <input type="checkbox" name="iaccept" id="iaccept" value="I accept" /> 
+            <input type="checkbox" class="form_build_required" name="iaccept" id="iaccept" value="I accept" /> 
             <span class="form_builder_checkbox_indicator"></span>
             <label class="form_builder_for_checkbox" for="iaccept">I accept</label>
         </div>
@@ -161,6 +164,8 @@
             </span>
         </div>
     </div>
+</div>
+</div>
 </form>
 <!--</div>-->
 <!-- END: Full Width Callouts -->

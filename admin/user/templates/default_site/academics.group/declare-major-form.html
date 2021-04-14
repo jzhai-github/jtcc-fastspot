@@ -15,7 +15,7 @@
 
 
 <!-- Full Width Callouts -->
-<div class="full_width_callouts">
+<!--<div class="full_width_callouts">-->
 
 <?php 
     include("includes/declare_major_variables.php");
@@ -128,8 +128,8 @@
     <!--<form method="post" action="/services/declare-major-form" enctype="multipart/form-data" class="form_builder">-->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <form action="/academics/declare-major-form-action" accept-charset="utf-8" class="form_builder typography" name="declare_major" method="post" onsubmit="return validateForm();">
-        <!--<div class="fs-row">
-            <div class="fs-cell">-->
+        <div class="fs-row">
+            <div class="fs-cell">
                 <div class="form_builder_required_message">
                     <p>
                         <span class="form_builder_required_star">*</span> = required field
@@ -221,8 +221,8 @@
                         Term Semester: 
                         <span class="form_builder_required_star">*</span>
                     </label>
-                    <div class="form_builder_select form_builder_required">
-                        <select name="semester" id="semester">
+                    <div class="form_builder_select">
+                        <select name="semester" class="form_builder_required" id="semester">
                             <option value="">Please select: </option>
                             <option value="Spring">Spring</option>
                             <option value="Summer">Summer</option>
@@ -243,8 +243,8 @@
                     <label for="campus"> Campus 
                         <span class="form_builder_required_star">*</span>
                     </label>
-                    <div class="form_builder_select form_builder_required">
-                        <select name="campus" id="campus">
+                    <div class="form_builder_select">
+                        <select name="campus" class="form_builder_required" id="campus">
                             <option value="">Please select: </option>
                             <option value="Chester">Chester</option>
                             <option value="Midlothian">Midlothian</option>
@@ -274,12 +274,12 @@
                         <span class="form_builder_required_star">*</span>
                     </legend>
                     <div class="form_builder_radio">
-                        <input type="radio" name="be_advised" id="be_advised1" value="Yes"  />
+                        <input type="radio" class="form_builder_required" name="be_advised" id="be_advised1" value="Yes"  />
                         <span class="form_builder_radio_indicator"></span>
                         <label class="form_builder_for_checkbox" for="be_advised1">Yes</label>
                     </div>
                     <div class="form_builder_radio">
-                        <input type="radio" name="be_advised" id="be_advised2" value="No" />
+                        <input type="radio" class="form_builder_required" name="be_advised" id="be_advised2" value="No" />
                         <span class="form_builder_radio_indicator"></span>
                         <label class="form_builder_for_checkbox" for="be_advised2">No</label>
                     </div>
@@ -291,12 +291,12 @@
                         <span class="form_builder_required_star">*</span>
                     </legend>
                     <div class="form_builder_radio">
-                        <input type="radio" name="transfer" id="transfer1" value="Yes"  />
+                        <input type="radio" class="form_builder_required" name="transfer" id="transfer1" value="Yes"  />
                         <span class="form_builder_radio_indicator"></span>
                         <label class="form_builder_for_checkbox" for="transfer1">Yes</label>
                     </div>
                     <div class="form_builder_radio">
-                        <input type="radio" name="transfer" id="transfer2" value="No" />
+                        <input type="radio" class="form_builder_required" name="transfer" id="transfer2" value="No" />
                         <span class="form_builder_radio_indicator"></span>
                         <label class="form_builder_for_checkbox" for="transfer2">No</label>
                     </div>
@@ -309,7 +309,7 @@
                         <?php echo $studentRes; ?>
                     </legend>
                     <div class="form_builder_checkbox">
-                        <input type="checkbox" name="responsibilities" id="responsibilities" value="I agree" />
+                        <input type="checkbox" class="form_builder_required" name="responsibilities" id="responsibilities" value="I agree" />
                         <span class="form_builder_checkbox_indicator"></span>
                         <label class="form_builder_for_checkbox" for="responsibilities">I agree</label>
                     </div>
@@ -331,8 +331,8 @@
                         </span>
                     </div>
                 </div>
-            <!--</div>
-        </div>-->
+            </div>
+        </div>
     </form>
-</div>
+<!--</div>-->
 <!-- END: Full Width Callouts -->

@@ -1,11 +1,20 @@
 {layout='layouts/_main-layout'}
 
 {layout:set name='title'}Proctored Test Reservation Form{/layout:set}
-
 {layout:set name='page_description'}{/layout:set}
 
+
+<link rel="stylesheet" href="/static-html/css/jquery-ui.min.css">
+
+
+{!-- They are in _main-wrapper under jquery.js 
+<script src="/static-html/js/jquery-ui.min.js"></script>
+<script src="/static-html/js/custom.js"></script>
+--}
+
+
 <!-- Full Width Callouts -->
-<div class="full_width_callouts">
+<!--<div class="full_width_callouts">-->
 
 <?php	
 	include("includes/customapps_conn.php");
@@ -181,6 +190,8 @@
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <form action="/services/proctored-test-form-action" accept-charset="utf-8" class="form_builder typography" name="proctored_test" method="post" onsubmit="return validateForm();">
+<div class="fs-row">
+<div class="fs-cell">
 
     <div class="form_builder_required_message">
         <p>
@@ -238,8 +249,6 @@
                 }
                 ?>                
                 </select>
-                <!--
-                <input type="text" maxlength="50" name="email" id="email" class="form_builder_text form_builder_required" value="" />-->
                 <label for="email" class="form_builder_sublabel">Class Name</label>
             </div>
 
@@ -250,14 +259,161 @@
         </div>
     </fieldset>
 
-    
+    <fieldset id="section_number">
+        <label for="section">Section Number: (Example: N03B)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="5" name="section" id="section" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="instructor_name">
+        <label for="instructor">Instructor Name 
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <div class="form_builder_select">
+            <select id="instructor" class="form_builder_required" name="instructor" onchange="updateInstructor();">
+                <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getInstructors_result) > 0) {
+                    while ($row = mysqli_fetch_array($getInstructors_result)) { 
+                        echo '<option value="' . $row['name'] . '" data-subject="'.$row['disciplines'].'" data-email="'.$row['email'].'" label="' . $row['name'] . '">' . $row['name'] . '</option>';
+                    }
+                }
+                ?>                
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset id="instructor_email">
+        <label for="insEmail">Instructor E-mail
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="insEmail" id="insEmail" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="date1">
+        <label for="class_test_date">Date the class is testing
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" name="class_test_date" id="datepicker" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="date2">
+        <label for="test_date">Date you would like to test
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" class="form_builder_text form_builder_required" name="test_date" id="datepicker-second" onchange="timeToggle();" />
+    </fieldset>
+
+    <fieldset id="campus">
+        <legend>
+            Campus
+            <span class="form_builder_required_star">*</span>
+        </legend>
+        <div class="form_builder_radio">
+            <input type="radio" name="campus" class="form_builder_required" id="chester" value="Chester" onclick="timeToggle();"  />
+            <span class="form_builder_radio_indicator"></span>
+            <label class="form_builder_for_checkbox" for="chester">Chester</label>
+        </div>
+        <div class="form_builder_radio">
+            <input type="radio" name="campus" class="form_builder_required" id="midlothian" value="Midlothian" onclick="timeToggle();" />
+            <span class="form_builder_radio_indicator"></span>
+            <label class="form_builder_for_checkbox" for="midlothian">Midlothian</label>
+        </div>
+    </fieldset>
+
+    <fieldset id="time">
+        <label for="time_requested">Time requested 
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <div id="normal">
+        <div class="form_builder_select">
+            <select id="time_requested" class="form_builder_required" name="time_requested">
+                <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getTime_result) > 0) {
+                    while ($row = mysqli_fetch_array($getTime_result)) { 
+                        echo '<option value="' . $row['time'] . '" label="' . $row['time'] . '">' . $row['time'] . '</option>';
+                    }
+                }
+                ?>                
+            </select>
+        </div>
+        </div>
+        <div id="special" style="display:none;">
+        <div class="form_builder_select">
+          <select name="time_requested2" class="form_builder_required" id="time_requested2">
+            <option value="" data-price="0">Please select: </option>
+            <?php 
+            if (mysqli_num_rows($getTime2_result) > 0) {
+                while ($row = mysqli_fetch_array($getTime2_result)) { 
+                    echo '<option value="' . $row['time'] . '" label="' . $row['time'] . '">' . $row['time'] . '</option>';
+                }
+            }   
+            ?>
+          </select> 
+        </div>
+        </div>
+    </fieldset>
+
+    <fieldset id="canvas_exam">
+        <label for="canvas">Is this a Canvas exam (online)? 
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <div class="form_builder_select">
+            <select id="canvas" class="form_builder_required" name="canvas">
+                <option value="" data-price="0">Please select: </option>
+                <option value="Yes" label="Yes">Yes</option>
+                <option value="No" label="No">No</option>
+                <option value="I don't know" label="I don't know">I don't know</option>               
+            </select>
+        </div>
+    </fieldset>
 
     <fieldset id="additional_info">
         <label for="other">Please provide any additional information you believe DSS and your instructor need to know prior to the Exam.</label>
         <textarea nmaxlength="500" name="other" id="other"></textarea>
     </fieldset>
 
-    
+    <fieldset id="assistive_tech">
+        <label for="assistive_tech">Assistive Technology for test (Check all that apply)</label>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="JAWS" value="JAWS" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="JAWS">JAWS</label>
+        </div>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="KURZWEIL" value="KURZWEIL" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="KURZWEIL">KURZWEIL</label>
+        </div>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="ZOOM Text" value="ZOOM Text" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="ZOOM Text">ZOOM Text</label>
+        </div>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="Dragon" value="Dragon" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="Dragon">Dragon</label>
+        </div>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="Four Function Calculator" value="Four Function Calculator" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="Four Function Calculator">Four Function Calculator</label>
+        </div>
+        <div class="form_builder_checkbox">
+            <input type="checkbox" name="tech[]" id="Other" value="Other" data-price="0" /> 
+            <span class="form_builder_checkbox_indicator"></span>            
+            <label class="form_builder_for_checkbox" for="Other">Other</label>
+        </div>
+    </fieldset>
+
+    <fieldset id="other_tech">
+        <label for="tech_other">If you check "Other", please enter
+        </label>
+        <input type="text" maxlength="100" name="tech_other" id="tech_other" class="form_builder_text" value="" />
+    </fieldset>
 
 	<div class="row">
         <label for="captcha">reCAPTCHA below is required: </label>
@@ -275,6 +431,8 @@
             </span>
         </div>
     </div>
-</form>
 </div>
+</div>
+</form>
+<!--</div>-->
 <!-- END: Full Width Callouts -->

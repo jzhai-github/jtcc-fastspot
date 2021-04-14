@@ -1,0 +1,189 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Proctored Test Reservation Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<?php
+if (isset($_POST['sbmt'])) {
+	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        //your site secret key
+        $secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	$responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+		
+	    	include 'includes/customapps_conn.php';
+		
+			$student = $_POST['student'];
+			$emp_id = $_POST['emp_id'];
+			$phone = $_POST['phone'];
+			$email = $_POST['email'];
+			$className = $_POST['class_name'];
+			$classNum = $_POST['class_number'];
+			$section = $_POST['section'];
+			$instructor = $_POST['instructor'];
+			$insEmail = $_POST['insEmail'];
+			$classTestDate = strtotime($_POST['class_test_date']);
+			$class_test_date = date('Y-m-d', $classTestDate);
+			$display_ctd = date('m/d/Y', $classTestDate);
+			$testDate = strtotime($_POST['test_date']);
+			$test_date = date('Y-m-d', $testDate);
+			$display_td = date('m/d/Y', $testDate);
+			$campus = '';
+			if (isset($_POST['campus'])){
+				$campus = $_POST['campus'];
+			}
+			if (!empty($_POST['time_requested'])) {
+				$time_requested = $_POST['time_requested'];
+			} else {
+				$time_requested = $_POST['time_requested2'];
+			}
+			$canvas = $_POST['canvas'];
+			$other = $_POST['other'];
+			$tech = '';
+			if (isset($_POST['tech'])) {
+				$tech = implode(", ", $_POST['tech']);
+			}
+			$tech_other = $_POST['tech_other'];
+			
+			if ($stmt = mysqli_prepare($conn, "INSERT INTO proctored_test (
+					student,
+					studentID,
+					phone,
+					studentEmail,
+					className,
+					classNum,
+					section,
+					instructor,
+					instructorEmail,
+					classTestDate,
+					testDate,
+					campus,
+					testTime,
+					canvas,
+					other,
+					tech,
+					techOther
+					)
+				VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")) {
+
+				mysqli_stmt_bind_param($stmt, "sssssssssssssssss",
+					$student,
+					$emp_id,
+					$phone,
+					$email,
+					$className,
+					$classNum,
+					$section,
+					$instructor,
+					$insEmail,
+					$class_test_date,
+					$test_date,
+					$campus,
+					$time_requested,
+					$canvas,
+					$other,
+					$tech,
+					$tech_other
+					);
+					
+				mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+			}
+			mysqli_close($conn);
+
+			
+			if ($campus == 'Chester') {
+				//$officeEmail = 'DSStestingChester@jtcc.edu';
+				$officeEmail = 'jzhai@jtcc.edu';
+				$to = $officeEmail . ', ' . $insEmail;
+			} else {
+				//$officeEmail = 'DSStestingMidlothian@jtcc.edu';
+				$officeEmail = 'jzhai@jtcc.edu';
+		  		$to = $officeEmail . ', ' . $insEmail;
+			}
+			
+			if (strlen($tech_other)) {
+				if (strlen($tech)) { 
+					$tech = $tech . ', ' . $tech_other;
+				} else {
+					$tech = $tech_other;
+				}
+			}
+
+			$to2 = $email;
+			
+			$form_data = '<table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+				<tr>
+				<td>
+					<p><strong>Date of Request: </strong>' . date('m/d/Y') . '<br />
+					<strong>Student Name: </strong>' . $student . '<br />
+                    <strong>Student ID Number: </strong>' . $emp_id . '<br />
+                    <strong>Daytime Phone Number: </strong>' . $phone . '<br />
+					<strong>Student VCCS E-mail: </strong>' . $email . '<br />
+                    <strong>Class: </strong>' . $className . ' ' . $classNum . ' ' . $section . '<br />
+                    <strong>Instructor: </strong>' . $instructor . '<br />
+                    <strong>Instructor E-mail: </strong>' . $insEmail . '<br />
+                    <strong>Date the class is testing: </strong>' . $display_ctd . '<br />
+                    <strong>Date the student would like to test: </strong>' . $display_td . '<br />
+                    <strong>Campus: </strong>' . $campus . '<br />  
+                    <strong>Time Requested: </strong>' . $time_requested . '<br />
+                    <strong>Is this a Canvas exam? </strong>' . $canvas . '<br />
+                    <strong>Additional Information: </strong>' . $other . '<br />
+                    <strong>Assistive Technology for test: </strong>' . $tech . '</p>						
+				</td>
+				</tr>	
+				</table>';
+
+		  	$subject = "DSS Proctored Test Reservation Requested by " . $student;
+
+		  	$body = '<html>
+				<head><title>Proctored Test Reservation Request</title></head>
+				<body>
+					<p>Dear Instructor: </p>
+					<p>The student listed below has requested to complete a proctored test, exam, or quiz for your class in the Disabilities Support Services (DSS) Office using accommodations. The course name, section number, and date of the assessment are listed below. Whenever possible, please provide the assessment and completed Proctored Test Reservation Form 24 hours prior to the time of the assessment. Complete and return the Proctored Test Reservation Form and assessment to: ' . $officeEmail . '</p>
+					<p>Download the <a href="https://www.jtcc.edu/uploads/documents/ProctoredTestReservationFormPart2.docx">Proctored Test Reservation Form</a>.</p>
+					<p>Thank you in advance for your assistance.</p>'
+				 		. $form_data .
+				'</body>
+				</html>';
+
+			$body2 = '<html>
+				<head><title>Proctored Test Reservation Request</title></head>
+				<body>
+					<p>Thank you for submitting the Proctored Test Reservation form. The Disabilities Support Services (DSS) will contact you within 3 business days of your scheduled exam, if there are conflicts or scheduling issues. Please contact ' . $officeEmail . ' if you have questions. Below is the information you submitted.</p>'
+					. $form_data .
+				'</body>
+				</html>';
+
+			  $headers = "From: do-not-reply@jtcc.edu \r\nReply-To: ". $officeEmail . "\r\n";
+			  $headers.= "BCC: webmaster@jtcc.edu \r\n";
+			  $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+			  $headers.= "MIME-Version: 1.0 ";
+					  
+			  
+			  mail($to, $subject, $body, $headers);
+			  mail($to2, $subject, $body2, $headers);
+
+				
+			echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+                        <p>Your request has been successfully submitted. Please email <a href="mailto:DSStestingChester@jtcc.edu">Chester Office</a> or <a href="mailto:DSStestingMidlothian@jtcc.edu">Midlothian Office</a> if you have any questions.</p>
+                    </div></div></div></div>';
+			
+		} else {
+			echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your request has NOT been submitted. Please try it again.</p>
+                    </div></div></div></div>';
+		}
+	}
+}
+?>
