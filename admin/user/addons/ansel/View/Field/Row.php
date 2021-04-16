@@ -10,6 +10,14 @@
 /** @var \BuzzingPixel\Ansel\Model\FieldSettings $fieldSettings */
 /** @var \BuzzingPixel\Ansel\Record\Image $row */
 
+$isEE6 = false;
+
+if (defined('APP_VER') &&
+	version_compare(APP_VER, '6.0.0-b.1', '>=')
+) {
+	$isEE6 = true;
+}
+
 $rowId = uniqid();
 
 // Check if image is going to have neighbors
@@ -23,7 +31,11 @@ if (! isset($row)) {
 
 <tr class="ansel-table__row js-ansel-row" data-row-id="<?=$rowId?>">
 	<td class="ansel-table__column ansel-table__column--handle js-ansel-sort-handle">
-		<span class="ico reorder ansel-table__reorder-icon"></span>
+		<span class="ansel-table__reorder-icon">
+			<span class="ansel-table__reorder-icon-wrapper">
+				<?php $this->embed('ansel:Field/Icons/Reorder.svg'); ?>
+			</span>
+		</span>
 	</td>
 	<?php
 	$imgClasses = 'ansel-table__column';
@@ -57,9 +69,23 @@ if (! isset($row)) {
 					style="display: none"
 				>
 			</div>
-			<ul class="toolbar ansel-image-toolbar">
+			<?php
+				$cropButtonClasses = 'ansel-image-toolbar__button ansel-image-toolbar__button--crop';
+
+				if ($isEE6) {
+					$cropButtonClasses .= ' ansel-image-toolbar__button--is-ee-6';
+				}
+			?>
+			<ul class="ansel-image-toolbar">
 				<li class="ansel-image-toolbar__item">
-					<a title="Crop" class="ansel-image-toolbar__button ansel-image-toolbar__button--crop"></a>
+					<a
+						title="Crop"
+						class="<?=$cropButtonClasses?>"
+					>
+						<span class="ansel-image-toolbar__button-icon-wrapper ansel-image-toolbar__button-icon-wrapper--crop">
+							<?php $this->embed('ansel:Field/Icons/Crop.svg'); ?>
+						</span>
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -110,9 +136,17 @@ if (! isset($row)) {
 		</td>
 	<?php endif; ?>
 	<td class="ansel-table__column ansel-table__column--delete">
-		<ul class="toolbar ansel-table__column-toolbar">
-			<li class="remove">
-				<a href="#" title="remove row" class="js-ansel-remove-row"></a>
+		<ul class="ansel-table__column-toolbar">
+			<li class="ansel-table__column-remove">
+				<a
+					href="#"
+					title="remove row"
+					class="ansel-table__column-remove-anchor js-ansel-remove-row"
+				>
+					<span class="ansel-table__column-remove-icon-wrapper">
+						<?php $this->embed('ansel:Field/Icons/Close.svg'); ?>
+					</span>
+				</a>
 			</li>
 		</ul>
 	</td>

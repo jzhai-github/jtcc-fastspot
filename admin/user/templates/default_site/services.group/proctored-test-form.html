@@ -36,8 +36,9 @@
     mysqli_close($conn);
 ?>
 
-	<script type="text/javascript">    
-        function createInstructors(){
+	<script type="text/javascript"> 
+        /**** The following part has been moved to _main-wrapper ****/   
+        /*function createInstructors(){
             $('#instructor').val("");
             $('#insEmail').val("");
 
@@ -63,14 +64,15 @@
         $(document).ready(function() {
             updateSubject();
             updateInstructor();
-        });
+        });*/
+        /****************************************************/
 
         function timeToggle(){
             var f = document.proctored_test;
             var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             var date = new Date(f.test_date.value);
             var n = date.getDay();
-            if ((f.campus[0].checked == true && weekday[n] == 'Monday') || (f.campus[1].checked == true && weekday[n] == 'Thursday')) {
+            if ((f.chester.checked == true && weekday[n] == 'Monday') || (f.midlothian.checked == true && weekday[n] == 'Thursday')) {
                 f.time_requested.value = '';
                 document.getElementById('special').style.display = 'block';
                 document.getElementById('normal').style.display = 'none';
@@ -110,7 +112,7 @@
                 f.phone.focus();
                 return false;
             }  
-            if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+            /*if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
                 alert("Please enter your VCCS e-mail address.");
                 f.email.focus();
                 return false;
@@ -121,7 +123,7 @@
                     f.email.focus();
                     return false;
                 }
-            }
+            }*/
             if (f.class_name.value.length == 0) { 
                 alert("Please select the class name.");
                 f.class_name.focus();
@@ -158,9 +160,9 @@
                 f.test_date.focus();
                 return false;
             } 
-            if (f.campus[0].checked == false && f.campus[1].checked == false) {
+            if (f.chester.checked == false && f.midlothian.checked == false) {
                 alert("Which campus are you going to take the test?");
-                f.campus[0].focus();
+                f.chester.focus();
                 return false;
             }
             if (f.time_requested.value.length == 0 && f.time_requested2.value.length == 0) {

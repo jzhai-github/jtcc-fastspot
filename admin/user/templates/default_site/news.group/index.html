@@ -5,7 +5,7 @@
     ============
     This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
 --}
-{if segment_6}
+{if segment_4}
     {redirect='404'}
 {/if}
 
@@ -41,7 +41,12 @@
 
 {if segment_2 != 'tag'}
 {!-- channel entries tag --}
-{exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no"}
+{exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no" require_entry="yes"}
+{if no_results}
+  {redirect="404"}
+{/if}
+
+
     {!-- layout vars, dynamic, not output --}
     {layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
     
@@ -249,7 +254,7 @@
                             category="39|40"
                             offset="3"
                             paginate="bottom"
-                         
+                         	limit="10"
                             sort="desc"
                             status="open"
                             sticky="no"

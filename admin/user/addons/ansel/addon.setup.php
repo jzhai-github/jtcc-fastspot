@@ -88,6 +88,29 @@ if (ANSEL_SUPPORTS_OPTIM) {
 	}
 }
 
+/**
+ * Work around to bridge the gap in EE5 to 6. EE 6 drops the EllisLab prefix,
+ * and creates aliases for use statements (see EE's Autoloader.php file), but
+ * create_alias does not work when using type hints. When EE5 support is
+ * dropped, this conditional can go away, and all use statements can be updated
+ * to not include EllisLab.
+ */
+$classesArray = [
+	[
+		'old' => 'EllisLab\Addons\FilePicker\Service\FilePicker\FilePicker',
+		'new' => 'ExpressionEngine\Addons\FilePicker\Service\FilePicker\FilePicker',
+	],
+];
+
+foreach ($classesArray as $classes) {
+	if (! class_exists($classes['old'])) {
+		class_alias($classes['new'], $classes['old']);
+	}
+}
+/**
+ * End workaround
+ */
+
 // Return info about the addon for ExpressionEngine
 return array(
 	'author' => $addonJson->author,
@@ -659,5 +682,18 @@ return array(
 
 			return new InternalTagParams();
 		}
+	),
+	'aliases' => array(
+		'ExpressionEngine\Addons\FilePicker\Service\FilePicker\FilePicker',
+		'ExpressionEngine\Core\Provider',
+		'ExpressionEngine\Core\Request',
+		'ExpressionEngine\Service\Alert\AlertCollection',
+		'ExpressionEngine\Service\Database\Query',
+		'ExpressionEngine\Service\Model\Collection',
+		'ExpressionEngine\Service\Model\Facade',
+		'ExpressionEngine\Service\Sidebar\Sidebar',
+		'ExpressionEngine\Service\URL\URLFactory',
+		'ExpressionEngine\Service\Validation\Factory',
+		'ExpressionEngine\Service\View\ViewFactory',
 	)
 );
