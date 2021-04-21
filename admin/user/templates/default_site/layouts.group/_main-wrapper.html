@@ -7,7 +7,7 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		{!-- {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
 		<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news' && segment_2 == ''}News{if:else}{layout:title}{/if}</title> --}
-		{if segment_1 == 'news' && segment_2 == ''}<title>News</title>
+		{if segment_1 == 'news' && segment_2 == '' || segment_1 == 'news' && segment_2 != '{layout:url_title}'}<title>News</title>
 		{if:else}
 		{exp:seeo:single entry_id="{layout:entry_id}" hide_site_title="y"}
 		{/if}
