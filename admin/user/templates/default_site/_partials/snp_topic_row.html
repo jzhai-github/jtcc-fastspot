@@ -1,0 +1,104 @@
+{main_content:topics_header}
+{content}
+{if content:topics_title != ''}
+<!-- Topic Row -->
+<div class="topics">
+		<div class="fs-row">
+			<div class="fs-cell ">
+				<div class="topics_inner">					
+					<div class="topics_header">
+						<h2 class="topics_title">
+								<span class="topics_title_label">{content:topics_title}</span>
+						</h2>
+						<div class="topics_description">
+							<p>{content:topics_description}</p>
+						</div>
+					</div>
+					<!-- topics_header -->
+					<div class="topics_body">
+					{if:else}
+					
+					<!-- Topic Row -->
+					<div class="topics">
+						<div class="fs-row">
+							<div class="fs-cell ">
+								<div class="topics_inner">	
+					<!-- no topics_header -->
+					<div class="topics_body">
+					{/if}
+					{/content}
+					{/main_content:topics_header}
+
+						{main_content:topic_row}
+						{content}
+						<div class="topic">
+							<div class="topic_inner">
+								{content:topic_image}
+								<figure class="topic_figure" aria-hidden="true">
+									<span class="lazy_image_wrapper topic_image_wrapper">
+										<img class="js-lazy js-lazyload topic_image"  data-sizes="auto"  src='/images/placeholder.png' data-src='
+										{img:url:resize width="300" height="200"}'  data-srcset='{img:url:resize width="300" height="200"} 300w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="740" height="494"} 740w'  alt="{img:title}">
+									</span>
+									<noscript>
+										<img class="topic_image" src='{img:url:resize width="740" height="494"}'  srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="500" height="334"} 500w, {img:url:resize width="300" height="200"} 300w' sizes="100vw"  alt="{img:title}"  itemprop="image" >
+									</noscript>
+								</figure>
+								{/content:topic_image}
+								<div class="topic_wrapper">
+									<div class="topic_header">
+										<h3 class="topic_title">{content:topic_title}</h3>
+									</div>
+									<div class="topic_body">
+										<div class="topic_description">
+											{content:topic_description}
+										</div>
+									</div>
+									<div class="topic_links">
+										<a href="{content:topic_link_1}" class="topic_link" >
+											<span class="topic_link_inner">
+												<span class="topic_link_label">{content:topic_link_text_1}</span>
+												<span class="topic_link_icon" aria-hidden="true">
+													<span class="topic_link_icon_inner">
+														<span class="topic_link_icon_space">&#xfeff;</span>									
+														<svg class="icon icon_caret_right">
+															<use href="/images/icons.svg#caret_right" />
+														</svg>
+													</span> {!-- /topic_link_icon_inner --}
+												</span>{!-- /topic_link_icon --}
+											</span>{!-- /topic_link_label --}
+										</a>
+
+										{if content:topic_link_text_2}
+										<a href="{content:topic_link_text_2}" class="topic_link" >
+											<span class="topic_link_inner">
+												<span class="topic_link_label">{content:topic_link_text_2}</span>
+												<span class="topic_link_icon" aria-hidden="true">
+													<span class="topic_link_icon_inner">
+														<span class="topic_link_icon_space">&#xfeff;</span>		
+														<svg class="icon icon_caret_right">
+															<use href="/images/icons.svg#caret_right" />
+														</svg>
+													</span> {!-- /topic_link_icon_inner --}
+												</span>{!-- /topic_link_icon --}
+											</span>{!-- /topic_link_label --}
+										</a>
+										{/if}
+									</div><!-- /topic_links -->
+								</div><!-- /topics_wrapper -->
+							</div><!-- /topic_inner -->
+						</div><!-- /topic -->
+						{/content}
+				{/main_content:topic_row}
+{main_content:topic_row}
+{content}
+{if content:count == 1}
+					</div><!-- /topics_body -->
+				</div><!-- /topics_inner -->
+			</div><!-- /fs-cell -->
+		</div><!-- /fs-row -->
+	</div><!-- /topics -->
+
+<!-- END: Topic Row -->
+{/if}
+{/content}
+{/main_content:topic_row}

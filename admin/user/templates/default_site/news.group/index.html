@@ -5,12 +5,12 @@
     ============
     This is a multi-entry channel page, it doesn't need third segment as is. So we use the following code to make sure the page sends a 404 if someone types in an incorrect URL in the browser address bar. i.e. http://example.com/about/sub-page/nothing
 --}
-{if segment_6}
+{if segment_5}
     {redirect='404'}
 {/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='News & Stories'}
+{preload_replace:p_title='News'}
 {preload_replace:p_description='John Tyler Community College News'}
 {preload_replace:p_url='news'}
 {!-- channel vars (prefix ch_) --}
@@ -41,10 +41,16 @@
 
 {if segment_2 != 'tag'}
 {!-- channel entries tag --}
-{exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no"}
+{exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no" require_entry="yes"}
+{if no_results}
+  {redirect="404"}
+{/if}
+
+
     {!-- layout vars, dynamic, not output --}
-    {layout:set name='title' value='{if title}{title}{if:else}{p_title}{/if}'}
-    
+    {!-- Make "News" the title on all pagination pages --}
+    {layout:set name='title' value='{if url_title == "segment_2"}{title}{if:else}{p_title}{/if}'}
+    {layout:set name="url_title"}{url_title}{/layout:set}
     {layout:set name='page_description' value='{if page_description}{page_description}{/if}'}
 
     {layout:set name='page_header_bg_image' value='{if page_header_bg_image}{page_header_bg_image}{img:url}{/page_header_bg_image}{/if}'}
@@ -239,8 +245,6 @@
             <div class="fs-cell">
                 <div class="news_list_inner">
                     <ul class="news_list_items" id="item_list" aria-label="">
-
-
                         {exp:channel:entries
                             channel='{ch}' 
                             order_by="date"
@@ -249,7 +253,7 @@
                             category="39|40"
                             offset="3"
                             paginate="bottom"
-                         
+                            limit="10"
                             sort="desc"
                             status="open"
                             sticky="no"
@@ -330,58 +334,46 @@
                                         </div>
                                         <div class="news_item_description">
                                             <p>{story_description}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        </div><!-- /news_item_description -->
+                                    </div><!-- /news_item_body -->
+                                </div><!-- /news_item_wrapper -->
+                            </div><!-- /news_item -->
                             <!-- END: News Item -->
                         </li>
-
-
-
-
 {snp_pagination}
- 
-
-
-
-                        {/exp:channel:entries}
-
+                         {/exp:channel:entries}
                     </ul>
-                </div>
-            </div>
-        </div>
-    </div> 
-
-    {/if}
+                </div><!-- /news_list_inner -->
+            </div><!-- /fs-cell -->
+        </div><!-- /fs-row -->
+    </div> <!-- /news-list -->
+{if:else}
     <div class="news_list">
         <div class="fs-row">
             <div class="fs-cell">
                 <div class="news_list_inner">
                     <ul class="news_list_items" id="item_list" aria-label="">   
-
-        <h1>
-   {!--  Entries tagged: --}
-   {layout:set name='tag_title'}
-        {exp:tag:tag_name
-            tag="{segment_3}"
-            case="title"
-        }
-    {/layout:set}
-    {layout:tag_title}
-    {layout:tag_title}
-</h1>
-{if segment_3}
-{exp:tag:entries
-    tag="{segment_3}"
-    inclusive="yes"
-    orderby="date"
-    sort="desc"
-    limit="20"
-    paginate="bottom"
-}
-
-   <li class="news_list_item">
+                        <h1>
+                           {!--  Entries tagged: --}
+                           {layout:set name='tag_title'}
+                                {exp:tag:tag_name
+                                    tag="{segment_3}"
+                                    case="title"
+                                }
+                            {/layout:set}
+                            {layout:tag_title}
+                        </h1>
+                        {if segment_3}
+                        {exp:tag:entries
+                            tag="{segment_3}"
+                            channel_entry_id="{entry_id}"
+                            inclusive="yes"
+                            orderby="date"
+                            sort="desc"
+                            limit="10"
+                            paginate="bottom"
+                        }
+                        <li class="news_list_item">
                             <div class="news_item">
                                 {if story_image}
                                 {story_image} 
@@ -416,13 +408,17 @@
                                                 </span>
                                             </a>
                                         </h2>
-                                        <div class="news_item_categories">
+                                        <div class="news_item_categories test2">
                                             {exp:tag:tags
                                                 entry_id="{entry_id}"
                                                 orderby="tag_name" sort="asc"
                                                 limit="6"
                                                 backspace="2"
+                                                status="open"
                                             }
+                                            {if tag_no_results}
+    <p>Sorry, {tag_count} results were found.</p>
+{/if}
                                                 {if tag_count == "1"}
                                                     <div class="news_item_category_hint">Categories</div>
                                                 {/if}
@@ -437,7 +433,6 @@
                                                 </ul>                                       
                                                 {/if}
                                             {/exp:tag:tags}
-                                                                  
                                         </div>
                                     </div>
                                     <div class="news_item_body">
@@ -457,13 +452,99 @@
                                         </div>
                                         <div class="news_item_description">
                                             <p>{story_description}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                         </div><!-- /news_item_description -->
+                                    </div><!-- /news_item_body -->
+                                </div><!-- /news_item_wrapper -->
+                            </div><!-- /news_item -->
                             <!-- END: News Item -->
                         </li>
+                        {/if}
 
+    {tag_paginate}
+    <div class="pagination js-pagination-via-url">
+            <nav class="pagination_nav" aria-label="Search Results Pagination">
+                {if previous_page}
+                    {tag_pagination_links}
+                    {previous_page}
+                   
+                        <a class="pagination_arrow pagination_arrow_left" href="{pagination_url}">
+                            <span class="pagination_arrow_label">Previous Page</span>
+                            <span class="pagination_arrow_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_left" />
+                                </svg>
+                            </span>
+                        </a>
+                    {/previous_page}
+                    {/tag_pagination_links}
+                    
+                {if:else}
+                    <a class="pagination_arrow pagination_arrow_left pagination_arrow_disabled" href="#">
+                        <span class="pagination_arrow_icon">
+                            <svg class="icon icon_caret_left">
+                                <use href="/images/icons.svg#caret_left"></use>
+                            </svg>
+                        </span>
+                        <span class="pagination_arrow_label">Previous Page</span>
+                    </a>
+                {/if}
+
+                {!-- {if next_page} --}
+                    {tag_pagination_links}
+                    {next_page}
+                        <a class="pagination_arrow pagination_arrow_right" href="{pagination_url}">
+                            <span class="pagination_arrow_label">Next Page</span>
+                            <span class="pagination_arrow_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_right" />
+                                </svg>
+                            </span>
+                        </a>
+                    {/next_page}
+                    {/tag_pagination_links}
+                {!-- {if:else}
+                    <a class="pagination_arrow pagination_arrow_right pagination_arrow_disabled" href="#">
+                        <span class="pagination_arrow_label">Next Page</span>
+                        <span class="pagination_arrow_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </a>
+                {/if}  --}
+            </nav>
+            {tag_pagination_links}
+            <form class="pagination_form" action="" method="get">
+                <div class="pagination_form_inner">
+                    <label class="pagination_form_label" for="pagination_form_select">Page</label>
+                    <div class="pagination_form_select_wrapper">
+                        <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
+                                {page}
+                                <option url="{pagination_url}" value="{segment_3}/P{pagination_page_number}0" {if current_page}selected{/if}>{pagination_page_number}</option>
+                                {/page}
+                        </select>
+                        <span class="pagination_form_select_icon"><svg class="icon icon_expand">
+                                            <use href="/images/icons.svg#expand" />
+                                        </svg></span>
+                    </div>
+                    <span class="pagination_form_suffix">of {tag_total_pages}</span>
+                    <button class="pagination_form_button" type="submit" aria-label="View Page">
+                        <span class="pagination_form_button_label">Go</span>
+                        <span class="pagination_form_button_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </form>
+            {/tag_pagination_links}
+    </div>
+{/tag_paginate}
+
+
+
+{!-- 
     {tag_paginate}
     <ul class="pagination">
         {tag_pagination_links}
@@ -484,13 +565,13 @@
             {/last_page}
         {/tag_pagination_links}
     </ul>
-    {/tag_paginate}
+    {/tag_paginate} --}
 
 {/exp:tag:entries}
 
             </ul>
-            </div>
-        </div>
-    </div>
-</div>
+            </div><!-- /news_list_inner -->
+        </div><!-- /fs-cell -->
+    </div><!-- /fs-row -->
+</div> <!-- /news-list -->
 {/if} 

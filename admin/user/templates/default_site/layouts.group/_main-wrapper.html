@@ -7,8 +7,10 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		{!-- {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
 		<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news' && segment_2 == ''}News{if:else}{layout:title}{/if}</title> --}
-
+		{if segment_1 == 'news' && segment_2 == '' || segment_1 == 'news' && segment_2 != '{layout:url_title}'}<title>News</title>
+		{if:else}
 		{exp:seeo:single entry_id="{layout:entry_id}" hide_site_title="y"}
+		{/if}
 
 		<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -103,6 +105,35 @@ var STATIC_ROOT = "../../index.html";
 {if segment_2 == "proctored-test-form"}
 	<script src="/static-html/js/jquery-ui.min.js"></script>
 	<script src="/static-html/js/custom.js"></script>
+	<script type="text/javascript">   
+        function createInstructors(){
+            $('#instructor').val("");
+            $('#insEmail').val("");
+
+            if ($(this).data('options') === undefined){
+                $(this).data('options', $('#instructor option').clone());
+            }
+            var subject = $('#class_name option:selected').attr('subject');
+            var options = $(this).data('options').filter('[data-subject*=' + subject + ']');
+            $('#instructor').html(options);
+            $('#instructor').prepend('<option value="" selected>Select: </option>');
+        }
+
+        function updateSubject(){
+            //createInstructors();
+            subject = $('#class_name option:selected').attr('subject');
+            createInstructors();
+        }
+
+        function updateInstructor(){
+            $('#insEmail').val($('#instructor option:selected').attr('data-email'));
+        }
+
+        $(document).ready(function() {
+            updateSubject();
+            updateInstructor();
+        });
+    </script>
 {/if}
 
 {!----------------------------------}
