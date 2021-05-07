@@ -19,10 +19,15 @@
 					<span class="featured_programs_title_label featured_programs_title_label_secondary">{{ title.secondary }}</span>
 				</span>
 			</h2>
-			<div class="featured_programs_input_wrapper">
-				<input class="featured_programs_input" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
-				<span class="featured_programs_input_icon">{{ icon("search") }}</span>
-			</div>
+			<form class="featured_programs_form">
+				<div class="featured_programs_input_wrapper">
+					<input class="featured_programs_input" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
+				</div>
+				<button class="featured_programs_submit">
+					<span class="featured_programs_submit_label">Search</span>
+					<span class="featured_programs_submit_icon">{{ icon("search") }}</span>
+				</button>
+			</form>
 		</div>
 		<div class="featured_programs_content">
 			<div class="feature_programs_body">
@@ -42,13 +47,27 @@
 					{% endfor %}
 				</ul>
 				<div class="featured_programs_items_select_wrapper">
-					<select class="featured_programs_items_select">
-						<option>Discover an Area of Interest</option>
-						{% for item in items %}
-						<option>{{ item.label }}</option>
-						{% endfor %}
-					</select>
-					<span class="featured_programs_items_select_icon">{{ icon("caret_down") }}</span>
+
+					<!-- Menu Button -->
+					<div class="js-menu-item menu_item">
+						<button class="js-swap js-menu-trigger menu_trigger" aria-label="Open Menu" data-swap-target=".js-menu-item">
+							<span class="menu_trigger_label">Discover an Area of Interest</span>
+							<span class="menu_trigger_icon" aria-hidden="true">{{ icon("caret_down") }}</span>
+						</button>
+						<div class="js-menu-panel menu_panel">
+							<ul class="menu_panel_list">
+								{% for item in items %}
+									<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="#">
+											<span class="menu_panel_link_label">{{ item.label }}</span>
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<!-- END: Menu Button -->
+
 				</div>
 			</div>
 			<div class="feature_programs_footer">
