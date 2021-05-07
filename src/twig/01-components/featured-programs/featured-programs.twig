@@ -19,10 +19,15 @@
 					<span class="featured_programs_title_label featured_programs_title_label_secondary">{{ title.secondary }}</span>
 				</span>
 			</h2>
-			<div class="featured_programs_input_wrapper">
-				<input class="featured_programs_input" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
-				<span class="featured_programs_input_icon">{{ icon("search") }}</span>
-			</div>
+			<form class="featured_programs_form">
+				<div class="featured_programs_input_wrapper">
+					<input class="featured_programs_input" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
+				</div>
+				<button class="featured_programs_submit">
+					<span class="featured_programs_submit_label">Search</span>
+					<span class="featured_programs_submit_icon">{{ icon("search") }}</span>
+				</button>
+			</form>
 		</div>
 		<div class="featured_programs_content">
 			<div class="feature_programs_body">

@@ -122,6 +122,10 @@
 	}
 }
 
+.featured_programs_form {
+	position: relative;
+}
+
 .featured_programs_input_wrapper {
 	position: relative;
 
@@ -139,13 +143,13 @@
 	border: 0;
 	flex: auto;
 	font-size: 16px;
-	padding: 19px 40px 19px 26px;
+	padding: 19px 64px 19px 26px;
 
 	@media #{$min_lg} {
 		max-height: 85px;
 
 		font-size: 24px;
-		padding: 29px 60px 29px 40px;
+		padding: 29px 84px 29px 40px;
 	}
 
 	&::-ms-clear,
@@ -164,20 +168,36 @@
 	}
 }
 
-.featured_programs_input_icon {
+.featured_programs_submit {
+	width: 54px;
+	height: 100%;
+
 	position: absolute;
-	top: 50%;
-	right: 20px;
+	top: 0;
+	right: 0;
 
 	color: $bergundy;
-	pointer-events: none;
-	transform: translate(0, -50%);
+	transition: color $base_speed;
 
 	@media #{$min_lg} {
-		right: 40px;
+		width: 74px;
+	}
 
-		transform-origin: right center;
-		transform: translate(0, -50%) scale(1.5);
+	&:hover,
+	&:focus {
+		color: #000;
+	}
+}
+
+.featured_programs_submit_label {
+	@include visually_hide;
+}
+
+.featured_programs_submit_icon {
+	.icon {
+		@media #{$min_lg} {
+			transform: scale(1.5);
+		}
 	}
 }
 
