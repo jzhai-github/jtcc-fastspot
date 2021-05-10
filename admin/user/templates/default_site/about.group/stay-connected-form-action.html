@@ -1,0 +1,160 @@
+{layout='layouts/_main-layout'}
+
+
+{layout:set name='title'}Alumni Stay Connected Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<?php
+if (isset($_POST['sbmt'])) {
+	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        	//your site secret key
+        	$secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        	//get verify response data
+        	$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	 	$responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+		
+			$fname = $_POST['fname'];
+			$minitial = $_POST['minitial'];
+			$lname = $_POST['lname'];
+			$maiden = $_POST['maiden'];
+			$nname = $_POST['nname'];
+			$phone = $_POST['phone'];
+			$email = $_POST['email'];
+			$street = $_POST['street'];
+			$city = $_POST['city'];
+			$state = $_POST['state'];
+			$zip = $_POST['zip'];
+			$yearGraduate = $_POST['yearGraduate'];
+			$tyler = $_POST['tyler'];
+			$help = '';
+			if (isset($_POST['help'])){
+				$help = implode("<br />", $_POST['help']);
+			}
+			$events = '';
+			if (isset($_POST['events'])){
+				$events = implode("<br />", $_POST['events']);
+			}
+			$education = '';
+			if (isset($_POST['education'])){
+				$education = $_POST['education'];
+			}
+			$college = $_POST['college'];
+			$major = $_POST['major'];
+			$employment = '';
+			if (isset($_POST['employment'])){
+				$employment = $_POST['employment'];
+			}
+			$company = $_POST['company'];
+			$position = $_POST['position'];
+			$internship = '';
+			if (isset($_POST['internship'])){
+				$internship = $_POST['internship'];
+			}
+			$organization = $_POST['organization'];
+			$job = '';
+			if (isset($_POST['job'])){
+				$job = $_POST['job'];
+			}
+			$military = '';
+			if (isset($_POST['military'])){
+				$military = $_POST['military'];
+			}
+			$notSeeking = '';
+			if (isset($_POST['notSeeking'])){
+				$notSeeking = $_POST['notSeeking'];
+			}
+			$other = '';
+			if (isset($_POST['other'])){
+				$other = $_POST['other'];
+			}
+			$inputOther = $_POST['inputOther'];
+
+			$upto = '';
+			if (strlen($education)){
+				$upto .= '<br />' . $education . $college . '<br />Intended Major: ' . $major;
+			}
+			if (strlen($employment)){
+				$upto .= '<br />' . $employment . $company . '<br />Position Title: ' . $position;
+			}
+			if (strlen($internship)){
+				$upto .= '<br />' . $internship . $organization;
+			}
+			if (strlen($job)){
+				$upto .= '<br />' . $job;
+			}
+			if (strlen($military)){
+				$upto .= '<br />' . $military;
+			}
+			if (strlen($notSeeking)){
+				$upto .= '<br />' . $notSeeking;
+			}
+			if (strlen($other)){
+				$upto .= '<br />' . $other . $inputOther;
+			}
+		
+				
+		  $to = 'foundation@jtcc.edu, hwalker@jtcc.edu, ' . $email;
+		  //$to = 'jzhai@jtcc.edu, ' . $email;
+		  //$to = 'jhorning@jtcc.edu, ' . $email;
+		  $subject = "Join the Alumni Association";
+		  $body = '<html>
+					  <head><title>Join the Alumni Association</title></head>
+					  <body>
+						  <table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+						  <tr>
+						  <td>
+							  <p>Thank you for completing Tyler&#39;s Alumni Association Form.</p>
+							<p>We are always excited to hear from our alumni. Below, is a copy of the form you completed. If you need to update any of this information or would like to tell us more about your time at Tyler and your journey since, please e-mail us at <a href="mailto:foundation@jtcc.edu">foundation@jtcc.edu</a>.</p>
+							<p>You can expect to hear from the Tyler Alumni Association from time to time with College news, events and other opportunities to connect. We look forward to staying in touch with you.</p>
+							<p>All the best,<br />
+								John Tyler Community College Alumni Association</p>
+							<hr>
+							  <p><strong>First Name: </strong>' . $fname . '</p>
+							  <p><strong>Middle Initial: </strong>' . $minitial . '</p>
+							  <p><strong>Last Name: </strong>' . $lname . '</p>
+							  <p><strong>Maiden Name (if applicable): </strong>' . $maiden . '</p>
+							  <p><strong>Nickname: </strong>' . $nname . '</p>
+							  <p><strong>Phone Number: </strong>' . $phone . '</p>
+							  <p><strong>E-mail: </strong>' . $email . '</p> 
+							  <p><strong>Address: </strong><br />' . $street . '<br />' . $city . '<br />' . $state . ' ' . $zip . '</p>
+							  <p><strong>Year Graduated (if applicable): </strong>' . $yearGraduate . '</p>
+							  <p><strong>Share what you loved about your Tyler experience: </strong><br />' . $tyler . '</p>
+							  <p><strong>Would you be willing to help with alumni efforts? </strong><br />' . $help . '</p> 
+							  <p><strong>Would you be interested in attending any of the following Tyler events? </strong><br />' . $events . '</p> 
+							  <p><strong>Share what you are up to: </strong>' . $upto . '</p>
+							  <p></p>						
+						  </td>
+						  </tr>	
+						  </table>
+					  </body>
+					 </html>';
+					  
+			  $headers = "From: do-not-reply@jtcc.edu \r\n";
+			  $headers.= "BCC: webmaster@jtcc.edu \r\n";
+			  $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+			  $headers.= "MIME-Version: 1.0 ";
+			  
+			  mail($to, $subject, $body, $headers);
+			  
+			  echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+                        <p>Thank you for your submission- welcome to the Alumni Association!</p>
+                    </div></div></div></div>';
+			
+		} else {
+			echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your request has NOT been sent. Please try it again.</p>
+                    </div></div></div></div>';
+		}
+	}
+}
+?>
+

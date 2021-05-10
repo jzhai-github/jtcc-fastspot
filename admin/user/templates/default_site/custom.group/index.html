@@ -10,12 +10,12 @@
 {/if}
 
 {!-- page vars (prefix p_) --}
-{preload_replace:p_title='Services'}
-{preload_replace:p_description='Services at John Tyler Community College'}
-{preload_replace:p_url='services'}
+{preload_replace:p_title='Custom'}
+{preload_replace:p_description='Custom at John Tyler Community College'}
+{preload_replace:p_url='custom'}
 {!-- channel vars (prefix ch_) --}
-{preload_replace:ch='services'}
-{preload_replace:ch_title='Services'}
+{preload_replace:ch='custom'}
+{preload_replace:ch_title='Custom'}
 {preload_replace:ch_status='Open|Default Page'}
 {preload_replace:ch_disable='member_data|pagination'}
 {!-- layout vars, channel/page related --}
@@ -63,12 +63,6 @@
 			
 {layout:contents}
 {main_content}
-	{if segment_4 == 'transfer-credit-request-form'}
-		{embed="admissions/transfer-credit-form"}
-	{/if}
-	{if segment_3 == 'proctored-test-registration'}
-		{embed="services/proctored-test-form"}
-	{/if}
 	{main_content:wysiwyg_block}
 	<div class="wysiwyg_block">
 		<div class="fs-row">

@@ -72,8 +72,8 @@ class EE_Core {
 
 		// application constants
 		define('APP_NAME',		'ExpressionEngine');
-		define('APP_BUILD',		'20201123');
-		define('APP_VER',		'5.4.0');
+		define('APP_BUILD',		'20210304');
+		define('APP_VER',		'5.4.2');
 		define('APP_VER_ID',	'');
 		define('SLASH',			'&#47;');
 		define('LD',			'{');
@@ -489,7 +489,7 @@ class EE_Core {
 
 
 		//show them post-update checks, again
-		if (ee()->input->get('after') == 'update')
+		if (ee()->input->get('after') == 'update' || ee()->session->flashdata('update:completed'))
 		{
 			$advisor = new \EllisLab\ExpressionEngine\Library\Advisor\Advisor();
 			$messages = $advisor->postUpdateChecks();

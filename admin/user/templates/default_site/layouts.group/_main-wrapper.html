@@ -36,7 +36,7 @@
 		<meta name="twitter:url" content="//twitter.com/">
 		<meta name="twitter:title" content="{layout:og_title}">
 		{if layout:seo_description}<meta name="twitter:description" content="{layout:seo_description}">{/if}
-		<meta name="twitter:image" content="http:///social.png"> --}
+		<meta name="twitter:image" content="https:///social.png"> --}
 
 		<link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
 		
@@ -102,9 +102,9 @@ var STATIC_ROOT = "../../index.html";
 				
 {!-- Services form test --}	
 {!-- https://dev.jtcc.edu/services/proctored-test-form --}
-{if segment_2 == "proctored-test-form"}
-	<script src="/static-html/js/jquery-ui.min.js"></script>
-	<script src="/static-html/js/custom.js"></script>
+{if segment_3 == "proctored-test-registration"}
+	<script src="/src/js/custom/jquery-ui.min.js"></script>
+	<script src="/src/js/custom/custom.js"></script>
 	<script type="text/javascript">   
         function createInstructors(){
             $('#instructor').val("");
@@ -146,7 +146,7 @@ var STATIC_ROOT = "../../index.html";
 		<script src="{exp:calendar:theme_folder_url}code_pack/js/bootstrap.min.js"></script>
 		<script src="{exp:calendar:theme_folder_url}code_pack/js/minical.js"></script>
 		{if embed:load_fieldtype == "yes"}
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 			<script type="text/javascript" src="{exp:calendar:theme_folder_url}plugins/jquery-timepicker-jt/jquery.timepicker.min.js"></script>
 			<script type="text/javascript" src="{exp:calendar:theme_folder_url}js/calendar.fieldtype.js"></script>
 			<script type="text/javascript" src="{exp:calendar:theme_folder_url}js/template.fieldtype.js"></script>

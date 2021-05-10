@@ -14,7 +14,7 @@
 {main_content:link_group}
 {content}
 						<li class="link_group_item">
-							<a class="link_group_link" href="{content:link}"  target="_blank"  itemprop="relatedLink">
+							<a class="link_group_link" href="{content:link}" {if content:link_icon == 'external_link'} target="_blank"{/if}  itemprop="relatedLink">
 								<span class="link_group_link_inner">
 									<span class="link_group_link_label">{content:link_label}</span>
 									<span class="link_group_link_icon">
