@@ -19,7 +19,7 @@
               <div class="meta_info">
                 <script type="application/ld+json">
                   {
-                    "@context": "http://schema.org",
+                    "@context": "https://schema.org",
                     "@type": "",
                     "name": "",
                     "logo": "///images/logo-schema.png",
@@ -34,14 +34,14 @@
                       "url": "https://dev.jtcc.edu"
                    }
                 </script>
-                <a class="meta_info_link" href="#">
+                {!-- <a class="meta_info_link" href="#"> --}
                   <span class="meta_info_link_label">Chester Campus</span>
-                  <span class="meta_info_link_icon">
+                  {!-- <span class="meta_info_link_icon">
                     <svg class="icon icon_caret_right">
                       <use href="/static-html/images/icons.svg#caret_right" />
                     </svg>
-                  </span>
-                </a>
+                  </span> --}
+                {!-- </a> --}
                 <div class="meta_info_details">
                   <div class="meta_info_detail meta_info_detail_address">
                     <span class="meta_info_detail_icon">
@@ -74,7 +74,7 @@
               <div class="meta_info">
                 <script type="application/ld+json">
                   {
-                    "@context": "http://schema.org",
+                    "@context": "https://schema.org",
                     "@type": "",
                     "name": "",
                     "logo": "///images/logo-schema.png",
@@ -89,14 +89,14 @@
                       "url": "https://dev.jtcc.edu"
                       }
                 </script>
-                <a class="meta_info_link" href="#">
+                {!-- <a class="meta_info_link" href="#"> --}
                   <span class="meta_info_link_label">Midlothian Campus</span>
-                  <span class="meta_info_link_icon">
+                  {!-- <span class="meta_info_link_icon">
                     <svg class="icon icon_caret_right">
                       <use href="/static-html/images/icons.svg#caret_right" />
                     </svg>
-                  </span>
-                </a>
+                  </span> --}
+               {!--  </a> --}
                 <div class="meta_info_details">
                   <div class="meta_info_detail meta_info_detail_address">
                     <span class="meta_info_detail_icon">
@@ -135,13 +135,13 @@
                 <ul class="js-nav-list js-footer-nav-list nav_list footer_nav_list" aria-labelledby="footer_nav_title">
                   <li class="js-nav-item js-footer-nav-item js-footer-nav-item-1 nav_item footer_nav_item">
                     <div class="nav_item_inner footer_nav_item_inner">
-                      <a class="js-nav-link js-footer-nav-link nav_link footer_nav_link" href="#">
+                      <a class="js-nav-link js-footer-nav-link nav_link footer_nav_link" href="/services/help-hub/">
                         <span class="nav_link_icon footer_nav_link_icon" aria-hidden="true">
                           <svg class="icon icon_caret_right">
                             <use href="/static-html/images/icons.svg#caret_right" />
                           </svg>
                         </span>
-                        <span class="nav_link_label footer_nav_link_label">Contact Us</span>
+                        <span class="nav_link_label footer_nav_link_label">Help Hub</span>
                       </a>
                     </div>
                   </li>
@@ -157,9 +157,21 @@
                       </a>
                     </div>
                   </li>
+                  <li class="js-nav-item js-footer-nav-item js-footer-nav-item-2 nav_item footer_nav_item">
+                    <div class="nav_item_inner footer_nav_item_inner">
+                      <a class="js-nav-link js-footer-nav-link nav_link footer_nav_link" href="/directory/">
+                        <span class="nav_link_icon footer_nav_link_icon" aria-hidden="true">
+                          <svg class="icon icon_caret_right">
+                            <use href="/static-html/images/icons.svg#caret_right" />
+                          </svg>
+                        </span>
+                        <span class="nav_link_label footer_nav_link_label">Directory</span>
+                      </a>
+                    </div>
+                  </li>
                   <li class="js-nav-item js-footer-nav-item js-footer-nav-item-3 nav_item footer_nav_item">
                     <div class="nav_item_inner footer_nav_item_inner">
-                      <a class="js-nav-link js-footer-nav-link nav_link footer_nav_link" href="#">
+                      <a class="js-nav-link js-footer-nav-link nav_link footer_nav_link" href="/about/diversity-inclusion/">
                         <span class="nav_link_icon footer_nav_link_icon" aria-hidden="true">
                           <svg class="icon icon_caret_right">
                             <use href="/static-html/images/icons.svg#caret_right" />
@@ -205,7 +217,21 @@
                       </a>
                     </div>
                   </li>
+                  {if segment_1 == ''}
+                  <li class="js-nav-item js-footer-nav-item js-footer-nav-item-6 nav_item footer_nav_item">
+                    <div class="nav_item_inner footer_nav_item_inner">
+                      
+                    </div>
+                  </li>
+                  <li class="js-nav-item js-footer-nav-item js-footer-nav-item-6 nav_item footer_nav_item">
+                    <div class="nav_item_inner footer_nav_item_inner">
+                      <a href="https://logi.epro.cgipdc.com/Public" target="_blank" class="eva-logo home">
+      <img src="/images/uploads/eva-logo-white.png" alt="eVA Transparency Reports" width="170"></a>
+                    </div>
+                  </li>
+                  {/if}
                 </ul>
+                
               </nav>
               <nav class="js-nav js-auxilary-nav js-auxilary-nav-sm nav auxilary_nav auxilary_nav_sm" aria-labelledby="auxilary_nav_title_sm">
                 <div class="nav_header auxilary_nav_header">
@@ -238,7 +264,7 @@
                   </li>
                   <li class="js-nav-item js-auxilary-nav-item js-auxilary-nav-item-3 nav_item auxilary_nav_item">
                     <div class="nav_item_inner auxilary_nav_item_inner">
-                      <a class="js-nav-link js-auxilary-nav-link nav_link auxilary_nav_link" href="http://vccs.edu/">
+                      <a class="js-nav-link js-auxilary-nav-link nav_link auxilary_nav_link" href="https://www.vccs.edu/">
                         <span class="nav_link_icon auxilary_nav_link_icon" aria-hidden="true">
                           <svg class="icon icon_caret_right">
                             <use href="/static-html/images/icons.svg#caret_right" />
@@ -307,7 +333,7 @@
                   </a>
                 </li>
                 <li class="social_nav_item">
-                  <a class="social_nav_link social_nav_link_youtube" href="http://www.youtube.com/johntylercommcollege" target="_blank" rel="noopener">
+                  <a class="social_nav_link social_nav_link_youtube" href="https://www.youtube.com/johntylercommcollege" target="_blank" rel="noopener">
                     <span class="social_nav_icon">
                       <svg class="icon icon_youtube">
                         <use href="/static-html/images/icons.svg#youtube" />
@@ -351,7 +377,7 @@
                 </li>
                 <li class="js-nav-item js-auxilary-nav-item js-auxilary-nav-item-3 nav_item auxilary_nav_item">
                   <div class="nav_item_inner auxilary_nav_item_inner">
-                    <a class="js-nav-link js-auxilary-nav-link nav_link auxilary_nav_link" href="http://vccs.edu/">
+                    <a class="js-nav-link js-auxilary-nav-link nav_link auxilary_nav_link" href="https://www.vccs.edu/">
                       <span class="nav_link_icon auxilary_nav_link_icon" aria-hidden="true">
                         <svg class="icon icon_caret_right">
                           <use href="/static-html/images/icons.svg#caret_right" />

@@ -1,0 +1,336 @@
+{layout='layouts/_main-layout'}
+
+
+{layout:set name='title'}Alumni Stay Connected Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+
+<!-- Full Width Callouts -->
+<!--<div class="full_width_callouts">-->
+
+<?php 
+    include("includes/customapps_conn.php");
+
+    $getState = "SELECT * FROM states ORDER BY state";
+	$getState_result = mysqli_query($conn, $getState);
+    mysqli_close($conn);
+?>
+
+	<script type="text/javascript">	
+		function validateForm(){
+			var f = document.alumni;
+			
+			if (f.fname.value.length == 0) { 
+				alert("please enter your first name.");
+				f.fname.focus();
+				return false;
+			} 
+			
+			if (f.lname.value.length == 0) { 
+				alert("please enter your last name.");
+				f.lname.focus();
+				return false;
+			} 
+
+			if (f.email.value.length == 0) { 
+				alert("please enter your e-mail address.");
+				f.email.focus();
+				return false;
+			} else {
+				var emailFilter = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+				if (!emailFilter.test(f.email.value)) {
+					alert("Invalid e-mail address.");
+					f.email.focus();
+					return false;
+				}
+			}
+			
+			if (f.education.checked == false && (f.college.value.length > 0 || f.major.value.length > 0)) {
+				alert("Please check the box.");
+				f.education.focus();
+				return false;
+			}
+			
+			if (f.employment.checked == false && (f.company.value.length > 0 || f.position.value.length > 0)) {
+				alert("Please check the box.");
+				f.employment.focus();
+				return false;
+			}
+			
+			if (f.internship.checked == false && f.organization.value.length > 0) {
+				alert("Please check the box.");
+				f.internship.focus();
+				return false;
+			}
+
+			if (f.other.checked == false && f.inputOther.value.length > 0) {
+				alert("Please check the box.");
+				f.other.focus();
+				return false;
+			}
+
+			if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+				alert ("Please check on the reCAPTCHA box.");
+				return false;
+			}
+				
+			return true;
+		}
+	</script> 
+
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <form action="/about/stay-connected-form-action" accept-charset="utf-8" class="form_builder typography" name="alumni" method="post" onsubmit="return validateForm();">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="form_builder_required_message">
+                    <p>
+                        <span class="form_builder_required_star">*</span> = required field
+                    </p>
+                </div>
+                <div class="form_builder_section_header">
+                    <!--<h2>Section Break</h2>-->
+                    <p>
+                        Join for the first time or update your information.
+                    </p>
+                </div>
+
+                <fieldset id="first_name">
+                    <label for="fname">
+                        First Name
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="" name="fname" id="fname" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                <fieldset id="middle_initial">
+                    <label for="minitial">
+                        Middle Initial
+                    </label>
+                    <input type="text" maxlength="" name="minitial" id="minitial" class="form_builder_text" value="" />
+                </fieldset>
+
+                <fieldset id="last_name">
+                    <label for="lname">
+                        Last Name
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="" name="lname" id="lname" class="form_builder_text form_builder_required" value="" />
+                </fieldset>
+
+                <fieldset id="maiden_name">
+                    <label for="maiden">
+                        Maiden Name (if applicable)
+                    </label>
+                    <input type="text" maxlength="" name="maiden" id="maiden" class="form_builder_text" value="" />
+                </fieldset>
+
+                <fieldset id="nickname">
+                    <label for="nname">
+                        Nickname
+                    </label>
+                    <input type="text" maxlength="" name="nname" id="nname" class="form_builder_text" value="" />
+                </fieldset>
+
+                 <fieldset id="phone_number">
+                    <label for="phone">
+                        Phone Number
+                    </label>
+                    <input type="text" maxlength="" name="phone" id="phone" class="form_builder_text" value="" />
+                </fieldset>
+
+                <fieldset id="e-mail">
+                    <label for="email">
+                        E-mail
+                        <span class="form_builder_required_star">*</span>
+                    </label>
+                    <input type="text" maxlength="" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+                </fieldset> 
+
+                <fieldset class="form_builder_address" id="address">
+                    <legend for="address">
+                        Address
+                    </legend>
+
+                    <div class="form_builder_full">
+                        <input type="text" name="street" id="street" class="form_builder_text" value="" />
+                        <label for="street" class="form_builder_sublabel">Street Address</label>
+                    </div>
+
+                    <div class="form_builder_split">
+                        <input type="text" name="city" id="city" class="form_builder_text" value="" />
+                        <label for="city" class="form_builder_sublabel">City</label>
+                    </div>
+
+                    <div class="form_builder_split form_builder_select">  
+                        <select id="state" class="form_builder_select" name="state" >
+                            <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getState_result) > 0) {
+                    while ($row = mysqli_fetch_array($getState_result)) { 
+                        echo '<option value="' . $row['state'] . '" label="' . $row['state'] . '" data-price="0">' . $row['state'] . '</option>';
+                    }
+                }
+                ?>                
+                        </select>
+                        <label for="state" class="form_builder_sublabel">State</label>
+                    </div>
+
+                    <div class="form_builder_split">
+                        <input type="text" maxlength="10" name="zip" id="zip" class="form_builder_text" value="" />
+                        <label for="zip" class="form_builder_sublabel">Postal / Zip Code</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="year_raduate">
+                    <label for="yearGraduate">
+                        Year Graduated (if applicable)
+                    </label>
+                    <input type="text" maxlength="" name="yearGraduate" id="yearGraduate" class="form_builder_text" value="" />
+                </fieldset>
+
+                <fieldset id="experience">
+        			<label for="tyler">Share what you loved about your Tyler experience</label>
+        			<textarea nmaxlength="" name="tyler" id="tyler"></textarea>
+    			</fieldset>
+
+    			 <fieldset id="alumni_efforts">
+                    <legend>
+                        Would you be willing to help with alumni efforts? (select all that apply)
+                    </legend>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="help[]" id="story" value="Sharing your Tyler story" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="story">Sharing your Tyler story</label>
+                    </div>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="help[]" id="mentor" value="Mentoring students" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="mentor">Mentoring students</label>
+                    </div>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="help[]" id="marketing" value="Helping with Marketing Materials" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="marketing">Helping with Marketing Materials</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="alumni_efforts">
+                    <legend>
+                        Would you be interested in attending any of the following Tyler events? (select all that apply)
+                    </legend>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="events[]" id="social" value="Alumni Social Events" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="social">Alumni Social Events</label>
+                    </div>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="events[]" id="speaker" value="Tyler Speaker Events" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="speaker">Tyler Speaker Events</label>
+                    </div>
+                    <div class="form_builder_checkbox">
+                        <input type="checkbox" name="events[]" id="network" value="Alumni Networking Events" data-price="0" />
+                        <span class="form_builder_checkbox_indicator"></span>
+                        <label class="form_builder_for_checkbox" for="network">Alumni Networking Events</label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="you_are_up_to">
+                	<legend>
+                		Share what you’re up to
+                	</legend>
+                   	<div class="form_builder_checkbox">
+                		<input type="checkbox" name="education" id="education" value="Continuing Education at: " />
+                		<span class="form_builder_checkbox_indicator"></span>
+                	 	<label for="education" class="form_builder_for_checkbox">Continuing Education at: </label>
+                	</div>
+                	<div class="fs-row"><div class="fs-cell">
+                	<div class="form_builder_split">
+						<input type="text" class="form_builder_text" name="college" id="college" />
+                        <label for="college" class="form_builder_sublabel">College/University Name </label>
+					</div>
+					<div class="form_builder_split form_builder_split_last_col">
+						<input type="text" class="form_builder_text" name="major" id="major" />
+                        <label for="major" class="form_builder_sublabel">Intended Major </label>
+					</div>
+					</div></div>
+				
+                	<div class="form_builder_checkbox">
+						<input type="checkbox" name="employment" id="employment" value="Employment at: " /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="employment" class="form_builder_for_checkbox">Employment at: </label>
+					</div>
+					<div class="fs-row"><div class="fs-cell">
+					<div class="form_builder_split">
+						<input type="text" class="form_builder_text" name="company" id="company" />
+                        <label for="company" class="form_builder_sublabel">Company Name </label>
+					</div>
+					<div class="form_builder_split form_builder_split_last_col">
+						<input type="text" class="form_builder_text" name="position" id="position" />
+                        <label for="position" class="form_builder_sublabel">Position Title </label>
+					</div>
+					</div></div>
+				
+                    <div class="form_builder_checkbox">
+						<input type="checkbox" name="internship" id="internship" value="Internship/Apprenticeship/Fellowship at: " /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="internship" class="form_builder_for_checkbox">Internship/Apprenticeship/Fellowship at: </label>
+					</div>
+					<div class="fs-row"><div class="fs-cell">
+					<div class="form_builder_split">
+						<input type="text" class="form_builder_text" name="organization" id="organization" />
+                        <label for="organization" class="form_builder_sublabel">Organization Name </label>
+					</div>
+					</div></div>
+
+                    <div class="form_builder_checkbox">
+						<input type="checkbox" name="job" id="job" value="Job Seeking: Be sure to check out our job database." /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="job" class="form_builder_for_checkbox">Job Seeking:  Be sure to check out our <a href="https://app.purplebriefcase.com/pb/account/login?s=JTCC" target="_blank">job database</a>.</label>
+					</div>
+
+                    <div class="form_builder_checkbox">
+						<input type="checkbox" name="military" id="military" value="Military Service" /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="military" class="form_builder_for_checkbox">Military Service</label>
+					</div>
+
+                    <div class="form_builder_checkbox">
+						<input type="checkbox" name="notSeeking" id="notSeeking" value="Not Seeking" /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="notSeeking" class="form_builder_for_checkbox">Not Seeking</label>
+					</div>
+
+                    <div class="form_builder_checkbox">
+						<input type="checkbox" name="other" id="other" value="Other: " /> 
+						<span class="form_builder_checkbox_indicator"></span>
+						<label for="other" class="form_builder_for_checkbox">Other: </label>
+					</div>
+					<div class="fs-row"><div class="fs-cell">
+						<label style="display:none" for="inputOther">Other Input</label>
+						<input type="text" class="form_builder_text" name="inputOther" id="inputOther" />
+  					</div></div>
+  				</fieldset>
+
+                <div class="row">
+                    <label for="captcha">reCAPTCHA below is required: </label>
+                    <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+                </div>
+
+                <div class="form_builder_submit_wrapper">
+                    <div class="form_builder_submit_pill">
+                        <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                        <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                        <span class="form_builder_submit_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+<!--</div>-->
+<!-- END: Full Width Callouts -->
+

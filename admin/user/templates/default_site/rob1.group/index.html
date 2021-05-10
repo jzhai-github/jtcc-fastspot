@@ -1,19 +1,28 @@
-{preload_replace:p_title='News'}
-{preload_replace:p_description='John Tyler Community College News'}
-{preload_replace:p_url='news'}
-{!-- channel vars (prefix ch_) --}
-{preload_replace:ch='news_stories'}
-{preload_replace:ch_title='News & Stories'}
-{preload_replace:ch_status='Open|Default Page'}
-{preload_replace:ch_disable='member_data'}
+
+
+
+<?php
+
+    if (isset($_POST['filter_sbmt'])) {
+        $selected_tag = $_POST['selected_tag'];
+    }
+
+?>
+
 
 
 {if segment_2 != 'tag'}
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' dynamic="no" require_entry="yes"}
 {if no_results}
-NADA
+  {redirect="404"}
 {/if}
+
+
+
+
+
+{layout:contents}
 
                     {/exp:channel:entries} 
 {/if}
@@ -47,6 +56,31 @@ NADA
                                         {/exp:tag:cloud}
                             {/exp:channel:entries}  
                                     
+
+
+
+                        {exp:search:simple_form channel="news_stories" status="open" search_in="everywhere" where="any" result_page="/news/search-results" no_result_page="/news/noresults"}
+                            <label class="filter_label" for="filter_search_input">Search News</label>
+                            <div class="filter_search_form">
+                                <div class="filter_search_input_wrapper">
+                                    <input class="filter_search_input" name="keywords" id="filter_search_input" type="text" placeholder="Search by keyword">
+                                        <span class="filter_search_input_icon">
+                                            <svg class="icon icon_search">
+                                                <use href="/images/icons.svg#search" />
+                                            </svg>
+                                        </span>
+                                </div>
+                                <button class="filter_tools_submit filter_tools_submit_search" type="submit">
+                                    <span class="filter_tools_submit_label">Submit</span>
+                                    <span class="filter_tools_submit_icon">
+                                        <svg class="icon icon_caret_right">
+                                            <use href="/images/icons.svg#caret_right" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        {/exp:search:simple_form}
+
 
                     <div class="filter_results_inner">
                         {if segment_2 == 'search-results'}
@@ -100,7 +134,9 @@ NADA
                                                                   
 
 
+                                            <p>{story_description}</p>
 
+{snp_pagination}
                          {/exp:channel:entries}
 
 {if:else}
@@ -146,7 +182,53 @@ NADA
 
                         {/if}
 
+    {tag_paginate}
+    <div class="pagination js-pagination-via-url">
+            <nav class="pagination_nav" aria-label="Search Results Pagination">
 
+                {!-- {if next_page} --}
+                    {tag_pagination_links}
+                    {next_page}
+                        <a class="pagination_arrow pagination_arrow_right" href="{pagination_url}">
+                            <span class="pagination_arrow_label">Next Page</span>
+                            <span class="pagination_arrow_icon">
+                                <svg class="icon icon_caret_right">
+                                    <use href="/images/icons.svg#caret_right" />
+                                </svg>
+                            </span>
+                        </a>
+                    {/next_page}
+                    {/tag_pagination_links}
+
+            </nav>
+            {tag_pagination_links}
+            <form class="pagination_form" action="" method="get">
+                <div class="pagination_form_inner">
+                    <label class="pagination_form_label" for="pagination_form_select">Page</label>
+                    <div class="pagination_form_select_wrapper">
+                        <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
+                                {page}
+                                <option url="{pagination_url}" value="{segment_3}/P{pagination_page_number}0" {if current_page}selected{/if}>{pagination_page_number}</option>
+                                {/page}
+                        </select>
+                        <span class="pagination_form_select_icon"><svg class="icon icon_expand">
+                                            <use href="/images/icons.svg#expand" />
+                                        </svg></span>
+                    </div>
+                    <span class="pagination_form_suffix">of {tag_total_pages}</span>
+                    <button class="pagination_form_button" type="submit" aria-label="View Page">
+                        <span class="pagination_form_button_label">Go</span>
+                        <span class="pagination_form_button_icon">
+                            <svg class="icon icon_caret_right">
+                                <use href="/images/icons.svg#caret_right" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </form>
+            {/tag_pagination_links}
+    </div>
+{/tag_paginate}
 
 
 

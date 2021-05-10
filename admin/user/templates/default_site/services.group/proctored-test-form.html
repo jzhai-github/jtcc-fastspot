@@ -1,15 +1,15 @@
-{layout='layouts/_main-layout'}
+{!--{layout='layouts/_main-layout'}
 
 {layout:set name='title'}Proctored Test Reservation Form{/layout:set}
-{layout:set name='page_description'}{/layout:set}
+{layout:set name='page_description'}{/layout:set}--}
 
 
-<link rel="stylesheet" href="/static-html/css/jquery-ui.min.css">
+<link rel="stylesheet" href="/src/css/custom/jquery-ui.min.css">
 
 
 {!-- They are in _main-wrapper under jquery.js 
-<script src="/static-html/js/jquery-ui.min.js"></script>
-<script src="/static-html/js/custom.js"></script>
+<script src="/src/js/custom/jquery-ui.min.js"></script>
+<script src="/src/js/custom/custom.js"></script>
 --}
 
 
@@ -112,7 +112,7 @@
                 f.phone.focus();
                 return false;
             }  
-            /*if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+            if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
                 alert("Please enter your VCCS e-mail address.");
                 f.email.focus();
                 return false;
@@ -123,7 +123,7 @@
                     f.email.focus();
                     return false;
                 }
-            }*/
+            }
             if (f.class_name.value.length == 0) { 
                 alert("Please select the class name.");
                 f.class_name.focus();
@@ -438,3 +438,4 @@
 </form>
 <!--</div>-->
 <!-- END: Full Width Callouts -->
+

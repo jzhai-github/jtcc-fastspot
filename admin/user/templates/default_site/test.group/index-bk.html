@@ -1,0 +1,174 @@
+<link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
+{!-- If a page has children, show only the children, not siblings. If a page has no children, show the siblings. --}
+<style>
+	ul{
+		margin-left: 15px;
+	}
+	li{
+		margin-left: 15px;
+	}
+</style>
+<div class="page_nav">
+<ul>
+
+{exp:structure:nav_basic show_depth="1" start_from="/{segment_1}" status="Open|Default Page" add_level_classes="yes"}
+
+
+			
+			{!-- The 2nd part of the if statement checks to see if the 5th level page is the only page on that level. If it is, only grandchildren are output, not great grandchildren --}
+			{if segment_4 != '' && '/{segment_1}/{segment_2}/{segment_3}/{segment_4}/{segment_5}/' != '{root:children}{child:children}{grandchild:children}{great_grandchild:page_url}{/grandchild:children}{/child:children}{/root:children}'}
+				{root:children}
+		        	{child:children}                  
+                  		{if grandchild:has_children}
+                  			<span class="great-grand-children">
+                    			{grandchild:children}                     			
+			                    <li class="sub_nav_item">
+									<a class="sub_nav_link" href="{great_grandchild:page_url}"><img src="/img/icons/arrow-bullet.svg" alt="" /><span class="sub_nav_link_label">{great_grandchild:title}</span>
+									</a> 	
+								</li> 
+                    			{/grandchild:children}
+                  			</span> {!-- end of great-grand-children --}
+                  		{/if}
+                	{/child:children}
+              	{/root:children}
+			{/if}
+
+			{if segment_3 != ''}
+				{root:children}
+		        {if child:has_children}
+              <span class="grand-children">
+                {child:children}
+                <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{grandchild:page_url}"><span class="sub_nav_link_label">{grandchild:title}</span>
+						</a> 	
+					  </li>      
+                {/child:children}
+              </span> {!-- end of grand-children --}
+              {/if}
+              {/root:children}
+			{/if}
+
+			
+	        {if root:has_children}    	
+		          <span class="children">
+		            {root:children}
+		             <li class="sub_nav_item">
+						<a class="sub_nav_link" href="{child:page_url}"><span class="sub_nav_link_label">{child:title}</span>
+						</a> 	
+					  </li>      
+		            {/root:children}
+		          </span> {!-- end of children --}
+		    {if:else}
+
+		        <span class="siblings"> 
+				<li class="sub_nav_item">
+						<a class="sub_nav_link{if root:active} current{if:else} not-current{/if}{if root:has_active_child} child-active{/if}" href="{root:page_url}"><span class="sub_nav_link_label">{root:title}</span>
+						</a> 
+				</li>	      
+				</span>
+		    {/if}
+
+    {/exp:structure:nav_basic}
+									</ul>
+									</div>
+									
+{exp:channel:entries channel="test" limit="1" status="Open|Default Page"}					
+<h2 style="margin:100px 0;">{ztest}</h2>								
+{/exp:channel:entries}
+
+<div class="wysiwyg_block tyopgraphy">
+	<h3>Links for clicking around:</h3>
+	<ul>
+		<li><a href="https://dev.jtcc.edu/testing">Testing Top</a></li>
+		<li><a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-1">Test Grandparent Sibling 1</a></li>
+		<li><a href="https://dev.jtcc.edu/testing/grandparent">Testing Grandparent</a>
+			<ul>
+				<li><a href="https://dev.jtcc.edu/testing/grandparent/parent">Testing Parent</a>
+					<ul>
+						<li><a href="https://dev.jtcc.edu/testing/grandparent/parent/current">Testing Current</a></li>
+					</ul>
+				</li>
+				<li><a href="https://dev.jtcc.edu/testing/grandparent/test-parent-sibling">Testing Parent Sibling</a></li>
+			</ul>
+		</li>
+		<li><a href="https://dev.jtcc.edu/testing/test-grandparent-sibling-2">Test Grandparent Sibling 2</a></li>
+	</ul>
+</div>
+
+
+
+
+
+<hr>
+
+<h3>Child ids: {structure:child_ids}</h3>
+
+{if structure:child_ids != ''}
+HAS CHILD<br><br>
+ {exp:structure:nav_basic show_depth="2"}
+    {if root:count == 1}
+    <prefixul>
+    {/if}
+      <li{if root:active} class="active"{/if}>
+        <a href="{root:page_url}">{root:title}</a>
+        {if root:has_children}
+        <ul>
+          {root:children}
+          <li{if child:active} class="active"{/if}>
+            <a href="{child:page_url}">{child:title}</a>
+          </li>
+          {/root:children}
+        </ul>
+        {/if}
+      </li>
+    {if root:count == root:total_results}
+    </ul>
+    {/if}
+    {/exp:structure:nav_basic}
+
+</div>
+
+
+{if:else}
+NOPE CHILD<br><br>
+{exp:structure:nav_basic show_depth="1"}
+    {if root:count == 1}
+    <prefixul>
+    {/if}
+      <li{if root:active} class="active"{/if}>
+        <a href="{root:page_url}">{root:title}</a>
+        {if root:has_children}
+        <ul>
+          {root:children}
+          <li{if child:active} class="active"{/if}>
+            <a href="{child:page_url}">{child:title}</a>
+          </li>
+          {/root:children}
+        </ul>
+        {/if}
+      </li>
+    {if root:count == root:total_results}
+    </ul>
+    {/if}
+    {/exp:structure:nav_basic}
+
+
+
+{/if}
+
+<h2 style="margin-top:100px">03/01/21 Test</h2>
+{exp:structure:entries parent_id="297"}
+<p class="test-03">{title}</p>
+<p style="margin-bottom:100px;"><a href="{page_uri}">{page_uri}</a></p>
+{/exp:structure:entries}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<script>
+	$(document).ready(function(){
+		$(".grand-children").prevAll(".siblings").css({"display": "none"});
+		$(".children").prevAll(".siblings").css({"display": "none"});
+	});
+</script>

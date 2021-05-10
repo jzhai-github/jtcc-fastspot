@@ -29,9 +29,9 @@ if (isset($_POST['sbmt'])) {
             $best_time = $_POST['best_time'];
             $major = $_POST['major'];
             $nursing = '';
-            if (isset($_POST['nursing'])){
+            /*if (isset($_POST['nursing'])){
                 $nursing = $_POST['nursing'];
-            }
+            }*/
             $semester = '';
             if (isset($_POST['semester'])){
                 $semester = $_POST['semester'];
@@ -107,7 +107,7 @@ if (isset($_POST['sbmt'])) {
                     <p><strong>VCCS E-mail: </strong>' . $email . '</p>
                     <p><strong>Phone: </strong>' . $phone . '</p>
                     <p><strong>Desired major: </strong>' . $major . '</p>
-                    <p><strong>Apply to Nursing: </strong>' . $nursing . '</p>
+                    
                     <p><strong>Term/Semester Year: </strong>' . $term . '</p>
                     <p><strong>Campus: </strong>' . $campus . '</p>  
                     <p><strong>Best time to contact: </strong>' . $best_time . '</p>

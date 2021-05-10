@@ -91,8 +91,8 @@
             <div class="fs-row">
                 <div class="fs-cell">
                     <div class="filter_tabs_inner">
-                        <button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_tools" data-swap-group="filter_tabs" data-swap-active="true" data-swap-options='{"collapse": false}'>Filter</button>
-                        <button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs"  data-swap-options='{"collapse": false}'>Search</button>
+                        <button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_tools" data-swap-group="filter_tabs" data-swap-options='{"collapse": false}'>Filter</button>
+                        <button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs" data-swap-active="true" data-swap-options='{"collapse": false}'>Search</button>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,6 @@
                                 sort="asc"
                                 case="upper"
                                 tag_group_id="2"
-                                dynamic="no"
                             }
                                             <option value="{websafe_tag}">{tag}</option>
                                         {/exp:tag:cloud}
@@ -298,9 +297,10 @@
                                                 orderby="tag_name" sort="asc"
                                                 limit="6"
                                                 backspace="2"
-                                                dynamic="no"
                                             }
-                                           
+                                            {if tag_no_results}
+    <p>Sorry, {tag_count} results were found.</p>
+{/if}
                                                 {if tag_count == "1"}
                                                     <div class="news_item_category_hint">Categories</div>
                                                 {/if}
@@ -416,9 +416,10 @@
                                                 limit="6"
                                                 backspace="2"
                                                 status="open"
-                                                dynamic="no"
                                             }
-                                           
+                                            {if tag_no_results}
+    <p>Sorry, {tag_count} results were found.</p>
+{/if}
                                                 {if tag_count == "1"}
                                                     <div class="news_item_category_hint">Categories</div>
                                                 {/if}
@@ -520,9 +521,7 @@
                     <div class="pagination_form_select_wrapper">
                         <select class="pagination_form_select" name="page" id="pagination_form_select" aria-label="Select Page Number">
                                 {page}
-                                <option url="{pagination_url}" value="{if segment_3 != ''}/news/tag/{segment_3}/P{pagination_page_number}0{if:else}/news/P{pagination_page_number}0{/if}" {if current_page}selected{/if}>{pagination_page_number}</option>
-                                {!-- <?php $page = {pagination_page_number} - 1; $page .= '0'; ?>
-                                <option url="{pagination_url}" value="{if segment_3 != ''}/news/tag/{segment_3}/P<?=$page?>{if:elseif {pagination_page_number} != '1'}/news/P<?=$page?>{if:else}/news/{/if}" {if current_page}selected{/if}>{pagination_page_number}</option> --}
+                                <option url="{pagination_url}" value="{segment_3}/P{pagination_page_number}0" {if current_page}selected{/if}>{pagination_page_number}</option>
                                 {/page}
                         </select>
                         <span class="pagination_form_select_icon"><svg class="icon icon_expand">
