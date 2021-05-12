@@ -16,6 +16,8 @@
 	border: 1px solid $bergundy;
 	color: #fff;
 	cursor: pointer;
+	font-size: 14px;
+	letter-spacing: 1.75px;
 	padding: 10px 30px 11px 20px;
 	text-align: left;
 	transition: background-color $base_speed;
@@ -28,6 +30,9 @@
 }
 
 .menu_trigger_label {
+	@include sans(400);
+
+	text-transform: uppercase;
 }
 
 .menu_trigger_icon {
