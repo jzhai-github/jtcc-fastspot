@@ -1,0 +1,102 @@
+/* ==========================================================================
+   Menu Button
+============================================================================= */
+
+.menu_item {
+}
+
+.menu_trigger {
+	@include body_text;
+
+	width: 100%;
+
+	position: relative;
+
+	background-color: transparent;
+	border: 1px solid $bergundy;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px;
+	letter-spacing: 1.75px;
+	padding: 10px 30px 11px 20px;
+	text-align: left;
+	transition: background-color $base_speed;
+
+	&:hover,
+	&:focus,
+	&.fs-swap-active {
+		background-color: $bergundy;
+	}
+}
+
+.menu_trigger_label {
+	@include sans(400);
+
+	text-transform: uppercase;
+}
+
+.menu_trigger_icon {
+	position: absolute;
+	top: 50%;
+	right: 20px;
+
+	color: rgba($blush, 0.75);
+	transform: translate(0, -50%);
+}
+
+.menu_panel {
+	@include focus_outline_none;
+
+	width: 100%;
+
+	background-color: $bergundy;
+	color: #fff;
+	padding-bottom: 26px;
+
+	.menu_item.fs-swap-enabled & {
+		display: none;
+	}
+
+	.menu_item.fs-swap-active & {
+		display: block;
+	}
+}
+
+.menu_panel_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu_panel_item {
+}
+
+.menu_panel_link {
+	@include serif(300);
+
+	color: inherit;
+	display: block;
+	font-size: 18px;
+	line-height: (20 / 18);
+	padding: 7px 20px;
+	transition: color $base_speed, opacity $base_speed;
+
+	&:hover {
+		@media #{$max_lg} {
+			opacity: 0.8;
+		}
+
+		@media #{$min_lg} {
+			color: $bergundy;
+		}
+	}
+}
+
+.menu_panel_link_label {
+	border-bottom: 1px solid transparent;
+	transition: border-bottom-color $base_speed;
+
+	.menu_panel_link:hover & {
+		border-bottom-color: currentColor;
+	}
+}
