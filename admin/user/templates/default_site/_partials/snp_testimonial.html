@@ -17,9 +17,15 @@
 						</blockquote>
 						<div class="testimonial_info">
 							<div class="testimonial_quote_name">{content:testimonial_quote_name}</div>
-							{if content:testimonial_quote_title}
-								<a class="testimonial_quote_title" href="{content:testimonial_quote_title_url}">{content:testimonial_quote_title}</a>
-							{/if}
+							
+								{if content:testimonial_quote_title_url}
+								<a class="testimonial_quote_title" href="{content:testimonial_quote_title_url}">
+								{content:testimonial_quote_title}</a>
+								{if:else}
+								<p class="testimonial_quote_title">{content:testimonial_quote_title}</p>
+								{/if}
+
+							
 						</div>
 					</div>
 					{content:testimonial_background_image}
