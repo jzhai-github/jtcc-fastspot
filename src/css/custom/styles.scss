@@ -517,6 +517,12 @@ span.time{
 	float: left;
 	margin-bottom: -25px;
 }
+.program_item_heading_mode_data_wrapper{
+	flex-wrap: wrap;
+}
+.program_item_heading_mode_data{
+	margin-bottom: 7px;
+}
 // =============================================================================
 // Media Queries
 // =============================================================================
@@ -527,6 +533,12 @@ span.time{
 	}
 	.news_meta_categories{
 		flex-direction: row;
+	}
+	.program_item_heading_mode_data_wrapper{
+		flex-wrap: nowrap;
+	}
+	.program_item_heading_mode_data{
+		margin-bottom: 0;
 	}
 }
 
