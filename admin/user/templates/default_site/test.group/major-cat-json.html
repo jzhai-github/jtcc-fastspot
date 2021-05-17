@@ -1,0 +1,16 @@
+[ <br />
+{exp:channel:entries channel="majors" orderby="title" sort="asc" limit="100"}
+{ <br />
+"id": {entry_id}, <br />
+"title": "{title}", <br />
+"page_description": "{page_description}", <br />
+"main_content": {main_content}{main_content:wysiwyg_block}{content:json}{/main_content:wysiwyg_block}{/main_content}, <br />
+"keywords": "{keywords}", <br />
+"degree_type": "{categories show_group='5'}{category_name}{/categories}", <br />
+"career_cluster": "{categories show_group='4' backspace="2"}{category_name}, {/categories}", <br />
+"study_mode": "{categories show_group='7' backspace="2"}{category_name}, {/categories}", <br />
+"program_type": "{categories show_group='8' backspace="2"}{category_name}, {/categories}" <br />
+}, <br /> 
+{/exp:channel:entries}
+{} <br />
+]

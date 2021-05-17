@@ -102,9 +102,10 @@ var STATIC_ROOT = "../../index.html";
 				
 {!-- Services form test --}	
 {!-- https://dev.jtcc.edu/services/proctored-test-form --}
-{if segment_3 == "proctored-test-registration"}
+{if segment_3 == "proctored-test-registration" || segment_5 == "workforce-credentials-scholarship-application"}
 	<script src="/src/js/custom/jquery-ui.min.js"></script>
 	<script src="/src/js/custom/custom.js"></script>
+	{if segment_3 == "proctored-test-registration"}
 	<script type="text/javascript">   
         function createInstructors(){
             $('#instructor').val("");
@@ -134,6 +135,7 @@ var STATIC_ROOT = "../../index.html";
             updateInstructor();
         });
     </script>
+    {/if}
 {/if}
 
 {!----------------------------------}
