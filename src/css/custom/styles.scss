@@ -535,6 +535,10 @@ span.time{
 	font-family: 'Knockout', Arial, Helvetica, sans-serif;
 	font-size: 1.6rem;
 	text-transform: uppercase;
+	transition: background .2s;
+	&:hover{
+		background:#2f8e2f;
+	}
 }
 // =============================================================================
 // Media Queries
