@@ -1,0 +1,94 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Auxiliary Remote and Make-Up Test Registration Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<?php
+if (isset($_POST['sbmt'])) {
+	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        //your site secret key
+        $secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        //get verify response data
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	$responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+        	$student = $_POST['student'];
+			$email = $_POST['email'];
+			$phone = $_POST['phone'];
+			$instructor = $_POST['instructor'];
+			$class = $_POST['class'];
+			$test = $_POST['test'];
+			$test_date = date('m/d/Y', strtotime($_POST['test_date']));
+			$time_requested = $_POST['time_requested'];
+			$time2_requested = $_POST['time2_requested'];
+			$campus = '';
+			if (isset($_POST['campus'])){
+				$campus = $_POST['campus'];
+			}
+
+			$to = $email;
+			
+			$form_data = '<table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+				<tr>
+				<td>
+					<p><strong>Date Registered: </strong>' . date('m/d/Y') . '</p>
+					<p><strong>Student Name: </strong>' . $student . '</p>
+					<p><strong>Student VCCS E-mail: </strong>' . $email . '</p>
+					<p><strong>Student Phone Number: </strong>' . $phone . '</p>
+					<p><strong>Instructor Name: </strong>' . $instructor . '</p>
+                    <p><strong>Class Name: </strong>' . $class . '</p> 
+                    <p><strong>Test Name: </strong>' . $test . '</p>
+                    <p><strong>Test Date Requested: </strong>' . $test_date . '</p>
+                    <p><strong>Test Time Requested: </strong>' . $time_requested . '</p>
+                    <p><strong>Secondary Test Time Requested: </strong>' . $time2_requested . '</p>
+                    <p><strong>Preferred Campus: </strong>' . $campus . '</p>  
+					<p></p>						
+				</td>
+				</tr>	
+				</table>';
+
+
+		  	$subject = "Auxiliary Remote and Make-Up Test Registration Form - " . $class;
+
+		  	$body = '<html>
+				<head><title>Auxiliary Remote and Make-Up Test Registration Form</title></head>
+				<body>
+					<p>Dear Student, </p>
+					<p>Thank you for submitting your Auxiliary Remote and Make-Up Test Registration Form. Below is the information you have submitted.</p>
+					<p>' . $form_data . '</p>
+				 	<p>Sincerely,</p>
+				 	<p>John Tyler Testing Centers<br />
+				 	<a href="mailto:testing@jtcc.edu">testing@jtcc.edu</a></p>	
+				</body>
+				</html>';
+
+			  $headers = "From: do-not-reply@jtcc.edu \r\nReply-To: testing@jtcc.edu \r\n";
+			  $headers.= "BCC: webmaster@jtcc.edu \r\n";
+			  $headers.= "CC: testing@jtcc.edu \r\n";
+			  $headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+			  $headers.= "MIME-Version: 1.0 ";
+					  
+			  
+			  mail($to, $subject, $body, $headers);
+
+				
+			  echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+                        <p>Your form has been successfully submitted. Please email <a href="mailto:testing@jtcc.edu">Testing Center</a> if you have any questions.</p>
+                    </div></div></div></div>';
+			
+		} else {
+			  echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your form has NOT been submitted. Please try it again.</p>
+                    </div></div></div></div>';
+		}
+	}
+}
+?>

@@ -79,7 +79,7 @@
                 </a>
             </li>
         {/if}
-        {if segment_2 == 'proctored-test-form-action'}
+        {if segment_2 == 'proctored-test-form-action' || segment_2 == 'makeup-test-registration-action'}
             <li class="breadcrumb_item">
                 <a class="breadcrumb_pill breadcrumb_pill_link" href="/services/">
                     <span class="breadcrumb_pill_inner">
@@ -93,9 +93,16 @@
                 </a>
             </li>   
             <li class="breadcrumb_item">
+                {if segment_2 == 'proctored-test-form-action'}
                 <a class="breadcrumb_pill breadcrumb_pill_link" href="/services/disability-support-services/">
                     <span class="breadcrumb_pill_inner">
                         <span class="breadcrumb_pill_label">Disability Support Services</span>
+                {/if}
+                {if segment_2 == 'makeup-test-registration-action'}
+                <a class="breadcrumb_pill breadcrumb_pill_link" href="/services/testing-center/">
+                    <span class="breadcrumb_pill_inner">
+                        <span class="breadcrumb_pill_label">Testing Center</span>
+                {/if}
                             <span class="breadcrumb_pill_icon">
                                 <svg class="icon icon_caret_right">
                                     <use href="/images/icons.svg#caret_right" />

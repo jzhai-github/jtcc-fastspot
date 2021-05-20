@@ -1,0 +1,252 @@
+{!--{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Auxiliary Remote and Make-Up Test Registration Form{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+--}
+
+<link rel="stylesheet" href="/src/css/custom/jquery-ui.min.css">
+
+
+{!-- They are in _main-wrapper under jquery.js 
+<script src="/src/js/custom/jquery-ui.min.js"></script>
+<script src="/src/js/custom/custom.js"></script>
+--}
+
+<!-- Full Width Callouts -->
+<!--<div class="full_width_callouts">-->
+
+<?php	
+	include("includes/customapps_conn.php");
+
+    $getTime = "SELECT * FROM time_picker 
+                WHERE id in (3,7,11,15,19)";
+    $getTime_result = mysqli_query($conn, $getTime);
+
+    $getTime2 = "SELECT * FROM time_picker 
+                WHERE id in (3,7,11,15,19)";
+    $getTime2_result = mysqli_query($conn, $getTime2);
+
+    mysqli_close($conn);
+?>
+
+	<script type="text/javascript">	
+		function dayCheck() {
+			var f = document.makeup_test;
+			var weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+			var date = new Date(f.test_date.value);
+			var n = date.getDay();
+			if (n == 0) {
+				alert ('Testing Centers close on Sundays.');
+				f.test_date.value = '';
+				f.test_date.focus();
+				return false;
+			}
+		}
+
+		function validateForm(){
+			var f = document.makeup_test;
+			if (f.student.value.length == 0) { 
+				alert("Please enter your name.");
+				f.student.focus();
+				return false;
+			} 
+			if (f.email.value.length == 0 || f.email.value == '@email.vccs.edu') { 
+				alert("Please enter your VCCS e-mail address.");
+				f.email.focus();
+				return false;
+			} else {
+				var emailFilter = /^.+@email.vccs.edu$/;
+				if (!emailFilter.test(f.email.value)) {
+					alert("Invalid e-mail address.");
+					f.email.focus();
+					return false;
+				}
+			}
+			if (f.phone.value.length == 0) { 
+				alert("Please enter your phone number.");
+				f.phone.focus();
+				return false;
+			} 
+			if (f.instructor.value.length == 0) { 
+				alert("Please enter the instructor name.");
+				f.instructor.focus();
+				return false;
+			}
+			if (f.class.value.length == 0) { 
+				alert("Please enter the class name.");
+				f.class.focus();
+				return false;
+			} 
+			if (f.test.value.length == 0) { 
+				alert("Please enter the test name.");
+				f.test.focus();
+				return false;
+			} 
+			if (f.test_date.value.length == 0) {
+				alert("Please enter the date you would like to test.");
+				f.test_date.focus();
+				return false;
+			} 
+				
+			if (f.time_requested.value.length == 0) {
+				alert("Please select your test time.");
+				f.time_requested.focus();
+				return false;
+			}	
+			if (f.chester.checked == false && f.midlothian.checked == false && f.virtual.checked == false) {
+				alert("Which campus are you going to take the test?");
+				f.chester.focus();
+				return false;
+			}
+
+			if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+				alert ("Please check on the reCAPTCHA box.");
+				return false;
+			}	
+			return true;
+		}
+	</script>  
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/services/makeup-test-registration-action" accept-charset="utf-8" class="form_builder typography" name="makeup_test" method="post" onsubmit="return validateForm();">
+<div class="fs-row">
+<div class="fs-cell">
+
+    <div class="form_builder_required_message">
+        <p>
+            <span class="form_builder_required_star">*</span> = required field
+        </p>
+    </div>
+    <div class="form_builder_section_header">
+        <!--<h2>Section Break</h2>-->
+        <!--<p></p>-->
+    </div>
+
+    <fieldset id="student_name">
+        <label for="student">
+            Student Name
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="student" id="student" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="student_email">
+        <label for="email">VCCS E-mail (@email.vccs.edu)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="@email.vccs.edu" />
+    </fieldset>
+
+    <fieldset id="student_phone">
+        <label for="phone">Student Phone Number
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="20" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="instructor_name">
+        <label for="instructor">Instructor Name
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="instructor" id="instructor" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="class_name">
+        <label for="class">Class Name (eg. ENG 130 N1B)
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="20" name="class" id="class" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="test_name">
+        <label for="test">Test Name
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" maxlength="60" name="test" id="test" class="form_builder_text form_builder_required" value="" />
+    </fieldset>
+
+    <fieldset id="date1">
+        <label for="test_date">Test Date Requested
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <input type="text" name="test_date" id="datepicker" class="form_builder_text form_builder_required" value="" onchange="dayCheck();" />
+    </fieldset>
+
+    <fieldset id="time1">
+        <label for="time_requested">Test Time requested 
+            <span class="form_builder_required_star">*</span>
+        </label>
+        <div class="form_builder_select">
+            <select id="time_requested" class="form_builder_required" name="time_requested">
+                <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getTime_result) > 0) {
+                    while ($row = mysqli_fetch_array($getTime_result)) { 
+                        echo '<option value="' . $row['time'] . '" label="' . $row['time'] . '">' . $row['time'] . '</option>';
+                    }
+                }
+                ?>                
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset id="time2">
+        <label for="time2_requested">Secondary Test Time requested 
+        </label>
+        <div class="form_builder_select">
+            <select id="time2_requested" name="time2_requested">
+                <option value="" data-price="0">Please select: </option>
+                <?php
+                if (mysqli_num_rows($getTime2_result) > 0) {
+                    while ($row = mysqli_fetch_array($getTime2_result)) { 
+                        echo '<option value="' . $row['time'] . '" label="' . $row['time'] . '">' . $row['time'] . '</option>';
+                    }
+                }
+                ?>                
+            </select>
+        </div>
+    </fieldset>
+
+    <fieldset id="campus">
+        <legend>
+            Preferred Campus
+            <span class="form_builder_required_star">*</span>
+        </legend>
+        <div class="form_builder_radio">
+            <input type="radio" name="campus" class="form_builder_required" id="chester" value="Chester"  />
+            <span class="form_builder_radio_indicator"></span>
+            <label class="form_builder_for_checkbox" for="chester">Chester</label>
+        </div>
+        <div class="form_builder_radio">
+            <input type="radio" name="campus" class="form_builder_required" id="midlothian" value="Midlothian" />
+            <span class="form_builder_radio_indicator"></span>
+            <label class="form_builder_for_checkbox" for="midlothian">Midlothian</label>
+        </div>
+        <div class="form_builder_radio">
+            <input type="radio" name="campus" class="form_builder_required" id="virtual" value="Virtual" />
+            <span class="form_builder_radio_indicator"></span>
+            <label class="form_builder_for_checkbox" for="virtual">Virtual</label>
+        </div>
+    </fieldset>
+
+	<div class="row">
+        <label for="captcha">reCAPTCHA below is required: </label>
+        <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+    </div>
+
+    <div class="form_builder_submit_wrapper">
+        <div class="form_builder_submit_pill">
+            <input type="hidden" name="XID" value="{XID_HASH}" /> 
+            <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+            <span class="form_builder_submit_icon">
+            	<svg class="icon icon_caret_right">
+                	<use href="/images/icons.svg#caret_right" />
+            	</svg>
+            </span>
+        </div>
+    </div>
+</div>
+</div>
+</form>
+<!--</div>-->
+<!-- END: Full Width Callouts -->

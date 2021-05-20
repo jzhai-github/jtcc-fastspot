@@ -130,8 +130,8 @@
 	<div class="featured_programs_inner">
 		<div class="featured_programs_header">
 			<div class="js-background featured_programs_header_background" data-background-options='{"source": { "1220px": "//images.fastspot.com/jtcc/1440x1080/18", "740px": "//images.fastspot.com/jtcc/814x1220/18", "500px": "//images.fastspot.com/jtcc/980x654/18", "0px": "//images.fastspot.com/jtcc/494x740/18", "980px": "//images.fastspot.com/jtcc/915x1220/18"}, "lazy": true, "alt": ""}' aria-hidden="true">
-	<div class="featured_programs_header_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/18');"></div>
-</div>
+				<div class="featured_programs_header_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/18');"></div>
+			</div>
 			<h2 class="featured_programs_title">
 				<span class="featured_programs_title_group featured_programs_title_group_primary">
 					<span class="featured_programs_title_label featured_programs_title_label_primary">What do <strong>you</strong></span>
@@ -140,15 +140,24 @@
 					<span class="featured_programs_title_label featured_programs_title_label_secondary">Want to study?</span>
 				</span>
 			</h2>
-			{exp:search:simple_form channel="majors" status="open|Default Page" search_in="everywhere" where="all" result_page="/majors/results" no_result_page="/majors/noresults"}
+
+			{exp:search:simple_form channel="majors" status="open|Default Page" search_in="everywhere" where="all" form_class="featured_programs_form" result_page="/majors/results" no_result_page="/majors/noresults"}
 			<div class="featured_programs_input_wrapper">
 				<input class="featured_programs_input" name="keywords" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
-				<span class="featured_programs_input_icon">
+				{!-- <span class="featured_programs_input_icon">
 			<svg class="icon icon_search">
 				<use href="/images/icons.svg#search" />
 			</svg>
-		</span>
+		</span> --}
 			</div>
+			<button class="featured_programs_submit">
+					<span class="featured_programs_submit_label">Search</span>
+					<span class="featured_programs_submit_icon">
+					<svg class="icon icon_search">
+						<use href="/images/icons.svg#search"></use>
+					</svg>
+				</span>
+				</button>
 			{/exp:search:simple_form}
 		</div>
 		<div class="featured_programs_content">
@@ -349,25 +358,97 @@
 </a>
 						</li>--}
 									</ul>
-				<div class="featured_programs_items_select_wrapper">
-					<select class="featured_programs_items_select">
-						<option>Discover an Area of Interest</option>
-												<option>General Transfer</option>
-												<option>Advanced Manufacturing, Architecture, Construction & Skilled Trades</option>
-												<option>Arts & Communication</option>
-												<option>Business, Management, Finance, Hospitality Management & Marketing</option>
-												<option>Education</option>
-												<option>Engineering, Computer Science & Natural Science</option>
-												<option>Health Science</option>
-												<option>Government, Human Services, Law & Public Safety</option>
-												<option>Information Technology</option>
-											</select>
-					<span class="featured_programs_items_select_icon">
+
+
+
+<div class="featured_programs_items_select_wrapper">
+
+					<!-- Menu Button -->
+					<div class="js-menu-item menu_item fs-swap-target fs-swap-enabled">
+						<button class="js-swap js-menu-trigger menu_trigger fs-swap-element fs-swap-enabled" aria-label="Open Menu" data-swap-target=".js-menu-item">
+							<span class="menu_trigger_label">Discover an Area of Interest</span>
+							<span class="menu_trigger_icon" aria-hidden="true">
 			<svg class="icon icon_caret_down">
-				<use href="/images/icons.svg#caret_down" />
+				<use href="/images/icons.svg#caret_down"></use>
 			</svg>
 		</span>
+						</button>
+						<div class="js-menu-panel menu_panel">
+							<ul class="menu_panel_list">
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/7">
+											<span class="menu_panel_link_label">General Transfer</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/8">
+											<span class="menu_panel_link_label">Advanced Manufacturing, Architecture, Construction &amp; Skilled Trades</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/9">
+											<span class="menu_panel_link_label">Arts &amp; Communication</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/10">
+											<span class="menu_panel_link_label">Business, Management, Finance, Hospitality Management &amp; Marketing</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/11">
+											<span class="menu_panel_link_label">Education</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/12">
+											<span class="menu_panel_link_label">Engineering, Computer Science &amp; Natural Science</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/13">
+											<span class="menu_panel_link_label">Health Science</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/14">
+											<span class="menu_panel_link_label">Government, Human Services, Law &amp; Public Safety</span>
+										</a>
+									</li>
+																	<li class="js-menu-panel-item menu_panel_item">
+										<a class="js-menu-panel-link menu_panel_link" href="/majors/15">
+											<span class="menu_panel_link_label">Information Technology</span>
+										</a>
+									</li>
+															</ul>
+						</div>
+					</div>
+					<!-- END: Menu Button -->
+
 				</div>
+
+
+
+
+				{!-- <div class="featured_programs_items_select_wrapper">
+					<select class="featured_programs_items_select">
+						<option>Discover an Area of Interest</option>
+						<option>General Transfer</option>
+						<option>Advanced Manufacturing, Architecture, Construction & Skilled Trades</option>
+						<option>Arts & Communication</option>
+						<option>Business, Management, Finance, Hospitality Management & Marketing</option>
+						<option>Education</option>
+						<option>Engineering, Computer Science & Natural Science</option>
+						<option>Health Science</option>
+						<option>Government, Human Services, Law & Public Safety</option>
+						<option>Information Technology</option>
+					</select>
+					<span class="featured_programs_items_select_icon">
+						<svg class="icon icon_caret_down">
+							<use href="/images/icons.svg#caret_down" />
+						</svg>
+					</span>
+				</div> --}
 			</div>
 			<div class="feature_programs_footer">
 				<div class="featured_programs_footer_details">

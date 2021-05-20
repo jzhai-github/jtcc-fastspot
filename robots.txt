@@ -1,9 +1,8 @@
 # www.robotstxt.org/
-
 # Allow crawling of all content
 User-agent: *
-Disallow: /admin/
-
+#Disallow: /admin/
+Disallow: /
 
 # Show Google our sitemap
-Sitemap: https://dev.jtcc.edu/home/sitemap
+# Sitemap: https://dev.jtcc.edu/home/sitemap
