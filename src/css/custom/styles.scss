@@ -657,6 +657,18 @@ span.time {
 				}
 }
 
+.featured_news_article_title_link_label {
+				float: left;
+}
+
+// =============================================================================
+// Visibility Classes
+// =============================================================================
+
+.hide {
+				display: none !important;
+}
+
 .desktop-only {
 				display: none !important;
 }
