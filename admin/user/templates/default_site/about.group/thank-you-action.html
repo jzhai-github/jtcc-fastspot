@@ -1,0 +1,71 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Thank You for Making a Difference{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+
+<?php
+if (isset($_POST['sbmt'])) {
+	
+	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        	//your site secret key
+        	$secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        	//get verify response data
+        	$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	 	$responseData = json_decode($verifyResponse);
+
+        if($responseData->success) {
+		
+			$nominee = $_POST['nominee'];
+			$email = $_POST['email'];
+			$note = $_POST['note'];
+			$yourName = $_POST['yourName'];
+			$member = $_POST['member'];
+			$today = Date('m/d/Y h:i:s A');
+		
+	  		$to = 'sgrinnan@jtcc.edu';
+	  		//$to = 'jzhai@jtcc.edu';
+	  		$subject = "Thank You for Making a Difference";
+	  		$body = '<html>
+				  <head><title>Thank You for Making a Difference</title></head>
+				  <body>
+					  <table border="0" cellpadding="2" cellspacing="0" width="95%" align="center">
+					  <tr>
+					  <td>
+					  <p><strong>Nominee Name: </strong>' . stripslashes($nominee) . '</p>
+						  <p><strong>Nominee E-mail: </strong>' . stripslashes($email) . '</p>
+						  <p><strong>Please describe how this person made a difference. </strong>' . stripslashes($note) . '</p>
+						  <p><strong>Your Name: </strong>' . stripslashes($yourName) . '</p>
+						  <p><strong>You are: </strong>' . $member . '</p>
+						  <p><strong>Date: </strong>' . $today . '</p>
+						  <p></p>						
+					  </td>
+					  </tr>	
+					  </table>
+				  </body>
+				 </html>';
+					  
+		  	$headers = "From: do-not-reply@jtcc.edu \r\n";
+		  	$headers.= "CC: webmaster@jtcc.edu \r\n";
+		  	$headers.= "Content-Type: text/html; charset=ISO-8859-1 ";
+		  	$headers.= "MIME-Version: 1.0 ";
+			  
+		  	mail($to, $subject, $body, $headers);
+			  
+		  	echo '<div class="wysiwyg_block">
+                <div class="fs-row">
+                  <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p>Thank you for your submission!</p>
+                    </div></div></div></div>';
+		} else {
+			echo '<div class="wysiwyg_block">
+                <div class="fs-row">
+                  <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your submission has NOT been sent. Please try it again.</p>
+                    </div></div></div></div>';
+		}
+	}
+}
+?>

@@ -1,55 +1,53 @@
 {layout='layouts/_main-wrapper'}
-
-	<!-- Page Wrapper -->
-	{!--<div
-		id="skip_content" tabindex="-1" class="page_wrapper">
-		<!-- Page -->
-		<div class="page">--}
-<div class="full_width_callouts">
-	<div class="js-view-test spotlight">
-	{exp:channel:entries channel="home_page"}
-		<div class="js-background spotlight_background" data-background-options='{"source": { 
+<!-- Page Wrapper -->
+{!--<div id="skip_content" tabindex="-1" class="page_wrapper">
+    <!-- Page -->
+    <div class="page">--}
+        <div class="full_width_callouts">
+            <div class="js-view-test spotlight">
+                {exp:channel:entries channel="home_page"}
+                <div class="js-background spotlight_background" data-background-options='{"source": { 
 		"1220px": "{home_top_banner_background_image}{img:url:resize width="1080" height="1440"}{/home_top_banner_background_image}", 
 		"740px": "{home_top_banner_background_image}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/home_top_banner_background_image}", 
 		"500px": "{home_top_banner_background_image}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/home_top_banner_background_image}", "0px": "{home_top_banner_background_image}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/home_top_banner_background_image}", "980px": "{home_top_banner_background_image}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/home_top_banner_background_image}"}, "lazy": true, "alt": ""}' aria-hidden="true">
-			<div class="spotlight_background_fallback" style="background-image: url(`{home_top_banner_background_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner_background_image}`);"></div>
-		</div>
-		<div class="fs-row">
-			<div class="fs-cell">
-				<div class="spotlight_inner">
-					<div class="spotlight_header">
-						<div class="spotlight_header_inner">
-							<div class="spotlight_header_body">
-								<h1 class="spotlight_title">
-									<span class="spotlight_title_group spotlight_title_group_primary">
-										<span class="spotlight_title_label spotlight_title_label_primary">{home_top_banner_text_1}</span>
-									</span>
-									<span class="spotlight_title_group spotlight_title_group_secondary">
-										<span class="spotlight_title_label spotlight_title_label_secondary">{home_top_banner_text_2} </span>
-									</span>
-								</h1>
-								<div class="spotlight_header_details">
-									<p class="spotlight_caption">{home_top_banner_text_block}</p>
-	{/exp:channel:entries}
-									<a href="/news/tag/next+up" class="spotlight_details_link" >
-										<span class="spotlight_details_link_inner">
-											<span class="spotlight_details_link_label">View all Next Up Stories</span>
-											<span class="spotlight_details_link_icon" aria-hidden="true">
-												<span class="spotlight_details_link_icon_inner">
-													<span class="spotlight_details_link_icon_space">&#xfeff;</span>
-													<svg class="icon icon_caret_right">
-														<use href="/images/icons.svg#caret_right" />
-													</svg>
-												</span>
-											</span>
-										</span>
-									</a>
-								</div><!-- /spotlight_header_details -->
-							</div><!-- /spotlight_header_body -->
-						</div><!-- /spotlight_header_inner -->
-					</div><!-- /spotlight_header -->
-					<div class="stories">
-						<div class="js-carousel stories_carousel" data-carousel-options='{
+                    <div class="spotlight_background_fallback" style="background-image: url(`{home_top_banner_background_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/home_top_banner_background_image}`);"></div>
+                </div>
+                <div class="fs-row">
+                    <div class="fs-cell">
+                        <div class="spotlight_inner">
+                            <div class="spotlight_header">
+                                <div class="spotlight_header_inner">
+                                    <div class="spotlight_header_body">
+                                        <h1 class="spotlight_title">
+                                            <span class="spotlight_title_group spotlight_title_group_primary">
+                                                <span class="spotlight_title_label spotlight_title_label_primary">{home_top_banner_text_1}</span>
+                                            </span>
+                                            <span class="spotlight_title_group spotlight_title_group_secondary">
+                                                <span class="spotlight_title_label spotlight_title_label_secondary">{home_top_banner_text_2} </span>
+                                            </span>
+                                        </h1>
+                                        <div class="spotlight_header_details">
+                                            <p class="spotlight_caption">{home_top_banner_text_block}</p>
+                                            {/exp:channel:entries}
+                                            <a href="/news/tag/next+up" class="spotlight_details_link">
+                                                <span class="spotlight_details_link_inner">
+                                                    <span class="spotlight_details_link_label">View all Next Up Stories</span>
+                                                    <span class="spotlight_details_link_icon" aria-hidden="true">
+                                                        <span class="spotlight_details_link_icon_inner">
+                                                            <span class="spotlight_details_link_icon_space">&#xfeff;</span>
+                                                            <svg class="icon icon_caret_right">
+                                                                <use href="/images/icons.svg#caret_right" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </div><!-- /spotlight_header_details -->
+                                    </div><!-- /spotlight_header_body -->
+                                </div><!-- /spotlight_header_inner -->
+                            </div><!-- /spotlight_header -->
+                            <div class="stories">
+                                <div class="js-carousel stories_carousel" data-carousel-options='{
 							"controls": false,
 							"contained": false,
 							"maxWidth": "980px",
@@ -57,593 +55,525 @@
 								"600px": 2
 							}
 						}'>
-						{exp:channel:entries
-		                            channel='news_stories' 
-		                            disable='member_data' 
-		                            dynamic="no" 
-		                            limit="3"
-		                            category="52"
-		                        }
-							<div class="stories_item">
-								<div class="story {if count == '1'}theme_turquoise{/if}{if count == '2'}theme_mustard{/if}{if count == '3'}theme_blush{/if}">
-									{story_image}                                         
-										<figure class="story_figure has_classic_image">
-											<a class="story_figure_link" href="/news/{url_title}" aria-label="Read more about {title}" tabindex="-1">
-												<span class="lazy_image_wrapper story_image_wrapper">
-													<img class="js-lazy js-lazyload story_image"  data-sizes="auto"  src="/images/placeholder.png" data-src='{img:url:resize width="740" height="494"}'  data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w'  alt="links to {title}">
-												</span>
-												<noscript>
-													<img class="story_image" src='{img:url:resize width="980" height="654"}'  srcset='{img:url:resize width="980" height="654"} 980w, {img:url:resize width="740" height="494"} 740w' sizes="100vw"  alt="" >
-												</noscript>
-											</a>
-										</figure>
-									{/story_image}
-									<div class="story_wrapper">
-										<h2 class="story_title">
-											<a href="/news/{url_title}" class="story_title_link" >
-												<span class="story_title_link_inner">
-													<span class="story_title_link_label">{title}</span>
-												</span>
-											</a>
-										</h2>
-										<div class="story_description">
-											{story_description}
-										</div>
-										<a href="/news/{url_title}" class="story_discovery_link" >
-											<span class="story_discovery_link_inner">
-												<span class="story_discovery_link_label">Read Their Story</span>
-												<span class="story_discovery_link_icon" aria-hidden="true">
-													<span class="story_discovery_link_icon_inner">
-														<span class="story_discovery_link_icon_space">&#xfeff;</span>					
-														<svg class="icon icon_caret_right">
-															<use href="/images/icons.svg#caret_right" />
-														</svg>
-													</span>
-												</span>
-											</span>
-										</a>
-									</div><!-- /story_wrapper -->
-								</div><!-- /story -->
-							</div><!-- /stories_item -->
-							{/exp:channel:entries}						
-						</div><!-- /js-carousel stories_carousel -->
-						<a href="#" class="stories_discovery_link" >
-							<span class="stories_discovery_link_inner">
-								<span class="stories_discovery_link_label">View all Next Up Stories</span>
-								<span class="stories_discovery_link_icon" aria-hidden="true">
-									<span class="stories_discovery_link_icon_inner">
-										<span class="stories_discovery_link_icon_space">&#xfeff;</span>					
-										<svg class="icon icon_caret_right">
-											<use href="/images/icons.svg#caret_right" />
-										</svg>
-									</span>
-								</span>
-							</span>
-						</a>
-					</div><!-- /stories -->
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="featured_programs">
-	<div class="featured_programs_inner">
-		<div class="featured_programs_header">
-			<div class="js-background featured_programs_header_background" data-background-options='{"source": { "1220px": "//images.fastspot.com/jtcc/1440x1080/18", "740px": "//images.fastspot.com/jtcc/814x1220/18", "500px": "//images.fastspot.com/jtcc/980x654/18", "0px": "//images.fastspot.com/jtcc/494x740/18", "980px": "//images.fastspot.com/jtcc/915x1220/18"}, "lazy": true, "alt": ""}' aria-hidden="true">
-				<div class="featured_programs_header_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/18');"></div>
-			</div>
-			<h2 class="featured_programs_title">
-				<span class="featured_programs_title_group featured_programs_title_group_primary">
-					<span class="featured_programs_title_label featured_programs_title_label_primary">What do <strong>you</strong></span>
-				</span>
-				<span class="featured_programs_title_group featured_programs_title_group_secondary">
-					<span class="featured_programs_title_label featured_programs_title_label_secondary">Want to study?</span>
-				</span>
-			</h2>
-
-			{exp:search:simple_form channel="majors" status="open|Default Page" search_in="everywhere" where="all" form_class="featured_programs_form" result_page="/majors/results" no_result_page="/majors/noresults"}
-			<div class="featured_programs_input_wrapper">
-				<input class="featured_programs_input" name="keywords" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
-				{!-- <span class="featured_programs_input_icon">
-			<svg class="icon icon_search">
-				<use href="/images/icons.svg#search" />
-			</svg>
-		</span> --}
-			</div>
-			<button class="featured_programs_submit">
-					<span class="featured_programs_submit_label">Search</span>
-					<span class="featured_programs_submit_icon">
-					<svg class="icon icon_search">
-						<use href="/images/icons.svg#search"></use>
-					</svg>
-				</span>
-				</button>
-			{/exp:search:simple_form}
-		</div>
-		<div class="featured_programs_content">
-			<div class="feature_programs_body">
-				<div class="featured_programs_body_details">
-					<h3 class="featured_programs_body_title"><strong>60+</strong> Majors in…</h3>
-				</div>
-				<ul class="featured_programs_items">
-				{exp:channel:categories category_group="4" style="linear"}							
-					<li class="featured_programs_item">
-							
-<a href="/majors/{category_id}" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">{category_name}</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-					</li>
-				{/exp:channel:categories}
-					{!--<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">General Transfer</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Advanced Manufacturing, Architecture, Construction & Skilled Trades</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Arts & Communication</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Business, Management, Finance, Hospitality Management & Marketing</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Education</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Engineering, Computer Science & Natural Science</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Health Science</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Government, Human Services, Law & Public Safety</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_item">
-							
-
-<a href="#" class="featured_programs_item_link" >
-	<span class="featured_programs_item_link_inner">
-		<span class="featured_programs_item_link_label">Information Technology</span>
-					<span class="featured_programs_item_link_icon" aria-hidden="true">
-				<span class="featured_programs_item_link_icon_inner">
-					<span class="featured_programs_item_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>--}
-									</ul>
-
-
-
-<div class="featured_programs_items_select_wrapper">
-
-					<!-- Menu Button -->
-					<div class="js-menu-item menu_item fs-swap-target fs-swap-enabled">
-						<button class="js-swap js-menu-trigger menu_trigger fs-swap-element fs-swap-enabled" aria-label="Open Menu" data-swap-target=".js-menu-item">
-							<span class="menu_trigger_label">Discover an Area of Interest</span>
-							<span class="menu_trigger_icon" aria-hidden="true">
-			<svg class="icon icon_caret_down">
-				<use href="/images/icons.svg#caret_down"></use>
-			</svg>
-		</span>
-						</button>
-						<div class="js-menu-panel menu_panel">
-							<ul class="menu_panel_list">
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/7">
-											<span class="menu_panel_link_label">General Transfer</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/8">
-											<span class="menu_panel_link_label">Advanced Manufacturing, Architecture, Construction &amp; Skilled Trades</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/9">
-											<span class="menu_panel_link_label">Arts &amp; Communication</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/10">
-											<span class="menu_panel_link_label">Business, Management, Finance, Hospitality Management &amp; Marketing</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/11">
-											<span class="menu_panel_link_label">Education</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/12">
-											<span class="menu_panel_link_label">Engineering, Computer Science &amp; Natural Science</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/13">
-											<span class="menu_panel_link_label">Health Science</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/14">
-											<span class="menu_panel_link_label">Government, Human Services, Law &amp; Public Safety</span>
-										</a>
-									</li>
-																	<li class="js-menu-panel-item menu_panel_item">
-										<a class="js-menu-panel-link menu_panel_link" href="/majors/15">
-											<span class="menu_panel_link_label">Information Technology</span>
-										</a>
-									</li>
-															</ul>
-						</div>
-					</div>
-					<!-- END: Menu Button -->
-
-				</div>
-
-
-
-
-				{!-- <div class="featured_programs_items_select_wrapper">
-					<select class="featured_programs_items_select">
-						<option>Discover an Area of Interest</option>
-						<option>General Transfer</option>
-						<option>Advanced Manufacturing, Architecture, Construction & Skilled Trades</option>
-						<option>Arts & Communication</option>
-						<option>Business, Management, Finance, Hospitality Management & Marketing</option>
-						<option>Education</option>
-						<option>Engineering, Computer Science & Natural Science</option>
-						<option>Health Science</option>
-						<option>Government, Human Services, Law & Public Safety</option>
-						<option>Information Technology</option>
-					</select>
-					<span class="featured_programs_items_select_icon">
-						<svg class="icon icon_caret_down">
-							<use href="/images/icons.svg#caret_down" />
-						</svg>
-					</span>
-				</div> --}
-			</div>
-			<div class="feature_programs_footer">
-				<div class="featured_programs_footer_details">
-					<h4 class="featured_programs_footer_title">Next Up</h4>
-				</div>
-				<ul class="featured_programs_actions">
-											<li class="featured_programs_action">
-							
-
-<a href="/academics/register" class="featured_programs_action_link" >
-	<span class="featured_programs_action_link_inner">
-		<span class="featured_programs_action_link_label">Register for a Class</span>
-					<span class="featured_programs_action_link_icon" aria-hidden="true">
-				<span class="featured_programs_action_link_icon_inner">
-					<span class="featured_programs_action_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-											<li class="featured_programs_action">
-							
-
-<a href="/paying-for-tyler/pay-tuition/" class="featured_programs_action_link" >
-	<span class="featured_programs_action_link_inner">
-		<span class="featured_programs_action_link_label">Pay for a Class</span>
-					<span class="featured_programs_action_link_icon" aria-hidden="true">
-				<span class="featured_programs_action_link_icon_inner">
-					<span class="featured_programs_action_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-						</li>
-									</ul>
-			</div>
-		</div>
-	</div>
-</div>
-
-	<div class="featured_news theme_default">
-	<div class="fs-row">
-		<div class="fs-cell">
-			<div class="featured_news_inner">
-								<div class="featured_news_header">
-					<h1 class="featured_news_title">Happening Here</h1>
-										
-
-<a href="/news" class="featured_news_link" >
-	<span class="featured_news_link_inner">
-		<span class="featured_news_link_label">View all News & Stories</span>
-					<span class="featured_news_link_icon" aria-hidden="true">
-				<span class="featured_news_link_icon_inner">
-					<span class="featured_news_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-				</div>
-				<div class="featured_news_body">
-					{exp:channel:entries
-                            channel='news_stories' 
-                            disable='member_data' 
-                            dynamic="no" 
-                            limit="1"
-                            category="39"
-                            search:featured_on_home_page="not IS_EMPTY" 
-                        }
-					<div class="featured_news_spotlight">
-						<div class="story theme_blush">
-							<figure class="story_figure has_classic_image">
-
-
-								<a class="story_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
-                                        {story_image} 
-                                        <span class="lazy_image_wrapper story_image_wrapper">
-                                            <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
-                                            {img:url:resize width="740" height="494"}
-                                            ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
-                                        </span>
-                                        <noscript>
-                                            <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="{img:title}">
-                                        </noscript>
-                                        {/story_image}
-								</a>
-							</figure>
-							<div class="story_wrapper">
-								<div class="story_label">Featured News</div>
-								<h2 class="story_title">
-									<a href="{url_title_path=news}" class="story_title_link">
-                                        <span class="story_title_link_inner">
-                                            <span class="story_title_link_label">{title}</span>
-                                        </span>
-                                    </a>
-								</h2>
-								<div class="story_description">
-									<p>{story_description}</p>
-								</div>
-								<a href="{url_title_path=news}" class="story_discovery_link">
-                                    <span class="story_discovery_link_inner">
-                                        <span class="story_discovery_link_label">Read The Story</span>
-                                        <span class="story_discovery_link_icon" aria-hidden="true">
-                                            <span class="story_discovery_link_icon_inner">
-                                                <span class="story_discovery_link_icon_space">&#xfeff;</span>
-
+                                    {exp:channel:entries
+                                    channel='news_stories'
+                                    disable='member_data'
+                                    dynamic="no"
+                                    limit="3"
+                                    category="52"
+                                    }
+                                    <div class="stories_item">
+                                        <div class="story {if count == '1'}theme_turquoise{/if}{if count == '2'}theme_mustard{/if}{if count == '3'}theme_blush{/if}">
+                                            {story_image}
+                                            <figure class="story_figure has_classic_image">
+                                                <a class="story_figure_link" href="/news/{url_title}" aria-label="Read more about {title}" tabindex="-1">
+                                                    <span class="lazy_image_wrapper story_image_wrapper">
+                                                        <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='{img:url:resize width="740" height="494"}' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="links to {title}">
+                                                    </span>
+                                                    <noscript>
+                                                        <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, {img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="">
+                                                    </noscript>
+                                                </a>
+                                            </figure>
+                                            {/story_image}
+                                            <div class="story_wrapper">
+                                                <h2 class="story_title">
+                                                    <a href="/news/{url_title}" class="story_title_link">
+                                                        <span class="story_title_link_inner">
+                                                            <span class="story_title_link_label">{title}</span>
+                                                        </span>
+                                                    </a>
+                                                </h2>
+                                                <div class="story_description">
+                                                    {story_description}
+                                                </div>
+                                                <a href="/news/{url_title}" class="story_discovery_link">
+                                                    <span class="story_discovery_link_inner">
+                                                        <span class="story_discovery_link_label">Read The Story</span>
+                                                        <span class="story_discovery_link_icon" aria-hidden="true">
+                                                            <span class="story_discovery_link_icon_inner">
+                                                                <span class="story_discovery_link_icon_space">&#xfeff;</span>
+                                                                <svg class="icon icon_caret_right">
+                                                                    <use href="/images/icons.svg#caret_right" />
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </div><!-- /story_wrapper -->
+                                        </div><!-- /story -->
+                                    </div><!-- /stories_item -->
+                                    {/exp:channel:entries}
+                                </div><!-- /js-carousel stories_carousel -->
+                                <a href="/news/tag/next+up" class="stories_discovery_link">
+                                    <span class="stories_discovery_link_inner">
+                                        <span class="stories_discovery_link_label">View all Next Up Stories</span>
+                                        <span class="stories_discovery_link_icon" aria-hidden="true">
+                                            <span class="stories_discovery_link_icon_inner">
+                                                <span class="stories_discovery_link_icon_space">&#xfeff;</span>
                                                 <svg class="icon icon_caret_right">
                                                     <use href="/images/icons.svg#caret_right" />
                                                 </svg>
-
                                             </span>
                                         </span>
                                     </span>
                                 </a>
-							</div><!-- /story_wrapper -->
-						</div><!-- /story theme_blush -->
-					</div><!-- /featured_news_spotlight -->
-					{/exp:channel:entries}
-					<div class="featured_news_content">
-						<h3 class="featured_news_content_title">The Latest News</h3>
-						<div class="featured_news_articles" data-carousel-options='{
-							"maxWidth": "739px"
-						}'>
-						{exp:channel:entries
-                            channel='news_stories' 
-                            disable='member_data'
-                            dynamic="no"
-                            category="41" 
-                            limit="3"
-                        }
-							<div class="featured_news_article">
-								<time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
-								<h3 class="featured_news_article_title">
-									<a href="{url_title_path=news}" class="featured_news_article_title_link">
-                                        <span class="featured_news_article_title_link_inner">
-                                            <span class="featured_news_article_title_link_label">{title}</span>
-                                            <span class="featured_news_article_title_link_icon" aria-hidden="true">
-                                                <span class="featured_news_article_title_link_icon_inner">
-                                                    <span class="featured_news_article_title_link_icon_space">&#xfeff;</span>
-
+                            </div><!-- /stories -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featured_programs">
+                <div class="featured_programs_inner">
+                    <div class="featured_programs_header">
+                        <div class="js-background featured_programs_header_background" data-background-options='{"source": { "1220px": "//images.fastspot.com/jtcc/1440x1080/18", "740px": "//images.fastspot.com/jtcc/814x1220/18", "500px": "//images.fastspot.com/jtcc/980x654/18", "0px": "//images.fastspot.com/jtcc/494x740/18", "980px": "//images.fastspot.com/jtcc/915x1220/18"}, "lazy": true, "alt": ""}' aria-hidden="true">
+                            <div class="featured_programs_header_background_fallback" style="background-image: url(' //images.fastspot.com/jtcc/300x129/18');"></div>
+                        </div>
+                        <h2 class="featured_programs_title">
+                            <span class="featured_programs_title_group featured_programs_title_group_primary">
+                                <span class="featured_programs_title_label featured_programs_title_label_primary">What do <strong>you</strong></span>
+                            </span>
+                            <span class="featured_programs_title_group featured_programs_title_group_secondary">
+                                <span class="featured_programs_title_label featured_programs_title_label_secondary">Want to study?</span>
+                            </span>
+                        </h2>
+                        {exp:search:simple_form channel="majors" status="open|Default Page" search_in="everywhere" where="all" form_class="featured_programs_form" result_page="/majors/results" no_result_page="/majors/noresults"}
+                        <div class="featured_programs_input_wrapper">
+                            <input class="featured_programs_input" name="keywords" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
+                            {!-- <span class="featured_programs_input_icon">
+                                <svg class="icon icon_search">
+                                    <use href="/images/icons.svg#search" />
+                                </svg>
+                            </span> --}
+                        </div>
+                        <button class="featured_programs_submit">
+                            <span class="featured_programs_submit_label">Search</span>
+                            <span class="featured_programs_submit_icon">
+                                <svg class="icon icon_search">
+                                    <use href="/images/icons.svg#search"></use>
+                                </svg>
+                            </span>
+                        </button>
+                        {/exp:search:simple_form}
+                    </div>
+                    <div class="featured_programs_content">
+                        <div class="feature_programs_body">
+                            <div class="featured_programs_body_details">
+                                <h3 class="featured_programs_body_title"><strong>60+</strong> Majors in…</h3>
+                            </div>
+                            <ul class="featured_programs_items">
+                            	{!--
+                                {exp:channel:categories category_group="4" style="linear"}
+                                <li class="featured_programs_item">
+                                    <a href="/majors/{category_id}" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">{category_name}</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
                                                     <svg class="icon icon_caret_right">
                                                         <use href="/images/icons.svg#caret_right" />
                                                     </svg>
-
                                                 </span>
                                             </span>
                                         </span>
                                     </a>
-								</h3>
-							</div><!-- /featured_news_article -->
-							{/exp:channel:entries}
-						</div><!-- /featured_news_articles -->
-					</div><!-- /featured_news_content -->
-				</div><!-- /featured_news_body -->
-			</div>
-		</div>
-	</div>
-</div>
-
-	<div class="featured_events">
-	<div class="fs-row">
-		<div class="fs-cell">
-			<div class="featured_events_inner">
-				<div class="featured_events_header">
-					<h2 class="featured_events_title">Upcoming Events</h2>
-					<a href="/calendar" class="featured_events_details_link" >
-						<span class="featured_events_details_link_inner">
-							<span class="featured_events_details_link_label">View all Events</span>
-							<span class="featured_events_details_link_icon" aria-hidden="true">
-								<span class="featured_events_details_link_icon_inner">
-									<span class="featured_events_details_link_icon_space">&#xfeff;</span>				
-									<svg class="icon icon_caret_right">
-										<use href="/images/icons.svg#caret_right" />
-									</svg>
-								</span>
-							</span>
-						</span>
-					</a>
-				</div>
-				<div class="featured_events_body">
-					<div class="js-carousel featured_events_items" data-carousel-options='{
+                                </li>
+                                {/exp:channel:categories}
+                                --}
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/general-transfer" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">General Transfer</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/manufacturing/" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Advanced Manufacturing, Architecture, Construction & Skilled Trades</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/arts-communications" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Arts & Communication</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/business" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Business, Management, Finance, Hospitality Management & Marketing</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/education" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Education</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/stem/" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Engineering, Computer Science & Natural Science</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/health-sciences/" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Health Science</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/public-service/" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Government, Human Services, Law & Public Safety</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_item">
+                                    <a href="/academics/career-clusters/information-technology/" class="featured_programs_item_link">
+                                        <span class="featured_programs_item_link_inner">
+                                            <span class="featured_programs_item_link_label">Information Technology</span>
+                                            <span class="featured_programs_item_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_item_link_icon_inner">
+                                                    <span class="featured_programs_item_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="featured_programs_items_select_wrapper">
+                                <!-- Menu Button -->
+                                <div class="js-menu-item menu_item fs-swap-target fs-swap-enabled">
+                                    <button class="js-swap js-menu-trigger menu_trigger fs-swap-element fs-swap-enabled" aria-label="Open Menu" data-swap-target=".js-menu-item">
+                                        <span class="menu_trigger_label">Discover an Area of Interest</span>
+                                        <span class="menu_trigger_icon" aria-hidden="true">
+                                            <svg class="icon icon_caret_down">
+                                                <use href="/images/icons.svg#caret_down"></use>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                    <div class="js-menu-panel menu_panel">
+                                        <ul class="menu_panel_list">
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/general-transfer">
+                                                    <span class="menu_panel_link_label">General Transfer</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/manufacturing/">
+                                                    <span class="menu_panel_link_label">Advanced Manufacturing, Architecture, Construction &amp; Skilled Trades</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/arts-communications">
+                                                    <span class="menu_panel_link_label">Arts &amp; Communication</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/business">
+                                                    <span class="menu_panel_link_label">Business, Management, Finance, Hospitality Management &amp; Marketing</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/education">
+                                                    <span class="menu_panel_link_label">Education</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/stem/">
+                                                    <span class="menu_panel_link_label">Engineering, Computer Science &amp; Natural Science</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/health-sciences/">
+                                                    <span class="menu_panel_link_label">Health Science</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/public-service/">
+                                                    <span class="menu_panel_link_label">Government, Human Services, Law &amp; Public Safety</span>
+                                                </a>
+                                            </li>
+                                            <li class="js-menu-panel-item menu_panel_item">
+                                                <a class="js-menu-panel-link menu_panel_link" href="/academics/career-clusters/information-technology/">
+                                                    <span class="menu_panel_link_label">Information Technology</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- END: Menu Button -->
+                            </div>
+                            {!-- <div class="featured_programs_items_select_wrapper">
+                                <select class="featured_programs_items_select">
+                                    <option>Discover an Area of Interest</option>
+                                    <option>General Transfer</option>
+                                    <option>Advanced Manufacturing, Architecture, Construction & Skilled Trades</option>
+                                    <option>Arts & Communication</option>
+                                    <option>Business, Management, Finance, Hospitality Management & Marketing</option>
+                                    <option>Education</option>
+                                    <option>Engineering, Computer Science & Natural Science</option>
+                                    <option>Health Science</option>
+                                    <option>Government, Human Services, Law & Public Safety</option>
+                                    <option>Information Technology</option>
+                                </select>
+                                <span class="featured_programs_items_select_icon">
+                                    <svg class="icon icon_caret_down">
+                                        <use href="/images/icons.svg#caret_down" />
+                                    </svg>
+                                </span>
+                            </div> --}
+                        </div>
+                        <div class="feature_programs_footer">
+                            <div class="featured_programs_footer_details">
+                                <h4 class="featured_programs_footer_title">Next Up</h4>
+                            </div>
+                            <ul class="featured_programs_actions">
+                                <li class="featured_programs_action">
+                                    <a href="/academics/register" class="featured_programs_action_link">
+                                        <span class="featured_programs_action_link_inner">
+                                            <span class="featured_programs_action_link_label">Register for a Class</span>
+                                            <span class="featured_programs_action_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_action_link_icon_inner">
+                                                    <span class="featured_programs_action_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="featured_programs_action">
+                                    <a href="/paying-for-tyler/pay-tuition/" class="featured_programs_action_link">
+                                        <span class="featured_programs_action_link_inner">
+                                            <span class="featured_programs_action_link_label">Pay for a Class</span>
+                                            <span class="featured_programs_action_link_icon" aria-hidden="true">
+                                                <span class="featured_programs_action_link_icon_inner">
+                                                    <span class="featured_programs_action_link_icon_space">&#xfeff;</span>
+                                                    <svg class="icon icon_caret_right">
+                                                        <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featured_news theme_default">
+                <div class="fs-row">
+                    <div class="fs-cell">
+                        <div class="featured_news_inner">
+                            <div class="featured_news_header">
+                                <h1 class="featured_news_title">Happening Here</h1>
+                                <a href="/news" class="featured_news_link">
+                                    <span class="featured_news_link_inner">
+                                        <span class="featured_news_link_label">View all News & Stories</span>
+                                        <span class="featured_news_link_icon" aria-hidden="true">
+                                            <span class="featured_news_link_icon_inner">
+                                                <span class="featured_news_link_icon_space">&#xfeff;</span>
+                                                <svg class="icon icon_caret_right">
+                                                    <use href="/images/icons.svg#caret_right" />
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="featured_news_body">
+                                {exp:channel:entries
+                                channel='news_stories'
+                                disable='member_data'
+                                dynamic="no"
+                                limit="1"
+                                category="39"
+                                search:featured_on_home_page="not IS_EMPTY"
+                                }
+                                <div class="featured_news_spotlight">
+                                    <div class="story theme_blush">
+                                        <figure class="story_figure has_classic_image">
+                                            <a class="story_figure_link" href="{url_title_path=news}" aria-label="Read more about {title}" tabindex="-1">
+                                                {story_image}
+                                                <span class="lazy_image_wrapper story_image_wrapper">
+                                                    <img class="js-lazy js-lazyload story_image" data-sizes="auto" src="/images/placeholder.png" data-src='
+                                            {img:url:resize width="740" height="494"}
+                                            ' data-srcset='{img:url:resize width="740" height="494"} 740w, {img:url:resize width="980" height="654"} 980w' alt="{img:title}">
+                                                </span>
+                                                <noscript>
+                                                    <img class="story_image" src='{img:url:resize width="980" height="654"}' srcset='{img:url:resize width="980" height="654"} 980w, img:url:resize width="740" height="494"} 740w' sizes="100vw" alt="{img:title}">
+                                                </noscript>
+                                                {/story_image}
+                                            </a>
+                                        </figure>
+                                        <div class="story_wrapper">
+                                            <div class="story_label">Featured News</div>
+                                            <h2 class="story_title">
+                                                <a href="{url_title_path=news}" class="story_title_link">
+                                                    <span class="story_title_link_inner">
+                                                        <span class="story_title_link_label">{title}</span>
+                                                    </span>
+                                                </a>
+                                            </h2>
+                                            <div class="story_description">
+                                                <p>{story_description}</p>
+                                            </div>
+                                            <a href="{url_title_path=news}" class="story_discovery_link">
+                                                <span class="story_discovery_link_inner">
+                                                    <span class="story_discovery_link_label">Read The Story</span>
+                                                    <span class="story_discovery_link_icon" aria-hidden="true">
+                                                        <span class="story_discovery_link_icon_inner">
+                                                            <span class="story_discovery_link_icon_space">&#xfeff;</span>
+                                                            <svg class="icon icon_caret_right">
+                                                                <use href="/images/icons.svg#caret_right" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </div><!-- /story_wrapper -->
+                                    </div><!-- /story theme_blush -->
+                                </div><!-- /featured_news_spotlight -->
+                                {/exp:channel:entries}
+                                <div class="featured_news_content">
+                                    <h3 class="featured_news_content_title">The Latest News</h3>
+                                    <div class="featured_news_articles" data-carousel-options='{
+							"maxWidth": "739px"
+						}'>
+                                        {exp:channel:entries
+                                        channel='news_stories'
+                                        disable='member_data'
+                                        dynamic="no"
+                                        category="41"
+                                        limit="3"
+                                        }
+                                        <div class="featured_news_article">
+                                            <time class="featured_news_article_date" datetime='{entry_date format="%F %d, %Y"}'>{entry_date format="%F %d, %Y"}</time>
+                                            <h3 class="featured_news_article_title">
+                                                <a href="{url_title_path=news}" class="featured_news_article_title_link">
+                                                    <span class="featured_news_article_title_link_inner">
+                                                        <span class="featured_news_article_title_link_label">{title}</span>
+                                                        <span class="featured_news_article_title_link_icon" aria-hidden="true">
+                                                            <span class="featured_news_article_title_link_icon_inner">
+                                                                <span class="featured_news_article_title_link_icon_space">&#xfeff;</span>
+                                                                <svg class="icon icon_caret_right">
+                                                                    <use href="/images/icons.svg#caret_right" />
+                                                                </svg>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </h3>
+                                        </div><!-- /featured_news_article -->
+                                        {/exp:channel:entries}
+                                    </div><!-- /featured_news_articles -->
+                                </div><!-- /featured_news_content -->
+                            </div><!-- /featured_news_body -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="featured_events">
+                <div class="fs-row">
+                    <div class="fs-cell">
+                        <div class="featured_events_inner">
+                            <div class="featured_events_header">
+                                <h2 class="featured_events_title">Upcoming Events</h2>
+                                <a href="/calendar" class="featured_events_details_link">
+                                    <span class="featured_events_details_link_inner">
+                                        <span class="featured_events_details_link_label">View all Events</span>
+                                        <span class="featured_events_details_link_icon" aria-hidden="true">
+                                            <span class="featured_events_details_link_icon_inner">
+                                                <span class="featured_events_details_link_icon_space">&#xfeff;</span>
+                                                <svg class="icon icon_caret_right">
+                                                    <use href="/images/icons.svg#caret_right" />
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="featured_events_body">
+                                <div class="js-carousel featured_events_items" data-carousel-options='{
 						"theme": "theme_dark",
 						"controls": false,
 						"contained": false,
@@ -653,140 +583,123 @@
 							"740px": 3
 						}
 					}'>
-					
-						{exp:calendar:events
-							date_range_start="today" {!-- will start at this date --}
-						    date_range_end="2100-01-01" {!-- will stop at this date --}
-						    limit="4"
-						}
-						<div class="featured_events_item">
-							<time class="featured_events_item_date" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">
-								<span class="featured_events_item_date_flag featured_events_item_date_flag_from">
-
-
-									<span class="featured_events_item_date_start_month">{calendar:event_start_date format="%M"}</span>
-									<span class="featured_events_item_date_start_day">{calendar:event_start_date format="%d"}</span>
-								</span>
-								{if calendar:event_multi_day}
-								<span class="featured_events_item_date_flag featured_events_item_date_flag_to">
-									<span class="featured_events_item_date_start_month">{calendar:event_end_date format='%M'}</span>
-									<span class="featured_events_item_date_start_day">{calendar:event_end_date format='%d'}</span>
-								</span>
-								{/if}
-							</time>
-							<div class="featured_events_item_body">
-								<h3 class="featured_events_item_title">
-									<a class="featured_events_item_title_link" href="/calendar/event/{calendar:entry_id}">{calendar:title}</a>
-								</h3>
-								<div class="featured_events_item_details">
-									<div class="featured_events_item_detail">
-										<span class="featured_events_item_detail_icon">
-											<svg class="icon icon_place">
-												<use href="/images/icons.svg#place" />
-											</svg>
-										</span>
-										{if calendar:location}
-											<span class="featured_events_item_detail_label">&nbsp; {calendar:location}</span>
-										{/if}
-									</div>
-									<div class="featured_events_item_detail">
-										<span class="featured_events_item_detail_icon">
-											<svg class="icon icon_clock">
-												<use href="/images/icons.svg#clock" />
-											</svg>
-										</span>
-										<time class="featured_events_item_detail_label" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">{if calendar:event_all_day} 
-								            (All Day)
-								        {if:else} 
-											{calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
-								        {/if}</time>
-									</div>
-								</div><!-- /featured_events_item_details -->
-							</div><!-- /featured_events_item_body -->
-						</div><!-- /featured_events_item -->
-						{/exp:calendar:events}
-								
-												
-												
-					</div><!-- /js-carousel featured_events_items -->
-				</div>
-				
-
-<a href="/calendar" class="featured_events_discovery_link" >
-	<span class="featured_events_discovery_link_inner">
-		<span class="featured_events_discovery_link_label">View all Events</span>
-					<span class="featured_events_discovery_link_icon" aria-hidden="true">
-				<span class="featured_events_discovery_link_icon_inner">
-					<span class="featured_events_discovery_link_icon_space">&#xfeff;</span>
-					
-			<svg class="icon icon_caret_right">
-				<use href="/images/icons.svg#caret_right" />
-			</svg>
-		
-				</span>
-			</span>
-			</span>
-</a>
-			</div>
-		</div>
-	</div>
-</div>
-{exp:channel:entries channel="home_page"}
-	<div class="flex_callout">
-
-	<div class="js-background flex_callout_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{"source": { "1220px": "{flex_callout_image}{img:url:resize width="1080" height="1440"}{/flex_callout_image}", "740px": "{flex_callout_image}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/flex_callout_image}", 
+                                    {exp:calendar:events
+                                    date_range_start="today" {!-- will start at this date --}
+                                    date_range_end="2100-01-01" {!-- will stop at this date --}
+                                    limit="4"
+                                    }
+                                    <div class="featured_events_item">
+                                        <time class="featured_events_item_date" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">
+                                            <span class="featured_events_item_date_flag featured_events_item_date_flag_from">
+                                                <span class="featured_events_item_date_start_month">{calendar:event_start_date format="%M"}</span>
+                                                <span class="featured_events_item_date_start_day">{calendar:event_start_date format="%d"}</span>
+                                            </span>
+                                            {if calendar:event_multi_day}
+                                            <span class="featured_events_item_date_flag featured_events_item_date_flag_to">
+                                                <span class="featured_events_item_date_start_month">{calendar:event_end_date format='%M'}</span>
+                                                <span class="featured_events_item_date_start_day">{calendar:event_end_date format='%d'}</span>
+                                            </span>
+                                            {/if}
+                                        </time>
+                                        <div class="featured_events_item_body">
+                                            <h3 class="featured_events_item_title">
+                                                <a class="featured_events_item_title_link" href="/calendar/event/{calendar:entry_id}">{calendar:title}</a>
+                                            </h3>
+                                            <div class="featured_events_item_details">
+                                                <div class="featured_events_item_detail">
+                                                    <span class="featured_events_item_detail_icon">
+                                                        <svg class="icon icon_place">
+                                                            <use href="/images/icons.svg#place" />
+                                                        </svg>
+                                                    </span>
+                                                    {if calendar:location}
+                                                    <span class="featured_events_item_detail_label">{calendar:location}</span>
+                                                    {/if}
+                                                </div>
+                                                <div class="featured_events_item_detail">
+                                                    <span class="featured_events_item_detail_icon">
+                                                        <svg class="icon icon_clock">
+                                                            <use href="/images/icons.svg#clock" />
+                                                        </svg>
+                                                    </span>
+                                                    <time class="featured_events_item_detail_label" datetime="{calendar:event_start_date format='%Y-%m-%d %H:%i:%s'}">{if calendar:event_all_day}
+                                                        (All Day)
+                                                        {if:else}
+                                                        {calendar:event_start_date format="%g:%i%a"} - {calendar:event_end_date format="%g:%i%a"}
+                                                        {/if}</time>
+                                                </div>
+                                            </div><!-- /featured_events_item_details -->
+                                        </div><!-- /featured_events_item_body -->
+                                    </div><!-- /featured_events_item -->
+                                    {/exp:calendar:events}
+                                </div><!-- /js-carousel featured_events_items -->
+                            </div>
+                            <a href="/calendar" class="featured_events_discovery_link">
+                                <span class="featured_events_discovery_link_inner">
+                                    <span class="featured_events_discovery_link_label">View all Events</span>
+                                    <span class="featured_events_discovery_link_icon" aria-hidden="true">
+                                        <span class="featured_events_discovery_link_icon_inner">
+                                            <span class="featured_events_discovery_link_icon_space">&#xfeff;</span>
+                                            <svg class="icon icon_caret_right">
+                                                <use href="/images/icons.svg#caret_right" />
+                                            </svg>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {exp:channel:entries channel="home_page"}
+            <div class="flex_callout">
+                <div class="js-background flex_callout_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{"source": { "1220px": "{flex_callout_image}{img:url:resize width="1080" height="1440"}{/flex_callout_image}", "740px": "{flex_callout_image}{img:url:resize width="1220" height="523" crop="true" scale_up="true"}{/flex_callout_image}", 
 	"500px": "{flex_callout_image}{img:url:resize width="980" height="654" crop="true" scale_up="true"}{/flex_callout_image}", "0px": "{flex_callout_image}{img:url:resize width="494" height="740" crop="true" scale_up="true"}{/flex_callout_image}", "980px": "{flex_callout_image}{img:url:resize width="915" height="1220" crop="true" scale_up="true"}{/flex_callout_image}"}, "lazy": true, "alt": "}' aria-hidden="true">
-	<div class="flex_callout_background_fallback" style="background-image: url(' {flex_callout_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/flex_callout_image}');"></div>
-<div class="fs-background-container"><div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{flex_callout_image}{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}{/flex_callout_image}'); opacity: 1;"><img alt="" src="{flex_callout_image}{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}{/flex_callout_image}"></div></div></div>
-	
-	 
-		
-		
-	
-	<div class="fs-row">
-		<div class="fs-cell">
-			<div class="flex_callout_inner">
-			    {if flex_callout}
-				{flex_callout}
-				<div class="flex_callout_header">
-					<h2 class="flex_callout_title">{flex_callout:banner_text}</h2>
-					<p class="flex_callout_caption">{flex_callout:paragraph}</p>
-				</div>
-				
-				{/flex_callout}
-				{/if}
-				<div class="flex_callout_content">
-					<ul class="flex_callout_links">
-						{if flex_callout_button}
-						{flex_callout_button}
-						<li class="flex_callout_item">
-							<a href="{flex_callout_button:button_link}" class="flex_callout_link" >
-								<span class="flex_callout_link_inner">
-									<span class="flex_callout_link_label">{flex_callout_button:button_text}</span>
-									<span class="flex_callout_link_icon" aria-hidden="true">
-										<span class="flex_callout_link_icon_inner">
-												<span class="flex_callout_link_icon_space">&#xfeff;</span>
-					
-											<svg class="icon icon_caret_right">
-												<use href="/images/icons.svg#caret_right" />
-											</svg>
-		
-										</span>
-									</span>
-								</span>
-							</a>
-						</li>
-						{/flex_callout_button}
-						{/if}
-					</ul>
-				</div> {!-- / flex_callout_content --}
-			</div>{!-- / flex_callout_inner --}
-		</div>
-	</div>
-	{/exp:channel:entries}
-</div>
-	{snp_alert}
-</div>
-
-	{!--	</div>
-	</div>--}
+                    <div class="flex_callout_background_fallback" style="background-image: url(' {flex_callout_image}{img:url:resize width='300' height='129' crop='true' scale_up='true'}{/flex_callout_image}');"></div>
+                    <div class="fs-background-container">
+                        <div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{flex_callout_image}{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}{/flex_callout_image}'); opacity: 1;"><img alt="" src="{flex_callout_image}{img:url:resize width='1440' height='1080' crop='true' scale_up='true'}{/flex_callout_image}"></div>
+                    </div>
+                </div>
+                <div class="fs-row">
+                    <div class="fs-cell">
+                        <div class="flex_callout_inner">
+                            {if flex_callout}
+                            {flex_callout}
+                            <div class="flex_callout_header">
+                                <h2 class="flex_callout_title">{flex_callout:banner_text}</h2>
+                                <p class="flex_callout_caption">{flex_callout:paragraph}</p>
+                            </div>
+                            {/flex_callout}
+                            {/if}
+                            <div class="flex_callout_content">
+                                <ul class="flex_callout_links">
+                                    {if flex_callout_button}
+                                    {flex_callout_button}
+                                    <li class="flex_callout_item">
+                                        <a href="{flex_callout_button:button_link}" class="flex_callout_link">
+                                            <span class="flex_callout_link_inner">
+                                                <span class="flex_callout_link_label">{flex_callout_button:button_text}</span>
+                                                <span class="flex_callout_link_icon" aria-hidden="true">
+                                                    <span class="flex_callout_link_icon_inner">
+                                                        <span class="flex_callout_link_icon_space">&#xfeff;</span>
+                                                        <svg class="icon icon_caret_right">
+                                                            <use href="/images/icons.svg#caret_right" />
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    {/flex_callout_button}
+                                    {/if}
+                                </ul>
+                            </div> {!-- / flex_callout_content --}
+                        </div>{!-- / flex_callout_inner --}
+                    </div>
+                </div>
+                {/exp:channel:entries}
+            </div>
+            {snp_alert}
+        </div>
+        {!-- </div>
+</div>--}

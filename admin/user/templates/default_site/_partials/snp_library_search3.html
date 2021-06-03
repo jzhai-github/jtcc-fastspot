@@ -1,0 +1,65 @@
+<!-- Script that converts the query string into valid parameter -->
+<script type="text/javascript">
+    function searchPrimo() {
+        document.getElementById("primoQuery").value = "any,contains," + document.getElementById("primoQueryTemp").value.replace(/[,]/g, " ");
+        document.forms["searchForm"].submit();
+    }
+</script>
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts">
+    <form id="simple" name="searchForm" method="get" target="_self" action="https://vcc-jtc-primo.hosted.exlibrisgroup.com/primo-explore/search" enctype="application/x-www-form-urlencoded; charset=utf-8" onsubmit="searchPrimo()" class="featured_programs_form">
+        <!-- featured_programs_form -->
+        <div class="fs-row">
+            <div class="fs-cell">
+                <!--<div class="form_builder_required_message">
+                    <p>
+                        <span class="form_builder_required_star">*</span> = required field
+                    </p>
+                </div>
+                <div class="form_builder_section_header">
+                    <h2>Section Break</h2>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
+                        auctor. Aenean lacinia bibendum nulla sed consectetur. Sed posuere
+                        consectetur est at lobortis. Integer posuere erat a ante venenatis
+                        dapibus posuere velit aliquet.
+                    </p>
+                </div>-->
+                <fieldset id="library_search">
+                    <label for="search">
+                        Library Search
+                    </label>
+                    <input type="text" id="primoQueryTemp" type="text" class="form_builder_text form_builder_required" placeholder="Find articles, journals, books, media, and more" aria-label="library_search" />
+                </fieldset>
+
+                            <input type="hidden" name="XID" value="{XID_HASH}">
+                            <!-- Customizable Parameters -->
+                            <input type="hidden" name="institution" value="01VCC_JTC">
+                            <input type="hidden" name="vid" value="JTCC">
+                            <input type="hidden" name="tab" value="default_tab">
+                            <input type="hidden" name="search_scope" value="EVERYTHING">
+                            <input type="hidden" name="mode" value="Basic">
+                            <!-- Fixed parameters -->
+                            <input type="hidden" name="displayMode" value="full">
+                            <input type="hidden" name="bulkSize" value="10">
+                            <input type="hidden" name="highlight" value="true">
+                            <input type="hidden" name="dum" value="true">
+                            <input type="hidden" name="query" id="primoQuery">
+                            <input type="hidden" name="displayField" value="all">
+                            <!-- Enable this if "Expand My Results" is enabled by default in Views Wizard -->
+                            <input type="hidden" name="pcAvailabiltyMode" value="true">
+
+                    <button class="featured_programs_submit">
+                        <span class="featured_programs_submit_label">Search</span>
+                        <span class="featured_programs_submit_icon">
+                            <svg class="icon icon_search">
+                                <use href="/images/icons.svg#search" />
+                            </svg>
+                        </span>
+                    </button>
+				
+			</div>
+		</div>
+	</form>
+</div>

@@ -22,8 +22,8 @@
                 </span>
             </a>
         </li>
-        {!--{if segment_2 != ''}--}
-            {if segment_1 == 'majors'}
+        
+        {if segment_1 == 'majors'}
 					<li class="breadcrumb_item">
 				<a class="breadcrumb_pill breadcrumb_pill_link" href="/majors">
 					<span class="breadcrumb_pill_inner">
@@ -36,7 +36,7 @@
 					</span>
 				</a>
 							</li>
-            {if:elseif segment_1 == 'employment-opportunities'}
+        {if:elseif segment_1 == 'employment-opportunities'}
                 <li class="breadcrumb_item">
                 <a class="breadcrumb_pill breadcrumb_pill_link" href="/about/employment-opportunities">
                     <span class="breadcrumb_pill_inner">
@@ -49,9 +49,23 @@
                     </span>
                 </a>
                             </li>
-            {/if}
-        {!--{/if}--}
-        {if segment_2 == 'declare-major-form' || segment_2 == 'declare-major-form-action'}
+        {/if}
+        
+        {if segment_2 == 'casting-call-action' || segment_2 == 'commitment-form-action' || segment_2 == 'thank-you-action'}
+            <li class="breadcrumb_item">
+                <a class="breadcrumb_pill breadcrumb_pill_link" href="/about/">
+                    <span class="breadcrumb_pill_inner">
+                        <span class="breadcrumb_pill_label">About Tyler</span>
+                        <span class="breadcrumb_pill_icon">
+            <svg class="icon icon_caret_right">
+                <use href="/images/icons.svg#caret_right" />
+            </svg>
+        </span>
+                    </span>
+                </a>
+                            </li>
+        {/if}
+        {if segment_2 == 'declare-major-form-action'}
             <li class="breadcrumb_item">
                 <a class="breadcrumb_pill breadcrumb_pill_link" href="/academics/declaring-a-major">
                     <span class="breadcrumb_pill_inner">

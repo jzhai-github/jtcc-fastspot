@@ -69,6 +69,12 @@
 </div>{!-- /wysiwyg_block --}
 {/if}
 
+{if segment_2 == ''}
+	{snp_library_search}
+{/if}
+
+<div id="libchat_84ba6560dbd40e60733e72b710b9e9a5"></div> <script src="https://jtcc.libanswers.com/load_chat.php?hash=84ba6560dbd40e60733e72b710b9e9a5"></script>
+ 
 {!-- channel entries tag --}
 {exp:channel:entries channel='{ch}' disable='{ch_disable}' limit='1'{if segment_2} require_entry='yes'{if:else} status='Default Page'{/if}}
 {if logged_in}
@@ -106,9 +112,9 @@
 			
 {layout:contents}
 {main_content}
-	{if segment_4 == 'transfer-credit-request-form'}
+	{!--{if segment_4 == 'transfer-credit-request-form'}
 		{embed="admissions/transfer-credit-form"}
-	{/if}
+	{/if}--}
 	{main_content:wysiwyg_block}
 	<div class="wysiwyg_block">
 		<div class="fs-row">
@@ -121,7 +127,6 @@
 	</div>
 	{/main_content:wysiwyg_block}
 	
-
 	{snp_js_accordion}
 
 	{snp_flex_callout_image}

@@ -1,0 +1,294 @@
+{!--{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Casting Call{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+--}
+
+<?php
+    include("includes/castingcall_variable.php");
+?>
+
+    <script type="text/javascript"> 
+        function validateForm(){
+            var f = document.castingcall;
+
+            if (f.full_name.value.length == 0) { 
+                alert("Please enter your name.");
+                f.full_name.focus();
+                return false;
+            } 
+            
+            if (f.phone.value.length == 0) {
+                alert("Please enter your phone number.");
+                f.phone.focus();
+                return false;
+            }
+            
+            if (f.email.value.length == 0) {
+                alert("Please enter your e-mail address.");
+                f.email.focus();
+                return false;
+            }
+
+            var allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf', 'doc', 'docx'];
+            var myFile = f.picture.value;
+            if (myFile.length == 0) {
+                alert("Please attach a current picture of yourself.");
+                f.picture.focus();
+                return false;
+            } else {
+                var fSize = f.picture.files[0].size;
+                var ext = myFile.substr(myFile.lastIndexOf('.') + 1).toLowerCase();
+                if (allowedExtensions.indexOf(ext) === -1) {
+                    alert('Attachment: Invalid file Format. Only extensions of ' + allowedExtensions.join(', ') + ' are allowed.');
+                    //myFile = "";
+                    document.getElementById("picture").value = "";
+                    f.picture.focus();
+                    return false;
+                }
+                if (fSize > 2000000) {
+                    alert("The size of the attachment file cannot exceed 2 MB.");
+                    //myFile = "";
+                    document.getElementById("picture").value = "";
+                    f.picture.focus();
+                    return false;
+                }
+            }
+            
+            var sept23 = document.querySelector('input[name="sept23[]"]:checked');
+            var sept24 = document.querySelector('input[name="sept24[]"]:checked');
+            if (!sept23 && !sept24) {
+                alert("Please check your times available in the photo shoots.");
+                return false;
+            }
+
+            if (f.chester.checked == false && f.midlothian.checked == false && f.either.checked == false) {
+                alert("Which campus do you prefer?");
+                f.chester.focus();
+                return false;
+            }
+
+            if (f.interests.value.length == 0) {
+                alert("Please enter your activities and interests.");
+                f.interests.focus();
+                return false;
+            }
+
+            if (f.yourself.value.length == 0) {
+                alert("Where do you see yourself in five years? Ten years?");
+                f.yourself.focus();
+                return false;
+            }
+
+            if (f.favorite.value.length == 0) {
+                alert("What is your favorite thing about Tyler?");
+                f.favorite.focus();
+                return false;
+            }
+
+            if(!f.release.checked)
+            {
+                alert('Please read the photo release statement and check "I agree".');
+                f.release.focus();
+                return false;
+            }
+
+            if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+                alert ("Please check on the reCAPTCHA box.");
+                return false;
+            }
+                    
+            return true;
+        }
+    </script>  
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/about/casting-call-action" enctype="multipart/form-data" accept-charset="utf-8" name="castingcall" class="form_builder typography" method="post" onsubmit="return validateForm();">
+
+	<div class="fs-row">
+        <div class="fs-cell">
+            <div class="form_builder_required_message">
+                <p>
+                    <span class="form_builder_required_star">*</span> = required field
+                </p>
+            </div>
+            <div class="form_builder_section_header">
+                <!--<h2>Section Break</h2>-->
+                <p>Safety is a top priority.&nbsp; All participants are required to follow the safety protocols at <a href="https://www.jtcc.edu/about/safety-security/covid-19/safety-protocols/" title="https://www.jtcc.edu/about/safety-security/covid-19/safety-protocols/">https://www.jtcc.edu/about/safety-security/covid-19/safety-protocols/</a>.&nbsp; Masks are required, and you&rsquo;ll need to wear one until we are ready to shoot.&nbsp; We&rsquo;ll be shooting one student at time.&nbsp; We&rsquo;ll practice social distancing, and ask everyone to perform a self-health check and stay home if you have&nbsp;<a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html" target="_blank">symptoms of COVID-19</a>.</p>
+            </div>
+
+            <fieldset id="student_name">
+                <label for="full_name">
+                    Name
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <input type="text" maxlength="" name="full_name" id="full_name" class="form_builder_text form_builder_required" value="" />
+            </fieldset>
+
+            <fieldset id="student_phone">
+                <label for="phone"> Phone Number
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <input type="text" maxlength="" name="phone" id="phone" class="form_builder_text form_builder_required" value="" />
+            </fieldset>
+
+            <fieldset id="student_email">
+                <label for="email"> E-mail 
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+            </fieldset>
+
+            <fieldset id="upload_picture">
+                <label for="picture"> Attach a current picture of yourself 
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <input type="file" name="picture" id="picture" class="form_builder_upload form_builder_required" value="">
+                <div class="form_builder_sublabel">
+                    <span id="file_size">Maximum File Size: 2 MB</span>
+                </div>
+            </fieldset>
+
+            <fieldset id="your_major">
+                <label for="major"> Major </label>
+                <input type="text" maxlength="" name="major" id="major" class="form_builder_text" value="" />
+            </fieldset>
+
+            <fieldset id="nominee_email">
+                <label for="employer"> Employer </label>
+                <input type="text" maxlength="" name="employer" id="employer" class="form_builder_text" value="" />
+            </fieldset>
+            
+            <fieldset id="availability">
+                <legend>
+                    Please share your availability to participate in a photo shoot
+                    <span class="form_builder_required_star">*</span>
+                </legend>
+                <p>Wednesday, September 23<br />Midlothian</p>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept23[]" id="sept231" value="9:45 am - 10:30 am at Midlothian" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept231">9:45 am - 10:30 am</label>
+                </div>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept23[]" id="sept232" value="10:45 am - 11:45 am at Midlothian" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept232">10:45 am - 11:45 am</label>
+                </div>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept23[]" id="sept233" value="12:00 pm - 12:45 pm at Midlothian" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept233">12:00 pm - 12:45 pm</label>
+                </div>
+                <p>Chester</p>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept23[]" id="sept234" value="3:15 pm - 4:00 pm at Chester" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept234">3:15 pm - 4:00 pm</label>
+                </div>
+                <p>Thursday, September 24<br />Chester</p>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept24[]" id="sept241" value="8:45 am - 9:30 am at Chester" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept241">8:45 am - 9:30 am</label>
+                </div>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept24[]" id="sept242" value="9:45 am - 10:30 am at Chester" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept242">9:45 am - 10:30 am</label>
+                </div>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="sept24[]" id="sept243" value="5:30 pm - 6:00 pm at Chester" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="sept243">5:30 pm - 6:00 pm</label>
+                </div>
+            </fieldset>
+
+            <fieldset id="preferred_campus">
+                <legend>
+                    Preferred campus
+                    <span class="form_builder_required_star">*</span>
+                </legend>
+                <div class="form_builder_radio">
+                    <input type="radio" class="form_builder_required" name="campus" id="chester" value="Chester" data-price="0" />
+                    <span class="form_builder_radio_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="chester">Chester</label>
+                </div>
+                <div class="form_builder_radio">
+                    <input type="radio" class="form_builder_required" name="campus" id="midlothian" value="Midlothian" data-price="0" />
+                    <span class="form_builder_radio_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="midlothian">Midlothian</label>
+                </div>
+                <div class="form_builder_radio">
+                    <input type="radio" class="form_builder_required" name="campus" id="either" value="Either" data-price="0" />
+                    <span class="form_builder_radio_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="either">Either</label>
+                </div>
+            </fieldset>
+
+            <fieldset id="activities_interests">
+                <label for="interests">
+                    Activities and interests 
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <textarea name="interests" id="interests" class="form_builder_required" placeholder="" ></textarea>
+            </fieldset>
+
+            <fieldset id="see_yourself">
+                <label for="yourself">
+                    Where do you see yourself in five years?  Ten years? 
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <textarea name="yourself" id="yourself" class="form_builder_required" placeholder="" ></textarea>
+            </fieldset>
+
+            <fieldset id="favorite_thing">
+                <label for="favorite">
+                    What’s your favorite thing about Tyler 
+                    <span class="form_builder_required_star">*</span>
+                </label>
+                <textarea name="favorite" id="favorite" class="form_builder_required" placeholder="" ></textarea>
+            </fieldset>
+
+            <fieldset id="anything_else">
+                <label for="other">
+                    Anything else we should know
+                </label>
+                <textarea name="other" id="other" placeholder="" ></textarea>
+            </fieldset>
+
+            
+            <fieldset id="agreement">
+                <legend>
+                    Photo/Video Release Statement
+                    <span class="form_builder_required_star">*</span>
+                </legend>
+                <p><?php echo $note; ?></p>
+                <div class="form_builder_checkbox">
+                    <input type="checkbox" class="form_builder_required" name="release" id="release" value="I agree" data-price="0" />
+                    <span class="form_builder_checkbox_indicator"></span>
+                    <label class="form_builder_for_checkbox" for="release">I agree</label>
+                </div>
+            </fieldset>
+
+
+            <div class="row">
+                <label for="captcha">reCAPTCHA below is required: </label>
+                <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+            </div>
+
+            <div class="form_builder_submit_wrapper">
+                <div class="form_builder_submit_pill">
+                    <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                    <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                    <span class="form_builder_submit_icon">
+                        <svg class="icon icon_caret_right">
+                            <use href="/images/icons.svg#caret_right" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

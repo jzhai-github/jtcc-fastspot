@@ -1,16 +1,113 @@
 {layout='layouts/_main-layout'}
 
 {layout:set name='title'}Thank You for Making a Difference{/layout:set}
-{layout:set name='page_description'}Throughout the year, we want to recognize faculty and staff at JTCC who made a difference in our community. Please nominate a faculty or staff member who exhibited outstanding kindness, assistance, advising, teaching, mentoring, service, or other forms of excellence. Thank you!{/layout:set}
+{layout:set name='page_description'}{/layout:set}
 
+<script type="text/javascript">
+	function validateForm(){
+		var f = document.thankyou;
+			
+		if (f.note.value.length == 0) { 
+			alert("Please describe how this person made a difference.");
+			f.note.focus();
+			return false;
+		} 
+		
+		if (f.yourName.value.length == 0) { 
+			alert("Please enter your name.");
+			f.yourName.focus();
+			return false;
+		} 
+		
+		if (f.member.value.length == 0) { 
+			alert("Please select.");
+			f.member.focus();
+			return false;
+		} 
+		
+		if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+			alert ("Please check on the reCAPTCHA box.");
+			return false;
+		}
 
-<!-- Full Width Callouts -->
-<div class="full_width_callouts">
-	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <form action="/academics/declare-major-form" accept-charset="utf-8" class="form_builder typography" name="declare_major" method="post" onsubmit="return validateForm();">
+		return true;
+	}
+</script>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/about/thank-you-action" accept-charset="utf-8" class="form_builder typography" name="thankyou" method="post" onsubmit="return validateForm();">
 
+	<div class="fs-row">
+        <div class="fs-cell">
+            <div class="form_builder_required_message">
+                <p>
+                    <span class="form_builder_required_star">*</span> = required field
+                </p>
+            </div>
+            <div class="form_builder_section_header">
+                <!--<h2>Section Break</h2>-->
+                <p>
+                    Throughout the year, we want to recognize faculty and staff at Tyler who made a difference in our community. If you had a positive interaction with a member of our team who exhibited outstanding kindness, assistance, advising, teaching, mentoring, service, or other forms of excellence, please share your experience with us. Thank you!
+                </p>
+            </div>
 
-    </form>
-</div>
-<!-- END: Full Width Callouts -->
+			<fieldset id="nominee_name">
+        		<label for="nominee"> Nominee Name</label>
+        		<input type="text" maxlength="100" id="nominee" name="nominee" class="form_builder_text" value="" />
+    		</fieldset>
+
+    		<fieldset id="nominee_email">
+        		<label for="email"> Nominee E-mail </label>
+        		<input type="text" maxlength="60" id="email" name="email" class="form_builder_text" value="" />
+    		</fieldset>
+
+    		<p>Need to look up e-mail address? Go to <a href="/directory">Employee Directory</a>.</p>
+
+    		<fieldset id="description">
+                <label for="note">
+                        Please describe how this person made a difference. <span class="form_builder_required_star">*</span>
+                </label>
+                <textarea name="note" id="note" class="form_builder_required" placeholder="" ></textarea>
+            </fieldset>
+
+            <fieldset id="your_name">
+                <label for="yourName">
+                        Your Name
+                	<span class="form_builder_required_star">*</span>
+                </label>
+                <input type="text" name="yourName" id="yourName" class="form_builder_text form_builder_required" value="" maxlength="60" />
+            </fieldset>
+
+            <fieldset id="are_you">
+                <label for="member"> Are You
+                	<span class="form_builder_required_star">*</span>
+                </label>
+                <div class="form_builder_select">
+                    <select name="member" id="member" class="form_builder_required">
+                        <option value=""></option>
+						<option value="Student">Student</option>
+						<option value="Employee">Employee</option>
+						<option value="Community Member">Community Member</option>
+                	</select>
+                </div>
+            </fieldset>
+
+    		<div class="row">
+                <label for="captcha">reCAPTCHA below is required: </label>
+                <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+            </div>
+
+            <div class="form_builder_submit_wrapper">
+                <div class="form_builder_submit_pill">
+                    <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                    <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                    <span class="form_builder_submit_icon">
+                        <svg class="icon icon_caret_right">
+                            <use href="/images/icons.svg#caret_right" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

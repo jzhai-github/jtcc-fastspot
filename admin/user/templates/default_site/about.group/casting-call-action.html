@@ -1,0 +1,130 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Casting Call{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+<?php
+	if (isset($_POST['sbmt'])) {
+		if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        	//your site secret key
+        	$secret = '6LcYxEsUAAAAALTn5MsBaNJ0G1GFwoduojD9rkEP';
+        	//get verify response data
+        	$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secret.'&response='.$_POST['g-recaptcha-response']);
+       	 	$responseData = json_decode($verifyResponse);
+
+         if($responseData->success) {
+
+         	include("includes/castingcall_variable.php");
+		
+			$full_name = $_POST['full_name'];
+			$phone = $_POST['phone'];
+			$email = $_POST['email'];
+			$attachment = chunk_split(base64_encode(file_get_contents($_FILES['picture']['tmp_name'])));
+        	$filename = $_FILES['picture']['name'];
+			$major = $_POST['major'];
+			$employer = $_POST['employer'];
+			$sept23 = '';
+			if (isset($_POST['sept23'])) {
+				$sept23 = implode("<br />", $_POST['sept23']);
+			}
+			$sept24 = '';
+			if (isset($_POST['sept24'])) {
+				$sept24 = implode("<br />", $_POST['sept24']);
+			}
+			$campus = '';
+			if (isset($_POST['campus'])){
+				$campus = $_POST['campus'];
+			}
+			$interests = $_POST['interests'];
+			$yourself = $_POST['yourself'];
+			$favorite = $_POST['favorite'];
+			$other = $_POST['other'];
+			$release = '';
+			if (isset($_POST['release'])){
+				$release = $_POST['release'];
+			}
+			
+		  $to = 'socialmedia@jtcc.edu, hbusch@jtcc.edu, ' . $email;
+		  //$to = 'jzhai@jtcc.edu, ' . $email;
+		  $subject = "Next Up Casting Call";
+		  $message = '<html>
+					  <head><title>Next Up Casting Call</title></head>
+					  <body>
+					  	  <p>Thank you for submitting your information for Tyler&#39;s casting call. Below is your information - </p>
+						  <table border="0" cellpadding="2" cellspacing="0" width="90%" align="center">
+						  <tr>
+						  <td>
+							  <p><strong>Name: </strong>' . $full_name . '</p>
+							  <p><strong>Phone: </strong>' . $phone . '</p>
+							  <p><strong>E-mail: </strong>' . $email . '</p> 
+							  <p><strong>Major: </strong>' . $major . '</p>
+							  <p><strong>Employer: </strong>' . $employer . '</p>
+							  <p><strong>Please share your availability to participate in a photo shoot: </strong></p>
+							  <ul>
+							  	<li>Wednesday, September 23:<br />' . $sept23 . '</li>
+							  	<li>Thursday, September 24:<br />' . $sept24 . '</li>
+							  </ul>
+							  <p><strong>Preferred Campus: </strong>' . $campus . '</p>
+							  <p><strong>Activities and interests: </strong>' . nl2br($interests) . '</p>
+							  <p><strong>Where do you see yourself in five years? Ten years?: </strong>' . nl2br($yourself) . '</p>
+							  <p><strong>What is your favorite thing about Tyler:   </strong>' . nl2br($favorite) . '</p>
+							  <p><strong>Anything else we should know: </strong>' . nl2br($other) . '</p>
+							  <p>' . $note . '<br />' . $release . '</p>
+						  </td>
+						  </tr>	
+						  </table>
+
+						  <p>Chosen participants will be notified via e-mail. We will keep all submissions on file for future shoots.</p>
+
+						  <p>Follow Tyler on <a href="https://www.instagram.com/johntylercc/">Instagram</a> and <a href="https://www.facebook.com/johntylercc">Facebook</a> to see the results and hear about future shoots.</p>
+
+						  <p>- The Creative Services and Public Relations Team</p>
+						  
+					  </body>
+					 </html>';
+					  
+			  $headers = "From: do-not-reply@jtcc.edu \r\nReply-To: socialmedia@jtcc.edu\r\n";
+			  $headers.= "BCC: webmaster@jtcc.edu";
+			  $boundary =md5(date('r', time())); 
+            $headers .= "\r\nMIME-Version: 1.0\r\nContent-Type: multipart/mixed; boundary=\"_1_$boundary\"";
+            $message="This is a multi-part message in MIME format.
+
+--_1_$boundary
+Content-Type: multipart/alternative; boundary=\"_2_$boundary\"
+
+--_2_$boundary
+Content-Type: text/html; charset=\"iso-8859-1\"
+Content-Transfer-Encoding: 7bit
+
+$message
+
+--_2_$boundary--
+--_1_$boundary
+Content-Type: application/octet-stream; name=\"$filename\" 
+Content-Transfer-Encoding: base64 
+Content-Disposition: attachment 
+
+$attachment
+--_1_$boundary--";
+			  
+			  mail($to, $subject, $message, $headers);
+			  
+			  echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <!--<p style="color:#009CA6;">Your request has been successfully submitted.</p>-->
+                        <p>Thank you for your submission! If we would like you to participate, we will contact you to schedule.</p>
+                    </div></div></div></div>';
+			
+			} else {
+				echo '<div class="wysiwyg_block">
+                    <div class="fs-row">
+                    <div class="fs-cell">
+                    <div class="wysiwyg_block_inner typography">
+                        <p style="color:#C8102E;">Error occurs. Your request has NOT been sent. Please try it again.</p>
+                    </div></div></div></div>';
+			}
+	  	}
+	}
+?>

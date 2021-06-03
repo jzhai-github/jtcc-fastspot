@@ -1,0 +1,68 @@
+<!-- Script that converts the query string into valid parameter -->
+<script type="text/javascript">
+    function searchPrimo() {
+        document.getElementById("primoQuery").value = "any,contains," + document.getElementById("primoQueryTemp").value.replace(/[,]/g, " ");
+        document.forms["searchForm"].submit();
+    }
+</script>
+
+<div class="filter">
+    <div class="filter_tabs" role="tablist" aria-label="library_search">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="filter_tabs_inner">
+                    <button class="js-swap filter_tab" role="tab" data-swap-target=".filter_tabpanel_search" data-swap-group="filter_tabs" data-swap-active="true" data-swap-options='{"collapse": false}'>Search for Library</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="filter_panels">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="filter_panels_inner">
+                    <div class="filter_tabpanel filter_tabpanel_search" role="tabpanel">
+                        <form class="filter_search" id="simple" name="searchForm" method="get" target="_self" action="https://vcc-jtc-primo.hosted.exlibrisgroup.com/primo-explore/search" enctype="application/x-www-form-urlencoded; charset=utf-8" onsubmit="searchPrimo()">
+
+                            <input type="hidden" name="XID" value="{XID_HASH}">
+                            <!-- Customizable Parameters -->
+                            <input type="hidden" name="institution" value="01VCC_JTC">
+                            <input type="hidden" name="vid" value="JTCC">
+                            <input type="hidden" name="tab" value="default_tab">
+                            <input type="hidden" name="search_scope" value="EVERYTHING">
+                            <input type="hidden" name="mode" value="Basic">
+                            <!-- Fixed parameters -->
+                            <input type="hidden" name="displayMode" value="full">
+                            <input type="hidden" name="bulkSize" value="10">
+                            <input type="hidden" name="highlight" value="true">
+                            <input type="hidden" name="dum" value="true">
+                            <input type="hidden" name="query" id="primoQuery">
+                            <input type="hidden" name="displayField" value="all">
+                            <!-- Enable this if "Expand My Results" is enabled by default in Views Wizard -->
+                            <input type="hidden" name="pcAvailabiltyMode" value="true">
+
+                            {!--<label class="filter_label" for="filter_search_input">Search our Majors & Programs</label>--}
+                            <div class="filter_search_form">
+                                <div class="filter_search_input_wrapper"> 
+                                    <input class="filter_search_input" id="primoQueryTemp" placeholder="Find articles, journals, books, media, and more" value="" />
+                                    <span class="filter_search_input_icon">
+            <svg class="icon icon_search">
+                <use href="/images/icons.svg#search" />
+            </svg>
+        </span>
+                                </div>
+                                <button class="filter_tools_submit filter_tools_submit_search" type="submit" id="go" title="Search" onclick="searchPrimo()">
+                                    <span class="filter_tools_submit_label">Search</span>
+                                    <span class="filter_tools_submit_icon">
+            <svg class="icon icon_caret_right">
+                <use href="/images/icons.svg#caret_right" />
+            </svg>
+        </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div><!-- /filter_tabpanel -->
+                </div><!-- /filter_panels_inner -->
+            </div><!-- /fs-cell -->
+        </div><!-- /fs-row -->
+    </div><!-- /filter_panels -->
+</div><!-- /filter -->

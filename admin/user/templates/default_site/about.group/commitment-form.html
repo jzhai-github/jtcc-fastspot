@@ -1,0 +1,156 @@
+{layout='layouts/_main-layout'}
+
+{layout:set name='title'}Commitment - Share Your Comments{/layout:set}
+{layout:set name='page_description'}{/layout:set}
+
+
+<!-- Full Width Callouts -->
+<!--<div class="full_width_callouts">-->
+
+<script type="text/javascript"> 
+    function validateForm(){
+      var f = document.comment_form;
+      
+      if (f.first_name.value.length == 0) { 
+        alert("Please enter your first name.");
+        f.first_name.focus();
+        return false;
+      } 
+      if (f.last_name.value.length == 0) { 
+        alert("Please enter your last name.");
+        f.last_name.focus();
+        return false;
+      }
+      if (f.email.value.length == 0) { 
+        alert("Please enter your e-mail address.");
+        f.email.focus();
+        return false;
+      } else {
+        var emailFilter = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailFilter.test(f.email.value)) {
+          alert("Invalid e-mail address.");
+          f.email.focus();
+          return false;
+        }
+      }
+      if (f.you.options[f.you.selectedIndex].value == "") {
+        alert("What best describes you?");
+        f.you.focus();
+        return false;
+      } else {
+        if (f.you.value == 'Other' && f.other.value.length == 0) {
+          alert("Please describe you since you chose Other.");
+          f.other.focus();
+          return false;
+        }
+      }
+      if (f.comments.value.length == 0) { 
+        alert("Please enter your comments.");
+        f.comments.focus();
+        return false;
+      }
+      
+      if (document.getElementById("g-recaptcha-response").value.length == 0 ) {
+        alert ("Please check on the reCAPTCHA box.");
+        return false;
+      } 
+      return true;
+    }
+</script> 
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<form action="/about/commitment-form-action" accept-charset="utf-8" name="comment_form" class="form_builder typography" method="post" onsubmit="return validateForm();">
+
+	<div class="fs-row">
+    <div class="fs-cell">
+        <div class="form_builder_required_message">
+            <p>
+                <span class="form_builder_required_star">*</span> = required field
+            </p>
+        </div>
+        <div class="form_builder_section_header">
+                <!--<h2>Section Break</h2>-->
+                <p>At its meeting on July 16, the State Board for Community Colleges, which governs Virginia’s 23 community colleges, passed a resolution asking each institution’s local board to review the appropriateness of its college, campus and facilities names and to report its findings and recommendations by no later than March 2021 to the State Board for its consideration.</p>
+
+				        <p>We welcome your thoughtful comments. Information submitted through this form will be shared with our College Board and college leadership.</p>
+        </div>
+
+        <fieldset id="your_name">
+        		<legend for="student_name">
+            		Your Name <span class="form_builder_required_star">*</span>
+        		</legend>
+        		<div class="form_builder_wrap">
+            		<div class="form_builder_firstname">
+                		<input type="text" maxlength="30" name="first_name" id="first_name" class="form_builder_text form_builder_required" value="" />
+                		<label for="first_name" class="form_builder_sublabel">First</label>
+            		</div> 
+            		<div class="form_builder_lastname">
+                		<input type="text" maxlength="30" name="last_name" id="last_name" class="form_builder_text form_builder_required" value="" />
+                		<label for="last_name" class="form_builder_sublabel">Last</label>
+            		</div>
+        		</div>        
+    		</fieldset>
+
+    		<fieldset id="your_email">
+        		<label for="email">E-mail 
+            		<span class="form_builder_required_star">*</span>
+        		</label>
+        		<input type="text" maxlength="60" name="email" id="email" class="form_builder_text form_builder_required" value="" />
+    		</fieldset>
+
+    		<fieldset id="you_are">
+                <label for="you">I am a (select the one that best describes you)</label>
+                <div class="form_builder_select">
+                    <select id="you" class="form_builder_required" name="you">
+                        <option value="">Please select: </option>
+      					<option value="Student" label="Student">Student</option>
+      					<option value="Alumni" label="Alumni">Alumni</option>
+      					<option value="Employee" label="Employee">Employee</option>
+      					<option value="Community Member - Amelia" label="Community Member - Amelia">Community Member - Amelia</option>
+      					<option value="Community Member - Charles City" label="Community Member - Charles City">Community Member - Charles City</option>
+      					<option value="Community Member - Chesterfield" label="Community Member - Chesterfield">Community Member - Chesterfield</option>
+      					<option value="Community Member - Colonial Heights" label="Community Member - Colonial Heights">Community Member - Colonial Heights</option>
+      					<option value="Community Member - Dinwiddie" label="Community Member - Dinwiddie">Community Member - Dinwiddie</option>
+      					<option value="Community Member - Hopewell" label="Community Member - Hopewell">Community Member - Hopewell</option>
+      					<option value="Community Member - Petersburg" label="Community Member - Petersburg">Community Member - Petersburg</option>
+      					<option value="Community Member - Prince George" label="Community Member - Prince George">Community Member - Prince George</option>
+      					<option value="Community Member - Surry" label="Community Member - Surry">Community Member - Surry</option>
+      					<option value="Community Member - Sussex" label="Community Member - Sussex">Community Member - Sussex</option>
+      					<option value="Other" label="Other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset id="if_other">
+                <label for="other"> If "Other" please enter </label>
+                <input type="text" name="other" id="other" class="form_builder_text" value="" />
+            </fieldset>
+
+            <fieldset id="your_comments">
+                <label for="comments">
+                        Comments <span class="form_builder_required_star">*</span>
+                </label>
+                <textarea id="comments" name="comments" class="form_builder_required" placeholder=""></textarea>
+            </fieldset>
+
+			     <div class="row">
+                <label for="captcha">reCAPTCHA below is required: </label>
+                <div class="g-recaptcha" data-sitekey="6LcYxEsUAAAAANN6hiqezLb5UJLoQD5nPs6M25bo"></div>
+            </div>
+
+            <div class="form_builder_submit_wrapper">
+                <div class="form_builder_submit_pill">
+                    <input type="hidden" name="XID" value="{XID_HASH}" /> 
+                    <input type="submit" name="sbmt" class="form_builder_submit" value="Submit Form" />
+                    <span class="form_builder_submit_icon">
+                        <svg class="icon icon_caret_right">
+                            <use href="/images/icons.svg#caret_right" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!--</div>-->
+<!-- END: Full Width Callouts -->

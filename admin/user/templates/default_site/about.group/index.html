@@ -71,24 +71,30 @@
 {layout:contents}
 
 {main_content}
+	{if segment_2 == 'casting-call'}
+		{embed="about/casting-call"}
+	{/if}
 	{if segment_4 == 'transfer-credit-request-form'}
 		{embed="admissions/transfer-credit-form"}
 	{/if}
 	{if segment_5 == 'workforce-credentials-scholarship-application'}
 		{embed="about/workforce-credential-form"}
 	{/if}
+
 	{main_content:wysiwyg_block}
 	<div class="wysiwyg_block">
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="wysiwyg_block_inner typography">
-					{content}					
+					{content}
+					{if segment_2 == 'employment-opportunities'}
+						{embed="employment-opportunities/job-listings"}
+					{/if}
 				</div>
 			</div>
 		</div>
 	</div>
 	{/main_content:wysiwyg_block}
-	
 
 	{snp_js_accordion}
 
