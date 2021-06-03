@@ -627,7 +627,6 @@ span.time {
 
 .eva-logo {
 				margin-top: 31px;
-				float: left;
 				margin-bottom: -25px;
 }
 
@@ -672,7 +671,11 @@ span.time {
 				}
 
 				.desktop-only {
-								display: block;
+								display: block !important;
+				}
+
+				.eva-logo {
+								float: left;
 				}
 
 				.news_meta_categories {
