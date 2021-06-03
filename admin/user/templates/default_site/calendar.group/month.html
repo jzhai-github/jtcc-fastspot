@@ -72,7 +72,7 @@
 																	{/if} 
 																"
 																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it's all/multi-day --}
-																	style="background-color: {calendar:calendar_color_light} !important; border-color: {calendar:calendar_color} !important;"
+																	style="background-color: {if calendar:day_in_current_month}{calendar:calendar_color}{if:else}{calendar:calendar_color_light}{/if} !important; border-color: {calendar:calendar_color} !important;"
 																{/if}
 																>
 																{if calendar:event_multi_day} 
