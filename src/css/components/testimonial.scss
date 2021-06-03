@@ -15,6 +15,10 @@
 
 	padding: 0 20px;
 
+	& + & {
+		@include margined_lg_top;
+	}
+
 	&.theme-blue {
 		// same as default values
 	}
@@ -81,6 +85,7 @@
 .testimonial_image_wrapper {
 	height: 0;
 
+	overflow: hidden;
 	padding-top: $full;
 
 	@media #{$min_md} {
