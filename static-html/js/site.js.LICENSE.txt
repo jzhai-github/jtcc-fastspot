@@ -1,0 +1,37 @@
+/*! formstone v1.4.16 [analytics.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [background.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [carousel.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [checkpoint.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [cookie.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [core.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [equalize.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [lightbox.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [mediaquery.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [sticky.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [swap.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [touch.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [transition.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! formstone v1.4.16 [viewer.js] 2019-07-31 | GPL-3.0 License | formstone.it */
+
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+   * https://modernizr.com/download/?-csstransforms-csstransforms3d-supports-svgclippaths-touchevents-setclasses !*/
+
+/**
+   * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
+   * @version v5.2.10
+   * @link https://github.com/ten1seven/what-input
+   * @license MIT
+   */
