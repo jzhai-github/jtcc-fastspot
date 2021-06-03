@@ -665,6 +665,20 @@ span.time {
 				display: flex;
 }
 
+.typography ul li.js-accordion-item {
+
+				padding-left: 0;
+
+				&::before {
+								display: none;
+				}
+
+}
+
+.js-accordion .program_item.fs-swap-active {
+				background: #FFFFFF;
+}
+
 // =============================================================================
 // Visibility Classes
 // =============================================================================
