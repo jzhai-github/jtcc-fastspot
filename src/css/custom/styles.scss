@@ -657,8 +657,12 @@ span.time {
 				}
 }
 
-.featured_news_article_title_link_icon.last {
+.featured_news_article_title_link_icon {
 				top: 10px;
+}
+
+.featured_news_article_title_link_inner {
+				display: flex;
 }
 
 // =============================================================================
