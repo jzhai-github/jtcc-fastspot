@@ -679,6 +679,13 @@ span.time {
 				background: #FFFFFF;
 }
 
+.js-accordion .typography ol>li::before {
+				background: none;
+				content: counter(li) ". ";
+				margin: 0 1rem 0 1.5rem;
+				top: 0;
+}
+
 // =============================================================================
 // Visibility Classes
 // =============================================================================
