@@ -2,6 +2,15 @@
 				width: auto;
 }
 
+.typography ol li,
+.typography ul li {
+				padding-left: 3.5rem;
+}
+
+.typography ol>li::before {
+				margin: 0 1rem 0 -2.5rem;
+}
+
 // =============================================================================
 // Calendar
 // =============================================================================
@@ -212,6 +221,10 @@ span.time {
 												}
 								}
 				}
+}
+
+.date {
+				margin-bottom: .8rem;
 }
 
 #mini_calendar {
@@ -646,7 +659,7 @@ span.time {
 }
 
 .desktop-only {
-				display: none;
+				display: none !important;
 }
 
 // =============================================================================
@@ -655,7 +668,7 @@ span.time {
 
 @media #{$min_md} {
 				.mobile-only {
-								display: none;
+								display: none !important;
 				}
 
 				.desktop-only {
@@ -751,3 +764,9 @@ span.time {
 @media #{$min_xl} {}
 
 @media #{$min_xxl} {}
+
+@media print {
+				.alert_title_label {
+								display: none;
+				}
+}
