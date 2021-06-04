@@ -665,6 +665,22 @@ span.time {
 				display: flex;
 }
 
+.typography ul {
+				margin-left: 2rem;
+
+				li {
+								padding-left: 2.5rem;
+				}
+}
+
+// =============================================================================
+// JS Accordion
+// =============================================================================
+
+.program_item_heading_title {
+				font-size: 2.15rem;
+}
+
 .typography ul li.js-accordion-item {
 
 				padding-left: 0;
