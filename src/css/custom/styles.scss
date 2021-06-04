@@ -706,7 +706,11 @@ span.time {
 				margin-left: 0;
 
 				li ul {
-								padding-left: 2rem;
+								padding-left: 2.5rem;
+
+								li {
+												padding-left: 2rem;
+								}
 				}
 }
 
