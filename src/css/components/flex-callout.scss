@@ -16,6 +16,10 @@
 		padding: 120px 0 130px;
 	}
 
+	& + & {
+		@include margined_lg_top;
+	}
+
 	&:before {
 		@include cover;
 
