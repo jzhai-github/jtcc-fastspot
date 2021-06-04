@@ -38,16 +38,16 @@
 			.on('keydown', onCloseKeydown)
 			.on('click', onMenuSwapDeactivate);
 
-		$(document).on('click touchstart', onDocumentClick);
+		// $(document).on('click touchstart', onDocumentClick);
 	}
 
-	function onDocumentClick(e) {
-		if ($('body').hasClass(LockClass)) {
-			if (!$(e.target).closest('.js-menu').length) {
-				$MenuToggle.swap('deactivate');
-			}
-		}
-	}
+	// function onDocumentClick(e) {
+	// 	if ($('body').hasClass(LockClass)) {
+	// 		if (!$(e.target).closest('.js-menu').length) {
+	// 			$MenuToggle.swap('deactivate');
+	// 		}
+	// 	}
+	// }
 
 	function onMenuSwapActivate() {
 		$('body').addClass(LockClass);
