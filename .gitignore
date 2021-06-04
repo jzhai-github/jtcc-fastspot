@@ -4,6 +4,7 @@ git/
 images/
 !/static-html
 !/static-html/images
+!/src/images
 themes/user/site/default/asset/img/
 backups/
 *.sql
