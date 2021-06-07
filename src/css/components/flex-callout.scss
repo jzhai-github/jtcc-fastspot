@@ -38,7 +38,7 @@
 .flex_callout_background {
 	@include cover;
 
-	height: 100vh;
+	height: calc(100vh - var(--header_height, 0px));
 
 	position: sticky;
 
@@ -86,7 +86,8 @@
 	padding: 140px 0 55px;
 
 	@media #{$max_md} {
-		margin-top: -50vh;
+		padding-top: 0;
+		margin-top: -250px;
 	}
 
 	@media #{$min_md} {
