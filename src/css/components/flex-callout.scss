@@ -1,12 +1,9 @@
 .flex_callout {
 	position: relative;
 
-	min-height: 200vh;
-
 	background: $navy;
 
 	@media #{$min_md} {
-		min-height: auto;
 		height: auto;
 
 		padding: 90px 0;
@@ -87,6 +84,10 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 140px 0 55px;
+
+	@media #{$max_md} {
+		margin-top: -50vh;
+	}
 
 	@media #{$min_md} {
 		min-height: inherit;
