@@ -59,6 +59,6 @@
 		"not IE 11"
 	],
 	"dependencies": {
-		"caniuse-lite": "^1.0.30001228"
+		"caniuse-lite": "^1.0.30001235"
 	}
 }
