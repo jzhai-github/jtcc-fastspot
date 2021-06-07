@@ -24,7 +24,7 @@
 
 		background: linear-gradient(
 			to bottom,
-			rgba(#000, 0) 15%,
+			rgba(#000, 0.4) 15%,
 			rgba(#000, 0.6) 65%
 		);
 		content: '';
@@ -38,7 +38,7 @@
 .flex_callout_background {
 	@include cover;
 
-	height: calc(100vh - var(--header_height, 0px));
+	height: calc(100vh);
 
 	position: sticky;
 
@@ -87,7 +87,7 @@
 
 	@media #{$max_md} {
 		padding-top: 0;
-		margin-top: -250px;
+		margin-top: -300px;
 	}
 
 	@media #{$min_md} {
