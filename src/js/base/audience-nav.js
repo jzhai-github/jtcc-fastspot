@@ -7,12 +7,14 @@
 (function ($, Site) {
 	var $AudienceLink,
 		$AudienceNav,
+		$AudienceGroup,
 		$AudienceToggle,
 		$CurrentPanel,
 		$CurrentTrigger;
 
 	function init() {
 		$AudienceToggle = $('.js-audience-toggle');
+		$AudienceGroup = $('.js-audience-group');
 
 		if (!$AudienceToggle.length) {
 			return;
@@ -31,10 +33,28 @@
 				'aria-expanded': 'false'
 			});
 
+		$AudienceGroup.on('mouseover mouseout', onMouseEvents);
+
 		$AudienceNav.attr('aria-hidden', 'true').on('keydown', onNavKeydown);
 		$AudienceLink.attr('tabindex', '-1');
 
 		$(document).on('click touchstart', onDocumentClick);
+	}
+
+	function onMouseEvents(event) {
+		var type = event.type;
+
+		if (type === 'mouseover') {
+			if ($AudienceToggle.hasClass('fs-swap-active')) return;
+
+			$AudienceToggle.swap('activate');
+
+			return;
+		}
+
+		if (!$AudienceToggle.hasClass('fs-swap-active')) return;
+
+		$AudienceToggle.swap('deactivate');
 	}
 
 	function closePopup() {

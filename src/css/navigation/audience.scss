@@ -19,12 +19,11 @@
 }
 
 .audience_nav {
+	background: $mustard;
+	color: #000;
 	padding: 0 0 26px;
 
 	&.audience_nav_sm {
-		background-color: $teal;
-		color: #fff;
-
 		.audience_group.fs-swap-enabled & {
 			display: none;
 		}
@@ -40,7 +39,6 @@
 		position: absolute;
 		z-index: 200;
 
-		background: #f0f0f0;
 		opacity: 0;
 		transform: translate(0, -40px);
 		pointer-events: none;
@@ -78,14 +76,14 @@
 		height: 1px;
 		width: 50px;
 
-		background: $navy;
+		background: $bright_pink;
 		display: block;
 		content: '';
 		margin-left: 20px;
 		margin-bottom: 12px;
 
 		@media #{$min_lg} {
-			background: $bergundy;
+			background: $bright_pink;
 		}
 	}
 }
@@ -134,33 +132,20 @@
 	position: relative;
 	z-index: 300;
 
-	border: 1px solid $teal;
-	color: #fff;
+	background-color: $mustard;
+	color: #000;
 	display: block;
 	font-size: 14px;
 	letter-spacing: 1.75px;
 	line-height: 1;
 	transition: background-color $base_speed, color $base_speed;
 
-	@media #{$min_lg} {
-		background: #f0f0f0;
-		border: 0;
-		color: #000;
-	}
-
-	&:hover,
-	&:focus,
-	&.fs-swap-active {
-		@media #{$max_lg} {
-			background-color: $teal;
-			color: #fff;
-		}
-	}
-
-	&:hover,
-	&:focus {
-		@media #{$min_lg} {
-			background: darken(#f0f0f0, 5%);
+	@media #{$min_md} {
+		&:not(.fs-swap-active) {
+			&:hover,
+			&:focus {
+				background-color: darken($mustard, 5%);
+			}
 		}
 	}
 
@@ -230,11 +215,8 @@
 
 .audience_toggle_icon {
 	margin-left: auto;
-
-	@media #{$min_lg} {
-		color: $bergundy;
-		opacity: 0.75;
-	}
+	color: $bergundy;
+	opacity: 0.75;
 }
 
 .audience_toggle_icon_default {
