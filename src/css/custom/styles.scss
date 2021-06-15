@@ -695,6 +695,11 @@ span.time {
 				background: #FFFFFF;
 }
 
+.js-accordion .typography ol li,
+.js-accordion .typography ul li {
+				padding-left: 1.5rem;
+}
+
 .js-accordion .typography ol>li::before {
 				background: none;
 				content: counter(li) ". ";
