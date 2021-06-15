@@ -4,6 +4,8 @@ const pkgJson = require('./package.json');
 const fractal = (module.exports = require('@frctl/fractal').create());
 const mandelbrot = require('@frctl/mandelbrot');
 const config = require('./config.json');
+const imageSizes = require(`./image-sizes.json`);
+
 const twigAdapter = require('@frctl/twig')({
 	importContext: true,
 	namespaces: {
@@ -20,13 +22,18 @@ const twigAdapter = require('@frctl/twig')({
 });
 const env = process.env.NODE_ENV || 'development';
 const isProduction = env === 'production';
-const isDevelopment = !isProduction;
 const customizedTheme = mandelbrot({
 	skin: 'black',
 	highlightStyles:
 		'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/gruvbox-dark.min.css',
-	favicon: '/favicons/favicon.ico'
+	favicon: '/favicons/favicon.ico',
+	nav: ['search', 'components', 'docs'],
+	panels: isProduction
+		? ['html', 'view', 'info', 'notes']
+		: ['html', 'view', 'resources', 'info', 'notes']
 });
+
+customizedTheme.addLoadPath(__dirname + '/src/fractal/mandelbrot');
 
 process.env.FRACTAL_CWD = __dirname;
 
@@ -37,19 +44,10 @@ fractal.set('project.author', 'Fastspot');
 
 fractal.docs.engine(twigAdapter);
 fractal.docs.set('path', __dirname + '/src/docs');
-fractal.docs.set('default.status', 'ready');
+fractal.docs.set('default.status', 'draft');
+fractal.docs.set('indexLabel', 'Project Overview');
 
 fractal.components.set('statuses', {
-	prototype: {
-		label: 'Prototype',
-		description: 'Do not implement.',
-		color: '#E53E3E'
-	},
-	framework: {
-		label: 'Framework',
-		description: 'Unmodified from Framework',
-		color: '#3182CE'
-	},
 	wip: {
 		label: 'WIP',
 		description: 'Work in progress. Implement with caution.',
@@ -62,24 +60,30 @@ fractal.components.set('statuses', {
 	}
 });
 
+fractal.components.set('default.context', {
+	grid: true,
+	cell: 'fs-lg-8 fs-lg-push-1',
+	navigation: config.navigation,
+	img: imageSizes,
+	config: config.twig_variables
+});
+
 fractal.components.engine(twigAdapter);
 fractal.components.set('ext', '.twig');
 fractal.components.set('path', __dirname + '/src/twig');
 fractal.components.set('default.preview', '@preview');
-fractal.components.set('default.status', 'ready');
+fractal.components.set('default.status', 'wip');
 fractal.components.set('default.collator', function (markup, item) {
 	const headingStyle =
 		item.preview === '@preview-dark' ? 'color: #fff;' : 'color: #000;';
 	const bgStyle =
 		item.preview === '@preview-dark'
-			? 'background-color: #000;'
-			: 'background-color: #fff;';
+			? 'background-color: #000; padding: 2rem;'
+			: 'background-color: #fff;  padding: 2rem 0';
 
 	return `
-		<br><br>
-
         <div style="${bgStyle}">
-            <h2 class="heading-h2" style="${headingStyle}; padding: 0 24px;">
+            <h2 style="${headingStyle}">
                 ${item.title}
             </h2>
 
@@ -88,12 +92,20 @@ fractal.components.set('default.collator', function (markup, item) {
             <div>
                 ${markup}
             </div>
-        </div>
+		</div>
     `;
 });
 
 fractal.web.theme(customizedTheme);
 fractal.web.set('static.path', __dirname + '/dist');
 fractal.web.set('builder.dest', __dirname + '/static-html');
-
-module.exports = fractal;
+fractal.components.set('label', 'Library');
+fractal.components.set('exclude', ['**/node_modules/**']);
+fractal.web.set('server.syncOptions', {
+	watchOptions: {
+		ignored: [
+			'**/components/**/*.{scss,js}',
+			'!**/components/**/*.config.js'
+		]
+	}
+});
