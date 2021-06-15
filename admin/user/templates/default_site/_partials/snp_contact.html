@@ -22,13 +22,13 @@
 					</div>
 					{/if}
 				</div>
-				{if chester_phone || chester_email || chester_location}
+				{if chester_phone || chester_fax || chester_email || chester_location}
 				<!-- Contact Details -->
 				<div class="contact_details_wrapper">
 					<h3 class="contact_details_title">Chester Campus</h3>
 					<div class="contact_details">
 						<div class="contact_detail">
-							{if chester_phone || chester_email}
+							{if chester_phone || chester_fax || chester_email}
 							<div class="contact_detail_label">Contact</div>
 							{/if}
 							{if chester_phone}
@@ -40,6 +40,18 @@
 										</svg>
 									</span>
 									<span class="contact_detail_info_label">{chester_phone}</span>
+								</a>
+							</div>
+							{/if}
+							{if chester_fax}
+							<div class="contact_detail_item">
+								<a class="contact_detail_info" itemprop="fax">
+									<span class="contact_detail_info_icon">
+										<svg class="icon icon_fax">
+											<use href="/images/icons.svg#fax" />
+										</svg>
+									</span>
+									<span class="contact_detail_info_label">{chester_fax}</span>
 								</a>
 							</div>
 							{/if}
@@ -108,12 +120,12 @@
 					<!-- END: Contact Details -->
 				</div>{!-- /contact_details_wrapper --}
 				{/if}
-			{if midlothian_phone || midlothian_email || midlothian_location}
+			{if midlothian_phone || midlothian_fax || midlothian_email || midlothian_location}
 				<!-- Contact Details -->
 				<div class="contact_details_wrapper">
 					<h3 class="contact_details_title">Midlothian Campus</h3>
 						<div class="contact_details">
-							{if midlothian_phone || midlothian_email}
+							{if midlothian_phone || midlothian_fax || midlothian_email}
 							<div class="contact_detail">
 								<div class="contact_detail_label">Contact</div>
 							{/if}
@@ -126,6 +138,18 @@
 											</svg>
 										</span>
 										<span class="contact_detail_info_label">{midlothian_phone}</span>
+									</a>
+								</div>
+								{/if}
+								{if midlothian_fax}
+								<div class="contact_detail_item">
+									<a class="contact_detail_info" itemprop="fax">
+										<span class="contact_detail_info_icon">
+											<svg class="icon icon_fax">
+												<use href="/images/icons.svg#fax" />
+											</svg>
+										</span>
+										<span class="contact_detail_info_label">{midlothian_fax}</span>
 									</a>
 								</div>
 								{/if}

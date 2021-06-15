@@ -280,12 +280,12 @@ include("includes/courses_conn.php");
 				</div>';*/
 				echo '<select class="filter_tool_select" name="class-format">
 						<option value="">All Class Formats</option>
+						<option value="Chester">On Campus: Chester</option>
+						<option value="Midlothian">On Campus: Midlothian</option>
 						<option value="Virtual">Virtual</option>
 						<option value="Zoom">Zoom Classes</option>
 						<option value="Hybrid_zoom">Hybrid: Virtual and Zoom</option>
-						<option value="Hybrid_campus">Hybrid: Virtual and On-Campus</option>
-						<option value="Chester">On Campus: Chester</option>
-						<option value="Midlothian">On Campus: Midlothian</option>	
+						<option value="Hybrid_campus">Hybrid: Virtual and On-Campus</option>	
 					</select>';
 			?>
 				<span class="filter_tool_select_icon">
@@ -806,10 +806,12 @@ if (isset($_POST['search_sbmt'])) {
         	<div class="fs-row">
             	<div class="fs-cell">
             		<div class="wysiwyg_block_inner typography"> 
-            			<h4>Maymester: May 17 – June 6</h4>
+            			<!--<h4>Maymester: May 17 – June 6</h4>
 						<p>Complete a 3-credit course in 3 weeks. Select Maymester from the session drop-down to see your options.</p>
 						<h4>Summer 2021 Course Schedule</h4>
-						<p>We plan to offer fully online classes, classes that combine in-person and online instruction, and a limited number of in-person classes. The course section numbers and course notes listed with each course on the schedule provide information on how the course will be taught.</p>
+						<p>We plan to offer fully online classes, classes that combine in-person and online instruction, and a limited number of in-person classes. The course section numbers and course notes listed with each course on the schedule provide information on how the course will be taught.</p>-->
+						<h4>Fall 2021 Course Schedule</h4>
+						<p>We plan to offer in-person classes, fully online classes, and classes that combine in-person and online instruction. The course section numbers and course notes listed with each course on the schedule provide information on how the course will be taught.</p>
  	<p>Options include:</p>
  	<ul>
  	<!--
@@ -819,6 +821,13 @@ if (isset($_POST['search_sbmt'])) {
  	<li><strong>Course Section ID that begins with a number.</strong> This is a class that will meet on the Chester campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to enroll separately.</li>
  	<li><strong>Course Section ID that begins with M.</strong> This is a class that will meet on the Midlothian campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to enroll separately.</li>
  	-->
+<li><strong>On Campus: Chester</strong><br />
+Look for Course Section IDs that begin with numbers<br />
+Classes meet on the Chester campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.<br />
+Example: MTH 161 62A</li>
+<li><strong>On Campus: Midlothian</strong><br />
+Look for Course Section IDs that begin with M<br />
+Classes meet on the Midlothian campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.</li>
 <li><strong>Virtual</strong><br />
 Look for Course Section IDs that begin with N.<br />
 Classes are taught fully in Canvas and include self-paced, online assignments. There are no required Zoom or on-campus meetings at set times.<br />
@@ -835,13 +844,6 @@ Example: ART 101 R01S</li>
 Look for Course Section IDs that begin with R<br />
 Classes combine online, self-paced classwork in Canvas and face-to-face meetings​.<br />
 Example: CHM 112 R11B</li>
-<li><strong>On Campus: Chester</strong><br />
-Look for Course Section IDs that begin with numbers<br />
-Classes meet on the Chester campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.<br />
-Example: MTH 161 62A</li>
-<li><strong>On Campus: Midlothian</strong><br />
-Look for Course Section IDs that begin with M<br />
-Classes meet on the Midlothian campus on the days and times listed. Science lab sections are attached to a specific course lecture so you don’t have to register separately.</li>
  	</ul>
  	<p>Learn more about class types through <a href="https://www.youtube.com/playlist?list=PLK6wZ5EAzyGOTrmreJ50x30ExtzwPK6G0">our video series</a>.</p>
  	<p>Questions about course options and placement testing should be directed to the <a href="/services/advising">Advising Center</a>.</p>
@@ -852,12 +854,12 @@ Classes meet on the Midlothian campus on the days and times listed. Science lab 
 			<li><a href="/admissions/get-started/">Applying to the College</a></li>
 			<!--<li><a href="http://www.jtccbooks.com" target="_blank">Bookstore</a></li>-->
 			<li><a href="/services/bookstore" target="_blank">Bookstore</a></li>  
-			<li><a href="/college-catalog/">College Catalog and Student Handbook</a></li> 
+			<li><a href="https://catalog.jtcc.edu/">College Catalog and Student Handbook</a></li> 
 			<li><a href="/academics/drop-withdraw-request-to-repeat/">Drops, Withdraws, and Request Repeat</a></li> 
 			<li><a href="/academics/exam-schedule/">Exam Schedule</a></li> 
 			<li><a href="/majors/">Majors</a></li> 
 			<li><a href="/paying-for-tyler/tuition-and-fees/">Tuition and fees</a></li> 
-			<li><a href="/mytyler/">Using myTyler to register for classes, pay tuition and fees, or verify enrollment</a></li>
+			<li><a href="https://jt.my.vccs.edu" target="_blank">Using myTyler to register for classes, pay tuition and fees, or verify enrollment</a></li>
 		</ul>
 					</div>
     			</div>
@@ -883,7 +885,7 @@ mysqli_close($conn);
         <div class="fs-row">
             <div class="fs-cell">
             	<div class="wysiwyg_block_inner typography"> 
-            		<p>Need help? Visit the <a href="/">Admissions and Records Office</a> at Chester or Midlothian, or call the Student Information Center at 804-796-4000.</p>
+            		<p>Need help? Visit the <a href="/admissions/admissions-and-records/">Admissions and Records Office</a> at Chester or Midlothian, or call 804-796-4000.</p>
             	</div>
     		</div>
      	</div>
