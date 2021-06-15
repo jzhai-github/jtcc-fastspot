@@ -32,7 +32,7 @@
 		$CloseButton = $('.js-alert-close');
 		$OpenButton = $('.js-alert-open');
 		Time = $Alert.data('time');
-		CookieName = Site.Namespace + '-alert';
+		CookieName = 'framework-alert';
 		CookieValue = $.cookie(CookieName);
 
 		if (CookieValue) {
