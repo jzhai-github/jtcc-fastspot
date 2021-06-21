@@ -28,6 +28,28 @@
 							
 						</div>
 					</div>
+					{if content:testimonial_mobile_image}
+					<div class="testimonial_media">
+						{content:testimonial_mobile_image}
+						<span class="lazy_image_wrapper testimonial_image_wrapper">
+							<img class="js-lazy testimonial_image lazyautosizes js-lazyloaded" data-sizes="auto" src='
+							{img:url:resize width="740" height="555"}' data-src='{img:url:resize width="740" height="555"}' data-srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w' alt="{img:title}" sizes="478px" srcset='{img:url:resize width="740" height="555"} 740w, {img:url:resize width="980" height="735"} 980w'>
+						</span>
+						<noscript>
+							<img class="testimonial_image" src='{img:url:resize width="980" height="735"}'  srcset='{img:url:resize width="980" height="735"} 980w, {img:url:resize width="740" height="555"} 740w' sizes="100vw"  alt="{img:title}" >
+						</noscript>
+						{/content:testimonial_mobile_image}
+						{content:testimonial_background_image}
+						<div class="js-background testimonial_background fs-background-element fs-background fs-background-lazy fs-background-loaded" data-background-options='{&quot;source&quot;: { &quot;1220px&quot;: &quot;{img:url:resize width="1080" height="1440"}&quot;, &quot;740px&quot;: &quot;{img:url:resize width="735" height="980"}&quot;, &quot;500px&quot;: &quot;{img:url:resize width="980" height="654"}&quot;, &quot;0px&quot;: &quot;{img:url:resize width="494" height="740"}&quot;, &quot;980px&quot;: &quot;{img:url:resize width="915" height="1220"}&quot;}, &quot;lazy&quot;: true, &quot;alt&quot;: &quot;&quot;}' aria-hidden="true">
+							<div class="testimonial_background_fallback" style=&quot;background-image: url(' {img:url:resize width="300" height="129"}');&quot;></div>
+							<div class="fs-background-container">
+								<div class="fs-background-media fs-background-responsive fs-background-native" aria-hidden="true" style="background-image: url('{img:url:resize width="1080" height="1440"}'); opacity: 1;"><img alt="{img:title}" src='{img:url:resize width="1080" height="1440"}'>
+								</div>
+							</div>
+						</div>{!-- /js-background --}
+						{/content:testimonial_background_image}
+					</div>{!-- /testimonial_media --}
+					{if:else}
 					{content:testimonial_background_image}
 					<div class="testimonial_media">
 						<span class="lazy_image_wrapper testimonial_image_wrapper">
@@ -46,6 +68,7 @@
 						</div>{!-- /js-background --}
 					</div>{!-- /testimonial_media --}
 					{/content:testimonial_background_image}
+					{/if}
 				</div>{!-- /testimonial_inner --}
 			</div>{!-- /testimonial --}
 		{/content}
