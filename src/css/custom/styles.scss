@@ -833,6 +833,10 @@ span.time {
 				.flex-l {
 								display: flex;
 				}
+
+				.filter_results_reset_link.news_reset {
+								margin-left: 1rem;
+				}
 }
 
 @media #{$min_xl} {}
