@@ -97,6 +97,10 @@
 <?php
 include("includes/courses_conn.php");
 
+$file_spring = '../tasks/JTWEBCRSECAT_SPRING.CSV';
+$file_summer = '../tasks/JTWEBCRSECAT_SUMMER.CSV';
+$file_fall = '../tasks/JTWEBCRSECAT_FALL.CSV';
+
 	$default_term = "courses_summer";
 
 	echo '<script type="text/javascript">
@@ -415,15 +419,15 @@ if (isset($_POST['search_sbmt'])) {
 	if (substr($term,8,4) == 'fall') {
 			$subject	= $_POST['fall_subject'];
 			$session	= $_POST['fall_session'];
-			//$last_modified = filemtime("JTWEBCRSECAT_FALL.CSV");
+			//$last_modified = filemtime($file_fall);
 	} elseif (substr($term,8,4) == 'spri') {
 			$subject	= $_POST['spring_subject'];
 			$session	= $_POST['spring_session'];
-			//$last_modified = filemtime("JTWEBCRSECAT_SPRING.CSV");
+			//$last_modified = filemtime($file_spring);
 	} elseif (substr($term,8,4) == 'summ') {
 			$subject	= $_POST['summer_subject'];
 			$session	= $_POST['summer_session'];
-			//$last_modified = filemtime("JTWEBCRSECAT_SUMMER.CSV");
+			//$last_modified = filemtime($file_summer);
 	}
 	
 	// build the search query 	
@@ -521,7 +525,7 @@ if (isset($_POST['search_sbmt'])) {
 					<div class="fs-cell">
 						<div class="filter_results_inner">
 							<p class="filter_results_description">'
-								. $total_results . ' records found.
+								. $total_results . ' records found. 
 							</p>
 										
 		<a href="/schedule" class="filter_results_reset_link" >
