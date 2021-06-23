@@ -59,14 +59,20 @@
 			
 {layout:contents}
 {main_content}
-	{if segment_4 == 'transfer-credit-request-form'}
-		{embed="admissions/transfer-credit-form"}
-	{/if}
 	{main_content:wysiwyg_block}
 	<div class="wysiwyg_block">
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="wysiwyg_block_inner typography">
+					{if "{categories show_group='9'}{category_id}{/categories}" != '59'}
+						<p><strong>Expiration Date: </strong>
+							{if expiration_date == ''}
+								Open until filled 
+							{if:else}
+								{expiration_date format="%m/%d/%Y"}
+							{/if}
+						</p>
+					{/if}
 					{content}					
 				</div>
 			</div>
