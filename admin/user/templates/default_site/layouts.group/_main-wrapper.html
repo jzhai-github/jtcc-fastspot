@@ -90,7 +90,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </div>
 
 {snp_mobile_nav}
-
+{if segment_1 == 'news'}
+<div class="loader-wrapper">
+<span class="loader"><span class="loader-inner"></span></span>
+</div>
+{/if}
 </main>
 
 		<script>
@@ -163,7 +167,13 @@ var STATIC_ROOT = "../../index.html";
 				$(".grand-children").prevAll(".siblings").css({"display": "none"});
 				$(".children").prevAll(".siblings").css({"display": "none"});
 			});
-		</script>			
-		
+		</script>
+		{if segment_1 == 'news'}
+		<script>
+			$(window).on("load", function(){
+				$(".load-wrapper").fadeOut("slow");
+			});
+		</script>
+		{/if}
 	</body>
 </html>
