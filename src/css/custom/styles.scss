@@ -729,12 +729,13 @@ span.time {
 				display: flex;
 				justify-content: center;
 				align-items: center;
+				z-index: 1000;
 }
 
 .loader {
 				display: inline-block;
-				width: 30px;
-				height: 30px;
+				width: 60px;
+				height: 60px;
 				position: relative;
 }
 
