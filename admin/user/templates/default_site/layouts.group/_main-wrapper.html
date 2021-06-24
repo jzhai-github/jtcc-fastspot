@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="mobile-web-app-capable" content="yes">
-		{!-- {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
-		<title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news' && segment_2 == ''}News{if:else}{layout:title}{/if}</title> --}
-		{if segment_1 == 'news' && segment_2 == '' || segment_1 == 'news' && segment_2 != '{layout:url_title}'}<title>News</title>
-		{if:else}
-		{exp:seeo:single entry_id="{layout:entry_id}" hide_site_title="y"}
-		{/if}
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        {!-- {if layout:seo_description}<meta name="description" content="{layout:seo_description}">{/if}
+        <title>{if segment_1 ==''}John Tyler Community College | Chester & Midlothian {if:elseif segment_1 == 'news' && segment_2 == ''}News{if:else}{layout:title}{/if}</title> --}
+        {if segment_1 == 'news' && segment_2 == '' || segment_1 == 'news' && segment_2 != '{layout:url_title}'}<title>News</title>
+        {if:else}
+        {exp:seeo:single entry_id="{layout:entry_id}" hide_site_title="y"}
+        {/if}
 
-		<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-		<link rel="manifest" href="/favicons/site.webmanifest">
-		<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ffffff">
-		<link rel="shortcut icon" href="/favicons/favicon.ico">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-config" content="/favicons/browserconfig.xml">
-		<!-- Facebook -->
-		{!-- <meta property="og:title" content="{layout:og_title}">
-		<meta property="og:type" content="website">
-		<meta property="og:image" content="{layout:og_image}">
-		<meta property="og:image:width" content="1200">
-		<meta property="og:image:height" content="600">
-		{if layout:seo_description}<meta property="og:description" content="{layout:seo_description}">{/if}
-		<meta property="og:site_name" content=""> --}
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+        <link rel="manifest" href="/favicons/site.webmanifest">
+        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ffffff">
+        <link rel="shortcut icon" href="/favicons/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+        <!-- Facebook -->
+        {!-- <meta property="og:title" content="{layout:og_title}">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="{layout:og_image}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="600">
+        {if layout:seo_description}<meta property="og:description" content="{layout:seo_description}">{/if}
+        <meta property="og:site_name" content=""> --}
 
-		<!-- Twitter -->
-		{!-- <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@">
-		<meta name="twitter:creator" content="@">
-		<meta name="twitter:url" content="//twitter.com/">
-		<meta name="twitter:title" content="{layout:og_title}">
-		{if layout:seo_description}<meta name="twitter:description" content="{layout:seo_description}">{/if}
-		<meta name="twitter:image" content="https:///social.png"> --}
+        <!-- Twitter -->
+        {!-- <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@">
+        <meta name="twitter:creator" content="@">
+        <meta name="twitter:url" content="//twitter.com/">
+        <meta name="twitter:title" content="{layout:og_title}">
+        {if layout:seo_description}<meta name="twitter:description" content="{layout:seo_description}">{/if}
+        <meta name="twitter:image" content="https:///social.png"> --}
 
-		<link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
-		
-		<!--<link media="all" rel="stylesheet" href="/src/css/tinymce.css">-->
+        <link media="all" rel="stylesheet" href="{exp:rd_cache_breaker file='/static-html/css/site.css' separator='?'}">
+
+        <!--<link media="all" rel="stylesheet" href="/src/css/tinymce.css">-->
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -49,23 +49,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-M7KGFM5');</script>
 <!-- End Google Tag Manager -->
-	</head>
+    </head>
 
-	<body class="preload no-js fs-grid theme-default {if segment_1 ==''}body_layout_home{/if}">
-		<div class="js-alert-wrapper">
-		</div>
-		<main>
-			{snp_desktop_nav}
+    <body class="preload no-js fs-grid theme-default {if segment_1 ==''}body_layout_home{/if}">
+        <div class="js-alert-wrapper">
+        </div>
+        <main>
+            {snp_desktop_nav}
 
 <!-- Page Wrapper -->
-	<div
-		id="skip_content" tabindex="-1" class="page_wrapper">
-		<!-- Page -->
-		<div class="page">
-			{layout:contents}
-			
-		</div>
-	</div>
+    <div
+        id="skip_content" tabindex="-1" class="page_wrapper">
+        <!-- Page -->
+        <div class="page">
+            {layout:contents}
+
+        </div>
+    </div>
 
 </main>
 <!-- END: Page -->	
@@ -73,40 +73,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {snp_footer}
 
 <div class="alert_open_wrapper">
-	<div class="fs-row">
-		<div class="fs-cell">
-			<button class="js-alert-open alert_open">
-				<span class="alert_open_inner">
-					<span class="alert_open_icon" aria-hidden="true">
-						<svg class="icon icon_alert">
-							<use href="/static-html/images/icons.svg#alert" />
-						</svg>
-					</span>
-					<span class="alert_open_label">Open site alert</span>
-				</span>
-			</button>
-		</div>
-	</div>
+    <div class="fs-row">
+        <div class="fs-cell">
+            <button class="js-alert-open alert_open">
+                <span class="alert_open_inner">
+                    <span class="alert_open_icon" aria-hidden="true">
+                        <svg class="icon icon_alert">
+                            <use href="/static-html/images/icons.svg#alert" />
+                        </svg>
+                    </span>
+                    <span class="alert_open_label">Open site alert</span>
+                </span>
+            </button>
+        </div>
+    </div>
 </div>
 
 {snp_mobile_nav}
 
 </main>
 
-		<script>
-			var WWW_ROOT = "";
+        <script>
+            var WWW_ROOT = "";
 var STATIC_ROOT = "../../index.html";
-		</script>
+        </script>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-				
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 {!-- js for Date Picker --}	
 {!-- https://dev.jtcc.edu/services/proctored-test-form --}
 {if segment_3 == "makeup-test-registration" || segment_3 == "proctored-test-registration" || segment_5 == "workforce-credentials-scholarship-application"}
-	<script src="/src/js/custom/jquery-ui.min.js"></script>
-	<script src="/src/js/custom/custom.js"></script>
-	{if segment_3 == "proctored-test-registration"}
-	<script type="text/javascript">   
+    <script src="/src/js/custom/jquery-ui.min.js"></script>
+    <script src="/src/js/custom/custom.js"></script>
+    {if segment_3 == "proctored-test-registration"}
+    <script type="text/javascript">
         function createInstructors(){
             $('#instructor').val("");
             $('#insEmail').val("");
@@ -139,31 +139,231 @@ var STATIC_ROOT = "../../index.html";
 {/if}
 {!----------------------------------}
 
-		<!--<script src="../../js/site.js"></script>-->
-		<script src="/static-html/js/site.js"></script>
-		
-		{if segment_1 == 'calendar'}
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="{exp:calendar:theme_folder_url}code_pack/js/bootstrap.min.js"></script>
-		<script src="{exp:calendar:theme_folder_url}code_pack/js/minical.js"></script>
-		{if embed:load_fieldtype == "yes"}
-			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-			<script type="text/javascript" src="{exp:calendar:theme_folder_url}plugins/jquery-timepicker-jt/jquery.timepicker.min.js"></script>
-			<script type="text/javascript" src="{exp:calendar:theme_folder_url}js/calendar.fieldtype.js"></script>
-			<script type="text/javascript" src="{exp:calendar:theme_folder_url}js/template.fieldtype.js"></script>
-		{/if}
-		<script>
-			$(document).ready(function(){
-				$('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom','html': 'true'});
-			});
-		</script>
-		{/if}
-		<script>
-			$(document).ready(function(){
-				$(".grand-children").prevAll(".siblings").css({"display": "none"});
-				$(".children").prevAll(".siblings").css({"display": "none"});
-			});
-		</script>			
-		
-	</body>
+        <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
+
+        <script>
+            const searchClient = algoliasearch('6ICTLN1IG8', 'd6c95e04679dd9216e0844b27f1d2af9');
+
+            const search = instantsearch({
+                searchClient,
+                indexName: 'majors',
+                routing: {
+                    router: instantsearch.routers.history(),
+                    stateMapping: instantsearch.stateMappings.simple(),
+                },
+            });
+
+            search.addWidgets([
+                instantsearch.widgets.analytics({
+                    pushFunction(formattedParameters, state, results) {
+                        dataLayer.push({
+                            'event': 'search',
+                            'Search Query': state.query,
+                            'Facet Parameters': formattedParameters,
+                            'Number of Hits': results.nbHits,
+                        });
+                    },
+                }),
+
+                instantsearch.widgets.searchBox({
+                    container: '#major_search_input',
+                    placeholder: 'Search by keyword',
+                    showReset: false,
+                    showSubmit: false,
+                    templates: {
+                    },
+                    cssClasses: {
+                        input: 'filter_search_input'
+                    }
+                }),
+
+                instantsearch.widgets.menuSelect({
+                    container: '#filter_degree_type',
+                    attribute: 'categories.degree_type.title',
+                    templates: {
+                        defaultOption: 'All Degrees & Certificates',
+                    },
+                    cssClasses: {
+                        select: 'filter_tool_select'
+                    }
+                }),
+
+                instantsearch.widgets.menuSelect({
+                    container: '#filter_career_cluster',
+                    attribute: 'categories.career_cluster.title',
+                    templates: {
+                        defaultOption: 'All Career Clusters',
+                    },
+                    cssClasses: {
+                        select: 'filter_tool_select'
+                    }
+                }),
+
+                instantsearch.widgets.menuSelect({
+                    container: '#filter_study_mode',
+                    attribute: 'categories.mode_of_study.title',
+                    templates: {
+                        defaultOption: 'All Modes of Study',
+                    },
+                    cssClasses: {
+                        select: 'filter_tool_select'
+                    }
+                }),
+
+                instantsearch.widgets.hits({
+                    container: '.program_list #item_list',
+                    escapeHTML: false,
+                    templates: {
+                        item: `
+                          <li class="js-accordion-item js-program-item-1-{{ __hitIndex }} program_item">
+                            <div class="fs-row">
+                              <div class="fs-cell">
+                                <div class="program_item_inner">
+                                  <h2 class="program_item_heading">
+                                    <button class="js-accordion-swap js-swap program_item_button" data-swap-target=".js-program-item-1-{{ __hitIndex }}" data-swap-group="program-group-1">
+                                      <span class="program_item_heading_inner">
+                                        <span class="program_item_heading_label">
+                                          <span class="program_item_heading_title">
+                                            <span class="program_item_heading_title_label">{{ title }}</span>
+                                              <span class="program_item_heading_title_icon">
+                                                <svg class="icon icon_caret_right">
+                                                  <use href="/images/icons.svg#caret_right" />
+                                                </svg>
+                                              </span>
+                                            </span>
+
+                                            <span class="program_item_heading_mode">
+                                              <span class="program_item_heading_mode_label">Learning Mode<span class="program_item_heading_mode_label_hint">:													</span>
+                                            </span>
+
+                                            <span class="program_item_heading_mode_data_wrapper">
+                                                {{#categories.mode_of_study}}
+                                                    <span class="program_item_heading_mode_data theme_mustard">{{ title }}</span>
+                                                {{/categories.mode_of_study}}
+                                                {{#categories.program_type}}
+                                                    <span class="program_item_heading_mode_data theme_green_blue">{{ title }}</span>
+                                                {{/categories.program_type}}
+                                            </span>
+                                          </span>
+                                        </span>
+                                        <span class="program_item_heading_icon"></span>
+                                      </span>
+                                    </button>
+                                  </h2>
+
+                                  <div class="js-accordion-content program_item_content" aria-label="{{ title }}">
+                                    <div class="program_item_content_inner">
+                                      <div class="program_item_content_group">
+                                        <div class="program_item_description typography">
+                                          <p>{{ page_description }}</p>
+                                        </div>
+                                      </div>
+
+                                      <div class="program_item_details">
+                                        <div class="program_item_detail">
+                                          <span class="program_item_detail_label">Degree & Certificate Type<span class="program_item_detail_label_hint">:</span></span>
+                                          <span class="program_item_detail_data">
+                                            {{#categories.degree_type}}
+                                              <span class="program_item_detail_data_link_label">{{ title }}</span>
+                                            {{/categories.degree_type}}
+                                            <br /><br />
+                                            <h3>
+                                              <a class="program_item_detail_data_link" href="{{ url_title }}">
+                                                <span class="program_item_detail_data_link_label">Major Details</span>
+                                                  <span class="program_item_detail_data_link_icon">
+                                                    <svg class="icon icon_caret_right">
+                                                      <use href="/images/icons.svg#caret_right" />
+                                                    </svg>
+                                                  </span>
+                                                </a>
+                                              </h3>
+                                            </span>
+                                          </div>
+
+                                          <div class="program_item_detail">
+                                            <span class="program_item_detail_label">Career Cluster<span class="program_item_detail_label_hint">:</span></span>
+                                            {{#categories.career_cluster}}
+                                              <span class="program_item_detail_data">{{ title }}<br /></span>
+                                            {{/categories.career_cluster}}
+                                          </div>
+                                        </div>
+
+                                        {if link != ''}
+                                          <div class="program_item_content_group">
+                                            <div class="program_item_description typography">
+                                              <h4><a href="{link}">More Information about {title} in Catalog</a></h4>
+                                            </div>
+                                          </div>
+                                        {/if}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                        `,
+                        empty: `
+                            <div class="filter_results">
+                              <div class="fs-row">
+                                <div class="fs-cell">
+                                  <div class="filter_results_inner">
+                                    <p class="filter_results_description">
+                                      No results found.
+                                    </p>
+                                    <a href="/majors" class="filter_results_reset_link" >
+                                      <span class="filter_results_reset_link_inner">
+                                        <span class="filter_results_reset_link_label">Reset</span>
+                                        <span class="filter_results_reset_link_icon" aria-hidden="true">
+                                          <span class="filter_results_reset_link_icon_inner">
+                                          <span class="filter_results_reset_link_icon_space">&#xfeff;</span>
+                                            <svg class="icon icon_reset">
+                                              <use href="/images/icons.svg#reset" />
+                                            </svg>
+                                          </span>
+                                        </span>
+                                      </span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        `,
+                    },
+                })
+            ]);
+
+            search.start();
+        </script>
+
+
+        <!--<script src="../../js/site.js"></script>-->
+        <script src="/static-html/js/site.js"></script>
+
+        {if segment_1 == 'calendar'}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="{exp:calendar:theme_folder_url}code_pack/js/bootstrap.min.js"></script>
+        <script src="{exp:calendar:theme_folder_url}code_pack/js/minical.js"></script>
+        {if embed:load_fieldtype == "yes"}
+            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="{exp:calendar:theme_folder_url}plugins/jquery-timepicker-jt/jquery.timepicker.min.js"></script>
+            <script type="text/javascript" src="{exp:calendar:theme_folder_url}js/calendar.fieldtype.js"></script>
+            <script type="text/javascript" src="{exp:calendar:theme_folder_url}js/template.fieldtype.js"></script>
+        {/if}
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="popover"]').popover({trigger: 'hover','placement': 'bottom','html': 'true'});
+            });
+        </script>
+        {/if}
+        <script>
+            $(document).ready(function(){
+                $(".grand-children").prevAll(".siblings").css({"display": "none"});
+                $(".children").prevAll(".siblings").css({"display": "none"});
+            });
+        </script>
+
+    </body>
 </html>

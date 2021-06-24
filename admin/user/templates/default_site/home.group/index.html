@@ -137,24 +137,27 @@
                                 <span class="featured_programs_title_label featured_programs_title_label_secondary">Want to study?</span>
                             </span>
                         </h2>
-                        {exp:search:simple_form channel="majors" status="open|Default Page" search_in="everywhere" where="all" form_class="featured_programs_form" result_page="/majors/results" no_result_page="/majors/noresults"}
-                        <div class="featured_programs_input_wrapper">
-                            <input class="featured_programs_input" name="keywords" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
-                            {!-- <span class="featured_programs_input_icon">
-                                <svg class="icon icon_search">
-                                    <use href="/images/icons.svg#search" />
-                                </svg>
-                            </span> --}
-                        </div>
-                        <button class="featured_programs_submit">
-                            <span class="featured_programs_submit_label">Search</span>
-                            <span class="featured_programs_submit_icon">
-                                <svg class="icon icon_search">
-                                    <use href="/images/icons.svg#search"></use>
-                                </svg>
-                            </span>
-                        </button>
-                        {/exp:search:simple_form}
+                        <form
+                            action="/majors"
+                            class="featured_programs_form"
+                        >
+                            <div class="featured_programs_input_wrapper">
+                                <input class="featured_programs_input" name="majors[query]" id="featured_programs_input" type="search" placeholder="Search our Programs & Majors" aria-label="Search our Programs">
+                                {!-- <span class="featured_programs_input_icon">
+                                    <svg class="icon icon_search">
+                                        <use href="/images/icons.svg#search" />
+                                    </svg>
+                                </span> --}
+                            </div>
+                            <button class="featured_programs_submit">
+                                <span class="featured_programs_submit_label">Search</span>
+                                <span class="featured_programs_submit_icon">
+                                    <svg class="icon icon_search">
+                                        <use href="/images/icons.svg#search"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </form>
                     </div>
                     <div class="featured_programs_content">
                         <div class="feature_programs_body">
