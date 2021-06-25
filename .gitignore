@@ -6,6 +6,7 @@ images/
 !/static-html
 !/static-html/images
 !/src/images
+!admin/user/addons/ferret/config
 themes/user/site/default/asset/img/
 backups/
 *.sql
