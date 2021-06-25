@@ -155,6 +155,46 @@ var STATIC_ROOT = "../../index.html";
                 },
             });
 
+            // Create the render function
+            const createDataAttribtues = refinement =>
+                Object.keys(refinement)
+                    .map(key => `data-${key}="${refinement[key]}"`)
+                    .join('');
+
+            const renderListItem = item => `
+                  ${item.refinements
+                    .map(
+                        refinement =>
+                            `<button ${createDataAttribtues(refinement)}><strong>${refinement.label}</strong></button>`
+                        )
+                    .join('')}
+                  `;
+
+            const renderCurrentRefinements = (renderOptions, isFirstRender) => {
+                const { items, refine, widgetParams } = renderOptions;
+
+                widgetParams.container.innerHTML = (items.length > 0) ? `in ${items.map(renderListItem).join(',')}` : ``;
+
+                [...widgetParams.container.querySelectorAll('button')].forEach(element => {
+                    element.addEventListener('click', event => {
+                        const item = Object.keys(event.currentTarget.dataset).reduce(
+                            (acc, key) => ({
+                                ...acc,
+                                [key]: event.currentTarget.dataset[key],
+                            }),
+                            {}
+                        );
+
+                        refine(item);
+                    });
+                });
+            };
+
+            // Create the custom widget
+            const customCurrentRefinements = instantsearch.connectors.connectCurrentRefinements(
+                renderCurrentRefinements
+            );
+
             search.addWidgets([
                 instantsearch.widgets.analytics({
                     pushFunction(formattedParameters, state, results) {
@@ -165,6 +205,30 @@ var STATIC_ROOT = "../../index.html";
                             'Number of Hits': results.nbHits,
                         });
                     },
+                }),
+
+                instantsearch.widgets.stats({
+                    container: '#stats',
+                    templates: {
+                        text: `
+                          <span class="filter_results_label">{{#areHitsSorted}}
+                            {{#hasNoSortedResults}}No relevant results{{/hasNoSortedResults}}
+                            {{#hasOneSortedResults}}1 relevant result{{/hasOneSortedResults}}
+                            {{#hasManySortedResults}}{{#helpers.formatNumber}}{{nbSortedHits}}{{/helpers.formatNumber}} relevant results{{/hasManySortedResults}}
+                            sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
+                          {{/areHitsSorted}}
+                          {{^areHitsSorted}}
+                            {{#hasNoResults}}No results{{/hasNoResults}}
+                            {{#hasOneResult}}1 result{{/hasOneResult}}
+                            {{#hasManyResults}}{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}} results{{/hasManyResults}}
+                          {{/areHitsSorted}}
+                          {{ #query }}for {{ query }}{{ /query }}</span>
+                        `,
+                    }
+                }),
+
+                customCurrentRefinements({
+                    container: document.querySelector('#current-refinements'),
                 }),
 
                 instantsearch.widgets.searchBox({
@@ -270,7 +334,7 @@ var STATIC_ROOT = "../../index.html";
                                             {{/categories.degree_type}}
                                             <br /><br />
                                             <h3>
-                                              <a class="program_item_detail_data_link" href="{{ url_title }}">
+                                              <a class="program_item_detail_data_link" href="{{ url }}">
                                                 <span class="program_item_detail_data_link_label">Major Details</span>
                                                   <span class="program_item_detail_data_link_icon">
                                                     <svg class="icon icon_caret_right">
@@ -304,33 +368,7 @@ var STATIC_ROOT = "../../index.html";
                               </div>
                             </li>
                         `,
-                        empty: `
-                            <div class="filter_results">
-                              <div class="fs-row">
-                                <div class="fs-cell">
-                                  <div class="filter_results_inner">
-                                    <p class="filter_results_description">
-                                      No results found.
-                                    </p>
-                                    <a href="/majors" class="filter_results_reset_link" >
-                                      <span class="filter_results_reset_link_inner">
-                                        <span class="filter_results_reset_link_label">Reset</span>
-                                        <span class="filter_results_reset_link_icon" aria-hidden="true">
-                                          <span class="filter_results_reset_link_icon_inner">
-                                          <span class="filter_results_reset_link_icon_space">&#xfeff;</span>
-                                            <svg class="icon icon_reset">
-                                              <use href="/images/icons.svg#reset" />
-                                            </svg>
-                                          </span>
-                                        </span>
-                                      </span>
-                                    </a>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        `,
+                        empty: ``,
                     },
                 })
             ]);
