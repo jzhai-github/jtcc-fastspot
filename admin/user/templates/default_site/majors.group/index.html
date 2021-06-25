@@ -1,35 +1,7 @@
 {snp_major_top}
 
-	
 {if segment_2 != ''}
-	{!--{exp:query sql="SELECT cat_id FROM exp_categories WHERE cat_url_title = '{segment_2}'"}
-		{layout:set name="cat" value="{cat_id}"}
-		<?php $cat_id = '{cat_id}'; ?>
-	{/exp:query}--}
-	
-	{!--{embed="majors/cat_id" cat="{cat_id}"}{embed:cat}--} 
-	{!--{layout:set name="cat" value="{embed:cat}"}--}
-	
-	
-	{!--<?php $cat='{embed:cat}'; echo $cat;?>--}
-	
-	<?php
-	//$cat_url_title = "{segment_2}";
-	//$db = $this->EE->load->database('jtcc_dev', TRUE);
-                
-    //$getCat = ee()->db->select('channel_name')->from('channels')->get();"SELECT cat_id FROM exp_categories WHERE cat_url_title = '$cat_url_title'";
-	//$cat_id = ee()->db->select('cat_id') ->from('exp_categories')->where('cat_url_title=$cat_url_title')->get();
-                                
-    //$cat = $db->query($getCat);
-	//$cat_id = $query->row()->cat_id;
-	
-	//echo $cat_id;
-	//echo $db;
-	?>
-	
-	{!--{snp_cat_id}--}{!--<?php echo $cat_id; ?>--}
-		
-	{exp:channel:entries channel="majors" disable="member_data" category="{segment_2}" dynamic="no"} 
+	{exp:channel:entries channel="majors" disable="member_data" category="{segment_2}" dynamic="no"}
 		{categories}
 		{if category_id == '{segment_2}'}
 		{if {count} == "1"}
@@ -186,24 +158,25 @@
 	</div>
 </div>
 
-
 {if:else}
-	{!--</div>--}
+	<div class="js-accordion program_list">
+		<div class="program_list_inner">
+			<ul class="program_list_items" id="item_list" aria-label="">
+				<!-- Algolia hits -->
+			</ul>
+		</div>
+	</div>
+{/if}
 
-{!--{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc" category="20&10" dynamic="no"}
-	{title}
-{/exp:channel:entries}--}
-	
-<div class="js-accordion program_list">
-	<div class="program_list_inner">
-		<ul class="program_list_items" id="item_list" aria-label="">
-			{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc"}
-				<li class="js-accordion-item js-program-item-1-{count} program_item">
-					<div class="fs-row">
-						<div class="fs-cell">
-							<div class="program_item_inner">
-								<h2 class="program_item_heading">
-									<button class="js-accordion-swap js-swap program_item_button" data-swap-target=".js-program-item-1-{count}" data-swap-group="program-group-1">
+
+{!-- HIT
+{exp:channel:entries channel="majors" disable="member_data" orderby="title" sort="asc"}
+<li class="js-accordion-item js-program-item-1-{count} program_item">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="program_item_inner">
+				<h2 class="program_item_heading">
+					<button class="js-accordion-swap js-swap program_item_button" data-swap-target=".js-program-item-1-{count}" data-swap-group="program-group-1">
 										<span class="program_item_heading_inner">
 											<span class="program_item_heading_label">
 												<span class="program_item_heading_title">
@@ -217,7 +190,7 @@
 												<span class="program_item_heading_mode">
 													<span class="program_item_heading_mode_label">Learning Mode<span class="program_item_heading_mode_label_hint">:													</span>
 												</span>
-												
+
 												<span class="program_item_heading_mode_data_wrapper">
 												{categories show_group="7|8"}
 													{if category_group == "7"}
@@ -230,38 +203,28 @@
 														</span>
 													{/if}
 												{/categories}
-												</span>	
+												</span>
 											</span>
 										</span>
 										<span class="program_item_heading_icon"></span>
 									</span>
-									</button>
-								</h2>
-								<div class="js-accordion-content program_item_content" aria-label="{title}">
-									<div class="program_item_content_inner">
-										<div class="program_item_content_group">
-											<div class="program_item_description typography">
-												<p>{page_description}</p>
-												{!--<p><a href="{link}">More Information about {title} in Catalog</a></p>--}
-												{!--<h4><a href="{link}">More Information about {title} in Catalog</a></h4>--}
-											</div>
-										</div>
-										<div class="program_item_details">
-											<div class="program_item_detail">
+					</button>
+				</h2>
+				<div class="js-accordion-content program_item_content" aria-label="{title}">
+					<div class="program_item_content_inner">
+						<div class="program_item_content_group">
+							<div class="program_item_description typography">
+								<p>{page_description}</p>
+							</div>
+						</div>
+						<div class="program_item_details">
+							<div class="program_item_detail">
 												<span class="program_item_detail_label">Degree & Certificate Type<span class="program_item_detail_label_hint">:</span>
 													</span>
-													<span class="program_item_detail_data">
-														{!--<a class="program_item_detail_data_link" href="{url_title}">--}
+								<span class="program_item_detail_data">
 															{categories show_group="5"}
 																<span class="program_item_detail_data_link_label">{category_name}</span>
 															{/categories}
-													{!--<span class="program_item_detail_data_link_icon">
-															<svg class="icon icon_caret_right">
-																<use href="/images/icons.svg#caret_right" />
-															</svg>
-														</span>
-														</a>--}
-														
 														<br /><br /><h3><a class="program_item_detail_data_link" href="/majors/{url_title}">
 															<span class="program_item_detail_data_link_label">Major Details</span>
 													<span class="program_item_detail_data_link_icon">
@@ -271,39 +234,29 @@
 														</span>
 														</a></h3>
 													</span>
-												</div>
-												<div class="program_item_detail">
+							</div>
+							<div class="program_item_detail">
 													<span class="program_item_detail_label">Career Cluster<span class="program_item_detail_label_hint">:</span>
 													</span>
-													{categories show_group="4"}
-														<span class="program_item_detail_data">{category_name}<br /></span>
-													{/categories}
-												</div>
-												{!--<div class="program_item_detail">
-													<span class="program_item_detail_label">Mode of Study<span class="program_item_detail_label_hint">:</span>
-													</span>
-													{categories show_group="7"}
-														<span class="program_item_detail_data">{category_name}<br /></span>
-													{/categories}
-												</div>--}
-											</div>
-											<!-- I added the catalog link here, not Fastspot original code -->
-											{if link != ''}
-											<div class="program_item_content_group">
-											<div class="program_item_description typography">
-												<h4><a href="{link}">More Information about {title} in Catalog</a></h4>
-											</div>
-											</div>
-											{/if} <!-- end catalog link -->
-									</div>
-								</div>
+								{categories show_group="4"}
+								<span class="program_item_detail_data">{category_name}<br /></span>
+								{/categories}
 							</div>
 						</div>
+						<!-- I added the catalog link here, not Fastspot original code -->
+						{if link != ''}
+						<div class="program_item_content_group">
+							<div class="program_item_description typography">
+								<h4><a href="{link}">More Information about {title} in Catalog</a></h4>
+							</div>
+						</div>
+						{/if} <!-- end catalog link -->
 					</div>
-				</li>
-			{/exp:channel:entries}
-		</ul>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
-{/if}
-<!--</div>-->
+</li>
+{/exp:channel:entries}
+
+--}
