@@ -31,13 +31,10 @@
 	</div> {!-- /fs-row --}
 </div>{!-- js-alert --}
 <script>
-	if(document.cookie = ""){
-		document.cookie = "test1=alert-{edit_date}";
-	}else if(document.cookie = "test1=alert-{edit_date}"){
-
-	}else{
-		document.cookie = "test1=alert-{edit_date}";
-	}
-</script>
+	(function(window, edit_date) {
+		var last_edited_key = 'framework-alert-' + edit_date;
+		window.framework_cookie_key = last_edited_key;
+	})(window, '{edit_date}');
+</script> 
 {/if}
 {/exp:channel:entries}
