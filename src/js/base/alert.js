@@ -13,6 +13,28 @@
 		CookieValue,
 		Time;
 
+	function delete_old_cookies() {
+		var cookie_prefix = 'framework-alert';
+		var cookies_value = document.cookie.split(';');
+		var cookies_keys_to_delete = cookies_value
+			.map(function (cookie) {
+				return cookie.split('=')[0].trim();
+			})
+			.filter(function (cookie) {
+				var key = cookie.split('=')[0].trim();
+
+				if (key === window.framework_cookie_key) return false;
+
+				return key.indexOf(cookie_prefix) !== -1;
+			});
+
+		if (!cookies_keys_to_delete.length) return;
+
+		cookies_keys_to_delete.forEach(function (key) {
+			$.cookie(key, null);
+		});
+	}
+
 	function init() {
 		// Do not use this Javascript if we're using AJAX alerts
 		if (typeof AlertURL !== 'undefined') {
@@ -32,7 +54,7 @@
 		$CloseButton = $('.js-alert-close');
 		$OpenButton = $('.js-alert-open');
 		Time = $Alert.data('time');
-		CookieName = 'framework-alert';
+		CookieName = window.framework_cookie_key || 'framework-alert';
 		CookieValue = $.cookie(CookieName);
 
 		if (CookieValue) {
@@ -40,6 +62,8 @@
 		} else {
 			CookieValue = [];
 		}
+
+		delete_old_cookies();
 
 		$SkipLink.on('click', onOpenClick);
 		$CloseButton.on('click', onCloseClick);
@@ -72,7 +96,7 @@
 
 		$.cookie(CookieName, JSON.stringify(CookieValue), {
 			path: '/',
-			expires: 1000 * 365 * 24 * 60 * 60
+			expires: 1000 * 30 * 24 * 60 * 60 // 30 days
 		});
 
 		alertClose();
