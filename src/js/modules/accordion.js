@@ -31,10 +31,11 @@
 			}
 		});
 
-		$AccordionSwap
-			.on('activate.swap', onTriggerActivate)
-			.on('deactivate.swap', onTriggerDeactivate)
-			.on('keydown', onTriggerKeydown);
+        $(document)
+            .on('activate.swap', '.js-accordion-swap', onTriggerActivate)
+            .on('deactivate.swap', '.js-accordion-swap', onTriggerDeactivate)
+            .on('keydown', '.js-accordion-swap', onTriggerKeydown);
+
 	}
 
 	function activeFirstAccordion(accordion) {
