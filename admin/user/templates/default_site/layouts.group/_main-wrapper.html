@@ -91,8 +91,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 {snp_mobile_nav}
 
-</main>
-
+{!--{if segment_1 == 'news' && segment_2 !=""}
+    <div class="loader-wrapper">
+        <img class="loader" src="/images/uploads/spinner-200px.gif" alt="" />
+    </div>
+{/if}--}
+        
         <script>
             var WWW_ROOT = "";
 var STATIC_ROOT = "../../index.html";
@@ -402,6 +406,12 @@ var STATIC_ROOT = "../../index.html";
                 $(".children").prevAll(".siblings").css({"display": "none"});
             });
         </script>
-
+{if segment_1 == 'news' && segment_2 !=''}
+    <script>
+    $(window).on("load", function() {
+        $(".loader-wrapper").fadeOut(2000);
+    });
+    </script>
+    {/if}
     </body>
 </html>

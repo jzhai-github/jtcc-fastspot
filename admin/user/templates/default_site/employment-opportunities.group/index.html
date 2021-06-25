@@ -64,7 +64,7 @@
 		<div class="fs-row">
 			<div class="fs-cell">
 				<div class="wysiwyg_block_inner typography">
-					{if "{categories show_group='9'}{category_id}{/categories}" != '59'}
+					{!--{if "{categories show_group='9'}{category_id}{/categories}" != '59'}
 						<p><strong>Job Close Date: </strong>
 							{if expiration_date == ''}
 								Open until filled 
@@ -72,7 +72,7 @@
 								{expiration_date format="%m/%d/%Y"}
 							{/if}
 						</p>
-					{/if}
+					{/if}--}
 					{content}					
 				</div>
 			</div>
