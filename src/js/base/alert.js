@@ -4,119 +4,142 @@
 
 /* globals AlertURL, jQuery, Site */
 
-(function($, Site) {
-				var $Alert,
-								$CloseButton,
-								$OpenButton,
-								$SkipLink,
-								CookieName,
-								CookieValue,
-								Time;
+(function ($, Site) {
+	var $Alert,
+		$CloseButton,
+		$OpenButton,
+		$SkipLink,
+		CookieName,
+		CookieValue,
+		Time;
 
-				function init() {
-								// Do not use this Javascript if we're using AJAX alerts
-								if (typeof AlertURL !== 'undefined') {
-												return;
-								}
+	function delete_old_cookies() {
+		var cookie_prefix = 'framework-alert';
+		var cookies_value = document.cookie.split(';');
+		var cookies_keys_to_delete = cookies_value
+			.map(function (cookie) {
+				return cookie.split('=')[0].trim();
+			})
+			.filter(function (cookie) {
+				var key = cookie.split('=')[0].trim();
 
-								$Alert = $('.js-alert');
-								$SkipLink = $('.js-skip-alert');
+				if (key === window.framework_cookie_key) return false;
 
-								if (!$Alert.length) {
-												$SkipLink.hide();
+				return key.indexOf(cookie_prefix) !== -1;
+			});
 
-												return;
-								}
+		if (!cookies_keys_to_delete.length) return;
 
-								$Alert.addClass('enabled');
-								$CloseButton = $('.js-alert-close');
-								$OpenButton = $('.js-alert-open');
-								Time = $Alert.data('time');
-								CookieName = 'framework-alert';
-								CookieValue = $.cookie(CookieName);
+		cookies_keys_to_delete.forEach(function (key) {
+			$.cookie(key, null);
+		});
+	}
 
-								if (CookieValue) {
-												CookieValue = JSON.parse(CookieValue);
-								} else {
-												CookieValue = [];
-								}
+	function init() {
+		// Do not use this Javascript if we're using AJAX alerts
+		if (typeof AlertURL !== 'undefined') {
+			return;
+		}
 
-								$SkipLink.on('click', onOpenClick);
-								$CloseButton.on('click', onCloseClick);
-								$OpenButton.addClass('enabled').on('click', onOpenClick);
+		$Alert = $('.js-alert');
+		$SkipLink = $('.js-skip-alert');
 
-								// Not hidden, show it and hide the open button
-								if (CookieValue.indexOf(Time) === -1) {
-												alertOpen();
-								} else {
-												alertClose();
-								}
-				}
+		if (!$Alert.length) {
+			$SkipLink.hide();
 
-				function alertClose() {
-								$OpenButton.addClass('visible');
-								$Alert.removeClass('visible').attr('aria-hidden', 'true');
-								$Alert.find('a, button').attr('tabindex', '-1');
-				}
+			return;
+		}
 
-				function alertOpen() {
-								$OpenButton.removeClass('visible');
-								$Alert.addClass('visible').attr('aria-hidden', 'false');
-								$Alert.find('a, button').removeAttr('tabindex');
-				}
+		$Alert.addClass('enabled');
+		$CloseButton = $('.js-alert-close');
+		$OpenButton = $('.js-alert-open');
+		Time = $Alert.data('time');
+		CookieName = window.framework_cookie_key || 'framework-alert';
+		CookieValue = $.cookie(CookieName);
 
-				function onCloseClick(ev) {
-								ev.preventDefault();
+		if (CookieValue) {
+			CookieValue = JSON.parse(CookieValue);
+		} else {
+			CookieValue = [];
+		}
 
-								CookieValue.push(Time);
+		delete_old_cookies();
 
-								$.cookie(CookieName, JSON.stringify(CookieValue), {
-												path: '/',
-												// expires: 1000 * 365 * 24 * 60 * 60
-												expires: 1000 * 1 * 4 * 60 * 60
-								});
+		$SkipLink.on('click', onOpenClick);
+		$CloseButton.on('click', onCloseClick);
+		$OpenButton.addClass('enabled').on('click', onOpenClick);
 
-								alertClose();
-								$CloseButton.blur();
-				}
+		// Not hidden, show it and hide the open button
+		if (CookieValue.indexOf(Time) === -1) {
+			alertOpen();
+		} else {
+			alertClose();
+		}
+	}
 
-				function onOpenClick(ev) {
-								ev.preventDefault();
+	function alertClose() {
+		$OpenButton.addClass('visible');
+		$Alert.removeClass('visible').attr('aria-hidden', 'true');
+		$Alert.find('a, button').attr('tabindex', '-1');
+	}
 
-								// Allow for the skip link to jump to this even if it's already open
-								if ($Alert.hasClass('visible')) {
-												$Alert.focus();
+	function alertOpen() {
+		$OpenButton.removeClass('visible');
+		$Alert.addClass('visible').attr('aria-hidden', 'false');
+		$Alert.find('a, button').removeAttr('tabindex');
+	}
 
-												return;
-								}
+	function onCloseClick(ev) {
+		ev.preventDefault();
 
-								var cleaned_cookie_val = [];
+		CookieValue.push(Time);
 
-								for (var i = 0; i < CookieValue.length; i++) {
-												if (CookieValue[i] !== Time) {
-																cleaned_cookie_val.push(CookieValue[i]);
-												}
-								}
+		$.cookie(CookieName, JSON.stringify(CookieValue), {
+			path: '/',
+			expires: 1000 * 30 * 24 * 60 * 60 // 30 days
+		});
 
-								CookieValue = cleaned_cookie_val;
+		alertClose();
+		$CloseButton.blur();
+	}
 
-								$.cookie(CookieName, CookieValue, {
-												path: '/',
-												// expires: 1000 * 365 * 24 * 60 * 60
-												expires: 1000 * 1 * 4 * 60 * 60
-								});
+	function onOpenClick(ev) {
+		ev.preventDefault();
 
-								alertOpen();
+		// Allow for the skip link to jump to this even if it's already open
+		if ($Alert.hasClass('visible')) {
+			$Alert.focus();
 
-								$Alert.transition({
-																always: false,
-																property: 'transform'
-												},
-												function() {
-																$Alert.focus();
-												}
-								);
-				}
+			return;
+		}
 
-				Site.OnInit.push(init);
+		var cleaned_cookie_val = [];
+
+		for (var i = 0; i < CookieValue.length; i++) {
+			if (CookieValue[i] !== Time) {
+				cleaned_cookie_val.push(CookieValue[i]);
+			}
+		}
+
+		CookieValue = cleaned_cookie_val;
+
+		$.cookie(CookieName, CookieValue, {
+			path: '/',
+			expires: 1000 * 365 * 24 * 60 * 60
+		});
+
+		alertOpen();
+
+		$Alert.transition(
+			{
+				always: false,
+				property: 'transform'
+			},
+			function () {
+				$Alert.focus();
+			}
+		);
+	}
+
+	Site.OnInit.push(init);
 })(jQuery, Site);
