@@ -115,7 +115,7 @@ class FerretBuilder
     protected function addCoreFields($entry, $index)
     {
         $object = [
-            'objectID' => null,
+            'objectID' => (int)$entry->site_id."-".$entry->entry_id,
             'entry_id' => (int)$entry->entry_id,
             'site_id' => $entry->site_id,
             'channel' => $entry->Channel->channel_title,
@@ -201,7 +201,7 @@ class FerretBuilder
                 return false;
             }
 
-            $object['objectID'] = $record->objectID;
+            $object['objectID'] = is_null($record->order) ? $object['objectID'] : $object['objectID'] . '-' . $record->order;
 
             $model = ee('Model')
                 ->make('ferret:FerretObject', [
