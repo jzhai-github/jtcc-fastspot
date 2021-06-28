@@ -145,7 +145,6 @@ var STATIC_ROOT = "../../index.html";
 
         <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/algoliasearch.helper/2/algoliasearch.helper.min.js"></script>
 
         <script>
             const searchClient = algoliasearch('6ICTLN1IG8', 'd6c95e04679dd9216e0844b27f1d2af9');
@@ -378,6 +377,10 @@ var STATIC_ROOT = "../../index.html";
             ]);
 
             search.start();
+
+            search.on('render', () => {
+                $('.js-accordion-algolia-list .js-swap').swap();
+            });
         </script>
 
 
