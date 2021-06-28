@@ -18,6 +18,10 @@
             },
         });
 
+        if ($(".program_list #item_list").length == 0) {
+            return;
+        }
+
         // Create the render function
         const createDataAttribtues = refinement =>
             Object.keys(refinement)
