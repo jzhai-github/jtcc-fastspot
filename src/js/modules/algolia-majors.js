@@ -62,6 +62,41 @@
             renderCurrentRefinements
         );
 
+
+        // Custom stats widget
+        const renderStats = (renderOptions, isFirstRender) => {
+            const {
+                nbHits,
+                areHitsSorted,
+                nbSortedHits,
+                processingTimeMS,
+                query,
+                widgetParams,
+            } = renderOptions;
+
+            if (isFirstRender) {
+                return;
+            }
+
+            let count = '';
+
+            if (nbHits > 1) {
+                count += `${nbHits} results`;
+            } else if (nbHits === 1) {
+                count += '1 result';
+            } else {
+                count += 'no result';
+            }
+
+            widgetParams.container.innerHTML =
+                `
+                    ${count} found ${query ? `for <q>${query}</q>` : ''}
+                `;
+        };
+
+        // Create the custom widget
+        const customStats = instantsearch.connectors.connectStats(renderStats);
+
         search.addWidgets([
             instantsearch.widgets.analytics({
                 pushFunction(formattedParameters, state, results) {
@@ -74,24 +109,8 @@
                 },
             }),
 
-            instantsearch.widgets.stats({
-                container: '#stats',
-                templates: {
-                    text: `
-                          <span class="filter_results_label">{{#areHitsSorted}}
-                            {{#hasNoSortedResults}}No relevant results{{/hasNoSortedResults}}
-                            {{#hasOneSortedResults}}1 relevant result{{/hasOneSortedResults}}
-                            {{#hasManySortedResults}}{{#helpers.formatNumber}}{{nbSortedHits}}{{/helpers.formatNumber}} relevant results{{/hasManySortedResults}}
-                            sorted out of {{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}}
-                          {{/areHitsSorted}}
-                          {{^areHitsSorted}}
-                            {{#hasNoResults}}No results{{/hasNoResults}}
-                            {{#hasOneResult}}1 result{{/hasOneResult}}
-                            {{#hasManyResults}}{{#helpers.formatNumber}}{{nbHits}}{{/helpers.formatNumber}} results{{/hasManyResults}}
-                          {{/areHitsSorted}}
-                          {{ #query }}for {{ query }}{{ /query }}</span>
-                        `,
-                }
+            customStats({
+                container: document.querySelector('#stats'),
             }),
 
             customCurrentRefinements({
