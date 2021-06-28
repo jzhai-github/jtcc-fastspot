@@ -217,13 +217,6 @@
                                           </div>
                                         </div>
 
-                                        {if link != ''}
-                                          <div class="program_item_content_group">
-                                            <div class="program_item_description typography">
-                                              <h4><a href="{link}">More Information about {title} in Catalog</a></h4>
-                                            </div>
-                                          </div>
-                                        {/if}
                                       </div>
                                     </div>
                                   </div>
