@@ -1,141 +1,140 @@
 {
-				"twig_variables":
-				{
-								"namespace": "fs",
-								"color": "",
-								"name": "JTCC",
-								"description": "John Tyler Community College",
-								"images": "jtcc",
-								"domain": "jtcc.edu",
-								"schema_type": "Organization",
-								"twitter": "TwitterName",
-								"cse_key": "006399016623411901974:o4bvhy05nfm",
-								"place_id": "ChIJofvP7nsEyIkRAppsAwqW4SQ",
-								"street": "2980 Falls Road",
-								"city": "Baltimore",
-								"state": "MD",
-								"zip": "21211",
-								"email": "info@fastspot.com",
-								"phone": "(410) 537-5007",
-								"fax": "(410) 537-5008"
-				},
-				"css": ["src/css/site.scss", "src/css/tinymce.scss"],
-				"js": ["src/js/site.js"],
-				"navigation":
-				{
-								"actions": ["MyTyler", "Apply Now", "Give to Tyler"],
-								"audience": [
-												"Faculty",
-												"Staff",
-												"Current Students",
-												"Prospective Student",
-												"Alumni",
-												"Parents & Families",
-												"Visitors"
-								],
-								"auxilary": ["FOIA", "Employment at Tyler", "VCCS"],
-								"main": [
-								{
-												"title": "Admissions",
-												"children": [
-												{
-																"title": "About",
-																"url": "#"
-												},
-												{
-																"title": "Lorem ipsum",
-																"url": "#"
-												},
-												{
-																"title": "Consectetuer Adipiscing Elit",
-																"url": "#"
-												},
-												{
-																"title": "Aenean Commodo",
-																"url": "#"
-												},
-												{
-																"title": "Aenean Massa",
-																"url": "#"
-												}]
-								},
-								{
-												"title": "Academics & Programs",
-												"children": ["Nam Quam Nunc"]
-								},
-								{
-												"title": "Training & Workforce",
-												"children": [
-																"Nam quam nunc",
-																"Blandit Vel",
-																"Donec Vitae Sapien",
-																"Ut Libero",
-																"Venenatis Faucibus",
-																"Nullam Quis Ante",
-																"Orci Eget Eros Faucibus Tincidunt Maecenas Tempus Tellus Eget Condimentum",
-																"Sed Fringilla Mauris Sit",
-																"Amet Nibh",
-																"Donec Sodales Sagittis"
-												]
-								},
-								{
-												"title": "Paying for Tyler",
-												"children": [
-																"Aliquam Lorem Ante",
-																"Quisque Rutrum",
-																"Aeneanimperdiet",
-																"Tellus Eget Condimentum",
-																"Duis Leo"
-												]
-								},
-								{
-												"title": "Services",
-												"children": [
-																"Aenean Vulputate Eleifend Tellus",
-																"Nascetur",
-																"Ridiculus Mus",
-																"Pellentesque Eu",
-																"Vivamus Elementum Semper",
-																"Aenean Vulputate",
-																"Aenean Leo Ligula",
-																"Semper Libero"
-												]
-								}],
-								"footer": [
-												"Contact Us",
-												"Nondiscrimination Policy",
-												"Diversity & Inclusion",
-												"Privacy/Disclaimer",
-												"Financial Aid",
-												"Public Records"
-								],
-								"secondary": ["About", "Locations & Tours", "Tyler A-Z"],
-								"social": [
-								{
-												"title": "Twitter",
-												"url": "//www.twitter.com"
-								},
-								{
-												"title": "Facebook",
-												"url": "//www.facebook.com"
-								},
-								{
-												"title": "Instagram",
-												"url": "//www.instagram.com"
-								},
-								{
-												"title": "Linkedin",
-												"url": "//www.linkedin.com"
-								},
-								{
-												"title": "Youtube",
-												"url": "//www.youtube.com"
-								}],
-								"sub": [
-												"Chester Campus",
-												"Midlothian Campus",
-												"Tyler a-z",
-												"Get Involved"
-								]
-				}
+	"twig_variables":
+	{
+		"namespace": "fs",
+		"color": "",
+		"name": "JTCC",
+		"description": "John Tyler Community College",
+		"images": "jtcc",
+		"domain": "jtcc.edu",
+		"schema_type": "Organization",
+		"twitter": "johntylercc",
+		"cse_key": "006399016623411901974:o4bvhy05nfm",
+		"place_id": "ChIJofvP7nsEyIkRAppsAwqW4SQ",
+		"street": "13101 Jefferson Davis Highway",
+		"city": "Chester",
+		"state": "VA",
+		"zip": "23831",
+		"email": "webfeedback@jtcc.edu",
+		"phone": "(804) 796-4000"
+	},
+	"css": ["src/css/site.scss", "src/css/tinymce.scss"],
+	"js": ["src/js/site.js"],
+	"navigation":
+	{
+		"actions": ["MyTyler", "Apply Now", "Give to Tyler"],
+		"audience": [
+			"Faculty",
+			"Staff",
+			"Current Students",
+			"Prospective Student",
+			"Alumni",
+			"Parents & Families",
+			"Visitors"
+		],
+		"auxilary": ["FOIA", "Employment at Tyler", "VCCS"],
+		"main": [
+		{
+			"title": "Admissions",
+			"children": [
+			{
+				"title": "About",
+				"url": "#"
+			},
+			{
+				"title": "Lorem ipsum",
+				"url": "#"
+			},
+			{
+				"title": "Consectetuer Adipiscing Elit",
+				"url": "#"
+			},
+			{
+				"title": "Aenean Commodo",
+				"url": "#"
+			},
+			{
+				"title": "Aenean Massa",
+				"url": "#"
+			}]
+		},
+		{
+			"title": "Academics & Programs",
+			"children": ["Nam Quam Nunc"]
+		},
+		{
+			"title": "Training & Workforce",
+			"children": [
+				"Nam quam nunc",
+				"Blandit Vel",
+				"Donec Vitae Sapien",
+				"Ut Libero",
+				"Venenatis Faucibus",
+				"Nullam Quis Ante",
+				"Orci Eget Eros Faucibus Tincidunt Maecenas Tempus Tellus Eget Condimentum",
+				"Sed Fringilla Mauris Sit",
+				"Amet Nibh",
+				"Donec Sodales Sagittis"
+			]
+		},
+		{
+			"title": "Paying for Tyler",
+			"children": [
+				"Aliquam Lorem Ante",
+				"Quisque Rutrum",
+				"Aeneanimperdiet",
+				"Tellus Eget Condimentum",
+				"Duis Leo"
+			]
+		},
+		{
+			"title": "Services",
+			"children": [
+				"Aenean Vulputate Eleifend Tellus",
+				"Nascetur",
+				"Ridiculus Mus",
+				"Pellentesque Eu",
+				"Vivamus Elementum Semper",
+				"Aenean Vulputate",
+				"Aenean Leo Ligula",
+				"Semper Libero"
+			]
+		}],
+		"footer": [
+			"Contact Us",
+			"Nondiscrimination Policy",
+			"Diversity & Inclusion",
+			"Privacy/Disclaimer",
+			"Financial Aid",
+			"Public Records"
+		],
+		"secondary": ["About", "Locations & Tours", "Tyler A-Z"],
+		"social": [
+		{
+			"title": "Twitter",
+			"url": "//www.twitter.com/johntylercc"
+		},
+		{
+			"title": "Facebook",
+			"url": "//facebook.com/johntylercc"
+		},
+		{
+			"title": "Instagram",
+			"url": "//instagram.com/johntylercc"
+		},
+		{
+			"title": "Linkedin",
+			"url": "//www.linkedin.com/school/59502"
+		},
+		{
+			"title": "Youtube",
+			"url": "//www.youtube.com/johntylercommcollege"
+		}],
+		"sub": [
+			"Chester Campus",
+			"Midlothian Campus",
+			"Tyler a-z",
+			"Get Involved"
+		]
+	}
 }
