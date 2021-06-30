@@ -5,4 +5,4 @@ User-agent: *
 Disallow: /
 
 # Show Google our sitemap
-# Sitemap: https://dev.jtcc.edu/home/sitemap
+Sitemap: https://jtcc.edu/home/sitemap

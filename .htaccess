@@ -11,4 +11,12 @@ RewriteRule ^(.*)$ /index.php?/$1 [NC,L]
 # disable HTTP TRACE method
 RewriteCond %{REQUEST_METHOD} ^TRACE
 RewriteRule .* - [F]
+
+
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 </IfModule>
