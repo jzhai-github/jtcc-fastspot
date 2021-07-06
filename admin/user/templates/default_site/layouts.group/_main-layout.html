@@ -227,6 +227,87 @@
 	</div>
 </div>
 {/if}
+
+   {if segment_1 == 'employment-opportunities' && segment_2 != ''}
+    <div class="news_meta" id="meta" data-type="news" data-category="Category 1">
+        <div class="fs-row">
+            <div class="fs-cell">
+                <div class="news_meta_inner">
+                    <div class="news_meta_body">
+                        <div class="news_item_details">
+                            <div class="news_item_detail news_item_date">
+                                <span class="news_item_detail_hint">Published:
+                                </span>
+                                <time class="news_item_detail_label" datetime="{layout:entry_date format='%Y-%m-%d'}">{layout:entry_date format="%F %d, %Y"}</time>
+                            </div>
+                            {if layout:author}
+                            <div class="news_item_detail news_item_author">
+                                <span class="news_item_detail_hint">by
+                                </span>
+                                <span class="news_item_detail_label">{layout:author}</span>
+                            </div>
+                            {/if}
+                        </div>
+                        {if layout:check_tags}
+                        <div class="news_meta_categories_block test-layout">
+                            <span class="news_meta_categories_icon">
+                                <svg class="icon icon_label">
+                                    <use href="/images/icons.svg#label"></use>
+                                </svg>
+                            </span>
+                            {layout:categories}
+                        </div>
+                        {/if}
+                    </div><!-- /news_meta_body -->
+                    <div class="js-share-tools share_tools fs-swap-target fs-swap-enabled">
+                        <div class="share_tools_header">
+                            <h2 class="share_tools_title">Share Options</h2>
+                            <button class="js-share-tools-toggle share_tools_toggle fs-swap-element fs-swap-enabled" data-swap-target=".js-share-tools" aria-haspopup="true" aria-expanded="false">
+                                <span class="share_tools_toggle_inner">
+                                    <span class="share_tools_toggle_label">Share This</span>
+                                </span>
+                            </button>
+                        </div>
+                        <ul class="js-share-tools-list share_tools_list" aria-label="Share Options" aria-hidden="true">
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-twitter share_tool" href="//twitter.com/intent/tweet?text=%0A%09%09Default%0A%09%09%C2%BB%20Pattern%20Library%0A%09&amp;url=https://jtcc.edu/news/tyler-launches-new-website-designed-with-students-in-mind" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_twitter">
+                                            <use href="/images/icons.svg#twitter"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Twitter</span>
+                                </a>
+                            </li>
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-facebook share_tool fbc-has-badge fbc-UID_1" href="//www.facebook.com/sharer/sharer.php?u=https://jtcc.edu/news/tyler-launches-new-website-designed-with-students-in-mind" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_facebook">
+                                            <use href="/images/icons.svg#facebook"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Facebook</span>
+                                </a>
+                            </li>
+                            <li class="js-share-tool-item share_tool_item">
+                                <a class="js-share-tool js-share-linkedin share_tool" href="//www.linkedin.com/shareArticle?mini=true&amp;url=https://jtcc.edu/news/tyler-launches-new-website-designed-with-students-in-mind&amp;title=%0A%09%09Default%0A%09%09%C2%BB%20Pattern%20Library%0A%09" target="_blank" rel="noopener" tabindex="-1">
+                                    <span class="share_tool_icon">
+                                        <svg class="icon icon_linkedin">
+                                            <use href="/images/icons.svg#linkedin"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="share_tool_label">Share to Linkedin</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- /js-share-tools share_tools fs-swap-target fs-swap-enabled -->
+                </div><!-- /news_meta_inner -->
+            </div><!-- /fs-cell -->
+        </div><!-- /fs-row -->
+    </div><!-- /news_meta -->
+    {/if}
+
+
 </div>
 <!-- END: Page Feature -->
 
