@@ -29,7 +29,7 @@
 						<ul class="flex_callout_links">			
 							{content}
 							<li class="flex_callout_item">
-								<a href="{content:button_link}" class="flex_callout_link" >
+								<a href="{content:button_link}" class="flex_callout_link" {if segment_2 == 'fall'}data-event="clicktrack" data-category="Fall Digital Ad" data-action="{content:button_text}" data-label="{content:button_text}" data-value="{content:button_text}"{/if}>
 									<span class="flex_callout_link_inner">
 										<span class="flex_callout_link_label">{content:button_text}</span>
 										<span class="flex_callout_link_icon" aria-hidden="true">
