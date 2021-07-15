@@ -1,3 +1,5 @@
+@import 'base/colors';
+
 h1,
 h2,
 h3,
@@ -14,6 +16,56 @@ h6 {
 // =============================================================================
 // Calendar
 // =============================================================================
+
+#month_calendar_inner a {
+	color: white;
+}
+
+.event,
+.academics {
+	background: lighten($bergundy, 10%);
+}
+
+.current_month.academics,
+.current_month,
+	{
+	background: $bergundy;
+	margin-left: -0.3125rem;
+}
+
+.future-students {
+	background: lighten($seaweed, 10%);
+}
+
+.current_month.future-students {
+	background: $seaweed;
+}
+
+#month_calendar_inner .holidays {
+	background: lighten($mustard, 10%);
+
+	a {
+		color: black;
+		border-bottom: .0625rem solid $black;
+	}
+}
+
+#month_calendar_inner .current_month.holidays {
+	background: $mustard;
+
+	a {
+		color: black;
+		border-bottom: .0625rem solid $black;
+	}
+}
+
+.student-life {
+	background: lighten($maroon, 10%);
+}
+
+.current_month.student-life {
+	background: $maroon;
+}
 
 ul.pager {
 	list-style-type: none;
@@ -131,7 +183,12 @@ span.time {
 	}
 
 	.event {
-		padding: 2px 0 0 0;
+		padding: 0.7rem .5rem;
+	}
+
+	table td {
+		font-size: 0.975rem;
+		letter-spacing: 0.01rem;
 	}
 
 	.open>.dropdown-menu {
@@ -183,14 +240,13 @@ span.time {
 	.day_cell .all_day,
 	.day_cell .multi_day {
 		border: 1px solid;
-		padding: 0 6px;
+		padding: 0.7rem .5rem;
 		line-height: 20px;
 		color: #7f7f7f;
 	}
 
 	.day_cell .multi_day {
 		margin-bottom: 2px;
-		background-color: #f2f2f2;
 		border-top: 1px solid;
 		border-top-color: currentcolor;
 		border-bottom: 1px solid;

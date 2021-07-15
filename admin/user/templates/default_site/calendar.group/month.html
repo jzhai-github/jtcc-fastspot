@@ -63,7 +63,7 @@
 															</div>
 													{/if}
 														{calendar:events}
-															<div class="event tips
+															<div class="event
 																	{if calendar:event_all_day}all_day{/if} 
 																	{if calendar:event_multi_day}
 																		multi_day
@@ -75,13 +75,10 @@
 																	{/if}
 {calendar:categories}{calendar:category_url_title}{/calendar:categories}
 																"
-																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it is all/multi-day --}
-																	style="background-color: {if calendar:day_in_current_month}{calendar:calendar_color}{if:else}{calendar:calendar_color_light}{/if} !important; border-color: {calendar:calendar_color} !important;"
-																{/if}
 																>
 																{if calendar:event_multi_day} 
 
-																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}" style="color: {calendar:calendar_text_color} !important;">
+																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}">
 																		{if calendar:event_first_day OR calendar:event_last_day}
 																			{calendar:title}
 																		{if:else}
@@ -92,7 +89,7 @@
 																	{if calendar:event_all_day == ""}
 																		<span class="calendar-color"{if calendar:calendar_color} style="background-color: {calendar:calendar_color};"{/if}></span>
 																	{/if}
-																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}"{if calendar:event_all_day} style="color: {calendar:calendar_text_color};"{/if}>{calendar:title}</a>
+																	<a href="{path='calendar/event'}/{calendar:entry_id}/{if calendar:event_recurs}{calendar:event_start_date format='%Y/%m/%d'}/{/if}">{calendar:title}</a>
 																{/if}
 															</div>
 														{/calendar:events}
