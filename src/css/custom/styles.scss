@@ -21,23 +21,23 @@ h6 {
 	color: white;
 }
 
-.event,
-.academics {
+#month_calendar_inner .event,
+#month_calendar_inner .academics {
 	background: lighten($bergundy, 10%);
 }
 
-.current_month.academics,
-.current_month,
+#month_calendar_inner .current_month.academics,
+#month_calendar_inner .current_month,
 	{
 	background: $bergundy;
 	margin-left: -0.3125rem;
 }
 
-.future-students {
+#month_calendar_inner .future-students {
 	background: lighten($seaweed, 10%);
 }
 
-.current_month.future-students {
+#month_calendar_inner .current_month.future-students {
 	background: $seaweed;
 }
 
@@ -59,15 +59,15 @@ h6 {
 	}
 }
 
-.student-life {
+#month_calendar_inner .student-life {
 	background: lighten($maroon, 10%);
 }
 
-.current_month.student-life {
+#month_calendar_inner .current_month.student-life {
 	background: $maroon;
 }
 
-ul.pager {
+.typography ul.pager {
 	list-style-type: none;
 	margin-left: 0;
 
@@ -97,7 +97,7 @@ ul.pager {
 	}
 }
 
-.typography #week_calendar ul li::before {
+.typography .panel ul li::before {
 	height: 0;
 	width: 0;
 }
@@ -140,12 +140,25 @@ span.time {
 		float: left;
 	}
 
-	.list-group-item {
-		min-height: 35px;
-	}
-
 	.starts-ends-all {
 		font-size: .9rem;
+	}
+}
+
+.list-group-item {
+	min-height: 35px;
+	border-left: 5px solid $bergundy;
+
+	&.future-students {
+		border-color: $seaweed;
+	}
+
+	&.holidays {
+		border-color: $mustard;
+	}
+
+	&.student-life {
+		border-color: $maroon;
 	}
 }
 
@@ -240,7 +253,7 @@ span.time {
 	.day_cell .all_day,
 	.day_cell .multi_day {
 		border: 1px solid;
-		padding: 0.7rem .5rem;
+		padding: 0.7rem .5rem .7rem 0.8rem;
 		line-height: 20px;
 		color: #7f7f7f;
 	}
@@ -478,6 +491,43 @@ span.time {
 .typography a.square-button {
 	border: 0.0625rem solid rgba(98, 98, 98, 0.25);
 	padding: 0.3125rem 0.625rem;
+}
+
+.button-container {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.typography a.button {
+	font-family: 'Knockout', Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 0.875rem;
+	letter-spacing: 0.10938rem;
+	line-height: 1.14286;
+	text-transform: uppercase;
+	background: #9f2140;
+	border: none;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+	color: #fff;
+	cursor: pointer;
+	padding: 0.9375rem 2rem 0.9375rem 1.25rem;
+	padding-right: 2rem;
+	padding-left: 1.25rem;
+	transition: background .25s;
+
+	&:hover,
+	&:focus {
+		background: #000;
+	}
+}
+
+.no-border {
+	border: none;
+}
+
+.no-margin {
+	margin: 0;
 }
 
 .card_group.white {
@@ -917,6 +967,12 @@ span.time {
 	.filter_results_reset_link.news_reset {
 		margin-left: 1rem;
 	}
+
+	.button {
+		padding-right: 2.9375rem;
+		padding-left: 2.1875rem;
+	}
+
 }
 
 @media #{$min_xl} {}
