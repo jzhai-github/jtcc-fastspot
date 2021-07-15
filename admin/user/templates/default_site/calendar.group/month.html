@@ -69,9 +69,13 @@
 																		multi_day
 																		{if calendar:event_first_day}first_day{/if} 
 																		{if calendar:event_last_day}last_day{/if}
-																	{/if} 
+																	{/if}
+																	{if calendar:day_in_current_month}
+																	current_month
+																	{/if}
+{calendar:categories}{calendar:category_url_title}{/calendar:categories}
 																"
-																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it's all/multi-day --}
+																{if calendar:event_multi_day OR calendar:event_all_day} {!-- give background some color if it is all/multi-day --}
 																	style="background-color: {if calendar:day_in_current_month}{calendar:calendar_color}{if:else}{calendar:calendar_color_light}{/if} !important; border-color: {calendar:calendar_color} !important;"
 																{/if}
 																>
