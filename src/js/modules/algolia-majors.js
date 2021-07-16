@@ -117,6 +117,17 @@
                 container: document.querySelector('#current-refinements'),
             }),
 
+            instantsearch.widgets.queryRuleCustomData({
+                container: '#search_banners',
+                templates: {
+                    default: `
+                        {{#items}}
+                            <p>{{promo_content}}</p>
+                        {{/items}}
+                    `,
+                },
+            }),
+
             instantsearch.widgets.searchBox({
                 container: '#major_search_input',
                 placeholder: 'Search by keyword',
