@@ -122,7 +122,7 @@
                 templates: {
                     default: `
                         {{#items}}
-                            <p>{{promo_content}}</p>
+                            <p>{{promo_content}} is available through <a href="https://ccwatraining.org">ccwatraining.org</a>.</p>
                         {{/items}}
                     `,
                 },
