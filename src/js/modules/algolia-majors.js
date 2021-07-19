@@ -122,7 +122,7 @@
                 templates: {
                     default: `
                         {{#items}}
-                            <p>{{promo_content}} is available through <a href="https://ccwatraining.org">ccwatraining.org</a>.</p>
+                            <p>{{promo_content}} is available through our partner, the Community College Workforce Alliance (CCWA), at <a href="https://ccwatraining.org">ccwatraining.org</a>.</p>
                         {{/items}}
                     `,
                 },
