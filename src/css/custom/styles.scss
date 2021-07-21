@@ -12,6 +12,14 @@ h6 {
 .fs-row.content-width {
 	width: auto;
 }
+.spotlight_caption a{
+	font-weight: bold;
+	border-bottom: 0.0625rem solid #fff;
+	transition:all .3s;
+	&:hover{
+		opacity: .9;
+	}
+}
 
 // =============================================================================
 // Calendar
